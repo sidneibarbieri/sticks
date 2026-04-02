@@ -1,0 +1,14 @@
+.DS_Store
+__pycache__/
+*.pyc
+tmp/
+ACM CCS - Paper 2/build_artifacts/
+ACM CCS - Paper 2/*.aux
+ACM CCS - Paper 2/*.bbl
+ACM CCS - Paper 2/*.blg
+ACM CCS - Paper 2/*.fdb_latexmk
+ACM CCS - Paper 2/*.fls
+ACM CCS - Paper 2/*.log
+ACM CCS - Paper 2/*.out
+ACM CCS - Paper 2/*.run.xml
+ACM CCS - Paper 2/*.synctex.gz
