@@ -1,0 +1,150 @@
+{
+  "sut_campaign__kv_botnet_activity": {
+    "esxi": {
+      "os": [
+        "ESXi"
+      ],
+      "evidence_source": [
+        "technique:T1082",
+        "technique:T1036",
+        "technique:T1016",
+        "technique:T1083",
+        "technique:T1057"
+      ],
+      "confidence": "explicit",
+      "services": {
+        "https": "enabled",
+        "dns": "enabled",
+        "http": "enabled",
+        "registry": "enabled",
+        "scheduled_tasks": "enabled",
+        "services": "enabled"
+      },
+      "network": {
+        "outbound_https": true,
+        "dns_resolution": true
+      },
+      "installed_software": [],
+      "privilege": [],
+      "domain_role": [],
+      "persistence_surfaces": [
+        "event_triggered_execution"
+      ],
+      "security_controls": {
+        "file_inspection": "bypassed"
+      },
+      "cve_ids": []
+    },
+    "linux": {
+      "os": [
+        "Linux"
+      ],
+      "evidence_source": [
+        "technique:T1222.002",
+        "technique:T1082",
+        "technique:T1036",
+        "technique:T1564.013",
+        "technique:T1016"
+      ],
+      "confidence": "explicit",
+      "services": {
+        "https": "enabled",
+        "dns": "enabled",
+        "http": "enabled",
+        "registry": "enabled",
+        "scheduled_tasks": "enabled",
+        "services": "enabled"
+      },
+      "network": {
+        "outbound_https": true,
+        "dns_resolution": true
+      },
+      "installed_software": [],
+      "privilege": [
+        "root"
+      ],
+      "domain_role": [],
+      "persistence_surfaces": [
+        "event_triggered_execution"
+      ],
+      "security_controls": {
+        "file_inspection": "bypassed"
+      },
+      "cve_ids": []
+    },
+    "windows": {
+      "os": [
+        "Windows"
+      ],
+      "evidence_source": [
+        "technique:T1082",
+        "technique:T1036",
+        "technique:T1016",
+        "technique:T1083",
+        "technique:T1036.004"
+      ],
+      "confidence": "explicit",
+      "services": {
+        "https": "enabled",
+        "dns": "enabled",
+        "http": "enabled",
+        "registry": "enabled",
+        "scheduled_tasks": "enabled",
+        "services": "enabled"
+      },
+      "network": {
+        "outbound_https": true,
+        "dns_resolution": true
+      },
+      "installed_software": [],
+      "privilege": [
+        "local_admin"
+      ],
+      "domain_role": [],
+      "persistence_surfaces": [
+        "event_triggered_execution"
+      ],
+      "security_controls": {
+        "file_inspection": "bypassed"
+      },
+      "cve_ids": []
+    },
+    "macos": {
+      "os": [
+        "macOS"
+      ],
+      "evidence_source": [
+        "technique:T1222.002",
+        "technique:T1082",
+        "technique:T1036",
+        "technique:T1016",
+        "technique:T1083"
+      ],
+      "confidence": "explicit",
+      "services": {
+        "https": "enabled",
+        "dns": "enabled",
+        "http": "enabled",
+        "registry": "enabled",
+        "scheduled_tasks": "enabled",
+        "services": "enabled"
+      },
+      "network": {
+        "outbound_https": true,
+        "dns_resolution": true
+      },
+      "installed_software": [],
+      "privilege": [
+        "root"
+      ],
+      "domain_role": [],
+      "persistence_surfaces": [
+        "event_triggered_execution"
+      ],
+      "security_controls": {
+        "file_inspection": "bypassed"
+      },
+      "cve_ids": []
+    }
+  }
+}

@@ -1,0 +1,163 @@
+{
+  "analysis_timestamp": "2026-03-13T14:57:53.147003",
+  "methodology": "Extended from Martina Lindorfer's 'Kitten or Panda?' work",
+  "statistical_improvements": [
+    "Wilson confidence intervals",
+    "Bootstrap confidence intervals",
+    "Null model statistical tests"
+  ],
+  "dataset_stats": {
+    "total_groups": 168,
+    "total_techniques": 488,
+    "techniques_with_groups": 488,
+    "group_specific_count": 122,
+    "group_specific_percentage": 25.0,
+    "generic_count": 132,
+    "generic_percentage": 27.0
+  },
+  "groups_with_specific_techniques": {
+    "count": 54,
+    "percentage": 32.1,
+    "ci_lower": 25.5,
+    "ci_upper": 39.5
+  },
+  "top_generic_techniques": [
+    {
+      "technique_id": "attack-pattern--e6919abc-99f9-4c6c-95a5-14761e7b2add",
+      "count": 85,
+      "name": ""
+    },
+    {
+      "technique_id": "attack-pattern--232b7f21-adf9-4b42-b936-b9d6f7df856e",
+      "count": 84,
+      "name": ""
+    },
+    {
+      "technique_id": "attack-pattern--970a3432-3237-47ad-bcca-7d8cbb217736",
+      "count": 83,
+      "name": ""
+    },
+    {
+      "technique_id": "attack-pattern--a2fdce72-04b2-409a-ac10-cc1695f4fce0",
+      "count": 79,
+      "name": ""
+    },
+    {
+      "technique_id": "attack-pattern--2e34237d-8574-43f6-aace-ae2915de8597",
+      "count": 77,
+      "name": ""
+    },
+    {
+      "technique_id": "attack-pattern--d1fcf083-a721-4223-aedf-bf8960798d62",
+      "count": 71,
+      "name": ""
+    },
+    {
+      "technique_id": "attack-pattern--1c4e5d32-1fe9-4116-9d9d-59e3925bd6a2",
+      "count": 59,
+      "name": ""
+    },
+    {
+      "technique_id": "attack-pattern--df8b2a25-8bdf-4856-953c-a04372b1c161",
+      "count": 56,
+      "name": ""
+    },
+    {
+      "technique_id": "attack-pattern--9efb1ea7-c37b-4595-9640-b7680cd84279",
+      "count": 55,
+      "name": ""
+    },
+    {
+      "technique_id": "attack-pattern--354a7f88-63fb-41b5-a801-ce3b377b36f1",
+      "count": 55,
+      "name": ""
+    }
+  ],
+  "top_group_specific_techniques": [
+    {
+      "technique_id": "attack-pattern--774ad5bb-2366-4c13-a8a9-65e50b292e7c",
+      "groups": [
+        "intrusion-set--2688b13e-8e71-405a-9c40-0dee94bddf87"
+      ],
+      "name": ""
+    },
+    {
+      "technique_id": "attack-pattern--155207c0-7f53-4f13-a06b-0a9907ef5096",
+      "groups": [
+        "intrusion-set--0d4ac089-ced4-4cc4-a989-174d08e6d030"
+      ],
+      "name": ""
+    },
+    {
+      "technique_id": "attack-pattern--d40239b3-05ff-46d8-9bdd-b46d13463ef9",
+      "groups": [
+        "intrusion-set--813636db-3939-4a45-bea9-6113e970c029"
+      ],
+      "name": ""
+    },
+    {
+      "technique_id": "attack-pattern--4b46767d-4a61-4f30-995e-c19a75c2e536",
+      "groups": [
+        "intrusion-set--35d1b3be-49d4-42f1-aaa6-ef159c880bca"
+      ],
+      "name": ""
+    },
+    {
+      "technique_id": "attack-pattern--926d8cfd-1d0d-4da2-ab49-3ca10ec3f3b5",
+      "groups": [
+        "intrusion-set--319fd652-edde-46b2-9987-3519493989f5"
+      ],
+      "name": ""
+    },
+    {
+      "technique_id": "attack-pattern--bed81616-3dde-4685-be6e-ba9820f9a7ed",
+      "groups": [
+        "intrusion-set--319fd652-edde-46b2-9987-3519493989f5"
+      ],
+      "name": ""
+    },
+    {
+      "technique_id": "attack-pattern--d2d642da-61ff-4211-b4df-7923c9ca220c",
+      "groups": [
+        "intrusion-set--461b8e25-8f4a-4ea2-a4a8-e39df7ce6630"
+      ],
+      "name": ""
+    },
+    {
+      "technique_id": "attack-pattern--79a47ad0-fc3b-4821-9f01-a026b1ddba21",
+      "groups": [
+        "intrusion-set--269e8108-68c6-4f99-b911-14b2e765dec2"
+      ],
+      "name": ""
+    },
+    {
+      "technique_id": "attack-pattern--1eaebf46-e361-4437-bc23-d5d65a3b92e3",
+      "groups": [
+        "intrusion-set--46599a4a-77ee-4697-9474-2683b6464859"
+      ],
+      "name": ""
+    },
+    {
+      "technique_id": "attack-pattern--eec23884-3fa1-4d8a-ac50-6f104d51e235",
+      "groups": [
+        "intrusion-set--a0cb9370-e39b-44d5-9f50-ef78e412b973"
+      ],
+      "name": ""
+    }
+  ],
+  "jaccard_similarity": {
+    "mean": 0.119,
+    "median": 0.115,
+    "max": 0.315,
+    "pairs_analyzed": 190
+  },
+  "comparison_with_martina": {
+    "martina_findings": {
+      "groups_with_specific_techniques": "34.2%",
+      "groups_with_specific_software": "73.0%",
+      "groups_without_specific_behavior": "64%"
+    },
+    "our_extension": "Added confidence intervals and statistical tests",
+    "data_source": "ATT&CK v18.1 Enterprise + campaign data"
+  }
+}

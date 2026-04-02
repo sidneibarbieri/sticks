@@ -1,0 +1,108 @@
+{
+  "sut_campaign__c0010": {
+    "esxi": {
+      "os": [
+        "ESXi"
+      ],
+      "evidence_source": [
+        "technique:T1105"
+      ],
+      "confidence": "inferred",
+      "services": {
+        "https": "enabled",
+        "dns": "enabled",
+        "http": "enabled"
+      },
+      "network": {
+        "outbound_https": true,
+        "dns_resolution": true
+      },
+      "installed_software": [],
+      "privilege": [],
+      "domain_role": [],
+      "persistence_surfaces": [],
+      "security_controls": {},
+      "cve_ids": []
+    },
+    "linux": {
+      "os": [
+        "Linux"
+      ],
+      "evidence_source": [
+        "technique:T1189",
+        "technique:T1105"
+      ],
+      "confidence": "inferred",
+      "services": {
+        "https": "enabled",
+        "dns": "enabled",
+        "http": "enabled"
+      },
+      "network": {
+        "outbound_https": true,
+        "dns_resolution": true
+      },
+      "installed_software": [],
+      "privilege": [],
+      "domain_role": [],
+      "persistence_surfaces": [],
+      "security_controls": {},
+      "cve_ids": []
+    },
+    "windows": {
+      "os": [
+        "Windows"
+      ],
+      "evidence_source": [
+        "technique:T1189",
+        "technique:T1105",
+        "software:S1049",
+        "software:S1042"
+      ],
+      "confidence": "explicit",
+      "services": {
+        "https": "enabled",
+        "dns": "enabled",
+        "http": "enabled"
+      },
+      "network": {
+        "outbound_https": true,
+        "dns_resolution": true
+      },
+      "installed_software": [
+        "SUGARDUMP",
+        "SUGARUSH"
+      ],
+      "privilege": [],
+      "domain_role": [],
+      "persistence_surfaces": [],
+      "security_controls": {},
+      "cve_ids": []
+    },
+    "macos": {
+      "os": [
+        "macOS"
+      ],
+      "evidence_source": [
+        "technique:T1189",
+        "technique:T1105"
+      ],
+      "confidence": "inferred",
+      "services": {
+        "https": "enabled",
+        "dns": "enabled",
+        "http": "enabled"
+      },
+      "network": {
+        "outbound_https": true,
+        "dns_resolution": true
+      },
+      "installed_software": [],
+      "privilege": [],
+      "domain_role": [],
+      "persistence_surfaces": [],
+      "security_controls": {},
+      "cve_ids": []
+    }
+  }
+}

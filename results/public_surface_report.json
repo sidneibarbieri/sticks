@@ -1,0 +1,25 @@
+{
+  "generated_at": "2026-04-02T18:34:50.747013",
+  "required_paths_checked": [
+    "README.md",
+    "REVIEWER_GUIDE.md",
+    "REPRODUCIBILITY.md",
+    "MANIFEST.md",
+    "ARCHITECTURE.md",
+    "PUBLIC_REPOSITORY_SCOPE.md",
+    "artifact/setup.sh",
+    "artifact/run.sh",
+    "artifact/validate.sh",
+    "scripts/run_campaign.py",
+    "scripts/generate_tables.py"
+  ],
+  "missing_required_paths": [],
+  "sensitive_paths_present": [],
+  "forbidden_text_hits": [],
+  "sensitive_text_hits": [],
+  "ignored_local_runtime_artifacts": [],
+  "local_runtime_artifacts_present": [],
+  "ignored_structure_smells": [],
+  "structure_smells_present": [],
+  "status": "clean"
+}

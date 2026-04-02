@@ -1,0 +1,53 @@
+{
+  "timestamp": "2026-03-13T22:47:43.874053",
+  "campaign": "hunter_test",
+  "operation_name": "exp_hunter_test_1773456403",
+  "execution": {
+    "state": "running",
+    "start_time": "2026-03-14 02:46:43",
+    "host_count": 3,
+    "hosts": [
+      {
+        "paw": "xrzked",
+        "links_count": 1,
+        "links": [
+          {
+            "ability_id": "43b3754c-def4-4699-a673-1d85648fda6a",
+            "technique_id": "T1070.003",
+            "status": 0,
+            "output": "False"
+          }
+        ]
+      },
+      {
+        "paw": "iiuahg",
+        "links_count": 1,
+        "links": [
+          {
+            "ability_id": "43b3754c-def4-4699-a673-1d85648fda6a",
+            "technique_id": "T1070.003",
+            "status": 0,
+            "output": "False"
+          }
+        ]
+      },
+      {
+        "paw": "wqilcm",
+        "links_count": 1,
+        "links": [
+          {
+            "ability_id": "43b3754c-def4-4699-a673-1d85648fda6a",
+            "technique_id": "T1070.003",
+            "status": 0,
+            "output": "False"
+          }
+        ]
+      }
+    ]
+  },
+  "agents": [
+    "xrzked",
+    "iiuahg",
+    "wqilcm"
+  ]
+}

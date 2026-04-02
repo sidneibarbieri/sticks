@@ -1,0 +1,23 @@
+{
+  "sut_campaign__c0033": {
+    "windows": {
+      "os": [
+        "Windows"
+      ],
+      "evidence_source": [
+        "software:S0491"
+      ],
+      "confidence": "inferred",
+      "services": {},
+      "network": {},
+      "installed_software": [
+        "StrongPity"
+      ],
+      "privilege": [],
+      "domain_role": [],
+      "persistence_surfaces": [],
+      "security_controls": {},
+      "cve_ids": []
+    }
+  }
+}

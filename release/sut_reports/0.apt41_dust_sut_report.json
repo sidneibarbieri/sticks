@@ -1,0 +1,22 @@
+{
+  "campaign": "0.apt41_dust",
+  "profile_version": "unknown",
+  "hosts_configured": 1,
+  "results": [
+    {
+      "hostname": "target-base",
+      "ip": "192.168.56.30",
+      "role": "target",
+      "weaknesses_applied": [
+        "user:dustops",
+        "writable_dir:/var/www/html"
+      ],
+      "services_configured": [
+        "ssh",
+        "apache2",
+        "mysql"
+      ],
+      "errors": []
+    }
+  ]
+}

@@ -1,0 +1,132 @@
+{
+  "sut_campaign__operation_dust_storm": {
+    "esxi": {
+      "os": [
+        "ESXi"
+      ],
+      "evidence_source": [
+        "technique:T1140",
+        "technique:T1036",
+        "technique:T1568",
+        "technique:T1518"
+      ],
+      "confidence": "explicit",
+      "services": {
+        "https": "enabled",
+        "dns": "enabled",
+        "http": "enabled"
+      },
+      "network": {
+        "outbound_https": true,
+        "dns_resolution": true
+      },
+      "installed_software": [],
+      "privilege": [],
+      "domain_role": [],
+      "persistence_surfaces": [],
+      "security_controls": {
+        "file_inspection": "bypassed"
+      },
+      "cve_ids": []
+    },
+    "linux": {
+      "os": [
+        "Linux"
+      ],
+      "evidence_source": [
+        "technique:T1027.013",
+        "technique:T1059.007",
+        "technique:T1204.002",
+        "technique:T1566.002",
+        "technique:T1566.001"
+      ],
+      "confidence": "explicit",
+      "services": {
+        "https": "enabled",
+        "dns": "enabled",
+        "http": "enabled"
+      },
+      "network": {
+        "outbound_https": true,
+        "dns_resolution": true
+      },
+      "installed_software": [],
+      "privilege": [],
+      "domain_role": [],
+      "persistence_surfaces": [],
+      "security_controls": {
+        "file_inspection": "bypassed"
+      },
+      "cve_ids": []
+    },
+    "windows": {
+      "os": [
+        "Windows"
+      ],
+      "evidence_source": [
+        "technique:T1027.013",
+        "technique:T1059.007",
+        "technique:T1204.002",
+        "technique:T1566.002",
+        "technique:T1566.001"
+      ],
+      "confidence": "explicit",
+      "services": {
+        "https": "enabled",
+        "dns": "enabled",
+        "http": "enabled"
+      },
+      "network": {
+        "outbound_https": true,
+        "dns_resolution": true
+      },
+      "installed_software": [
+        "Mis-Type",
+        "Misdat",
+        "PoisonIvy",
+        "S-Type",
+        "ZLib",
+        "gh0st RAT"
+      ],
+      "privilege": [],
+      "domain_role": [],
+      "persistence_surfaces": [],
+      "security_controls": {
+        "file_inspection": "bypassed"
+      },
+      "cve_ids": []
+    },
+    "macos": {
+      "os": [
+        "macOS"
+      ],
+      "evidence_source": [
+        "technique:T1027.013",
+        "technique:T1059.007",
+        "technique:T1204.002",
+        "technique:T1566.002",
+        "technique:T1566.001"
+      ],
+      "confidence": "explicit",
+      "services": {
+        "https": "enabled",
+        "dns": "enabled",
+        "http": "enabled"
+      },
+      "network": {
+        "outbound_https": true,
+        "dns_resolution": true
+      },
+      "installed_software": [
+        "gh0st RAT"
+      ],
+      "privilege": [],
+      "domain_role": [],
+      "persistence_surfaces": [],
+      "security_controls": {
+        "file_inspection": "bypassed"
+      },
+      "cve_ids": []
+    }
+  }
+}

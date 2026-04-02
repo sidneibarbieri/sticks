@@ -1,11 +1,14 @@
-# Paper 2 Review Artifact
+# STICKS Public Artifact
 
-This staging directory contains the minimal reproducibility surface for
-the Paper 2 measurement manuscript on environment semantics in structured CTI.
+This repository is the complete public artifact for the Paper 2 STICKS
+environment-semantics study.
 
-Suggested public repository name: `sticks`.
+It retains two execution layers:
 
-## Public clone path
+- a canonical smoke path for reviewer-friendly reproduction;
+- a broader VM-backed path for campaign/SUT realism checks.
+
+## Fast reviewer path
 
 ```bash
 git clone https://github.com/sidneibarbieri/sticks.git
@@ -13,44 +16,24 @@ cd sticks
 bash run_review_check.sh
 ```
 
+## VM-backed path
+
 ```bash
-bash run_review_check.sh
+bash run_vm_backed_campaign.sh 0.c0011
 ```
 
-This wrapper is the reviewer-facing entry point used by the paper.
-It jumps to the canonical verifier
-(`sticks/measurement/sut/release_check.sh`) and reruns the full
-measurement-to-manuscript validation path.
+That path delegates to `scripts/run_lab_campaign.py`, which resolves the
+campaign SUT profile, brings up the required VM substrate, applies
+declared weaknesses and vulnerable services, executes the campaign,
+regenerates evidence and paper-facing reports, and tears the lab down.
 
-## Runtime expectations
+## Publication contract
 
-- Python 3.11+
-- A TeX environment with `latexmk`/`pdflatex` available
-- Poppler tools (`pdftoppm`, `pdfinfo`) available on `PATH`
-- Rough runtime on a laptop-class machine: about 40 seconds for the full check
-- No network access, API keys, Caldera, or container runtime required once cloned
-
-## Repository layout
-
-- `run_review_check.sh`: root-level wrapper for the reviewer path.
-- `ACM CCS - Paper 2/`: manuscript source plus the current built PDF.
-- `sticks/measurement/sut/`: measurement code, verifier, docs, and audit-facing data.
-- `sticks/scripts/`: manuscript sync/build helpers used by the verifier.
-- `sticks/measurement/sut/scripts/results/`: generated audit outputs refreshed by the verifier.
-- `sticks/results/`: generated manuscript-sync reports refreshed by the verifier.
-
-## What is intentionally included
-
-- The Paper 2 manuscript sources needed to rebuild the PDF.
-- The current built manuscript PDF for read-before-run inspection.
-- The measurement pipeline and figure/traceability generators.
-- The five bundle snapshots used by the paper.
-- The manuscript-value synchronizer used by `release_check.sh`.
-
-## What is intentionally excluded
-
-- Paper 1 sources and results.
-- Optional Caldera or runtime orchestration material not required for the measurement claims.
-- Workspace-local temporary files, historical logs, and exploratory side outputs.
-
-The goal is auditability with minimal reviewer friction.
+- The smoke path is the canonical reproducibility promise.
+- The VM-backed path is included for complete public reproduction and
+  realism inspection, but should still be interpreted campaign by
+  campaign rather than as a blanket historical replay guarantee.
+- Heavy local VM images, overlays, and developer-only config are excluded
+  on purpose; they are regenerated or provisioned by the included helpers.
+- Raw frozen evidence is not bundled; the included scripts regenerate
+  reviewer-visible evidence and summaries from a clean checkout.

@@ -1,0 +1,160 @@
+{
+  "sut_campaign__salesforce_data_exfiltration": {
+    "esxi": {
+      "os": [
+        "ESXi"
+      ],
+      "evidence_source": [
+        "technique:T1567",
+        "technique:T1036",
+        "technique:T1090",
+        "technique:T1083",
+        "technique:T1090.003"
+      ],
+      "confidence": "explicit",
+      "services": {
+        "https": "enabled",
+        "dns": "enabled",
+        "ftp": "enabled",
+        "http": "enabled",
+        "smb": "enabled",
+        "nfs": "enabled",
+        "registry": "enabled",
+        "scheduled_tasks": "enabled",
+        "services": "enabled"
+      },
+      "network": {
+        "outbound_https": true,
+        "dns_resolution": true
+      },
+      "installed_software": [],
+      "privilege": [],
+      "domain_role": [],
+      "persistence_surfaces": [],
+      "security_controls": {
+        "file_inspection": "bypassed"
+      },
+      "cve_ids": []
+    },
+    "linux": {
+      "os": [
+        "Linux"
+      ],
+      "evidence_source": [
+        "technique:T1567",
+        "technique:T1036",
+        "technique:T1090",
+        "technique:T1020",
+        "technique:T1083"
+      ],
+      "confidence": "explicit",
+      "services": {
+        "https": "enabled",
+        "dns": "enabled",
+        "ftp": "enabled",
+        "http": "enabled",
+        "smb": "enabled",
+        "nfs": "enabled",
+        "registry": "enabled",
+        "scheduled_tasks": "enabled",
+        "services": "enabled"
+      },
+      "network": {
+        "outbound_https": true,
+        "dns_resolution": true
+      },
+      "installed_software": [
+        "Tor"
+      ],
+      "privilege": [
+        "root"
+      ],
+      "domain_role": [],
+      "persistence_surfaces": [],
+      "security_controls": {
+        "file_inspection": "bypassed"
+      },
+      "cve_ids": []
+    },
+    "windows": {
+      "os": [
+        "Windows"
+      ],
+      "evidence_source": [
+        "technique:T1567",
+        "technique:T1036",
+        "technique:T1090",
+        "technique:T1020",
+        "technique:T1083"
+      ],
+      "confidence": "explicit",
+      "services": {
+        "https": "enabled",
+        "dns": "enabled",
+        "ftp": "enabled",
+        "http": "enabled",
+        "smb": "enabled",
+        "nfs": "enabled",
+        "registry": "enabled",
+        "scheduled_tasks": "enabled",
+        "services": "enabled"
+      },
+      "network": {
+        "outbound_https": true,
+        "dns_resolution": true
+      },
+      "installed_software": [
+        "Tor"
+      ],
+      "privilege": [
+        "local_admin"
+      ],
+      "domain_role": [],
+      "persistence_surfaces": [],
+      "security_controls": {
+        "file_inspection": "bypassed"
+      },
+      "cve_ids": []
+    },
+    "macos": {
+      "os": [
+        "macOS"
+      ],
+      "evidence_source": [
+        "technique:T1567",
+        "technique:T1036",
+        "technique:T1090",
+        "technique:T1020",
+        "technique:T1083"
+      ],
+      "confidence": "explicit",
+      "services": {
+        "https": "enabled",
+        "dns": "enabled",
+        "ftp": "enabled",
+        "http": "enabled",
+        "smb": "enabled",
+        "nfs": "enabled",
+        "registry": "enabled",
+        "scheduled_tasks": "enabled",
+        "services": "enabled"
+      },
+      "network": {
+        "outbound_https": true,
+        "dns_resolution": true
+      },
+      "installed_software": [
+        "Tor"
+      ],
+      "privilege": [
+        "root"
+      ],
+      "domain_role": [],
+      "persistence_surfaces": [],
+      "security_controls": {
+        "file_inspection": "bypassed"
+      },
+      "cve_ids": []
+    }
+  }
+}

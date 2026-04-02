@@ -1,0 +1,164 @@
+{
+  "sut_campaign__2016_ukraine_electric_power_attack": {
+    "esxi": {
+      "os": [
+        "ESXi"
+      ],
+      "evidence_source": [
+        "technique:T1036.005",
+        "technique:T1554",
+        "technique:T1098",
+        "technique:T1110",
+        "technique:T1027"
+      ],
+      "confidence": "explicit",
+      "services": {
+        "registry": "enabled",
+        "scheduled_tasks": "enabled",
+        "services": "enabled",
+        "smb": "enabled",
+        "rdp": "enabled",
+        "ssh": "enabled",
+        "winrm": "enabled",
+        "lsass": "enabled",
+        "kerberos": "enabled",
+        "ldap": "enabled"
+      },
+      "network": {},
+      "installed_software": [],
+      "privilege": [],
+      "domain_role": [],
+      "persistence_surfaces": [
+        "account_manipulation",
+        "new_accounts"
+      ],
+      "security_controls": {
+        "antimalware": "bypassed"
+      },
+      "cve_ids": []
+    },
+    "linux": {
+      "os": [
+        "Linux"
+      ],
+      "evidence_source": [
+        "technique:T1036.005",
+        "technique:T1036.008",
+        "technique:T1136.002",
+        "technique:T1554",
+        "technique:T1098"
+      ],
+      "confidence": "explicit",
+      "services": {
+        "registry": "enabled",
+        "scheduled_tasks": "enabled",
+        "services": "enabled",
+        "smb": "enabled",
+        "rdp": "enabled",
+        "ssh": "enabled",
+        "winrm": "enabled",
+        "lsass": "enabled",
+        "kerberos": "enabled",
+        "ldap": "enabled"
+      },
+      "network": {},
+      "installed_software": [],
+      "privilege": [
+        "root"
+      ],
+      "domain_role": [],
+      "persistence_surfaces": [
+        "account_manipulation",
+        "new_accounts"
+      ],
+      "security_controls": {
+        "antimalware": "bypassed"
+      },
+      "cve_ids": []
+    },
+    "windows": {
+      "os": [
+        "Windows"
+      ],
+      "evidence_source": [
+        "technique:T1047",
+        "technique:T1036.005",
+        "technique:T1036.008",
+        "technique:T1543.003",
+        "technique:T1562.002"
+      ],
+      "confidence": "explicit",
+      "services": {
+        "registry": "enabled",
+        "scheduled_tasks": "enabled",
+        "services": "enabled",
+        "smb": "enabled",
+        "rdp": "enabled",
+        "ssh": "enabled",
+        "winrm": "enabled",
+        "lsass": "enabled",
+        "kerberos": "enabled",
+        "ldap": "enabled"
+      },
+      "network": {
+        "domain_joined": true
+      },
+      "installed_software": [
+        "Industroyer"
+      ],
+      "privilege": [
+        "local_admin"
+      ],
+      "domain_role": [
+        "member_workstation"
+      ],
+      "persistence_surfaces": [
+        "account_manipulation",
+        "new_accounts"
+      ],
+      "security_controls": {
+        "antimalware": "bypassed"
+      },
+      "cve_ids": []
+    },
+    "macos": {
+      "os": [
+        "macOS"
+      ],
+      "evidence_source": [
+        "technique:T1036.005",
+        "technique:T1036.008",
+        "technique:T1136.002",
+        "technique:T1554",
+        "technique:T1098"
+      ],
+      "confidence": "explicit",
+      "services": {
+        "registry": "enabled",
+        "scheduled_tasks": "enabled",
+        "services": "enabled",
+        "smb": "enabled",
+        "rdp": "enabled",
+        "ssh": "enabled",
+        "winrm": "enabled",
+        "lsass": "enabled",
+        "kerberos": "enabled",
+        "ldap": "enabled"
+      },
+      "network": {},
+      "installed_software": [],
+      "privilege": [
+        "root"
+      ],
+      "domain_role": [],
+      "persistence_surfaces": [
+        "account_manipulation",
+        "new_accounts"
+      ],
+      "security_controls": {
+        "antimalware": "bypassed"
+      },
+      "cve_ids": []
+    }
+  }
+}

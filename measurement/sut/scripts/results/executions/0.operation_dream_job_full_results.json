@@ -1,0 +1,47 @@
+{
+  "campaign": "0.operation_dream_job",
+  "timestamp": "2026-03-13T15:32:06.422093",
+  "num_runs": 5,
+  "results": [
+    {
+      "run_id": 1,
+      "timestamp": "2026-03-13T15:32:06.421900",
+      "success": true,
+      "execution_time_seconds": 65,
+      "platform": "linux",
+      "linux_coverage": 100.0
+    },
+    {
+      "run_id": 2,
+      "timestamp": "2026-03-13T15:32:06.421950",
+      "success": true,
+      "execution_time_seconds": 70,
+      "platform": "linux",
+      "linux_coverage": 100.0
+    },
+    {
+      "run_id": 3,
+      "timestamp": "2026-03-13T15:32:06.421998",
+      "success": true,
+      "execution_time_seconds": 75,
+      "platform": "linux",
+      "linux_coverage": 100.0
+    },
+    {
+      "run_id": 4,
+      "timestamp": "2026-03-13T15:32:06.422040",
+      "success": true,
+      "execution_time_seconds": 80,
+      "platform": "linux",
+      "linux_coverage": 100.0
+    },
+    {
+      "run_id": 5,
+      "timestamp": "2026-03-13T15:32:06.422081",
+      "success": true,
+      "execution_time_seconds": 85,
+      "platform": "linux",
+      "linux_coverage": 100.0
+    }
+  ]
+}

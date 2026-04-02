@@ -1,0 +1,137 @@
+{
+  "sut_campaign__reddelta_modified_plugx_infection_chain_operations": {
+    "esxi": {
+      "os": [
+        "ESXi"
+      ],
+      "evidence_source": [
+        "technique:T1082",
+        "technique:T1090",
+        "technique:T1480",
+        "technique:T1095",
+        "technique:T1071.001"
+      ],
+      "confidence": "explicit",
+      "services": {
+        "registry": "enabled",
+        "scheduled_tasks": "enabled",
+        "services": "enabled",
+        "https": "enabled",
+        "dns": "enabled",
+        "http": "enabled"
+      },
+      "network": {
+        "outbound_https": true,
+        "dns_resolution": true
+      },
+      "installed_software": [],
+      "privilege": [],
+      "domain_role": [],
+      "persistence_surfaces": [],
+      "security_controls": {},
+      "cve_ids": []
+    },
+    "linux": {
+      "os": [
+        "Linux"
+      ],
+      "evidence_source": [
+        "technique:T1027.013",
+        "technique:T1204.002",
+        "technique:T1566.002",
+        "technique:T1566.001",
+        "technique:T1082"
+      ],
+      "confidence": "explicit",
+      "services": {
+        "registry": "enabled",
+        "scheduled_tasks": "enabled",
+        "services": "enabled",
+        "https": "enabled",
+        "dns": "enabled",
+        "http": "enabled"
+      },
+      "network": {
+        "outbound_https": true,
+        "dns_resolution": true
+      },
+      "installed_software": [],
+      "privilege": [
+        "root"
+      ],
+      "domain_role": [],
+      "persistence_surfaces": [],
+      "security_controls": {},
+      "cve_ids": []
+    },
+    "windows": {
+      "os": [
+        "Windows"
+      ],
+      "evidence_source": [
+        "technique:T1027.013",
+        "technique:T1204.002",
+        "technique:T1566.002",
+        "technique:T1566.001",
+        "technique:T1574.001"
+      ],
+      "confidence": "explicit",
+      "services": {
+        "registry": "enabled",
+        "scheduled_tasks": "enabled",
+        "services": "enabled",
+        "https": "enabled",
+        "dns": "enabled",
+        "http": "enabled"
+      },
+      "network": {
+        "outbound_https": true,
+        "dns_resolution": true
+      },
+      "installed_software": [
+        "PlugX",
+        "ShadowPad"
+      ],
+      "privilege": [
+        "local_admin"
+      ],
+      "domain_role": [],
+      "persistence_surfaces": [],
+      "security_controls": {},
+      "cve_ids": []
+    },
+    "macos": {
+      "os": [
+        "macOS"
+      ],
+      "evidence_source": [
+        "technique:T1027.013",
+        "technique:T1204.002",
+        "technique:T1566.002",
+        "technique:T1566.001",
+        "technique:T1553.002"
+      ],
+      "confidence": "explicit",
+      "services": {
+        "registry": "enabled",
+        "scheduled_tasks": "enabled",
+        "services": "enabled",
+        "https": "enabled",
+        "dns": "enabled",
+        "http": "enabled"
+      },
+      "network": {
+        "outbound_https": true,
+        "dns_resolution": true
+      },
+      "installed_software": [],
+      "privilege": [
+        "root"
+      ],
+      "domain_role": [],
+      "persistence_surfaces": [],
+      "security_controls": {},
+      "cve_ids": []
+    }
+  }
+}

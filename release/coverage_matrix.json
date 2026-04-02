@@ -1,0 +1,184 @@
+{
+  "generated_at": "2026-04-02T17:58:03",
+  "total": 8,
+  "complete": 8,
+  "partial": 0,
+  "missing": 0,
+  "campaigns": [
+    {
+      "docker_campaign": "apt41_dust",
+      "docker_name": "APT41 DUST",
+      "docker_techniques": 24,
+      "sticks_campaign_id": "0.apt41_dust",
+      "campaign_file": true,
+      "sut_profile": true,
+      "sticks_techniques": 0,
+      "executor_coverage": 0.0,
+      "latest_execution": {
+        "total": 10,
+        "successful": 10,
+        "failed": 0,
+        "success_rate": 1.0,
+        "evidence_path": "release/evidence/0.apt41_dust_full_20260401_113231"
+      },
+      "status": "COMPLETE",
+      "divergences": [
+        "docker_techniques=24 includes redundant sub-steps merged into 13 canonical ATT&CK techniques",
+        "Web-service C2 (T1102) and infrastructure acquisition (T1583.006) simulated as inspired; no live external traffic"
+      ],
+      "techniques": []
+    },
+    {
+      "docker_campaign": "c0010",
+      "docker_name": "C0010",
+      "docker_techniques": 10,
+      "sticks_campaign_id": "0.c0010",
+      "campaign_file": true,
+      "sut_profile": true,
+      "sticks_techniques": 0,
+      "executor_coverage": 0.0,
+      "latest_execution": {
+        "total": 9,
+        "successful": 9,
+        "failed": 0,
+        "success_rate": 1.0,
+        "evidence_path": "release/evidence/0.c0010_20260401_113235"
+      },
+      "status": "COMPLETE",
+      "divergences": [
+        "Resource-development steps remain inspired; no live external provider interaction"
+      ],
+      "techniques": []
+    },
+    {
+      "docker_campaign": "c0026",
+      "docker_name": "C0026",
+      "docker_techniques": 7,
+      "sticks_campaign_id": "0.c0026",
+      "campaign_file": true,
+      "sut_profile": true,
+      "sticks_techniques": 0,
+      "executor_coverage": 0.0,
+      "latest_execution": {
+        "total": 6,
+        "successful": 6,
+        "failed": 0,
+        "success_rate": 1.0,
+        "evidence_path": "release/evidence/0.c0026_20260401_113319"
+      },
+      "status": "COMPLETE",
+      "divergences": [
+        "DNS resolution override adapted to lab-only local resolver path"
+      ],
+      "techniques": []
+    },
+    {
+      "docker_campaign": "costaricto",
+      "docker_name": "CostaRicto",
+      "docker_techniques": 11,
+      "sticks_campaign_id": "0.costaricto",
+      "campaign_file": true,
+      "sut_profile": true,
+      "sticks_techniques": 0,
+      "executor_coverage": 0.0,
+      "latest_execution": {
+        "total": 10,
+        "successful": 10,
+        "failed": 0,
+        "success_rate": 1.0,
+        "evidence_path": "release/evidence/0.costaricto_20260401_113325"
+      },
+      "status": "COMPLETE",
+      "divergences": [
+        "Multi-hop proxy and external remote services remain inspired; no live C2 infrastructure"
+      ],
+      "techniques": []
+    },
+    {
+      "docker_campaign": "operation_midnighteclipse",
+      "docker_name": "Operation MidnightEclipse",
+      "docker_techniques": 18,
+      "sticks_campaign_id": "0.operation_midnighteclipse",
+      "campaign_file": true,
+      "sut_profile": true,
+      "sticks_techniques": 0,
+      "executor_coverage": 0.0,
+      "latest_execution": {
+        "total": 17,
+        "successful": 17,
+        "failed": 0,
+        "success_rate": 1.0,
+        "evidence_path": "release/evidence/0.operation_midnighteclipse_20260402_141553"
+      },
+      "status": "COMPLETE",
+      "divergences": [],
+      "techniques": []
+    },
+    {
+      "docker_campaign": "outer_space",
+      "docker_name": "Outer Space",
+      "docker_techniques": 9,
+      "sticks_campaign_id": "0.outer_space",
+      "campaign_file": true,
+      "sut_profile": true,
+      "sticks_techniques": 0,
+      "executor_coverage": 0.0,
+      "latest_execution": {
+        "total": 8,
+        "successful": 8,
+        "failed": 0,
+        "success_rate": 1.0,
+        "evidence_path": "release/evidence/0.outer_space_20260401_113345"
+      },
+      "status": "COMPLETE",
+      "divergences": [
+        "Satellite-themed C2 infrastructure acquisition simulated as inspired"
+      ],
+      "techniques": []
+    },
+    {
+      "docker_campaign": "salesforce_data_exfiltration",
+      "docker_name": "Salesforce Data Exfiltration",
+      "docker_techniques": 19,
+      "sticks_campaign_id": "0.salesforce_data_exfiltration",
+      "campaign_file": true,
+      "sut_profile": true,
+      "sticks_techniques": 0,
+      "executor_coverage": 0.0,
+      "latest_execution": {
+        "total": 18,
+        "successful": 18,
+        "failed": 0,
+        "success_rate": 1.0,
+        "evidence_path": "release/evidence/0.salesforce_data_exfiltration_20260402_141715"
+      },
+      "status": "COMPLETE",
+      "divergences": [
+        "SaaS API calls to Salesforce simulated as inspired; no live tenant"
+      ],
+      "techniques": []
+    },
+    {
+      "docker_campaign": "shadowray",
+      "docker_name": "ShadowRay",
+      "docker_techniques": 11,
+      "sticks_campaign_id": "0.shadowray",
+      "campaign_file": true,
+      "sut_profile": true,
+      "sticks_techniques": 0,
+      "executor_coverage": 0.0,
+      "latest_execution": {
+        "total": 10,
+        "successful": 10,
+        "failed": 0,
+        "success_rate": 1.0,
+        "evidence_path": "release/evidence/0.shadowray_20260401_113404"
+      },
+      "status": "COMPLETE",
+      "divergences": [
+        "Ray Dashboard (CVE-2023-48022) provisioned by apply_sut_profile.py as a minimal unauthenticated HTTP stub on port 8265. The stub responds to /api/version and /api/jobs/ identically to a real Ray cluster with auth disabled. If the stub is absent on lab bring-up, the executor falls back to provisioning it inline inside the target VM. The boundary exercised (unauthenticated job-submission API) is methodologically equivalent to CVE-2023-48022 exploitation."
+      ],
+      "techniques": []
+    }
+  ]
+}

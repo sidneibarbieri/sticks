@@ -1,0 +1,116 @@
+{
+  "sut_campaign__outer_space": {
+    "esxi": {
+      "os": [
+        "ESXi"
+      ],
+      "evidence_source": [
+        "technique:T1071.001",
+        "technique:T1105"
+      ],
+      "confidence": "inferred",
+      "services": {
+        "https": "enabled",
+        "dns": "enabled",
+        "http": "enabled"
+      },
+      "network": {
+        "outbound_https": true,
+        "dns_resolution": true
+      },
+      "installed_software": [],
+      "privilege": [],
+      "domain_role": [],
+      "persistence_surfaces": [],
+      "security_controls": {},
+      "cve_ids": []
+    },
+    "linux": {
+      "os": [
+        "Linux"
+      ],
+      "evidence_source": [
+        "technique:T1027.013",
+        "technique:T1217",
+        "technique:T1071.001",
+        "technique:T1059.005",
+        "technique:T1105"
+      ],
+      "confidence": "explicit",
+      "services": {
+        "https": "enabled",
+        "dns": "enabled",
+        "http": "enabled"
+      },
+      "network": {
+        "outbound_https": true,
+        "dns_resolution": true
+      },
+      "installed_software": [],
+      "privilege": [],
+      "domain_role": [],
+      "persistence_surfaces": [],
+      "security_controls": {},
+      "cve_ids": []
+    },
+    "windows": {
+      "os": [
+        "Windows"
+      ],
+      "evidence_source": [
+        "technique:T1027.013",
+        "technique:T1217",
+        "technique:T1071.001",
+        "technique:T1059.005",
+        "technique:T1105"
+      ],
+      "confidence": "explicit",
+      "services": {
+        "https": "enabled",
+        "dns": "enabled",
+        "http": "enabled"
+      },
+      "network": {
+        "outbound_https": true,
+        "dns_resolution": true
+      },
+      "installed_software": [
+        "SampleCheck5000",
+        "Solar"
+      ],
+      "privilege": [],
+      "domain_role": [],
+      "persistence_surfaces": [],
+      "security_controls": {},
+      "cve_ids": []
+    },
+    "macos": {
+      "os": [
+        "macOS"
+      ],
+      "evidence_source": [
+        "technique:T1027.013",
+        "technique:T1217",
+        "technique:T1071.001",
+        "technique:T1059.005",
+        "technique:T1105"
+      ],
+      "confidence": "explicit",
+      "services": {
+        "https": "enabled",
+        "dns": "enabled",
+        "http": "enabled"
+      },
+      "network": {
+        "outbound_https": true,
+        "dns_resolution": true
+      },
+      "installed_software": [],
+      "privilege": [],
+      "domain_role": [],
+      "persistence_surfaces": [],
+      "security_controls": {},
+      "cve_ids": []
+    }
+  }
+}

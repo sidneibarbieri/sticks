@@ -1,0 +1,30 @@
+campaign_id: apt41_dust
+campaign_name: 0.APT41 DUST
+hosts:
+- name: host_1
+  platform: darwin
+  role: attacker
+  services:
+  - ftp
+  - http
+  - https
+- name: host_2
+  platform: linux
+  role: target_1
+  services:
+  - ftp
+  - http
+  - https
+- name: host_3
+  platform: windows
+  role: target_2
+  services:
+  - ftp
+  - http
+  - https
+sut_type: multi-host
+vulnerabilities:
+- service: http
+  vulnerability: outdated-web-server
+- service: http
+  vulnerability: missing-security-headers

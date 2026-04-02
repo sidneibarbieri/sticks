@@ -1,0 +1,51 @@
+# Campaign: 0.c0018 — Windows Script/Persistence Emulation (Inspired subset)
+# Source: MITRE ATT&CK Campaign C0018
+
+campaign_id: "0.c0018"
+name: "C0018 - Windows Script Chain on Linux (Inspired)"
+description: >
+  Inspired profile representing Windows-oriented scripting and execution-flow
+  hijack techniques in Linux substrate, with explicit platform-mismatch honesty.
+sut_profile_id: "0.c0018"
+objective: "Provide auditable inspired execution for Windows-specific technique intent"
+
+steps:
+  - technique_id: "T1059.007"
+    technique_name: "Command and Scripting Interpreter: JavaScript"
+    order: 1
+    requires: ["resources:staging_directory"]
+    produces: ["code_execution"]
+    expected_fidelity: "inspired"
+    expected_mode: "naive_simulated"
+    fidelity_rationale: >
+      Windows WSH context absent on Linux; artifact/log representation only.
+
+  - technique_id: "T1059.001"
+    technique_name: "Command and Scripting Interpreter: PowerShell"
+    order: 2
+    requires: ["resources:staging_directory"]
+    produces: ["code_execution"]
+    expected_fidelity: "inspired"
+    expected_mode: "naive_simulated"
+    fidelity_rationale: >
+      PowerShell workflow represented as script artifact; no native Windows runtime.
+
+  - technique_id: "T1059.005"
+    technique_name: "Command and Scripting Interpreter: Visual Basic"
+    order: 3
+    requires: ["resources:staging_directory"]
+    produces: ["code_execution"]
+    expected_fidelity: "inspired"
+    expected_mode: "naive_simulated"
+    fidelity_rationale: >
+      VBScript represented as artifact; no Windows Script Host execution.
+
+  - technique_id: "T1574"
+    technique_name: "Hijack Execution Flow"
+    order: 4
+    requires: ["resources:staging_directory"]
+    produces: ["persistence", "privilege_escalation"]
+    expected_fidelity: "inspired"
+    expected_mode: "naive_simulated"
+    fidelity_rationale: >
+      DLL hijack intent represented with benign placeholders; no PE loader path.

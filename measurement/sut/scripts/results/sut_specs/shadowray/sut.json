@@ -1,0 +1,160 @@
+{
+  "sut_campaign__shadowray": {
+    "esxi": {
+      "os": [
+        "ESXi"
+      ],
+      "evidence_source": [
+        "technique:T1190",
+        "technique:T1016",
+        "technique:T1059.006",
+        "technique:T1105"
+      ],
+      "confidence": "explicit",
+      "services": {
+        "registry": "enabled",
+        "scheduled_tasks": "enabled",
+        "services": "enabled",
+        "lsass": "enabled",
+        "kerberos": "enabled",
+        "ldap": "enabled",
+        "https": "enabled",
+        "dns": "enabled",
+        "http": "enabled"
+      },
+      "network": {
+        "outbound_https": true,
+        "dns_resolution": true
+      },
+      "installed_software": [],
+      "privilege": [
+        "privileged_access"
+      ],
+      "domain_role": [],
+      "persistence_surfaces": [],
+      "security_controls": {},
+      "cve_ids": [
+        "CVE-2023-48022"
+      ]
+    },
+    "linux": {
+      "os": [
+        "Linux"
+      ],
+      "evidence_source": [
+        "technique:T1027.013",
+        "technique:T1190",
+        "technique:T1016",
+        "technique:T1496.001",
+        "technique:T1068"
+      ],
+      "confidence": "explicit",
+      "services": {
+        "registry": "enabled",
+        "scheduled_tasks": "enabled",
+        "services": "enabled",
+        "lsass": "enabled",
+        "kerberos": "enabled",
+        "ldap": "enabled",
+        "https": "enabled",
+        "dns": "enabled",
+        "http": "enabled"
+      },
+      "network": {
+        "outbound_https": true,
+        "dns_resolution": true
+      },
+      "installed_software": [],
+      "privilege": [
+        "privileged_access",
+        "root"
+      ],
+      "domain_role": [],
+      "persistence_surfaces": [],
+      "security_controls": {},
+      "cve_ids": [
+        "CVE-2023-48022"
+      ]
+    },
+    "windows": {
+      "os": [
+        "Windows"
+      ],
+      "evidence_source": [
+        "technique:T1027.013",
+        "technique:T1190",
+        "technique:T1016",
+        "technique:T1496.001",
+        "technique:T1068"
+      ],
+      "confidence": "explicit",
+      "services": {
+        "registry": "enabled",
+        "scheduled_tasks": "enabled",
+        "services": "enabled",
+        "lsass": "enabled",
+        "kerberos": "enabled",
+        "ldap": "enabled",
+        "https": "enabled",
+        "dns": "enabled",
+        "http": "enabled"
+      },
+      "network": {
+        "outbound_https": true,
+        "dns_resolution": true
+      },
+      "installed_software": [],
+      "privilege": [
+        "local_admin",
+        "privileged_access"
+      ],
+      "domain_role": [
+        "member_workstation"
+      ],
+      "persistence_surfaces": [],
+      "security_controls": {},
+      "cve_ids": [
+        "CVE-2023-48022"
+      ]
+    },
+    "macos": {
+      "os": [
+        "macOS"
+      ],
+      "evidence_source": [
+        "technique:T1027.013",
+        "technique:T1190",
+        "technique:T1016",
+        "technique:T1496.001",
+        "technique:T1068"
+      ],
+      "confidence": "explicit",
+      "services": {
+        "registry": "enabled",
+        "scheduled_tasks": "enabled",
+        "services": "enabled",
+        "lsass": "enabled",
+        "kerberos": "enabled",
+        "ldap": "enabled",
+        "https": "enabled",
+        "dns": "enabled",
+        "http": "enabled"
+      },
+      "network": {
+        "outbound_https": true,
+        "dns_resolution": true
+      },
+      "installed_software": [],
+      "privilege": [
+        "privileged_access",
+        "root"
+      ],
+      "domain_role": [],
+      "persistence_surfaces": [],
+      "security_controls": {},
+      "cve_ids": [
+        "CVE-2023-48022"
+      ]
+    }
+  }
+}

@@ -1,0 +1,152 @@
+{
+  "sut_campaign__costaricto": {
+    "esxi": {
+      "os": [
+        "ESXi"
+      ],
+      "evidence_source": [
+        "technique:T1005",
+        "technique:T1572",
+        "technique:T1090.003",
+        "technique:T1105"
+      ],
+      "confidence": "explicit",
+      "services": {
+        "registry": "enabled",
+        "scheduled_tasks": "enabled",
+        "services": "enabled",
+        "smb": "enabled",
+        "nfs": "enabled",
+        "https": "enabled",
+        "dns": "enabled",
+        "http": "enabled"
+      },
+      "network": {
+        "outbound_https": true,
+        "dns_resolution": true
+      },
+      "installed_software": [],
+      "privilege": [],
+      "domain_role": [],
+      "persistence_surfaces": [],
+      "security_controls": {},
+      "cve_ids": []
+    },
+    "linux": {
+      "os": [
+        "Linux"
+      ],
+      "evidence_source": [
+        "technique:T1133",
+        "technique:T1005",
+        "technique:T1572",
+        "technique:T1090.003",
+        "technique:T1046"
+      ],
+      "confidence": "explicit",
+      "services": {
+        "registry": "enabled",
+        "scheduled_tasks": "enabled",
+        "services": "enabled",
+        "smb": "enabled",
+        "nfs": "enabled",
+        "https": "enabled",
+        "dns": "enabled",
+        "http": "enabled"
+      },
+      "network": {
+        "outbound_https": true,
+        "dns_resolution": true
+      },
+      "installed_software": [
+        "Tor"
+      ],
+      "privilege": [
+        "root"
+      ],
+      "domain_role": [],
+      "persistence_surfaces": [],
+      "security_controls": {},
+      "cve_ids": []
+    },
+    "windows": {
+      "os": [
+        "Windows"
+      ],
+      "evidence_source": [
+        "technique:T1053.005",
+        "technique:T1133",
+        "technique:T1005",
+        "technique:T1572",
+        "technique:T1090.003"
+      ],
+      "confidence": "explicit",
+      "services": {
+        "registry": "enabled",
+        "scheduled_tasks": "enabled",
+        "services": "enabled",
+        "smb": "enabled",
+        "nfs": "enabled",
+        "https": "enabled",
+        "dns": "enabled",
+        "http": "enabled"
+      },
+      "network": {
+        "outbound_https": true,
+        "dns_resolution": true
+      },
+      "installed_software": [
+        "CostaBricks",
+        "PS1",
+        "PowerSploit",
+        "PsExec",
+        "SombRAT",
+        "Tor"
+      ],
+      "privilege": [
+        "local_admin"
+      ],
+      "domain_role": [],
+      "persistence_surfaces": [],
+      "security_controls": {},
+      "cve_ids": []
+    },
+    "macos": {
+      "os": [
+        "macOS"
+      ],
+      "evidence_source": [
+        "technique:T1133",
+        "technique:T1005",
+        "technique:T1572",
+        "technique:T1090.003",
+        "technique:T1046"
+      ],
+      "confidence": "explicit",
+      "services": {
+        "registry": "enabled",
+        "scheduled_tasks": "enabled",
+        "services": "enabled",
+        "smb": "enabled",
+        "nfs": "enabled",
+        "https": "enabled",
+        "dns": "enabled",
+        "http": "enabled"
+      },
+      "network": {
+        "outbound_https": true,
+        "dns_resolution": true
+      },
+      "installed_software": [
+        "Tor"
+      ],
+      "privilege": [
+        "root"
+      ],
+      "domain_role": [],
+      "persistence_surfaces": [],
+      "security_controls": {},
+      "cve_ids": []
+    }
+  }
+}

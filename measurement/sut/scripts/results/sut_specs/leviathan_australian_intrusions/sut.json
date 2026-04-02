@@ -1,0 +1,174 @@
+{
+  "sut_campaign__leviathan_australian_intrusions": {
+    "esxi": {
+      "os": [
+        "ESXi"
+      ],
+      "evidence_source": [
+        "technique:T1074.001",
+        "technique:T1021.004",
+        "technique:T1082",
+        "technique:T1190",
+        "technique:T1562.004"
+      ],
+      "confidence": "explicit",
+      "services": {
+        "smb": "enabled",
+        "nfs": "enabled",
+        "rdp": "enabled",
+        "ssh": "enabled",
+        "winrm": "enabled",
+        "lsass": "enabled",
+        "kerberos": "enabled",
+        "ldap": "enabled",
+        "registry": "enabled",
+        "scheduled_tasks": "enabled",
+        "services": "enabled",
+        "https": "enabled",
+        "dns": "enabled",
+        "ftp": "enabled"
+      },
+      "network": {
+        "outbound_https": true
+      },
+      "installed_software": [],
+      "privilege": [
+        "privileged_access",
+        "valid_accounts"
+      ],
+      "domain_role": [],
+      "persistence_surfaces": [],
+      "security_controls": {},
+      "cve_ids": []
+    },
+    "linux": {
+      "os": [
+        "Linux"
+      ],
+      "evidence_source": [
+        "technique:T1074.001",
+        "technique:T1213.006",
+        "technique:T1021.004",
+        "technique:T1135",
+        "technique:T1082"
+      ],
+      "confidence": "explicit",
+      "services": {
+        "smb": "enabled",
+        "nfs": "enabled",
+        "rdp": "enabled",
+        "ssh": "enabled",
+        "winrm": "enabled",
+        "lsass": "enabled",
+        "kerberos": "enabled",
+        "ldap": "enabled",
+        "registry": "enabled",
+        "scheduled_tasks": "enabled",
+        "services": "enabled",
+        "https": "enabled",
+        "dns": "enabled",
+        "ftp": "enabled"
+      },
+      "network": {
+        "outbound_https": true
+      },
+      "installed_software": [],
+      "privilege": [
+        "privileged_access",
+        "root",
+        "valid_accounts"
+      ],
+      "domain_role": [],
+      "persistence_surfaces": [],
+      "security_controls": {},
+      "cve_ids": []
+    },
+    "windows": {
+      "os": [
+        "Windows"
+      ],
+      "evidence_source": [
+        "technique:T1615",
+        "technique:T1074.001",
+        "technique:T1213.006",
+        "technique:T1135",
+        "technique:T1082"
+      ],
+      "confidence": "explicit",
+      "services": {
+        "smb": "enabled",
+        "nfs": "enabled",
+        "rdp": "enabled",
+        "ssh": "enabled",
+        "winrm": "enabled",
+        "lsass": "enabled",
+        "kerberos": "enabled",
+        "ldap": "enabled",
+        "registry": "enabled",
+        "scheduled_tasks": "enabled",
+        "services": "enabled",
+        "https": "enabled",
+        "dns": "enabled",
+        "ftp": "enabled"
+      },
+      "network": {
+        "domain_joined": true,
+        "outbound_https": true
+      },
+      "installed_software": [],
+      "privilege": [
+        "local_admin",
+        "privileged_access",
+        "valid_accounts"
+      ],
+      "domain_role": [
+        "member_workstation"
+      ],
+      "persistence_surfaces": [],
+      "security_controls": {},
+      "cve_ids": []
+    },
+    "macos": {
+      "os": [
+        "macOS"
+      ],
+      "evidence_source": [
+        "technique:T1074.001",
+        "technique:T1213.006",
+        "technique:T1021.004",
+        "technique:T1135",
+        "technique:T1082"
+      ],
+      "confidence": "explicit",
+      "services": {
+        "smb": "enabled",
+        "nfs": "enabled",
+        "rdp": "enabled",
+        "ssh": "enabled",
+        "winrm": "enabled",
+        "lsass": "enabled",
+        "kerberos": "enabled",
+        "ldap": "enabled",
+        "registry": "enabled",
+        "scheduled_tasks": "enabled",
+        "services": "enabled",
+        "https": "enabled",
+        "dns": "enabled",
+        "ftp": "enabled"
+      },
+      "network": {
+        "outbound_https": true
+      },
+      "installed_software": [],
+      "privilege": [
+        "privileged_access",
+        "root",
+        "valid_accounts"
+      ],
+      "domain_role": [],
+      "persistence_surfaces": [],
+      "security_controls": {},
+      "cve_ids": []
+    }
+  }
+}

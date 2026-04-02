@@ -1,0 +1,21 @@
+{
+  "campaign": "0.c0021",
+  "profile_version": "unknown",
+  "hosts_configured": 1,
+  "results": [
+    {
+      "hostname": "target-base",
+      "ip": "192.168.56.30",
+      "role": "target",
+      "weaknesses_applied": [
+        "user:victim",
+        "weak_credentials"
+      ],
+      "services_configured": [
+        "ssh",
+        "apache2"
+      ],
+      "errors": []
+    }
+  ]
+}

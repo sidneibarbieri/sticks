@@ -1,0 +1,83 @@
+{
+  "sut_campaign__pikabot_distribution_february_2024": {
+    "linux": {
+      "os": [
+        "Linux"
+      ],
+      "evidence_source": [
+        "technique:T1059.007",
+        "technique:T1566.002",
+        "technique:T1574"
+      ],
+      "confidence": "explicit",
+      "services": {
+        "registry": "enabled",
+        "scheduled_tasks": "enabled",
+        "services": "enabled"
+      },
+      "network": {},
+      "installed_software": [],
+      "privilege": [
+        "root"
+      ],
+      "domain_role": [],
+      "persistence_surfaces": [],
+      "security_controls": {},
+      "cve_ids": []
+    },
+    "windows": {
+      "os": [
+        "Windows"
+      ],
+      "evidence_source": [
+        "technique:T1059.007",
+        "technique:T1566.002",
+        "technique:T1059.001",
+        "technique:T1574",
+        "software:S1145"
+      ],
+      "confidence": "explicit",
+      "services": {
+        "registry": "enabled",
+        "scheduled_tasks": "enabled",
+        "services": "enabled"
+      },
+      "network": {},
+      "installed_software": [
+        "Pikabot"
+      ],
+      "privilege": [
+        "local_admin"
+      ],
+      "domain_role": [],
+      "persistence_surfaces": [],
+      "security_controls": {},
+      "cve_ids": []
+    },
+    "macos": {
+      "os": [
+        "macOS"
+      ],
+      "evidence_source": [
+        "technique:T1059.007",
+        "technique:T1566.002",
+        "technique:T1574"
+      ],
+      "confidence": "explicit",
+      "services": {
+        "registry": "enabled",
+        "scheduled_tasks": "enabled",
+        "services": "enabled"
+      },
+      "network": {},
+      "installed_software": [],
+      "privilege": [
+        "root"
+      ],
+      "domain_role": [],
+      "persistence_surfaces": [],
+      "security_controls": {},
+      "cve_ids": []
+    }
+  }
+}

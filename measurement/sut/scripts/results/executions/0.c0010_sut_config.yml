@@ -1,0 +1,32 @@
+campaign_id: c0010
+campaign_name: 0.C0010
+hosts:
+- name: host_1
+  platform: darwin
+  role: attacker
+  services:
+  - dns
+  - ftp
+  - http
+- name: host_2
+  platform: linux
+  role: target_1
+  services:
+  - dns
+  - ftp
+  - http
+- name: host_3
+  platform: windows
+  role: target_2
+  services:
+  - dns
+  - ftp
+  - http
+sut_type: multi-host
+vulnerabilities:
+- service: dns
+  vulnerability: dns-cache-snooping
+- service: http
+  vulnerability: outdated-web-server
+- service: http
+  vulnerability: missing-security-headers

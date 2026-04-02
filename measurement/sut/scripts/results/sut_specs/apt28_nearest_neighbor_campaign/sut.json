@@ -1,0 +1,166 @@
+{
+  "sut_campaign__apt28_nearest_neighbor_campaign": {
+    "esxi": {
+      "os": [
+        "ESXi"
+      ],
+      "evidence_source": [
+        "technique:T1074.001",
+        "technique:T1140",
+        "technique:T1567",
+        "technique:T1562.004",
+        "technique:T1110.003"
+      ],
+      "confidence": "explicit",
+      "services": {
+        "smb": "enabled",
+        "nfs": "enabled",
+        "lsass": "enabled",
+        "kerberos": "enabled",
+        "ldap": "enabled",
+        "https": "enabled",
+        "dns": "enabled",
+        "ftp": "enabled",
+        "rdp": "enabled",
+        "ssh": "enabled",
+        "winrm": "enabled",
+        "http": "enabled"
+      },
+      "network": {
+        "outbound_https": true,
+        "dns_resolution": true
+      },
+      "installed_software": [],
+      "privilege": [],
+      "domain_role": [],
+      "persistence_surfaces": [],
+      "security_controls": {},
+      "cve_ids": [
+        "CVE-2022-38028"
+      ]
+    },
+    "linux": {
+      "os": [
+        "Linux"
+      ],
+      "evidence_source": [
+        "technique:T1560.001",
+        "technique:T1074.001",
+        "technique:T1140",
+        "technique:T1567",
+        "technique:T1016.002"
+      ],
+      "confidence": "explicit",
+      "services": {
+        "smb": "enabled",
+        "nfs": "enabled",
+        "lsass": "enabled",
+        "kerberos": "enabled",
+        "ldap": "enabled",
+        "https": "enabled",
+        "dns": "enabled",
+        "ftp": "enabled",
+        "rdp": "enabled",
+        "ssh": "enabled",
+        "winrm": "enabled",
+        "http": "enabled"
+      },
+      "network": {
+        "outbound_https": true,
+        "dns_resolution": true
+      },
+      "installed_software": [],
+      "privilege": [],
+      "domain_role": [],
+      "persistence_surfaces": [],
+      "security_controls": {},
+      "cve_ids": [
+        "CVE-2022-38028"
+      ]
+    },
+    "windows": {
+      "os": [
+        "Windows"
+      ],
+      "evidence_source": [
+        "technique:T1560.001",
+        "technique:T1006",
+        "technique:T1003.002",
+        "technique:T1074.001",
+        "technique:T1140"
+      ],
+      "confidence": "explicit",
+      "services": {
+        "smb": "enabled",
+        "nfs": "enabled",
+        "lsass": "enabled",
+        "kerberos": "enabled",
+        "ldap": "enabled",
+        "https": "enabled",
+        "dns": "enabled",
+        "ftp": "enabled",
+        "rdp": "enabled",
+        "ssh": "enabled",
+        "winrm": "enabled",
+        "http": "enabled"
+      },
+      "network": {
+        "outbound_https": true,
+        "domain_joined": true,
+        "dns_resolution": true
+      },
+      "installed_software": [
+        "cipher.exe",
+        "netsh"
+      ],
+      "privilege": [],
+      "domain_role": [
+        "member_workstation"
+      ],
+      "persistence_surfaces": [],
+      "security_controls": {},
+      "cve_ids": [
+        "CVE-2022-38028"
+      ]
+    },
+    "macos": {
+      "os": [
+        "macOS"
+      ],
+      "evidence_source": [
+        "technique:T1560.001",
+        "technique:T1074.001",
+        "technique:T1140",
+        "technique:T1567",
+        "technique:T1016.002"
+      ],
+      "confidence": "explicit",
+      "services": {
+        "smb": "enabled",
+        "nfs": "enabled",
+        "lsass": "enabled",
+        "kerberos": "enabled",
+        "ldap": "enabled",
+        "https": "enabled",
+        "dns": "enabled",
+        "ftp": "enabled",
+        "rdp": "enabled",
+        "ssh": "enabled",
+        "winrm": "enabled",
+        "http": "enabled"
+      },
+      "network": {
+        "outbound_https": true,
+        "dns_resolution": true
+      },
+      "installed_software": [],
+      "privilege": [],
+      "domain_role": [],
+      "persistence_surfaces": [],
+      "security_controls": {},
+      "cve_ids": [
+        "CVE-2022-38028"
+      ]
+    }
+  }
+}

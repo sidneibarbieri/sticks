@@ -1,0 +1,3 @@
+campaign_name,canonical_os,llm_os,agreement_score,novel_os,missing_os
+KV Botnet Activity,ESXi;Linux;Windows;macOS,Windows,0.25,,ESXi;Linux;macOS
+SPACEHOP Activity,ESXi;Linux;Windows;macOS,Windows,0.25,,ESXi;Linux;macOS

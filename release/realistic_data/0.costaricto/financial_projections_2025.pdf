@@ -1,0 +1,15 @@
+{
+  "revenue_projections": {
+    "Q1_2025": 12.3,
+    "Q2_2025": 13.7,
+    "Q3_2025": 14.2,
+    "Q4_2025": 15.8
+  },
+  "expenses": {
+    "engineering": 8.2,
+    "sales": 4.1,
+    "marketing": 2.3,
+    "operations": 3.7
+  },
+  "profit_margin": "18.7%"
+}

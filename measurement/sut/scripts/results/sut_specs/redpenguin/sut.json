@@ -1,0 +1,160 @@
+{
+  "sut_campaign__redpenguin": {
+    "esxi": {
+      "os": [
+        "ESXi"
+      ],
+      "evidence_source": [
+        "technique:T1036.005",
+        "technique:T1573.001",
+        "technique:T1140",
+        "technique:T1016",
+        "technique:T1090"
+      ],
+      "confidence": "explicit",
+      "services": {
+        "https": "enabled",
+        "dns": "enabled",
+        "http": "enabled",
+        "lsass": "enabled",
+        "kerberos": "enabled",
+        "ldap": "enabled",
+        "registry": "enabled",
+        "scheduled_tasks": "enabled",
+        "services": "enabled",
+        "ftp": "enabled"
+      },
+      "network": {
+        "outbound_https": true,
+        "dns_resolution": true
+      },
+      "installed_software": [],
+      "privilege": [
+        "valid_accounts"
+      ],
+      "domain_role": [],
+      "persistence_surfaces": [],
+      "security_controls": {},
+      "cve_ids": []
+    },
+    "linux": {
+      "os": [
+        "Linux"
+      ],
+      "evidence_source": [
+        "technique:T1027.013",
+        "technique:T1014",
+        "technique:T1036.005",
+        "technique:T1573.001",
+        "technique:T1040"
+      ],
+      "confidence": "explicit",
+      "services": {
+        "https": "enabled",
+        "dns": "enabled",
+        "http": "enabled",
+        "lsass": "enabled",
+        "kerberos": "enabled",
+        "ldap": "enabled",
+        "registry": "enabled",
+        "scheduled_tasks": "enabled",
+        "services": "enabled",
+        "ftp": "enabled"
+      },
+      "network": {
+        "outbound_https": true,
+        "dns_resolution": true
+      },
+      "installed_software": [
+        "MEDUSA",
+        "REPTILE"
+      ],
+      "privilege": [
+        "root",
+        "valid_accounts"
+      ],
+      "domain_role": [],
+      "persistence_surfaces": [],
+      "security_controls": {},
+      "cve_ids": []
+    },
+    "windows": {
+      "os": [
+        "Windows"
+      ],
+      "evidence_source": [
+        "technique:T1027.013",
+        "technique:T1014",
+        "technique:T1036.005",
+        "technique:T1573.001",
+        "technique:T1040"
+      ],
+      "confidence": "explicit",
+      "services": {
+        "https": "enabled",
+        "dns": "enabled",
+        "http": "enabled",
+        "lsass": "enabled",
+        "kerberos": "enabled",
+        "ldap": "enabled",
+        "registry": "enabled",
+        "scheduled_tasks": "enabled",
+        "services": "enabled",
+        "ftp": "enabled"
+      },
+      "network": {
+        "outbound_https": true,
+        "dns_resolution": true
+      },
+      "installed_software": [],
+      "privilege": [
+        "local_admin",
+        "valid_accounts"
+      ],
+      "domain_role": [
+        "member_workstation"
+      ],
+      "persistence_surfaces": [],
+      "security_controls": {},
+      "cve_ids": []
+    },
+    "macos": {
+      "os": [
+        "macOS"
+      ],
+      "evidence_source": [
+        "technique:T1027.013",
+        "technique:T1014",
+        "technique:T1036.005",
+        "technique:T1573.001",
+        "technique:T1040"
+      ],
+      "confidence": "explicit",
+      "services": {
+        "https": "enabled",
+        "dns": "enabled",
+        "http": "enabled",
+        "lsass": "enabled",
+        "kerberos": "enabled",
+        "ldap": "enabled",
+        "registry": "enabled",
+        "scheduled_tasks": "enabled",
+        "services": "enabled",
+        "ftp": "enabled"
+      },
+      "network": {
+        "outbound_https": true,
+        "dns_resolution": true
+      },
+      "installed_software": [],
+      "privilege": [
+        "root",
+        "valid_accounts"
+      ],
+      "domain_role": [],
+      "persistence_surfaces": [],
+      "security_controls": {},
+      "cve_ids": []
+    }
+  }
+}

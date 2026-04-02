@@ -1,0 +1,5 @@
+topology_valid=false
+connectivity_valid=false
+multi_host_execution=false
+campaigns_consistent=false
+ready_for_ccs=false

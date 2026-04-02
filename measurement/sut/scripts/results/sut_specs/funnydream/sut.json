@@ -1,0 +1,148 @@
+{
+  "sut_campaign__funnydream": {
+    "esxi": {
+      "os": [
+        "ESXi"
+      ],
+      "evidence_source": [
+        "technique:T1082",
+        "technique:T1016",
+        "technique:T1049",
+        "technique:T1057",
+        "technique:T1018"
+      ],
+      "confidence": "explicit",
+      "services": {
+        "smb": "enabled",
+        "nfs": "enabled",
+        "https": "enabled",
+        "dns": "enabled",
+        "http": "enabled"
+      },
+      "network": {
+        "outbound_https": true,
+        "dns_resolution": true
+      },
+      "installed_software": [
+        "Systeminfo",
+        "Tasklist",
+        "ipconfig",
+        "netstat"
+      ],
+      "privilege": [],
+      "domain_role": [],
+      "persistence_surfaces": [],
+      "security_controls": {},
+      "cve_ids": []
+    },
+    "linux": {
+      "os": [
+        "Linux"
+      ],
+      "evidence_source": [
+        "technique:T1560.001",
+        "technique:T1082",
+        "technique:T1016",
+        "technique:T1049",
+        "technique:T1057"
+      ],
+      "confidence": "explicit",
+      "services": {
+        "smb": "enabled",
+        "nfs": "enabled",
+        "https": "enabled",
+        "dns": "enabled",
+        "http": "enabled"
+      },
+      "network": {
+        "outbound_https": true,
+        "dns_resolution": true
+      },
+      "installed_software": [
+        "Systeminfo",
+        "Tasklist",
+        "ipconfig",
+        "netstat"
+      ],
+      "privilege": [],
+      "domain_role": [],
+      "persistence_surfaces": [],
+      "security_controls": {},
+      "cve_ids": []
+    },
+    "windows": {
+      "os": [
+        "Windows"
+      ],
+      "evidence_source": [
+        "technique:T1560.001",
+        "technique:T1047",
+        "technique:T1082",
+        "technique:T1016",
+        "technique:T1049"
+      ],
+      "confidence": "explicit",
+      "services": {
+        "smb": "enabled",
+        "nfs": "enabled",
+        "https": "enabled",
+        "dns": "enabled",
+        "http": "enabled"
+      },
+      "network": {
+        "outbound_https": true,
+        "dns_resolution": true
+      },
+      "installed_software": [
+        "Chinoxy",
+        "FunnyDream",
+        "PcShare",
+        "Systeminfo",
+        "Tasklist",
+        "ccf32",
+        "ipconfig",
+        "netstat"
+      ],
+      "privilege": [],
+      "domain_role": [],
+      "persistence_surfaces": [],
+      "security_controls": {},
+      "cve_ids": []
+    },
+    "macos": {
+      "os": [
+        "macOS"
+      ],
+      "evidence_source": [
+        "technique:T1560.001",
+        "technique:T1082",
+        "technique:T1016",
+        "technique:T1049",
+        "technique:T1057"
+      ],
+      "confidence": "explicit",
+      "services": {
+        "smb": "enabled",
+        "nfs": "enabled",
+        "https": "enabled",
+        "dns": "enabled",
+        "http": "enabled"
+      },
+      "network": {
+        "outbound_https": true,
+        "dns_resolution": true
+      },
+      "installed_software": [
+        "Systeminfo",
+        "Tasklist",
+        "ipconfig",
+        "netstat"
+      ],
+      "privilege": [],
+      "domain_role": [],
+      "persistence_surfaces": [],
+      "security_controls": {},
+      "cve_ids": []
+    }
+  }
+}

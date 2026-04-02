@@ -1,0 +1,17 @@
+{
+  "generated_at_utc": "2026-04-02T22:02:30.260052+00:00",
+  "status": "pending_manual_labels",
+  "sample_csv": "results/audit/compatibility_validation_sample.csv",
+  "total_sample_rows": 36,
+  "annotated_rows": 0,
+  "rows_used_for_metrics": 0,
+  "pending_rows": 36,
+  "agreement_count": 0,
+  "agreement_pct": 0.0,
+  "cohen_kappa": null,
+  "explicit_rule_rows": 0,
+  "explicit_rule_agreement_pct": 0.0,
+  "fallback_rows": 0,
+  "fallback_agreement_pct": 0.0,
+  "disagreement_rows": 0
+}

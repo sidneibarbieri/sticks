@@ -1,0 +1,3 @@
+campaign_name,accepted,reason,llm_confidence,llm_reasoning
+KV Botnet Activity,False,no_novel_information,low,DRY RUN — no actual inference performed.
+SPACEHOP Activity,False,no_novel_information,low,DRY RUN — no actual inference performed.

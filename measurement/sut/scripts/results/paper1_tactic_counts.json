@@ -1,0 +1,19 @@
+{
+  "tactic_counts": {
+    "privilege-escalation": 109,
+    "defense-evasion": 215,
+    "execution": 46,
+    "persistence": 126,
+    "command-and-control": 45,
+    "collection": 41,
+    "lateral-movement": 23,
+    "credential-access": 67,
+    "discovery": 49,
+    "resource-development": 47,
+    "reconnaissance": 45,
+    "impact": 33,
+    "initial-access": 22,
+    "exfiltration": 19
+  },
+  "total": 887
+}

@@ -1,0 +1,189 @@
+{
+  "sut_campaign__c0017": {
+    "esxi": {
+      "os": [
+        "ESXi"
+      ],
+      "evidence_source": [
+        "technique:T1074.001",
+        "technique:T1036.005",
+        "technique:T1005",
+        "technique:T1140",
+        "technique:T1190"
+      ],
+      "confidence": "explicit",
+      "services": {
+        "registry": "enabled",
+        "scheduled_tasks": "enabled",
+        "services": "enabled",
+        "smb": "enabled",
+        "nfs": "enabled",
+        "lsass": "enabled",
+        "kerberos": "enabled",
+        "ldap": "enabled",
+        "https": "enabled",
+        "dns": "enabled",
+        "ftp": "enabled",
+        "http": "enabled"
+      },
+      "network": {
+        "outbound_https": true,
+        "dns_resolution": true
+      },
+      "installed_software": [
+        "Ping"
+      ],
+      "privilege": [
+        "token_manipulation"
+      ],
+      "domain_role": [],
+      "persistence_surfaces": [],
+      "security_controls": {
+        "antimalware": "bypassed"
+      },
+      "cve_ids": []
+    },
+    "linux": {
+      "os": [
+        "Linux"
+      ],
+      "evidence_source": [
+        "technique:T1033",
+        "technique:T1059.007",
+        "technique:T1560.003",
+        "technique:T1074.001",
+        "technique:T1036.005"
+      ],
+      "confidence": "explicit",
+      "services": {
+        "registry": "enabled",
+        "scheduled_tasks": "enabled",
+        "services": "enabled",
+        "smb": "enabled",
+        "nfs": "enabled",
+        "lsass": "enabled",
+        "kerberos": "enabled",
+        "ldap": "enabled",
+        "https": "enabled",
+        "dns": "enabled",
+        "ftp": "enabled",
+        "http": "enabled"
+      },
+      "network": {
+        "outbound_https": true,
+        "dns_resolution": true
+      },
+      "installed_software": [
+        "Cobalt Strike",
+        "KEYPLUG",
+        "Ping"
+      ],
+      "privilege": [
+        "root",
+        "token_manipulation"
+      ],
+      "domain_role": [],
+      "persistence_surfaces": [],
+      "security_controls": {
+        "antimalware": "bypassed"
+      },
+      "cve_ids": []
+    },
+    "windows": {
+      "os": [
+        "Windows"
+      ],
+      "evidence_source": [
+        "technique:T1053.005",
+        "technique:T1033",
+        "technique:T1059.007",
+        "technique:T1560.003",
+        "technique:T1003.002"
+      ],
+      "confidence": "explicit",
+      "services": {
+        "registry": "enabled",
+        "scheduled_tasks": "enabled",
+        "services": "enabled",
+        "smb": "enabled",
+        "nfs": "enabled",
+        "lsass": "enabled",
+        "kerberos": "enabled",
+        "ldap": "enabled",
+        "https": "enabled",
+        "dns": "enabled",
+        "ftp": "enabled",
+        "http": "enabled"
+      },
+      "network": {
+        "outbound_https": true,
+        "dns_resolution": true
+      },
+      "installed_software": [
+        "Cobalt Strike",
+        "DEADEYE",
+        "KEYPLUG",
+        "Mimikatz",
+        "Ping",
+        "dsquery"
+      ],
+      "privilege": [
+        "local_admin",
+        "token_manipulation"
+      ],
+      "domain_role": [
+        "member_workstation"
+      ],
+      "persistence_surfaces": [],
+      "security_controls": {
+        "antimalware": "bypassed"
+      },
+      "cve_ids": []
+    },
+    "macos": {
+      "os": [
+        "macOS"
+      ],
+      "evidence_source": [
+        "technique:T1033",
+        "technique:T1059.007",
+        "technique:T1560.003",
+        "technique:T1074.001",
+        "technique:T1036.005"
+      ],
+      "confidence": "explicit",
+      "services": {
+        "registry": "enabled",
+        "scheduled_tasks": "enabled",
+        "services": "enabled",
+        "smb": "enabled",
+        "nfs": "enabled",
+        "lsass": "enabled",
+        "kerberos": "enabled",
+        "ldap": "enabled",
+        "https": "enabled",
+        "dns": "enabled",
+        "ftp": "enabled",
+        "http": "enabled"
+      },
+      "network": {
+        "outbound_https": true,
+        "dns_resolution": true
+      },
+      "installed_software": [
+        "Cobalt Strike",
+        "Ping"
+      ],
+      "privilege": [
+        "root",
+        "token_manipulation"
+      ],
+      "domain_role": [],
+      "persistence_surfaces": [],
+      "security_controls": {
+        "antimalware": "bypassed"
+      },
+      "cve_ids": []
+    }
+  }
+}

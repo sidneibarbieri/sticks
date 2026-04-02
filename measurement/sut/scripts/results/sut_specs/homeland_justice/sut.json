@@ -1,0 +1,192 @@
+{
+  "sut_campaign__homeland_justice": {
+    "esxi": {
+      "os": [
+        "ESXi"
+      ],
+      "evidence_source": [
+        "technique:T1036.005",
+        "technique:T1190",
+        "technique:T1078.001",
+        "technique:T1041",
+        "technique:T1078"
+      ],
+      "confidence": "explicit",
+      "services": {
+        "smb": "enabled",
+        "rdp": "enabled",
+        "ssh": "enabled",
+        "winrm": "enabled",
+        "registry": "enabled",
+        "scheduled_tasks": "enabled",
+        "services": "enabled",
+        "lsass": "enabled",
+        "kerberos": "enabled",
+        "ldap": "enabled",
+        "https": "enabled",
+        "dns": "enabled",
+        "ftp": "enabled",
+        "nfs": "enabled",
+        "http": "enabled"
+      },
+      "network": {
+        "outbound_https": true,
+        "dns_resolution": true
+      },
+      "installed_software": [],
+      "privilege": [
+        "valid_accounts"
+      ],
+      "domain_role": [],
+      "persistence_surfaces": [],
+      "security_controls": {},
+      "cve_ids": []
+    },
+    "linux": {
+      "os": [
+        "Linux"
+      ],
+      "evidence_source": [
+        "technique:T1561.002",
+        "technique:T1036.005",
+        "technique:T1190",
+        "technique:T1505.003",
+        "technique:T1078.001"
+      ],
+      "confidence": "explicit",
+      "services": {
+        "smb": "enabled",
+        "rdp": "enabled",
+        "ssh": "enabled",
+        "winrm": "enabled",
+        "registry": "enabled",
+        "scheduled_tasks": "enabled",
+        "services": "enabled",
+        "lsass": "enabled",
+        "kerberos": "enabled",
+        "ldap": "enabled",
+        "https": "enabled",
+        "dns": "enabled",
+        "ftp": "enabled",
+        "nfs": "enabled",
+        "http": "enabled"
+      },
+      "network": {
+        "outbound_https": true,
+        "dns_resolution": true
+      },
+      "installed_software": [
+        "Impacket",
+        "ftp"
+      ],
+      "privilege": [
+        "root",
+        "valid_accounts"
+      ],
+      "domain_role": [],
+      "persistence_surfaces": [],
+      "security_controls": {},
+      "cve_ids": []
+    },
+    "windows": {
+      "os": [
+        "Windows"
+      ],
+      "evidence_source": [
+        "technique:T1047",
+        "technique:T1561.002",
+        "technique:T1036.005",
+        "technique:T1190",
+        "technique:T1087.003"
+      ],
+      "confidence": "explicit",
+      "services": {
+        "smb": "enabled",
+        "rdp": "enabled",
+        "ssh": "enabled",
+        "winrm": "enabled",
+        "registry": "enabled",
+        "scheduled_tasks": "enabled",
+        "services": "enabled",
+        "lsass": "enabled",
+        "kerberos": "enabled",
+        "ldap": "enabled",
+        "https": "enabled",
+        "dns": "enabled",
+        "ftp": "enabled",
+        "nfs": "enabled",
+        "http": "enabled"
+      },
+      "network": {
+        "domain_joined": true,
+        "outbound_https": true,
+        "dns_resolution": true
+      },
+      "installed_software": [
+        "CHIMNEYSWEEP",
+        "Impacket",
+        "Mimikatz",
+        "ROADSWEEP",
+        "RawDisk",
+        "ZeroCleare",
+        "ftp"
+      ],
+      "privilege": [
+        "local_admin",
+        "valid_accounts"
+      ],
+      "domain_role": [
+        "member_workstation"
+      ],
+      "persistence_surfaces": [],
+      "security_controls": {},
+      "cve_ids": []
+    },
+    "macos": {
+      "os": [
+        "macOS"
+      ],
+      "evidence_source": [
+        "technique:T1561.002",
+        "technique:T1036.005",
+        "technique:T1190",
+        "technique:T1505.003",
+        "technique:T1078.001"
+      ],
+      "confidence": "explicit",
+      "services": {
+        "smb": "enabled",
+        "rdp": "enabled",
+        "ssh": "enabled",
+        "winrm": "enabled",
+        "registry": "enabled",
+        "scheduled_tasks": "enabled",
+        "services": "enabled",
+        "lsass": "enabled",
+        "kerberos": "enabled",
+        "ldap": "enabled",
+        "https": "enabled",
+        "dns": "enabled",
+        "ftp": "enabled",
+        "nfs": "enabled",
+        "http": "enabled"
+      },
+      "network": {
+        "outbound_https": true,
+        "dns_resolution": true
+      },
+      "installed_software": [
+        "Impacket",
+        "ftp"
+      ],
+      "privilege": [
+        "root",
+        "valid_accounts"
+      ],
+      "domain_role": [],
+      "persistence_surfaces": [],
+      "security_controls": {},
+      "cve_ids": []
+    }
+  }
+}

@@ -1,0 +1,183 @@
+{
+  "sut_campaign__operation_dream_job": {
+    "esxi": {
+      "os": [
+        "ESXi"
+      ],
+      "evidence_source": [
+        "technique:T1573.001",
+        "technique:T1005",
+        "technique:T1083",
+        "technique:T1041",
+        "technique:T1110"
+      ],
+      "confidence": "explicit",
+      "services": {
+        "registry": "enabled",
+        "scheduled_tasks": "enabled",
+        "services": "enabled",
+        "smb": "enabled",
+        "nfs": "enabled",
+        "https": "enabled",
+        "dns": "enabled",
+        "http": "enabled",
+        "ftp": "enabled",
+        "rdp": "enabled",
+        "ssh": "enabled",
+        "winrm": "enabled",
+        "lsass": "enabled",
+        "kerberos": "enabled",
+        "ldap": "enabled"
+      },
+      "network": {
+        "outbound_https": true,
+        "dns_resolution": true
+      },
+      "installed_software": [
+        "Responder"
+      ],
+      "privilege": [],
+      "domain_role": [],
+      "persistence_surfaces": [],
+      "security_controls": {},
+      "cve_ids": []
+    },
+    "linux": {
+      "os": [
+        "Linux"
+      ],
+      "evidence_source": [
+        "technique:T1560.001",
+        "technique:T1027.013",
+        "technique:T1036.008",
+        "technique:T1087.002",
+        "technique:T1204.002"
+      ],
+      "confidence": "explicit",
+      "services": {
+        "registry": "enabled",
+        "scheduled_tasks": "enabled",
+        "services": "enabled",
+        "smb": "enabled",
+        "nfs": "enabled",
+        "https": "enabled",
+        "dns": "enabled",
+        "http": "enabled",
+        "ftp": "enabled",
+        "rdp": "enabled",
+        "ssh": "enabled",
+        "winrm": "enabled",
+        "lsass": "enabled",
+        "kerberos": "enabled",
+        "ldap": "enabled"
+      },
+      "network": {
+        "outbound_https": true,
+        "dns_resolution": true
+      },
+      "installed_software": [
+        "Responder"
+      ],
+      "privilege": [
+        "root"
+      ],
+      "domain_role": [],
+      "persistence_surfaces": [],
+      "security_controls": {},
+      "cve_ids": []
+    },
+    "windows": {
+      "os": [
+        "Windows"
+      ],
+      "evidence_source": [
+        "technique:T1053.005",
+        "technique:T1560.001",
+        "technique:T1047",
+        "technique:T1218.011",
+        "technique:T1027.013"
+      ],
+      "confidence": "explicit",
+      "services": {
+        "registry": "enabled",
+        "scheduled_tasks": "enabled",
+        "services": "enabled",
+        "smb": "enabled",
+        "nfs": "enabled",
+        "https": "enabled",
+        "dns": "enabled",
+        "http": "enabled",
+        "ftp": "enabled",
+        "rdp": "enabled",
+        "ssh": "enabled",
+        "winrm": "enabled",
+        "lsass": "enabled",
+        "kerberos": "enabled",
+        "ldap": "enabled"
+      },
+      "network": {
+        "outbound_https": true,
+        "dns_resolution": true,
+        "domain_joined": true
+      },
+      "installed_software": [
+        "DRATzarus",
+        "Responder",
+        "Torisma"
+      ],
+      "privilege": [
+        "local_admin"
+      ],
+      "domain_role": [
+        "member_workstation"
+      ],
+      "persistence_surfaces": [],
+      "security_controls": {},
+      "cve_ids": []
+    },
+    "macos": {
+      "os": [
+        "macOS"
+      ],
+      "evidence_source": [
+        "technique:T1560.001",
+        "technique:T1027.013",
+        "technique:T1036.008",
+        "technique:T1087.002",
+        "technique:T1204.002"
+      ],
+      "confidence": "explicit",
+      "services": {
+        "registry": "enabled",
+        "scheduled_tasks": "enabled",
+        "services": "enabled",
+        "smb": "enabled",
+        "nfs": "enabled",
+        "https": "enabled",
+        "dns": "enabled",
+        "http": "enabled",
+        "ftp": "enabled",
+        "rdp": "enabled",
+        "ssh": "enabled",
+        "winrm": "enabled",
+        "lsass": "enabled",
+        "kerberos": "enabled",
+        "ldap": "enabled"
+      },
+      "network": {
+        "outbound_https": true,
+        "dns_resolution": true
+      },
+      "installed_software": [
+        "Responder"
+      ],
+      "privilege": [
+        "root"
+      ],
+      "domain_role": [],
+      "persistence_surfaces": [],
+      "security_controls": {},
+      "cve_ids": []
+    }
+  }
+}

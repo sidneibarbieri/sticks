@@ -1,0 +1,69 @@
+{
+  "sut_campaign__c0011": {
+    "linux": {
+      "os": [
+        "Linux"
+      ],
+      "evidence_source": [
+        "technique:T1204.002",
+        "technique:T1566.002",
+        "technique:T1566.001",
+        "technique:T1059.005",
+        "technique:T1204.001"
+      ],
+      "confidence": "explicit",
+      "services": {},
+      "network": {},
+      "installed_software": [],
+      "privilege": [],
+      "domain_role": [],
+      "persistence_surfaces": [],
+      "security_controls": {},
+      "cve_ids": []
+    },
+    "windows": {
+      "os": [
+        "Windows"
+      ],
+      "evidence_source": [
+        "technique:T1204.002",
+        "technique:T1566.002",
+        "technique:T1566.001",
+        "technique:T1059.005",
+        "technique:T1204.001"
+      ],
+      "confidence": "explicit",
+      "services": {},
+      "network": {},
+      "installed_software": [
+        "Crimson"
+      ],
+      "privilege": [],
+      "domain_role": [],
+      "persistence_surfaces": [],
+      "security_controls": {},
+      "cve_ids": []
+    },
+    "macos": {
+      "os": [
+        "macOS"
+      ],
+      "evidence_source": [
+        "technique:T1204.002",
+        "technique:T1566.002",
+        "technique:T1566.001",
+        "technique:T1059.005",
+        "technique:T1204.001"
+      ],
+      "confidence": "explicit",
+      "services": {},
+      "network": {},
+      "installed_software": [],
+      "privilege": [],
+      "domain_role": [],
+      "persistence_surfaces": [],
+      "security_controls": {},
+      "cve_ids": []
+    }
+  }
+}

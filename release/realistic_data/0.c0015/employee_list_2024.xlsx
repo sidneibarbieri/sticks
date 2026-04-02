@@ -1,0 +1,402 @@
+[
+  {
+    "id": "EMP1000",
+    "name": "Employee_0",
+    "email": "emp0@company.com",
+    "department": "Marketing",
+    "salary": 103260,
+    "start_date": "2024-12-05"
+  },
+  {
+    "id": "EMP1001",
+    "name": "Employee_1",
+    "email": "emp1@company.com",
+    "department": "Sales",
+    "salary": 158126,
+    "start_date": "2023-05-21"
+  },
+  {
+    "id": "EMP1002",
+    "name": "Employee_2",
+    "email": "emp2@company.com",
+    "department": "Marketing",
+    "salary": 63632,
+    "start_date": "2024-04-16"
+  },
+  {
+    "id": "EMP1003",
+    "name": "Employee_3",
+    "email": "emp3@company.com",
+    "department": "Finance",
+    "salary": 80862,
+    "start_date": "2023-07-20"
+  },
+  {
+    "id": "EMP1004",
+    "name": "Employee_4",
+    "email": "emp4@company.com",
+    "department": "Finance",
+    "salary": 91248,
+    "start_date": "2022-10-09"
+  },
+  {
+    "id": "EMP1005",
+    "name": "Employee_5",
+    "email": "emp5@company.com",
+    "department": "Finance",
+    "salary": 155353,
+    "start_date": "2024-09-10"
+  },
+  {
+    "id": "EMP1006",
+    "name": "Employee_6",
+    "email": "emp6@company.com",
+    "department": "Sales",
+    "salary": 96295,
+    "start_date": "2021-03-16"
+  },
+  {
+    "id": "EMP1007",
+    "name": "Employee_7",
+    "email": "emp7@company.com",
+    "department": "Sales",
+    "salary": 161404,
+    "start_date": "2021-04-21"
+  },
+  {
+    "id": "EMP1008",
+    "name": "Employee_8",
+    "email": "emp8@company.com",
+    "department": "Engineering",
+    "salary": 128922,
+    "start_date": "2022-04-08"
+  },
+  {
+    "id": "EMP1009",
+    "name": "Employee_9",
+    "email": "emp9@company.com",
+    "department": "Sales",
+    "salary": 101772,
+    "start_date": "2021-11-04"
+  },
+  {
+    "id": "EMP1010",
+    "name": "Employee_10",
+    "email": "emp10@company.com",
+    "department": "HR",
+    "salary": 78685,
+    "start_date": "2023-08-08"
+  },
+  {
+    "id": "EMP1011",
+    "name": "Employee_11",
+    "email": "emp11@company.com",
+    "department": "HR",
+    "salary": 110256,
+    "start_date": "2022-04-11"
+  },
+  {
+    "id": "EMP1012",
+    "name": "Employee_12",
+    "email": "emp12@company.com",
+    "department": "Sales",
+    "salary": 128760,
+    "start_date": "2023-02-09"
+  },
+  {
+    "id": "EMP1013",
+    "name": "Employee_13",
+    "email": "emp13@company.com",
+    "department": "Sales",
+    "salary": 143164,
+    "start_date": "2021-03-21"
+  },
+  {
+    "id": "EMP1014",
+    "name": "Employee_14",
+    "email": "emp14@company.com",
+    "department": "Sales",
+    "salary": 60910,
+    "start_date": "2021-11-04"
+  },
+  {
+    "id": "EMP1015",
+    "name": "Employee_15",
+    "email": "emp15@company.com",
+    "department": "HR",
+    "salary": 69510,
+    "start_date": "2022-10-05"
+  },
+  {
+    "id": "EMP1016",
+    "name": "Employee_16",
+    "email": "emp16@company.com",
+    "department": "Finance",
+    "salary": 112628,
+    "start_date": "2020-07-27"
+  },
+  {
+    "id": "EMP1017",
+    "name": "Employee_17",
+    "email": "emp17@company.com",
+    "department": "Sales",
+    "salary": 101267,
+    "start_date": "2024-04-09"
+  },
+  {
+    "id": "EMP1018",
+    "name": "Employee_18",
+    "email": "emp18@company.com",
+    "department": "Sales",
+    "salary": 81700,
+    "start_date": "2024-03-08"
+  },
+  {
+    "id": "EMP1019",
+    "name": "Employee_19",
+    "email": "emp19@company.com",
+    "department": "Finance",
+    "salary": 71219,
+    "start_date": "2020-07-22"
+  },
+  {
+    "id": "EMP1020",
+    "name": "Employee_20",
+    "email": "emp20@company.com",
+    "department": "Marketing",
+    "salary": 163542,
+    "start_date": "2021-06-20"
+  },
+  {
+    "id": "EMP1021",
+    "name": "Employee_21",
+    "email": "emp21@company.com",
+    "department": "Engineering",
+    "salary": 101764,
+    "start_date": "2022-11-07"
+  },
+  {
+    "id": "EMP1022",
+    "name": "Employee_22",
+    "email": "emp22@company.com",
+    "department": "Finance",
+    "salary": 99143,
+    "start_date": "2020-01-07"
+  },
+  {
+    "id": "EMP1023",
+    "name": "Employee_23",
+    "email": "emp23@company.com",
+    "department": "HR",
+    "salary": 158928,
+    "start_date": "2021-04-02"
+  },
+  {
+    "id": "EMP1024",
+    "name": "Employee_24",
+    "email": "emp24@company.com",
+    "department": "HR",
+    "salary": 63240,
+    "start_date": "2022-05-21"
+  },
+  {
+    "id": "EMP1025",
+    "name": "Employee_25",
+    "email": "emp25@company.com",
+    "department": "Finance",
+    "salary": 96832,
+    "start_date": "2021-08-16"
+  },
+  {
+    "id": "EMP1026",
+    "name": "Employee_26",
+    "email": "emp26@company.com",
+    "department": "HR",
+    "salary": 102051,
+    "start_date": "2022-10-07"
+  },
+  {
+    "id": "EMP1027",
+    "name": "Employee_27",
+    "email": "emp27@company.com",
+    "department": "HR",
+    "salary": 119294,
+    "start_date": "2021-12-14"
+  },
+  {
+    "id": "EMP1028",
+    "name": "Employee_28",
+    "email": "emp28@company.com",
+    "department": "HR",
+    "salary": 109690,
+    "start_date": "2024-01-15"
+  },
+  {
+    "id": "EMP1029",
+    "name": "Employee_29",
+    "email": "emp29@company.com",
+    "department": "HR",
+    "salary": 79640,
+    "start_date": "2020-09-09"
+  },
+  {
+    "id": "EMP1030",
+    "name": "Employee_30",
+    "email": "emp30@company.com",
+    "department": "HR",
+    "salary": 174352,
+    "start_date": "2022-04-20"
+  },
+  {
+    "id": "EMP1031",
+    "name": "Employee_31",
+    "email": "emp31@company.com",
+    "department": "Sales",
+    "salary": 120499,
+    "start_date": "2022-09-14"
+  },
+  {
+    "id": "EMP1032",
+    "name": "Employee_32",
+    "email": "emp32@company.com",
+    "department": "Finance",
+    "salary": 147598,
+    "start_date": "2022-03-15"
+  },
+  {
+    "id": "EMP1033",
+    "name": "Employee_33",
+    "email": "emp33@company.com",
+    "department": "Marketing",
+    "salary": 73339,
+    "start_date": "2024-09-15"
+  },
+  {
+    "id": "EMP1034",
+    "name": "Employee_34",
+    "email": "emp34@company.com",
+    "department": "Sales",
+    "salary": 89867,
+    "start_date": "2020-10-12"
+  },
+  {
+    "id": "EMP1035",
+    "name": "Employee_35",
+    "email": "emp35@company.com",
+    "department": "Sales",
+    "salary": 171899,
+    "start_date": "2022-01-13"
+  },
+  {
+    "id": "EMP1036",
+    "name": "Employee_36",
+    "email": "emp36@company.com",
+    "department": "Engineering",
+    "salary": 82193,
+    "start_date": "2024-11-27"
+  },
+  {
+    "id": "EMP1037",
+    "name": "Employee_37",
+    "email": "emp37@company.com",
+    "department": "Engineering",
+    "salary": 90603,
+    "start_date": "2021-03-08"
+  },
+  {
+    "id": "EMP1038",
+    "name": "Employee_38",
+    "email": "emp38@company.com",
+    "department": "HR",
+    "salary": 109595,
+    "start_date": "2020-11-19"
+  },
+  {
+    "id": "EMP1039",
+    "name": "Employee_39",
+    "email": "emp39@company.com",
+    "department": "Finance",
+    "salary": 133300,
+    "start_date": "2021-02-08"
+  },
+  {
+    "id": "EMP1040",
+    "name": "Employee_40",
+    "email": "emp40@company.com",
+    "department": "Sales",
+    "salary": 151002,
+    "start_date": "2020-07-27"
+  },
+  {
+    "id": "EMP1041",
+    "name": "Employee_41",
+    "email": "emp41@company.com",
+    "department": "Engineering",
+    "salary": 62329,
+    "start_date": "2022-10-04"
+  },
+  {
+    "id": "EMP1042",
+    "name": "Employee_42",
+    "email": "emp42@company.com",
+    "department": "Engineering",
+    "salary": 75251,
+    "start_date": "2020-04-05"
+  },
+  {
+    "id": "EMP1043",
+    "name": "Employee_43",
+    "email": "emp43@company.com",
+    "department": "Finance",
+    "salary": 136656,
+    "start_date": "2020-12-17"
+  },
+  {
+    "id": "EMP1044",
+    "name": "Employee_44",
+    "email": "emp44@company.com",
+    "department": "Sales",
+    "salary": 72149,
+    "start_date": "2023-10-23"
+  },
+  {
+    "id": "EMP1045",
+    "name": "Employee_45",
+    "email": "emp45@company.com",
+    "department": "HR",
+    "salary": 161255,
+    "start_date": "2020-08-25"
+  },
+  {
+    "id": "EMP1046",
+    "name": "Employee_46",
+    "email": "emp46@company.com",
+    "department": "Finance",
+    "salary": 132244,
+    "start_date": "2020-04-08"
+  },
+  {
+    "id": "EMP1047",
+    "name": "Employee_47",
+    "email": "emp47@company.com",
+    "department": "Sales",
+    "salary": 85931,
+    "start_date": "2023-06-22"
+  },
+  {
+    "id": "EMP1048",
+    "name": "Employee_48",
+    "email": "emp48@company.com",
+    "department": "Finance",
+    "salary": 159240,
+    "start_date": "2024-07-26"
+  },
+  {
+    "id": "EMP1049",
+    "name": "Employee_49",
+    "email": "emp49@company.com",
+    "department": "Marketing",
+    "salary": 161884,
+    "start_date": "2021-05-21"
+  }
+]

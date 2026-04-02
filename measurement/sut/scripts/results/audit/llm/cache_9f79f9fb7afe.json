@@ -1,0 +1,8 @@
+{
+  "campaign_name": "KV Botnet Activity",
+  "prompt_hash": "9f79f9fb7afe",
+  "response": "{\"inferred_os\": [\"Windows\"], \"required_services\": [\"smb\"], \"network_requirements\": [\"outbound_https\"], \"confidence\": \"low\", \"reasoning\": \"DRY RUN \\u2014 no actual inference performed.\"}",
+  "timestamp": "2026-03-06T19:16:30.281779",
+  "provider": "anthropic",
+  "dry_run": true
+}

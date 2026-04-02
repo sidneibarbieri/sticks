@@ -1,0 +1,24 @@
+{
+  "campaign": "0.operation_midnighteclipse",
+  "profile_version": "unknown",
+  "hosts_configured": 1,
+  "results": [
+    {
+      "hostname": "target-base",
+      "ip": "192.168.56.30",
+      "role": "target",
+      "weaknesses_applied": [
+        "user:eclipseops",
+        "writable_dir:/var/www/html"
+      ],
+      "services_configured": [
+        "ssh",
+        "apache",
+        "mysql",
+        "postgresql",
+        "redis"
+      ],
+      "errors": []
+    }
+  ]
+}

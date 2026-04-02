@@ -1,0 +1,154 @@
+{
+  "sut_campaign__2022_ukraine_electric_power_attack": {
+    "esxi": {
+      "os": [
+        "ESXi"
+      ],
+      "evidence_source": [
+        "technique:T1572",
+        "technique:T1570",
+        "technique:T1095",
+        "technique:T1485"
+      ],
+      "confidence": "explicit",
+      "services": {
+        "registry": "enabled",
+        "scheduled_tasks": "enabled",
+        "services": "enabled",
+        "https": "enabled",
+        "dns": "enabled",
+        "http": "enabled",
+        "smb": "enabled",
+        "rdp": "enabled",
+        "ssh": "enabled",
+        "winrm": "enabled"
+      },
+      "network": {
+        "outbound_https": true,
+        "dns_resolution": true
+      },
+      "installed_software": [],
+      "privilege": [],
+      "domain_role": [],
+      "persistence_surfaces": [],
+      "security_controls": {},
+      "cve_ids": []
+    },
+    "linux": {
+      "os": [
+        "Linux"
+      ],
+      "evidence_source": [
+        "technique:T1572",
+        "technique:T1505.003",
+        "technique:T1036.004",
+        "technique:T1570",
+        "technique:T1095"
+      ],
+      "confidence": "explicit",
+      "services": {
+        "registry": "enabled",
+        "scheduled_tasks": "enabled",
+        "services": "enabled",
+        "https": "enabled",
+        "dns": "enabled",
+        "http": "enabled",
+        "smb": "enabled",
+        "rdp": "enabled",
+        "ssh": "enabled",
+        "winrm": "enabled"
+      },
+      "network": {
+        "outbound_https": true,
+        "dns_resolution": true
+      },
+      "installed_software": [],
+      "privilege": [
+        "root"
+      ],
+      "domain_role": [],
+      "persistence_surfaces": [],
+      "security_controls": {},
+      "cve_ids": []
+    },
+    "windows": {
+      "os": [
+        "Windows"
+      ],
+      "evidence_source": [
+        "technique:T1053.005",
+        "technique:T1572",
+        "technique:T1505.003",
+        "technique:T1484.001",
+        "technique:T1036.004"
+      ],
+      "confidence": "explicit",
+      "services": {
+        "registry": "enabled",
+        "scheduled_tasks": "enabled",
+        "services": "enabled",
+        "https": "enabled",
+        "dns": "enabled",
+        "http": "enabled",
+        "smb": "enabled",
+        "rdp": "enabled",
+        "ssh": "enabled",
+        "winrm": "enabled"
+      },
+      "network": {
+        "outbound_https": true,
+        "dns_resolution": true,
+        "domain_joined": true
+      },
+      "installed_software": [
+        "CaddyWiper"
+      ],
+      "privilege": [
+        "local_admin"
+      ],
+      "domain_role": [
+        "member_workstation"
+      ],
+      "persistence_surfaces": [],
+      "security_controls": {},
+      "cve_ids": []
+    },
+    "macos": {
+      "os": [
+        "macOS"
+      ],
+      "evidence_source": [
+        "technique:T1572",
+        "technique:T1505.003",
+        "technique:T1036.004",
+        "technique:T1570",
+        "technique:T1095"
+      ],
+      "confidence": "explicit",
+      "services": {
+        "registry": "enabled",
+        "scheduled_tasks": "enabled",
+        "services": "enabled",
+        "https": "enabled",
+        "dns": "enabled",
+        "http": "enabled",
+        "smb": "enabled",
+        "rdp": "enabled",
+        "ssh": "enabled",
+        "winrm": "enabled"
+      },
+      "network": {
+        "outbound_https": true,
+        "dns_resolution": true
+      },
+      "installed_software": [],
+      "privilege": [
+        "root"
+      ],
+      "domain_role": [],
+      "persistence_surfaces": [],
+      "security_controls": {},
+      "cve_ids": []
+    }
+  }
+}

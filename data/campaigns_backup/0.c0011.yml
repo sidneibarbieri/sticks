@@ -1,0 +1,134 @@
+# Campaign: 0.c0011 — Transparent Tribe Education Campaign
+# Source: MITRE ATT&CK Campaign C0011
+# Kill chain: Resource Development → Initial Access → Execution
+
+campaign_id: "0.c0011"
+name: "C0011 - Transparent Tribe Education Campaign"
+description: >
+  Transparent Tribe targeted educational institutions using spearphishing
+  with malicious links and attachments. Infrastructure was prepared with
+  domains, certificates, and staged payloads before delivery.
+sut_profile_id: "0.c0011"
+objective: "Deliver payload via spearphishing to educational targets"
+
+steps:
+  - technique_id: "T1587.003"
+    technique_name: "Digital Certificates"
+    order: 1
+    requires: ["resources:openssl_available"]
+    produces: ["infrastructure:certificate"]
+    expected_fidelity: "adapted"
+    expected_mode: "real_controlled"
+    fidelity_rationale: >
+      Self-signed certificate generated via OpenSSL. Real cryptographic
+      operation, but not issued by compromised CA.
+
+  - technique_id: "T1583.001"
+    technique_name: "Acquire Infrastructure: Domains"
+    order: 2
+    requires: ["resources:staging_directory"]
+    produces: ["resources:domain_registered"]
+    expected_fidelity: "inspired"
+    expected_mode: "naive_simulated"
+    fidelity_rationale: >
+      Domain registration simulated via JSON artifact. No real DNS
+      registration or registrar interaction.
+
+  - technique_id: "T1608.001"
+    technique_name: "Stage Capabilities: Upload Malware"
+    order: 3
+    requires: ["resources:staging_directory"]
+    produces: ["resources:payload_prepared"]
+    expected_fidelity: "adapted"
+    expected_mode: "real_controlled"
+    fidelity_rationale: >
+      Real file created and staged locally. Content is benign placeholder,
+      not real malware, but staging operation is genuine.
+
+  - technique_id: "T1566.002"
+    technique_name: "Phishing: Spearphishing Link"
+    order: 4
+    requires: ["resources:staging_directory"]
+    produces: ["artifacts:spearphish_link"]
+    expected_fidelity: "inspired"
+    expected_mode: "naive_simulated"
+    fidelity_rationale: >
+      URL file created locally. No email delivery, no web server,
+      no victim interaction.
+
+  - technique_id: "T1566.001"
+    technique_name: "Phishing: Spearphishing Attachment"
+    order: 5
+    requires: ["resources:staging_directory"]
+    produces: ["artifacts:spearphish_attachment"]
+    expected_fidelity: "inspired"
+    expected_mode: "naive_simulated"
+    fidelity_rationale: >
+      Email (.eml) and PDF created locally. No SMTP delivery,
+      no real document exploit.
+
+  - technique_id: "T1204.001"
+    technique_name: "User Execution: Malicious Link"
+    order: 6
+    requires: ["artifacts:spearphish_link"]
+    produces: ["artifacts:malicious_link_accessed"]
+    expected_fidelity: "inspired"
+    expected_mode: "naive_simulated"
+    fidelity_rationale: >
+      Log entry written to simulate link click. No browser interaction,
+      no network request, no payload delivery.
+
+  - technique_id: "T1204.002"
+    technique_name: "User Execution: Malicious File"
+    order: 7
+    requires: ["resources:staging_directory"]
+    produces: ["artifacts:malicious_file_executed"]
+    expected_fidelity: "inspired"
+    expected_mode: "naive_simulated"
+    fidelity_rationale: >
+      Log entry written to simulate file execution. No process creation,
+      no code execution.
+
+  - technique_id: "T1059.005"
+    technique_name: "Command and Scripting Interpreter: Visual Basic"
+    order: 8
+    requires: ["resources:staging_directory"]
+    produces: ["code_execution"]
+    expected_fidelity: "inspired"
+    expected_mode: "naive_simulated"
+    fidelity_rationale: >
+      CRITICAL PLATFORM MISMATCH. VBScript created but not executed.
+      Linux lacks Windows Script Host. Captures intent only.
+
+  - technique_id: "T1059.001"
+    technique_name: "Command and Scripting Interpreter: PowerShell"
+    order: 9
+    requires: ["resources:staging_directory"]
+    produces: ["code_execution"]
+    expected_fidelity: "inspired"
+    expected_mode: "naive_simulated"
+    fidelity_rationale: >
+      CRITICAL PLATFORM MISMATCH. PowerShell script created but not
+      executed. Linux substrate lacks PowerShell runtime with Windows APIs.
+
+  - technique_id: "T1059.007"
+    technique_name: "Command and Scripting Interpreter: JavaScript"
+    order: 10
+    requires: ["resources:staging_directory"]
+    produces: ["code_execution"]
+    expected_fidelity: "inspired"
+    expected_mode: "naive_simulated"
+    fidelity_rationale: >
+      PLATFORM MISMATCH. JavaScript file created for WScript/CScript.
+      Linux has no Windows Script Host.
+
+  - technique_id: "T1574"
+    technique_name: "Hijack Execution Flow"
+    order: 11
+    requires: ["resources:staging_directory"]
+    produces: ["persistence", "privilege_escalation"]
+    expected_fidelity: "inspired"
+    expected_mode: "naive_simulated"
+    fidelity_rationale: >
+      CRITICAL PLATFORM MISMATCH. Fake .dll file created (not PE format).
+      Linux uses ELF, not PE/DLL loader. Mechanism is Windows-specific.

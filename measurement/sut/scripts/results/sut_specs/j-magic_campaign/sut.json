@@ -1,0 +1,80 @@
+{
+  "sut_campaign__j-magic_campaign": {
+    "esxi": {
+      "os": [
+        "ESXi"
+      ],
+      "evidence_source": [
+        "technique:T1036.005"
+      ],
+      "confidence": "inferred",
+      "services": {},
+      "network": {},
+      "installed_software": [
+        "J-magic"
+      ],
+      "privilege": [],
+      "domain_role": [],
+      "persistence_surfaces": [],
+      "security_controls": {},
+      "cve_ids": []
+    },
+    "linux": {
+      "os": [
+        "Linux"
+      ],
+      "evidence_source": [
+        "technique:T1036.005"
+      ],
+      "confidence": "inferred",
+      "services": {},
+      "network": {},
+      "installed_software": [
+        "J-magic"
+      ],
+      "privilege": [],
+      "domain_role": [],
+      "persistence_surfaces": [],
+      "security_controls": {},
+      "cve_ids": []
+    },
+    "windows": {
+      "os": [
+        "Windows"
+      ],
+      "evidence_source": [
+        "technique:T1036.005"
+      ],
+      "confidence": "inferred",
+      "services": {},
+      "network": {},
+      "installed_software": [
+        "J-magic"
+      ],
+      "privilege": [],
+      "domain_role": [],
+      "persistence_surfaces": [],
+      "security_controls": {},
+      "cve_ids": []
+    },
+    "macos": {
+      "os": [
+        "macOS"
+      ],
+      "evidence_source": [
+        "technique:T1036.005"
+      ],
+      "confidence": "inferred",
+      "services": {},
+      "network": {},
+      "installed_software": [
+        "J-magic"
+      ],
+      "privilege": [],
+      "domain_role": [],
+      "persistence_surfaces": [],
+      "security_controls": {},
+      "cve_ids": []
+    }
+  }
+}
