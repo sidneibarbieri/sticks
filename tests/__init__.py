@@ -1,1 +1,0 @@
-# STICKS Test Suite

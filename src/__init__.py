@@ -1,1 +1,0 @@
-# STICKS Framework Package
