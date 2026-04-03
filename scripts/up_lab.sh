@@ -13,6 +13,34 @@ log_info() { echo "[UP-LAB] $1"; }
 log_error() { echo "[UP-LAB] ERROR: $1" >&2; }
 log_warn() { echo "[UP-LAB] WARN: $1"; }
 
+ssh_port_for_vm() {
+    case "$1" in
+        caldera) echo 50022 ;;
+        attacker) echo 50023 ;;
+        target-linux-1) echo 50024 ;;
+        target-linux-2) echo 50025 ;;
+        *) echo "" ;;
+    esac
+}
+
+kill_stale_listener() {
+    local port="$1"
+    [[ -n "$port" ]] || return 0
+
+    local pids
+    pids="$(lsof -tiTCP:"$port" -sTCP:LISTEN 2>/dev/null || true)"
+    [[ -n "$pids" ]] || return 0
+
+    log_warn "Cleaning stale listener on TCP:$port before VM boot"
+    for pid in $pids; do
+        kill "$pid" 2>/dev/null || true
+    done
+    sleep 1
+    for pid in $pids; do
+        kill -0 "$pid" 2>/dev/null && kill -9 "$pid" 2>/dev/null || true
+    done
+}
+
 show_help() {
     cat << EOF
 STICKS Lab Infrastructure - Up Script
@@ -187,13 +215,17 @@ bring_up_vm() {
     fi
     
     cd "$vm_dir"
-    
+
     # Check if already running
     if vagrant status 2>/dev/null | grep -q "running"; then
         log_info "  $vm_name already running"
         return 0
     fi
-    
+
+    if [[ "$PROVIDER" == "qemu" ]]; then
+        kill_stale_listener "$(ssh_port_for_vm "$vm_name")"
+    fi
+
     # Bring up with specified provider
     vagrant up --provider "$PROVIDER" 2>&1 | while read line; do
         echo "  [$vm_name] $line"

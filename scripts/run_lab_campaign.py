@@ -28,6 +28,7 @@ DESTROY_LAB_SCRIPT = PROJECT_ROOT / "scripts" / "destroy_lab.sh"
 RUN_CAMPAIGN_SCRIPT = PROJECT_ROOT / "scripts" / "run_campaign.py"
 COLLECT_EVIDENCE_SCRIPT = PROJECT_ROOT / "scripts" / "collect_evidence.sh"
 GENERATE_CORPUS_STATE_SCRIPT = PROJECT_ROOT / "scripts" / "generate_corpus_state.py"
+EVIDENCE_DIR = PROJECT_ROOT / "release" / "evidence"
 
 
 def _log(message: str) -> None:
@@ -64,6 +65,10 @@ def _raise_errors(errors: list[BaseException]) -> None:
     raise ExceptionGroup("VM-backed execution encountered multiple failures", errors)
 
 
+def _evidence_available() -> bool:
+    return EVIDENCE_DIR.exists() and any(EVIDENCE_DIR.iterdir())
+
+
 def _parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description="Canonical VM-backed campaign execution for STICKS."
@@ -97,6 +102,7 @@ def _parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
 
 def run_lab_campaign(args: argparse.Namespace) -> int:
     errors: list[BaseException] = []
+    lab_started = bool(args.assume_lab_running)
 
     try:
         if args.assume_lab_running:
@@ -104,6 +110,7 @@ def run_lab_campaign(args: argparse.Namespace) -> int:
         else:
             try:
                 _run_command(_build_up_command(args.campaign, args.provider), "bring up lab")
+                lab_started = True
             except BaseException as error:
                 errors.append(error)
 
@@ -116,7 +123,7 @@ def run_lab_campaign(args: argparse.Namespace) -> int:
             except BaseException as error:
                 errors.append(error)
 
-        if not args.skip_collect_evidence and errors:
+        if not args.skip_collect_evidence and not errors:
             try:
                 _run_command(
                     ["bash", str(COLLECT_EVIDENCE_SCRIPT)],
@@ -133,7 +140,10 @@ def run_lab_campaign(args: argparse.Namespace) -> int:
             except BaseException as error:
                 errors.append(error)
 
-        elif not args.skip_collect_evidence:
+        elif not args.skip_collect_evidence and lab_started and _evidence_available():
+            _log(
+                "Execution failed after lab startup; refreshing evidence and corpus state"
+            )
             try:
                 _run_command(
                     ["bash", str(COLLECT_EVIDENCE_SCRIPT)],
@@ -149,6 +159,10 @@ def run_lab_campaign(args: argparse.Namespace) -> int:
                 )
             except BaseException as error:
                 errors.append(error)
+        elif errors:
+            _log(
+                "Skipping evidence refresh because the lab did not reach an evidence-producing state"
+            )
     finally:
         if args.keep_lab:
             _log("Keeping lab running because --keep-lab was requested")
