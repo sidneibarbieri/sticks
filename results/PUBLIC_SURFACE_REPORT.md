@@ -1,6 +1,6 @@
 # Public Surface Report
 
-- Generated at: `2026-04-02T18:34:50.747013`
+- Generated at: `2026-04-02T22:53:58.996254`
 - Status: `clean`
 
 ## Missing Required Paths

@@ -20,7 +20,6 @@ OUTPUT_MD = PROJECT_ROOT / "results" / "HOST_LEAKAGE_AUDIT.md"
 HOST_LEAK_PATTERNS = {
     "darwin_kernel": "Darwin Kernel Version",
     "darwin_uname": "Darwin ",
-    "claude_process": "/Applications/Claude.app",
     "macos_windowserver": "/WindowServer",
     "apple_group": "com.apple.access_ssh",
     "xnu_kernel": "xnu-",

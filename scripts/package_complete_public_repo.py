@@ -121,6 +121,13 @@ def ignore_for_directory(directory: str):
         if rel == Path("sut/caldera_conf"):
             ignored.add("local.yml")
 
+        if rel == Path("sut"):
+            ignored.add("SCRIPT_ANALYSIS.md")
+        if rel == Path("sut/scripts"):
+            ignored.add("llm_environment_inference.py")
+        if rel == Path("sut/scripts/results/audit"):
+            ignored.add("llm")
+
         # Exclude obviously local or superseded runtime residue.
         if rel == Path():
             ignored.update(

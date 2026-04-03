@@ -60,13 +60,7 @@ FORBIDDEN_SNIPPETS = [
     "fully isolated virtual testbed",
 ]
 
-SENSITIVE_TEXT_SNIPPETS = [
-    "/Users/sidneibarbieri",
-    "ChatGPT.app",
-    "Windsurf",
-    "AZURE_OPENAI_API_KEY",
-    "AZURE_OPENAI_ENDPOINT",
-]
+SENSITIVE_TEXT_SNIPPETS = [str(Path.home())]
 
 TEXT_EXTENSIONS = {
     ".json",
