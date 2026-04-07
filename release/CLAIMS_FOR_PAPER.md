@@ -10,8 +10,8 @@ Use these measured statements directly in Results/Artifact sections.
   - `src/loaders/campaign_loader.py`
 
 ## CLAIM-EXEC-01
-- Claim: Latest execution snapshot shows successful completion without failed techniques.
-- Measured value: 14/14 campaigns with failed=0
+- Claim: Latest execution evidence shipped in the current artifact checkout shows successful completion without failed techniques.
+- Measured value: 2/2 available campaign snapshots with failed=0
 - Evidence:
   - `release/campaign_sut_fidelity_matrix.json`
 
@@ -24,7 +24,8 @@ Use these measured statements directly in Results/Artifact sections.
   - `sticks/data/abilities_registry/fidelity_rubric.py`
 
 ## CLAIM-FULLLAB-01
-- Claim: Full-lab batch workflow status (canonical scripts).
-- Measured value: 2/2 campaigns PASS
+- Claim: Representative VM-backed cold-start workflow status.
+- Measured value: 2/2 representative VM-backed runs PASS
 - Evidence:
-  - `release/full_lab_batch_20260320_010509.tsv`
+  - `release/evidence/health_<campaign>_<timestamp>.json`
+  - `release/evidence/<campaign>_<timestamp>/summary.json`

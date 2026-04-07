@@ -37,7 +37,6 @@ SENSITIVE_PATHS = [
     "measurement/meta",
     "results/evidence",
     "results/frozen",
-    "release/evidence",
 ]
 
 PUBLIC_DOCS = [

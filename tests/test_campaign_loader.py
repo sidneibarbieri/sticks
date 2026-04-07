@@ -47,6 +47,20 @@ def test_load_campaign_reads_json_compatibility_definition(
                     "expected_fidelity": "adapted",
                     "requires": ["access:initial"],
                     "produces": ["code_execution"],
+                    "sut_delta": {
+                        "target_host": "target-base",
+                        "services": [
+                            {"name": "ray-dashboard", "config": "unauthenticated_api_enabled"}
+                        ],
+                        "deliberate_weaknesses": [
+                            {
+                                "type": "exposed_ray_jobs_api",
+                                "cve": "CVE-2023-48022",
+                                "description": "Expose the Ray jobs API boundary.",
+                            }
+                        ],
+                        "notes": "Expose the public-facing boundary just before execution.",
+                    },
                 },
                 {
                     "technique_id": "T1204.001",
@@ -74,6 +88,10 @@ def test_load_campaign_reads_json_compatibility_definition(
     assert campaign.steps[0].procedure_summary == "Execute shell commands on the target host."
     assert campaign.steps[0].expected_fidelity.value == "adapted"
     assert campaign.steps[0].expected_mode.value == "real_controlled"
+    assert campaign.steps[0].sut_delta is not None
+    assert campaign.steps[0].sut_delta.target_host == "target-base"
+    assert campaign.steps[0].sut_delta.services[0].name == "ray-dashboard"
+    assert campaign.steps[0].sut_delta.deliberate_weaknesses[0].cve == "CVE-2023-48022"
     assert campaign.steps[1].requires == ["artifacts:spearphish_link"]
     assert campaign.steps[1].produces == ["artifacts:malicious_link_accessed"]
     assert campaign.steps[1].expected_fidelity.value == "inspired"

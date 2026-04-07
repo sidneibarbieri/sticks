@@ -94,6 +94,13 @@ class TechniqueStep(BaseModel):
         default="",
         description="Published step-level procedure summary or ATT&CK-grounded description",
     )
+    sut_delta: Optional["TechniqueSUTDelta"] = Field(
+        default=None,
+        description=(
+            "Optional step-conditioned SUT overlay applied immediately before "
+            "this technique in VM-backed executions."
+        ),
+    )
 
 
 class Campaign(BaseModel):
@@ -167,6 +174,13 @@ class SUTWeakness(BaseModel):
     weakness_type: str = Field(alias="type")
     description: str
     impact: str = ""
+    target: str = ""
+    username: str = ""
+    password: str = ""
+    path: str = ""
+    binary: str = ""
+    cve: str = ""
+    services: List[str] = Field(default_factory=list)
 
     model_config = {"populate_by_name": True}
 
@@ -221,6 +235,23 @@ class SUTProfile(BaseModel):
         for host in self.hosts.values():
             result.extend(host.deliberate_weaknesses)
         return result
+
+
+class TechniqueSUTDelta(BaseModel):
+    """Step-conditioned overlay applied to the declared base SUT."""
+
+    target_host: str = Field(
+        default="",
+        description="Host alias within the SUT profile; blank means the primary target host",
+    )
+    services: List[SUTService] = Field(default_factory=list)
+    users: List[SUTUser] = Field(default_factory=list)
+    files: List[SUTFile] = Field(default_factory=list)
+    deliberate_weaknesses: List[SUTWeakness] = Field(default_factory=list)
+    notes: str = Field(
+        default="",
+        description="Human-readable rationale for the overlay",
+    )
 
 
 # ---------------------------------------------------------------------------
@@ -288,6 +319,8 @@ class TechniqueEvidence(BaseModel):
     end_time: datetime
     duration_ms: int = 0
     host: str = ""
+    sut_adjustments_applied: List[str] = Field(default_factory=list)
+    sut_adjustment_errors: List[str] = Field(default_factory=list)
 
 
 class ArtifactMetadata(BaseModel):
@@ -373,3 +406,6 @@ class CampaignEvidence(BaseModel):
         for r in self.technique_results:
             caps.update(r.capabilities_produced)
         self.accumulated_capabilities = sorted(caps)
+
+
+TechniqueStep.model_rebuild()

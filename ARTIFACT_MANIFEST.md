@@ -15,7 +15,8 @@ Public repository URL: `https://github.com/sidneibarbieri/sticks`.
 - `bash run_review_check.sh`: fast paper-claim validation.
 - `./artifact/setup.sh && ./artifact/run.sh && ./artifact/validate.sh`:
   minimal working example for repository-local execution.
-- `bash run_vm_backed_campaign.sh 0.c0011`: representative VM-backed run.
+- `bash run_vm_backed_campaign.sh 0.c0011`: smallest VM-backed baseline.
+- `bash run_vm_backed_campaign.sh 0.shadowray`: VM-backed run with a declared step-conditioned SUT overlay.
 
 ## Excluded on purpose
 

@@ -10,7 +10,7 @@ import sys
 import traceback
 from datetime import datetime
 from pathlib import Path
-from typing import Optional, Set
+from typing import Any, Optional, Set
 
 # Extend path before project imports so the src layout resolves correctly.
 sys.path.insert(0, str(Path(__file__).parent.parent))
@@ -34,6 +34,7 @@ from executors.models import (  # noqa: E402
     TechniqueEvidence,
 )
 from executors.registry_initializer import initialize_registry  # noqa: E402
+from apply_sut_profile import apply_step_sut_delta  # noqa: E402
 from loaders.campaign_loader import (  # noqa: E402
     list_campaigns,
     load_campaign,
@@ -53,6 +54,8 @@ BASE_CAPABILITIES = frozenset(
     }
 )
 DEBUG_ENABLED = os.environ.get("STICKS_DEBUG") == "1"
+PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
+HOME_DIR = Path.home()
 
 
 class UnifiedCampaignRunner:
@@ -204,6 +207,35 @@ class UnifiedCampaignRunner:
     def _execute_step(self, step) -> TechniqueEvidence:
         """Execute a single campaign step and return TechniqueEvidence."""
         start_time = datetime.now()
+        sut_adjustments_applied: list[str] = []
+        sut_adjustment_errors: list[str] = []
+
+        if step.sut_delta and self._infrastructure_provider:
+            delta_result = apply_step_sut_delta(
+                campaign_id=self.campaign.campaign_id,
+                delta=step.sut_delta.model_dump(by_alias=True),
+                base_dir=PROJECT_ROOT,
+                provider=self._infrastructure_provider,
+            )
+            sut_adjustments_applied = delta_result["applied"]
+            sut_adjustment_errors = delta_result["errors"]
+            if delta_result["notes"]:
+                print(f"         sut_delta={delta_result['notes']}")
+            if DEBUG_ENABLED and sut_adjustments_applied:
+                print(
+                    "[SUT DELTA]",
+                    f"step: {step.technique_id}",
+                    f"applied: {sut_adjustments_applied}",
+                )
+            if sut_adjustment_errors:
+                return self._make_skipped_evidence(
+                    step,
+                    start_time,
+                    "SUT delta application failed: "
+                    + "; ".join(sut_adjustment_errors),
+                    sut_adjustments_applied=sut_adjustments_applied,
+                    sut_adjustment_errors=sut_adjustment_errors,
+                )
 
         try:
             raw_evidence = execute_technique(
@@ -251,10 +283,18 @@ class UnifiedCampaignRunner:
                 end_time=datetime.now(),
                 duration_ms=int((datetime.now() - start_time).total_seconds() * 1000),
                 host=host,
+                sut_adjustments_applied=sut_adjustments_applied,
+                sut_adjustment_errors=sut_adjustment_errors,
             )
 
         except Exception as e:
-            return self._make_skipped_evidence(step, start_time, str(e))
+            return self._make_skipped_evidence(
+                step,
+                start_time,
+                str(e),
+                sut_adjustments_applied=sut_adjustments_applied,
+                sut_adjustment_errors=sut_adjustment_errors,
+            )
 
     def _infer_host(self, raw_evidence) -> str:
         """Infer which host executed the technique from evidence signals."""
@@ -282,7 +322,12 @@ class UnifiedCampaignRunner:
         return "localhost"
 
     def _make_skipped_evidence(
-        self, step, start_time, reason: str
+        self,
+        step,
+        start_time,
+        reason: str,
+        sut_adjustments_applied: Optional[list[str]] = None,
+        sut_adjustment_errors: Optional[list[str]] = None,
     ) -> TechniqueEvidence:
         """Create evidence for a skipped/failed step."""
         return TechniqueEvidence(
@@ -298,6 +343,8 @@ class UnifiedCampaignRunner:
             stderr=reason,
             start_time=start_time,
             end_time=datetime.now(),
+            sut_adjustments_applied=sut_adjustments_applied or [],
+            sut_adjustment_errors=sut_adjustment_errors or [],
         )
 
     def _save_evidence(self, evidence: CampaignEvidence):
@@ -306,11 +353,32 @@ class UnifiedCampaignRunner:
         evidence_dir = self.output_dir / f"{evidence.campaign_id}_{timestamp}"
         evidence_dir.mkdir(exist_ok=True)
 
+        def sanitize_text(value: str) -> str:
+            project_root = str(PROJECT_ROOT)
+            home_dir = str(HOME_DIR)
+            sanitized = value.replace(project_root + os.sep, "")
+            sanitized = sanitized.replace(project_root, ".")
+            sanitized = sanitized.replace(home_dir + os.sep, "~/")
+            sanitized = sanitized.replace(home_dir, "~")
+            return sanitized
+
+        def sanitize_payload(value: Any) -> Any:
+            if isinstance(value, str):
+                return sanitize_text(value)
+            if isinstance(value, list):
+                return [sanitize_payload(item) for item in value]
+            if isinstance(value, dict):
+                return {
+                    key: sanitize_payload(item)
+                    for key, item in value.items()
+                }
+            return value
+
         # Summary (full Pydantic model serialized)
         summary_path = evidence_dir / "summary.json"
         with open(summary_path, "w", encoding="utf-8") as f:
             json.dump(
-                evidence.model_dump(mode="json"),
+                sanitize_payload(evidence.model_dump(mode="json")),
                 f,
                 indent=2,
                 ensure_ascii=False,
@@ -326,7 +394,7 @@ class UnifiedCampaignRunner:
             "failed": evidence.failed,
             "skipped": evidence.skipped,
             "fidelity_distribution": evidence.fidelity_distribution,
-            "evidence_directory": str(evidence_dir),
+            "evidence_directory": sanitize_text(str(evidence_dir)),
         }
         with open(evidence_dir / "manifest.json", "w", encoding="utf-8") as f:
             json.dump(manifest, f, indent=2, ensure_ascii=False)
@@ -338,7 +406,7 @@ class UnifiedCampaignRunner:
             tech_file = per_tech_dir / f"{te.technique_id}.json"
             with open(tech_file, "w", encoding="utf-8") as f:
                 json.dump(
-                    te.model_dump(mode="json"),
+                    sanitize_payload(te.model_dump(mode="json")),
                     f,
                     indent=2,
                     ensure_ascii=False,

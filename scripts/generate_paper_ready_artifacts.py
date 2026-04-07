@@ -32,6 +32,15 @@ def _matrix_campaign_ids(matrix: dict) -> list[str]:
     return [row.get("campaign_id", "") for row in matrix.get("campaigns", [])]
 
 
+def _rows_with_evidence(matrix: dict) -> list[dict]:
+    campaigns = matrix.get("campaigns", [])
+    return [
+        row
+        for row in campaigns
+        if row.get("has_latest_evidence") or row.get("latest_evidence")
+    ]
+
+
 def _scoped_fidelity_campaigns(matrix: dict, fidelity: dict) -> Dict[str, dict]:
     campaign_ids = {campaign_id for campaign_id in _matrix_campaign_ids(matrix) if campaign_id}
     fidelity_campaigns: Dict[str, dict] = fidelity.get("campaigns", {})
@@ -49,13 +58,16 @@ def _build_claims(
     release_dir: Path,
 ) -> List[ClaimEvidence]:
     campaigns = matrix.get("campaigns", [])
+    evidenced_campaigns = _rows_with_evidence(matrix)
     campaign_count = len(campaigns)
+    evidenced_campaign_count = len(evidenced_campaigns)
 
     pair_valid_count = sum(1 for row in campaigns if row.get("pair_valid") is True)
     success_no_fail_count = sum(
         1
-        for row in campaigns
+        for row in evidenced_campaigns
         if int(row.get("successful", 0)) == int(row.get("total_techniques", 0))
+        and int(row.get("total_techniques", 0)) > 0
         and int(row.get("failed", 0)) == 0
     )
 
@@ -79,6 +91,21 @@ def _build_claims(
                 passed += 1
         full_lab_status = f"{passed}/{total} campaigns PASS"
         full_lab_evidence = [str(full_lab_report.relative_to(release_dir.parent))]
+    else:
+        evidence_dir = release_dir / "evidence"
+        health_reports = sorted(evidence_dir.glob("health_*.json"))
+        if health_reports:
+            total = len(health_reports)
+            passed = 0
+            for report in health_reports:
+                payload = _load_json(report)
+                if payload.get("overall_passed") is True:
+                    passed += 1
+            full_lab_status = f"{passed}/{total} representative VM-backed runs PASS"
+            full_lab_evidence = [
+                "release/evidence/health_<campaign>_<timestamp>.json",
+                "release/evidence/<campaign>_<timestamp>/summary.json",
+            ]
 
     claims = [
         ClaimEvidence(
@@ -92,8 +119,14 @@ def _build_claims(
         ),
         ClaimEvidence(
             claim_id="CLAIM-EXEC-01",
-            claim_text="Latest execution snapshot shows successful completion without failed techniques.",
-            measured_value=f"{success_no_fail_count}/{campaign_count} campaigns with failed=0",
+            claim_text=(
+                "Latest execution evidence shipped in the current artifact checkout "
+                "shows successful completion without failed techniques."
+            ),
+            measured_value=(
+                f"{success_no_fail_count}/{evidenced_campaign_count} available "
+                "campaign snapshots with failed=0"
+            ),
             evidence_artifacts=["release/campaign_sut_fidelity_matrix.json"],
         ),
         ClaimEvidence(
@@ -111,7 +144,7 @@ def _build_claims(
         ),
         ClaimEvidence(
             claim_id="CLAIM-FULLLAB-01",
-            claim_text="Full-lab batch workflow status (canonical scripts).",
+            claim_text="Representative VM-backed cold-start workflow status.",
             measured_value=full_lab_status,
             evidence_artifacts=full_lab_evidence
             or [
@@ -150,19 +183,22 @@ def _write_traceability_json(path: Path, claims: List[ClaimEvidence]) -> None:
 
 def _write_macros(path: Path, matrix: dict, fidelity: dict) -> None:
     campaigns = matrix.get("campaigns", [])
+    evidenced_campaigns = _rows_with_evidence(matrix)
     campaign_count = len(campaigns)
+    evidenced_campaign_count = len(evidenced_campaigns)
     pair_valid_count = sum(1 for row in campaigns if row.get("pair_valid") is True)
     success_no_fail_count = sum(
         1
-        for row in campaigns
+        for row in evidenced_campaigns
         if int(row.get("successful", 0)) == int(row.get("total_techniques", 0))
+        and int(row.get("total_techniques", 0)) > 0
         and int(row.get("failed", 0)) == 0
     )
 
-    adapted_total = sum(int(row.get("adapted", 0)) for row in campaigns)
-    inspired_total = sum(int(row.get("inspired", 0)) for row in campaigns)
-    faithful_total = sum(int(row.get("faithful", 0)) for row in campaigns)
-    total_techniques = sum(int(row.get("total_techniques", 0)) for row in campaigns)
+    adapted_total = sum(int(row.get("adapted", 0)) for row in evidenced_campaigns)
+    inspired_total = sum(int(row.get("inspired", 0)) for row in evidenced_campaigns)
+    faithful_total = sum(int(row.get("faithful", 0)) for row in evidenced_campaigns)
+    total_techniques = sum(int(row.get("total_techniques", 0)) for row in evidenced_campaigns)
 
     fidelity_campaigns = _scoped_fidelity_campaigns(matrix, fidelity)
     rubric_total = sum(int(c.get("total", 0)) for c in fidelity_campaigns.values())
@@ -174,6 +210,7 @@ def _write_macros(path: Path, matrix: dict, fidelity: dict) -> None:
         "",
         f"\\newcommand{{\\formalCampaignCount}}{{{campaign_count}}}",
         f"\\newcommand{{\\pairValidCount}}{{{pair_valid_count}}}",
+        f"\\newcommand{{\\executionEvidenceCampaignCount}}{{{evidenced_campaign_count}}}",
         f"\\newcommand{{\\executionNoFailCount}}{{{success_no_fail_count}}}",
         f"\\newcommand{{\\totalTechniquesAcrossCampaigns}}{{{total_techniques}}}",
         f"\\newcommand{{\\adaptedTechniqueCount}}{{{adapted_total}}}",
@@ -191,23 +228,30 @@ def _write_full_lab_status_table(path: Path, matrix: dict) -> None:
         "% Auto-generated full-lab status table",
         r"\begin{table}[htbp]",
         r"\centering",
-        r"\caption{Full-lab execution status by formal campaign-SUT pair}",
+        r"\caption{Latest available execution evidence by formal campaign-SUT pair in the current artifact checkout}",
         r"\label{tab:full_lab_status}",
         r"\small",
-        r"\begin{tabular}{lrrrrrr}",
+        r"\begin{tabular}{llrrrrrr}",
         r"\toprule",
-        r"\textbf{Campaign} & \textbf{Total} & \textbf{Success} & \textbf{Failed} & \textbf{Adapted} & \textbf{Inspired} & \textbf{Pair Valid} \\",
+        r"\textbf{Campaign} & \textbf{Evidence} & \textbf{Total} & \textbf{Success} & \textbf{Failed} & \textbf{Adapted} & \textbf{Inspired} & \textbf{Pair Valid} \\",
         r"\midrule",
     ]
     for row in campaigns:
         pair_valid = "yes" if row.get("pair_valid") else "no"
+        has_latest_evidence = bool(row.get("has_latest_evidence") or row.get("latest_evidence"))
+        total = str(int(row.get("total_techniques", 0))) if has_latest_evidence else "--"
+        successful = str(int(row.get("successful", 0))) if has_latest_evidence else "--"
+        failed = str(int(row.get("failed", 0))) if has_latest_evidence else "--"
+        adapted = str(int(row.get("adapted", 0))) if has_latest_evidence else "--"
+        inspired = str(int(row.get("inspired", 0))) if has_latest_evidence else "--"
         lines.append(
             f"{row.get('campaign_id','-')} & "
-            f"{int(row.get('total_techniques', 0))} & "
-            f"{int(row.get('successful', 0))} & "
-            f"{int(row.get('failed', 0))} & "
-            f"{int(row.get('adapted', 0))} & "
-            f"{int(row.get('inspired', 0))} & "
+            f"{'yes' if has_latest_evidence else 'no'} & "
+            f"{total} & "
+            f"{successful} & "
+            f"{failed} & "
+            f"{adapted} & "
+            f"{inspired} & "
             f"{pair_valid} \\\\"
         )
     lines.extend(
@@ -243,8 +287,9 @@ def _write_summary(path: Path, claims: List[ClaimEvidence]) -> None:
         "# Paper-Ready Summary",
         "",
         "Scope:",
-        "- `values.tex` and related macros summarize the published campaigns that currently have a matching SUT profile.",
-        "- `results/CORPUS_STATE.md` remains the source for statements about the full published corpus.",
+        "- `values.tex` and related macros summarize the latest execution evidence currently shipped in the artifact checkout.",
+        "- `results/CORPUS_STATE.md` remains the source for statements about the broader published corpus and pair-valid coverage.",
+        "- Missing execution evidence is shown explicitly; it is not silently counted as a failed or successful run.",
         "",
         "Generated files:",
         "- `release/campaign_sut_fidelity_matrix.json`",

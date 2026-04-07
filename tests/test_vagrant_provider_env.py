@@ -79,3 +79,53 @@ def test_health_check_vagrant_ssh_sets_detected_provider(
     assert captured["command"] == ["vagrant", "ssh", "-c", "echo ok"]
     assert captured["cwd"] == str(vm_dir)
     assert captured["env"]["VAGRANT_DEFAULT_PROVIDER"] == "qemu"
+
+
+def test_apply_sut_to_host_stages_declared_files(
+    monkeypatch, tmp_path: Path
+) -> None:
+    module = _load_module("apply_sut_profile_files_test", SRC_ROOT / "apply_sut_profile.py")
+    commands: list[str] = []
+
+    def fake_execute(
+        host_ip,
+        command,
+        user="vagrant",
+        password="vagrant",
+        provider="libvirt",
+        vm_name=None,
+        base_dir=None,
+    ):
+        commands.append(command)
+        return True, "ok", ""
+
+    monkeypatch.setattr(module, "execute_ssh_command", fake_execute)
+
+    profile = {
+        "sut_configuration": {
+            "target-base": {
+                "files": [
+                    {
+                        "path": "/home/vagrant/documents/brief.txt",
+                        "content": "briefing",
+                        "owner": "vagrant",
+                        "permissions": "600",
+                    }
+                ],
+                "services": [],
+                "users": [],
+                "deliberate_weaknesses": [],
+            }
+        }
+    }
+    host = {
+        "hostname": "target-base",
+        "ip": "192.168.56.30",
+        "role": "target",
+        "vm_name": "target-linux-1",
+    }
+
+    result = module.apply_sut_to_host(host, profile, tmp_path, "libvirt")
+
+    assert result["files_staged"] == ["/home/vagrant/documents/brief.txt"]
+    assert any("/home/vagrant/documents/brief.txt" in command for command in commands)

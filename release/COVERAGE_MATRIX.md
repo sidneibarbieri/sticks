@@ -1,6 +1,6 @@
 # STICKS Campaign Coverage Matrix
 
-Generated: `2026-04-02T17:58:03`
+Generated: `2026-04-07T17:19:44`
 
 Compares the eight legacy sticks-docker campaigns against the current STICKS artifact.
 
@@ -14,22 +14,22 @@ Compares the eight legacy sticks-docker campaigns against the current STICKS art
 | Metric | Value |
 |---|---|
 | Legacy campaigns | 8 |
-| COMPLETE | 8 |
+| COMPLETE | 0 |
 | PARTIAL | 0 |
-| MISSING | 0 |
+| MISSING | 8 |
 
 ## Matrix
 
 | Legacy Campaign | STICKS ID | Campaign File | SUT Profile | Docker Steps | STICKS Steps | Executor Coverage | Status |
 |---|---|:---:|:---:|---:|---:|---:|:---:|
-| APT41 DUST | `0.apt41_dust` | ✓ | ✓ | 24 | 0 | 0% | **COMPLETE** |
-| C0010 | `0.c0010` | ✓ | ✓ | 10 | 0 | 0% | **COMPLETE** |
-| C0026 | `0.c0026` | ✓ | ✓ | 7 | 0 | 0% | **COMPLETE** |
-| CostaRicto | `0.costaricto` | ✓ | ✓ | 11 | 0 | 0% | **COMPLETE** |
-| Operation MidnightEclipse | `0.operation_midnighteclipse` | ✓ | ✓ | 18 | 0 | 0% | **COMPLETE** |
-| Outer Space | `0.outer_space` | ✓ | ✓ | 9 | 0 | 0% | **COMPLETE** |
-| Salesforce Data Exfiltration | `0.salesforce_data_exfiltration` | ✓ | ✓ | 19 | 0 | 0% | **COMPLETE** |
-| ShadowRay | `0.shadowray` | ✓ | ✓ | 11 | 0 | 0% | **COMPLETE** |
+| APT41 DUST | `0.apt41_dust` | ✓ | ✓ | 24 | 0 | 0% | **MISSING** |
+| C0010 | `0.c0010` | ✓ | ✓ | 10 | 0 | 0% | **MISSING** |
+| C0026 | `0.c0026` | ✓ | ✓ | 7 | 0 | 0% | **MISSING** |
+| CostaRicto | `0.costaricto` | ✓ | ✓ | 11 | 0 | 0% | **MISSING** |
+| Operation MidnightEclipse | `0.operation_midnighteclipse` | ✓ | ✓ | 18 | 0 | 0% | **MISSING** |
+| Outer Space | `0.outer_space` | ✓ | ✓ | 9 | 0 | 0% | **MISSING** |
+| Salesforce Data Exfiltration | `0.salesforce_data_exfiltration` | ✓ | ✓ | 19 | 0 | 0% | **MISSING** |
+| ShadowRay | `0.shadowray` | ✓ | ✓ | 11 | 0 | 0% | **MISSING** |
 
 ## Methodological Divergences
 
@@ -60,18 +60,18 @@ Compares the eight legacy sticks-docker campaigns against the current STICKS art
 
 ### ShadowRay (`0.shadowray`)
 
-- Ray Dashboard (CVE-2023-48022) provisioned by apply_sut_profile.py as a minimal unauthenticated HTTP stub on port 8265. The stub responds to /api/version and /api/jobs/ identically to a real Ray cluster with auth disabled. If the stub is absent on lab bring-up, the executor falls back to provisioning it inline inside the target VM. The boundary exercised (unauthenticated job-submission API) is methodologically equivalent to CVE-2023-48022 exploitation.
+- Ray Dashboard (CVE-2023-48022) is exposed as a declared step-conditioned SUT overlay immediately before T1190, not hidden inside the base image. The overlay provisions a minimal unauthenticated HTTP stub on port 8265 that responds to /api/version and /api/jobs/ like a Ray cluster with auth disabled. If the overlay is absent, the executor still falls back to provisioning the same boundary inline inside the target VM. The boundary exercised (unauthenticated job-submission API) is methodologically equivalent to CVE-2023-48022 exploitation.
 
 
 ## Latest Execution Results
 
 | STICKS ID | Status | Successful | Failed | Total | Success Rate |
 |---|:---:|---:|---:|---:|---:|
-| `0.apt41_dust` | **COMPLETE** | 10 | 0 | 10 | 100.0% |
-| `0.c0010` | **COMPLETE** | 9 | 0 | 9 | 100.0% |
-| `0.c0026` | **COMPLETE** | 6 | 0 | 6 | 100.0% |
-| `0.costaricto` | **COMPLETE** | 10 | 0 | 10 | 100.0% |
-| `0.operation_midnighteclipse` | **COMPLETE** | 17 | 0 | 17 | 100.0% |
-| `0.outer_space` | **COMPLETE** | 8 | 0 | 8 | 100.0% |
-| `0.salesforce_data_exfiltration` | **COMPLETE** | 18 | 0 | 18 | 100.0% |
-| `0.shadowray` | **COMPLETE** | 10 | 0 | 10 | 100.0% |
+| `0.apt41_dust` | **MISSING** | — | — | — | — |
+| `0.c0010` | **MISSING** | — | — | — | — |
+| `0.c0026` | **MISSING** | — | — | — | — |
+| `0.costaricto` | **MISSING** | — | — | — | — |
+| `0.operation_midnighteclipse` | **MISSING** | — | — | — | — |
+| `0.outer_space` | **MISSING** | — | — | — | — |
+| `0.salesforce_data_exfiltration` | **MISSING** | — | — | — | — |
+| `0.shadowray` | **MISSING** | — | — | — | — |

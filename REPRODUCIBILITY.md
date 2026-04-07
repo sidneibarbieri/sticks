@@ -54,12 +54,20 @@ For a concrete VM-backed run that provisions the declared SUT automatically:
 
 ```bash
 bash run_vm_backed_campaign.sh 0.c0011
+bash run_vm_backed_campaign.sh 0.shadowray
 ```
 
 That wrapper delegates to `scripts/run_lab_campaign.py`, which lifts the VM
-substrate declared by the campaign's SUT profile, applies deliberate weaknesses
-and vulnerable services, executes the campaign, refreshes evidence/state
-reports, and tears the lab down unless `--keep-lab` is requested.
+substrate declared by the campaign's SUT profile, applies the declared base SUT
+profile, applies step-conditioned SUT overlays for selected techniques,
+executes the campaign, refreshes evidence/state reports, and tears the lab down
+unless `--keep-lab` is requested.
+
+The interpretation is intentionally conservative: the repository derives a
+static lower-bound SUT profile from one corpus snapshot and then runs a
+declared campaign/SUT pair. It does not perform online replanning or choose
+final vulnerabilities/commands dynamically during execution; the step-level
+overlays are explicit campaign metadata rather than new inference.
 
 ## Optional Infrastructure
 

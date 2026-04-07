@@ -9,6 +9,7 @@ import base64
 import json
 import os
 import platform
+import shlex
 import subprocess
 import sys
 from pathlib import Path
@@ -55,6 +56,44 @@ def load_sut_profile(campaign_id: str, base_dir: Path) -> dict:
 
     with open(profile_path) as f:
         return yaml.safe_load(f)
+
+
+def resolve_profile_hosts(profile: dict) -> list[dict]:
+    """Resolve the runtime host inventory for a profile."""
+    network_config = profile.get("network", {})
+    hosts = [dict(host) for host in network_config.get("hosts", [])]
+    if hosts:
+        return hosts
+
+    sut_cfg = profile.get("sut_configuration", {})
+    for host_name in sut_cfg.keys():
+        vm_name = HOSTNAME_VM_ALIAS.get(host_name) or host_name
+        hosts.append(
+            {
+                "hostname": host_name,
+                "vm_name": vm_name,
+                "ip": VM_IPS.get(vm_name, "unknown"),
+                "role": "target" if host_name.startswith("target") else "service",
+            }
+        )
+    return hosts
+
+
+def resolve_runtime_host(profile: dict, host_name: str) -> dict:
+    """Resolve one declared host alias into the runtime VM descriptor."""
+    for host in resolve_profile_hosts(profile):
+        if host.get("hostname") == host_name:
+            return host
+    raise ValueError(f"Host {host_name!r} not declared in SUT profile")
+
+
+def select_default_target_host(profile: dict) -> str:
+    """Select the primary non-control-plane host from the SUT profile."""
+    for host in resolve_profile_hosts(profile):
+        hostname = host.get("hostname", "")
+        if hostname not in {"caldera", "attacker"}:
+            return hostname
+    raise ValueError("No target host declared in SUT profile")
 
 
 def execute_ssh_command(
@@ -233,6 +272,174 @@ HTTPServer(("0.0.0.0", 8265), Handler).serve_forever()
     return True
 
 
+def apply_staged_file(
+    host_ip: str, file_config: dict, provider: str, vm_name: str, base_dir: Path
+) -> bool:
+    """Stage a declared file on the target host."""
+    path = file_config.get("path")
+    owner = file_config.get("owner", "vagrant")
+    permissions = file_config.get("permissions", "644")
+    content = file_config.get("content", "")
+    if not path:
+        log_error("File configuration missing path")
+        return False
+
+    encoded_content = base64.b64encode(content.encode("utf-8")).decode("ascii")
+    parent_dir = str(Path(path).parent)
+    commands = [
+        f"sudo mkdir -p {shlex.quote(parent_dir)}",
+        (
+            f"echo '{encoded_content}' | base64 -d | "
+            f"sudo tee {shlex.quote(path)} >/dev/null"
+        ),
+        (
+            f"sudo chown {shlex.quote(owner)}:{shlex.quote(owner)} "
+            f"{shlex.quote(path)} 2>/dev/null || "
+            f"sudo chown {shlex.quote(owner)} {shlex.quote(path)}"
+        ),
+        f"sudo chmod {shlex.quote(str(permissions))} {shlex.quote(path)}",
+    ]
+
+    for command in commands:
+        success, _, stderr = execute_ssh_command(
+            host_ip,
+            command,
+            provider=provider,
+            vm_name=vm_name,
+            base_dir=base_dir,
+        )
+        if not success:
+            log_error(f"Failed to stage file {path}: {stderr}")
+            return False
+
+    log_info(f"✓ Staged file: {path}")
+    return True
+
+
+def apply_users_to_host(
+    host_ip: str,
+    users: list[dict],
+    provider: str,
+    vm_name: str,
+    base_dir: Path,
+    results: dict,
+) -> set[str]:
+    """Provision declared users and record the outcome."""
+    provisioned_usernames: set[str] = set()
+    for user_cfg in users:
+        username = user_cfg.get("username")
+        password = user_cfg.get("password")
+        if not username or not password:
+            continue
+
+        user_weakness = {"username": username, "password": password}
+        if apply_weak_credentials(host_ip, user_weakness, provider, vm_name, base_dir):
+            results["weaknesses_applied"].append(f"user:{username}")
+            provisioned_usernames.add(username)
+        else:
+            results["errors"].append(f"Failed to provision user {username}")
+    return provisioned_usernames
+
+
+def apply_files_to_host(
+    host_ip: str,
+    files: list[dict],
+    provider: str,
+    vm_name: str,
+    base_dir: Path,
+    results: dict,
+) -> None:
+    """Stage declared files on the selected host."""
+    for file_config in files:
+        if apply_staged_file(host_ip, file_config, provider, vm_name, base_dir):
+            results["files_staged"].append(file_config.get("path", ""))
+        else:
+            results["errors"].append(
+                f"Failed to stage file {file_config.get('path', '<unknown>')}"
+            )
+
+
+def apply_weaknesses_to_host(
+    host_ip: str,
+    hostname: str,
+    weaknesses: list[dict],
+    provider: str,
+    vm_name: str,
+    base_dir: Path,
+    results: dict,
+    provisioned_usernames: set[str],
+) -> None:
+    """Apply declared weaknesses to one host."""
+    for weakness in weaknesses:
+        target = weakness.get("target", hostname)
+        if target not in {hostname, "all", ""}:
+            continue
+
+        weakness_type = weakness.get("type", "unknown")
+
+        if weakness_type in {"weak_credentials", "weak_ssh_password"}:
+            weak_user = weakness.get("username")
+            if weak_user and weak_user in provisioned_usernames:
+                continue
+            if apply_weak_credentials(host_ip, weakness, provider, vm_name, base_dir):
+                results["weaknesses_applied"].append(weakness_type)
+            else:
+                results["errors"].append(f"Failed to apply {weakness_type}")
+
+        elif weakness_type == "writable_directory":
+            path = weakness.get("path", "/tmp/vulnerable")
+            success, _, _ = execute_ssh_command(
+                host_ip,
+                f"sudo mkdir -p {shlex.quote(path)} && sudo chmod 777 {shlex.quote(path)}",
+                provider=provider,
+                vm_name=vm_name,
+                base_dir=base_dir,
+            )
+            if success:
+                results["weaknesses_applied"].append(f"writable_dir:{path}")
+            else:
+                results["errors"].append(f"Failed to create writable dir: {path}")
+
+        elif weakness_type == "suid_binary":
+            binary = weakness.get("binary", "/bin/bash")
+            success, _, _ = execute_ssh_command(
+                host_ip,
+                f"sudo chmod u+s {shlex.quote(binary)}",
+                provider=provider,
+                vm_name=vm_name,
+                base_dir=base_dir,
+            )
+            if success:
+                results["weaknesses_applied"].append(f"suid:{binary}")
+            else:
+                results["errors"].append(f"Failed to set SUID on {binary}")
+
+        elif weakness_type:
+            results["weaknesses_applied"].append(f"declared:{weakness_type}")
+
+
+def apply_services_to_host(
+    host_ip: str,
+    hostname: str,
+    services: list[dict],
+    provider: str,
+    vm_name: str,
+    base_dir: Path,
+    results: dict,
+) -> None:
+    """Configure declared services on one host."""
+    for service in services:
+        service_host = service.get("host", hostname)
+        if service_host != hostname:
+            continue
+        if apply_vulnerable_service(host_ip, service, provider, vm_name, base_dir):
+            results["services_configured"].append(service.get("name", "unknown"))
+        else:
+            results["errors"].append(
+                f"Failed to configure service {service.get('name', 'unknown')}"
+            )
+
+
 def apply_network_topology(network_config: dict) -> bool:
     """Apply network configuration (already done by Vagrant, verify only)."""
     log_info("Verifying network topology...")
@@ -263,6 +470,7 @@ def apply_sut_to_host(
         "role": role,
         "weaknesses_applied": [],
         "services_configured": [],
+        "files_staged": [],
         "errors": [],
     }
 
@@ -275,59 +483,32 @@ def apply_sut_to_host(
         w_copy.setdefault("target", hostname)
         weaknesses.append(w_copy)
 
-    users = host_profile.get("users", [])
-    provisioned_usernames = set()
-    for user_cfg in users:
-        username = user_cfg.get("username")
-        password = user_cfg.get("password")
-        if username and password:
-            user_weakness = {"username": username, "password": password}
-            if apply_weak_credentials(ip, user_weakness, provider, vm_name, base_dir):
-                results["weaknesses_applied"].append(f"user:{username}")
-                provisioned_usernames.add(username)
-            else:
-                results["errors"].append(f"Failed to provision user {username}")
-
-    for weakness in weaknesses:
-        if weakness.get("target") == hostname or weakness.get("target") == "all":
-            wtype = weakness.get("type", "unknown")
-
-            if wtype in {"weak_credentials", "weak_ssh_password"}:
-                weak_user = weakness.get("username")
-                if weak_user and weak_user in provisioned_usernames:
-                    continue
-                if apply_weak_credentials(ip, weakness, provider, vm_name, base_dir):
-                    results["weaknesses_applied"].append(wtype)
-                else:
-                    results["errors"].append(f"Failed to apply {wtype}")
-
-            elif wtype == "writable_directory":
-                path = weakness.get("path", "/tmp/vulnerable")
-                success, _, _ = execute_ssh_command(
-                    ip,
-                    f"sudo mkdir -p {path} && sudo chmod 777 {path}",
-                    provider=provider,
-                    vm_name=vm_name,
-                    base_dir=base_dir,
-                )
-                if success:
-                    results["weaknesses_applied"].append(f"writable_dir:{path}")
-                else:
-                    results["errors"].append(f"Failed to create writable dir: {path}")
-
-            elif wtype == "suid_binary":
-                binary = weakness.get("binary", "/bin/bash")
-                success, _, _ = execute_ssh_command(
-                    ip,
-                    f"sudo chmod u+s {binary}",
-                    provider=provider,
-                    vm_name=vm_name,
-                    base_dir=base_dir,
-                )
-                if success:
-                    results["weaknesses_applied"].append(f"suid:{binary}")
-                else:
-                    results["errors"].append(f"Failed to set SUID on {binary}")
+    provisioned_usernames = apply_users_to_host(
+        ip,
+        host_profile.get("users", []),
+        provider,
+        vm_name,
+        base_dir,
+        results,
+    )
+    apply_files_to_host(
+        ip,
+        host_profile.get("files", []),
+        provider,
+        vm_name,
+        base_dir,
+        results,
+    )
+    apply_weaknesses_to_host(
+        ip,
+        hostname,
+        weaknesses,
+        provider,
+        vm_name,
+        base_dir,
+        results,
+        provisioned_usernames,
+    )
 
     # Apply services
     services = []
@@ -338,12 +519,105 @@ def apply_sut_to_host(
         s_copy["host"] = hostname
         services.append(s_copy)
 
-    for service in services:
-        if service.get("host") == hostname:
-            if apply_vulnerable_service(ip, service, provider, vm_name, base_dir):
-                results["services_configured"].append(service.get("name"))
+    apply_services_to_host(
+        ip,
+        hostname,
+        services,
+        provider,
+        vm_name,
+        base_dir,
+        results,
+    )
 
     return results
+
+
+def apply_step_sut_delta(
+    campaign_id: str, delta: dict, base_dir: Path, provider: str
+) -> dict:
+    """Apply a step-conditioned SUT overlay immediately before one technique."""
+    profile = load_sut_profile(campaign_id, base_dir)
+    target_host = delta.get("target_host") or select_default_target_host(profile)
+
+    if target_host == "all":
+        selected_hosts = [
+            host
+            for host in resolve_profile_hosts(profile)
+            if host.get("hostname") not in {"caldera", "attacker"}
+        ]
+    else:
+        selected_hosts = [resolve_runtime_host(profile, target_host)]
+
+    all_results = []
+    applied: list[str] = []
+    errors: list[str] = []
+
+    for host in selected_hosts:
+        host_result = {
+            "hostname": host.get("hostname", ""),
+            "ip": host.get("ip", "unknown"),
+            "role": host.get("role", ""),
+            "weaknesses_applied": [],
+            "services_configured": [],
+            "files_staged": [],
+            "errors": [],
+        }
+        provisioned_usernames = apply_users_to_host(
+            host_result["ip"],
+            delta.get("users", []),
+            provider,
+            host.get("vm_name", host.get("hostname", "")),
+            base_dir,
+            host_result,
+        )
+        apply_files_to_host(
+            host_result["ip"],
+            delta.get("files", []),
+            provider,
+            host.get("vm_name", host.get("hostname", "")),
+            base_dir,
+            host_result,
+        )
+        apply_weaknesses_to_host(
+            host_result["ip"],
+            host.get("hostname", ""),
+            delta.get("deliberate_weaknesses", []),
+            provider,
+            host.get("vm_name", host.get("hostname", "")),
+            base_dir,
+            host_result,
+            provisioned_usernames,
+        )
+        service_entries = []
+        for service in delta.get("services", []):
+            service_copy = dict(service)
+            service_copy.setdefault("host", host.get("hostname", ""))
+            service_entries.append(service_copy)
+        apply_services_to_host(
+            host_result["ip"],
+            host.get("hostname", ""),
+            service_entries,
+            provider,
+            host.get("vm_name", host.get("hostname", "")),
+            base_dir,
+            host_result,
+        )
+
+        applied.extend(host_result["weaknesses_applied"])
+        applied.extend(f"file:{path}" for path in host_result["files_staged"])
+        applied.extend(
+            f"service:{service}" for service in host_result["services_configured"]
+        )
+        errors.extend(host_result["errors"])
+        all_results.append(host_result)
+
+    return {
+        "target_hosts": [host.get("hostname", "") for host in selected_hosts],
+        "applied": applied,
+        "errors": errors,
+        "results": all_results,
+        "notes": delta.get("notes", ""),
+    }
 
 
 def main():
@@ -385,19 +659,7 @@ def main():
     apply_network_topology(network_config)
 
     # Apply SUT to each host (supports both `network.hosts` and `sut_configuration`)
-    hosts = network_config.get("hosts", [])
-    if not hosts:
-        sut_cfg = profile.get("sut_configuration", {})
-        for host_name in sut_cfg.keys():
-            vm_name: str = HOSTNAME_VM_ALIAS.get(host_name) or host_name
-            hosts.append(
-                {
-                    "hostname": host_name,
-                    "vm_name": vm_name,
-                    "ip": VM_IPS.get(vm_name, "unknown"),
-                    "role": "target" if host_name.startswith("target") else "service",
-                }
-            )
+    hosts = resolve_profile_hosts(profile)
     if not hosts:
         log_error("No hosts defined in SUT profile")
         sys.exit(1)
@@ -456,10 +718,12 @@ def main():
     # Summary
     total_weaknesses = sum(len(r["weaknesses_applied"]) for r in all_results)
     total_services = sum(len(r["services_configured"]) for r in all_results)
+    total_files = sum(len(r["files_staged"]) for r in all_results)
     total_errors = sum(len(r["errors"]) for r in all_results)
 
     log_info(f"  Weaknesses applied: {total_weaknesses}")
     log_info(f"  Services configured: {total_services}")
+    log_info(f"  Files staged: {total_files}")
     if total_errors > 0:
         log_warn(f"  Errors: {total_errors}")
 

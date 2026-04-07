@@ -102,11 +102,12 @@ DOCKER_CAMPAIGNS: dict[str, dict] = {
         "docker_name": "ShadowRay",
         "divergences": [
             (
-                "Ray Dashboard (CVE-2023-48022) provisioned by apply_sut_profile.py as a "
-                "minimal unauthenticated HTTP stub on port 8265. "
-                "The stub responds to /api/version and /api/jobs/ identically to a real Ray "
-                "cluster with auth disabled. If the stub is absent on lab bring-up, "
-                "the executor falls back to provisioning it inline inside the target VM. "
+                "Ray Dashboard (CVE-2023-48022) is exposed as a declared step-conditioned "
+                "SUT overlay immediately before T1190, not hidden inside the base image. "
+                "The overlay provisions a minimal unauthenticated HTTP stub on port 8265 "
+                "that responds to /api/version and /api/jobs/ like a Ray cluster with "
+                "auth disabled. If the overlay is absent, the executor still falls back "
+                "to provisioning the same boundary inline inside the target VM. "
                 "The boundary exercised (unauthenticated job-submission API) is methodologically "
                 "equivalent to CVE-2023-48022 exploitation."
             ),

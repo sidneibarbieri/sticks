@@ -1363,11 +1363,12 @@ def execute_t1204_002_simulated(
         f"{datetime.now().isoformat()},simulated_execution,document.pdf\n",
         encoding="utf-8",
     )
+    relative_log = execution_log.relative_to(PROJECT_ROOT).as_posix()
     return (
         True,
-        f"Simulated malicious file execution logged at {execution_log}",
+        f"Simulated malicious file execution logged at {relative_log}",
         "",
-        [str(execution_log)],
+        [relative_log],
     )
 
 

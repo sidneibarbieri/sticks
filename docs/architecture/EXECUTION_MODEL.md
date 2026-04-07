@@ -38,6 +38,12 @@ The provider-aware optional lab path is centered on:
 This path resolves VM topology from the SUT profile and is the best current
 foundation for a future full-lab execution contract.
 
+The current VM-backed path now has two explicit SUT layers:
+
+- a base SUT profile applied once during lab bring-up; and
+- optional step-conditioned SUT overlays applied immediately before selected
+  techniques.
+
 ### 3. QEMU-specific helpers
 
 Two direct QEMU managers coexist:
@@ -109,8 +115,9 @@ Current recommended overlay taxonomy:
 - `fileshare-profile`
 
 Campaign-specific weaknesses, package versions, and service exposure should be
- applied by SUT profile and provisioning logic, not hidden inside a single
- bloated image.
+applied by SUT profile and provisioning logic, not hidden inside a single
+bloated image. When a precondition matters only for one technique, it should be
+expressed as a step-conditioned overlay rather than baked into the base image.
 
 ## Required health gates
 

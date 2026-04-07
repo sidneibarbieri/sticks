@@ -22,6 +22,7 @@ from executors.models import (
     SUTUser,
     SUTWeakness,
     TechniqueStep,
+    TechniqueSUTDelta,
 )
 
 CAMPAIGNS_DIR = Path(__file__).resolve().parent.parent.parent / "data" / "campaigns"
@@ -67,6 +68,7 @@ def _build_campaign_from_legacy_json(raw: Dict) -> Campaign:
                     "procedure_summary",
                     raw_step.get("description", ""),
                 ),
+                sut_delta=_build_step_sut_delta(raw_step.get("sut_delta")),
             )
         )
 
@@ -78,6 +80,25 @@ def _build_campaign_from_legacy_json(raw: Dict) -> Campaign:
         sut_profile_id=campaign_id,
         steps=steps,
         objective=raw.get("objective", ""),
+    )
+
+
+def _build_step_sut_delta(raw_delta: Optional[Dict]) -> Optional[TechniqueSUTDelta]:
+    """Parse an optional step-conditioned SUT overlay."""
+    if not raw_delta:
+        return None
+
+    weakness_entries = raw_delta.get(
+        "deliberate_weaknesses",
+        raw_delta.get("weaknesses", []),
+    )
+    return TechniqueSUTDelta(
+        target_host=raw_delta.get("target_host", raw_delta.get("target", "")),
+        services=[SUTService(**svc) for svc in raw_delta.get("services", [])],
+        users=[SUTUser(**usr) for usr in raw_delta.get("users", [])],
+        files=[SUTFile(**fil) for fil in raw_delta.get("files", [])],
+        deliberate_weaknesses=[SUTWeakness(**w) for w in weakness_entries],
+        notes=raw_delta.get("notes", ""),
     )
 
 
@@ -105,6 +126,7 @@ def load_campaign(campaign_id: str) -> Campaign:
                     ),
                     fidelity_rationale=raw_step.get("fidelity_rationale", ""),
                     procedure_summary=raw_step.get("procedure_summary", ""),
+                    sut_delta=_build_step_sut_delta(raw_step.get("sut_delta")),
                 )
             )
 

@@ -1,8 +1,9 @@
 # Paper-Ready Summary
 
 Scope:
-- `values.tex` and related macros summarize the published campaigns that currently have a matching SUT profile.
-- `results/CORPUS_STATE.md` remains the source for statements about the full published corpus.
+- `values.tex` and related macros summarize the latest execution evidence currently shipped in the artifact checkout.
+- `results/CORPUS_STATE.md` remains the source for statements about the broader published corpus and pair-valid coverage.
+- Missing execution evidence is shown explicitly; it is not silently counted as a failed or successful run.
 
 Generated files:
 - `release/campaign_sut_fidelity_matrix.json`
@@ -18,6 +19,6 @@ Generated files:
 
 Top-level measured claims:
 - `CLAIM-PAIR-01`: 12/14 pairs valid
-- `CLAIM-EXEC-01`: 14/14 campaigns with failed=0
+- `CLAIM-EXEC-01`: 2/2 available campaign snapshots with failed=0
 - `CLAIM-RUBRIC-01`: consistent=58/125, mismatches=67
-- `CLAIM-FULLLAB-01`: 2/2 campaigns PASS
+- `CLAIM-FULLLAB-01`: 2/2 representative VM-backed runs PASS

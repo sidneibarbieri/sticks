@@ -103,14 +103,32 @@ profile, starts the required provider-backed VMs, waits for core services, and
 then applies the declared SUT profile automatically. That SUT application step
 is where the lab receives campaign-specific weaknesses and prerequisites such as
 weak users/passwords, writable directories, SUID binaries, and deliberately
-vulnerable services like Apache or the Ray dashboard. The follow-on execution
+vulnerable services like Apache. During execution, selected techniques may also
+apply declared step-conditioned SUT overlays, such as exposing the Ray API
+boundary immediately before `T1190` in `0.shadowray`. The follow-on execution
 path then runs the campaign, collects evidence, refreshes corpus-state reports,
 and tears the lab down unless `--keep-lab` is requested.
 
-The recommended representative VM-backed path is currently
-`bash run_vm_backed_campaign.sh 0.c0011` on hosts where the default provider
-choice is valid. Use the direct Python entry point only when you need an
-explicit provider override.
+Important interpretation note:
+
+- The repository derives a static SUT profile from a fixed corpus snapshot and
+  then executes a declared campaign/SUT pair.
+- Selected techniques may apply declared SUT overlays at runtime, but those
+  overlays are explicit campaign metadata, not online CTI inference.
+- The VM-backed path may bring up and health-check a Caldera node as part of
+  the lab, but campaign execution is still driven by the STICKS runner rather
+  than by the Caldera atomic planner used in `sticks-docker`.
+- It does not act as an online planner that invents final commands or chooses
+  vulnerabilities dynamically during execution.
+
+The recommended representative VM-backed paths are:
+
+- `bash run_vm_backed_campaign.sh 0.c0011` for the smallest end-to-end baseline;
+- `bash run_vm_backed_campaign.sh 0.shadowray` when you want the same flow plus
+  an explicit step-conditioned SUT overlay before `T1190`.
+
+Use the direct Python entry point only when you need an explicit provider
+override.
 
 To inspect current campaign-by-campaign status before choosing a run:
 
@@ -150,6 +168,9 @@ contract.
 - The public repository ships synthesized reports rather than heavyweight
   frozen evidence trees; this keeps the handoff portable without weakening the
   reproduction path.
+- A clean checkout may therefore expose representative VM-backed evidence for
+  only a subset of campaigns. The matrix and corpus-state reports make that
+  explicit instead of implying that every campaign already has a shipped cold-start trace.
 - On macOS ARM64 with `qemu`, the first cold-start can take materially longer
   than subsequent runs because guest bootstrap, package installation, and
   Caldera setup happen inside the VM. This is expected and should not be

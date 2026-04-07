@@ -11,8 +11,8 @@
     },
     {
       "claim_id": "CLAIM-EXEC-01",
-      "claim_text": "Latest execution snapshot shows successful completion without failed techniques.",
-      "measured_value": "14/14 campaigns with failed=0",
+      "claim_text": "Latest execution evidence shipped in the current artifact checkout shows successful completion without failed techniques.",
+      "measured_value": "2/2 available campaign snapshots with failed=0",
       "evidence_artifacts": [
         "release/campaign_sut_fidelity_matrix.json"
       ]
@@ -29,10 +29,11 @@
     },
     {
       "claim_id": "CLAIM-FULLLAB-01",
-      "claim_text": "Full-lab batch workflow status (canonical scripts).",
-      "measured_value": "2/2 campaigns PASS",
+      "claim_text": "Representative VM-backed cold-start workflow status.",
+      "measured_value": "2/2 representative VM-backed runs PASS",
       "evidence_artifacts": [
-        "release/full_lab_batch_20260320_010509.tsv"
+        "release/evidence/health_<campaign>_<timestamp>.json",
+        "release/evidence/<campaign>_<timestamp>/summary.json"
       ]
     }
   ]

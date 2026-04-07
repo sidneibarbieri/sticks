@@ -35,7 +35,24 @@
       "requires": ["network:http_available"],
       "produces": ["access:initial"],
       "description": "During ShadowRay, threat actors exploited CVE-2023-48022 on exposed Ray services to gain remote execution and steal computing resources.",
-      "procedure_summary": "Issue a controlled HTTP probe against a Ray-like unauthenticated Jobs API endpoint exposed by the SUT."
+      "procedure_summary": "Issue a controlled HTTP probe against a Ray-like unauthenticated Jobs API endpoint exposed by the SUT.",
+      "sut_delta": {
+        "target_host": "target-base",
+        "services": [
+          {
+            "name": "ray-dashboard",
+            "config": "unauthenticated_api_enabled"
+          }
+        ],
+        "deliberate_weaknesses": [
+          {
+            "type": "exposed_ray_jobs_api",
+            "cve": "CVE-2023-48022",
+            "description": "Expose the unauthenticated Ray Jobs API boundary required for T1190."
+          }
+        ],
+        "notes": "Expose the Ray-like Jobs API immediately before T1190 so the public-facing boundary is explicit and auditable."
+      }
     },
     {
       "technique_id": "T1027.013",

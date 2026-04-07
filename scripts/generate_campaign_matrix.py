@@ -18,6 +18,7 @@ class CampaignMatrixRow:
     sut_profile_id: str
     pair_valid: bool
     pair_error: str
+    has_latest_evidence: bool
     latest_evidence: str
     total_techniques: int
     successful: int
@@ -100,6 +101,7 @@ def _build_rows(root_dir: Path) -> list[CampaignMatrixRow]:
                 sut_profile_id=campaign.sut_profile_id,
                 pair_valid=pair_error is None,
                 pair_error=pair_error or "",
+                has_latest_evidence=bool(latest_evidence and summary),
                 latest_evidence=latest_evidence,
                 total_techniques=int(summary.get("total_techniques", 0)),
                 successful=int(summary.get("successful", 0)),
@@ -138,25 +140,34 @@ def _write_markdown(rows: list[CampaignMatrixRow], output_path: Path) -> None:
         "- `release/evidence/*/summary.json` (latest exact match per campaign)",
         "- `release/fidelity_report.json` (rubric consistency when available)",
         "- `src/loaders/campaign_loader.py` (`validate_campaign_sut_pair`)",
+        "- Rows without shipped evidence are shown explicitly rather than treated as failed runs",
         "",
-        "| Campaign | SUT Profile | Pair Valid | Latest Evidence Dir | Total | Success | Failed | Skipped | Faithful | Adapted | Inspired | Rubric Total | Rubric Consistent | Rubric Mismatches |",
-        "|---|---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|",
+        "| Campaign | SUT Profile | Pair Valid | Evidence | Latest Evidence Dir | Total | Success | Failed | Skipped | Faithful | Adapted | Inspired | Rubric Total | Rubric Consistent | Rubric Mismatches |",
+        "|---|---|---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|",
     ]
 
     for row in rows:
+        total = str(row.total_techniques) if row.has_latest_evidence else "--"
+        successful = str(row.successful) if row.has_latest_evidence else "--"
+        failed = str(row.failed) if row.has_latest_evidence else "--"
+        skipped = str(row.skipped) if row.has_latest_evidence else "--"
+        faithful = str(row.faithful) if row.has_latest_evidence else "--"
+        adapted = str(row.adapted) if row.has_latest_evidence else "--"
+        inspired = str(row.inspired) if row.has_latest_evidence else "--"
         lines.append(
-            "| `{campaign_id}` | `{sut_profile_id}` | {pair_valid} | `{latest_evidence}` | {total_techniques} | {successful} | {failed} | {skipped} | {faithful} | {adapted} | {inspired} | {rubric_total} | {rubric_consistent} | {rubric_mismatches} |".format(
+            "| `{campaign_id}` | `{sut_profile_id}` | {pair_valid} | {has_latest_evidence} | `{latest_evidence}` | {total_techniques} | {successful} | {failed} | {skipped} | {faithful} | {adapted} | {inspired} | {rubric_total} | {rubric_consistent} | {rubric_mismatches} |".format(
                 campaign_id=row.campaign_id,
                 sut_profile_id=row.sut_profile_id,
                 pair_valid="yes" if row.pair_valid else "no",
+                has_latest_evidence="yes" if row.has_latest_evidence else "no",
                 latest_evidence=row.latest_evidence or "-",
-                total_techniques=row.total_techniques,
-                successful=row.successful,
-                failed=row.failed,
-                skipped=row.skipped,
-                faithful=row.faithful,
-                adapted=row.adapted,
-                inspired=row.inspired,
+                total_techniques=total,
+                successful=successful,
+                failed=failed,
+                skipped=skipped,
+                faithful=faithful,
+                adapted=adapted,
+                inspired=inspired,
                 rubric_total=row.rubric_total,
                 rubric_consistent=row.rubric_consistent,
                 rubric_mismatches=row.rubric_mismatches,
