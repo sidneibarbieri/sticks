@@ -1,0 +1,11 @@
+{
+  "generated_at": "2026-04-07T14:19:23.266574",
+  "results": [
+    {
+      "paper": "paper2",
+      "status": "current",
+      "details": "Paper 2 values.tex already matched measurement pipeline output.",
+      "macros_written": 118
+    }
+  ]
+}

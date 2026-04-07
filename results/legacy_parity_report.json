@@ -1,0 +1,201 @@
+{
+  "generated_at": "2026-04-02T17:58:03.994670",
+  "docker_campaign_count": 8,
+  "published_campaign_count": 14,
+  "mapped_legacy_campaigns": 8,
+  "docker_technique_universe": 73,
+  "matched_docker_techniques": 73,
+  "legacy_technique_coverage_rate": 1.0,
+  "available_executor_count": 107,
+  "mapped_campaigns_with_sut_profile": 8,
+  "legacy_docker_only_with_executor": 0,
+  "legacy_docker_only_without_executor": 0,
+  "exact_technique_matches": [
+    "0.apt41_dust",
+    "0.c0010",
+    "0.c0026",
+    "0.costaricto",
+    "0.operation_midnighteclipse",
+    "0.outer_space",
+    "0.salesforce_data_exfiltration",
+    "0.shadowray"
+  ],
+  "campaigns": [
+    {
+      "docker_campaign": "apt41_dust",
+      "sticks_campaign": "0.apt41_dust",
+      "docker_techniques": 23,
+      "sticks_techniques": 23,
+      "common_techniques": 23,
+      "legacy_coverage_rate": 1.0,
+      "exact_technique_match": true,
+      "docker_only": [],
+      "sticks_only": [],
+      "sut_profile_present": true,
+      "docker_only_with_executor": [],
+      "docker_only_without_executor": [],
+      "migration_readiness": "exact_match",
+      "latest_execution": {
+        "evidence_dir": "release/evidence/0.apt41_dust_20260402_141429",
+        "successful": 23,
+        "failed": 0,
+        "total_techniques": 23,
+        "success_rate": 1.0
+      }
+    },
+    {
+      "docker_campaign": "c0010",
+      "sticks_campaign": "0.c0010",
+      "docker_techniques": 9,
+      "sticks_techniques": 9,
+      "common_techniques": 9,
+      "legacy_coverage_rate": 1.0,
+      "exact_technique_match": true,
+      "docker_only": [],
+      "sticks_only": [],
+      "sut_profile_present": true,
+      "docker_only_with_executor": [],
+      "docker_only_without_executor": [],
+      "migration_readiness": "exact_match",
+      "latest_execution": {
+        "evidence_dir": "release/evidence/0.c0010_20260401_113235",
+        "successful": 9,
+        "failed": 0,
+        "total_techniques": 9,
+        "success_rate": 1.0
+      }
+    },
+    {
+      "docker_campaign": "c0026",
+      "sticks_campaign": "0.c0026",
+      "docker_techniques": 6,
+      "sticks_techniques": 6,
+      "common_techniques": 6,
+      "legacy_coverage_rate": 1.0,
+      "exact_technique_match": true,
+      "docker_only": [],
+      "sticks_only": [],
+      "sut_profile_present": true,
+      "docker_only_with_executor": [],
+      "docker_only_without_executor": [],
+      "migration_readiness": "exact_match",
+      "latest_execution": {
+        "evidence_dir": "release/evidence/0.c0026_20260401_113319",
+        "successful": 6,
+        "failed": 0,
+        "total_techniques": 6,
+        "success_rate": 1.0
+      }
+    },
+    {
+      "docker_campaign": "costaricto",
+      "sticks_campaign": "0.costaricto",
+      "docker_techniques": 10,
+      "sticks_techniques": 10,
+      "common_techniques": 10,
+      "legacy_coverage_rate": 1.0,
+      "exact_technique_match": true,
+      "docker_only": [],
+      "sticks_only": [],
+      "sut_profile_present": true,
+      "docker_only_with_executor": [],
+      "docker_only_without_executor": [],
+      "migration_readiness": "exact_match",
+      "latest_execution": {
+        "evidence_dir": "release/evidence/0.costaricto_20260401_113325",
+        "successful": 10,
+        "failed": 0,
+        "total_techniques": 10,
+        "success_rate": 1.0
+      }
+    },
+    {
+      "docker_campaign": "operation_midnighteclipse",
+      "sticks_campaign": "0.operation_midnighteclipse",
+      "docker_techniques": 17,
+      "sticks_techniques": 17,
+      "common_techniques": 17,
+      "legacy_coverage_rate": 1.0,
+      "exact_technique_match": true,
+      "docker_only": [],
+      "sticks_only": [],
+      "sut_profile_present": true,
+      "docker_only_with_executor": [],
+      "docker_only_without_executor": [],
+      "migration_readiness": "exact_match",
+      "latest_execution": {
+        "evidence_dir": "release/evidence/0.operation_midnighteclipse_20260402_141553",
+        "successful": 17,
+        "failed": 0,
+        "total_techniques": 17,
+        "success_rate": 1.0
+      }
+    },
+    {
+      "docker_campaign": "outer_space",
+      "sticks_campaign": "0.outer_space",
+      "docker_techniques": 8,
+      "sticks_techniques": 8,
+      "common_techniques": 8,
+      "legacy_coverage_rate": 1.0,
+      "exact_technique_match": true,
+      "docker_only": [],
+      "sticks_only": [],
+      "sut_profile_present": true,
+      "docker_only_with_executor": [],
+      "docker_only_without_executor": [],
+      "migration_readiness": "exact_match",
+      "latest_execution": {
+        "evidence_dir": "release/evidence/0.outer_space_20260401_113345",
+        "successful": 8,
+        "failed": 0,
+        "total_techniques": 8,
+        "success_rate": 1.0
+      }
+    },
+    {
+      "docker_campaign": "salesforce_data_exfiltration",
+      "sticks_campaign": "0.salesforce_data_exfiltration",
+      "docker_techniques": 18,
+      "sticks_techniques": 18,
+      "common_techniques": 18,
+      "legacy_coverage_rate": 1.0,
+      "exact_technique_match": true,
+      "docker_only": [],
+      "sticks_only": [],
+      "sut_profile_present": true,
+      "docker_only_with_executor": [],
+      "docker_only_without_executor": [],
+      "migration_readiness": "exact_match",
+      "latest_execution": {
+        "evidence_dir": "release/evidence/0.salesforce_data_exfiltration_20260402_141715",
+        "successful": 18,
+        "failed": 0,
+        "total_techniques": 18,
+        "success_rate": 1.0
+      }
+    },
+    {
+      "docker_campaign": "shadowray",
+      "sticks_campaign": "0.shadowray",
+      "docker_techniques": 10,
+      "sticks_techniques": 10,
+      "common_techniques": 10,
+      "legacy_coverage_rate": 1.0,
+      "exact_technique_match": true,
+      "docker_only": [],
+      "sticks_only": [],
+      "sut_profile_present": true,
+      "docker_only_with_executor": [],
+      "docker_only_without_executor": [],
+      "migration_readiness": "exact_match",
+      "latest_execution": {
+        "evidence_dir": "release/evidence/0.shadowray_20260401_113404",
+        "successful": 10,
+        "failed": 0,
+        "total_techniques": 10,
+        "success_rate": 1.0
+      }
+    }
+  ]
+}

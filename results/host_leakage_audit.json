@@ -1,0 +1,107 @@
+{
+  "generated_at": "2026-04-02T17:58:03.900214",
+  "campaigns_audited": 14,
+  "campaigns_with_evidence": 14,
+  "campaigns_with_host_leakage": 0,
+  "leaked_steps_in_latest_evidence": 0,
+  "campaigns": [
+    {
+      "campaign_id": "0.apt41_dust",
+      "has_evidence": true,
+      "latest_summary": "release/evidence/0.apt41_dust_full_20260401_113231/summary.json",
+      "leaked_steps": [],
+      "host_leakage_detected": false
+    },
+    {
+      "campaign_id": "0.apt41_dust_full",
+      "has_evidence": true,
+      "latest_summary": "release/evidence/0.apt41_dust_full_20260401_113231/summary.json",
+      "leaked_steps": [],
+      "host_leakage_detected": false
+    },
+    {
+      "campaign_id": "0.c0010",
+      "has_evidence": true,
+      "latest_summary": "release/evidence/0.c0010_20260401_113235/summary.json",
+      "leaked_steps": [],
+      "host_leakage_detected": false
+    },
+    {
+      "campaign_id": "0.c0011",
+      "has_evidence": true,
+      "latest_summary": "release/evidence/0.c0011_20260402_174921/summary.json",
+      "leaked_steps": [],
+      "host_leakage_detected": false
+    },
+    {
+      "campaign_id": "0.c0012",
+      "has_evidence": true,
+      "latest_summary": "release/evidence/0.c0012_20260401_113242/summary.json",
+      "leaked_steps": [],
+      "host_leakage_detected": false
+    },
+    {
+      "campaign_id": "0.c0013",
+      "has_evidence": true,
+      "latest_summary": "release/evidence/0.c0013_20260401_113250/summary.json",
+      "leaked_steps": [],
+      "host_leakage_detected": false
+    },
+    {
+      "campaign_id": "0.c0015",
+      "has_evidence": true,
+      "latest_summary": "release/evidence/0.c0015_20260401_113256/summary.json",
+      "leaked_steps": [],
+      "host_leakage_detected": false
+    },
+    {
+      "campaign_id": "0.c0017",
+      "has_evidence": true,
+      "latest_summary": "release/evidence/0.c0017_20260401_113305/summary.json",
+      "leaked_steps": [],
+      "host_leakage_detected": false
+    },
+    {
+      "campaign_id": "0.c0026",
+      "has_evidence": true,
+      "latest_summary": "release/evidence/0.c0026_20260401_113319/summary.json",
+      "leaked_steps": [],
+      "host_leakage_detected": false
+    },
+    {
+      "campaign_id": "0.costaricto",
+      "has_evidence": true,
+      "latest_summary": "release/evidence/0.costaricto_20260401_113325/summary.json",
+      "leaked_steps": [],
+      "host_leakage_detected": false
+    },
+    {
+      "campaign_id": "0.operation_midnighteclipse",
+      "has_evidence": true,
+      "latest_summary": "release/evidence/0.operation_midnighteclipse_20260402_141553/summary.json",
+      "leaked_steps": [],
+      "host_leakage_detected": false
+    },
+    {
+      "campaign_id": "0.outer_space",
+      "has_evidence": true,
+      "latest_summary": "release/evidence/0.outer_space_20260401_113345/summary.json",
+      "leaked_steps": [],
+      "host_leakage_detected": false
+    },
+    {
+      "campaign_id": "0.salesforce_data_exfiltration",
+      "has_evidence": true,
+      "latest_summary": "release/evidence/0.salesforce_data_exfiltration_20260402_141715/summary.json",
+      "leaked_steps": [],
+      "host_leakage_detected": false
+    },
+    {
+      "campaign_id": "0.shadowray",
+      "has_evidence": true,
+      "latest_summary": "release/evidence/0.shadowray_20260401_113404/summary.json",
+      "leaked_steps": [],
+      "host_leakage_detected": false
+    }
+  ]
+}

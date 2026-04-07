@@ -1,0 +1,39 @@
+{
+  "claims": [
+    {
+      "claim_id": "CLAIM-PAIR-01",
+      "claim_text": "Published campaign-SUT pair consistency validated by the loader.",
+      "measured_value": "12/14 pairs valid",
+      "evidence_artifacts": [
+        "release/campaign_sut_fidelity_matrix.json",
+        "src/loaders/campaign_loader.py"
+      ]
+    },
+    {
+      "claim_id": "CLAIM-EXEC-01",
+      "claim_text": "Latest execution snapshot shows successful completion without failed techniques.",
+      "measured_value": "14/14 campaigns with failed=0",
+      "evidence_artifacts": [
+        "release/campaign_sut_fidelity_matrix.json"
+      ]
+    },
+    {
+      "claim_id": "CLAIM-RUBRIC-01",
+      "claim_text": "Rubric computed fidelity remains consistent with declared fidelity.",
+      "measured_value": "consistent=58/125, mismatches=67",
+      "evidence_artifacts": [
+        "release/fidelity_report.json",
+        "release/fidelity_tables.tex",
+        "sticks/data/abilities_registry/fidelity_rubric.py"
+      ]
+    },
+    {
+      "claim_id": "CLAIM-FULLLAB-01",
+      "claim_text": "Full-lab batch workflow status (canonical scripts).",
+      "measured_value": "2/2 campaigns PASS",
+      "evidence_artifacts": [
+        "release/full_lab_batch_20260320_010509.tsv"
+      ]
+    }
+  ]
+}
