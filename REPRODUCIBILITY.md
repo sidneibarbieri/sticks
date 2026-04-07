@@ -60,7 +60,14 @@ python3 scripts/generate_corpus_state.py
 python3 scripts/audit_mitre_metadata.py
 python3 scripts/audit_legacy_parity.py
 python3 scripts/check_public_surface.py
+python3 scripts/generate_cve_resolution_report.py
 ```
+
+The CVE resolution report is a deterministic downstream extension. It measures
+which campaign-linked CVEs currently resolve to candidate SUT targets in the
+public artifact and where ATT&CK still lacks a direct target-product binding.
+It does not claim automatic exploit synthesis or online CTI-to-command
+planning.
 
 For a concrete VM-backed run that provisions the declared SUT automatically:
 

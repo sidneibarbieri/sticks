@@ -80,14 +80,20 @@ python3 evaluate_compatibility_validation.py >/tmp/measurement_validation_releas
   fail "compatibility validation summary generation failed"
 }
 
+log "1e) Generating deterministic CVE resolution report"
+python3 "$STICKS_ROOT/scripts/generate_cve_resolution_report.py" >/tmp/measurement_cve_resolution_release.log 2>&1 || {
+  cat /tmp/measurement_cve_resolution_release.log >&2
+  fail "CVE resolution report generation failed"
+}
+
 if [[ "$HAS_MANUSCRIPT_DIR" == "1" ]]; then
-  log "1e) Synchronizing manuscript values from measured outputs"
+  log "1f) Synchronizing manuscript values from measured outputs"
   python3 "$STICKS_ROOT/scripts/sync_manuscript_values.py" --paper paper2 >/tmp/measurement_sync_release.log 2>&1 || {
     cat /tmp/measurement_sync_release.log >&2
     fail "manuscript value synchronization failed"
   }
 else
-  log "1e) No manuscript tree detected; skipping manuscript synchronization"
+  log "1f) No manuscript tree detected; skipping manuscript synchronization"
 fi
 
 log "2) Checking required output artifacts"
@@ -97,6 +103,7 @@ required=(
   "results/figures_data.json"
   "results/audit/all_cves.csv"
   "results/audit/campaign_cves.csv"
+  "results/audit/cve_resolution_candidates.csv"
   "results/audit/campaign_software.csv"
   "results/audit/campaign_platforms_software_only.csv"
   "results/audit/campaign_os_family_counts.csv"
@@ -123,10 +130,14 @@ required=(
 for f in "${required[@]}"; do
   [[ -f "$f" ]] || fail "missing artifact: $MEAS_SCRIPTS/$f"
 done
+[[ -f "$STICKS_ROOT/results/cve_resolution_candidates.json" ]] || fail "missing artifact: $STICKS_ROOT/results/cve_resolution_candidates.json"
+[[ -f "$STICKS_ROOT/results/CVE_RESOLUTION_CANDIDATES.md" ]] || fail "missing artifact: $STICKS_ROOT/results/CVE_RESOLUTION_CANDIDATES.md"
+[[ -f "$STICKS_ROOT/release/cve_resolution_candidates.json" ]] || fail "missing artifact: $STICKS_ROOT/release/cve_resolution_candidates.json"
+[[ -f "$STICKS_ROOT/release/CVE_RESOLUTION_CANDIDATES.md" ]] || fail "missing artifact: $STICKS_ROOT/release/CVE_RESOLUTION_CANDIDATES.md"
 
 log "3) Validating key numeric invariants"
 python3 - <<'PY'
-import json, csv, sys
+import json, csv, os, sys
 from pathlib import Path
 base = Path('results')
 with open(base/'todo_values.json') as f:
@@ -195,6 +206,26 @@ expected_campaign_cve_map = {
     'SharePoint ToolShell Exploitation': 'CVE-2025-49704; CVE-2025-49706; CVE-2025-53770; CVE-2025-53771',
 }
 checks.append((campaign_cve_map == expected_campaign_cve_map, 'campaign-linked CVE table source map mismatch'))
+
+with open(Path(os.environ['STICKS_ROOT'])/'results'/'cve_resolution_candidates.json', encoding='utf-8') as f:
+    resolution = json.load(f)
+resolution_totals = resolution['totals']
+checks.append((resolution_totals['total_cve_positive_campaigns'] == 5, 'CVE resolution campaign count mismatch'))
+checks.append((resolution_totals['total_campaign_cve_pairs'] == 8, 'CVE resolution pair count mismatch'))
+checks.append((resolution_totals['automatic_candidate_pairs'] == 1, 'automatic CVE candidate pair count mismatch'))
+checks.append((resolution_totals['automatic_candidate_campaigns'] == 1, 'automatic CVE candidate campaign count mismatch'))
+checks.append((resolution_totals['direct_attck_binding_pairs'] == 0, 'direct ATT&CK target-product binding count mismatch'))
+
+shadowray_resolution = next(
+    row
+    for row in resolution['rows']
+    if row['campaign_name'] == 'ShadowRay' and row['cve_id'] == 'CVE-2023-48022'
+)
+checks.append((shadowray_resolution['resolution_kind'] == 'open_package', 'ShadowRay resolution kind mismatch'))
+checks.append((shadowray_resolution['ecosystem'] == 'pip', 'ShadowRay ecosystem mismatch'))
+checks.append((shadowray_resolution['package_name'] == 'ray', 'ShadowRay package name mismatch'))
+checks.append((shadowray_resolution['automatic_sut_support'] is True, 'ShadowRay automatic support mismatch'))
+checks.append((shadowray_resolution['attck_binding_status'] == 'cve_only_curated_binding', 'ShadowRay binding status mismatch'))
 
 # Dataset table totals in main.tex are currently static and must stay aligned
 # with local bundles used by the pipeline.

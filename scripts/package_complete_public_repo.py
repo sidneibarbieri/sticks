@@ -116,6 +116,8 @@ def ignore_for_directory(directory: str):
             ignored.add("llm_environment_inference.py")
         if rel == Path("sut/scripts/results/audit"):
             ignored.add("llm")
+        if rel == Path("sut/scripts/results"):
+            ignored.add("rendered_figures")
 
         # Exclude obviously local or superseded runtime residue.
         if rel == Path():

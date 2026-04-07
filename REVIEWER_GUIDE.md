@@ -69,6 +69,16 @@ This audit checks for stale reviewer paths, duplicate documentation
 directories, and local runtime residue that should not survive into a clean
 artifact handoff.
 
+To inspect the deterministic downstream CVE concretization report:
+
+```bash
+cat results/CVE_RESOLUTION_CANDIDATES.md
+```
+
+This report measures which campaign-linked CVEs currently resolve to concrete
+candidate SUT targets in the public artifact. It does not infer exploits or
+perform online target-product discovery.
+
 ## 4. VM-Backed Realism Path
 
 The repository also contains a provider-aware VM-backed path for realism
@@ -179,6 +189,10 @@ contract.
 - The published corpus is broader than strict pair validation, so use the
   matrix rather than filename presence alone when choosing a realism run.
 - Live runs regenerate reviewer-visible evidence under `release/evidence/`.
+- The repository also regenerates `results/CVE_RESOLUTION_CANDIDATES.md` from
+  measured ATT&CK outputs plus curated CVE rules so reviewers can inspect how
+  many campaign-linked CVEs currently resolve to package- or product-bound SUT
+  candidates.
 - The public repository ships synthesized reports rather than heavyweight
   frozen evidence trees; this keeps the handoff portable without weakening the
   reproduction path.

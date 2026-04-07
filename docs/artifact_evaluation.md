@@ -31,6 +31,8 @@ bash run_review_check.sh
 
 This reruns the measurement pipeline, refreshes paper-facing synthesized
 outputs, and checks that the released values remain internally consistent.
+It also regenerates the deterministic downstream CVE concretization report in
+`results/CVE_RESOLUTION_CANDIDATES.md`.
 
 ## Minimal Working Example
 
@@ -95,6 +97,8 @@ The most important files are:
 - `manifest.json`
 - `results/CORPUS_STATE.md`
 - `results/CAMPAIGN_SUT_FIDELITY_MATRIX.md`
+- `results/CVE_RESOLUTION_CANDIDATES.md`
+- `results/cve_resolution_candidates.json`
 - `results/tables/corpus_table.tex`
 - `results/tables/fidelity_table.tex`
 - `results/tables/execution_table.tex`
