@@ -41,6 +41,8 @@ def _load_validation_helper():
 def evidence_dirs_for_campaign(campaign_id: str) -> list[Path]:
     prefix = f"{campaign_id}_"
     matches: list[Path] = []
+    if not EVIDENCE_DIR.exists():
+        return matches
     for candidate in EVIDENCE_DIR.iterdir():
         if not candidate.is_dir():
             continue

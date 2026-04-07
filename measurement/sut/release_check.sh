@@ -86,6 +86,12 @@ python3 "$STICKS_ROOT/scripts/generate_cve_resolution_report.py" >/tmp/measureme
   fail "CVE resolution report generation failed"
 }
 
+log "1ea) Generating infrastructure and SUT automation coverage report"
+python3 "$STICKS_ROOT/scripts/generate_infra_automation_report.py" >/tmp/measurement_infra_automation_release.log 2>&1 || {
+  cat /tmp/measurement_infra_automation_release.log >&2
+  fail "infrastructure automation report generation failed"
+}
+
 if [[ "$HAS_MANUSCRIPT_DIR" == "1" ]]; then
   log "1f) Synchronizing manuscript values from measured outputs"
   python3 "$STICKS_ROOT/scripts/sync_manuscript_values.py" --paper paper2 >/tmp/measurement_sync_release.log 2>&1 || {
@@ -134,6 +140,11 @@ done
 [[ -f "$STICKS_ROOT/results/CVE_RESOLUTION_CANDIDATES.md" ]] || fail "missing artifact: $STICKS_ROOT/results/CVE_RESOLUTION_CANDIDATES.md"
 [[ -f "$STICKS_ROOT/release/cve_resolution_candidates.json" ]] || fail "missing artifact: $STICKS_ROOT/release/cve_resolution_candidates.json"
 [[ -f "$STICKS_ROOT/release/CVE_RESOLUTION_CANDIDATES.md" ]] || fail "missing artifact: $STICKS_ROOT/release/CVE_RESOLUTION_CANDIDATES.md"
+[[ -f "$STICKS_ROOT/results/infra_automation_coverage.json" ]] || fail "missing artifact: $STICKS_ROOT/results/infra_automation_coverage.json"
+[[ -f "$STICKS_ROOT/results/INFRA_AUTOMATION_COVERAGE.md" ]] || fail "missing artifact: $STICKS_ROOT/results/INFRA_AUTOMATION_COVERAGE.md"
+[[ -f "$STICKS_ROOT/results/infra_automation_coverage.csv" ]] || fail "missing artifact: $STICKS_ROOT/results/infra_automation_coverage.csv"
+[[ -f "$STICKS_ROOT/release/infra_automation_coverage.json" ]] || fail "missing artifact: $STICKS_ROOT/release/infra_automation_coverage.json"
+[[ -f "$STICKS_ROOT/release/INFRA_AUTOMATION_COVERAGE.md" ]] || fail "missing artifact: $STICKS_ROOT/release/INFRA_AUTOMATION_COVERAGE.md"
 
 log "3) Validating key numeric invariants"
 python3 - <<'PY'
@@ -228,6 +239,29 @@ checks.append((shadowray_resolution['ecosystem'] == 'pip', 'ShadowRay ecosystem 
 checks.append((shadowray_resolution['package_name'] == 'ray', 'ShadowRay package name mismatch'))
 checks.append((shadowray_resolution['automatic_sut_support'] is True, 'ShadowRay automatic support mismatch'))
 checks.append((shadowray_resolution['attck_binding_status'] == 'cve_only_curated_binding', 'ShadowRay binding status mismatch'))
+
+with open(Path(os.environ['STICKS_ROOT'])/'results'/'infra_automation_coverage.json', encoding='utf-8') as f:
+    infra = json.load(f)
+infra_totals = infra['totals']
+evidence_root = Path(os.environ['STICKS_ROOT']) / 'release' / 'evidence'
+expected_evidence_campaigns = 0
+if evidence_root.exists():
+    expected_evidence_campaigns = sum(
+        1
+        for campaign_id in {row['campaign_id'] for row in infra['rows']}
+        if any(
+            candidate.is_dir() and candidate.name.startswith(f"{campaign_id}_")
+            for candidate in evidence_root.iterdir()
+        )
+    )
+checks.append((infra_totals['published_campaigns'] == 14, 'infra coverage published campaign count mismatch'))
+checks.append((infra_totals['campaigns_with_strict_pair_validation'] == 12, 'infra coverage pair-valid count mismatch'))
+checks.append((infra_totals['campaigns_with_base_weaknesses'] == 14, 'infra coverage base-weakness count mismatch'))
+checks.append((infra_totals['campaigns_with_step_overlays'] == 1, 'infra coverage overlay count mismatch'))
+checks.append((infra_totals['campaigns_with_latest_evidence'] == expected_evidence_campaigns, 'infra coverage evidence count mismatch'))
+checks.append((infra_totals['campaigns_with_single_target_host'] == 14, 'infra coverage single-target count mismatch'))
+checks.append((infra_totals['campaigns_with_multi_target_host'] == 0, 'infra coverage multi-target count mismatch'))
+checks.append((infra_totals['campaigns_with_multi_vm_runtime'] == 14, 'infra coverage multi-VM count mismatch'))
 
 # Dataset table totals in main.tex are currently static and must stay aligned
 # with local bundles used by the pipeline.

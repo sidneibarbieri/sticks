@@ -79,6 +79,17 @@ This report measures which campaign-linked CVEs currently resolve to concrete
 candidate SUT targets in the public artifact. It does not infer exploits or
 perform online target-product discovery.
 
+To inspect the current infrastructure/SUT automation boundary:
+
+```bash
+cat results/INFRA_AUTOMATION_COVERAGE.md
+```
+
+This report shows, per published campaign/SUT pair, how many runtime VMs are
+declared, how many target hosts are configured, whether base weaknesses are
+applied automatically, whether step-conditioned overlays exist, and whether
+latest evidence is currently shipped.
+
 ## 4. VM-Backed Realism Path
 
 The repository also contains a provider-aware VM-backed path for realism
@@ -193,6 +204,9 @@ contract.
   measured ATT&CK outputs plus curated CVE rules so reviewers can inspect how
   many campaign-linked CVEs currently resolve to package- or product-bound SUT
   candidates.
+- The repository also regenerates `results/INFRA_AUTOMATION_COVERAGE.md` so
+  reviewers can see the current IaC/SUT automation boundary without reverse
+  engineering it from YAML profiles and shell scripts.
 - The public repository ships synthesized reports rather than heavyweight
   frozen evidence trees; this keeps the handoff portable without weakening the
   reproduction path.

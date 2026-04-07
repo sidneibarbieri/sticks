@@ -33,6 +33,8 @@ This reruns the measurement pipeline, refreshes paper-facing synthesized
 outputs, and checks that the released values remain internally consistent.
 It also regenerates the deterministic downstream CVE concretization report in
 `results/CVE_RESOLUTION_CANDIDATES.md`.
+It also regenerates the infrastructure/SUT automation coverage report in
+`results/INFRA_AUTOMATION_COVERAGE.md`.
 
 ## Minimal Working Example
 
@@ -99,6 +101,8 @@ The most important files are:
 - `results/CAMPAIGN_SUT_FIDELITY_MATRIX.md`
 - `results/CVE_RESOLUTION_CANDIDATES.md`
 - `results/cve_resolution_candidates.json`
+- `results/INFRA_AUTOMATION_COVERAGE.md`
+- `results/infra_automation_coverage.json`
 - `results/tables/corpus_table.tex`
 - `results/tables/fidelity_table.tex`
 - `results/tables/execution_table.tex`

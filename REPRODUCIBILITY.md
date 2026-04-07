@@ -69,6 +69,12 @@ public artifact and where ATT&CK still lacks a direct target-product binding.
 It does not claim automatic exploit synthesis or online CTI-to-command
 planning.
 
+The infrastructure automation coverage report, `results/INFRA_AUTOMATION_COVERAGE.md`,
+documents the current IaC and SUT automation boundary across the published
+campaign/SUT pairs: runtime VM topology, target-host count, automatically
+applied base weaknesses, step-conditioned overlays, and latest evidence
+availability.
+
 For a concrete VM-backed run that provisions the declared SUT automatically:
 
 ```bash
