@@ -46,6 +46,11 @@ declared base SUT profile, applies step-conditioned overlays for
 selected techniques, executes the campaign, regenerates evidence and
 synthesized reports, and tears the lab down.
 
+The current published subset remains conservative: the shipped
+campaign/SUT pairs use single target-host examples today, even though
+the IaC layer is able to lift broader multi-host layouts when a
+declared SUT profile requires them.
+
 ## Publication contract
 
 - The fast reviewer path is the primary reproducibility promise.

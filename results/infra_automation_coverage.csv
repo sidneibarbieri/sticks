@@ -2,7 +2,7 @@ campaign_id,sut_profile_id,pair_valid,pair_error,declared_runtime_vms,runtime_vm
 0.apt41_dust,0.apt41_dust,True,,caldera;attacker;target-linux-1,3,target-base,1,single_target,3,3,1,3,3,0,0,0,0,False
 0.apt41_dust_full,0.apt41_dust_full,False,"Fidelity mismatch for T1490: campaign expects adapted, SUT expects inspired",caldera;attacker;target-linux-1,3,target-base,1,single_target,3,1,1,2,1,0,0,0,0,False
 0.c0010,0.c0010,True,,caldera;attacker;target-linux-1,3,target-base,1,single_target,3,2,1,2,2,0,0,0,0,False
-0.c0011,0.c0011,True,,caldera;attacker;target-linux-1,3,target-base,1,single_target,3,1,1,2,1,0,0,0,0,False
+0.c0011,0.c0011,True,,caldera;attacker;target-linux-1,3,target-base,1,single_target,3,1,1,2,1,0,0,0,0,True
 0.c0012,0.c0012,True,,caldera;attacker;target-linux-1,3,target-base,1,single_target,3,1,1,0,2,0,0,0,0,False
 0.c0013,0.c0013,False,"Fidelity mismatch for T1055: campaign expects adapted, SUT expects inspired",caldera;attacker;target-linux-1,3,target-base,1,single_target,3,2,1,0,2,0,0,0,0,False
 0.c0015,0.c0015,True,,caldera;attacker;target-linux-1,3,target-base,1,single_target,3,1,1,2,1,0,0,0,0,False
@@ -12,4 +12,4 @@ campaign_id,sut_profile_id,pair_valid,pair_error,declared_runtime_vms,runtime_vm
 0.operation_midnighteclipse,0.operation_midnighteclipse,True,,caldera;attacker;target-linux-1,3,target-base,1,single_target,3,5,1,3,3,0,0,0,0,False
 0.outer_space,0.outer_space,True,,caldera;attacker;target-linux-1,3,target-base,1,single_target,3,2,1,3,1,0,0,0,0,False
 0.salesforce_data_exfiltration,0.salesforce_data_exfiltration,True,,caldera;attacker;target-linux-1,3,target-base,1,single_target,3,2,1,2,2,0,0,0,0,False
-0.shadowray,0.shadowray,True,,caldera;attacker;target-linux-1,3,target-base,1,single_target,1,1,1,0,1,1,1,0,1,False
+0.shadowray,0.shadowray,True,,caldera;attacker;target-linux-1,3,target-base,1,single_target,1,1,1,0,1,1,1,0,1,True

@@ -10,7 +10,7 @@ infrastructure and configuration coverage, not historical completeness.
 - Pairs passing strict validation: `12`
 - Campaigns with base weaknesses configured automatically: `14`
 - Campaigns with step-conditioned overlays: `1`
-- Campaigns with latest shipped evidence: `0`
+- Campaigns with latest shipped evidence: `2`
 - Campaigns with single target host: `14`
 - Campaigns with multi-target host topology: `0`
 - Campaigns with multi-VM runtime substrate: `14`
@@ -27,7 +27,7 @@ At the same time, the published subset is still operationally conservative: all 
 | `0.apt41_dust` | yes | 3 | 1 | single_target | 3 | 0 | no |
 | `0.apt41_dust_full` | no | 3 | 1 | single_target | 1 | 0 | no |
 | `0.c0010` | yes | 3 | 1 | single_target | 2 | 0 | no |
-| `0.c0011` | yes | 3 | 1 | single_target | 1 | 0 | no |
+| `0.c0011` | yes | 3 | 1 | single_target | 1 | 0 | yes |
 | `0.c0012` | yes | 3 | 1 | single_target | 2 | 0 | no |
 | `0.c0013` | no | 3 | 1 | single_target | 2 | 0 | no |
 | `0.c0015` | yes | 3 | 1 | single_target | 1 | 0 | no |
@@ -37,7 +37,7 @@ At the same time, the published subset is still operationally conservative: all 
 | `0.operation_midnighteclipse` | yes | 3 | 1 | single_target | 3 | 0 | no |
 | `0.outer_space` | yes | 3 | 1 | single_target | 1 | 0 | no |
 | `0.salesforce_data_exfiltration` | yes | 3 | 1 | single_target | 2 | 0 | no |
-| `0.shadowray` | yes | 3 | 1 | single_target | 1 | 1 | no |
+| `0.shadowray` | yes | 3 | 1 | single_target | 1 | 1 | yes |
 
 ## Validation Exceptions
 

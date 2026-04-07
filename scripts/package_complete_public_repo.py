@@ -60,6 +60,25 @@ ROOT_DIRS = [
     "tests",
 ]
 
+MEASUREMENT_SUT_INTERNAL_DOCS = {
+    "FINAL_REVIEW_READINESS.md",
+    "FINAL_STATUS.md",
+    "INSPIRED_PROFILES.md",
+    "MULTI_TECH_ANALYSIS.md",
+    "PROVISIONING_ANALYSIS.md",
+    "PUBLICATION_CHECKLIST.md",
+    "RESULTS_CLASSIFICATION.md",
+    "ROOT_CAUSE_ANALYSIS.md",
+    "TECHNICAL_ANALYSIS.md",
+    "TOP_TIER_REQUIREMENTS.md",
+}
+
+DOCS_INTERNAL_FILES = {
+    "ARCHITECTURE_FREEZE.md",
+    "CAMPAIGN_EXPANSION_TO10.md",
+    "LEGACY_REMOVAL_RECORD.md",
+}
+
 def ensure_parent(path: Path) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
 
@@ -112,6 +131,7 @@ def ignore_for_directory(directory: str):
 
         if rel == Path("sut"):
             ignored.add("SCRIPT_ANALYSIS.md")
+            ignored.update(name for name in names if name in MEASUREMENT_SUT_INTERNAL_DOCS)
         if rel == Path("sut/scripts"):
             ignored.add("llm_environment_inference.py")
         if rel == Path("sut/scripts/results/audit"):
@@ -146,6 +166,7 @@ def ignore_for_directory(directory: str):
                         "CANONICAL_STRUCTURE.md",
                     }
                 )
+                ignored.update(name for name in names if name in DOCS_INTERNAL_FILES)
             if directory == "scripts":
                 ignored.update(
                     {
@@ -342,6 +363,11 @@ def write_repo_docs(dest_root: Path) -> None:
                 "declared base SUT profile, applies step-conditioned overlays for",
                 "selected techniques, executes the campaign, regenerates evidence and",
                 "synthesized reports, and tears the lab down.",
+                "",
+                "The current published subset remains conservative: the shipped",
+                "campaign/SUT pairs use single target-host examples today, even though",
+                "the IaC layer is able to lift broader multi-host layouts when a",
+                "declared SUT profile requires them.",
                 "",
                 "## Publication contract",
                 "",

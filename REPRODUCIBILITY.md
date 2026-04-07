@@ -75,6 +75,11 @@ campaign/SUT pairs: runtime VM topology, target-host count, automatically
 applied base weaknesses, step-conditioned overlays, and latest evidence
 availability.
 
+In the current published subset, those declared campaign/SUT pairs still use
+single target-host examples. The underlying IaC path is able to lift broader
+multi-host layouts when a future SUT profile declares them, but that should be
+read as current capability rather than as shipped corpus coverage.
+
 For a concrete VM-backed run that provisions the declared SUT automatically:
 
 ```bash

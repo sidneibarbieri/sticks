@@ -10,7 +10,7 @@
     "campaigns_with_strict_pair_validation": 12,
     "campaigns_with_base_weaknesses": 14,
     "campaigns_with_step_overlays": 1,
-    "campaigns_with_latest_evidence": 0,
+    "campaigns_with_latest_evidence": 2,
     "campaigns_with_single_target_host": 14,
     "campaigns_with_multi_target_host": 0,
     "campaigns_with_multi_vm_runtime": 14
@@ -122,7 +122,7 @@
       "overlay_service_count": 0,
       "overlay_file_count": 0,
       "overlay_weakness_count": 0,
-      "has_latest_evidence": false
+      "has_latest_evidence": true
     },
     {
       "campaign_id": "0.c0012",
@@ -392,7 +392,7 @@
       "overlay_service_count": 1,
       "overlay_file_count": 0,
       "overlay_weakness_count": 1,
-      "has_latest_evidence": false
+      "has_latest_evidence": true
     }
   ]
 }
