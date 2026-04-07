@@ -17,6 +17,18 @@ bash run_review_check.sh
 This path reruns the measurement pipeline, regenerates reviewer-facing outputs,
 and checks that the released values remain consistent from the same checkout.
 
+## Host and Runtime Expectations
+
+| Path | Required tools | Recommended host | Interpretation |
+| --- | --- | --- | --- |
+| Fast paper-claim validation | `python3`, `venv` | commodity laptop/desktop | canonical validation of released values |
+| Minimal working example | `python3`, `venv` | commodity laptop/desktop | smallest live execution example |
+| VM-backed path | `python3`, `venv`, `vagrant`, `qemu` or `libvirt` | 8 CPU cores, 16 GB RAM, 25 GB free disk recommended | heavier cold-start realism path for one campaign/SUT pair |
+
+The heavy path is allowed to be slow. First-boot package installation,
+guest bootstrap, and Caldera-related service provisioning can dominate the run
+time on a clean checkout, especially on macOS ARM64 with `qemu`.
+
 ## Minimal Working Example
 
 ```bash

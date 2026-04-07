@@ -1,244 +1,117 @@
 # Artifact Evaluation Guide
 
-This document provides instructions for reproducing the experimental results presented in the STICKS paper.
+This document mirrors the current public reviewer contract for the STICKS
+artifact. Use it when you want one place that states the supported execution
+paths, host expectations, and evidence locations without reading the whole
+repository.
 
-## Overview
+## Supported Paths
 
-STICKS is a framework for executing MITRE ATT&CK campaigns in a controlled laboratory environment. The artifact includes:
+| Path | Command | Required tools | Recommended host | Purpose |
+| --- | --- | --- | --- | --- |
+| Fast validation | `bash run_review_check.sh` | `python3`, `venv` | commodity laptop/desktop | revalidate released values and paper-facing outputs |
+| Minimal working example | `./artifact/setup.sh && ./artifact/run.sh && ./artifact/validate.sh` | `python3`, `venv` | commodity laptop/desktop | smallest live execution trace |
+| VM-backed realism | `bash run_vm_backed_campaign.sh 0.c0011` | `python3`, `venv`, `vagrant`, `qemu` or `libvirt` | 8 CPU cores, 16 GB RAM, 25 GB free disk recommended | cold-start campaign/SUT replay on declared lab infrastructure |
 
-- **Framework code**: Python package for campaign execution (`src/sticks/`)
-- **Campaign definitions**: YAML files defining ATT&CK technique sequences (`data/campaigns/`)
-- **SUT profiles**: System-under-test configurations (`lab/sut_profiles/`)
-- **Execution scripts**: Automated campaign runners (`scripts/`)
-- **Results**: Evidence and execution summaries (`results/`)
+The first two paths are the canonical reviewer contract. The VM-backed path is
+supported, but intentionally heavier.
 
-## System Requirements
+## Recommended Order
 
-### Minimum Requirements
-- Python 3.8 or higher
-- 8GB RAM
-- 10GB free disk space
-- macOS, Linux, or Windows (with WSL2)
+1. Run `bash run_review_check.sh`.
+2. Run the `artifact/` smoke path if you want a live repository-local example.
+3. Run `bash run_vm_backed_campaign.sh <campaign>` only when you want explicit
+   substrate evidence from the declared lab environment.
 
-### Optional Requirements (for full lab mode)
-- Vagrant 2.3+
-- VirtualBox 6.1+, libvirt, or QEMU
-- 16GB RAM
-- 20GB free disk space
+## Fast Validation
 
-## Installation
-
-### 1. Clone Repository
 ```bash
-git clone <repository-url>
-cd sticks
+bash run_review_check.sh
 ```
 
-### 2. Install Dependencies
+This reruns the measurement pipeline, refreshes paper-facing synthesized
+outputs, and checks that the released values remain internally consistent.
+
+## Minimal Working Example
+
 ```bash
-# Install Python package in development mode
-pip install -e .
-
-# Or install requirements directly
-pip install -r requirements.txt
+./artifact/setup.sh
+./artifact/run.sh
+./artifact/validate.sh
 ```
 
-### 3. Verify Installation
+This path currently executes one representative campaign and emits structured
+evidence under `release/evidence/`.
+
+Equivalent direct commands:
+
 ```bash
-python -c "import sticks; print('STICKS package imported successfully')"
+python3 scripts/run_campaign.py --campaign 0.c0011
+python3 scripts/generate_tables.py
 ```
 
-## Quick Start
+## VM-Backed Realism
 
-### List Available Campaigns
+Representative cold-start runs:
+
 ```bash
-python scripts/run_campaign.py --list
+bash run_vm_backed_campaign.sh 0.c0011
+bash run_vm_backed_campaign.sh 0.shadowray
 ```
 
-### Execute Single Campaign
-```bash
-# Execute ShadowRay campaign
-python scripts/run_campaign.py --campaign 0.shadowray
+This path lifts the VM topology declared by the campaign's SUT profile, applies
+the declared base SUT profile, optionally applies step-conditioned SUT overlays
+for selected techniques, executes the campaign, refreshes evidence/state
+reports, and tears the lab down unless `--keep-lab` is requested.
 
-# Execute with custom output directory
-python scripts/run_campaign.py --campaign 0.mustang_panda --output results/my_run
+Important interpretation notes:
+
+- The repository derives a static lower-bound SUT profile from one corpus
+  snapshot and then runs a declared campaign/SUT pair.
+- Selected techniques may apply declared SUT overlays at runtime, but those
+  overlays are explicit campaign metadata rather than online CTI inference.
+- The VM-backed path may provision and health-check a Caldera node inside the
+  lab, but campaign execution is still driven by the STICKS runner, not by the
+  `sticks-docker` atomic planner.
+- A cold-start VM-backed run may be slow because guest bootstrap, package
+  installation, and service provisioning happen inside the guests.
+
+Backend preference:
+
+- Linux x86_64: `libvirt`
+- macOS ARM64: `qemu`
+
+## Expected Outputs
+
+The supported workflows write reviewer-visible evidence under:
+
+```text
+release/evidence/<campaign>_<timestamp>/
 ```
 
-### Execute All Campaigns
-```bash
-# Run all campaigns for regression testing
-python scripts/run_all_campaigns.py
+The most important files are:
 
-# Run with custom output directory
-python scripts/run_all_campaigns.py --output results/batch_test
-```
-
-## Campaign Details
-
-### Primary Campaigns
-- **0.shadowray**: AI/ML infrastructure attack (C0045)
-- **0.mustang_panda**: Realistic Chinese APT campaign (C0047)
-- **0.pikabot_realistic**: Realistic malware campaign (C0026)
-
-### Extended Validation Campaigns
-- **0.fox_kitten**: Iranian intrusion set (C0011)
-
-### Expected Success Rates
-- **Primary campaigns**: ≥60% techniques successful
-- **Extended validation**: Variable (inspired techniques expected to fail)
-
-## Output Structure
-
-### Evidence Files
-Each campaign execution generates:
-```
-results/evidence/<campaign>_<timestamp>/
-├── summary.json              # Execution summary
-├── per_technique/            # Individual technique evidence
-│   ├── T1059.006_<timestamp>.json
-│   ├── T1546.004_<timestamp>.json
-│   └── ...
-└── artifacts/                # Generated artifacts
-    ├── logs/
-    ├── files/
-    └── network/
-```
-
-### Summary Format
-```json
-{
-  "campaign_id": "0.shadowray",
-  "total_techniques": 10,
-  "successful": 6,
-  "failed": 4,
-  "success_rate": 60.0,
-  "duration_seconds": 45.2,
-  "technique_results": [...]
-}
-```
-
-## Generating Paper Tables
-
-### LaTeX Tables
-```bash
-# Generate all tables
-python scripts/generate_tables.py --output results/tables
-
-# Generate specific format
-python scripts/generate_tables.py --format latex
-python scripts/generate_tables.py --format json
-```
-
-### Generated Tables
-- `corpus_table.tex`: Campaign corpus overview
-- `fidelity_table.tex`: Fidelity classification summary
-- `execution_table.tex`: Execution results
+- `summary.json`
+- `manifest.json`
+- `results/CORPUS_STATE.md`
+- `results/CAMPAIGN_SUT_FIDELITY_MATRIX.md`
+- `results/tables/corpus_table.tex`
+- `results/tables/fidelity_table.tex`
+- `results/tables/execution_table.tex`
 
 ## Troubleshooting
 
-### Common Issues
+If Python imports fail:
 
-#### Import Errors
 ```bash
-# Ensure src layout is properly configured
-export PYTHONPATH="${PYTHONPATH}:$(pwd)/src"
-python scripts/run_campaign.py --list
+export PYTHONPATH="$PWD/src:$PYTHONPATH"
 ```
 
-#### Permission Errors
+If you want to audit the repository surface before sharing it:
+
 ```bash
-# Ensure scripts are executable
-chmod +x scripts/*.py
+python3 scripts/check_public_surface.py
 ```
 
-#### Executor Registration Failures
-```bash
-# Check executor registry
-python -c "from sticks.data.abilities_registry.executor_registry import registry; print(f'Registered: {len(registry._executors)} executors')"
-```
-
-#### Campaign Loading Errors
-```bash
-# Validate campaign files
-python -c "from sticks.campaign_loader import load_campaign; load_campaign('0.shadowray')"
-```
-
-### Expected Failures
-
-Some techniques are expected to fail:
-- **Inspired techniques**: Platform-specific mechanisms not available
-- **Privilege escalation**: Requires elevated privileges
-- **External C2**: No internet access in isolated environment
-
-### Debug Mode
-```bash
-# Enable verbose logging
-python scripts/run_campaign.py --campaign 0.shadowray --debug
-```
-
-## Full Lab Mode (Optional)
-
-For complete infrastructure emulation:
-
-### 1. Setup Virtual Environment
-```bash
-cd lab/vagrant
-vagrant up
-```
-
-### 2. Run with Full Infrastructure
-```bash
-# Campaigns will use real VMs for execution
-python scripts/run_all_campaigns.py --lab-mode full
-```
-
-### 3. Cleanup
-```bash
-cd lab/vagrant
-vagrant destroy -f
-```
-
-## Reproducing Paper Results
-
-### ShadowRay Campaign (Primary Result)
-```bash
-# Should achieve 6/10 successful techniques
-python scripts/run_campaign.py --campaign 0.shadowray
-
-# Verify success rate
-grep "Successful:" results/evidence/0.shadowray_*/summary.json
-```
-
-### All Campaigns Regression Test
-```bash
-# All primary campaigns should pass
-python scripts/run_all_campaigns.py
-
-# Check batch summary
-cat results/evidence/batch_*/batch_summary.json | python -m json.tool
-```
-
-### Generate Paper Tables
-```bash
-# Generate all tables for paper inclusion
-python scripts/generate_tables.py --output results/tables
-```
-
-## Contact and Support
-
-For issues with artifact reproduction:
-1. Check this guide first
-2. Review error logs in `results/evidence/`
-3. Verify system requirements
-4. Contact: [maintainer-email]
-
-## Citation
-
-If you use this artifact in research, please cite:
-```
-[Paper citation details]
-```
-
-## License
-
-STICKS is released under MIT License. See `LICENSE` file for details.
+If the VM-backed path reports degraded state, treat that as an infrastructure
+signal first rather than assuming the campaign runner is wrong.

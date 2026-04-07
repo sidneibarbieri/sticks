@@ -2,6 +2,17 @@
 
 This guide keeps the reviewer path short and explicit.
 
+## Host Expectations
+
+| Path | Required tools | Recommended host | Notes |
+| --- | --- | --- | --- |
+| `run_review_check.sh` | `python3`, `venv` | commodity laptop/desktop | fastest way to validate paper-facing outputs |
+| `artifact/` smoke path | `python3`, `venv` | commodity laptop/desktop | smallest repository-local execution trace |
+| `run_vm_backed_campaign.sh` | `python3`, `venv`, `vagrant`, `qemu` or `libvirt` | 8 CPU cores, 16 GB RAM, 25 GB free disk recommended | cold-start guest bootstrap can dominate runtime |
+
+For the heavy path, Linux x86_64 with `libvirt` is preferred when available.
+On macOS ARM64, the supported fallback is `qemu`.
+
 ## Recommended Order
 
 1. Run the fast paper-claim validation path.
@@ -69,6 +80,9 @@ Important:
 - The smoke path does not depend on QEMU or Caldera being green.
 - The smoke path does not require a specific host platform or hypervisor.
 - The preferred VM-backed backend is `libvirt` on Linux and `qemu` on macOS ARM64.
+- A cold-start VM-backed run can take materially longer than the smoke path
+  because the guests may need first-boot package installation and service
+  provisioning before campaign execution starts.
 - VM-backed claims should be based on a fresh run of the canonical lab path in
   the same checkout.
 - The VM-backed unit of validation is a single self-contained campaign/SUT pair.

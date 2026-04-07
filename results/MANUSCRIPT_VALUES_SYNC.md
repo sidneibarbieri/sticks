@@ -1,6 +1,6 @@
 # Manuscript Values Sync
 
-- Generated at: `2026-04-07T17:32:53.266567`
+- Generated at: `2026-04-07T17:52:33.017828`
 
 ## paper2
 
