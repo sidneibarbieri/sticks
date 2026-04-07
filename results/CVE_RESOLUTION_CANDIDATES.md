@@ -13,6 +13,8 @@ paper claim about the current ATT&CK corpus.
 - Direct ATT&CK target-product bindings: `0`
 - Curated CVE-only bindings: `1`
 - Appliance or enterprise-server pairs: `7`
+- Open-package pairs (`apt/pip`-style scope): `1`
+- Open-package campaigns (`apt/pip`-style scope): `1`
 
 ## Interpretation
 
@@ -21,6 +23,14 @@ but ATT&CK software links usually name attacker tooling instead of the
 vulnerable target product. In the current public artifact, only one
 campaign/CVE pair resolves to an automatically supported open-package
 candidate: `ShadowRay / CVE-2023-48022 -> pip:ray`.
+
+## Scope Reduction Readout
+
+If the downstream system is intentionally narrowed to installable open-package ecosystems such as `pip` or `apt`, the automation problem becomes much simpler, but the current ATT&CK-linked campaign/CVE coverage also collapses.
+
+- Open-package scope covers `1/8` campaign/CVE pairs in the current corpus slice.
+- Open-package scope covers `1/5` CVE-positive campaigns in the current corpus slice.
+This makes the package-ecosystem direction a strong next-step simplifier, but not a faithful replacement for the broader SUT measurement problem addressed by the current paper.
 
 ## Pair-Level Resolution
 

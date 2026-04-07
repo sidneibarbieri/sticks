@@ -77,6 +77,8 @@ def main() -> int:
                 "automatic_candidate_pairs": totals.automatic_candidate_pairs,
                 "automatic_candidate_campaigns": totals.automatic_candidate_campaigns,
                 "direct_attck_binding_pairs": totals.direct_attck_binding_pairs,
+                "open_package_pairs": totals.open_package_pairs,
+                "open_package_campaigns": totals.open_package_campaigns,
             },
             indent=2,
         )

@@ -63,6 +63,8 @@ class CVEResolutionTotals(BaseModel):
     direct_attck_binding_pairs: int
     curated_only_pairs: int
     appliance_or_server_pairs: int
+    open_package_pairs: int
+    open_package_campaigns: int
 
 
 class CVEResolutionSummary(BaseModel):
@@ -243,6 +245,12 @@ def resolve_campaign_cves(
             for row in resolved_rows
             if row.resolution_kind in {"appliance", "enterprise_server", "windows_component"}
         ),
+        open_package_pairs=sum(
+            1 for row in resolved_rows if row.resolution_kind == "open_package"
+        ),
+        open_package_campaigns=len(
+            {row.campaign_name for row in resolved_rows if row.resolution_kind == "open_package"}
+        ),
     )
 
     return CVEResolutionSummary(
@@ -303,6 +311,8 @@ def markdown_report(summary: CVEResolutionSummary) -> str:
         f"- Direct ATT&CK target-product bindings: `{totals.direct_attck_binding_pairs}`",
         f"- Curated CVE-only bindings: `{totals.curated_only_pairs}`",
         f"- Appliance or enterprise-server pairs: `{totals.appliance_or_server_pairs}`",
+        f"- Open-package pairs (`apt/pip`-style scope): `{totals.open_package_pairs}`",
+        f"- Open-package campaigns (`apt/pip`-style scope): `{totals.open_package_campaigns}`",
         "",
         "## Interpretation",
         "",
@@ -311,6 +321,28 @@ def markdown_report(summary: CVEResolutionSummary) -> str:
         "vulnerable target product. In the current public artifact, only one",
         "campaign/CVE pair resolves to an automatically supported open-package",
         "candidate: `ShadowRay / CVE-2023-48022 -> pip:ray`.",
+        "",
+        "## Scope Reduction Readout",
+        "",
+        (
+            "If the downstream system is intentionally narrowed to installable open-package "
+            "ecosystems such as `pip` or `apt`, the automation problem becomes much simpler, "
+            "but the current ATT&CK-linked campaign/CVE coverage also collapses."
+        ),
+        "",
+        (
+            f"- Open-package scope covers `{totals.open_package_pairs}/{totals.total_campaign_cve_pairs}` "
+            "campaign/CVE pairs in the current corpus slice."
+        ),
+        (
+            f"- Open-package scope covers `{totals.open_package_campaigns}/{totals.total_cve_positive_campaigns}` "
+            "CVE-positive campaigns in the current corpus slice."
+        ),
+        (
+            "This makes the package-ecosystem direction a strong next-step simplifier, but "
+            "not a faithful replacement for the broader SUT measurement problem addressed by "
+            "the current paper."
+        ),
         "",
         "## Pair-Level Resolution",
         "",
@@ -338,4 +370,3 @@ def markdown_report(summary: CVEResolutionSummary) -> str:
         ]
     )
     return "\n".join(lines)
-

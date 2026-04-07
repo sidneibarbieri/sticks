@@ -215,6 +215,8 @@ checks.append((resolution_totals['total_campaign_cve_pairs'] == 8, 'CVE resoluti
 checks.append((resolution_totals['automatic_candidate_pairs'] == 1, 'automatic CVE candidate pair count mismatch'))
 checks.append((resolution_totals['automatic_candidate_campaigns'] == 1, 'automatic CVE candidate campaign count mismatch'))
 checks.append((resolution_totals['direct_attck_binding_pairs'] == 0, 'direct ATT&CK target-product binding count mismatch'))
+checks.append((resolution_totals['open_package_pairs'] == 1, 'open-package CVE pair count mismatch'))
+checks.append((resolution_totals['open_package_campaigns'] == 1, 'open-package CVE campaign count mismatch'))
 
 shadowray_resolution = next(
     row

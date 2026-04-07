@@ -89,3 +89,5 @@ def test_resolution_summary_counts_only_one_automatic_campaign() -> None:
     assert summary.totals.automatic_candidate_pairs == 1
     assert summary.totals.automatic_candidate_campaigns == 1
     assert summary.totals.direct_attck_binding_pairs == 0
+    assert summary.totals.open_package_pairs == 1
+    assert summary.totals.open_package_campaigns == 1
