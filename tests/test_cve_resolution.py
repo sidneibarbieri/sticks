@@ -56,6 +56,9 @@ def test_resolution_summary_marks_shadowray_as_open_package_candidate() -> None:
     assert row.automatic_sut_support is True
     assert row.overlay_template == "ray_jobs_api_exposure"
     assert row.attck_binding_status == "cve_only_curated_binding"
+    assert row.source_basis == "NVD CVE record plus PyPI package metadata and release tags"
+    assert "https://nvd.nist.gov/vuln/detail/CVE-2023-48022" in row.evidence_sources
+    assert "https://pypi.org/project/ray/" in row.evidence_sources
 
 
 def test_resolution_summary_counts_only_one_automatic_campaign() -> None:
@@ -91,3 +94,37 @@ def test_resolution_summary_counts_only_one_automatic_campaign() -> None:
     assert summary.totals.direct_attck_binding_pairs == 0
     assert summary.totals.open_package_pairs == 1
     assert summary.totals.open_package_campaigns == 1
+
+
+def test_markdown_report_states_scope_and_source_provenance() -> None:
+    module = _load_module()
+    summary = module.resolve_campaign_cves(
+        rules_path=PROJECT_ROOT / "data" / "cve_resolution_rules.yml",
+        campaign_cves_path=PROJECT_ROOT
+        / "measurement"
+        / "sut"
+        / "scripts"
+        / "results"
+        / "audit"
+        / "campaign_cves.csv",
+        campaign_structure_path=PROJECT_ROOT
+        / "measurement"
+        / "sut"
+        / "scripts"
+        / "results"
+        / "audit"
+        / "campaign_factual_structure.csv",
+        attack_bundle_path=PROJECT_ROOT
+        / "measurement"
+        / "sut"
+        / "scripts"
+        / "data"
+        / "enterprise-attack.json",
+    )
+
+    markdown = module.markdown_report(summary)
+
+    assert "It is not an exhaustive crawl of the `apt` or `pip` ecosystems" in markdown
+    assert "Automatically supported `pip` pairs: `1`" in markdown
+    assert "Automatically supported `apt` pairs: `0`" in markdown
+    assert "## Automatic-Path Source URLs" in markdown

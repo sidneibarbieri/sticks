@@ -37,6 +37,10 @@
       "binding_rationale": "The campaign carries CVE evidence but no ATT&CK software link.",
       "overlay_template": "",
       "overlay_summary": "",
+      "source_basis": "NVD CVE record",
+      "evidence_sources": [
+        "https://nvd.nist.gov/vuln/detail/CVE-2024-39717"
+      ],
       "notes": "This pair remains outside the current automatic public artifact path and still requires product-specific reconstruction."
     },
     {
@@ -60,6 +64,10 @@
       "binding_rationale": "The campaign carries CVE evidence but no ATT&CK software link.",
       "overlay_template": "",
       "overlay_summary": "",
+      "source_basis": "NVD CVE record",
+      "evidence_sources": [
+        "https://nvd.nist.gov/vuln/detail/CVE-2022-38028"
+      ],
       "notes": "This pair remains outside the current automatic public artifact path and still requires product-specific reconstruction."
     },
     {
@@ -83,6 +91,13 @@
       "binding_rationale": "The campaign exposes a CVE but no ATT&CK software object names the target product, so the binding comes only from the curated CVE rule.",
       "overlay_template": "ray_jobs_api_exposure",
       "overlay_summary": "Expose the Ray-like Jobs API boundary before T1190.",
+      "source_basis": "NVD CVE record plus PyPI package metadata and release tags",
+      "evidence_sources": [
+        "https://nvd.nist.gov/vuln/detail/CVE-2023-48022",
+        "https://pypi.org/project/ray/",
+        "https://github.com/ray-project/ray/releases/tag/ray-2.6.3",
+        "https://github.com/ray-project/ray/releases/tag/ray-2.8.0"
+      ],
       "notes": "The current artifact can materialize this as a candidate vulnerable surface through a curated package-to-SUT mapping."
     },
     {
@@ -105,6 +120,10 @@
       "binding_rationale": "The campaign carries CVE evidence but no ATT&CK software link.",
       "overlay_template": "",
       "overlay_summary": "",
+      "source_basis": "NVD CVE record",
+      "evidence_sources": [
+        "https://nvd.nist.gov/vuln/detail/CVE-2024-3400"
+      ],
       "notes": "This pair remains outside the current automatic public artifact path and still requires product-specific reconstruction."
     },
     {
@@ -130,6 +149,10 @@
       "binding_rationale": "The campaign carries CVE evidence but no ATT&CK software link.",
       "overlay_template": "",
       "overlay_summary": "",
+      "source_basis": "NVD CVE record",
+      "evidence_sources": [
+        "https://nvd.nist.gov/vuln/detail/CVE-2025-49704"
+      ],
       "notes": "This pair remains outside the current automatic public artifact path and still requires product-specific reconstruction."
     },
     {
@@ -155,6 +178,10 @@
       "binding_rationale": "The campaign carries CVE evidence but no ATT&CK software link.",
       "overlay_template": "",
       "overlay_summary": "",
+      "source_basis": "NVD CVE record",
+      "evidence_sources": [
+        "https://nvd.nist.gov/vuln/detail/CVE-2025-49706"
+      ],
       "notes": "This pair remains outside the current automatic public artifact path and still requires product-specific reconstruction."
     },
     {
@@ -180,6 +207,10 @@
       "binding_rationale": "The campaign carries CVE evidence but no ATT&CK software link.",
       "overlay_template": "",
       "overlay_summary": "",
+      "source_basis": "NVD CVE record",
+      "evidence_sources": [
+        "https://nvd.nist.gov/vuln/detail/CVE-2025-53770"
+      ],
       "notes": "This pair remains outside the current automatic public artifact path and still requires product-specific reconstruction."
     },
     {
@@ -205,6 +236,10 @@
       "binding_rationale": "The campaign carries CVE evidence but no ATT&CK software link.",
       "overlay_template": "",
       "overlay_summary": "",
+      "source_basis": "NVD CVE record",
+      "evidence_sources": [
+        "https://nvd.nist.gov/vuln/detail/CVE-2025-53771"
+      ],
       "notes": "This pair remains outside the current automatic public artifact path and still requires product-specific reconstruction."
     }
   ]

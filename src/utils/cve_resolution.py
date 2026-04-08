@@ -26,6 +26,8 @@ class CVEResolutionRule(BaseModel):
     overlay_template: str = ""
     overlay_summary: str = ""
     attck_binding_names: list[str] = Field(default_factory=list)
+    source_basis: str = ""
+    evidence_sources: list[str] = Field(default_factory=list)
 
     model_config = {"populate_by_name": True}
 
@@ -50,6 +52,8 @@ class CVEPairResolution(BaseModel):
     binding_rationale: str
     overlay_template: str = ""
     overlay_summary: str = ""
+    source_basis: str = ""
+    evidence_sources: list[str] = Field(default_factory=list)
     notes: str = ""
 
 
@@ -222,6 +226,8 @@ def resolve_campaign_cves(
                 binding_rationale=binding_rationale,
                 overlay_template=rule.overlay_template,
                 overlay_summary=rule.overlay_summary,
+                source_basis=rule.source_basis,
+                evidence_sources=rule.evidence_sources,
                 notes=_row_notes(rule),
             )
         )
@@ -287,6 +293,8 @@ def csv_rows(summary: CVEResolutionSummary) -> list[dict[str, str]]:
                 "binding_rationale": row.binding_rationale,
                 "overlay_template": row.overlay_template,
                 "overlay_summary": row.overlay_summary,
+                "source_basis": row.source_basis,
+                "evidence_sources": ";".join(row.evidence_sources),
                 "notes": row.notes,
             }
         )
@@ -295,12 +303,22 @@ def csv_rows(summary: CVEResolutionSummary) -> list[dict[str, str]]:
 
 def markdown_report(summary: CVEResolutionSummary) -> str:
     totals = summary.totals
+    automatic_pip_pairs = sum(
+        1 for row in summary.rows if row.automatic_sut_support and row.ecosystem == "pip"
+    )
+    automatic_apt_pairs = sum(
+        1 for row in summary.rows if row.automatic_sut_support and row.ecosystem == "apt"
+    )
     lines = [
         "# CVE Resolution Candidates",
         "",
         "This report is a deterministic downstream artifact extension. It does not",
         "infer exploits, rebuild vendor products automatically, or change the core",
         "paper claim about the current ATT&CK corpus.",
+        "It is not an exhaustive crawl of the `apt` or `pip` ecosystems either:",
+        "it only resolves the campaign-linked CVE slice already present in the",
+        "current ATT&CK-based artifact and then applies curated, source-backed",
+        "rules to that slice.",
         "",
         "## Summary",
         "",
@@ -313,6 +331,8 @@ def markdown_report(summary: CVEResolutionSummary) -> str:
         f"- Appliance or enterprise-server pairs: `{totals.appliance_or_server_pairs}`",
         f"- Open-package pairs (`apt/pip`-style scope): `{totals.open_package_pairs}`",
         f"- Open-package campaigns (`apt/pip`-style scope): `{totals.open_package_campaigns}`",
+        f"- Automatically supported `pip` pairs: `{automatic_pip_pairs}`",
+        f"- Automatically supported `apt` pairs: `{automatic_apt_pairs}`",
         "",
         "## Interpretation",
         "",
@@ -321,6 +341,8 @@ def markdown_report(summary: CVEResolutionSummary) -> str:
         "vulnerable target product. In the current public artifact, only one",
         "campaign/CVE pair resolves to an automatically supported open-package",
         "candidate: `ShadowRay / CVE-2023-48022 -> pip:ray`.",
+        "The current public artifact therefore demonstrates a deterministic `pip`",
+        "path, but no automatic `apt`-materialized campaign/CVE pair yet.",
         "",
         "## Scope Reduction Readout",
         "",
@@ -344,10 +366,17 @@ def markdown_report(summary: CVEResolutionSummary) -> str:
             "the current paper."
         ),
         "",
+        "## Rule Provenance",
+        "",
+        "Each pair-level rule is grounded in explicit source URLs shipped in",
+        "`data/cve_resolution_rules.yml`. For the current automatic path, the rule",
+        "combines public CVE metadata with package-ecosystem metadata rather than",
+        "guessing a vulnerable target product online.",
+        "",
         "## Pair-Level Resolution",
         "",
-        "| Campaign | CVE | Kind | Auto | Ecosystem | Package | ATT&CK Binding | Linked ATT&CK Software | Overlay |",
-        "|---|---|---|---|---|---|---|---|---|",
+        "| Campaign | CVE | Kind | Auto | Ecosystem | Package | ATT&CK Binding | Linked ATT&CK Software | Overlay | Source Basis |",
+        "|---|---|---|---|---|---|---|---|---|---|",
     ]
 
     for row in summary.rows:
@@ -357,8 +386,19 @@ def markdown_report(summary: CVEResolutionSummary) -> str:
             f"| {row.campaign_name} | {row.cve_id} | {row.resolution_kind} | "
             f"{'yes' if row.automatic_sut_support else 'no'} | "
             f"{row.ecosystem or '--'} | {row.package_name or '--'} | "
-            f"{row.attck_binding_status} | {linked_names} | {overlay} |"
+            f"{row.attck_binding_status} | {linked_names} | {overlay} | "
+            f"{row.source_basis or '--'} |"
         )
+
+    auto_rows = [row for row in summary.rows if row.automatic_sut_support]
+    lines.extend(["", "## Automatic-Path Source URLs", ""])
+    if auto_rows:
+        for row in auto_rows:
+            lines.append(f"- `{row.campaign_name} / {row.cve_id}`")
+            for source in row.evidence_sources:
+                lines.append(f"  - `{source}`")
+    else:
+        lines.append("- None")
 
     lines.extend(
         [

@@ -1601,6 +1601,12 @@ ID_PLATFORM_KEYWORDS = {
     'Office 365', 'SaaS', 'IaaS', 'Identity Provider',
     'Entra ID',
 }
+LATERAL_SOFTWARE_KEYWORDS = (
+    'active directory',
+    'kerberos',
+    'ldap',
+    'domain',
+)
 
 # Keywords in technique name/description for kernel/boot interaction
 KERNEL_BOOT_KEYWORDS = re.compile(
@@ -1610,6 +1616,18 @@ KERNEL_BOOT_KEYWORDS = re.compile(
 
 # Permissions indicating VMR
 VMR_PERMISSIONS = {'Administrator', 'SYSTEM', 'root'}
+
+# Name patterns that imply host-semantic or privileged execution.
+VMR_NAME_PATTERNS = re.compile(
+    r'process\s+inject|hook|dll\s+side|hijack|token\s+manipul|'
+    r'access\s+token|credential\s+dump|lsass|sam\s+database|'
+    r'registry|service\s+execut|scheduled\s+task|'
+    r'windows\s+management\s+instrument|wmi|'
+    r'exploitation\s+for\s+privilege',
+    re.IGNORECASE
+)
+
+CONTAINER_COMPATIBLE_PLATFORMS = {'Containers', 'Linux'}
 
 
 def get_technique_tactics(technique, tactic_objects):
@@ -1653,7 +1671,7 @@ def classify_technique_compatibility_trace(technique, rel_fwd, by_id, default_cl
             if rtype == 'uses' and tgt in by_id:
                 sw = by_id[tgt]
                 sw_name = sw.get('name', '').lower()
-                if any(kw in sw_name for kw in ['active directory', 'kerberos', 'ldap', 'domain']):
+                if any(kw in sw_name for kw in LATERAL_SOFTWARE_KEYWORDS):
                     return {
                         'class': 'ID',
                         'rule_id': 'R2_ID_LATERAL_SW_SIGNAL',
@@ -1690,15 +1708,7 @@ def classify_technique_compatibility_trace(technique, rel_fwd, by_id, default_cl
         }
 
     # Rule 6: VMR from name pattern.
-    vmr_name_patterns = re.compile(
-        r'process\s+inject|hook|dll\s+side|hijack|token\s+manipul|'
-        r'access\s+token|credential\s+dump|lsass|sam\s+database|'
-        r'registry|service\s+execut|scheduled\s+task|'
-        r'windows\s+management\s+instrument|wmi|'
-        r'exploitation\s+for\s+privilege',
-        re.IGNORECASE
-    )
-    if vmr_name_patterns.search(name):
+    if VMR_NAME_PATTERNS.search(name):
         return {
             'class': 'VMR',
             'rule_id': 'R6_VMR_NAME_PATTERN',
@@ -1708,8 +1718,7 @@ def classify_technique_compatibility_trace(technique, rel_fwd, by_id, default_cl
         }
 
     # Rule 7: CF from container-compatible platforms.
-    container_compatible = {'Containers', 'Linux'}
-    if platforms and platforms.issubset(container_compatible):
+    if platforms and platforms.issubset(CONTAINER_COMPATIBLE_PLATFORMS):
         if 'privilege-escalation' in tactics or 'defense-evasion' in tactics:
             if permissions & VMR_PERMISSIONS:
                 return {

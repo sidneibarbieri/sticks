@@ -33,6 +33,11 @@ This reruns the measurement pipeline, refreshes paper-facing synthesized
 outputs, and checks that the released values remain internally consistent.
 It also regenerates the deterministic downstream CVE concretization report in
 `results/CVE_RESOLUTION_CANDIDATES.md`.
+That report is intentionally narrower than the paper claim: it is not an
+exhaustive crawl of the `apt` or `pip` ecosystems, only a deterministic
+resolution layer over ATT&CK-linked campaign/CVE pairs in the current artifact.
+It also regenerates the compatibility-rule audit surface in
+`results/COMPATIBILITY_RULE_SURFACE.md`.
 It also regenerates the infrastructure/SUT automation coverage report in
 `results/INFRA_AUTOMATION_COVERAGE.md`.
 
@@ -101,6 +106,8 @@ The most important files are:
 - `results/CAMPAIGN_SUT_FIDELITY_MATRIX.md`
 - `results/CVE_RESOLUTION_CANDIDATES.md`
 - `results/cve_resolution_candidates.json`
+- `results/COMPATIBILITY_RULE_SURFACE.md`
+- `results/compatibility_rule_surface.json`
 - `results/INFRA_AUTOMATION_COVERAGE.md`
 - `results/infra_automation_coverage.json`
 - `results/tables/corpus_table.tex`

@@ -92,6 +92,12 @@ python3 "$STICKS_ROOT/scripts/generate_infra_automation_report.py" >/tmp/measure
   fail "infrastructure automation report generation failed"
 }
 
+log "1eb) Generating compatibility rule surface report"
+python3 "$STICKS_ROOT/scripts/generate_compatibility_rule_surface.py" >/tmp/measurement_rule_surface_release.log 2>&1 || {
+  cat /tmp/measurement_rule_surface_release.log >&2
+  fail "compatibility rule surface generation failed"
+}
+
 if [[ "$HAS_MANUSCRIPT_DIR" == "1" ]]; then
   log "1f) Synchronizing manuscript values from measured outputs"
   python3 "$STICKS_ROOT/scripts/sync_manuscript_values.py" --paper paper2 >/tmp/measurement_sync_release.log 2>&1 || {
@@ -145,6 +151,10 @@ done
 [[ -f "$STICKS_ROOT/results/infra_automation_coverage.csv" ]] || fail "missing artifact: $STICKS_ROOT/results/infra_automation_coverage.csv"
 [[ -f "$STICKS_ROOT/release/infra_automation_coverage.json" ]] || fail "missing artifact: $STICKS_ROOT/release/infra_automation_coverage.json"
 [[ -f "$STICKS_ROOT/release/INFRA_AUTOMATION_COVERAGE.md" ]] || fail "missing artifact: $STICKS_ROOT/release/INFRA_AUTOMATION_COVERAGE.md"
+[[ -f "$STICKS_ROOT/results/compatibility_rule_surface.json" ]] || fail "missing artifact: $STICKS_ROOT/results/compatibility_rule_surface.json"
+[[ -f "$STICKS_ROOT/results/COMPATIBILITY_RULE_SURFACE.md" ]] || fail "missing artifact: $STICKS_ROOT/results/COMPATIBILITY_RULE_SURFACE.md"
+[[ -f "$STICKS_ROOT/release/compatibility_rule_surface.json" ]] || fail "missing artifact: $STICKS_ROOT/release/compatibility_rule_surface.json"
+[[ -f "$STICKS_ROOT/release/COMPATIBILITY_RULE_SURFACE.md" ]] || fail "missing artifact: $STICKS_ROOT/release/COMPATIBILITY_RULE_SURFACE.md"
 
 log "3) Validating key numeric invariants"
 python3 - <<'PY'
@@ -239,6 +249,16 @@ checks.append((shadowray_resolution['ecosystem'] == 'pip', 'ShadowRay ecosystem 
 checks.append((shadowray_resolution['package_name'] == 'ray', 'ShadowRay package name mismatch'))
 checks.append((shadowray_resolution['automatic_sut_support'] is True, 'ShadowRay automatic support mismatch'))
 checks.append((shadowray_resolution['attck_binding_status'] == 'cve_only_curated_binding', 'ShadowRay binding status mismatch'))
+checks.append((shadowray_resolution['source_basis'] == 'NVD CVE record plus PyPI package metadata and release tags', 'ShadowRay source basis mismatch'))
+checks.append(('https://pypi.org/project/ray/' in shadowray_resolution['evidence_sources'], 'ShadowRay evidence sources missing PyPI URL'))
+
+with open(Path(os.environ['STICKS_ROOT'])/'results'/'compatibility_rule_surface.json', encoding='utf-8') as f:
+    rule_surface = json.load(f)
+checks.append((rule_surface['default_fallback_class'] == 'VMR', 'compatibility rule surface fallback mismatch'))
+checks.append(('Windows Domain' in rule_surface['id_platform_keywords'], 'compatibility rule surface missing Windows Domain keyword'))
+checks.append(('kerberos' in rule_surface['lateral_software_keywords'], 'compatibility rule surface missing kerberos keyword'))
+checks.append(('boot|firmware|kernel' in rule_surface['kernel_boot_regex'], 'compatibility rule surface missing kernel regex fragment'))
+checks.append(('lsass' in rule_surface['vmr_name_regex'], 'compatibility rule surface missing lsass regex fragment'))
 
 with open(Path(os.environ['STICKS_ROOT'])/'results'/'infra_automation_coverage.json', encoding='utf-8') as f:
     infra = json.load(f)

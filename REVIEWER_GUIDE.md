@@ -77,7 +77,15 @@ cat results/CVE_RESOLUTION_CANDIDATES.md
 
 This report measures which campaign-linked CVEs currently resolve to concrete
 candidate SUT targets in the public artifact. It does not infer exploits or
-perform online target-product discovery.
+perform online target-product discovery, and it is not an exhaustive crawl of
+the `apt` or `pip` ecosystems. It only covers the ATT&CK-linked campaign/CVE
+slice already present in the artifact under curated, source-backed rules.
+
+To inspect the exact reviewer-facing compatibility-rule surface:
+
+```bash
+cat results/COMPATIBILITY_RULE_SURFACE.md
+```
 
 To inspect the current infrastructure/SUT automation boundary:
 
@@ -204,6 +212,9 @@ contract.
   measured ATT&CK outputs plus curated CVE rules so reviewers can inspect how
   many campaign-linked CVEs currently resolve to package- or product-bound SUT
   candidates.
+- The repository also regenerates `results/COMPATIBILITY_RULE_SURFACE.md` so
+  reviewers can inspect the exact keywords and regexes behind the deterministic
+  CF/VMR/ID classification rules.
 - The repository also regenerates `results/INFRA_AUTOMATION_COVERAGE.md` so
   reviewers can see the current IaC/SUT automation boundary without reverse
   engineering it from YAML profiles and shell scripts.

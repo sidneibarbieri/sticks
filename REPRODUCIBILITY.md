@@ -61,13 +61,20 @@ python3 scripts/audit_mitre_metadata.py
 python3 scripts/audit_legacy_parity.py
 python3 scripts/check_public_surface.py
 python3 scripts/generate_cve_resolution_report.py
+python3 scripts/generate_compatibility_rule_surface.py
 ```
 
 The CVE resolution report is a deterministic downstream extension. It measures
 which campaign-linked CVEs currently resolve to candidate SUT targets in the
 public artifact and where ATT&CK still lacks a direct target-product binding.
 It does not claim automatic exploit synthesis or online CTI-to-command
-planning.
+planning, and it is not an exhaustive crawl of the `apt` or `pip` ecosystems.
+It only covers the ATT&CK-linked campaign/CVE slice already present in the
+artifact under curated, source-backed rules.
+
+The compatibility-rule surface report,
+`results/COMPATIBILITY_RULE_SURFACE.md`, exposes the exact reviewer-facing
+keywords and regexes behind the deterministic CF/VMR/ID classification rules.
 
 The infrastructure automation coverage report, `results/INFRA_AUTOMATION_COVERAGE.md`,
 documents the current IaC and SUT automation boundary across the published
