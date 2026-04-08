@@ -6,9 +6,9 @@ This guide keeps the reviewer path short and explicit.
 
 | Path | Required tools | Recommended host | Notes |
 | --- | --- | --- | --- |
-| `run_review_check.sh` | `python3`, `venv` | commodity laptop/desktop | fastest way to validate paper-facing outputs |
+| `run_review_check.sh` | `python3` | commodity laptop/desktop | fastest way to validate paper-facing outputs |
 | `artifact/` smoke path | `python3`, `venv` | commodity laptop/desktop | smallest repository-local execution trace |
-| `run_vm_backed_campaign.sh` | `python3`, `venv`, `vagrant`, `qemu` or `libvirt` | 8 CPU cores, 16 GB RAM, 25 GB free disk recommended | cold-start guest bootstrap can dominate runtime |
+| `run_vm_backed_campaign.sh` | `python3`, `vagrant`, `qemu` or `libvirt` | 8 CPU cores, 16 GB RAM, 25 GB free disk recommended | cold-start guest bootstrap can dominate runtime |
 
 For the heavy path, Linux x86_64 with `libvirt` is preferred when available.
 On macOS ARM64, the supported fallback is `qemu`.
@@ -27,6 +27,10 @@ bash run_review_check.sh
 
 This path is the fastest way to revalidate the released measurement outputs and
 paper-facing synthesized artifacts.
+If the core Python packages are missing, the wrapper creates and reuses a
+repo-local `.venv` automatically.
+On a cold machine, that first bootstrap may download the packages listed in
+`requirements.txt`.
 
 ## 2. Minimal Working Example
 
@@ -35,6 +39,9 @@ paper-facing synthesized artifacts.
 ./artifact/run.sh
 ./artifact/validate.sh
 ```
+
+`artifact/setup.sh` prepares the repo-local `.venv`; `artifact/run.sh` and
+`artifact/validate.sh` reuse that interpreter automatically.
 
 Expected outputs:
 
@@ -49,14 +56,14 @@ Expected outputs:
 If you prefer not to use the wrappers:
 
 ```bash
-python3 scripts/run_campaign.py --campaign 0.c0011
-python3 scripts/generate_tables.py
+.venv/bin/python3 scripts/run_campaign.py --campaign 0.c0011
+.venv/bin/python3 scripts/generate_tables.py
 ```
 
 To list campaigns:
 
 ```bash
-python3 scripts/run_campaign.py
+.venv/bin/python3 scripts/run_campaign.py
 ```
 
 To audit the reviewer-facing repository surface:

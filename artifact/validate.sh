@@ -3,10 +3,12 @@ set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$ROOT_DIR"
+source "$ROOT_DIR/scripts/python_env.sh"
+PYTHON_BIN="$(sticks_resolve_python "$ROOT_DIR" "$ROOT_DIR/requirements.txt")"
 
 export PYTHONPATH="$ROOT_DIR/src${PYTHONPATH:+:$PYTHONPATH}"
 
-latest_run_dir="$(python3 - <<'PY'
+latest_run_dir="$("$PYTHON_BIN" - <<'PY'
 from pathlib import Path
 
 candidates = list(Path("release/evidence").glob("0.c0011_*"))
@@ -47,7 +49,7 @@ do
   fi
 done
 
-python3 - <<'PY'
+"$PYTHON_BIN" - <<'PY'
 import json
 from pathlib import Path
 

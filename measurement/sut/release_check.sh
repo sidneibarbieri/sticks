@@ -5,6 +5,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 STICKS_ROOT="$(cd "$SCRIPT_DIR/../.." && pwd)"
 MEAS_SCRIPTS="$STICKS_ROOT/measurement/sut/scripts"
 WORKSPACE_ROOT="$(cd "$STICKS_ROOT/.." && pwd)"
+source "$STICKS_ROOT/scripts/python_env.sh"
 
 find_paper_dir() {
   local root="$1"
@@ -43,6 +44,8 @@ export HAS_MANUSCRIPT_DIR
 log() { printf '[release-check] %s\n' "$*"; }
 fail() { printf '[release-check][FAIL] %s\n' "$*" >&2; exit 1; }
 
+PYTHON_BIN="$(sticks_resolve_python "$STICKS_ROOT" "$STICKS_ROOT/requirements.txt")"
+
 log "0) Verifying required input bundles"
 required_inputs=(
   "data/enterprise-attack.json"
@@ -57,50 +60,50 @@ done
 
 log "1) Running measurement pipeline"
 cd "$MEAS_SCRIPTS"
-python3 sut_measurement_pipeline.py >/tmp/measurement_pipeline_release.log 2>&1 || {
+"$PYTHON_BIN" sut_measurement_pipeline.py >/tmp/measurement_pipeline_release.log 2>&1 || {
   tail -n 120 /tmp/measurement_pipeline_release.log >&2
   fail "pipeline execution failed"
 }
 
 log "1b) Rendering TikZ figures from measured outputs"
-python3 render_figures.py >/tmp/measurement_render_release.log 2>&1 || {
+"$PYTHON_BIN" render_figures.py >/tmp/measurement_render_release.log 2>&1 || {
   tail -n 120 /tmp/measurement_render_release.log >&2
   fail "figure rendering failed"
 }
 
 log "1c) Generating traceability appendix"
-python3 generate_traceability.py >/tmp/measurement_traceability_release.log 2>&1 || {
+"$PYTHON_BIN" generate_traceability.py >/tmp/measurement_traceability_release.log 2>&1 || {
   tail -n 120 /tmp/measurement_traceability_release.log >&2
   fail "traceability generation failed"
 }
 
 log "1d) Evaluating compatibility manual-validation packet"
-python3 evaluate_compatibility_validation.py >/tmp/measurement_validation_release.log 2>&1 || {
+"$PYTHON_BIN" evaluate_compatibility_validation.py >/tmp/measurement_validation_release.log 2>&1 || {
   tail -n 120 /tmp/measurement_validation_release.log >&2
   fail "compatibility validation summary generation failed"
 }
 
 log "1e) Generating deterministic CVE resolution report"
-python3 "$STICKS_ROOT/scripts/generate_cve_resolution_report.py" >/tmp/measurement_cve_resolution_release.log 2>&1 || {
+"$PYTHON_BIN" "$STICKS_ROOT/scripts/generate_cve_resolution_report.py" >/tmp/measurement_cve_resolution_release.log 2>&1 || {
   cat /tmp/measurement_cve_resolution_release.log >&2
   fail "CVE resolution report generation failed"
 }
 
 log "1ea) Generating infrastructure and SUT automation coverage report"
-python3 "$STICKS_ROOT/scripts/generate_infra_automation_report.py" >/tmp/measurement_infra_automation_release.log 2>&1 || {
+"$PYTHON_BIN" "$STICKS_ROOT/scripts/generate_infra_automation_report.py" >/tmp/measurement_infra_automation_release.log 2>&1 || {
   cat /tmp/measurement_infra_automation_release.log >&2
   fail "infrastructure automation report generation failed"
 }
 
 log "1eb) Generating compatibility rule surface report"
-python3 "$STICKS_ROOT/scripts/generate_compatibility_rule_surface.py" >/tmp/measurement_rule_surface_release.log 2>&1 || {
+"$PYTHON_BIN" "$STICKS_ROOT/scripts/generate_compatibility_rule_surface.py" >/tmp/measurement_rule_surface_release.log 2>&1 || {
   cat /tmp/measurement_rule_surface_release.log >&2
   fail "compatibility rule surface generation failed"
 }
 
 if [[ "$HAS_MANUSCRIPT_DIR" == "1" ]]; then
   log "1f) Synchronizing manuscript values from measured outputs"
-  python3 "$STICKS_ROOT/scripts/sync_manuscript_values.py" --paper paper2 >/tmp/measurement_sync_release.log 2>&1 || {
+  "$PYTHON_BIN" "$STICKS_ROOT/scripts/sync_manuscript_values.py" --paper paper2 >/tmp/measurement_sync_release.log 2>&1 || {
     cat /tmp/measurement_sync_release.log >&2
     fail "manuscript value synchronization failed"
   }
@@ -157,7 +160,7 @@ done
 [[ -f "$STICKS_ROOT/release/COMPATIBILITY_RULE_SURFACE.md" ]] || fail "missing artifact: $STICKS_ROOT/release/COMPATIBILITY_RULE_SURFACE.md"
 
 log "3) Validating key numeric invariants"
-python3 - <<'PY'
+"$PYTHON_BIN" - <<'PY'
 import json, csv, os, sys
 from pathlib import Path
 base = Path('results')
@@ -312,7 +315,7 @@ PY
 
 if [[ "$HAS_MANUSCRIPT_DIR" == "1" ]]; then
 log "3b) Validating static tables in manuscript against measured artifacts"
-python3 - <<'PY'
+"$PYTHON_BIN" - <<'PY'
 import csv, re, sys
 import os
 from pathlib import Path
@@ -429,7 +432,7 @@ fi
 
 if [[ "$HAS_MANUSCRIPT_DIR" == "1" ]]; then
 log "3c) Enforcing bibliography policy (no poster entries/citations)"
-python3 "$MEAS_SCRIPTS/sanitize_bibliography_policy.py" \
+"$PYTHON_BIN" "$MEAS_SCRIPTS/sanitize_bibliography_policy.py" \
   --input "$PAPER_DIR/references.bib" \
   --input "$PAPER_DIR/references_official_downloaded.bib" \
   --input "$PAPER_DIR/used_citations_only.bib" \
@@ -438,7 +441,7 @@ python3 "$MEAS_SCRIPTS/sanitize_bibliography_policy.py" \
     fail "bibliography policy check failed"
   }
 
-python3 - <<'PY'
+"$PYTHON_BIN" - <<'PY'
 import os
 import re
 import sys
@@ -468,7 +471,7 @@ fi
 if [[ "$HAS_MANUSCRIPT_DIR" == "1" ]]; then
 log "4) Building manuscript PDF"
 cd "$PAPER_DIR"
-python3 "$STICKS_ROOT/scripts/build_manuscript.py" --paper-dir "$PAPER_DIR" >/tmp/measurement_paper_release.log 2>&1 || {
+"$PYTHON_BIN" "$STICKS_ROOT/scripts/build_manuscript.py" --paper-dir "$PAPER_DIR" >/tmp/measurement_paper_release.log 2>&1 || {
   tail -n 120 /tmp/measurement_paper_release.log >&2
   fail "latex build failed"
 }
@@ -481,7 +484,7 @@ if rg -n 'TODO\{|\[TBD\]' main.tex | rg -v '^87:' >/tmp/measurement_todo_hits.lo
 fi
 
 log "5b) Enforcing paper-directory hygiene"
-python3 "$STICKS_ROOT/scripts/check_paper_hygiene.py" --paper paper2 >/tmp/measurement_paper_hygiene.log 2>&1 || {
+"$PYTHON_BIN" "$STICKS_ROOT/scripts/check_paper_hygiene.py" --paper paper2 >/tmp/measurement_paper_hygiene.log 2>&1 || {
   cat /tmp/measurement_paper_hygiene.log >&2
   fail "paper directory hygiene check failed"
 }
@@ -502,7 +505,7 @@ fi
 
 log "6d) Ensuring macro coverage report exists and is non-empty"
 [[ -f "$MEAS_SCRIPTS/results/macro_coverage.json" ]] || fail "missing macro_coverage.json"
-python3 - <<'PY'
+"$PYTHON_BIN" - <<'PY'
 import json, sys
 import os
 from pathlib import Path
@@ -521,7 +524,7 @@ print('[release-check] macro coverage report OK')
 PY
 
 log "6e) Checking macro consistency (defined vs used)"
-python3 - <<'PY'
+"$PYTHON_BIN" - <<'PY'
 import os
 import re, sys
 from pathlib import Path
