@@ -5,6 +5,8 @@ from pathlib import Path
 
 from pydantic import BaseModel
 
+from adapters.caldera_command_result import CalderaCommandResult
+
 from adapters.caldera_dispatch import (
     CalderaDispatchExpectation,
     CalderaDispatchIntent,
@@ -53,3 +55,45 @@ def submit_recorded_command(
     expected = intent.bind_link(link_id)
     _retain(record_dir / "dispatch-submission.json", expected)
     return expected
+
+
+def retain_completed_command(
+    client: CalderaOperations, record_dir: Path,
+) -> CalderaCommandResult:
+    """Validate the native result against durable submission before retaining it."""
+    result_path = record_dir / "command-result.json"
+    if result_path.exists():
+        raise FileExistsError(result_path)
+    intent = CalderaDispatchIntent.model_validate_json(
+        (record_dir / "dispatch-intent.json").read_bytes()
+    )
+    expected = CalderaDispatchExpectation.model_validate_json(
+        (record_dir / "dispatch-submission.json").read_bytes()
+    )
+    if expected != intent.bind_link(expected.link_id):
+        raise ValueError("CALDERA acknowledgment differs from durable intent")
+    result = client.completed_command(expected)
+    _retain(result_path, result)
+    return result
+
+
+def replay_completed_command(record_dir: Path) -> CalderaCommandResult:
+    """Check retained identity consistency; this cannot recreate the native server ledger."""
+    intent = CalderaDispatchIntent.model_validate_json(
+        (record_dir / "dispatch-intent.json").read_bytes()
+    )
+    expected = CalderaDispatchExpectation.model_validate_json(
+        (record_dir / "dispatch-submission.json").read_bytes()
+    )
+    result = CalderaCommandResult.model_validate_json(
+        (record_dir / "command-result.json").read_bytes()
+    )
+    if expected != intent.bind_link(expected.link_id):
+        raise ValueError("Retained acknowledgment differs from dispatch intent")
+    if result.dispatch != result.dispatch.__class__(
+        **expected.model_dump(), finished_at=result.dispatch.finished_at
+    ):
+        raise ValueError("Retained result differs from acknowledged dispatch")
+    if result.process_exit_code != 0:
+        raise ValueError("Retained command lacks explicit successful exit")
+    return result

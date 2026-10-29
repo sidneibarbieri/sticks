@@ -235,7 +235,16 @@ def _parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
             "Use a distinct prospective run directory to preserve frozen evidence."
         ),
     )
-    return parser.parse_args(argv)
+    parser.add_argument("--caldera-session", type=Path,
+                        help="Prepared isolated CALDERA session for target execution")
+    parser.add_argument("--caldera-dispatch", action="store_true",
+                        help="Enroll a target agent after lab startup and dispatch through CALDERA")
+    args = parser.parse_args(argv)
+    if args.caldera_session and args.caldera_dispatch:
+        parser.error("Select either a prepared session or fresh CALDERA enrollment")
+    if (args.caldera_session or args.caldera_dispatch) and args.campaign != "0.c0026":
+        parser.error("CALDERA session currently supports only 0.c0026")
+    return args
 
 
 def run_lab_campaign(args: argparse.Namespace) -> int:
@@ -273,6 +282,15 @@ def run_lab_campaign(args: argparse.Namespace) -> int:
 
         if not errors:
             try:
+                session_path = args.caldera_session
+                if args.caldera_dispatch:
+                    session_path = evidence_output / "caldera-session.json"
+                    _run_command(
+                        [sys.executable, str(PROJECT_ROOT / "scripts/prepare_caldera_session.py"),
+                         "--lab-root", str(PROJECT_ROOT / "lab/vagrant"),
+                         "--output", str(session_path)],
+                        "enroll fresh target agent", command_environment,
+                    )
                 campaign_command = [
                     sys.executable,
                     str(RUN_CAMPAIGN_SCRIPT),
@@ -282,6 +300,8 @@ def run_lab_campaign(args: argparse.Namespace) -> int:
                 ]
                 if isolated_evidence:
                     campaign_command.extend(["--output", str(evidence_output)])
+                if session_path:
+                    campaign_command.extend(["--caldera-session", str(session_path.resolve())])
                 _run_command(
                     campaign_command,
                     "execute campaign",

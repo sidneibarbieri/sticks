@@ -6,6 +6,7 @@ from typing import Annotated, Callable
 from pydantic import Field
 
 from executors.executor_registry import ExecutorRegistry
+from executors.lab_transport import target_executor_dispatch
 from executors.c0045_compute_executor import C0045ProcessSelection
 from executors.c0045_trace_executor import C0045TraceSelection
 from runners.capability_facts import (
@@ -90,14 +91,15 @@ def invoke_runtime_step(
         or metadata.execution_mode.value != validated.mode
     ):
         raise ValueError("Selected executor metadata differs from occurrence contract")
-    if live_observer is None:
-        completed, stdout, stderr, artifacts = executor(
-            validated.campaign_id, sut_profile_id
-        )
-    else:
-        completed, stdout, stderr, artifacts = executor(
-            validated.campaign_id, sut_profile_id, live_observer=live_observer
-        )
+    with target_executor_dispatch():
+        if live_observer is None:
+            completed, stdout, stderr, artifacts = executor(
+                validated.campaign_id, sut_profile_id
+            )
+        else:
+            completed, stdout, stderr, artifacts = executor(
+                validated.campaign_id, sut_profile_id, live_observer=live_observer
+            )
     artifact_root = Path(__file__).resolve().parents[2]
     return RuntimeInvocationOutcome(
         executor_id=validated.executor_id,

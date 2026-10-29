@@ -86,6 +86,13 @@ def complete_run(run_root: Path) -> None:
         errors.append(ValueError("Campaign failed; inspect its retained evidence"))
     else:
         try:
+            if (run_root / "evidence/caldera-session.json").is_file():
+                subprocess.run(
+                    [sys.executable,
+                     str(run_root / "workspace/scripts/verify_caldera_run_journal.py"),
+                     "--evidence", str(run_root / "evidence")],
+                    cwd=run_root / "workspace", check=True,
+                )
             observe_target(run_root)
         except BaseException as error:
             errors.append(error)

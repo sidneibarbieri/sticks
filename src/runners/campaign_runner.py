@@ -8,6 +8,7 @@ import json
 import os
 import sys
 import traceback
+from contextlib import nullcontext
 from dataclasses import dataclass
 from datetime import datetime
 from pathlib import Path
@@ -1330,6 +1331,8 @@ class UnifiedCampaignRunner:
 
 
 def main():
+    from runners.caldera_session import campaign_caldera_session
+
     parser = argparse.ArgumentParser(
         description="STICKS Unified Campaign Runner (formal model)",
     )
@@ -1356,7 +1359,11 @@ def main():
         ),
     )
 
+    parser.add_argument("--caldera-session", type=Path,
+                        help="Prepared isolated CALDERA session; API key comes from environment")
     args = parser.parse_args()
+    if args.caldera_session and (not args.require_lab or args.all or args.campaign != "0.c0026"):
+        parser.error("CALDERA session currently requires --require-lab --campaign 0.c0026")
 
     # List mode
     if not args.campaign and not args.all:
@@ -1376,7 +1383,13 @@ def main():
                 output_dir=args.output,
                 require_lab=args.require_lab,
             )
-            evidence = runner.run()
+            dispatch_context = (
+                campaign_caldera_session(
+                    args.caldera_session, Path(args.output) / "caldera-dispatch"
+                ) if args.caldera_session else nullcontext()
+            )
+            with dispatch_context:
+                evidence = runner.run()
             if evidence.failed > 0:
                 exit_code = 1
         except FileNotFoundError as e:

@@ -11,7 +11,7 @@
   "excluded_runtime_roots": [
     "runs"
   ],
-  "file_count": 2965,
+  "file_count": 2979,
   "files": {
     ".gitignore": {
       "sha256": "4ab313af22acd8a7fbad67346992ed063f780db81a11aae49ae804d366f97506",
@@ -42,8 +42,8 @@
       "size": 2473
     },
     "README.md": {
-      "sha256": "7b2674719c3f4ba3092c474da62c9776b1a503de317b91398aa79a0531b313bd",
-      "size": 12400
+      "sha256": "f38c961c9981cfc0804104b7472ec2fda48721aa177c973451a2fec60e66d45a",
+      "size": 13381
     },
     "REPRODUCIBILITY.md": {
       "sha256": "09e12dc9d852655d67947e658c297b320fe31eb5b799a5b4a5de5c074c1cace8",
@@ -1220,6 +1220,10 @@
     "data/experiments/c0045_strict_execution_profile_v22.json": {
       "sha256": "6cdbbb921bbc9a4a2e25445916dc3f70c09cca08edf1bf9e045eba1bcf0be9fe",
       "size": 5114
+    },
+    "data/experiments/c0045_strict_execution_profile_v23.json": {
+      "sha256": "4cb701c756d86dde59b9679b8ecdad4d51691c3e7635d54fc3f7ef069bf6cac0",
+      "size": 5419
     },
     "data/experiments/c0045_strict_execution_profile_v3.json": {
       "sha256": "20cd7a7fae87bf5782fbfd483c44fb7659c3dda60a178b9f39430a6eb8a83912",
@@ -9778,8 +9782,8 @@
       "size": 3021
     },
     "scripts/complete_c0026_run.py": {
-      "sha256": "893151cc8612d1c9e42e7c22f06f7d4bc3e80e1385db47c2841f8fb87b8a76a8",
-      "size": 4113
+      "sha256": "734faded7346aa997c3940b99cf6936f8bcc45b456981bc39086674fe4d30a92",
+      "size": 4483
     },
     "scripts/complete_costaricto_run.py": {
       "sha256": "c96eb1a2b24a8b50b04afbeedd1a5e4b2fd5b424cfc0d94a110f8790445aceb2",
@@ -9890,8 +9894,8 @@
       "size": 3381
     },
     "scripts/package_complete_public_repo.py": {
-      "sha256": "a6f247eca25815d344004d8cfe8ef629b93d44afd4c476a6a5da5366215dc146",
-      "size": 49274
+      "sha256": "631c5a8e2c1f56c5cd50bd4cd113b10ac470602464c7017222383e05ab62c24f",
+      "size": 50164
     },
     "scripts/package_prepared_c0045_role.py": {
       "sha256": "31e31e548d2cb9e025682f73323b8dc23d18ba121b78164af4c73421f1a09f0b",
@@ -9900,6 +9904,10 @@
     "scripts/preflight_strict_c0045.py": {
       "sha256": "99fef685f6877f364121ad931debb35c2b3a5472b98f4bbee09d47d4109ea48d",
       "size": 7679
+    },
+    "scripts/prepare_caldera_session.py": {
+      "sha256": "facac523b48b5423a8897240ecece248c85d23e6ec524f0f3d2d3a4dd984e86a",
+      "size": 2499
     },
     "scripts/probe_c0010_controller.py": {
       "sha256": "5efd0b9e8d18dcb0be485bd67b532cf1567e7f49dc6c11263e192a956eea3c92",
@@ -10042,12 +10050,12 @@
       "size": 1952
     },
     "scripts/run_isolated_lab_campaign.py": {
-      "sha256": "b2a157df0e60e1515309b5a8c81873a266d03168a952b49237b3281ebd942502",
-      "size": 11551
+      "sha256": "e9c32db5d82aff9f3c52ed3cffba77170beeb199c6465b1d5120fdfc1b7c3641",
+      "size": 12449
     },
     "scripts/run_lab_campaign.py": {
-      "sha256": "b08667781597ef682b9735828496e94cdce4b285ee77d0e2128c57405929a923",
-      "size": 12727
+      "sha256": "b4010dc2fadb3b8dbb413a5e2a751f845b959e08a20094a3497c62c94b0664e9",
+      "size": 14012
     },
     "scripts/run_measurements.py": {
       "sha256": "2fdf6def8cd90123ebeda168d408b9b02ba94be7402c34adb8500688f9609d16",
@@ -10189,6 +10197,10 @@
       "sha256": "7a4da5c4a5a541dcd24684765c029fd57cac225ee2b171aced43820f3356a369",
       "size": 842
     },
+    "scripts/verify_caldera_run_journal.py": {
+      "sha256": "6661a6082d1b1e956a8294dae14341fde66def45ba33ec531e7de3899a2b399e",
+      "size": 2792
+    },
     "scripts/verify_claims.py": {
       "sha256": "99970e3fcf815c044f24ead5bcdd1486ee7821a2af300d5728cba16d6834e9fe",
       "size": 8961
@@ -10228,6 +10240,10 @@
     "src/adapters/caldera_dispatch.py": {
       "sha256": "b2718db620f1c19957adbba9f752e90963d8ef9c14f657445ceb10147602e8e9",
       "size": 4568
+    },
+    "src/adapters/caldera_operations.py": {
+      "sha256": "28d91c5993b3de4cef5c0ddff60522414b26365ce585a264fc8eb38f2e7e5656",
+      "size": 5017
     },
     "src/apply_sut_profile.py": {
       "sha256": "e440509f8455b1090ed622fc034444ad69d81a7c3ef7d3fd64b92615e52a157c",
@@ -10562,8 +10578,8 @@
       "size": 2666
     },
     "src/executors/lab_transport.py": {
-      "sha256": "5729ae2614ea1e8171e1ac949f2bd8c1c9286aff72a3f256a99225c9a1d18a0c",
-      "size": 7105
+      "sha256": "b1dafc2d7fe7bfdaa90945abeb3ba92c53579328235c659adf531f0896e22bf0",
+      "size": 8514
     },
     "src/executors/legacy_campaign_executors.py": {
       "sha256": "05e01b3e9ba2ef4ebcd2a7e507861dcfa531ed799094a016bc639d4824388eed",
@@ -10725,6 +10741,18 @@
       "sha256": "e45cc475a3a15c8ed7e8e0264dcf0227fc00b462f1c6af0b75ef7131c046f802",
       "size": 7394
     },
+    "src/runners/caldera_lab_bootstrap.py": {
+      "sha256": "b34dfe062de974a1bc53e0b3edff235679ef94c368d4448f1d0375f2109a9045",
+      "size": 5455
+    },
+    "src/runners/caldera_session.py": {
+      "sha256": "47d12991d480d9a7970f68c70308e0c2cf6f125a20e22ef7892d9a1cd9c62ade",
+      "size": 2319
+    },
+    "src/runners/caldera_target_transport.py": {
+      "sha256": "245b15eb4dda59d88174d4e2478f8326fa98c73778c8f8d8d7601f5f8664be4d",
+      "size": 3308
+    },
     "src/runners/campaign_api.py": {
       "sha256": "b4255095f55cf34747b8772590a38f06c31bbcefa71a2a9d509555e8aab6fdaf",
       "size": 2726
@@ -10734,8 +10762,8 @@
       "size": 7987
     },
     "src/runners/campaign_runner.py": {
-      "sha256": "e2363288b0e1c674857afac55dfe4a90e49bdcd8acfb82dc2324d3e03b5925dc",
-      "size": 56987
+      "sha256": "e57bda0f80610183abea185627e4de05fcfd783f390c553d1d2c72b0cf845d2d",
+      "size": 57702
     },
     "src/runners/capability_authority.py": {
       "sha256": "3f0564a673cc502ac210dadb0a9f4104ee989a9b62f45ceee386f7e1f551b6d6",
@@ -10786,8 +10814,8 @@
       "size": 1454
     },
     "src/runners/recorded_caldera_dispatch.py": {
-      "sha256": "b21092b99ce96ef7a1373def968cc4c5fcce5a00ff9319c913eb4883981e32a1",
-      "size": 1909
+      "sha256": "ea72a13d922e5780580bf5de33499a433aa678a22109cbfbd095e826a053b2ea",
+      "size": 3799
     },
     "src/runners/runtime_campaign_report.py": {
       "sha256": "2d00be116e1ab7f8026b6402eca10b1addfa8f35c67cbc47e34593b3375f7612",
@@ -10798,8 +10826,8 @@
       "size": 2931
     },
     "src/runners/runtime_invocation.py": {
-      "sha256": "8712c1161e717f777812a0fc4d596ac3ca8bc4c5069dc471d08b7fa66f184c53",
-      "size": 4194
+      "sha256": "50fb4845b2dae765178cd4a093e44958c961a87cf1ced93274dfdd6c4ab590fe",
+      "size": 4324
     },
     "src/runners/runtime_journal.py": {
       "sha256": "01ece6ae2c5cb6eba5f913cdf64fa248513f98039fcf30e1d82d3d20357cb11a",
@@ -11089,9 +11117,29 @@
       "sha256": "30dd43a2e5f9607ebf09e14a60448636a54747ac43044b572bd77df270b3e6eb",
       "size": 4880
     },
+    "tests/test_caldera_command_result.py": {
+      "sha256": "38147fb04882952f7c376e0d2466d4468d7d6105daed8d92f0413b80f6fa08fa",
+      "size": 4491
+    },
+    "tests/test_caldera_dispatch.py": {
+      "sha256": "6aa2d90dfd88744ae08e763d1ac0689ec5e336d6ac96917c27f77b2af8e6ea2f",
+      "size": 6049
+    },
+    "tests/test_caldera_operations.py": {
+      "sha256": "e920de54ce564754cf92bed770dbac4efcbd100864db6855d84774eeadad98f2",
+      "size": 2859
+    },
     "tests/test_caldera_provisioning_contract.py": {
       "sha256": "027ec054dacce569471c0cca4c19134cccae1bb046baa23e98ba5185d4d825ff",
       "size": 7076
+    },
+    "tests/test_caldera_session.py": {
+      "sha256": "d63873eba9fced03cd5a0bc0190a063829f83d3ff3ac289a39057246081cfcc2",
+      "size": 3428
+    },
+    "tests/test_caldera_target_transport.py": {
+      "sha256": "7ed3eccbea92bde49be6aeb6d5f3769c39f283259e5e40e50813e2288d3469ef",
+      "size": 4082
     },
     "tests/test_campaign_expansion_executors.py": {
       "sha256": "f4e36527cf2352d3dfb8303964c621ccb3acde4aacf2ca2f3f568bc000472238",
@@ -11186,8 +11234,8 @@
       "size": 5242
     },
     "tests/test_complete_c0026_run.py": {
-      "sha256": "8b5c0c9fa9360b1743fb378c1330b0b55fabeb6422c6be6ad8b3260ef0a17594",
-      "size": 4145
+      "sha256": "06dcf8af9098d5f68b7011290ee73f440cacfe56c1d727a55f1e60fd9da41a1e",
+      "size": 4962
     },
     "tests/test_complete_costaricto_run.py": {
       "sha256": "b5e170968deaa4ce37483d699c5743570c555f843b9501a7bdbe8d199757dc38",
@@ -11485,6 +11533,10 @@
       "sha256": "822cc7c91033b09ac9182a7206e332a746a4eac069deea1c18d4ba87ff60b21d",
       "size": 5788
     },
+    "tests/test_prepare_caldera_session.py": {
+      "sha256": "35504d77e81562bcf0dc101e9f685455ef4ef7f8ac8f3607e2f0f3452e61ec3b",
+      "size": 1884
+    },
     "tests/test_prepared_image_provenance.py": {
       "sha256": "a61065860b8321d6f51fcecf4bc2c99b663ede6e33f4132992a7e93f69c398b2",
       "size": 1609
@@ -11580,6 +11632,10 @@
     "tests/test_realization_workbench.py": {
       "sha256": "1f0d6104b2fd0ba91ac4d85dbc1fce0f109522c9deb76adcc1f706ca4a0096e3",
       "size": 4720
+    },
+    "tests/test_recorded_caldera_dispatch.py": {
+      "sha256": "0c92b9be41a388ce9d04d15e1ca6cae3fda07e44217d1a07f5176f1c2311c9dc",
+      "size": 5922
     },
     "tests/test_render_c0045_series_macros.py": {
       "sha256": "49b85d18335d65bfebae05b868709cac26df20b11c9b41b9825b41721a34e91b",
@@ -11875,5 +11931,5 @@
     }
   },
   "schema_version": "1",
-  "tree_sha256": "a715700a0fe6675e20e19aa8c3e49838feb3f3cf2a4f4f21ee4ad6b42ba0694e"
+  "tree_sha256": "6b91d24e31b8c8bf388e47061e392044456150b8dc1d42d1d9c60a8c4beac3d2"
 }

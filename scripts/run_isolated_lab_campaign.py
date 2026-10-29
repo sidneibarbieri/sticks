@@ -235,11 +235,21 @@ def parse_args() -> argparse.Namespace:
         action="store_true",
         help="Keep this isolated lab for target-side observation; explicit teardown remains required.",
     )
+    parser.add_argument("--caldera-session", type=Path,
+                        help="Prepared isolated CALDERA session for target execution")
+    parser.add_argument("--caldera-dispatch", action="store_true",
+                        help="Prepare a fresh target agent after provisioning")
     return parser.parse_args()
 
 
 def main() -> int:
     args = parse_args()
+    if args.caldera_session and args.caldera_dispatch:
+        raise ValueError("Select either a prepared session or fresh enrollment")
+    if (args.caldera_session or args.caldera_dispatch) and args.campaign != "0.c0026":
+        raise ValueError("CALDERA session currently supports only 0.c0026")
+    if args.caldera_session and not args.caldera_session.is_file():
+        raise FileNotFoundError(args.caldera_session)
     if args.campaign == "0.shadowray":
         raise ValueError(
             "C0045 requires the frozen effect-series runner; "
@@ -282,6 +292,10 @@ def main() -> int:
         "--evidence-output",
         str(evidence),
     ]
+    if args.caldera_session:
+        command.extend(["--caldera-session", str(args.caldera_session.resolve())])
+    if args.caldera_dispatch:
+        command.append("--caldera-dispatch")
     if args.keep_lab:
         command.append("--keep-lab")
     log_path = run_root / "execution.log"

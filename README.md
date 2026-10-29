@@ -218,6 +218,25 @@ the packaged target probe, attempts campaign-scoped teardown even when
 observation fails, and seals the final receipt only after success.
 See `lab/vagrant/README.md` for the complete command sequence.
 
+### Prospective C0026 dispatch through CALDERA
+
+This optional path enrolls a fresh Linux target agent, binds dispatch to
+its boot identity, and retains command intents, native links, and results.
+Independent effect probes use a separate transport.
+
+```bash
+python scripts/run_isolated_lab_campaign.py --campaign 0.c0026 --provider qemu --run-root /absolute/new/run --caldera-dispatch --keep-lab
+python scripts/complete_c0026_run.py --run-root /absolute/new/run
+python scripts/finalize_isolated_lab_run.py --run-root /absolute/new/run --verify
+python scripts/verify_caldera_run_journal.py --evidence /absolute/new/run/evidence
+```
+
+Completion observes the target, tears down the guests, and seals the
+receipt. Run completion even after a failed campaign; failure propagates
+and an invalid journal prevents certification. This controlled C0026
+slice includes an explicit simulation. It does not demonstrate an
+enterprise multi-host pivot. Offline review does not execute this path.
+
 For two sealed QEMU runs created from the same source tree, retain both
 run directories and audit their typed outcomes with:
 

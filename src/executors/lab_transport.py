@@ -7,6 +7,10 @@ import os
 import platform
 import shlex
 import subprocess
+from collections.abc import Callable, Iterator
+from contextlib import contextmanager
+from contextvars import ContextVar
+from dataclasses import dataclass
 from pathlib import Path
 
 from loaders.campaign_loader import load_sut_profile
@@ -24,6 +28,41 @@ HOSTNAME_VM_ALIAS = {
 }
 
 CONTROL_PLANE_VMS = {"attacker", "caldera"}
+
+
+@dataclass(frozen=True)
+class TargetCommand:
+    vm_name: str
+    command: str
+    timeout_seconds: int
+    principal: str | None
+
+
+TargetTransport = Callable[[TargetCommand], subprocess.CompletedProcess[str]]
+_target_transport: ContextVar[TargetTransport | None] = ContextVar(
+    "target_transport", default=None
+)
+_executor_dispatch_active: ContextVar[bool] = ContextVar("executor_dispatch_active", default=False)
+
+
+@contextmanager
+def target_executor_dispatch() -> Iterator[None]:
+    """Redirect only technique invocations, leaving probes on their own channel."""
+    token = _executor_dispatch_active.set(True)
+    try:
+        yield
+    finally:
+        _executor_dispatch_active.reset(token)
+
+
+@contextmanager
+def target_command_transport(transport: TargetTransport) -> Iterator[None]:
+    """Bind execution transport to this context; observer transport is unchanged."""
+    token = _target_transport.set(transport)
+    try:
+        yield
+    finally:
+        _target_transport.reset(token)
 
 
 def detect_vagrant_provider() -> str:
@@ -171,6 +210,10 @@ def run_bash_on_target_vm(
             or execution_user.startswith("-")
         ):
             raise ValueError("A non-root target execution user is required")
+    selected_transport = _target_transport.get()
+    if selected_transport is not None and _executor_dispatch_active.get():
+        return selected_transport(TargetCommand(vm_name, remote_cmd, timeout, execution_user))
+    if execution_user is not None:
         remote_cmd = f"sudo -n -H -u {shlex.quote(execution_user)} -- {remote_cmd}"
     return run_command_in_vm(
         vm_name=vm_name,

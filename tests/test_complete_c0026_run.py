@@ -74,6 +74,25 @@ def test_probe_failure_still_destroys_and_does_not_finalize(
     ] == 1
 
 
+def test_invalid_caldera_journal_still_tears_down_without_certifying(tmp_path, monkeypatch):
+    import subprocess
+    run_root = make_run(tmp_path)
+    (run_root / "evidence/caldera-session.json").write_text("{}")
+    destroyed = []
+
+    def reject(command, **kwargs):
+        assert command[1].endswith("verify_caldera_run_journal.py")
+        raise subprocess.CalledProcessError(1, command)
+
+    monkeypatch.setattr(completion.subprocess, "run", reject)
+    monkeypatch.setattr(completion, "destroy_lab", destroyed.append)
+    monkeypatch.setattr(completion, "observe_target", lambda _: pytest.fail("journal failed"))
+    with pytest.raises(subprocess.CalledProcessError):
+        completion.complete_run(run_root)
+    assert destroyed == [run_root]
+    assert not (run_root / "final_run_receipt.json").exists()
+
+
 def test_failed_campaign_does_not_observe_or_finalize(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:
