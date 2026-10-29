@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure demonstrates the use of bind mounts to map a benign directory to a target process's directory.",
+    "evidence_predicates": [
+      "bounded_effect_observed",
+      "fixture_access_logged"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "mount_point": "target_host",
+      "source_directory": "target_host"
+    },
+    "produces": [
+      "bind mount established"
+    ],
+    "requires": [
+      "sudo access to the system",
+      "a benign directory to bind"
+    ],
+    "technique_ids": [
+      "T1564.013"
+    ],
+    "template_id": "bind-mounts-laboratory-harness"
+  }
+}

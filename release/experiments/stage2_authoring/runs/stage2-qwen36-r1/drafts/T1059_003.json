@@ -1,0 +1,36 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "qwen3.6:latest",
+    "provider": "openai",
+    "review_pending": true,
+    "run_id": "stage2-qwen36-r1",
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "A benign laboratory harness that executes a controlled Windows command shell script to verify environment configuration and capture standardized output for validation.",
+    "evidence_predicates": [
+      "stdout_hash_recorded",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "env_context": "runtime",
+      "log_sink": "data_source",
+      "script_path": "capability_specification"
+    },
+    "produces": [
+      "cmd_execution_complete",
+      "output_artifact_stored"
+    ],
+    "requires": [
+      "target_host_accessible",
+      "shell_config_loaded"
+    ],
+    "technique_ids": [
+      "T1059.003"
+    ],
+    "template_id": "win-cmd-shell-lab-harness"
+  }
+}

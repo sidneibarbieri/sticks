@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure uses rundll32.exe to execute a specified DLL function, simulating a benign execution environment.",
+    "evidence_predicates": [
+      "process_exit_recorded",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "dll_function": "payload",
+      "dll_name": "payload"
+    },
+    "produces": [
+      "process_exit_recorded"
+    ],
+    "requires": [
+      "rundll32.exe is available on the system",
+      "the specified DLL and function are valid"
+    ],
+    "technique_ids": [
+      "T1218.011"
+    ],
+    "template_id": "rundll32-execution-proxy"
+  }
+}

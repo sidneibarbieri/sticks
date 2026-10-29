@@ -1,0 +1,36 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure demonstrates the use of symmetric cryptography to encrypt data for secure transmission.",
+    "evidence_predicates": [
+      "archive_hash_recorded",
+      "bytes_transferred_recorded"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "data": "data_source",
+      "encryption_algorithm": "capability_specification",
+      "key": "credential_source"
+    },
+    "produces": [
+      "encrypted_data available",
+      "encryption_hash_recorded"
+    ],
+    "requires": [
+      "encryption_algorithm defined",
+      "key generated",
+      "data to encrypt available"
+    ],
+    "technique_ids": [
+      "T1573.001"
+    ],
+    "template_id": "symmetric-cryptography-laboratory-harness"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure establishes an interactive session on a target host using Remote Desktop Protocol with valid user credentials.",
+    "evidence_predicates": [
+      "fixture_access_logged",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "credential_source": "credential_source",
+      "target_host": "target_host"
+    },
+    "produces": [
+      "interactive session established",
+      "user actions logged"
+    ],
+    "requires": [
+      "valid user credentials",
+      "network access to the target host"
+    ],
+    "technique_ids": [
+      "T1021.001"
+    ],
+    "template_id": "remote-desktop-protocol-laboratory-harness"
+  }
+}

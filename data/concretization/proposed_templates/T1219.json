@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure establishes an interactive session using a remote access tool to simulate command and control operations.",
+    "evidence_predicates": [
+      "bounded_effect_observed",
+      "fixture_access_logged"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "remote_tool": "toolkit",
+      "target_machine": "target_host"
+    },
+    "produces": [
+      "interactive session established"
+    ],
+    "requires": [
+      "remote_tool is configured",
+      "target_machine is accessible"
+    ],
+    "technique_ids": [
+      "T1219"
+    ],
+    "template_id": "remote-access-tools-laboratory-harness"
+  }
+}

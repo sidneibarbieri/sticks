@@ -1,0 +1,36 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure sets up an internal proxy to manage command and control traffic within a controlled environment.",
+    "evidence_predicates": [
+      "http_request_logged",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "network_interface": "network_interface",
+      "proxy_tool": "toolkit",
+      "target_system": "target_host"
+    },
+    "produces": [
+      "traffic redirected through proxy",
+      "command and control communication established"
+    ],
+    "requires": [
+      "proxy_tool installed",
+      "target_system accessible",
+      "network_interface configured"
+    ],
+    "technique_ids": [
+      "T1090.001"
+    ],
+    "template_id": "internal-proxy-traffic-redirection"
+  }
+}

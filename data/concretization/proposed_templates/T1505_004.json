@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure outlines the steps to install a malicious component on an IIS web server to establish persistence.",
+    "evidence_predicates": [
+      "http_request_logged",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "dll_file": "payload",
+      "web_server": "target_host"
+    },
+    "produces": [
+      "malicious IIS component installed"
+    ],
+    "requires": [
+      "IIS web server is operational",
+      "sufficient privileges to install components"
+    ],
+    "technique_ids": [
+      "T1505.004"
+    ],
+    "template_id": "iis-components-installation"
+  }
+}

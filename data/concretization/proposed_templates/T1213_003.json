@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure collects sensitive source code from a specified code repository using valid access credentials.",
+    "evidence_predicates": [
+      "collection_manifest_recorded",
+      "http_request_logged"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "access_credentials": "credential_source",
+      "repository_url": "web_asset"
+    },
+    "produces": [
+      "sensitive source code collected"
+    ],
+    "requires": [
+      "access to the code repository",
+      "valid credentials for the repository"
+    ],
+    "technique_ids": [
+      "T1213.003"
+    ],
+    "template_id": "collect-source-code-from-code-repositories"
+  }
+}

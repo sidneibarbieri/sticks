@@ -1,0 +1,27 @@
+{
+  "schema_version": "1",
+  "provider": "openai",
+  "model": "qwen2.5-coder:14b",
+  "request_sha256": "69ff459ac63983a1ba42d87eb379cfbe941279170bc8a87c37a3583f2b00f79c",
+  "response_sha256": "08525f03602a55ade3397fe2bf7702c7cd0378c7f48759fc476f3ebefd22d60d",
+  "usage": {
+    "prompt_tokens": 7449,
+    "completion_tokens": 93,
+    "estimated_usd": 0.0
+  },
+  "proposals": [
+    {
+      "technique_id": "T1059.006",
+      "template_id": "run-benign-python",
+      "bindings": {
+        "runtime": "runtime.python3",
+        "target": "target.primary"
+      },
+      "rationale": "Run a bounded benign command through the compromised service.",
+      "source": "llm"
+    }
+  ],
+  "malformed_proposals": 0,
+  "raw_response_path": "proposal_response.json",
+  "content_sha256": "0d4e50ed471d65d830c0e1fe77a45022c5b370ce309eb52244abf37d9f20733d"
+}

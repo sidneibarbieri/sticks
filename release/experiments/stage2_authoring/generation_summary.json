@@ -1,0 +1,20 @@
+{
+  "admitted_step_reach": 667,
+  "admitted_templates": 226,
+  "attempted_techniques": 226,
+  "budget_estimated_usd": 0.0,
+  "budget_requests_used": 2,
+  "evidence_tier": "schema_and_vocabulary_valid_draft",
+  "extended_contract_reach_share": 0.8019,
+  "extended_contract_reach_steps": 919,
+  "incremental_draft_reach_steps": 667,
+  "matching_policy": "exact_technique_id",
+  "note": "Admitted templates are DRAFT proposals with proposer provenance; they extend contract-valid reach, a weaker tier than admitted-and-executed, and none is promoted to the trusted catalog automatically.",
+  "provider_failures": 1,
+  "question": "How far does bounded LLM proposal under deterministic admission extend contract-valid technique coverage, without touching the trusted catalog?",
+  "rejected_by_code": {
+    "malformed_schema": 1
+  },
+  "total_steps": 1146,
+  "trusted_contract_reach_steps": 252
+}

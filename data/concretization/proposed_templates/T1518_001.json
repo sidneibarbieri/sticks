@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure gathers and records a list of security software installed on a target host.",
+    "evidence_predicates": [
+      "collection_manifest_recorded",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "security_tool": "toolkit",
+      "target_host": "target_host"
+    },
+    "produces": [
+      "list of installed security software"
+    ],
+    "requires": [
+      "target host is operational",
+      "security tools are installed"
+    ],
+    "technique_ids": [
+      "T1518.001"
+    ],
+    "template_id": "security-software-discovery-laboratory-harness"
+  }
+}

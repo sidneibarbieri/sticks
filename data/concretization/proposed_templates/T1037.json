@@ -1,0 +1,34 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure template outlines the execution of boot or logon initialization scripts in a controlled laboratory environment to observe their effects.",
+    "evidence_predicates": [
+      "fixture_access_logged",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "host": "target_host",
+      "script": "shell_config_artifact"
+    },
+    "produces": [
+      "script execution logged",
+      "script output captured"
+    ],
+    "requires": [
+      "target host is accessible",
+      "script execution permissions granted"
+    ],
+    "technique_ids": [
+      "T1037"
+    ],
+    "template_id": "boot-logon-initialization-scripts-laboratory-harness"
+  }
+}

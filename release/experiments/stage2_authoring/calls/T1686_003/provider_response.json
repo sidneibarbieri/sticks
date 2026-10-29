@@ -1,0 +1,36 @@
+{
+  "id": "chatcmpl-EOgFnucGM8EF9Yb0jQuy8EpidScTI",
+  "object": "chat.completion",
+  "created": 1789551003,
+  "model": "gpt-4o-mini-2024-07-18",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"template_id\": \"modify-windows-host-firewall-settings\",\n  \"technique_ids\": [\n    \"T1686.003\"\n  ],\n  \"execution_domain\": \"target\",\n  \"parameter_kinds\": {\n    \"firewall_rule\": \"toolkit\",\n    \"profile\": \"privilege_boundary\"\n  },\n  \"requires\": [\n    \"access to the Windows host\",\n    \"administrative privileges\"\n  ],\n  \"produces\": [\n    \"firewall settings modified\"\n  ],\n  \"evidence_predicates\": [\n    \"bounded_effect_observed\",\n    \"firewall settings modified\"\n  ],\n  \"fidelity_ceiling\": \"adapted\",\n  \"description\": \"This procedure modifies the Windows host firewall settings to demonstrate the impact of firewall rule changes.\"\n}",
+        "refusal": null,
+        "annotations": []
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 826,
+    "completion_tokens": 162,
+    "total_tokens": 988,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_c577bb8647"
+}

@@ -1,0 +1,34 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure simulates the exploitation of a client application vulnerability to deliver a payload in a controlled laboratory environment.",
+    "evidence_predicates": [
+      "archive_hash_recorded",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "payload": "payload",
+      "target_host": "target_host"
+    },
+    "produces": [
+      "exploit executed",
+      "payload delivered"
+    ],
+    "requires": [
+      "vulnerable client application installed",
+      "test environment configured"
+    ],
+    "technique_ids": [
+      "T1203"
+    ],
+    "template_id": "exploit-client-execution-lab-harness"
+  }
+}

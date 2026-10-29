@@ -1,0 +1,34 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure demonstrates the deployment of a web shell on a benign web server for testing purposes.",
+    "evidence_predicates": [
+      "web_asset_hash_recorded",
+      "http_request_logged"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "payload": "payload",
+      "web_asset": "web_asset"
+    },
+    "produces": [
+      "web asset hash recorded",
+      "http request logged"
+    ],
+    "requires": [
+      "web server is accessible",
+      "web shell script is prepared"
+    ],
+    "technique_ids": [
+      "T1505.003"
+    ],
+    "template_id": "web-shell-laboratory-harness"
+  }
+}

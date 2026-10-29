@@ -1,0 +1,34 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure extracts sensitive data from an information repository while logging access events.",
+    "evidence_predicates": [
+      "collection_manifest_recorded",
+      "bytes_transferred_recorded"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "data_source": "data_source",
+      "target_host": "target_host"
+    },
+    "produces": [
+      "sensitive data extracted from repository",
+      "access logs generated"
+    ],
+    "requires": [
+      "access to information repository",
+      "valid user credentials"
+    ],
+    "technique_ids": [
+      "T1213"
+    ],
+    "template_id": "data-from-information-repositories-laboratory-harness"
+  }
+}

@@ -1,0 +1,205 @@
+{
+  "schema_version": "1",
+  "compiler_version": "1",
+  "campaign_id": "C0039",
+  "campaign_name": "Versa Director Zero Day Exploitation",
+  "source": {
+    "bundle_sha256": "dc1639caa5501d720e280cf1cbd8fbe009884a0c9b3e6e9ed9d0c25166c3d8f4",
+    "object_count": 26086,
+    "campaign_stix_id": "campaign--af0ec65a-caa9-40ef-b1c7-21b71fbf3a10",
+    "campaign_external_id": "C0039"
+  },
+  "ordering_policy": "tactic_rank_then_technique_id",
+  "steps": [
+    {
+      "technique_id": "T1584.008",
+      "technique_stix_id": "attack-pattern--149b477f-f364-4824-b1b5-aa1d56115869",
+      "name": "Network Devices",
+      "execution_domain": "attacker",
+      "tactics": [
+        "resource-development"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--756bcc95-b0a5-4fce-bd2a-c3f3171d7a1a"
+      ],
+      "procedure_descriptions": [
+        "[Versa Director Zero Day Exploitation](https://attack.mitre.org/campaigns/C0039) used compromised small office/home office (SOHO) devices to interact with vulnerable Versa Director servers.(Citation: Lumen Versa 2024)"
+      ]
+    },
+    {
+      "technique_id": "T1587.001",
+      "technique_stix_id": "attack-pattern--212306d8-efa4-44c9-8c2d-ed3d2e224aa0",
+      "name": "Malware",
+      "execution_domain": "attacker",
+      "tactics": [
+        "resource-development"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--d11ccc61-70e8-4921-b760-59e4df84934c"
+      ],
+      "procedure_descriptions": [
+        "[Versa Director Zero Day Exploitation](https://attack.mitre.org/campaigns/C0039) involved the development of a new web shell variant, [VersaMem](https://attack.mitre.org/software/S1154).(Citation: Lumen Versa 2024)"
+      ]
+    },
+    {
+      "technique_id": "T1190",
+      "technique_stix_id": "attack-pattern--3f886f2a-874f-4333-b794-aa6075009b1c",
+      "name": "Exploit Public-Facing Application",
+      "execution_domain": "boundary",
+      "tactics": [
+        "initial-access"
+      ],
+      "platforms": [
+        "Containers",
+        "ESXi",
+        "IaaS",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--07dec22a-ac65-448c-a948-cefd8effa6f2"
+      ],
+      "procedure_descriptions": [
+        "[Versa Director Zero Day Exploitation](https://attack.mitre.org/campaigns/C0039) involved exploitation of a vulnerability in Versa Director servers, since identified as CVE-2024-39717, for initial access and code execution.(Citation: Lumen Versa 2024)"
+      ]
+    },
+    {
+      "technique_id": "T1505.003",
+      "technique_stix_id": "attack-pattern--5d0d3609-d06d-49e1-b9c9-b544e0c618cb",
+      "name": "Web Shell",
+      "execution_domain": "target",
+      "tactics": [
+        "persistence"
+      ],
+      "platforms": [
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--f2348cdc-9379-44e2-909c-56e52d2079c9"
+      ],
+      "procedure_descriptions": [
+        "[Versa Director Zero Day Exploitation](https://attack.mitre.org/campaigns/C0039) resulted in the deployment of the VersaMem web shell for follow-on activity.(Citation: Lumen Versa 2024)"
+      ]
+    },
+    {
+      "technique_id": "T1056",
+      "technique_stix_id": "attack-pattern--bb5a00de-e086-4859-a231-fa793f6797e2",
+      "name": "Input Capture",
+      "execution_domain": "target",
+      "tactics": [
+        "credential-access",
+        "collection"
+      ],
+      "platforms": [
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--a3a64ecb-572b-4dc3-b95f-8b46be7b857a"
+      ],
+      "procedure_descriptions": [
+        "[Versa Director Zero Day Exploitation](https://attack.mitre.org/campaigns/C0039) intercepted and harvested credentials from user logins to compromised devices.(Citation: Lumen Versa 2024)"
+      ]
+    },
+    {
+      "technique_id": "T1071.001",
+      "technique_stix_id": "attack-pattern--df8b2a25-8bdf-4856-953c-a04372b1c161",
+      "name": "Web Protocols",
+      "execution_domain": "boundary",
+      "tactics": [
+        "command-and-control"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--b0f5bd5a-4e44-48f6-8a26-ebb3b5ef685b"
+      ],
+      "procedure_descriptions": [
+        "[Versa Director Zero Day Exploitation](https://attack.mitre.org/campaigns/C0039) established HTTPS communications from adversary-controlled SOHO devices over port 443 with compromised Versa Director servers.(Citation: Lumen Versa 2024)"
+      ]
+    },
+    {
+      "technique_id": "T1095",
+      "technique_stix_id": "attack-pattern--c21d5a77-d422-4a69-acd7-2c53c1faa34b",
+      "name": "Non-Application Layer Protocol",
+      "execution_domain": "boundary",
+      "tactics": [
+        "command-and-control"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--e8b7172d-ae96-4334-98f5-3bfc71122474"
+      ],
+      "procedure_descriptions": [
+        "[Versa Director Zero Day Exploitation](https://attack.mitre.org/campaigns/C0039) used a non-standard TCP session to initialize communication prior to establishing HTTPS command and control.(Citation: Lumen Versa 2024)"
+      ]
+    },
+    {
+      "technique_id": "T1573.002",
+      "technique_stix_id": "attack-pattern--bf176076-b789-408e-8cba-7275e81c0ada",
+      "name": "Asymmetric Cryptography",
+      "execution_domain": "boundary",
+      "tactics": [
+        "command-and-control"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--6e9ed705-5f77-418b-b108-9320d1449272"
+      ],
+      "procedure_descriptions": [
+        "[Versa Director Zero Day Exploitation](https://attack.mitre.org/campaigns/C0039) used HTTPS for command and control of compromised Versa Director servers.(Citation: Lumen Versa 2024)"
+      ]
+    }
+  ],
+  "limitations": [
+    "ATT&CK uses-links do not encode a historical total order; the compiler applies a declared tactic-rank policy.",
+    "Technique metadata constrains procedures but does not uniquely determine an executable target environment."
+  ],
+  "content_sha256": "8eefc55a5aaa41b794ecf0fb3a9828fd2bc91e7ba9f3596bfdffe5680f6b0794"
+}

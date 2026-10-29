@@ -1,0 +1,16 @@
+{
+  "schema_version": "c0045-strict-execution-profile/v1",
+  "mode": "strict_experiment",
+  "provider": "qemu",
+  "box_name": "perk/ubuntu-2204-arm64",
+  "box_version": "20250702",
+  "minimum_vagrant_qemu_version": "0.6.3",
+  "requirements_lock_sha256": "11e590536a287a8408ed339c9ee58f53d037834c0a06e53bf91cea0eedf0db4c",
+  "series_sha256": "2bd4172f91cf73033ba727b6f4bcc5c07b707a3994316b0c2777c35a8a10d5d1",
+  "study_sha256": "0a26db0503b05b4cf78a6586d724a07c0b225a31b6669409a97da1ea45def105",
+  "vagrantfile_sha256": {
+    "attacker": "1d0b9b6c9b621981b85f256713aeab6714967719bcf86e0df908447ab07e0ab5",
+    "caldera": "f87d85398f2d8d3ced4c85f62372360a602b4a1d4b831a7b8183a9918e4842ba",
+    "target-linux-1": "2abb656c9b40545f4eded8f3fba04ddae8c3d86afdf87085d6388819b4861cad"
+  }
+}

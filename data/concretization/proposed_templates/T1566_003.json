@@ -1,0 +1,35 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure simulates sending a spearphishing message via a third-party service to observe the logging of the request.",
+    "evidence_predicates": [
+      "http_request_logged",
+      "service_request_logged",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "message_payload": "payload",
+      "service_channel": "channel"
+    },
+    "produces": [
+      "http_request_logged",
+      "service_request_logged"
+    ],
+    "requires": [
+      "target_host is reachable",
+      "service_channel is configured"
+    ],
+    "technique_ids": [
+      "T1566.003"
+    ],
+    "template_id": "spearphishing-via-service-laboratory-harness"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "id": "chatcmpl-EOK5x1puDwzhDiJGpHBpwj3Kx9Zde",
+  "object": "chat.completion",
+  "created": 1789465825,
+  "model": "gpt-4o-mini-2024-07-18",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"template_id\": \"pass-the-hash-laboratory-harness\",\n  \"technique_ids\": [\n    \"T1550.002\"\n  ],\n  \"execution_domain\": \"target\",\n  \"parameter_kinds\": {\n    \"credential_source\": \"credential_source\",\n    \"target_host\": \"target_host\"\n  },\n  \"requires\": [\n    \"valid password hashes captured\",\n    \"target host accessible\"\n  ],\n  \"produces\": [\n    \"authentication using password hash\"\n  ],\n  \"evidence_predicates\": [\n    \"archive_hash_recorded\",\n    \"source_and_destination_hashes_match\"\n  ],\n  \"fidelity_ceiling\": \"adapted\",\n  \"description\": \"This procedure demonstrates the Pass the Hash technique by authenticating to a target host using captured password hashes.\"\n}",
+        "refusal": null,
+        "annotations": []
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 829,
+    "completion_tokens": 167,
+    "total_tokens": 996,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_c577bb8647"
+}

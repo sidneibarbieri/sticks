@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure simulates the process of stealing or forging Kerberos tickets in a controlled laboratory environment.",
+    "evidence_predicates": [
+      "artifact_hash_recorded",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "credential_source": "credential_source",
+      "target_host": "target_host"
+    },
+    "produces": [
+      "Forged Kerberos ticket generated"
+    ],
+    "requires": [
+      "Kerberos tickets available for theft or forgery",
+      "Access to a target host within the Kerberos realm"
+    ],
+    "technique_ids": [
+      "T1558"
+    ],
+    "template_id": "steal-or-forge-kerberos-tickets-laboratory-harness"
+  }
+}

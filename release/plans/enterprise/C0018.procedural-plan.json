@@ -1,0 +1,453 @@
+{
+  "schema_version": "1",
+  "compiler_version": "1",
+  "campaign_id": "C0018",
+  "campaign_name": "C0018",
+  "source": {
+    "bundle_sha256": "dc1639caa5501d720e280cf1cbd8fbe009884a0c9b3e6e9ed9d0c25166c3d8f4",
+    "object_count": 26086,
+    "campaign_stix_id": "campaign--519ee082-8ab6-439b-988f-a8a3f02c8d30",
+    "campaign_external_id": "C0018"
+  },
+  "ordering_policy": "tactic_rank_then_technique_id",
+  "steps": [
+    {
+      "technique_id": "T1588.002",
+      "technique_stix_id": "attack-pattern--a2fdce72-04b2-409a-ac10-cc1695f4fce0",
+      "name": "Tool",
+      "execution_domain": "attacker",
+      "tactics": [
+        "resource-development"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--c0c1a394-23db-44cf-a922-89e10ba13ec6"
+      ],
+      "procedure_descriptions": [
+        "For [C0018](https://attack.mitre.org/campaigns/C0018), the threat actors acquired a variety of open source tools, including [Mimikatz](https://attack.mitre.org/software/S0002), [Sliver](https://attack.mitre.org/software/S0633), SoftPerfect Network Scanner, AnyDesk, and PDQ Deploy.(Citation: Cisco Talos Avos Jun 2022)(Citation: Costa AvosLocker May 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1190",
+      "technique_stix_id": "attack-pattern--3f886f2a-874f-4333-b794-aa6075009b1c",
+      "name": "Exploit Public-Facing Application",
+      "execution_domain": "boundary",
+      "tactics": [
+        "initial-access"
+      ],
+      "platforms": [
+        "Containers",
+        "ESXi",
+        "IaaS",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--237d7c2e-503a-420c-bf94-047f5c42a646"
+      ],
+      "procedure_descriptions": [
+        "During [C0018](https://attack.mitre.org/campaigns/C0018), the threat actors exploited VMWare Horizon Unified Access Gateways that were vulnerable to several Log4Shell vulnerabilities, including CVE-2021-44228, CVE-2021-45046, CVE-2021-45105, and CVE-2021-44832.(Citation: Cisco Talos Avos Jun 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1047",
+      "technique_stix_id": "attack-pattern--01a5a209-b94c-450b-b7f9-946497d91055",
+      "name": "Windows Management Instrumentation",
+      "execution_domain": "target",
+      "tactics": [
+        "execution"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--f95453f6-4b23-4ec4-bd76-7f44bca126b4"
+      ],
+      "procedure_descriptions": [
+        "During [C0018](https://attack.mitre.org/campaigns/C0018), the threat actors used WMIC to modify administrative settings on both a local and a remote host, likely as part of the first stages for their lateral movement; they also used WMI Provider Host (`wmiprvse.exe`) to execute a variety of encoded PowerShell scripts using the `DownloadString` method.(Citation: Cisco Talos Avos Jun 2022)(Citation: Costa AvosLocker May 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1059.001",
+      "technique_stix_id": "attack-pattern--970a3432-3237-47ad-bcca-7d8cbb217736",
+      "name": "PowerShell",
+      "execution_domain": "target",
+      "tactics": [
+        "execution"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--76c260cd-7cc8-4333-a253-e19b953c8291"
+      ],
+      "procedure_descriptions": [
+        "During [C0018](https://attack.mitre.org/campaigns/C0018), the threat actors used encoded PowerShell scripts for execution.(Citation: Cisco Talos Avos Jun 2022)(Citation: Costa AvosLocker May 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1072",
+      "technique_stix_id": "attack-pattern--92a78814-b191-47ca-909c-1ccfe3777414",
+      "name": "Software Deployment Tools",
+      "execution_domain": "target",
+      "tactics": [
+        "execution",
+        "lateral-movement"
+      ],
+      "platforms": [
+        "Linux",
+        "Network Devices",
+        "SaaS",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--e2ac0292-0de5-4805-9ff8-f56881331295"
+      ],
+      "procedure_descriptions": [
+        "During [C0018](https://attack.mitre.org/campaigns/C0018), the threat actors used PDQ Deploy to move [AvosLocker](https://attack.mitre.org/software/S1053) and tools across the network.(Citation: Cisco Talos Avos Jun 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1027.010",
+      "technique_stix_id": "attack-pattern--d511a6f6-4a33-41d5-bc95-c343875d1377",
+      "name": "Command Obfuscation",
+      "execution_domain": "target",
+      "tactics": [
+        "stealth"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--905e27bb-8d9b-4185-b5e6-4febc5d17333"
+      ],
+      "procedure_descriptions": [
+        "During [C0018](https://attack.mitre.org/campaigns/C0018), the threat actors used Base64 to encode their PowerShell scripts.(Citation: Cisco Talos Avos Jun 2022)(Citation: Costa AvosLocker May 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1036",
+      "technique_stix_id": "attack-pattern--42e8de7b-37b2-4258-905a-6897815e58e0",
+      "name": "Masquerading",
+      "execution_domain": "target",
+      "tactics": [
+        "stealth"
+      ],
+      "platforms": [
+        "Containers",
+        "ESXi",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--ed149b2f-6743-4d06-b869-158c0f96746e"
+      ],
+      "procedure_descriptions": [
+        "During [C0018](https://attack.mitre.org/campaigns/C0018), [AvosLocker](https://attack.mitre.org/software/S1053) was disguised using the victim company name as the filename.(Citation: Cisco Talos Avos Jun 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1036.005",
+      "technique_stix_id": "attack-pattern--1c4e5d32-1fe9-4116-9d9d-59e3925bd6a2",
+      "name": "Match Legitimate Resource Name or Location",
+      "execution_domain": "target",
+      "tactics": [
+        "stealth"
+      ],
+      "platforms": [
+        "Containers",
+        "ESXi",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--3564dc8e-09d0-4855-8a90-d4c28a9488e5"
+      ],
+      "procedure_descriptions": [
+        "For [C0018](https://attack.mitre.org/campaigns/C0018), the threat actors renamed a [Sliver](https://attack.mitre.org/software/S0633) payload to `vmware_kb.exe`.(Citation: Cisco Talos Avos Jun 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1218.011",
+      "technique_stix_id": "attack-pattern--045d0922-2310-4e60-b5e4-3302302cb3c5",
+      "name": "Rundll32",
+      "execution_domain": "target",
+      "tactics": [
+        "stealth"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--fe26276a-d93c-400b-8907-1fcc9415ee38"
+      ],
+      "procedure_descriptions": [
+        "During [C0018](https://attack.mitre.org/campaigns/C0018), the threat actors used `rundll32` to run [Mimikatz](https://attack.mitre.org/software/S0002).(Citation: Costa AvosLocker May 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1016",
+      "technique_stix_id": "attack-pattern--707399d6-ab3e-4963-9315-d9d3818cd6a0",
+      "name": "System Network Configuration Discovery",
+      "execution_domain": "target",
+      "tactics": [
+        "discovery"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--bcf2759f-2e3b-4caf-bfcb-2e7d8b533b2d"
+      ],
+      "procedure_descriptions": [
+        "During [C0018](https://attack.mitre.org/campaigns/C0018), the threat actors ran `nslookup` and Advanced IP Scanner on the target network.(Citation: Costa AvosLocker May 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1033",
+      "technique_stix_id": "attack-pattern--03d7999c-1f4c-42cc-8373-e7690d318104",
+      "name": "System Owner/User Discovery",
+      "execution_domain": "target",
+      "tactics": [
+        "discovery"
+      ],
+      "platforms": [
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--5cab522f-3469-4f57-97c5-f333c63691c0"
+      ],
+      "procedure_descriptions": [
+        "During [C0018](https://attack.mitre.org/campaigns/C0018), the threat actors collected `whoami` information via PowerShell scripts.(Citation: Costa AvosLocker May 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1046",
+      "technique_stix_id": "attack-pattern--e3a12395-188d-4051-9a16-ea8e14d07b88",
+      "name": "Network Service Discovery",
+      "execution_domain": "target",
+      "tactics": [
+        "discovery"
+      ],
+      "platforms": [
+        "Containers",
+        "IaaS",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--73d4dcf0-5c97-4b60-af21-b68182237e15"
+      ],
+      "procedure_descriptions": [
+        "During [C0018](https://attack.mitre.org/campaigns/C0018), the threat actors used the SoftPerfect Network Scanner for network scanning.(Citation: Cisco Talos Avos Jun 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1021.001",
+      "technique_stix_id": "attack-pattern--eb062747-2193-45de-8fa2-e62549c37ddf",
+      "name": "Remote Desktop Protocol",
+      "execution_domain": "target",
+      "tactics": [
+        "lateral-movement"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--4bc4f37e-5cdd-4def-a997-1cbb37975a8f"
+      ],
+      "procedure_descriptions": [
+        "During [C0018](https://attack.mitre.org/campaigns/C0018), the threat actors opened a variety of ports to establish RDP connections, including ports 28035, 32467, 41578, and 46892.(Citation: Costa AvosLocker May 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1570",
+      "technique_stix_id": "attack-pattern--bf90d72c-c00b-45e3-b3aa-68560560d4c5",
+      "name": "Lateral Tool Transfer",
+      "execution_domain": "target",
+      "tactics": [
+        "lateral-movement"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--578433f2-d3d3-4434-8b6c-986c14204b92"
+      ],
+      "procedure_descriptions": [
+        "During [C0018](https://attack.mitre.org/campaigns/C0018), the threat actors transferred the SoftPerfect Network Scanner and other tools to machines in the network using AnyDesk and PDQ Deploy.(Citation: Cisco Talos Avos Jun 2022)(Citation: Costa AvosLocker May 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1071.001",
+      "technique_stix_id": "attack-pattern--df8b2a25-8bdf-4856-953c-a04372b1c161",
+      "name": "Web Protocols",
+      "execution_domain": "boundary",
+      "tactics": [
+        "command-and-control"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--c9a5f585-541d-4785-9cb4-de9710311176"
+      ],
+      "procedure_descriptions": [
+        "During [C0018](https://attack.mitre.org/campaigns/C0018), the threat actors used HTTP for C2 communications.(Citation: Costa AvosLocker May 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1105",
+      "technique_stix_id": "attack-pattern--e6919abc-99f9-4c6c-95a5-14761e7b2add",
+      "name": "Ingress Tool Transfer",
+      "execution_domain": "boundary",
+      "tactics": [
+        "command-and-control"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--e5421609-48cf-4e8e-8843-de6043e920f4"
+      ],
+      "procedure_descriptions": [
+        "During [C0018](https://attack.mitre.org/campaigns/C0018), the threat actors downloaded additional tools, such as [Mimikatz](https://attack.mitre.org/software/S0002) and [Sliver](https://attack.mitre.org/software/S0633), as well as [Cobalt Strike](https://attack.mitre.org/software/S0154) and [AvosLocker](https://attack.mitre.org/software/S1053) ransomware onto the victim network.(Citation: Cisco Talos Avos Jun 2022)(Citation: Costa AvosLocker May 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1219.002",
+      "technique_stix_id": "attack-pattern--d4287702-e2f7-4946-bdfa-2c7f5aaa5032",
+      "name": "Remote Desktop Software",
+      "execution_domain": "boundary",
+      "tactics": [
+        "command-and-control"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--4e341596-3bc3-4d9e-a9a3-2aceccfebe35"
+      ],
+      "procedure_descriptions": [
+        "During [C0018](https://attack.mitre.org/campaigns/C0018), the threat actors used AnyDesk to transfer tools between systems.(Citation: Cisco Talos Avos Jun 2022)(Citation: Costa AvosLocker May 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1571",
+      "technique_stix_id": "attack-pattern--b18eae87-b469-4e14-b454-b171b416bc18",
+      "name": "Non-Standard Port",
+      "execution_domain": "boundary",
+      "tactics": [
+        "command-and-control"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--42af62e7-3e38-46e7-ac70-c557f33d377d"
+      ],
+      "procedure_descriptions": [
+        "During [C0018](https://attack.mitre.org/campaigns/C0018), the threat actors opened a variety of ports, including ports 28035, 32467, 41578, and 46892, to establish RDP connections.(Citation: Costa AvosLocker May 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1486",
+      "technique_stix_id": "attack-pattern--b80d107d-fa0d-4b60-9684-b0433e8bdba0",
+      "name": "Data Encrypted for Impact",
+      "execution_domain": "target",
+      "tactics": [
+        "impact"
+      ],
+      "platforms": [
+        "ESXi",
+        "IaaS",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--6cfee0a9-4f55-42e9-8670-86a0fa3e6280"
+      ],
+      "procedure_descriptions": [
+        "During [C0018](https://attack.mitre.org/campaigns/C0018), the threat actors used [AvosLocker](https://attack.mitre.org/software/S1053) ransomware to encrypt files on the compromised network.(Citation: Cisco Talos Avos Jun 2022)(Citation: Costa AvosLocker May 2022)"
+      ]
+    }
+  ],
+  "limitations": [
+    "ATT&CK uses-links do not encode a historical total order; the compiler applies a declared tactic-rank policy.",
+    "Technique metadata constrains procedures but does not uniquely determine an executable target environment."
+  ],
+  "content_sha256": "0e35d7ebf428efe6c6d1e24c1bc03335e50ff1d1aedc8721b67714bc7b4d6031"
+}

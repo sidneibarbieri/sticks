@@ -1,0 +1,13 @@
+{
+  "campaign_id": "C0010",
+  "arm_id": "sticks_without_admission",
+  "seed": 1,
+  "step_id": "s2",
+  "emitted": true,
+  "abstained": false,
+  "oracle_admitted": true,
+  "template_id": "record-controlled-compromised-domain",
+  "proposal_sha256": "3a325efe13f1f895da12055f6ec05e767edff655bf30175b3cd70bfb676bca56",
+  "issue_codes": [],
+  "parse_error": null
+}

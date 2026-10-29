@@ -1,0 +1,36 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "qwen3.6:latest",
+    "provider": "openai",
+    "review_pending": true,
+    "run_id": "stage2-qwen36-r2",
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This benign laboratory harness demonstrates reflective code loading by allocating memory within a target process and executing an encoded payload without creating disk-backed files.",
+    "evidence_predicates": [
+      "artifact_hash_recorded",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "execution_context": "runtime",
+      "payload_source": "encoded_artifact",
+      "target_process": "target_host"
+    },
+    "produces": [
+      "loaded_module.base_address",
+      "process_memory_region.hash"
+    ],
+    "requires": [
+      "payload_source.uri",
+      "target_process.pid"
+    ],
+    "technique_ids": [
+      "T1620"
+    ],
+    "template_id": "reflective-code-loading-harness"
+  }
+}

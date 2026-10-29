@@ -1,0 +1,13 @@
+{
+  "campaign_id": "C0045",
+  "arm_id": "sticks_admitted",
+  "seed": 4,
+  "step_id": "s10",
+  "emitted": true,
+  "abstained": false,
+  "oracle_admitted": true,
+  "template_id": "run-bounded-compute-workload",
+  "proposal_sha256": "9915ad8d1fe781ab58b569abce6391af1f19c1d94b4ba76be329bac645952919",
+  "issue_codes": [],
+  "parse_error": null
+}

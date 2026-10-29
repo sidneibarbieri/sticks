@@ -1,0 +1,36 @@
+{
+  "id": "chatcmpl-EOK7OAMBRfYyLy0fOR9UyhjDkf0ap",
+  "object": "chat.completion",
+  "created": 1789465914,
+  "model": "gpt-4o-mini-2024-07-18",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"template_id\": \"web-portal-capture-laboratory-harness\",\n  \"technique_ids\": [\n    \"T1056.003\"\n  ],\n  \"execution_domain\": \"target\",\n  \"parameter_kinds\": {\n    \"web_asset\": \"web_asset\",\n    \"credential_source\": \"credential_source\"\n  },\n  \"requires\": [\n    \"user attempts to log in to the service\",\n    \"compromised login page is accessible\"\n  ],\n  \"produces\": [\n    \"user credentials are captured\"\n  ],\n  \"evidence_predicates\": [\n    \"http_request_logged\",\n    \"input_manifest_recorded\",\n    \"bounded_effect_observed\"\n  ],\n  \"fidelity_ceiling\": \"adapted\",\n  \"description\": \"This procedure captures user credentials from a compromised web portal during login attempts.\"\n}",
+        "refusal": null,
+        "annotations": []
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 831,
+    "completion_tokens": 174,
+    "total_tokens": 1005,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_c577bb8647"
+}

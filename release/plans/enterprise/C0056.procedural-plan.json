@@ -1,0 +1,631 @@
+{
+  "schema_version": "1",
+  "compiler_version": "1",
+  "campaign_id": "C0056",
+  "campaign_name": "RedPenguin",
+  "source": {
+    "bundle_sha256": "dc1639caa5501d720e280cf1cbd8fbe009884a0c9b3e6e9ed9d0c25166c3d8f4",
+    "object_count": 26086,
+    "campaign_stix_id": "campaign--35879bf3-0a21-4cc1-9e42-6de917a22501",
+    "campaign_external_id": "C0056"
+  },
+  "ordering_policy": "tactic_rank_then_technique_id",
+  "steps": [
+    {
+      "technique_id": "T1587.001",
+      "technique_stix_id": "attack-pattern--212306d8-efa4-44c9-8c2d-ed3d2e224aa0",
+      "name": "Malware",
+      "execution_domain": "attacker",
+      "tactics": [
+        "resource-development"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--203b1d92-99d0-4ec7-98ae-e72d148e030d"
+      ],
+      "procedure_descriptions": [
+        "During [RedPenguin](https://attack.mitre.org/campaigns/C0056), [UNC3886](https://attack.mitre.org/groups/G1048) deployed custom malware based on the publicly-available TINYSHELL backdoor.(Citation: Mandiant UNC3886 Juniper Routers MAR 2025)(Citation: Censys RedPenguin MAR 2025)"
+      ]
+    },
+    {
+      "technique_id": "T1078",
+      "technique_stix_id": "attack-pattern--b17a1a56-e99c-403c-8948-561df0cffe81",
+      "name": "Valid Accounts",
+      "execution_domain": "boundary",
+      "tactics": [
+        "initial-access",
+        "persistence",
+        "privilege-escalation",
+        "stealth"
+      ],
+      "platforms": [
+        "Containers",
+        "ESXi",
+        "IaaS",
+        "Identity Provider",
+        "Linux",
+        "Network Devices",
+        "Office Suite",
+        "SaaS",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--6c1083c2-68fe-475a-b3b9-cc0641ab2c4b"
+      ],
+      "procedure_descriptions": [
+        "During [RedPenguin](https://attack.mitre.org/campaigns/C0056), [UNC3886](https://attack.mitre.org/groups/G1048) used legitimate credentials to gain priviliged access to Juniper routers.(Citation: Mandiant UNC3886 Juniper Routers MAR 2025)(Citation: Censys RedPenguin MAR 2025)\n\n"
+      ]
+    },
+    {
+      "technique_id": "T1059.004",
+      "technique_stix_id": "attack-pattern--a9d4b653-6915-42af-98b2-5758c4ceee56",
+      "name": "Unix Shell",
+      "execution_domain": "target",
+      "tactics": [
+        "execution"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--74520dc9-2793-40a8-a2b6-b38e6d7c37fc"
+      ],
+      "procedure_descriptions": [
+        "During [RedPenguin](https://attack.mitre.org/campaigns/C0056), [UNC3886](https://attack.mitre.org/groups/G1048) used malware capable of launching an interactive shell.(Citation: Mandiant UNC3886 Juniper Routers MAR 2025)(Citation: Juniper RedPenguin MAR 2025)"
+      ]
+    },
+    {
+      "technique_id": "T1059.008",
+      "technique_stix_id": "attack-pattern--818302b2-d640-477b-bf88-873120ce85c4",
+      "name": "Network Device CLI",
+      "execution_domain": "target",
+      "tactics": [
+        "execution"
+      ],
+      "platforms": [
+        "Network Devices"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--415b324e-351f-448f-b99f-3f3d28ace516"
+      ],
+      "procedure_descriptions": [
+        "During [RedPenguin](https://attack.mitre.org/campaigns/C0056), [UNC3886](https://attack.mitre.org/groups/G1048) accessed the Junos OS CLI on targeted devices.(Citation: Mandiant UNC3886 Juniper Routers MAR 2025)(Citation: Juniper RedPenguin MAR 2025)"
+      ]
+    },
+    {
+      "technique_id": "T1203",
+      "technique_stix_id": "attack-pattern--be2dcee9-a7a7-4e38-afd6-21b31ecc3d63",
+      "name": "Exploitation for Client Execution",
+      "execution_domain": "target",
+      "tactics": [
+        "execution"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--767ac715-7f6e-4bde-9112-2876102f8a2f"
+      ],
+      "procedure_descriptions": [
+        "During [RedPenguin](https://attack.mitre.org/campaigns/C0056), [UNC3886](https://attack.mitre.org/groups/G1048) exploited CVE-2025-21590 to bypass Veriexec protections in Junos OS designed to prevent unauthorized binary execution.(Citation: Mandiant UNC3886 Juniper Routers MAR 2025)(Citation: Juniper RedPenguin MAR 2025)\n"
+      ]
+    },
+    {
+      "technique_id": "T1205",
+      "technique_stix_id": "attack-pattern--451a9977-d255-43c9-b431-66de80130c8c",
+      "name": "Traffic Signaling",
+      "execution_domain": "boundary",
+      "tactics": [
+        "persistence",
+        "stealth",
+        "command-and-control"
+      ],
+      "platforms": [
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--df4f6956-07d1-49ec-bc7f-b1b1bfd7a244"
+      ],
+      "procedure_descriptions": [
+        "During [RedPenguin](https://attack.mitre.org/campaigns/C0056), [UNC3886](https://attack.mitre.org/groups/G1048) leveraged malware capable of inpecting packets for a magic-string to activate backdoor functionalities.(Citation: Mandiant UNC3886 Juniper Routers MAR 2025)\n"
+      ]
+    },
+    {
+      "technique_id": "T1554",
+      "technique_stix_id": "attack-pattern--960c3c86-1480-4d72-b4e0-8c242e84a5c5",
+      "name": "Compromise Host Software Binary",
+      "execution_domain": "target",
+      "tactics": [
+        "persistence"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--e9ee370f-d437-4030-8b26-00f0f66020e4"
+      ],
+      "procedure_descriptions": [
+        "During [RedPenguin](https://attack.mitre.org/campaigns/C0056), [UNC3886](https://attack.mitre.org/groups/G1048) peformed a local memory patching attack to modify the snmpd and mgd Junos OS daemons.(Citation: Juniper RedPenguin MAR 2025)\n"
+      ]
+    },
+    {
+      "technique_id": "T1055",
+      "technique_stix_id": "attack-pattern--43e7dc91-05b2-474c-b9ac-2ed4fe101f4d",
+      "name": "Process Injection",
+      "execution_domain": "target",
+      "tactics": [
+        "privilege-escalation",
+        "stealth"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--a49898fe-a9a0-4e90-9b9e-235d82f2fea7"
+      ],
+      "procedure_descriptions": [
+        "During [RedPenguin](https://attack.mitre.org/campaigns/C0056), [UNC3886](https://attack.mitre.org/groups/G1048) exploited CVE-2025-21590 to enable malicious code injection into the memory of legitimate processes.(Citation: Mandiant UNC3886 Juniper Routers MAR 2025)(Citation: Juniper RedPenguin MAR 2025)"
+      ]
+    },
+    {
+      "technique_id": "T1014",
+      "technique_stix_id": "attack-pattern--0f20e3cb-245b-4a61-8a91-2d93f7cb0e9b",
+      "name": "Rootkit",
+      "execution_domain": "target",
+      "tactics": [
+        "stealth"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--f9a7a71f-9b10-409d-9eb9-3768bd44b744"
+      ],
+      "procedure_descriptions": [
+        "During [RedPenguin](https://attack.mitre.org/campaigns/C0056), [UNC3886](https://attack.mitre.org/groups/G1048) used rootkits such as [REPTILE](https://attack.mitre.org/software/S1219) and [MEDUSA](https://attack.mitre.org/software/S1220).(Citation: Mandiant UNC3886 Juniper Routers MAR 2025)"
+      ]
+    },
+    {
+      "technique_id": "T1027.013",
+      "technique_stix_id": "attack-pattern--0d91b3c0-5e50-47c3-949a-2a796f04d144",
+      "name": "Encrypted/Encoded File",
+      "execution_domain": "target",
+      "tactics": [
+        "stealth"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--cc7777a5-c717-4d3b-8fb2-337da4b6403a"
+      ],
+      "procedure_descriptions": [
+        "During [RedPenguin](https://attack.mitre.org/campaigns/C0056), [UNC3886](https://attack.mitre.org/groups/G1048) generated Base64-encoded files in the FreeBSD shell environment of targeted Juniper devices.(Citation: Mandiant UNC3886 Juniper Routers MAR 2025)(Citation: Juniper RedPenguin MAR 2025)\n"
+      ]
+    },
+    {
+      "technique_id": "T1036.005",
+      "technique_stix_id": "attack-pattern--1c4e5d32-1fe9-4116-9d9d-59e3925bd6a2",
+      "name": "Match Legitimate Resource Name or Location",
+      "execution_domain": "target",
+      "tactics": [
+        "stealth"
+      ],
+      "platforms": [
+        "Containers",
+        "ESXi",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--9862c41f-f2fe-4178-af9d-903b17c48c14"
+      ],
+      "procedure_descriptions": [
+        "During [RedPenguin](https://attack.mitre.org/campaigns/C0056), [UNC3886](https://attack.mitre.org/groups/G1048) created multiple strains of malware using names to mimic legitimate binaries such as appid, to, irad, lmpad, jdosd, and oemd.(Citation: Mandiant UNC3886 Juniper Routers MAR 2025)\n"
+      ]
+    },
+    {
+      "technique_id": "T1070.004",
+      "technique_stix_id": "attack-pattern--d63a3fb8-9452-4e9d-a60a-54be68d5998c",
+      "name": "File Deletion",
+      "execution_domain": "target",
+      "tactics": [
+        "stealth"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--f7ec6d79-a087-48c4-8c83-da8e2f02849e"
+      ],
+      "procedure_descriptions": [
+        "During [RedPenguin](https://attack.mitre.org/campaigns/C0056), [UNC3886](https://attack.mitre.org/groups/G1048) used malware capaple of removing scripts after execution.(Citation: Mandiant UNC3886 Juniper Routers MAR 2025)\n\n"
+      ]
+    },
+    {
+      "technique_id": "T1070.007",
+      "technique_stix_id": "attack-pattern--3975dbb5-0e1e-4f5b-bae1-cf2ab84b46dc",
+      "name": "Clear Network Connection History and Configurations",
+      "execution_domain": "target",
+      "tactics": [
+        "stealth"
+      ],
+      "platforms": [
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--6b8bded7-ea8c-45e4-8888-1ed2a6d1e134"
+      ],
+      "procedure_descriptions": [
+        "During [RedPenguin](https://attack.mitre.org/campaigns/C0056), [UNC3886](https://attack.mitre.org/groups/G1048) used an implant to delete logs associated with unauthorized access to targeted Junos OS devices.(Citation: Juniper RedPenguin MAR 2025)"
+      ]
+    },
+    {
+      "technique_id": "T1140",
+      "technique_stix_id": "attack-pattern--3ccef7ae-cb5e-48f6-8302-897105fbf55c",
+      "name": "Deobfuscate/Decode Files or Information",
+      "execution_domain": "target",
+      "tactics": [
+        "stealth"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--bd33f6b4-ff04-49d9-81ea-275a86222a97"
+      ],
+      "procedure_descriptions": [
+        "During [RedPenguin](https://attack.mitre.org/campaigns/C0056), [UNC3886](https://attack.mitre.org/groups/G1048) used malware implants to deobfuscate incoming C2 messages and encoded archives.(Citation: Mandiant UNC3886 Juniper Routers MAR 2025)(Citation: Juniper RedPenguin MAR 2025)"
+      ]
+    },
+    {
+      "technique_id": "T1690",
+      "technique_stix_id": "attack-pattern--b831f51c-d22f-4724-bbab-60d056bd1150",
+      "name": "Prevent Command History Logging",
+      "execution_domain": "target",
+      "tactics": [
+        "defense-impairment"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--e26e5630-45ab-4fb7-be13-8d4b80ef68fe"
+      ],
+      "procedure_descriptions": [
+        "During [RedPenguin](https://attack.mitre.org/campaigns/C0056), [UNC3886](https://attack.mitre.org/groups/G1048) used malware to clear the `HISTFILE` environmental variable and to inject into Junos OS processes to inhibit logging.(Citation: Mandiant UNC3886 Juniper Routers MAR 2025)(Citation: Juniper RedPenguin MAR 2025)\n"
+      ]
+    },
+    {
+      "technique_id": "T1040",
+      "technique_stix_id": "attack-pattern--3257eb21-f9a7-4430-8de1-d8b6e288f529",
+      "name": "Network Sniffing",
+      "execution_domain": "target",
+      "tactics": [
+        "credential-access",
+        "discovery"
+      ],
+      "platforms": [
+        "IaaS",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--0ff45d1d-6095-4e5a-ae11-df8c1d336b57"
+      ],
+      "procedure_descriptions": [
+        "During [RedPenguin](https://attack.mitre.org/campaigns/C0056), [UNC3886](https://attack.mitre.org/groups/G1048) used a passive backdoor to act as a libpcap-based packet sniffer.(Citation: Mandiant UNC3886 Juniper Routers MAR 2025)\n"
+      ]
+    },
+    {
+      "technique_id": "T1016",
+      "technique_stix_id": "attack-pattern--707399d6-ab3e-4963-9315-d9d3818cd6a0",
+      "name": "System Network Configuration Discovery",
+      "execution_domain": "target",
+      "tactics": [
+        "discovery"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--7a7c6567-1177-4ead-9fba-d6c1d3fc719b"
+      ],
+      "procedure_descriptions": [
+        "During [RedPenguin](https://attack.mitre.org/campaigns/C0056), [UNC3886](https://attack.mitre.org/groups/G1048) leveraged JunoOS CLI queries to obtain the interface index which contains system and network details.(Citation: Mandiant UNC3886 Juniper Routers MAR 2025)(Citation: Juniper RedPenguin MAR 2025)"
+      ]
+    },
+    {
+      "technique_id": "T1057",
+      "technique_stix_id": "attack-pattern--8f4a33ec-8b1f-4b80-a2f6-642b2e479580",
+      "name": "Process Discovery",
+      "execution_domain": "target",
+      "tactics": [
+        "discovery"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--06f0aaf3-c2ff-4d54-8279-2e7f66b5d819"
+      ],
+      "procedure_descriptions": [
+        "During [RedPenguin](https://attack.mitre.org/campaigns/C0056), [UNC3886](https://attack.mitre.org/groups/G1048) used malware capable of reading the PID for the Junos OS snmpd daemon.(Citation: Juniper RedPenguin MAR 2025)"
+      ]
+    },
+    {
+      "technique_id": "T1090",
+      "technique_stix_id": "attack-pattern--731f4f55-b6d0-41d1-a7a9-072a66389aea",
+      "name": "Proxy",
+      "execution_domain": "boundary",
+      "tactics": [
+        "command-and-control"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--887fda04-92e9-4819-bf6c-5458348cc046"
+      ],
+      "procedure_descriptions": [
+        "During [RedPenguin](https://attack.mitre.org/campaigns/C0056), [UNC3886](https://attack.mitre.org/groups/G1048) used malware capable of establishing a SOCKS proxy connection to a specified IP and port.(Citation: Mandiant UNC3886 Juniper Routers MAR 2025)(Citation: Juniper RedPenguin MAR 2025)"
+      ]
+    },
+    {
+      "technique_id": "T1090.003",
+      "technique_stix_id": "attack-pattern--a782ebe2-daba-42c7-bc82-e8e9d923162d",
+      "name": "Multi-hop Proxy",
+      "execution_domain": "boundary",
+      "tactics": [
+        "command-and-control"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--e40578ef-e703-428e-874d-6fcee8a32d2f"
+      ],
+      "procedure_descriptions": [
+        "During [RedPenguin](https://attack.mitre.org/campaigns/C0056), [UNC3886](https://attack.mitre.org/groups/G1048) used infrastructure associated with operational relay box (ORB) networks.(Citation: Mandiant UNC3886 Juniper Routers MAR 2025)"
+      ]
+    },
+    {
+      "technique_id": "T1095",
+      "technique_stix_id": "attack-pattern--c21d5a77-d422-4a69-acd7-2c53c1faa34b",
+      "name": "Non-Application Layer Protocol",
+      "execution_domain": "boundary",
+      "tactics": [
+        "command-and-control"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--e506c970-b916-4107-9f52-133b2e1b4e6f"
+      ],
+      "procedure_descriptions": [
+        "During [RedPenguin](https://attack.mitre.org/campaigns/C0056), [UNC3886](https://attack.mitre.org/groups/G1048) leveraged malware that used UDP and TCP sockets for C2.(Citation: Mandiant UNC3886 Juniper Routers MAR 2025)(Citation: Censys RedPenguin MAR 2025)(Citation: Juniper RedPenguin MAR 2025)"
+      ]
+    },
+    {
+      "technique_id": "T1104",
+      "technique_stix_id": "attack-pattern--84e02621-8fdf-470f-bd58-993bb6a89d91",
+      "name": "Multi-Stage Channels",
+      "execution_domain": "boundary",
+      "tactics": [
+        "command-and-control"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--338559ba-2fd5-4677-8308-69aed36b5865"
+      ],
+      "procedure_descriptions": [
+        "During [RedPenguin](https://attack.mitre.org/campaigns/C0056), [UNC3886](https://attack.mitre.org/groups/G1048) used malware with separate channels to request and carry out tasks from C2.(Citation: Mandiant UNC3886 Juniper Routers MAR 2025)"
+      ]
+    },
+    {
+      "technique_id": "T1105",
+      "technique_stix_id": "attack-pattern--e6919abc-99f9-4c6c-95a5-14761e7b2add",
+      "name": "Ingress Tool Transfer",
+      "execution_domain": "boundary",
+      "tactics": [
+        "command-and-control"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--e383e519-98df-44af-8131-a1009f4023bc"
+      ],
+      "procedure_descriptions": [
+        "During [RedPenguin](https://attack.mitre.org/campaigns/C0056), [UNC3886](https://attack.mitre.org/groups/G1048) used backdoor malware capable of downloading files to compromised infrastructure.(Citation: Mandiant UNC3886 Juniper Routers MAR 2025)"
+      ]
+    },
+    {
+      "technique_id": "T1571",
+      "technique_stix_id": "attack-pattern--b18eae87-b469-4e14-b454-b171b416bc18",
+      "name": "Non-Standard Port",
+      "execution_domain": "boundary",
+      "tactics": [
+        "command-and-control"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--554b85dc-40d2-47ac-9ba5-90765feb4e8e"
+      ],
+      "procedure_descriptions": [
+        "During [RedPenguin](https://attack.mitre.org/campaigns/C0056), [UNC3886](https://attack.mitre.org/groups/G1048) used a backdoor that binds to port 45678 by default.(Citation: Mandiant UNC3886 Juniper Routers MAR 2025)\n"
+      ]
+    },
+    {
+      "technique_id": "T1573.001",
+      "technique_stix_id": "attack-pattern--24bfaeba-cb0d-4525-b3dc-507c77ecec41",
+      "name": "Symmetric Cryptography",
+      "execution_domain": "boundary",
+      "tactics": [
+        "command-and-control"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--76c24fde-66fe-47f8-95f1-49deee5df54b"
+      ],
+      "procedure_descriptions": [
+        "During [RedPenguin](https://attack.mitre.org/campaigns/C0056), [UNC3886](https://attack.mitre.org/groups/G1048) malware used the RC4 cipher to encrypt outgoing C2 messages.(Citation: Juniper RedPenguin MAR 2025)\n"
+      ]
+    },
+    {
+      "technique_id": "T1041",
+      "technique_stix_id": "attack-pattern--92d7da27-2d91-488e-a00c-059dc162766d",
+      "name": "Exfiltration Over C2 Channel",
+      "execution_domain": "boundary",
+      "tactics": [
+        "exfiltration"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--fbaf4c59-a846-49cc-bb53-84c85e501884"
+      ],
+      "procedure_descriptions": [
+        "During [RedPenguin](https://attack.mitre.org/campaigns/C0056), [UNC3886](https://attack.mitre.org/groups/G1048) uploaded specified files from compromised devices to a remote server. (Citation: Mandiant UNC3886 Juniper Routers MAR 2025)"
+      ]
+    }
+  ],
+  "limitations": [
+    "ATT&CK uses-links do not encode a historical total order; the compiler applies a declared tactic-rank policy.",
+    "Technique metadata constrains procedures but does not uniquely determine an executable target environment."
+  ],
+  "content_sha256": "75c3c36e75c7e327e0a6c31cced6ec3be40cf1c65dc097f69f1ed616e2683077"
+}

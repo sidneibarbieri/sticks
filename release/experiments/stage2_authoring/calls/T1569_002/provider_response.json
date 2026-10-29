@@ -1,0 +1,36 @@
+{
+  "id": "chatcmpl-EOK3ZuX5s7fEkjBYxDIBH0PsdA7vQ",
+  "object": "chat.completion",
+  "created": 1789465677,
+  "model": "gpt-4o-mini-2024-07-18",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"template_id\": \"service-execution-laboratory-harness\",\n  \"technique_ids\": [\n    \"T1569.002\"\n  ],\n  \"execution_domain\": \"target\",\n  \"parameter_kinds\": {\n    \"payload\": \"payload\",\n    \"target_host\": \"target_host\"\n  },\n  \"requires\": [\n    \"target host is accessible\",\n    \"payload is prepared\"\n  ],\n  \"produces\": [\n    \"service request logged\",\n    \"payload execution confirmed\"\n  ],\n  \"evidence_predicates\": [\n    \"service_request_logged\",\n    \"bounded_effect_observed\"\n  ],\n  \"fidelity_ceiling\": \"adapted\",\n  \"description\": \"This procedure demonstrates the execution of a payload via the Windows service control manager in a controlled laboratory environment.\"\n}",
+        "refusal": null,
+        "annotations": []
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 832,
+    "completion_tokens": 166,
+    "total_tokens": 998,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_c577bb8647"
+}

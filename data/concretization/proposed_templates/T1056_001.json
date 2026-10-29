@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure captures user keystrokes using a keylogger tool to demonstrate the logging of input in a controlled environment.",
+    "evidence_predicates": [
+      "input_manifest_recorded",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "keylogger_tool": "toolkit",
+      "target_host": "target_host"
+    },
+    "produces": [
+      "keystrokes logged"
+    ],
+    "requires": [
+      "user input is being captured",
+      "keylogger tool is installed"
+    ],
+    "technique_ids": [
+      "T1056.001"
+    ],
+    "template_id": "keylogging-laboratory-harness"
+  }
+}

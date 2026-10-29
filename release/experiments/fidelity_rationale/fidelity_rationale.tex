@@ -1,0 +1,34 @@
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.29\textwidth}>{\centering\arraybackslash}p{0.12\textwidth}>{\centering\arraybackslash}p{0.11\textwidth}L@{}}
+\toprule
+\textbf{Template} & \textbf{Technique} & \textbf{Ceiling} & \textbf{Declared evidence predicates} \\
+\midrule
+archive-declared-collection & T1560.001 & adapted & archive-hash-recorded, input-manifest-recorded \\
+beacon-over-web-protocol & T1071.001 & adapted & http-status-recorded, service-request-logged \\
+collect-declared-data-fixture & T1005 & adapted & fixture-hash-recorded, no-host-data-collected \\
+collect-local-files & T1119 & adapted & collection-manifest-recorded, file-count-recorded \\
+delete-staged-tool & T1070.004 & adapted & file-absence-recorded \\
+encode-benign-artifact & T1027.013 & adapted & source-and-encoded-hashes-recorded \\
+exfiltrate-archive-to-declared-store & T1567.002 & adapted & bytes-transferred-recorded, destination-hash-recorded \\
+inspect-declared-network & T1016 & adapted & interface-snapshot-recorded \\
+probe-declared-public-service & T1190 & adapted & bounded-effect-observed, service-request-logged \\
+read-declared-credential-fixture & T1003.008 & adapted & fixture-access-logged, no-host-credentials-read \\
+resolve-lab-domain & T1568 & adapted & external-dns-absent, resolver-query-logged \\
+run-benign-python & T1059.006 & adapted & process-exit-recorded, stdout-hash-recorded \\
+run-bounded-compute-workload & T1496.001 & adapted & duration-and-cpu-bound-recorded, no-pool-traffic \\
+split-declared-archive & T1030 & adapted & chunk-manifest-recorded, no-external-transfer \\
+stage-benign-payload & T1608.001 & adapted & artifact-hash-recorded, payload-policy-verified \\
+stage-benign-tool & T1608.002 & adapted & artifact-hash-recorded, tool-policy-verified \\
+stage-benign-toolkit & T1588.002 & adapted & artifact-hash-recorded \\
+stage-lab-web-target & T1608.004 & adapted & lab-scope-verified, web-asset-hash-recorded \\
+stage-local-archive & T1074.001 & adapted & archive-hash-recorded, staging-path-recorded \\
+transfer-benign-payload & T1105 & adapted & source-and-destination-hashes-match \\
+transfer-over-resolved-lab-channel & T1105 & adapted & source-and-destination-hashes-match \\
+transfer-staged-benign-tool & T1105 & adapted & source-and-destination-hashes-match \\
+visit-declared-web-target & T1189 & adapted & http-request-logged, no-exploit-delivered \\
+write-lab-shell-config & T1546.004 & adapted & artifact-hash-recorded, cleanup-verified \\
+assess-privilege-boundary & T1068 & inspired & boundary-check-recorded \\
+record-controlled-compromised-domain & T1584.001 & inspired & manifest-hash-recorded, no-external-compromise \\
+record-controlled-domain & T1583.001 & inspired & manifest-hash-recorded, no-external-registration \\
+specify-benign-capability & T1587.001 & inspired & no-harmful-payload-present, specification-hash-recorded \\
+\bottomrule
+\end{tabularx}

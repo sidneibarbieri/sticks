@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure adds additional roles to a cloud account to simulate the persistence of access in a controlled environment.",
+    "evidence_predicates": [
+      "bounded_effect_observed",
+      "fixture_access_logged"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "cloud_account": "credential_source",
+      "role": "capability_specification"
+    },
+    "produces": [
+      "additional roles added to cloud account"
+    ],
+    "requires": [
+      "cloud account has sufficient permissions",
+      "adversary-controlled cloud account is accessible"
+    ],
+    "technique_ids": [
+      "T1098.003"
+    ],
+    "template_id": "add-additional-cloud-roles"
+  }
+}

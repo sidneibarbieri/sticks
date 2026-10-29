@@ -1,0 +1,76 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# Caldera Server Vagrantfile
+# Ubuntu 22.04 ARM64 with Caldera 5.3.0
+
+Vagrant.configure("2") do |config|
+  require_relative "../shared/qemu_ssh_port"
+  strict_prepared = ENV.fetch("STICKS_STRICT_PREPARED", "0") == "1"
+  config.vm.synced_folder ".", "/vagrant", disabled: true if strict_prepared
+  config.ssh.insert_key = false if strict_prepared
+  ssh_port = SticksQemuSshPort.for(2201)
+  config.vm.box = strict_prepared ? ENV.fetch("STICKS_STRICT_BOX_CALDERA") : "perk/ubuntu-2204-arm64"
+  config.vm.box_version = strict_prepared ? ENV.fetch("STICKS_STRICT_BOX_VERSION_CALDERA") : "20250702"
+
+  # VM name and provider settings
+  config.vm.hostname = "caldera-server"
+  config.vm.define "caldera"
+
+  # Network configuration
+  config.vm.network "private_network", ip: "192.168.56.10"
+  config.vm.network "forwarded_port", guest: 22, host: ssh_port,
+    host_ip: "127.0.0.1", id: "ssh", auto_correct: false, disabled: true
+
+  # Provider settings - libvirt for ARM64
+  config.vm.provider "libvirt" do |libvirt|
+    libvirt.memory = "2048"
+    libvirt.cpus = 2
+    libvirt.machine_arch = "aarch64"
+    libvirt.machine_type = "virt"
+    libvirt.cpu_mode = "custom"
+    libvirt.cpu_model = "cortex-a72"
+    libvirt.nic_model_type = "virtio"
+    libvirt.driver = "qemu"
+    libvirt.uri = "qemu:///session"
+  end
+
+  config.vm.provider "qemu" do |qemu|
+    require_relative "../shared/qemu_network_yaml"
+    SticksQemuNetworkYaml.install!
+    qemu.memory = "2048"
+    qemu.cpus = 2
+    qemu.arch = "aarch64"
+    qemu.ssh_port = ssh_port
+    qemu.ssh_auto_correct = false
+    qemu.advanced_network = true
+    qemu.net_mode = :socket_vmnet
+    qemu.socket_vmnet_socket = ENV.fetch("STICKS_SOCKET_VMNET_SOCKET", "/opt/homebrew/var/run/socket_vmnet")
+  end
+
+  # VirtualBox fallback (x86_64)
+  config.vm.provider "virtualbox" do |vb|
+    vb.memory = "4096"
+    vb.cpus = 2
+    vb.name = "sticks-caldera-server"
+  end
+
+  unless strict_prepared
+    config.vm.provision "file", source: "../shared/apt_guard.sh", destination: "/tmp/apt_guard.sh"
+    config.vm.provision "file", source: "../shared/caldera-runtime-requirements.txt", destination: "/tmp/caldera-runtime-requirements.txt"
+    if ENV["STICKS_NODE_ARCHIVE"]
+      archive_path = File.expand_path(ENV["STICKS_NODE_ARCHIVE"])
+      raise "STICKS_NODE_ARCHIVE is not a file: #{archive_path}" unless File.file?(archive_path)
+
+      config.vm.provision "file", source: archive_path, destination: "/tmp/sticks-node-v22.22.3-linux.tar.xz"
+    end
+    config.vm.provision "shell", path: "../shared/base.sh"
+    config.vm.provision "shell", path: "../shared/caldera.sh",
+      env: { "STICKS_CALDERA_WITH_ATOMIC" => ENV.fetch("STICKS_CALDERA_WITH_ATOMIC", "0") }
+    config.vm.provision "shell", path: "../shared/prepare_strict_ssh.sh"
+    config.vm.provision "shell", inline: <<-SHELL
+      echo "Caldera server provisioned at 192.168.56.10"
+      echo "Access: http://192.168.56.10:8888"
+    SHELL
+  end
+end

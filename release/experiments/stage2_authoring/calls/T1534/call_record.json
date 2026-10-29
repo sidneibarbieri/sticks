@@ -1,0 +1,14 @@
+{
+  "schema_version": "1",
+  "provider": "openai",
+  "model": "gpt-4o-mini",
+  "request_sha256": "1b731a2826df2e841f7de7e1271ebf5f3481899b37a0d7360c8cc198e71b8b38",
+  "response_sha256": "e78de58c05fe69ffd04ec474c12573ca96ee065b0109703882e4c08423117f41",
+  "usage": {
+    "prompt_tokens": 812,
+    "completion_tokens": 178,
+    "estimated_usd": 0.0002286
+  },
+  "raw_response_path": "provider_response.json",
+  "content_sha256": "2aa1696d44ed0a5a640f8bb40e41030540c43ee41afce710eee746daedec7b93"
+}

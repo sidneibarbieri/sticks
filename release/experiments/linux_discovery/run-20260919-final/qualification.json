@@ -1,0 +1,187 @@
+{
+  "schema_version": "1",
+  "image_id": "sha256:310c62b5e7ca5b08167e4384c68db0fd2905dd9c7493756d356e893909057601",
+  "image_reference": "alpine@sha256:310c62b5e7ca5b08167e4384c68db0fd2905dd9c7493756d356e893909057601",
+  "execution_locus": "target",
+  "access_origin": "harness_provided_docker_exec",
+  "initial_access_demonstrated": false,
+  "stealth_evaluated": false,
+  "observer_independence": "separate_process_shared_control_plane",
+  "initial_facts": [
+    "access.target.shell",
+    "sut.linux.procfs",
+    "sut.discovery.fixture"
+  ],
+  "results": [
+    {
+      "technique_id": "T1082",
+      "template_id": "discover-lab-system",
+      "admission": {
+        "proposal": {
+          "technique_id": "T1082",
+          "template_id": "discover-lab-system",
+          "bindings": {
+            "target": "target.lab"
+          },
+          "rationale": "",
+          "source": "finite_domain_solver"
+        },
+        "accepted": true,
+        "issues": [],
+        "assumption_count": 0
+      },
+      "effect_observed": true,
+      "command_evidence": "T1082.command.json",
+      "observation_evidence": "T1082.observation.json"
+    },
+    {
+      "technique_id": "T1033",
+      "template_id": "discover-lab-user",
+      "admission": {
+        "proposal": {
+          "technique_id": "T1033",
+          "template_id": "discover-lab-user",
+          "bindings": {
+            "target": "target.lab"
+          },
+          "rationale": "",
+          "source": "finite_domain_solver"
+        },
+        "accepted": true,
+        "issues": [],
+        "assumption_count": 0
+      },
+      "effect_observed": true,
+      "command_evidence": "T1033.command.json",
+      "observation_evidence": "T1033.observation.json"
+    },
+    {
+      "technique_id": "T1057",
+      "template_id": "discover-lab-processes",
+      "admission": {
+        "proposal": {
+          "technique_id": "T1057",
+          "template_id": "discover-lab-processes",
+          "bindings": {
+            "target": "target.lab"
+          },
+          "rationale": "",
+          "source": "finite_domain_solver"
+        },
+        "accepted": true,
+        "issues": [],
+        "assumption_count": 0
+      },
+      "effect_observed": true,
+      "command_evidence": "T1057.command.json",
+      "observation_evidence": "T1057.observation.json"
+    },
+    {
+      "technique_id": "T1083",
+      "template_id": "discover-lab-files",
+      "admission": {
+        "proposal": {
+          "technique_id": "T1083",
+          "template_id": "discover-lab-files",
+          "bindings": {
+            "target": "target.lab"
+          },
+          "rationale": "",
+          "source": "finite_domain_solver"
+        },
+        "accepted": true,
+        "issues": [],
+        "assumption_count": 0
+      },
+      "effect_observed": true,
+      "command_evidence": "T1083.command.json",
+      "observation_evidence": "T1083.observation.json"
+    }
+  ],
+  "teardown_clean": true,
+  "qualified_techniques": [
+    "T1033",
+    "T1057",
+    "T1082",
+    "T1083"
+  ],
+  "index_reach": {
+    "corpus_steps": 1146,
+    "baseline_index_reach": 252,
+    "extension_index_reach": 45,
+    "union_index_reach": 297,
+    "note": "Technique-index reach; corpus campaign executions were not performed."
+  },
+  "evidence_sha256": {
+    "T1033.command.json": "87a1fe905b3543b649c2a66908cb2ecc87f5d296ed175e6abb88f538a15e600d",
+    "T1033.observation.json": "7e82c12941b9981cb6425898fcefb6a6b306194b8d6e8809904f13ec10955799",
+    "T1057.command.json": "fe2092200f95ba3ddfbb5aa4fde753273a1705bbc839eab13de63c9fc050f305",
+    "T1057.observation.json": "ed6c6bf297865cbffe410d6f873ff9b0352c754dd98e44441befa83498001778",
+    "T1082.command.json": "ffca19848d1174e198bd75ad873babcc90dba0ffc051229c971eccc05db153f9",
+    "T1082.observation.json": "58b4200afe892118b0998f673c63c0e86e5050c7d098d3508ef2a39f77248c0e",
+    "T1083.command.json": "3a7412bc50f3d4c66f2afa5b0f0122976a56ad538aaf12216366f3c0c7ae7892",
+    "T1083.observation.json": "7663f7908cebd6ce12baf0873b17fb1e8cecf9cfcf2d72742631d4778c4689a2"
+  },
+  "inputs_sha256": {
+    "data/concretization/extensions/linux_discovery.json": "469d36ead30c4d6ab6e66f46acefa9a95e8441f7f51341f3328e90e5c7fa277e",
+    "scripts/qualify_linux_discovery.py": "71040e07f4386a512afb87647090fe61201ff2e1e6d03e96ca567a4dd91bcda2",
+    "src/executors/discovery_qualification.py": "409cd5f9dc3183b13e165387ed8cf757986f204aad87640b25dacf7cfca47ecc",
+    "src/concretization/verifier.py": "c9a429a4287f1c24dd8c283eb669e5cf2673ecc09862a550999ed408d5ba67bb",
+    "data/concretization/action_templates.json": "c01294718f57c9f1f75edcfa673b5e92de4ef5bca9600e2a34eb3eec334ecdfd",
+    "release/plans/enterprise/C0001.procedural-plan.json": "d349d433c9d90fd926a1cc49fc2043b5a2c8fe9abc15767942353d594cddd066",
+    "release/plans/enterprise/C0002.procedural-plan.json": "2c231505c909a5949d0961dc17c481b09d0b5298b437e9d11b44ecfeecc74fb0",
+    "release/plans/enterprise/C0004.procedural-plan.json": "a3b94ec03ad19c61cbaa55bafa159549a8b71a67e63bd318065ff7b79d9babab",
+    "release/plans/enterprise/C0005.procedural-plan.json": "55576d78a4132e89ca41f226596649b337958bad5c72b10ce1d1a748e78333fb",
+    "release/plans/enterprise/C0006.procedural-plan.json": "4cbf4bac3e231b508e14a8c77538cd087f724547a4a1ddce5a01e23e0fba5d8c",
+    "release/plans/enterprise/C0007.procedural-plan.json": "df4a0ff2cd8ad1a0654e1a50f50f089aa058cf4971a40bd3095f8d6125ac9b05",
+    "release/plans/enterprise/C0010.procedural-plan.json": "637b04c3f19bfd04726e58b02c0f2da2cdc2c376e7c5a8c4dcf68dc76938da94",
+    "release/plans/enterprise/C0011.procedural-plan.json": "4c737ad28ca9d11ffb8477642d1820bea5247756f9ee61753f249f241cdb4272",
+    "release/plans/enterprise/C0012.procedural-plan.json": "9f76d9c4d2ff651fa7b9691156b1bf1ca22b912e150cae07df4b9215748d7ebc",
+    "release/plans/enterprise/C0013.procedural-plan.json": "cb626ac010ff79c7bead149362a9288618bcbbfe6f6b9627ee087e51fa5188d4",
+    "release/plans/enterprise/C0014.procedural-plan.json": "f6c229a8faa30f8a753ccd072464639da0c921a9391a29f88e49284c97e44b09",
+    "release/plans/enterprise/C0015.procedural-plan.json": "a470f5bedfce8e42f312d63c582429e55eeb3bd0729438edd6ce0994776a9eb6",
+    "release/plans/enterprise/C0016.procedural-plan.json": "7ea50400d50b19e64ec90b93d777c4e87200866ae5e2fb7bce92f1f3798883b6",
+    "release/plans/enterprise/C0017.procedural-plan.json": "78186d56d309cc2f79272797ec27392d53936cb35e41985ad2f926d26ae23eb4",
+    "release/plans/enterprise/C0018.procedural-plan.json": "edbd8d22ffbc68cdd4b372f640df4853fad068ac17de5f2ce3d61079636ea41f",
+    "release/plans/enterprise/C0021.procedural-plan.json": "df7304773d293c97c5e4e26d4f190f89ec101c15ff0b183d9d91084176efb9f3",
+    "release/plans/enterprise/C0022.procedural-plan.json": "dce31308979ebe19d32b84c657389133c2284cb75e4cb53fede3a408a59b2282",
+    "release/plans/enterprise/C0023.procedural-plan.json": "d8280af93f23048414f093ed5205e97ef6e8327e011cebc76c2e620ad18c4fee",
+    "release/plans/enterprise/C0024.procedural-plan.json": "0fe6323e5822b80b6f39e8cf6ea3961cacb1d5cd06596b55fa68d8fef1c790fa",
+    "release/plans/enterprise/C0025.procedural-plan.json": "c4b132c59a4f4429cbc7ad49ee1f22b386b8254049532018e8780a34b4839731",
+    "release/plans/enterprise/C0026.procedural-plan.json": "4905231826ac33aceeeac86f6bc33216f71ecce0d3eed8351f58cdd497a61d5d",
+    "release/plans/enterprise/C0027.procedural-plan.json": "2e2b40b8c1ac7c9f6b9f6dabb6c18e9027480aafa4a8609b965fe94dada4d3c0",
+    "release/plans/enterprise/C0028.procedural-plan.json": "6c36cf7df5decb534cdf26911b01e3e95791d5b5b3079a553923f61d84050065",
+    "release/plans/enterprise/C0029.procedural-plan.json": "4ebffe65b1e1f533fd6340672238de2bf8c1cfaf8563a7c8e93b580b459363ea",
+    "release/plans/enterprise/C0030.procedural-plan.json": "96d240ed35d1f54e36a1bb248f1a1bbc5866da3d09f71cffc61cf560facebd43",
+    "release/plans/enterprise/C0032.procedural-plan.json": "3a6a320d042f5270ef4afee0f1de30c1fe2f8598ded5f904432fb63aacacd91a",
+    "release/plans/enterprise/C0034.procedural-plan.json": "da9428a08be6e7ca4fe8b2f37dd38323a8afee52861940b515d2b7d12c7ba940",
+    "release/plans/enterprise/C0035.procedural-plan.json": "472f84e64fd35f42ed15dec1222e5f2499e5f112bfa0309a187fd9edd2df5c33",
+    "release/plans/enterprise/C0036.procedural-plan.json": "d7c4f8cf7b9a6101d3ca7420d7612dd422bf6fee088bc2bf65c2edc766dbeee8",
+    "release/plans/enterprise/C0037.procedural-plan.json": "66933bfe373364a61540e8b95c9c99b30ae842e4477e1f293336fe636ae989c2",
+    "release/plans/enterprise/C0038.procedural-plan.json": "2b471aa05b995898fdf16d4e7cd098ac189e28cb78f1ac795ef10158b52ec77e",
+    "release/plans/enterprise/C0039.procedural-plan.json": "59087e28f8c3196dded9d53e4fabc77a6e77289b6be680803198fa52004de69f",
+    "release/plans/enterprise/C0040.procedural-plan.json": "72498ede68f5f1e09a55750583beb86f61df7ea653de1df6e76a64a64b230598",
+    "release/plans/enterprise/C0041.procedural-plan.json": "f085ba54f7087b9eaa70cec88394afec0062742884b0895349aa2c40e4b0aadc",
+    "release/plans/enterprise/C0042.procedural-plan.json": "c4d34c0b93b91f15e6b64e88fd49fe5af8313096703bcc9ffc22413e3a57942b",
+    "release/plans/enterprise/C0043.procedural-plan.json": "c5b409f986736a21aedf1c2ce4bbb94aa6766160dda3691baffcbd6cc4354860",
+    "release/plans/enterprise/C0044.procedural-plan.json": "46c981993a5691e8ad206ac684aae99b352141a6ec1d9f57bec00ed668e11c20",
+    "release/plans/enterprise/C0045.procedural-plan.json": "130c11afa8d4bd98848b1f8f677c2c1a68bd9e0be530eaf58a1ae0dac09e7d50",
+    "release/plans/enterprise/C0046.procedural-plan.json": "3e205359b8e6936469b3b15f5331f7b22c0e44e6ef72ca94a17af01c9ca42385",
+    "release/plans/enterprise/C0047.procedural-plan.json": "28efe7432f7e54e2250a26451c05b816a189dad8b67a54052d97d859364b5b86",
+    "release/plans/enterprise/C0048.procedural-plan.json": "869f0f090e1ab76edc08b3f405d7c92e7c9a3f9b604a26e5d58b0ae2fe950d67",
+    "release/plans/enterprise/C0049.procedural-plan.json": "cf78ce2d2e7f66f68338108d6597283ff76fe27b3e3e829405d224d999bbd8b9",
+    "release/plans/enterprise/C0050.procedural-plan.json": "51f8b026e1bb6defd75c187f19ac68b300b117f2ff274a30017e894c84b86c5b",
+    "release/plans/enterprise/C0051.procedural-plan.json": "d02121c647daa89d39000d8f8c4d9a0d9028b028af573b4703863b8a6d13cafc",
+    "release/plans/enterprise/C0052.procedural-plan.json": "8e1d8562a3d5a4c50287061a9ab003b918b6be454a364f3a361c522bcdb8609b",
+    "release/plans/enterprise/C0053.procedural-plan.json": "e2792dab60910d603d12a10f173267e7b0f16cf534a5045764ebe354e4698e48",
+    "release/plans/enterprise/C0055.procedural-plan.json": "193a22e2334ca4d15521ab908d4aeb13b5b5ede4224097c2ec70aca7d1dc59a9",
+    "release/plans/enterprise/C0056.procedural-plan.json": "61e253510796cc116d9062a7ca16d6050c80965cf3fa8d500b9d51d7fa2813c4",
+    "release/plans/enterprise/C0057.procedural-plan.json": "ce186698fe317e076e17cc337ea0a365da72e3f22e1c83b844e47e87c26a2157",
+    "release/plans/enterprise/C0058.procedural-plan.json": "a5f5007eb2c2657fd9d360dafa978198a3ac8b5ac9eca255df92ce66006b14bd",
+    "release/plans/enterprise/C0059.procedural-plan.json": "864a08cb4b3a316022db60352bd690a100ed25f8bd9aa969c37904c83d6c4bc2",
+    "release/plans/enterprise/C0060.procedural-plan.json": "a8908571d284a2fc708263f48c362e98d88692917596fae1f91e6018eaa86f02",
+    "release/plans/enterprise/C0061.procedural-plan.json": "0175ab2d4b1d01c8075ed65ba3745127caa279d39450ca2debcf3a629c79d744",
+    "release/plans/enterprise/C0062.procedural-plan.json": "e962222922aec85ff35dfd551407581696f4fac6a5cfa41d2365dc8cc0c48431",
+    "release/plans/enterprise/C0063.procedural-plan.json": "52b8667cb3a7211bcde1e4540b9d3ea06a3888222c712719ab3b549908d50774"
+  }
+}

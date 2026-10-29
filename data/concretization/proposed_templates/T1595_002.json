@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure performs a vulnerability scan on a target host to identify potential security weaknesses.",
+    "evidence_predicates": [
+      "collection_manifest_recorded",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "scanning_tool": "toolkit",
+      "target_host": "target_host"
+    },
+    "produces": [
+      "vulnerability scan results recorded"
+    ],
+    "requires": [
+      "target host is configured for scanning",
+      "scanning tool is available"
+    ],
+    "technique_ids": [
+      "T1595.002"
+    ],
+    "template_id": "vulnerability-scanning-laboratory-harness"
+  }
+}

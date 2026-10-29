@@ -1,0 +1,36 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure transfers a file from one target host to another to simulate lateral tool transfer.",
+    "evidence_predicates": [
+      "bytes_transferred_recorded",
+      "file_count_recorded"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "destination_host": "target_host",
+      "file_path": "archive_artifact",
+      "source_host": "target_host"
+    },
+    "produces": [
+      "file_path exists on destination_host",
+      "bytes_transferred_recorded"
+    ],
+    "requires": [
+      "source_host is accessible",
+      "destination_host is accessible",
+      "file_path exists on source_host"
+    ],
+    "technique_ids": [
+      "T1570"
+    ],
+    "template_id": "lateral-tool-transfer-laboratory-harness"
+  }
+}

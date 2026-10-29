@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure simulates the alteration of malware behavior in response to debugger detection in a controlled laboratory environment.",
+    "evidence_predicates": [
+      "boundary_check_recorded",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "debugger_check": "capability_specification",
+      "malware_behavior": "payload"
+    },
+    "produces": [
+      "malware behavior altered based on debugger detection"
+    ],
+    "requires": [
+      "debugger presence check performed",
+      "malware behavior modification logic implemented"
+    ],
+    "technique_ids": [
+      "T1622"
+    ],
+    "template_id": "debugger-evasion-laboratory-harness"
+  }
+}

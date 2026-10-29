@@ -1,0 +1,10 @@
+{
+  "argv": [
+    "uname",
+    "-s"
+  ],
+  "exit_code": 0,
+  "stdout": "Linux\n",
+  "stderr": "",
+  "stdout_sha256": "533e1007b450ba293f5e2cb35b768cf963d0a74c6943558059086eda254939c2"
+}

@@ -1,0 +1,195 @@
+{
+  "schema_version": "1",
+  "compiler_version": "1",
+  "campaign_id": "C0023",
+  "campaign_name": "Operation Ghost",
+  "source": {
+    "bundle_sha256": "dc1639caa5501d720e280cf1cbd8fbe009884a0c9b3e6e9ed9d0c25166c3d8f4",
+    "object_count": 26086,
+    "campaign_stix_id": "campaign--7854c1a0-f06c-4876-98a4-4bbd34751b05",
+    "campaign_external_id": "C0023"
+  },
+  "ordering_policy": "tactic_rank_then_technique_id",
+  "steps": [
+    {
+      "technique_id": "T1583.001",
+      "technique_stix_id": "attack-pattern--40f5caa0-4cb7-4117-89fc-d421bb493df3",
+      "name": "Domains",
+      "execution_domain": "attacker",
+      "tactics": [
+        "resource-development"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--7360bacd-7a75-401a-b97e-b9bd6a2fbe42"
+      ],
+      "procedure_descriptions": [
+        "For [Operation Ghost](https://attack.mitre.org/campaigns/C0023), [APT29](https://attack.mitre.org/groups/G0016) registered domains for use in C2 including some crafted to appear as existing legitimate domains.(Citation: ESET Dukes October 2019)"
+      ]
+    },
+    {
+      "technique_id": "T1585.001",
+      "technique_stix_id": "attack-pattern--b1ccd744-3f78-4a0e-9bb2-2002057f7928",
+      "name": "Social Media Accounts",
+      "execution_domain": "attacker",
+      "tactics": [
+        "resource-development"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--afaafa9d-6c93-4116-94c2-6ff11a304ed8"
+      ],
+      "procedure_descriptions": [
+        "For [Operation Ghost](https://attack.mitre.org/campaigns/C0023), [APT29](https://attack.mitre.org/groups/G0016) registered Twitter accounts to host C2 nodes.(Citation: ESET Dukes October 2019)"
+      ]
+    },
+    {
+      "technique_id": "T1587.001",
+      "technique_stix_id": "attack-pattern--212306d8-efa4-44c9-8c2d-ed3d2e224aa0",
+      "name": "Malware",
+      "execution_domain": "attacker",
+      "tactics": [
+        "resource-development"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--8a6f7d54-3165-4fd2-a2f8-a6357d231192"
+      ],
+      "procedure_descriptions": [
+        "For [Operation Ghost](https://attack.mitre.org/campaigns/C0023), [APT29](https://attack.mitre.org/groups/G0016) used new strains of malware including [FatDuke](https://attack.mitre.org/software/S0512), [MiniDuke](https://attack.mitre.org/software/S0051), [RegDuke](https://attack.mitre.org/software/S0511), and [PolyglotDuke](https://attack.mitre.org/software/S0518).(Citation: ESET Dukes October 2019)"
+      ]
+    },
+    {
+      "technique_id": "T1078.002",
+      "technique_stix_id": "attack-pattern--c3d4bdd9-2cfe-4a80-9d0c-07a29ecdce8f",
+      "name": "Domain Accounts",
+      "execution_domain": "boundary",
+      "tactics": [
+        "initial-access",
+        "persistence",
+        "privilege-escalation",
+        "stealth"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--0a154ef3-859f-4f13-b5c9-9bd0e91864f0"
+      ],
+      "procedure_descriptions": [
+        "For [Operation Ghost](https://attack.mitre.org/campaigns/C0023), [APT29](https://attack.mitre.org/groups/G0016) used stolen administrator credentials for lateral movement on compromised networks.(Citation: ESET Dukes October 2019)"
+      ]
+    },
+    {
+      "technique_id": "T1546.003",
+      "technique_stix_id": "attack-pattern--910906dd-8c0a-475a-9cc1-5e029e2fad58",
+      "name": "Windows Management Instrumentation Event Subscription",
+      "execution_domain": "target",
+      "tactics": [
+        "persistence",
+        "privilege-escalation"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--ad63da4a-163d-49b4-b923-f4df799ab183"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Ghost](https://attack.mitre.org/campaigns/C0023), [APT29](https://attack.mitre.org/groups/G0016) used WMI event subscriptions to establish persistence for malware.(Citation: ESET Dukes October 2019)"
+      ]
+    },
+    {
+      "technique_id": "T1027.003",
+      "technique_stix_id": "attack-pattern--c2e147a9-d1a8-4074-811a-d8789202d916",
+      "name": "Steganography",
+      "execution_domain": "target",
+      "tactics": [
+        "stealth"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--c09f73f8-f350-457c-a492-8cd820b00074"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Ghost](https://attack.mitre.org/campaigns/C0023), [APT29](https://attack.mitre.org/groups/G0016) used steganography to hide payloads inside valid images.(Citation: ESET Dukes October 2019)"
+      ]
+    },
+    {
+      "technique_id": "T1001.002",
+      "technique_stix_id": "attack-pattern--eec23884-3fa1-4d8a-ac50-6f104d51e235",
+      "name": "Steganography",
+      "execution_domain": "boundary",
+      "tactics": [
+        "command-and-control"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--42868389-76f1-4dbf-9b7e-f657d6c8e0cc"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Ghost](https://attack.mitre.org/campaigns/C0023), [APT29](https://attack.mitre.org/groups/G0016) used steganography to hide the communications between the implants and their C&C servers.(Citation: ESET Dukes October 2019)"
+      ]
+    },
+    {
+      "technique_id": "T1102.002",
+      "technique_stix_id": "attack-pattern--be055942-6e63-49d7-9fa1-9cb7d8a8f3f4",
+      "name": "Bidirectional Communication",
+      "execution_domain": "boundary",
+      "tactics": [
+        "command-and-control"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--0d7e0555-3176-4ebe-b067-6e557e9040a9"
+      ],
+      "procedure_descriptions": [
+        "For [Operation Ghost](https://attack.mitre.org/campaigns/C0023), [APT29](https://attack.mitre.org/groups/G0016) used social media platforms to hide communications to C2 servers.(Citation: ESET Dukes October 2019)"
+      ]
+    }
+  ],
+  "limitations": [
+    "ATT&CK uses-links do not encode a historical total order; the compiler applies a declared tactic-rank policy.",
+    "Technique metadata constrains procedures but does not uniquely determine an executable target environment."
+  ],
+  "content_sha256": "4b0f0a4891c56e82fece55be6c92841c2774a235b9c8e4b7f8461141f03d78f4"
+}

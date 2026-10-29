@@ -1,0 +1,31 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure gathers system language information from a target host to simulate the discovery process used by adversaries.",
+    "evidence_predicates": [
+      "fixture_access_logged",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "target_host": "target_host"
+    },
+    "produces": [
+      "system language information gathered"
+    ],
+    "requires": [
+      "target host is operational"
+    ],
+    "technique_ids": [
+      "T1614.001"
+    ],
+    "template_id": "system-language-discovery-laboratory-harness"
+  }
+}

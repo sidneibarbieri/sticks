@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure demonstrates the side-loading of a malicious DLL into a target application to observe the loading behavior.",
+    "evidence_predicates": [
+      "artifact_hash_recorded",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "dll_file": "payload",
+      "target_application": "target_host"
+    },
+    "produces": [
+      "the malicious DLL is loaded by the target application"
+    ],
+    "requires": [
+      "a target application that can load DLLs",
+      "a malicious DLL file prepared for side-loading"
+    ],
+    "technique_ids": [
+      "T1574.001"
+    ],
+    "template_id": "dll-sideloading-laboratory-harness"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure template outlines the steps for conducting active scanning in a controlled laboratory environment.",
+    "evidence_predicates": [
+      "http_request_logged",
+      "bytes_transferred_recorded"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "network_interface": "network_interface",
+      "target_host": "target_host",
+      "toolkit": "toolkit"
+    },
+    "produces": [
+      "http_request_logged",
+      "bytes_transferred_recorded"
+    ],
+    "requires": [
+      "target host is reachable",
+      "network interface is configured"
+    ],
+    "technique_ids": [
+      "T1595"
+    ],
+    "template_id": "active-scanning-laboratory-harness"
+  }
+}

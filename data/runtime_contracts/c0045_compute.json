@@ -1,0 +1,9 @@
+{
+  "schema_version": "c0045-compute-runtime/v1",
+  "study_sha256": "0a26db0503b05b4cf78a6586d724a07c0b225a31b6669409a97da1ea45def105",
+  "executor_id": "executors.c0045_compute_executor.execute_c0045_compute_treatment",
+  "executor_sha256": "79c5b5a456b4d92acab0b2995118d7ec45a8cd829237a11f6f6690cab4cc75a2",
+  "observer": "c0045-compute",
+  "requirement": "lab:shell",
+  "product": "compute:bounded_guest_cpu"
+}

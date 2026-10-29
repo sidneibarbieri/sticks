@@ -1,0 +1,15 @@
+{
+  "campaign_id": "C0026",
+  "arm_id": "prior_work_style",
+  "seed": 5,
+  "step_id": "s3",
+  "emitted": true,
+  "abstained": false,
+  "oracle_admitted": false,
+  "template_id": "transfer-over-resolved-lab-channel",
+  "proposal_sha256": "fd5fc36c2b204caa68a66d2b45f9931b031b8cdf7693d54df3728aa3bda3dd40",
+  "issue_codes": [
+    "EXECUTION_DOMAIN_MISMATCH"
+  ],
+  "parse_error": null
+}

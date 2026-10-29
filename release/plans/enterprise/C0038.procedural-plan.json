@@ -1,0 +1,590 @@
+{
+  "schema_version": "1",
+  "compiler_version": "1",
+  "campaign_id": "C0038",
+  "campaign_name": "HomeLand Justice",
+  "source": {
+    "bundle_sha256": "dc1639caa5501d720e280cf1cbd8fbe009884a0c9b3e6e9ed9d0c25166c3d8f4",
+    "object_count": 26086,
+    "campaign_stix_id": "campaign--7e21077d-2589-43a7-a5f9-490061289526",
+    "campaign_external_id": "C0038"
+  },
+  "ordering_policy": "tactic_rank_then_technique_id",
+  "steps": [
+    {
+      "technique_id": "T1588.002",
+      "technique_stix_id": "attack-pattern--a2fdce72-04b2-409a-ac10-cc1695f4fce0",
+      "name": "Tool",
+      "execution_domain": "attacker",
+      "tactics": [
+        "resource-development"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--ed07a5d3-757c-4665-969b-c0a1bb9ec881"
+      ],
+      "procedure_descriptions": [
+        "During [HomeLand Justice](https://attack.mitre.org/campaigns/C0038), threat actors used tools including Advanced Port Scanner, [Mimikatz](https://attack.mitre.org/software/S0002), and [Impacket](https://attack.mitre.org/software/S0357).(Citation: CISA Iran Albanian Attacks September 2022)(Citation: Microsoft Albanian Government Attacks September 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1588.003",
+      "technique_stix_id": "attack-pattern--e7cbc1de-1f79-48ee-abfd-da1241c65a15",
+      "name": "Code Signing Certificates",
+      "execution_domain": "attacker",
+      "tactics": [
+        "resource-development"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--651781ce-8062-444c-8078-0cda57adcd51"
+      ],
+      "procedure_descriptions": [
+        "During [HomeLand Justice](https://attack.mitre.org/campaigns/C0038), threat actors used tools with legitimate code signing certificates. (Citation: CISA Iran Albanian Attacks September 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1078",
+      "technique_stix_id": "attack-pattern--b17a1a56-e99c-403c-8948-561df0cffe81",
+      "name": "Valid Accounts",
+      "execution_domain": "boundary",
+      "tactics": [
+        "initial-access",
+        "persistence",
+        "privilege-escalation",
+        "stealth"
+      ],
+      "platforms": [
+        "Containers",
+        "ESXi",
+        "IaaS",
+        "Identity Provider",
+        "Linux",
+        "Network Devices",
+        "Office Suite",
+        "SaaS",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--ffa43025-87c2-47a7-a4cf-b04010986b4f"
+      ],
+      "procedure_descriptions": [
+        "During [HomeLand Justice](https://attack.mitre.org/campaigns/C0038), threat actors used a compromised Exchange account to search mailboxes and create new Exchange accounts.(Citation: CISA Iran Albanian Attacks September 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1078.001",
+      "technique_stix_id": "attack-pattern--6151cbea-819b-455a-9fa6-99a1cc58797d",
+      "name": "Default Accounts",
+      "execution_domain": "boundary",
+      "tactics": [
+        "initial-access",
+        "persistence",
+        "privilege-escalation",
+        "stealth"
+      ],
+      "platforms": [
+        "Containers",
+        "ESXi",
+        "IaaS",
+        "Identity Provider",
+        "Linux",
+        "Network Devices",
+        "Office Suite",
+        "SaaS",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--47e6ea9a-cb80-49ba-8a72-bad2eafa7cd8"
+      ],
+      "procedure_descriptions": [
+        "During [HomeLand Justice](https://attack.mitre.org/campaigns/C0038), threat actors used the built-in administrator account to move laterally using RDP and [Impacket](https://attack.mitre.org/software/S0357).(Citation: Microsoft Albanian Government Attacks September 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1190",
+      "technique_stix_id": "attack-pattern--3f886f2a-874f-4333-b794-aa6075009b1c",
+      "name": "Exploit Public-Facing Application",
+      "execution_domain": "boundary",
+      "tactics": [
+        "initial-access"
+      ],
+      "platforms": [
+        "Containers",
+        "ESXi",
+        "IaaS",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--5c1f3cc7-902d-4af1-9910-d149b76ae4a0"
+      ],
+      "procedure_descriptions": [
+        "For [HomeLand Justice](https://attack.mitre.org/campaigns/C0038), threat actors exploited CVE-2019-0604 in Microsoft SharePoint for initial access.(Citation: CISA Iran Albanian Attacks September 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1047",
+      "technique_stix_id": "attack-pattern--01a5a209-b94c-450b-b7f9-946497d91055",
+      "name": "Windows Management Instrumentation",
+      "execution_domain": "target",
+      "tactics": [
+        "execution"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--c5517f93-efd9-4fa5-83a4-8403ac85f831"
+      ],
+      "procedure_descriptions": [
+        "During [HomeLand Justice](https://attack.mitre.org/campaigns/C0038), threat actors used WMI to modify Windows Defender settings.(Citation: Microsoft Albanian Government Attacks September 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1059.001",
+      "technique_stix_id": "attack-pattern--970a3432-3237-47ad-bcca-7d8cbb217736",
+      "name": "PowerShell",
+      "execution_domain": "target",
+      "tactics": [
+        "execution"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--d559a4f6-cb7f-49db-b95e-42748f3f6c63"
+      ],
+      "procedure_descriptions": [
+        "During [HomeLand Justice](https://attack.mitre.org/campaigns/C0038), threat actors used PowerShell cmdlets New-MailboxSearch and Get-Recipient for discovery.(Citation: CISA Iran Albanian Attacks September 2022)(Citation: Microsoft Albanian Government Attacks September 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1059.003",
+      "technique_stix_id": "attack-pattern--d1fcf083-a721-4223-aedf-bf8960798d62",
+      "name": "Windows Command Shell",
+      "execution_domain": "target",
+      "tactics": [
+        "execution"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--9f940bca-0593-4d1d-865d-89f29df73ea8"
+      ],
+      "procedure_descriptions": [
+        "During [HomeLand Justice](https://attack.mitre.org/campaigns/C0038), threat actors used Windows batch files for persistence and execution.(Citation: CISA Iran Albanian Attacks September 2022)(Citation: Microsoft Albanian Government Attacks September 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1098.002",
+      "technique_stix_id": "attack-pattern--e74de37c-a829-446c-937d-56a44f0e9306",
+      "name": "Additional Email Delegate Permissions",
+      "execution_domain": "target",
+      "tactics": [
+        "persistence",
+        "privilege-escalation"
+      ],
+      "platforms": [
+        "Office Suite",
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--39d843d6-a08f-4167-9b4a-25e36533b4be"
+      ],
+      "procedure_descriptions": [
+        "During [HomeLand Justice](https://attack.mitre.org/campaigns/C0038), threat actors added the `ApplicationImpersonation` management role to accounts under their control to impersonate users and take ownership of targeted mailboxes.(Citation: Microsoft Albanian Government Attacks September 2022)\n"
+      ]
+    },
+    {
+      "technique_id": "T1505.003",
+      "technique_stix_id": "attack-pattern--5d0d3609-d06d-49e1-b9c9-b544e0c618cb",
+      "name": "Web Shell",
+      "execution_domain": "target",
+      "tactics": [
+        "persistence"
+      ],
+      "platforms": [
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--a75d7482-b44c-4fbf-88ab-17839c27a099"
+      ],
+      "procedure_descriptions": [
+        "For [HomeLand Justice](https://attack.mitre.org/campaigns/C0038), threat actors used .aspx webshells named pickers.aspx, error4.aspx, and ClientBin.aspx, to maintain persistence.(Citation: CISA Iran Albanian Attacks September 2022)(Citation: Microsoft Albanian Government Attacks September 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1134.001",
+      "technique_stix_id": "attack-pattern--86850eff-2729-40c3-b85e-c4af26da4a2d",
+      "name": "Token Impersonation/Theft",
+      "execution_domain": "target",
+      "tactics": [
+        "privilege-escalation",
+        "stealth"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--45a8a431-8465-4f6e-8258-817d919a6a52"
+      ],
+      "procedure_descriptions": [
+        "During [HomeLand Justice](https://attack.mitre.org/campaigns/C0038), threat actors used custom tooling to acquire tokens using `ImpersonateLoggedOnUser/SetThreadToken`.(Citation: Microsoft Albanian Government Attacks September 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1036.005",
+      "technique_stix_id": "attack-pattern--1c4e5d32-1fe9-4116-9d9d-59e3925bd6a2",
+      "name": "Match Legitimate Resource Name or Location",
+      "execution_domain": "target",
+      "tactics": [
+        "stealth"
+      ],
+      "platforms": [
+        "Containers",
+        "ESXi",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--a15d732e-b911-437b-8693-df38c1732780"
+      ],
+      "procedure_descriptions": [
+        "During [HomeLand Justice](https://attack.mitre.org/campaigns/C0038), threat actors renamed [ROADSWEEP](https://attack.mitre.org/software/S1150) to GoXML.exe and [ZeroCleare](https://attack.mitre.org/software/S1151) to cl.exe.(Citation: CISA Iran Albanian Attacks September 2022)(Citation: Mandiant ROADSWEEP August 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1685",
+      "technique_stix_id": "attack-pattern--bbde9781-60aa-4b8a-a911-895b0c1b3872",
+      "name": "Disable or Modify Tools",
+      "execution_domain": "target",
+      "tactics": [
+        "defense-impairment"
+      ],
+      "platforms": [
+        "Containers",
+        "ESXi",
+        "IaaS",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--8ae32d7b-b307-4b95-a49b-ea1fd1902e97"
+      ],
+      "procedure_descriptions": [
+        "During [HomeLand Justice](https://attack.mitre.org/campaigns/C0038), threat actors modified and disabled components of endpoint detection and response (EDR) solutions including Microsoft Defender Antivirus.(Citation: Microsoft Albanian Government Attacks September 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1685.001",
+      "technique_stix_id": "attack-pattern--1411e6b8-80a6-4465-9909-54eaa9c67ce0",
+      "name": "Disable or Modify Windows Event Log",
+      "execution_domain": "target",
+      "tactics": [
+        "defense-impairment"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--fab61ab8-acbb-41ce-ae5f-1356443b16bb"
+      ],
+      "procedure_descriptions": [
+        "During [HomeLand Justice](https://attack.mitre.org/campaigns/C0038), threat actors deleted Windows events and application logs.(Citation: Microsoft Albanian Government Attacks September 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1003.001",
+      "technique_stix_id": "attack-pattern--65f2d882-3f41-4d48-8a06-29af77ec9f90",
+      "name": "LSASS Memory",
+      "execution_domain": "target",
+      "tactics": [
+        "credential-access"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--9ead9e4e-20c7-4c39-86c2-adcea93e04b8"
+      ],
+      "procedure_descriptions": [
+        "During [HomeLand Justice](https://attack.mitre.org/campaigns/C0038), threat actors dumped LSASS memory on compromised hosts.(Citation: CISA Iran Albanian Attacks September 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1046",
+      "technique_stix_id": "attack-pattern--e3a12395-188d-4051-9a16-ea8e14d07b88",
+      "name": "Network Service Discovery",
+      "execution_domain": "target",
+      "tactics": [
+        "discovery"
+      ],
+      "platforms": [
+        "Containers",
+        "IaaS",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--32d0c1aa-b936-40d4-932e-7d4f42736382"
+      ],
+      "procedure_descriptions": [
+        "During [HomeLand Justice](https://attack.mitre.org/campaigns/C0038), threat actors executed the Advanced Port Scanner tool on compromised systems.(Citation: CISA Iran Albanian Attacks September 2022)(Citation: Microsoft Albanian Government Attacks September 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1087.003",
+      "technique_stix_id": "attack-pattern--4bc31b94-045b-4752-8920-aebaebdb6470",
+      "name": "Email Account",
+      "execution_domain": "target",
+      "tactics": [
+        "discovery"
+      ],
+      "platforms": [
+        "Office Suite",
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--e8fae453-8493-4393-92ce-01975f1c1694"
+      ],
+      "procedure_descriptions": [
+        "During [HomeLand Justice](https://attack.mitre.org/campaigns/C0038), threat actors used compromised Exchange accounts to search mailboxes for administrator accounts.(Citation: CISA Iran Albanian Attacks September 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1021.001",
+      "technique_stix_id": "attack-pattern--eb062747-2193-45de-8fa2-e62549c37ddf",
+      "name": "Remote Desktop Protocol",
+      "execution_domain": "target",
+      "tactics": [
+        "lateral-movement"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--5ca15f16-b87d-4373-8668-524431ceb35a"
+      ],
+      "procedure_descriptions": [
+        "During [HomeLand Justice](https://attack.mitre.org/campaigns/C0038), threat actors primarily used RDP for lateral movement in the victim environment.(Citation: CISA Iran Albanian Attacks September 2022)(Citation: Microsoft Albanian Government Attacks September 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1021.002",
+      "technique_stix_id": "attack-pattern--4f9ca633-15c5-463c-9724-bdcd54fde541",
+      "name": "SMB/Windows Admin Shares",
+      "execution_domain": "target",
+      "tactics": [
+        "lateral-movement"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--a9880e35-afe0-4537-a45d-3f63103b69b5"
+      ],
+      "procedure_descriptions": [
+        "During [HomeLand Justice](https://attack.mitre.org/campaigns/C0038), threat actors used SMB for lateral movement.(Citation: CISA Iran Albanian Attacks September 2022)(Citation: Microsoft Albanian Government Attacks September 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1570",
+      "technique_stix_id": "attack-pattern--bf90d72c-c00b-45e3-b3aa-68560560d4c5",
+      "name": "Lateral Tool Transfer",
+      "execution_domain": "target",
+      "tactics": [
+        "lateral-movement"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--af2fe9ce-36bf-487c-bb71-7190aed28c55"
+      ],
+      "procedure_descriptions": [
+        "During [HomeLand Justice](https://attack.mitre.org/campaigns/C0038), threat actors initiated a process named Mellona.exe to spread the [ROADSWEEP](https://attack.mitre.org/software/S1150) file encryptor and a persistence script to a list of internal machines.(Citation: CISA Iran Albanian Attacks September 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1114.002",
+      "technique_stix_id": "attack-pattern--b4694861-542c-48ea-9eb1-10d356e7140a",
+      "name": "Remote Email Collection",
+      "execution_domain": "target",
+      "tactics": [
+        "collection"
+      ],
+      "platforms": [
+        "Office Suite",
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--4fdff650-7872-4991-9667-bbe9f88f8085"
+      ],
+      "procedure_descriptions": [
+        "During [HomeLand Justice](https://attack.mitre.org/campaigns/C0038), threat actors made multiple HTTP POST requests to the Exchange servers of the victim organization to transfer data.(Citation: CISA Iran Albanian Attacks September 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1105",
+      "technique_stix_id": "attack-pattern--e6919abc-99f9-4c6c-95a5-14761e7b2add",
+      "name": "Ingress Tool Transfer",
+      "execution_domain": "boundary",
+      "tactics": [
+        "command-and-control"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--dde8ddd4-f56f-4186-828e-dd971b6a3770"
+      ],
+      "procedure_descriptions": [
+        "During [HomeLand Justice](https://attack.mitre.org/campaigns/C0038), threat actors used web shells to download files to compromised infrastructure.(Citation: Microsoft Albanian Government Attacks September 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1041",
+      "technique_stix_id": "attack-pattern--92d7da27-2d91-488e-a00c-059dc162766d",
+      "name": "Exfiltration Over C2 Channel",
+      "execution_domain": "boundary",
+      "tactics": [
+        "exfiltration"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--2b07bb81-4843-423c-a29c-251169a845ce"
+      ],
+      "procedure_descriptions": [
+        "During [HomeLand Justice](https://attack.mitre.org/campaigns/C0038), threat actors used HTTP to transfer data from compromised Exchange servers.(Citation: CISA Iran Albanian Attacks September 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1486",
+      "technique_stix_id": "attack-pattern--b80d107d-fa0d-4b60-9684-b0433e8bdba0",
+      "name": "Data Encrypted for Impact",
+      "execution_domain": "target",
+      "tactics": [
+        "impact"
+      ],
+      "platforms": [
+        "ESXi",
+        "IaaS",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--0fbd1a64-07c1-4b5f-bb3a-2de93a9088a9"
+      ],
+      "procedure_descriptions": [
+        "During [HomeLand Justice](https://attack.mitre.org/campaigns/C0038), threat actors used [ROADSWEEP](https://attack.mitre.org/software/S1150) ransomware to encrypt files on targeted systems.(Citation: Mandiant ROADSWEEP August 2022)(Citation: CISA Iran Albanian Attacks September 2022)(Citation: Microsoft Albanian Government Attacks September 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1561.002",
+      "technique_stix_id": "attack-pattern--0af0ca99-357d-4ba1-805f-674fdfb7bef9",
+      "name": "Disk Structure Wipe",
+      "execution_domain": "target",
+      "tactics": [
+        "impact"
+      ],
+      "platforms": [
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--2aa6a9d6-57a0-490e-97d0-79d12119ec21"
+      ],
+      "procedure_descriptions": [
+        "During [HomeLand Justice](https://attack.mitre.org/campaigns/C0038), threat actors used a version of [ZeroCleare](https://attack.mitre.org/software/S1151) to wipe disk drives on targeted hosts.(Citation: CISA Iran Albanian Attacks September 2022)(Citation: Microsoft Albanian Government Attacks September 2022)"
+      ]
+    }
+  ],
+  "limitations": [
+    "ATT&CK uses-links do not encode a historical total order; the compiler applies a declared tactic-rank policy.",
+    "Technique metadata constrains procedures but does not uniquely determine an executable target environment."
+  ],
+  "content_sha256": "217659a5ad81b754044c29de28d6d77fc7301d3d5c5c09decd8957aeb3962c36"
+}

@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure extracts plaintext credentials from a specified web browser's credential store in a controlled laboratory environment.",
+    "evidence_predicates": [
+      "artifact_hash_recorded",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "browser_data": "data_source",
+      "credential_store": "archive_artifact"
+    },
+    "produces": [
+      "plaintext credentials extracted from the browser"
+    ],
+    "requires": [
+      "target host is running a supported web browser",
+      "access to the user's profile directory"
+    ],
+    "technique_ids": [
+      "T1555.003"
+    ],
+    "template_id": "credentials-from-web-browsers-laboratory-harness"
+  }
+}

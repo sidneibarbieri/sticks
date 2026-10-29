@@ -1,0 +1,74 @@
+{
+  "campaign_id": "C0045",
+  "model": "qwen2.5-coder:14b",
+  "sample": 3,
+  "temperature": 0.7,
+  "proposals": [
+    {
+      "technique_id": "T1588.002",
+      "template_id": "stage-benign-toolkit",
+      "bindings": {
+        "actor": "actor.primary",
+        "toolkit": "toolkit.benign"
+      }
+    },
+    {
+      "technique_id": "T1190",
+      "template_id": "probe-declared-public-service",
+      "bindings": {
+        "actor": "actor.primary",
+        "endpoint": "endpoint.public_service",
+        "target": "target.primary"
+      }
+    },
+    {
+      "technique_id": "T1059.006",
+      "template_id": "run-benign-python",
+      "bindings": {
+        "runtime": "runtime.python3",
+        "target": "target.primary"
+      }
+    },
+    {
+      "technique_id": "T1546.004",
+      "template_id": "write-lab-shell-config",
+      "bindings": {
+        "artifact": "artifact.shell_config",
+        "target": "target.primary"
+      }
+    },
+    {
+      "technique_id": "T1068",
+      "template_id": "assess-privilege-boundary",
+      "bindings": {
+        "boundary": "boundary.no_live_exploit",
+        "target": "target.primary"
+      }
+    },
+    {
+      "technique_id": "T1027.013",
+      "template_id": "encode-benign-artifact",
+      "bindings": {
+        "artifact": "artifact.encoded",
+        "target": "target.primary"
+      }
+    },
+    {
+      "technique_id": "T1003.008",
+      "template_id": "read-declared-credential-fixture",
+      "bindings": {
+        "credential_source": "credential.synthetic_fixture",
+        "target": "target.primary"
+      }
+    },
+    {
+      "technique_id": "T1016",
+      "template_id": "inspect-declared-network",
+      "bindings": {
+        "interface": "network.private_interface",
+        "target": "target.primary"
+      }
+    }
+  ],
+  "malformed_proposals": 0
+}

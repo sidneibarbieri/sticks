@@ -1,0 +1,34 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure searches for files containing insecurely stored credentials on the target host.",
+    "evidence_predicates": [
+      "file_count_recorded",
+      "fixture_access_logged"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "credential_source": "credential_source",
+      "target_host": "target_host"
+    },
+    "produces": [
+      "file_count_recorded",
+      "fixture_access_logged"
+    ],
+    "requires": [
+      "access to local file system",
+      "permission to read files"
+    ],
+    "technique_ids": [
+      "T1552.001"
+    ],
+    "template_id": "credentials-in-files-laboratory-harness"
+  }
+}

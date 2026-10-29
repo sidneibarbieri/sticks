@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure modifies the firewall rules on a network device to allow unrestricted access to internal network subnets.",
+    "evidence_predicates": [
+      "boundary_check_recorded",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "network_device": "target_host",
+      "rule_action": "chunk_policy"
+    },
+    "produces": [
+      "modified firewall rules"
+    ],
+    "requires": [
+      "access to network device",
+      "administrative privileges"
+    ],
+    "technique_ids": [
+      "T1686.002"
+    ],
+    "template_id": "modify-network-device-firewall-rules"
+  }
+}

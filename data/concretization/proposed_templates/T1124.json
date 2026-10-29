@@ -1,0 +1,34 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure collects system time and time zone settings from a specified target host.",
+    "evidence_predicates": [
+      "fixture_access_logged",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "data_source": "data_source",
+      "target_host": "target_host"
+    },
+    "produces": [
+      "system time information collected",
+      "time zone settings recorded"
+    ],
+    "requires": [
+      "access to the target system",
+      "network connectivity to the time server"
+    ],
+    "technique_ids": [
+      "T1124"
+    ],
+    "template_id": "system-time-discovery-laboratory-harness"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0.0",
+  "protocol_id": "sticks-p16-lateral-grounding-v1",
+  "claim_id": "STICKS-P16",
+  "source_record_path": "release/experiments/lateral_movement_grounding/grounding.json",
+  "task_packet_path": "release/experiments/lateral_movement_grounding/adjudication/task_packet.v1.json",
+  "records_directory": "release/experiments/lateral_movement_grounding/adjudication/records",
+  "status_path": "release/experiments/lateral_movement_grounding/adjudication/status.v1.json",
+  "minimum_annotators": 2,
+  "minimum_pairwise_exact_agreement": 1.0,
+  "require_full_coverage": true,
+  "require_lexical_concordance": true,
+  "blind_to_lexical_screen": true,
+  "identity_policy": "Each record uses a randomly generated opaque identifier of the form annotator-<hex>; do not include names, e-mail addresses, affiliations, free-form notes, or source-document metadata in a public record.",
+  "independence_requirement": "Before seeing the lexical-screen labels or another annotator's record, each annotator independently labels every packet item and attests to that fact in the identity-free record. The public gate verifies distinct opaque identifiers and the attestations; the research team must retain any nonpublic process documentation needed to substantiate independence.",
+  "labels": {
+    "credential_reuse": "The description itself explicitly connects the lateral or remote-access action to a credential, account, token, cookie, or authentication material already obtained or compromised.",
+    "independent_mechanism": "The description itself attributes the action to an independent mechanism such as brute force, password spraying, tunnelling, or tool transfer rather than reuse of previously obtained credentials.",
+    "insufficient_evidence": "The description does not itself establish either relationship. Campaign-level co-occurrence with credential access is insufficient."
+  }
+}

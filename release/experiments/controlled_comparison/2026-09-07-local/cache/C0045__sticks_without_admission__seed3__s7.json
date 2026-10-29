@@ -1,0 +1,13 @@
+{
+  "campaign_id": "C0045",
+  "arm_id": "sticks_without_admission",
+  "seed": 3,
+  "step_id": "s7",
+  "emitted": true,
+  "abstained": false,
+  "oracle_admitted": true,
+  "template_id": "read-declared-credential-fixture",
+  "proposal_sha256": "2e4174882e35a3610f436229325989ecf15f5eda97907809b0b3b6feee0036d2",
+  "issue_codes": [],
+  "parse_error": null
+}

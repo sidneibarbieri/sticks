@@ -1,0 +1,22 @@
+{
+  "note": "The domain is a three-valued locus, not a host-level source and target pair. It says whether a step runs on the attacker side, across the boundary, or on the target, and admission refuses a template whose domain differs from the step's.",
+  "question": "Where do compiled steps declare they run, and does the catalog cover each place?",
+  "step_share_by_domain": {
+    "attacker": 0.1501,
+    "boundary": 0.2234,
+    "target": 0.6265
+  },
+  "steps_by_domain": {
+    "attacker": 172,
+    "boundary": 256,
+    "target": 718
+  },
+  "templates_by_domain": {
+    "attacker": 7,
+    "boundary": 9,
+    "target": 12
+  },
+  "total_campaigns": 55,
+  "total_steps": 1146,
+  "total_templates": 28
+}

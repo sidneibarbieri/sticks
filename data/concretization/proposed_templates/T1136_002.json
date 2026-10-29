@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure outlines the steps to create a domain account in a controlled laboratory environment.",
+    "evidence_predicates": [
+      "fixture_access_logged",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "admin_privileges": "privilege_boundary",
+      "domain_account": "credential_source"
+    },
+    "produces": [
+      "domain account created"
+    ],
+    "requires": [
+      "Active Directory access",
+      "sufficient privileges"
+    ],
+    "technique_ids": [
+      "T1136.002"
+    ],
+    "template_id": "create-domain-account-laboratory-harness"
+  }
+}

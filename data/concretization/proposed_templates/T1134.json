@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure demonstrates how to manipulate access tokens to change the security context of a running process.",
+    "evidence_predicates": [
+      "bounded_effect_observed",
+      "fixture_access_logged"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "target_host": "target_host",
+      "toolkit": "toolkit"
+    },
+    "produces": [
+      "the process now runs under a different security context"
+    ],
+    "requires": [
+      "a valid access token",
+      "a running process to manipulate"
+    ],
+    "technique_ids": [
+      "T1134"
+    ],
+    "template_id": "access-token-manipulation-laboratory-harness"
+  }
+}

@@ -1,0 +1,499 @@
+{
+  "summary": {
+    "templates": 28,
+    "by_tier": {
+      "adapted": 24,
+      "inspired": 4
+    },
+    "adapted_that_perform_an_observable_effect": 24,
+    "inspired_that_perform_an_observable_effect": 0,
+    "templates_with_non_occurrence_guarantees": 9
+  },
+  "templates": [
+    {
+      "template_id": "stage-benign-toolkit",
+      "technique_ids": [
+        "T1588.002"
+      ],
+      "fidelity_ceiling": "adapted",
+      "declared_evidence_predicates": [
+        "artifact_hash_recorded"
+      ],
+      "performs_observable_effect": true,
+      "observed_evidence": [
+        "artifact_hash_recorded"
+      ],
+      "non_occurrence_guarantees": [],
+      "description": "Stage a benign, hash-pinned toolkit in the isolated actor workspace."
+    },
+    {
+      "template_id": "probe-declared-public-service",
+      "technique_ids": [
+        "T1190"
+      ],
+      "fidelity_ceiling": "adapted",
+      "declared_evidence_predicates": [
+        "bounded_effect_observed",
+        "service_request_logged"
+      ],
+      "performs_observable_effect": true,
+      "observed_evidence": [
+        "bounded_effect_observed",
+        "service_request_logged"
+      ],
+      "non_occurrence_guarantees": [],
+      "description": "Exercise a declared lab service boundary through its safe adapter."
+    },
+    {
+      "template_id": "run-benign-python",
+      "technique_ids": [
+        "T1059.006"
+      ],
+      "fidelity_ceiling": "adapted",
+      "declared_evidence_predicates": [
+        "process_exit_recorded",
+        "stdout_hash_recorded"
+      ],
+      "performs_observable_effect": true,
+      "observed_evidence": [
+        "process_exit_recorded",
+        "stdout_hash_recorded"
+      ],
+      "non_occurrence_guarantees": [],
+      "description": "Run a bounded Python workload through the established lab access channel."
+    },
+    {
+      "template_id": "write-lab-shell-config",
+      "technique_ids": [
+        "T1546.004"
+      ],
+      "fidelity_ceiling": "adapted",
+      "declared_evidence_predicates": [
+        "artifact_hash_recorded",
+        "cleanup_verified"
+      ],
+      "performs_observable_effect": true,
+      "observed_evidence": [
+        "artifact_hash_recorded"
+      ],
+      "non_occurrence_guarantees": [],
+      "description": "Write a lab-scoped shell configuration artifact and verify cleanup."
+    },
+    {
+      "template_id": "assess-privilege-boundary",
+      "technique_ids": [
+        "T1068"
+      ],
+      "fidelity_ceiling": "inspired",
+      "declared_evidence_predicates": [
+        "boundary_check_recorded"
+      ],
+      "performs_observable_effect": false,
+      "observed_evidence": [],
+      "non_occurrence_guarantees": [],
+      "description": "Assess a declared privilege boundary without deploying a local exploit."
+    },
+    {
+      "template_id": "encode-benign-artifact",
+      "technique_ids": [
+        "T1027.013"
+      ],
+      "fidelity_ceiling": "adapted",
+      "declared_evidence_predicates": [
+        "source_and_encoded_hashes_recorded"
+      ],
+      "performs_observable_effect": true,
+      "observed_evidence": [
+        "source_and_encoded_hashes_recorded"
+      ],
+      "non_occurrence_guarantees": [],
+      "description": "Encode a benign artifact and record both hashes."
+    },
+    {
+      "template_id": "read-declared-credential-fixture",
+      "technique_ids": [
+        "T1003.008"
+      ],
+      "fidelity_ceiling": "adapted",
+      "declared_evidence_predicates": [
+        "fixture_access_logged",
+        "no_host_credentials_read"
+      ],
+      "performs_observable_effect": true,
+      "observed_evidence": [
+        "fixture_access_logged"
+      ],
+      "non_occurrence_guarantees": [
+        "no_host_credentials_read"
+      ],
+      "description": "Read a synthetic credential fixture rather than host credentials."
+    },
+    {
+      "template_id": "inspect-declared-network",
+      "technique_ids": [
+        "T1016"
+      ],
+      "fidelity_ceiling": "adapted",
+      "declared_evidence_predicates": [
+        "interface_snapshot_recorded"
+      ],
+      "performs_observable_effect": true,
+      "observed_evidence": [
+        "interface_snapshot_recorded"
+      ],
+      "non_occurrence_guarantees": [],
+      "description": "Inspect only the declared private lab interface."
+    },
+    {
+      "template_id": "transfer-benign-payload",
+      "technique_ids": [
+        "T1105"
+      ],
+      "fidelity_ceiling": "adapted",
+      "declared_evidence_predicates": [
+        "source_and_destination_hashes_match"
+      ],
+      "performs_observable_effect": true,
+      "observed_evidence": [
+        "source_and_destination_hashes_match"
+      ],
+      "non_occurrence_guarantees": [],
+      "description": "Transfer a benign pinned payload over a private lab channel."
+    },
+    {
+      "template_id": "run-bounded-compute-workload",
+      "technique_ids": [
+        "T1496.001"
+      ],
+      "fidelity_ceiling": "adapted",
+      "declared_evidence_predicates": [
+        "duration_and_cpu_bound_recorded",
+        "no_pool_traffic"
+      ],
+      "performs_observable_effect": true,
+      "observed_evidence": [
+        "duration_and_cpu_bound_recorded"
+      ],
+      "non_occurrence_guarantees": [
+        "no_pool_traffic"
+      ],
+      "description": "Run a short bounded local hash workload without external pool traffic."
+    },
+    {
+      "template_id": "record-controlled-domain",
+      "technique_ids": [
+        "T1583.001"
+      ],
+      "fidelity_ceiling": "inspired",
+      "declared_evidence_predicates": [
+        "manifest_hash_recorded",
+        "no_external_registration"
+      ],
+      "performs_observable_effect": false,
+      "observed_evidence": [],
+      "non_occurrence_guarantees": [
+        "no_external_registration"
+      ],
+      "description": "Record a lab-only domain manifest without registering external infrastructure."
+    },
+    {
+      "template_id": "record-controlled-compromised-domain",
+      "technique_ids": [
+        "T1584.001"
+      ],
+      "fidelity_ceiling": "inspired",
+      "declared_evidence_predicates": [
+        "manifest_hash_recorded",
+        "no_external_compromise"
+      ],
+      "performs_observable_effect": false,
+      "observed_evidence": [],
+      "non_occurrence_guarantees": [
+        "no_external_compromise"
+      ],
+      "description": "Represent a compromised-domain condition through a local manifest."
+    },
+    {
+      "template_id": "specify-benign-capability",
+      "technique_ids": [
+        "T1587.001"
+      ],
+      "fidelity_ceiling": "inspired",
+      "declared_evidence_predicates": [
+        "no_harmful_payload_present",
+        "specification_hash_recorded"
+      ],
+      "performs_observable_effect": false,
+      "observed_evidence": [],
+      "non_occurrence_guarantees": [
+        "no_harmful_payload_present"
+      ],
+      "description": "Describe a capability in a benign specification without creating malware."
+    },
+    {
+      "template_id": "stage-benign-payload",
+      "technique_ids": [
+        "T1608.001"
+      ],
+      "fidelity_ceiling": "adapted",
+      "declared_evidence_predicates": [
+        "artifact_hash_recorded",
+        "payload_policy_verified"
+      ],
+      "performs_observable_effect": true,
+      "observed_evidence": [
+        "artifact_hash_recorded"
+      ],
+      "non_occurrence_guarantees": [],
+      "description": "Stage a pinned benign payload in the isolated actor workspace."
+    },
+    {
+      "template_id": "stage-benign-tool",
+      "technique_ids": [
+        "T1608.002"
+      ],
+      "fidelity_ceiling": "adapted",
+      "declared_evidence_predicates": [
+        "artifact_hash_recorded",
+        "tool_policy_verified"
+      ],
+      "performs_observable_effect": true,
+      "observed_evidence": [
+        "artifact_hash_recorded"
+      ],
+      "non_occurrence_guarantees": [],
+      "description": "Stage a benign tool artifact for a later lab-only transfer."
+    },
+    {
+      "template_id": "stage-lab-web-target",
+      "technique_ids": [
+        "T1608.004"
+      ],
+      "fidelity_ceiling": "adapted",
+      "declared_evidence_predicates": [
+        "lab_scope_verified",
+        "web_asset_hash_recorded"
+      ],
+      "performs_observable_effect": true,
+      "observed_evidence": [
+        "web_asset_hash_recorded"
+      ],
+      "non_occurrence_guarantees": [],
+      "description": "Stage a benign web target on the private laboratory network."
+    },
+    {
+      "template_id": "visit-declared-web-target",
+      "technique_ids": [
+        "T1189"
+      ],
+      "fidelity_ceiling": "adapted",
+      "declared_evidence_predicates": [
+        "http_request_logged",
+        "no_exploit_delivered"
+      ],
+      "performs_observable_effect": true,
+      "observed_evidence": [
+        "http_request_logged"
+      ],
+      "non_occurrence_guarantees": [
+        "no_exploit_delivered"
+      ],
+      "description": "Visit the declared lab page without delivering an exploit."
+    },
+    {
+      "template_id": "transfer-staged-benign-tool",
+      "technique_ids": [
+        "T1105"
+      ],
+      "fidelity_ceiling": "adapted",
+      "declared_evidence_predicates": [
+        "source_and_destination_hashes_match"
+      ],
+      "performs_observable_effect": true,
+      "observed_evidence": [
+        "source_and_destination_hashes_match"
+      ],
+      "non_occurrence_guarantees": [],
+      "description": "Transfer a staged benign tool through the declared private channel."
+    },
+    {
+      "template_id": "resolve-lab-domain",
+      "technique_ids": [
+        "T1568"
+      ],
+      "fidelity_ceiling": "adapted",
+      "declared_evidence_predicates": [
+        "external_dns_absent",
+        "resolver_query_logged"
+      ],
+      "performs_observable_effect": true,
+      "observed_evidence": [
+        "resolver_query_logged"
+      ],
+      "non_occurrence_guarantees": [
+        "external_dns_absent"
+      ],
+      "description": "Resolve a laboratory-only domain through the controlled resolver."
+    },
+    {
+      "template_id": "transfer-over-resolved-lab-channel",
+      "technique_ids": [
+        "T1105"
+      ],
+      "fidelity_ceiling": "adapted",
+      "declared_evidence_predicates": [
+        "source_and_destination_hashes_match"
+      ],
+      "performs_observable_effect": true,
+      "observed_evidence": [
+        "source_and_destination_hashes_match"
+      ],
+      "non_occurrence_guarantees": [],
+      "description": "Transfer a pinned benign payload after lab-only name resolution."
+    },
+    {
+      "template_id": "collect-declared-data-fixture",
+      "technique_ids": [
+        "T1005"
+      ],
+      "fidelity_ceiling": "adapted",
+      "declared_evidence_predicates": [
+        "fixture_hash_recorded",
+        "no_host_data_collected"
+      ],
+      "performs_observable_effect": true,
+      "observed_evidence": [
+        "fixture_hash_recorded"
+      ],
+      "non_occurrence_guarantees": [
+        "no_host_data_collected"
+      ],
+      "description": "Collect only a declared synthetic data fixture."
+    },
+    {
+      "template_id": "archive-declared-collection",
+      "technique_ids": [
+        "T1560.001"
+      ],
+      "fidelity_ceiling": "adapted",
+      "declared_evidence_predicates": [
+        "archive_hash_recorded",
+        "input_manifest_recorded"
+      ],
+      "performs_observable_effect": true,
+      "observed_evidence": [
+        "archive_hash_recorded",
+        "input_manifest_recorded"
+      ],
+      "non_occurrence_guarantees": [],
+      "description": "Archive the declared synthetic collection with a local utility."
+    },
+    {
+      "template_id": "split-declared-archive",
+      "technique_ids": [
+        "T1030"
+      ],
+      "fidelity_ceiling": "adapted",
+      "declared_evidence_predicates": [
+        "chunk_manifest_recorded",
+        "no_external_transfer"
+      ],
+      "performs_observable_effect": true,
+      "observed_evidence": [
+        "chunk_manifest_recorded"
+      ],
+      "non_occurrence_guarantees": [
+        "no_external_transfer"
+      ],
+      "description": "Split the synthetic archive into bounded local chunks without exfiltration."
+    },
+    {
+      "template_id": "collect-local-files",
+      "technique_ids": [
+        "T1119"
+      ],
+      "fidelity_ceiling": "adapted",
+      "declared_evidence_predicates": [
+        "collection_manifest_recorded",
+        "file_count_recorded"
+      ],
+      "performs_observable_effect": true,
+      "observed_evidence": [
+        "collection_manifest_recorded",
+        "file_count_recorded"
+      ],
+      "non_occurrence_guarantees": [],
+      "description": "Enumerate and copy declared lab files into a collection directory through the established shell."
+    },
+    {
+      "template_id": "stage-local-archive",
+      "technique_ids": [
+        "T1074.001"
+      ],
+      "fidelity_ceiling": "adapted",
+      "declared_evidence_predicates": [
+        "archive_hash_recorded",
+        "staging_path_recorded"
+      ],
+      "performs_observable_effect": true,
+      "observed_evidence": [
+        "archive_hash_recorded",
+        "staging_path_recorded"
+      ],
+      "non_occurrence_guarantees": [],
+      "description": "Compress collected files into a single archive at a declared staging path."
+    },
+    {
+      "template_id": "delete-staged-tool",
+      "technique_ids": [
+        "T1070.004"
+      ],
+      "fidelity_ceiling": "adapted",
+      "declared_evidence_predicates": [
+        "file_absence_recorded"
+      ],
+      "performs_observable_effect": true,
+      "observed_evidence": [
+        "file_absence_recorded"
+      ],
+      "non_occurrence_guarantees": [],
+      "description": "Remove a previously staged benign tool artifact and confirm its absence."
+    },
+    {
+      "template_id": "beacon-over-web-protocol",
+      "technique_ids": [
+        "T1071.001"
+      ],
+      "fidelity_ceiling": "adapted",
+      "declared_evidence_predicates": [
+        "http_status_recorded",
+        "service_request_logged"
+      ],
+      "performs_observable_effect": true,
+      "observed_evidence": [
+        "http_status_recorded",
+        "service_request_logged"
+      ],
+      "non_occurrence_guarantees": [],
+      "description": "Issue a bounded HTTP request to the declared lab endpoint over the resolved channel."
+    },
+    {
+      "template_id": "exfiltrate-archive-to-declared-store",
+      "technique_ids": [
+        "T1567.002"
+      ],
+      "fidelity_ceiling": "adapted",
+      "declared_evidence_predicates": [
+        "bytes_transferred_recorded",
+        "destination_hash_recorded"
+      ],
+      "performs_observable_effect": true,
+      "observed_evidence": [
+        "bytes_transferred_recorded",
+        "destination_hash_recorded"
+      ],
+      "non_occurrence_guarantees": [],
+      "description": "Upload the staged archive to a declared lab storage endpoint over HTTP."
+    }
+  ]
+}

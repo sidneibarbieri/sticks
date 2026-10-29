@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure queries the Windows Registry to gather system information using a specified tool.",
+    "evidence_predicates": [
+      "fixture_access_logged",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "query_tool": "toolkit",
+      "registry_key": "target_host"
+    },
+    "produces": [
+      "registry query results available"
+    ],
+    "requires": [
+      "target host is accessible",
+      "query tool is installed"
+    ],
+    "technique_ids": [
+      "T1012"
+    ],
+    "template_id": "query-registry-laboratory-harness"
+  }
+}

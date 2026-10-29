@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure retrieves and logs the password policy details from a specified target host.",
+    "evidence_predicates": [
+      "bounded_effect_observed",
+      "fixture_access_logged"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "data_source": "data_source",
+      "target_host": "target_host"
+    },
+    "produces": [
+      "password policy details retrieved"
+    ],
+    "requires": [
+      "target host is accessible",
+      "data source for password policy is available"
+    ],
+    "technique_ids": [
+      "T1201"
+    ],
+    "template_id": "password-policy-discovery-laboratory-harness"
+  }
+}

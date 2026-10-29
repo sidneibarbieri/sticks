@@ -1,0 +1,110 @@
+{
+  "schema_version": "1",
+  "compiler_version": "1",
+  "campaign_id": "C0036",
+  "campaign_name": "Pikabot Distribution February 2024",
+  "source": {
+    "bundle_sha256": "dc1639caa5501d720e280cf1cbd8fbe009884a0c9b3e6e9ed9d0c25166c3d8f4",
+    "object_count": 26086,
+    "campaign_stix_id": "campaign--81e89fb4-8d07-4d8a-82f4-bf084f9d5d53",
+    "campaign_external_id": "C0036"
+  },
+  "ordering_policy": "tactic_rank_then_technique_id",
+  "steps": [
+    {
+      "technique_id": "T1566.002",
+      "technique_stix_id": "attack-pattern--2b742742-28c3-4e1b-bab7-8350d6300fa7",
+      "name": "Spearphishing Link",
+      "execution_domain": "boundary",
+      "tactics": [
+        "initial-access"
+      ],
+      "platforms": [
+        "Identity Provider",
+        "Linux",
+        "Office Suite",
+        "SaaS",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--ff1d0eba-a675-4ebb-a9a3-b28b8d3a15fc"
+      ],
+      "procedure_descriptions": [
+        "[Pikabot Distribution February 2024](https://attack.mitre.org/campaigns/C0036) utilized emails with hyperlinks leading to malicious ZIP archive files containing scripts to download and install [Pikabot](https://attack.mitre.org/software/S1145).(Citation: Elastic Pikabot 2024)"
+      ]
+    },
+    {
+      "technique_id": "T1059.001",
+      "technique_stix_id": "attack-pattern--970a3432-3237-47ad-bcca-7d8cbb217736",
+      "name": "PowerShell",
+      "execution_domain": "target",
+      "tactics": [
+        "execution"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--dd584826-35e3-4c6f-8186-b5f5a9ea5229"
+      ],
+      "procedure_descriptions": [
+        "[Pikabot Distribution February 2024](https://attack.mitre.org/campaigns/C0036) passed execution from obfuscated JavaScript files to PowerShell scripts to download and install [Pikabot](https://attack.mitre.org/software/S1145).(Citation: Elastic Pikabot 2024)"
+      ]
+    },
+    {
+      "technique_id": "T1059.007",
+      "technique_stix_id": "attack-pattern--0f4a0c76-ab2d-4cb0-85d3-3f0efb8cba0d",
+      "name": "JavaScript",
+      "execution_domain": "target",
+      "tactics": [
+        "execution"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--c281bef6-624b-45c9-882d-ce05d4c05a50"
+      ],
+      "procedure_descriptions": [
+        "[Pikabot Distribution February 2024](https://attack.mitre.org/campaigns/C0036) utilized obfuscated JavaScript files for initial [Pikabot](https://attack.mitre.org/software/S1145) payload download.(Citation: Elastic Pikabot 2024)"
+      ]
+    },
+    {
+      "technique_id": "T1574",
+      "technique_stix_id": "attack-pattern--aedfca76-3b30-4866-b2aa-0f1d7fd1e4b6",
+      "name": "Hijack Execution Flow",
+      "execution_domain": "target",
+      "tactics": [
+        "execution",
+        "stealth"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--6baa6db4-7ecc-4e98-83cc-5e38c95917f1"
+      ],
+      "procedure_descriptions": [
+        "[Pikabot Distribution February 2024](https://attack.mitre.org/campaigns/C0036) utilized a tampered legitimate executable, `grepWinNP3.exe`, for its first stage [Pikabot](https://attack.mitre.org/software/S1145) loader, modifying the open-source tool to execute malicious code when launched.(Citation: Elastic Pikabot 2024)"
+      ]
+    }
+  ],
+  "limitations": [
+    "ATT&CK uses-links do not encode a historical total order; the compiler applies a declared tactic-rank policy.",
+    "Technique metadata constrains procedures but does not uniquely determine an executable target environment."
+  ],
+  "content_sha256": "5c4762f5c18d4abd2fc8ea5ce515ffed5f96d3ec9c532af9dec752ccac4c889a"
+}

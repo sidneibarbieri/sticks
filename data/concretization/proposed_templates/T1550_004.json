@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure simulates the use of a stolen web session cookie to authenticate to a web application.",
+    "evidence_predicates": [
+      "http_request_logged",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "session_cookie": "credential_source",
+      "web_application": "web_asset"
+    },
+    "produces": [
+      "session cookie is utilized for authentication"
+    ],
+    "requires": [
+      "user has authenticated to the web application",
+      "session cookie is available for use"
+    ],
+    "technique_ids": [
+      "T1550.004"
+    ],
+    "template_id": "web-session-cookie-harness"
+  }
+}

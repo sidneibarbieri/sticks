@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure simulates the disabling or modification of security tools on a target host to evaluate the impact on defensive capabilities.",
+    "evidence_predicates": [
+      "bounded_effect_observed",
+      "tool_policy_verified"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "target_host": "target_host",
+      "toolkit": "toolkit"
+    },
+    "produces": [
+      "security tools are disabled or modified"
+    ],
+    "requires": [
+      "security tools are operational",
+      "access to target host"
+    ],
+    "technique_ids": [
+      "T1685"
+    ],
+    "template_id": "disable-or-modify-tools-laboratory-harness"
+  }
+}

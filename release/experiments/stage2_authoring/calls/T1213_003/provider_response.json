@@ -1,0 +1,36 @@
+{
+  "id": "chatcmpl-EOgH8mu1kfSf2QizAeaPg9Eg1atoe",
+  "object": "chat.completion",
+  "created": 1789551086,
+  "model": "gpt-4o-mini-2024-07-18",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"template_id\": \"collect-source-code-from-code-repositories\",\n  \"technique_ids\": [\n    \"T1213.003\"\n  ],\n  \"execution_domain\": \"target\",\n  \"parameter_kinds\": {\n    \"repository_url\": \"web_asset\",\n    \"access_credentials\": \"credential_source\"\n  },\n  \"requires\": [\n    \"access to the code repository\",\n    \"valid credentials for the repository\"\n  ],\n  \"produces\": [\n    \"sensitive source code collected\"\n  ],\n  \"evidence_predicates\": [\n    \"collection_manifest_recorded\",\n    \"http_request_logged\"\n  ],\n  \"fidelity_ceiling\": \"adapted\",\n  \"description\": \"This procedure collects sensitive source code from a specified code repository using valid access credentials.\"\n}",
+        "refusal": null,
+        "annotations": []
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 818,
+    "completion_tokens": 162,
+    "total_tokens": 980,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_c577bb8647"
+}

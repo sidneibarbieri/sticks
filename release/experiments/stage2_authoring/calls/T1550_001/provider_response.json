@@ -1,0 +1,36 @@
+{
+  "id": "chatcmpl-EOgHt2BXxfhW8vEhLqSdT1lYlDNyc",
+  "object": "chat.completion",
+  "created": 1789551133,
+  "model": "gpt-4o-mini-2024-07-18",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"template_id\": \"application-access-token-laboratory-harness\",\n  \"technique_ids\": [\n    \"T1550.001\"\n  ],\n  \"execution_domain\": \"target\",\n  \"parameter_kinds\": {\n    \"access_token\": \"credential_source\",\n    \"api_endpoint\": \"endpoint\"\n  },\n  \"requires\": [\n    \"valid access token\",\n    \"configured API endpoint\"\n  ],\n  \"produces\": [\n    \"API request logged\",\n    \"access token usage recorded\"\n  ],\n  \"evidence_predicates\": [\n    \"http_request_logged\",\n    \"fixture_access_logged\"\n  ],\n  \"fidelity_ceiling\": \"adapted\",\n  \"description\": \"This procedure simulates the use of an application access token to make authorized API requests in a controlled environment.\"\n}",
+        "refusal": null,
+        "annotations": []
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 824,
+    "completion_tokens": 167,
+    "total_tokens": 991,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_c577bb8647"
+}

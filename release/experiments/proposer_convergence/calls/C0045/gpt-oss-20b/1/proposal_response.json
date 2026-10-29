@@ -1,0 +1,106 @@
+{
+  "proposals": [
+    {
+      "technique_id": "T1588.002",
+      "template_id": "stage-benign-toolkit",
+      "bindings": {
+        "actor": "actor.primary",
+        "toolkit": "toolkit.benign"
+      },
+      "rationale": "Stage a benign toolkit in the isolated actor workspace to satisfy resource-development.",
+      "source": "llm"
+    },
+    {
+      "technique_id": "T1190",
+      "template_id": "probe-declared-public-service",
+      "bindings": {
+        "actor": "actor.primary",
+        "endpoint": "endpoint.public_service",
+        "target": "target.primary"
+      },
+      "rationale": "Exercise the declared public service via a safe adapter, matching initial-access.",
+      "source": "llm"
+    },
+    {
+      "technique_id": "T1059.006",
+      "template_id": "run-benign-python",
+      "bindings": {
+        "runtime": "runtime.python3",
+        "target": "target.primary"
+      },
+      "rationale": "Execute a bounded Python workload through established lab access.",
+      "source": "llm"
+    },
+    {
+      "technique_id": "T1546.004",
+      "template_id": "write-lab-shell-config",
+      "bindings": {
+        "artifact": "artifact.shell_config_artifact",
+        "target": "target.primary"
+      },
+      "rationale": "Modify shell configuration in a controlled, bounded way for persistence.",
+      "source": "llm"
+    },
+    {
+      "technique_id": "T1068",
+      "template_id": "assess-privilege-boundary",
+      "bindings": {
+        "boundary": "boundary.no_live_exploit",
+        "target": "target.primary"
+      },
+      "rationale": "Assess the privilege boundary without deploying a local exploit.",
+      "source": "llm"
+    },
+    {
+      "technique_id": "T1027.013",
+      "template_id": "encode-benign-artifact",
+      "bindings": {
+        "artifact": "artifact.encoded",
+        "target": "target.primary"
+      },
+      "rationale": "Encode a benign artifact to demonstrate stealth capabilities.",
+      "source": "llm"
+    },
+    {
+      "technique_id": "T1003.008",
+      "template_id": "read-declared-credential-fixture",
+      "bindings": {
+        "credential_source": "credential.synthetic_fixture",
+        "target": "target.primary"
+      },
+      "rationale": "Read synthetic credential fixture instead of real credentials.",
+      "source": "llm"
+    },
+    {
+      "technique_id": "T1016",
+      "template_id": "inspect-declared-network",
+      "bindings": {
+        "interface": "network.private_interface",
+        "target": "target.primary"
+      },
+      "rationale": "Inspect the declared private lab interface for discovery.",
+      "source": "llm"
+    },
+    {
+      "technique_id": "T1105",
+      "template_id": "transfer-benign-payload",
+      "bindings": {
+        "channel": "channel.private_http",
+        "payload": "payload.benign",
+        "target": "target.primary"
+      },
+      "rationale": "Transfer a benign payload over a private lab channel within command-and-control.",
+      "source": "llm"
+    },
+    {
+      "technique_id": "T1496.001",
+      "template_id": "run-bounded-compute-workload",
+      "bindings": {
+        "target": "target.primary",
+        "workload": "workload.bounded_hash"
+      },
+      "rationale": "Run a bounded compute workload to demonstrate impact via GPU utilization.",
+      "source": "llm"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure allows for the execution of commands on a remote Windows system using WinRM in a controlled laboratory environment.",
+    "evidence_predicates": [
+      "fixture_access_logged",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "credential_source": "credential_source",
+      "target_host": "target_host"
+    },
+    "produces": [
+      "remote command execution logged"
+    ],
+    "requires": [
+      "valid user credentials",
+      "target host is accessible"
+    ],
+    "technique_ids": [
+      "T1021.006"
+    ],
+    "template_id": "winrm-remote-execution-laboratory"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "id": "chatcmpl-EOgJ3ApCxG1jHbARZzefYzBn9TnEb",
+  "object": "chat.completion",
+  "created": 1789551205,
+  "model": "gpt-4o-mini-2024-07-18",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"template_id\": \"create-cloud-instance-laboratory-harness\",\n  \"technique_ids\": [\n    \"T1578.002\"\n  ],\n  \"execution_domain\": \"target\",\n  \"parameter_kinds\": {\n    \"instance\": \"compute_workload\",\n    \"security_policy\": \"chunk_policy\"\n  },\n  \"requires\": [\n    \"cloud account access\",\n    \"compute service availability\"\n  ],\n  \"produces\": [\n    \"new cloud instance created\",\n    \"security policy applied\"\n  ],\n  \"evidence_predicates\": [\n    \"bounded_effect_observed\",\n    \"collection_manifest_recorded\"\n  ],\n  \"fidelity_ceiling\": \"adapted\",\n  \"description\": \"This procedure creates a new cloud instance within a specified compute service to simulate the creation of virtual machines.\"\n}",
+        "refusal": null,
+        "annotations": []
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 839,
+    "completion_tokens": 169,
+    "total_tokens": 1008,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_c577bb8647"
+}

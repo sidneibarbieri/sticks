@@ -1,0 +1,1000 @@
+{
+  "schema_version": "1",
+  "campaign_id": "C0045",
+  "source_plan_sha256": "c63c19ea8366bd75991e62c9a12faee48417afbe453a6abbefa3353b34ab6db1",
+  "execution_semantic_sha256": "ffe478afcade8f930ea4ef3499e0798c6f0e34d120671f6473fdad09335b86f2",
+  "planning_certificate_sha256": "f247c8cee82793cd50000d04018cd85455017d3a28e21aaf06a610240a3e8805",
+  "steps": [
+    {
+      "sequence": 1,
+      "technique_id": "T1588.002",
+      "selected_template": "stage-benign-toolkit",
+      "selection_source": "finite_domain_solver",
+      "retrieval": {
+        "technique_id": "T1588.002",
+        "query_sha256": "71164dc981a7517b5545e840057e81b7b23bf79cc412381a1ae8dc2a67af1813",
+        "index_sha256": "3624cf7ac33205c9825be64f1a269590d1fe6bf4516dd051cda02a6c41525cb6",
+        "candidates": [
+          {
+            "template_id": "stage-benign-toolkit",
+            "score": 1102,
+            "exact_technique_match": true,
+            "domain_match": true,
+            "shared_terms": [
+              "t1588.002",
+              "the"
+            ]
+          },
+          {
+            "template_id": "stage-benign-payload",
+            "score": 101,
+            "exact_technique_match": false,
+            "domain_match": true,
+            "shared_terms": [
+              "the"
+            ]
+          },
+          {
+            "template_id": "stage-benign-tool",
+            "score": 101,
+            "exact_technique_match": false,
+            "domain_match": true,
+            "shared_terms": [
+              "tool"
+            ]
+          },
+          {
+            "template_id": "stage-lab-web-target",
+            "score": 101,
+            "exact_technique_match": false,
+            "domain_match": true,
+            "shared_terms": [
+              "the"
+            ]
+          },
+          {
+            "template_id": "record-controlled-compromised-domain",
+            "score": 100,
+            "exact_technique_match": false,
+            "domain_match": true,
+            "shared_terms": []
+          }
+        ]
+      },
+      "bindings": {
+        "actor": {
+          "binding_id": "actor.primary",
+          "kind": "actor_host",
+          "source": "sut",
+          "scope": "lab",
+          "secret_reference": false
+        },
+        "toolkit": {
+          "binding_id": "toolkit.benign",
+          "kind": "toolkit",
+          "source": "system_choice",
+          "scope": "lab",
+          "secret_reference": false
+        }
+      },
+      "preconditions": [
+        "actor.ready"
+      ],
+      "effects": [
+        "actor.toolkit.ready",
+        "artifacts:recon_toolkit",
+        "system:toolkit"
+      ],
+      "causal_links": [
+        {
+          "fact_id": "actor.ready",
+          "producer_sequence": 0,
+          "consumer_sequence": 1
+        }
+      ],
+      "evidence_predicates": [
+        "artifact_hash_recorded"
+      ],
+      "fidelity_ceiling": "adapted",
+      "assumption_count": 1
+    },
+    {
+      "sequence": 2,
+      "technique_id": "T1190",
+      "selected_template": "probe-declared-public-service",
+      "selection_source": "finite_domain_solver",
+      "retrieval": {
+        "technique_id": "T1190",
+        "query_sha256": "92a9b49cc2b8eb838c42c7bf26e613199a42ccf6c2b50cf0ff66565c3eaac3cc",
+        "index_sha256": "3624cf7ac33205c9825be64f1a269590d1fe6bf4516dd051cda02a6c41525cb6",
+        "candidates": [
+          {
+            "template_id": "probe-declared-public-service",
+            "score": 1102,
+            "exact_technique_match": true,
+            "domain_match": true,
+            "shared_terms": [
+              "network",
+              "t1190"
+            ]
+          },
+          {
+            "template_id": "beacon-over-web-protocol",
+            "score": 102,
+            "exact_technique_match": false,
+            "domain_match": true,
+            "shared_terms": [
+              "network",
+              "to"
+            ]
+          },
+          {
+            "template_id": "exfiltrate-archive-to-declared-store",
+            "score": 102,
+            "exact_technique_match": false,
+            "domain_match": true,
+            "shared_terms": [
+              "network",
+              "to"
+            ]
+          },
+          {
+            "template_id": "transfer-benign-payload",
+            "score": 101,
+            "exact_technique_match": false,
+            "domain_match": true,
+            "shared_terms": [
+              "network"
+            ]
+          },
+          {
+            "template_id": "transfer-over-resolved-lab-channel",
+            "score": 101,
+            "exact_technique_match": false,
+            "domain_match": true,
+            "shared_terms": [
+              "network"
+            ]
+          }
+        ]
+      },
+      "bindings": {
+        "actor": {
+          "binding_id": "actor.primary",
+          "kind": "actor_host",
+          "source": "sut",
+          "scope": "lab",
+          "secret_reference": false
+        },
+        "endpoint": {
+          "binding_id": "endpoint.public_service",
+          "kind": "endpoint",
+          "source": "sut",
+          "scope": "lab",
+          "secret_reference": false
+        },
+        "target": {
+          "binding_id": "target.primary",
+          "kind": "target_host",
+          "source": "sut",
+          "scope": "lab",
+          "secret_reference": false
+        }
+      },
+      "preconditions": [
+        "sut.ray_dashboard.reachable",
+        "network:http_available"
+      ],
+      "effects": [
+        "access.target.shell",
+        "access:initial"
+      ],
+      "causal_links": [
+        {
+          "fact_id": "sut.ray_dashboard.reachable",
+          "producer_sequence": 0,
+          "consumer_sequence": 2
+        },
+        {
+          "fact_id": "network:http_available",
+          "producer_sequence": 0,
+          "consumer_sequence": 2
+        }
+      ],
+      "evidence_predicates": [
+        "service_request_logged",
+        "bounded_effect_observed"
+      ],
+      "fidelity_ceiling": "adapted",
+      "assumption_count": 0
+    },
+    {
+      "sequence": 3,
+      "technique_id": "T1059.006",
+      "selected_template": "run-benign-python",
+      "selection_source": "finite_domain_solver",
+      "retrieval": {
+        "technique_id": "T1059.006",
+        "query_sha256": "1a94dbb045d29f6c0b5d12b3cf13ac5da8c43eeba7176fcaea661a387b8c5c4a",
+        "index_sha256": "3624cf7ac33205c9825be64f1a269590d1fe6bf4516dd051cda02a6c41525cb6",
+        "candidates": [
+          {
+            "template_id": "run-benign-python",
+            "score": 1103,
+            "exact_technique_match": true,
+            "domain_match": true,
+            "shared_terms": [
+              "python",
+              "t1059.006",
+              "the"
+            ]
+          },
+          {
+            "template_id": "archive-declared-collection",
+            "score": 101,
+            "exact_technique_match": false,
+            "domain_match": true,
+            "shared_terms": [
+              "the"
+            ]
+          },
+          {
+            "template_id": "collect-local-files",
+            "score": 101,
+            "exact_technique_match": false,
+            "domain_match": true,
+            "shared_terms": [
+              "the"
+            ]
+          },
+          {
+            "template_id": "inspect-declared-network",
+            "score": 101,
+            "exact_technique_match": false,
+            "domain_match": true,
+            "shared_terms": [
+              "the"
+            ]
+          },
+          {
+            "template_id": "assess-privilege-boundary",
+            "score": 100,
+            "exact_technique_match": false,
+            "domain_match": true,
+            "shared_terms": []
+          }
+        ]
+      },
+      "bindings": {
+        "runtime": {
+          "binding_id": "runtime.python3",
+          "kind": "runtime",
+          "source": "sut",
+          "scope": "lab",
+          "secret_reference": false
+        },
+        "target": {
+          "binding_id": "target.primary",
+          "kind": "target_host",
+          "source": "sut",
+          "scope": "lab",
+          "secret_reference": false
+        }
+      },
+      "preconditions": [
+        "access.target.shell"
+      ],
+      "effects": [
+        "execution.target.python",
+        "artifacts:python_script",
+        "system:recon_data"
+      ],
+      "causal_links": [
+        {
+          "fact_id": "access.target.shell",
+          "producer_sequence": 2,
+          "consumer_sequence": 3
+        }
+      ],
+      "evidence_predicates": [
+        "process_exit_recorded",
+        "stdout_hash_recorded"
+      ],
+      "fidelity_ceiling": "adapted",
+      "assumption_count": 0
+    },
+    {
+      "sequence": 4,
+      "technique_id": "T1546.004",
+      "selected_template": "write-lab-shell-config",
+      "selection_source": "finite_domain_solver",
+      "retrieval": {
+        "technique_id": "T1546.004",
+        "query_sha256": "98fb4dbadd0ad720f3e6aea0d8641741bc441951a0a35c1fcc971ebae1c9e14f",
+        "index_sha256": "3624cf7ac33205c9825be64f1a269590d1fe6bf4516dd051cda02a6c41525cb6",
+        "candidates": [
+          {
+            "template_id": "write-lab-shell-config",
+            "score": 1105,
+            "exact_technique_match": true,
+            "domain_match": true,
+            "shared_terms": [
+              "and",
+              "configuration",
+              "persistence",
+              "shell",
+              "t1546.004"
+            ]
+          },
+          {
+            "template_id": "collect-local-files",
+            "score": 101,
+            "exact_technique_match": false,
+            "domain_match": true,
+            "shared_terms": [
+              "and"
+            ]
+          },
+          {
+            "template_id": "delete-staged-tool",
+            "score": 101,
+            "exact_technique_match": false,
+            "domain_match": true,
+            "shared_terms": [
+              "and"
+            ]
+          },
+          {
+            "template_id": "encode-benign-artifact",
+            "score": 101,
+            "exact_technique_match": false,
+            "domain_match": true,
+            "shared_terms": [
+              "and"
+            ]
+          },
+          {
+            "template_id": "archive-declared-collection",
+            "score": 100,
+            "exact_technique_match": false,
+            "domain_match": true,
+            "shared_terms": []
+          }
+        ]
+      },
+      "bindings": {
+        "artifact": {
+          "binding_id": "artifact.shell_config",
+          "kind": "shell_config_artifact",
+          "source": "system_choice",
+          "scope": "lab",
+          "secret_reference": false
+        },
+        "target": {
+          "binding_id": "target.primary",
+          "kind": "target_host",
+          "source": "sut",
+          "scope": "lab",
+          "secret_reference": false
+        }
+      },
+      "preconditions": [
+        "access.target.shell"
+      ],
+      "effects": [
+        "persistence.target.shell_config",
+        "artifacts:modified_config",
+        "persistence:shell_config"
+      ],
+      "causal_links": [
+        {
+          "fact_id": "access.target.shell",
+          "producer_sequence": 2,
+          "consumer_sequence": 4
+        }
+      ],
+      "evidence_predicates": [
+        "artifact_hash_recorded",
+        "cleanup_verified"
+      ],
+      "fidelity_ceiling": "adapted",
+      "assumption_count": 1
+    },
+    {
+      "sequence": 5,
+      "technique_id": "T1068",
+      "selected_template": "assess-privilege-boundary",
+      "selection_source": "finite_domain_solver",
+      "retrieval": {
+        "technique_id": "T1068",
+        "query_sha256": "24d86082abda62e777f7ad48f85d3c1e1c1dde81b1952019e96862b9e847fe03",
+        "index_sha256": "3624cf7ac33205c9825be64f1a269590d1fe6bf4516dd051cda02a6c41525cb6",
+        "candidates": [
+          {
+            "template_id": "assess-privilege-boundary",
+            "score": 1103,
+            "exact_technique_match": true,
+            "domain_match": true,
+            "shared_terms": [
+              "a",
+              "privilege",
+              "t1068"
+            ]
+          },
+          {
+            "template_id": "stage-local-archive",
+            "score": 102,
+            "exact_technique_match": false,
+            "domain_match": true,
+            "shared_terms": [
+              "a",
+              "payload"
+            ]
+          },
+          {
+            "template_id": "archive-declared-collection",
+            "score": 101,
+            "exact_technique_match": false,
+            "domain_match": true,
+            "shared_terms": [
+              "a"
+            ]
+          },
+          {
+            "template_id": "collect-declared-data-fixture",
+            "score": 101,
+            "exact_technique_match": false,
+            "domain_match": true,
+            "shared_terms": [
+              "a"
+            ]
+          },
+          {
+            "template_id": "collect-local-files",
+            "score": 101,
+            "exact_technique_match": false,
+            "domain_match": true,
+            "shared_terms": [
+              "a"
+            ]
+          }
+        ]
+      },
+      "bindings": {
+        "boundary": {
+          "binding_id": "boundary.no_live_exploit",
+          "kind": "privilege_boundary",
+          "source": "system_choice",
+          "scope": "lab",
+          "secret_reference": false
+        },
+        "target": {
+          "binding_id": "target.primary",
+          "kind": "target_host",
+          "source": "sut",
+          "scope": "lab",
+          "secret_reference": false
+        }
+      },
+      "preconditions": [
+        "access.target.shell",
+        "access:initial"
+      ],
+      "effects": [
+        "assessment.target.privilege_boundary"
+      ],
+      "causal_links": [
+        {
+          "fact_id": "access.target.shell",
+          "producer_sequence": 2,
+          "consumer_sequence": 5
+        },
+        {
+          "fact_id": "access:initial",
+          "producer_sequence": 2,
+          "consumer_sequence": 5
+        }
+      ],
+      "evidence_predicates": [
+        "boundary_check_recorded"
+      ],
+      "fidelity_ceiling": "inspired",
+      "assumption_count": 1
+    },
+    {
+      "sequence": 6,
+      "technique_id": "T1027.013",
+      "selected_template": "encode-benign-artifact",
+      "selection_source": "finite_domain_solver",
+      "retrieval": {
+        "technique_id": "T1027.013",
+        "query_sha256": "9edbf99a247fbb2b86e96f5379c015c75f7234ad61e5ffaf82a0a29cd4178354",
+        "index_sha256": "3624cf7ac33205c9825be64f1a269590d1fe6bf4516dd051cda02a6c41525cb6",
+        "candidates": [
+          {
+            "template_id": "encode-benign-artifact",
+            "score": 1101,
+            "exact_technique_match": true,
+            "domain_match": true,
+            "shared_terms": [
+              "t1027.013"
+            ]
+          },
+          {
+            "template_id": "run-benign-python",
+            "score": 101,
+            "exact_technique_match": false,
+            "domain_match": true,
+            "shared_terms": [
+              "python"
+            ]
+          },
+          {
+            "template_id": "archive-declared-collection",
+            "score": 100,
+            "exact_technique_match": false,
+            "domain_match": true,
+            "shared_terms": []
+          },
+          {
+            "template_id": "assess-privilege-boundary",
+            "score": 100,
+            "exact_technique_match": false,
+            "domain_match": true,
+            "shared_terms": []
+          },
+          {
+            "template_id": "collect-declared-data-fixture",
+            "score": 100,
+            "exact_technique_match": false,
+            "domain_match": true,
+            "shared_terms": []
+          }
+        ]
+      },
+      "bindings": {
+        "artifact": {
+          "binding_id": "artifact.encoded",
+          "kind": "encoded_artifact",
+          "source": "system_choice",
+          "scope": "lab",
+          "secret_reference": false
+        },
+        "target": {
+          "binding_id": "target.primary",
+          "kind": "target_host",
+          "source": "sut",
+          "scope": "lab",
+          "secret_reference": false
+        }
+      },
+      "preconditions": [
+        "access.target.shell"
+      ],
+      "effects": [
+        "artifact.target.encoded",
+        "artifacts:obfuscated_file",
+        "artifacts:decoder"
+      ],
+      "causal_links": [
+        {
+          "fact_id": "access.target.shell",
+          "producer_sequence": 2,
+          "consumer_sequence": 6
+        }
+      ],
+      "evidence_predicates": [
+        "source_and_encoded_hashes_recorded"
+      ],
+      "fidelity_ceiling": "adapted",
+      "assumption_count": 1
+    },
+    {
+      "sequence": 7,
+      "technique_id": "T1003.008",
+      "selected_template": "read-declared-credential-fixture",
+      "selection_source": "finite_domain_solver",
+      "retrieval": {
+        "technique_id": "T1003.008",
+        "query_sha256": "3a233787ff56eb460b73c566ae67238499a39f2f64478023fb90682744b17fd1",
+        "index_sha256": "3624cf7ac33205c9825be64f1a269590d1fe6bf4516dd051cda02a6c41525cb6",
+        "candidates": [
+          {
+            "template_id": "read-declared-credential-fixture",
+            "score": 1101,
+            "exact_technique_match": true,
+            "domain_match": true,
+            "shared_terms": [
+              "t1003.008"
+            ]
+          },
+          {
+            "template_id": "encode-benign-artifact",
+            "score": 102,
+            "exact_technique_match": false,
+            "domain_match": true,
+            "shared_terms": [
+              "and",
+              "hashes."
+            ]
+          },
+          {
+            "template_id": "collect-local-files",
+            "score": 101,
+            "exact_technique_match": false,
+            "domain_match": true,
+            "shared_terms": [
+              "and"
+            ]
+          },
+          {
+            "template_id": "delete-staged-tool",
+            "score": 101,
+            "exact_technique_match": false,
+            "domain_match": true,
+            "shared_terms": [
+              "and"
+            ]
+          },
+          {
+            "template_id": "write-lab-shell-config",
+            "score": 101,
+            "exact_technique_match": false,
+            "domain_match": true,
+            "shared_terms": [
+              "and"
+            ]
+          }
+        ]
+      },
+      "bindings": {
+        "credential_source": {
+          "binding_id": "credential.synthetic_fixture",
+          "kind": "credential_source",
+          "source": "sut",
+          "scope": "lab",
+          "secret_reference": true
+        },
+        "target": {
+          "binding_id": "target.primary",
+          "kind": "target_host",
+          "source": "sut",
+          "scope": "lab",
+          "secret_reference": false
+        }
+      },
+      "preconditions": [
+        "access.target.shell"
+      ],
+      "effects": [
+        "collection.target.credential_files",
+        "credentials:dumped",
+        "artifacts:credential_file"
+      ],
+      "causal_links": [
+        {
+          "fact_id": "access.target.shell",
+          "producer_sequence": 2,
+          "consumer_sequence": 7
+        }
+      ],
+      "evidence_predicates": [
+        "fixture_access_logged",
+        "no_host_credentials_read"
+      ],
+      "fidelity_ceiling": "adapted",
+      "assumption_count": 0
+    },
+    {
+      "sequence": 8,
+      "technique_id": "T1016",
+      "selected_template": "inspect-declared-network",
+      "selection_source": "finite_domain_solver",
+      "retrieval": {
+        "technique_id": "T1016",
+        "query_sha256": "ee4b043e20e1f85a2afff2df305d82f23d22b29792b5432cb37f4b879ef2ed30",
+        "index_sha256": "3624cf7ac33205c9825be64f1a269590d1fe6bf4516dd051cda02a6c41525cb6",
+        "candidates": [
+          {
+            "template_id": "inspect-declared-network",
+            "score": 1102,
+            "exact_technique_match": true,
+            "domain_match": true,
+            "shared_terms": [
+              "discovery",
+              "t1016"
+            ]
+          },
+          {
+            "template_id": "archive-declared-collection",
+            "score": 101,
+            "exact_technique_match": false,
+            "domain_match": true,
+            "shared_terms": [
+              "discovery"
+            ]
+          },
+          {
+            "template_id": "collect-declared-data-fixture",
+            "score": 101,
+            "exact_technique_match": false,
+            "domain_match": true,
+            "shared_terms": [
+              "discovery"
+            ]
+          },
+          {
+            "template_id": "run-benign-python",
+            "score": 101,
+            "exact_technique_match": false,
+            "domain_match": true,
+            "shared_terms": [
+              "system"
+            ]
+          },
+          {
+            "template_id": "run-bounded-compute-workload",
+            "score": 101,
+            "exact_technique_match": false,
+            "domain_match": true,
+            "shared_terms": [
+              "system"
+            ]
+          }
+        ]
+      },
+      "bindings": {
+        "interface": {
+          "binding_id": "network.private_interface",
+          "kind": "network_interface",
+          "source": "sut",
+          "scope": "lab",
+          "secret_reference": false
+        },
+        "target": {
+          "binding_id": "target.primary",
+          "kind": "target_host",
+          "source": "sut",
+          "scope": "lab",
+          "secret_reference": false
+        }
+      },
+      "preconditions": [
+        "access.target.shell"
+      ],
+      "effects": [
+        "discovery.target.network",
+        "discovery:network_config"
+      ],
+      "causal_links": [
+        {
+          "fact_id": "access.target.shell",
+          "producer_sequence": 2,
+          "consumer_sequence": 8
+        }
+      ],
+      "evidence_predicates": [
+        "interface_snapshot_recorded"
+      ],
+      "fidelity_ceiling": "adapted",
+      "assumption_count": 0
+    },
+    {
+      "sequence": 9,
+      "technique_id": "T1105",
+      "selected_template": "transfer-benign-payload",
+      "selection_source": "finite_domain_solver",
+      "retrieval": {
+        "technique_id": "T1105",
+        "query_sha256": "7af2e945eda6330935e479bf2c83bb1e0bdf0e9ea0d754f015ddfbfc4e16ff5f",
+        "index_sha256": "3624cf7ac33205c9825be64f1a269590d1fe6bf4516dd051cda02a6c41525cb6",
+        "candidates": [
+          {
+            "template_id": "transfer-staged-benign-tool",
+            "score": 1105,
+            "exact_technique_match": true,
+            "domain_match": true,
+            "shared_terms": [
+              "network",
+              "t1105",
+              "the",
+              "tool",
+              "transfer"
+            ]
+          },
+          {
+            "template_id": "transfer-benign-payload",
+            "score": 1103,
+            "exact_technique_match": true,
+            "domain_match": true,
+            "shared_terms": [
+              "network",
+              "t1105",
+              "transfer"
+            ]
+          },
+          {
+            "template_id": "transfer-over-resolved-lab-channel",
+            "score": 1103,
+            "exact_technique_match": true,
+            "domain_match": true,
+            "shared_terms": [
+              "network",
+              "t1105",
+              "transfer"
+            ]
+          },
+          {
+            "template_id": "beacon-over-web-protocol",
+            "score": 102,
+            "exact_technique_match": false,
+            "domain_match": true,
+            "shared_terms": [
+              "network",
+              "the"
+            ]
+          },
+          {
+            "template_id": "exfiltrate-archive-to-declared-store",
+            "score": 102,
+            "exact_technique_match": false,
+            "domain_match": true,
+            "shared_terms": [
+              "network",
+              "the"
+            ]
+          }
+        ]
+      },
+      "bindings": {
+        "channel": {
+          "binding_id": "channel.private_http",
+          "kind": "channel",
+          "source": "sut",
+          "scope": "lab",
+          "secret_reference": false
+        },
+        "payload": {
+          "binding_id": "payload.benign",
+          "kind": "payload",
+          "source": "system_choice",
+          "scope": "lab",
+          "secret_reference": false
+        },
+        "target": {
+          "binding_id": "target.primary",
+          "kind": "target_host",
+          "source": "sut",
+          "scope": "lab",
+          "secret_reference": false
+        }
+      },
+      "preconditions": [
+        "access.target.shell",
+        "actor.toolkit.ready",
+        "c2_channel",
+        "network:http_available"
+      ],
+      "effects": [
+        "transfer.target.payload",
+        "artifacts:downloaded_tool",
+        "artifacts:tool_script",
+        "payload:staged"
+      ],
+      "causal_links": [
+        {
+          "fact_id": "access.target.shell",
+          "producer_sequence": 2,
+          "consumer_sequence": 9
+        },
+        {
+          "fact_id": "actor.toolkit.ready",
+          "producer_sequence": 1,
+          "consumer_sequence": 9
+        },
+        {
+          "fact_id": "c2_channel",
+          "producer_sequence": 0,
+          "consumer_sequence": 9
+        },
+        {
+          "fact_id": "network:http_available",
+          "producer_sequence": 0,
+          "consumer_sequence": 9
+        }
+      ],
+      "evidence_predicates": [
+        "source_and_destination_hashes_match"
+      ],
+      "fidelity_ceiling": "adapted",
+      "assumption_count": 1
+    },
+    {
+      "sequence": 10,
+      "technique_id": "T1496.001",
+      "selected_template": "run-bounded-compute-workload",
+      "selection_source": "finite_domain_solver",
+      "retrieval": {
+        "technique_id": "T1496.001",
+        "query_sha256": "f80270f8203f02f5592567dfbe5b926914d5cd43ef76971a39df2a9e24c92433",
+        "index_sha256": "3624cf7ac33205c9825be64f1a269590d1fe6bf4516dd051cda02a6c41525cb6",
+        "candidates": [
+          {
+            "template_id": "run-bounded-compute-workload",
+            "score": 1101,
+            "exact_technique_match": true,
+            "domain_match": true,
+            "shared_terms": [
+              "t1496.001"
+            ]
+          },
+          {
+            "template_id": "archive-declared-collection",
+            "score": 100,
+            "exact_technique_match": false,
+            "domain_match": true,
+            "shared_terms": []
+          },
+          {
+            "template_id": "assess-privilege-boundary",
+            "score": 100,
+            "exact_technique_match": false,
+            "domain_match": true,
+            "shared_terms": []
+          },
+          {
+            "template_id": "collect-declared-data-fixture",
+            "score": 100,
+            "exact_technique_match": false,
+            "domain_match": true,
+            "shared_terms": []
+          },
+          {
+            "template_id": "collect-local-files",
+            "score": 100,
+            "exact_technique_match": false,
+            "domain_match": true,
+            "shared_terms": []
+          }
+        ]
+      },
+      "bindings": {
+        "target": {
+          "binding_id": "target.primary",
+          "kind": "target_host",
+          "source": "sut",
+          "scope": "lab",
+          "secret_reference": false
+        },
+        "workload": {
+          "binding_id": "workload.bounded_hash",
+          "kind": "compute_workload",
+          "source": "system_choice",
+          "scope": "lab",
+          "secret_reference": false
+        }
+      },
+      "preconditions": [
+        "access.target.shell"
+      ],
+      "effects": [
+        "impact.target.compute",
+        "artifacts:mining_log",
+        "system:cpu_usage"
+      ],
+      "causal_links": [
+        {
+          "fact_id": "access.target.shell",
+          "producer_sequence": 2,
+          "consumer_sequence": 10
+        }
+      ],
+      "evidence_predicates": [
+        "duration_and_cpu_bound_recorded",
+        "no_pool_traffic"
+      ],
+      "fidelity_ceiling": "adapted",
+      "assumption_count": 1
+    }
+  ]
+}

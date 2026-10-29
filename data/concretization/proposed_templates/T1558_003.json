@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure outlines the steps to obtain a TGS ticket using a valid Kerberos ticket and a specified SPN.",
+    "evidence_predicates": [
+      "artifact_hash_recorded",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "service_account": "target_host",
+      "spn": "credential_source"
+    },
+    "produces": [
+      "TGS ticket obtained"
+    ],
+    "requires": [
+      "valid Kerberos ticket",
+      "service principal name"
+    ],
+    "technique_ids": [
+      "T1558.003"
+    ],
+    "template_id": "kerberoasting-laboratory-harness"
+  }
+}

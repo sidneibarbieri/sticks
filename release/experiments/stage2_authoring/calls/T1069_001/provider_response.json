@@ -1,0 +1,36 @@
+{
+  "id": "chatcmpl-EOK3cAJa1mcYcL7PjpIW0atCDLGoe",
+  "object": "chat.completion",
+  "created": 1789465680,
+  "model": "gpt-4o-mini-2024-07-18",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"template_id\": \"local-groups-query\",\n  \"technique_ids\": [\n    \"T1069.001\"\n  ],\n  \"execution_domain\": \"target\",\n  \"parameter_kinds\": {\n    \"command\": \"toolkit\",\n    \"os\": \"target_host\"\n  },\n  \"requires\": [\n    \"target system is accessible\",\n    \"appropriate permissions to query local groups\"\n  ],\n  \"produces\": [\n    \"list of local groups and their members\"\n  ],\n  \"evidence_predicates\": [\n    \"fixture_access_logged\",\n    \"bounded_effect_observed\"\n  ],\n  \"fidelity_ceiling\": \"adapted\",\n  \"description\": \"This procedure queries the local groups on a target system to gather information about user permissions.\"\n}",
+        "refusal": null,
+        "annotations": []
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 834,
+    "completion_tokens": 160,
+    "total_tokens": 994,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_ffcc7ece91"
+}

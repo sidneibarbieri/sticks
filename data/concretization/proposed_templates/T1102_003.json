@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure simulates the use of a legitimate external web service to send commands to a compromised system without expecting a response.",
+    "evidence_predicates": [
+      "http_request_logged",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "command": "payload",
+      "web_service": "web_asset"
+    },
+    "produces": [
+      "command sent to external web service"
+    ],
+    "requires": [
+      "target system is compromised",
+      "external web service is accessible"
+    ],
+    "technique_ids": [
+      "T1102.003"
+    ],
+    "template_id": "one-way-communication-laboratory-harness"
+  }
+}

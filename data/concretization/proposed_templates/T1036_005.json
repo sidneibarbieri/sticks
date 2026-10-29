@@ -1,0 +1,34 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure simulates the placement of a benign executable in a trusted directory with a name that closely resembles a legitimate program.",
+    "evidence_predicates": [
+      "file_count_recorded",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "payload": "payload",
+      "target_host": "target_host"
+    },
+    "produces": [
+      "resource_name_matched",
+      "resource_location_verified"
+    ],
+    "requires": [
+      "trusted_directory_access",
+      "legitimate_resource_name"
+    ],
+    "technique_ids": [
+      "T1036.005"
+    ],
+    "template_id": "match-legitimate-resource-name-or-location-laboratory-harness"
+  }
+}

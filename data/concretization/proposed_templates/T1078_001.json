@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure simulates the access of a default account on a target system to observe logging behavior.",
+    "evidence_predicates": [
+      "fixture_access_logged",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "default_account": "credential_source",
+      "target_system": "target_host"
+    },
+    "produces": [
+      "default account access logged"
+    ],
+    "requires": [
+      "default account credentials available",
+      "target system accessible"
+    ],
+    "technique_ids": [
+      "T1078.001"
+    ],
+    "template_id": "default-accounts-laboratory-harness"
+  }
+}

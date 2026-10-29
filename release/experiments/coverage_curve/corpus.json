@@ -1,0 +1,288 @@
+{
+  "ordering": "greedy_marginal_coverage",
+  "total_steps": 1146,
+  "total_templates": 28,
+  "full_catalog_supported_steps": 252,
+  "points": [
+    {
+      "catalog_size": 1,
+      "template_id": "transfer-benign-payload",
+      "technique_ids": [
+        "T1105"
+      ],
+      "supported_steps": 29,
+      "marginal_steps": 29,
+      "coverage_rate": 0.02530541012216405
+    },
+    {
+      "catalog_size": 2,
+      "template_id": "stage-benign-toolkit",
+      "technique_ids": [
+        "T1588.002"
+      ],
+      "supported_steps": 55,
+      "marginal_steps": 26,
+      "coverage_rate": 0.04799301919720768
+    },
+    {
+      "catalog_size": 3,
+      "template_id": "beacon-over-web-protocol",
+      "technique_ids": [
+        "T1071.001"
+      ],
+      "supported_steps": 76,
+      "marginal_steps": 21,
+      "coverage_rate": 0.06631762652705062
+    },
+    {
+      "catalog_size": 4,
+      "template_id": "probe-declared-public-service",
+      "technique_ids": [
+        "T1190"
+      ],
+      "supported_steps": 97,
+      "marginal_steps": 21,
+      "coverage_rate": 0.08464223385689354
+    },
+    {
+      "catalog_size": 5,
+      "template_id": "specify-benign-capability",
+      "technique_ids": [
+        "T1587.001"
+      ],
+      "supported_steps": 113,
+      "marginal_steps": 16,
+      "coverage_rate": 0.09860383944153578
+    },
+    {
+      "catalog_size": 6,
+      "template_id": "collect-declared-data-fixture",
+      "technique_ids": [
+        "T1005"
+      ],
+      "supported_steps": 128,
+      "marginal_steps": 15,
+      "coverage_rate": 0.11169284467713787
+    },
+    {
+      "catalog_size": 7,
+      "template_id": "record-controlled-domain",
+      "technique_ids": [
+        "T1583.001"
+      ],
+      "supported_steps": 143,
+      "marginal_steps": 15,
+      "coverage_rate": 0.12478184991273997
+    },
+    {
+      "catalog_size": 8,
+      "template_id": "delete-staged-tool",
+      "technique_ids": [
+        "T1070.004"
+      ],
+      "supported_steps": 156,
+      "marginal_steps": 13,
+      "coverage_rate": 0.13612565445026178
+    },
+    {
+      "catalog_size": 9,
+      "template_id": "encode-benign-artifact",
+      "technique_ids": [
+        "T1027.013"
+      ],
+      "supported_steps": 169,
+      "marginal_steps": 13,
+      "coverage_rate": 0.1474694589877836
+    },
+    {
+      "catalog_size": 10,
+      "template_id": "inspect-declared-network",
+      "technique_ids": [
+        "T1016"
+      ],
+      "supported_steps": 182,
+      "marginal_steps": 13,
+      "coverage_rate": 0.15881326352530542
+    },
+    {
+      "catalog_size": 11,
+      "template_id": "stage-local-archive",
+      "technique_ids": [
+        "T1074.001"
+      ],
+      "supported_steps": 195,
+      "marginal_steps": 13,
+      "coverage_rate": 0.17015706806282724
+    },
+    {
+      "catalog_size": 12,
+      "template_id": "archive-declared-collection",
+      "technique_ids": [
+        "T1560.001"
+      ],
+      "supported_steps": 206,
+      "marginal_steps": 11,
+      "coverage_rate": 0.17975567190226877
+    },
+    {
+      "catalog_size": 13,
+      "template_id": "stage-benign-payload",
+      "technique_ids": [
+        "T1608.001"
+      ],
+      "supported_steps": 214,
+      "marginal_steps": 8,
+      "coverage_rate": 0.18673647469458987
+    },
+    {
+      "catalog_size": 14,
+      "template_id": "collect-local-files",
+      "technique_ids": [
+        "T1119"
+      ],
+      "supported_steps": 220,
+      "marginal_steps": 6,
+      "coverage_rate": 0.19197207678883071
+    },
+    {
+      "catalog_size": 15,
+      "template_id": "resolve-lab-domain",
+      "technique_ids": [
+        "T1568"
+      ],
+      "supported_steps": 226,
+      "marginal_steps": 6,
+      "coverage_rate": 0.19720767888307156
+    },
+    {
+      "catalog_size": 16,
+      "template_id": "record-controlled-compromised-domain",
+      "technique_ids": [
+        "T1584.001"
+      ],
+      "supported_steps": 231,
+      "marginal_steps": 5,
+      "coverage_rate": 0.20157068062827224
+    },
+    {
+      "catalog_size": 17,
+      "template_id": "run-benign-python",
+      "technique_ids": [
+        "T1059.006"
+      ],
+      "supported_steps": 235,
+      "marginal_steps": 4,
+      "coverage_rate": 0.20506108202443282
+    },
+    {
+      "catalog_size": 18,
+      "template_id": "exfiltrate-archive-to-declared-store",
+      "technique_ids": [
+        "T1567.002"
+      ],
+      "supported_steps": 238,
+      "marginal_steps": 3,
+      "coverage_rate": 0.20767888307155322
+    },
+    {
+      "catalog_size": 19,
+      "template_id": "stage-benign-tool",
+      "technique_ids": [
+        "T1608.002"
+      ],
+      "supported_steps": 241,
+      "marginal_steps": 3,
+      "coverage_rate": 0.21029668411867364
+    },
+    {
+      "catalog_size": 20,
+      "template_id": "visit-declared-web-target",
+      "technique_ids": [
+        "T1189"
+      ],
+      "supported_steps": 244,
+      "marginal_steps": 3,
+      "coverage_rate": 0.21291448516579406
+    },
+    {
+      "catalog_size": 21,
+      "template_id": "assess-privilege-boundary",
+      "technique_ids": [
+        "T1068"
+      ],
+      "supported_steps": 246,
+      "marginal_steps": 2,
+      "coverage_rate": 0.21465968586387435
+    },
+    {
+      "catalog_size": 22,
+      "template_id": "split-declared-archive",
+      "technique_ids": [
+        "T1030"
+      ],
+      "supported_steps": 248,
+      "marginal_steps": 2,
+      "coverage_rate": 0.2164048865619546
+    },
+    {
+      "catalog_size": 23,
+      "template_id": "read-declared-credential-fixture",
+      "technique_ids": [
+        "T1003.008"
+      ],
+      "supported_steps": 249,
+      "marginal_steps": 1,
+      "coverage_rate": 0.21727748691099477
+    },
+    {
+      "catalog_size": 24,
+      "template_id": "run-bounded-compute-workload",
+      "technique_ids": [
+        "T1496.001"
+      ],
+      "supported_steps": 250,
+      "marginal_steps": 1,
+      "coverage_rate": 0.2181500872600349
+    },
+    {
+      "catalog_size": 25,
+      "template_id": "stage-lab-web-target",
+      "technique_ids": [
+        "T1608.004"
+      ],
+      "supported_steps": 251,
+      "marginal_steps": 1,
+      "coverage_rate": 0.21902268760907503
+    },
+    {
+      "catalog_size": 26,
+      "template_id": "write-lab-shell-config",
+      "technique_ids": [
+        "T1546.004"
+      ],
+      "supported_steps": 252,
+      "marginal_steps": 1,
+      "coverage_rate": 0.2198952879581152
+    },
+    {
+      "catalog_size": 27,
+      "template_id": "transfer-over-resolved-lab-channel",
+      "technique_ids": [
+        "T1105"
+      ],
+      "supported_steps": 252,
+      "marginal_steps": 0,
+      "coverage_rate": 0.2198952879581152
+    },
+    {
+      "catalog_size": 28,
+      "template_id": "transfer-staged-benign-tool",
+      "technique_ids": [
+        "T1105"
+      ],
+      "supported_steps": 252,
+      "marginal_steps": 0,
+      "coverage_rate": 0.2198952879581152
+    }
+  ]
+}

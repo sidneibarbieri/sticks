@@ -1,0 +1,22 @@
+{
+  "id": "chatcmpl-291",
+  "object": "chat.completion",
+  "created": 1788992811,
+  "model": "qwen2.5-coder:14b",
+  "system_fingerprint": "fp_ollama",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"proposals\": [\n    {\n      \"technique_id\": \"T1059.006\",\n      \"template_id\": \"run-benign-python\",\n      \"bindings\": {\n        \"runtime\": \"runtime.python3\",\n        \"target\": \"target.primary\"\n      },\n      \"rationale\": \"Run a bounded benign command through the compromised service.\",\n      \"source\": \"llm\"\n    }\n  ]\n}"
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 7449,
+    "completion_tokens": 93,
+    "total_tokens": 7542
+  }
+}

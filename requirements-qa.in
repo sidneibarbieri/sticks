@@ -1,0 +1,2 @@
+# Additional dependency for mocked legacy HTTP-path tests, not VM execution.
+requests==2.34.2

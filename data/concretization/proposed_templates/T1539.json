@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure outlines the steps to extract session cookies from a web application for analysis in a controlled environment.",
+    "evidence_predicates": [
+      "http_request_logged",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "target_host": "target_host",
+      "web_asset": "web_asset"
+    },
+    "produces": [
+      "session cookie data extracted"
+    ],
+    "requires": [
+      "web application is accessible",
+      "session cookies are stored in the browser"
+    ],
+    "technique_ids": [
+      "T1539"
+    ],
+    "template_id": "steal-web-session-cookie-laboratory-harness"
+  }
+}

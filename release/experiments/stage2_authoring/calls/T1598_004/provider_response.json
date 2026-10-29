@@ -1,0 +1,36 @@
+{
+  "id": "chatcmpl-EOgEdLwAEdVkzZgfZJ3FkL64QL3yQ",
+  "object": "chat.completion",
+  "created": 1789550931,
+  "model": "gpt-4o-mini-2024-07-18",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"template_id\": \"spearphishing-voice-laboratory-harness\",\n  \"technique_ids\": [\n    \"T1598.004\"\n  ],\n  \"execution_domain\": \"target\",\n  \"parameter_kinds\": {\n    \"voice_channel\": \"channel\",\n    \"target_identity\": \"credential_source\"\n  },\n  \"requires\": [\n    \"target identity established\",\n    \"voice communication setup\"\n  ],\n  \"produces\": [\n    \"sensitive information elicited\"\n  ],\n  \"evidence_predicates\": [\n    \"http_request_logged\",\n    \"bounded_effect_observed\"\n  ],\n  \"fidelity_ceiling\": \"adapted\",\n  \"description\": \"This procedure simulates a benign spearphishing voice interaction to elicit sensitive information from a target.\"\n}",
+        "refusal": null,
+        "annotations": []
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 824,
+    "completion_tokens": 165,
+    "total_tokens": 989,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_c577bb8647"
+}

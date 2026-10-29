@@ -1,0 +1,36 @@
+{
+  "id": "chatcmpl-EOK8LTM4AuY8Kt5BX5Pk632qkg6Qv",
+  "object": "chat.completion",
+  "created": 1789465973,
+  "model": "gpt-4o-mini-2024-07-18",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"template_id\": \"system-checks-laboratory-harness\",\n  \"technique_ids\": [\"T1497.001\"],\n  \"execution_domain\": \"target\",\n  \"parameter_kinds\": {\n    \"vme_check\": \"capability_specification\",\n    \"artifact_detection\": \"data_source\"\n  },\n  \"requires\": [\n    \"virtualization environment present\",\n    \"system artifacts available\"\n  ],\n  \"produces\": [\n    \"vme_check_result recorded\",\n    \"artifact_detection_result recorded\"\n  ],\n  \"evidence_predicates\": [\n    \"boundary_check_recorded\",\n    \"artifact_hash_recorded\"\n  ],\n  \"fidelity_ceiling\": \"adapted\",\n  \"description\": \"This procedure performs system checks to detect the presence of virtualization environments and records the results.\"\n}",
+        "refusal": null,
+        "annotations": []
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 825,
+    "completion_tokens": 168,
+    "total_tokens": 993,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_c577bb8647"
+}

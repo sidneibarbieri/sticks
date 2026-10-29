@@ -1,0 +1,7 @@
+{
+  "campaign_id": "0.c0026",
+  "description": "Collection: staged data is collected and verified on the target.",
+  "clauses": [
+    {"fact": "collection:verified", "locus": "target", "require_observed": true}
+  ]
+}

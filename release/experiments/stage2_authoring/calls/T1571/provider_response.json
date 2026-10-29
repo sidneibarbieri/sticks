@@ -1,0 +1,36 @@
+{
+  "id": "chatcmpl-EOK3AYC2BsG58ldAdmiwKezUs02m9",
+  "object": "chat.completion",
+  "created": 1789465652,
+  "model": "gpt-4o-mini-2024-07-18",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"template_id\": \"non-standard-port-communication\",\n  \"technique_ids\": [\"T1571\"],\n  \"execution_domain\": \"target\",\n  \"parameter_kinds\": {\n    \"protocol\": \"channel\",\n    \"port\": \"network_interface\"\n  },\n  \"requires\": [\n    \"target_host is configured to allow non-standard ports\",\n    \"network interface is operational\"\n  ],\n  \"produces\": [\n    \"http_request_logged\",\n    \"boundary_check_recorded\"\n  ],\n  \"evidence_predicates\": [\n    \"http_request_logged\",\n    \"boundary_check_recorded\"\n  ],\n  \"fidelity_ceiling\": \"adapted\",\n  \"description\": \"This procedure demonstrates how to establish communication over a non-standard port using a specified protocol.\"\n}",
+        "refusal": null,
+        "annotations": []
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 838,
+    "completion_tokens": 160,
+    "total_tokens": 998,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_c577bb8647"
+}

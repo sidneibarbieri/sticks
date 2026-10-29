@@ -1,0 +1,36 @@
+{
+  "id": "chatcmpl-EOgJBHlb6PAhTm2vIvn1zdfilrskn",
+  "object": "chat.completion",
+  "created": 1789551213,
+  "model": "gpt-4o-mini-2024-07-18",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"template_id\": \"cloud-accounts-compromise-laboratory\",\n  \"technique_ids\": [\n    \"T1586.003\"\n  ],\n  \"execution_domain\": \"target\",\n  \"parameter_kinds\": {\n    \"cloud_account\": \"credential_source\",\n    \"storage_service\": \"web_asset\"\n  },\n  \"requires\": [\n    \"cloud account credentials available\",\n    \"target cloud storage service configured\"\n  ],\n  \"produces\": [\n    \"cloud account access verified\",\n    \"data transfer to cloud storage logged\"\n  ],\n  \"evidence_predicates\": [\n    \"http_request_logged\",\n    \"cloud account access verified\"\n  ],\n  \"fidelity_ceiling\": \"adapted\",\n  \"description\": \"This procedure simulates the compromise of cloud accounts to verify access and log data transfers.\"\n}",
+        "refusal": null,
+        "annotations": []
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 847,
+    "completion_tokens": 171,
+    "total_tokens": 1018,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_c577bb8647"
+}

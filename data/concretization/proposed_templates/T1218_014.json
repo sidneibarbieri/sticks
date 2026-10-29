@@ -1,0 +1,32 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure utilizes mmc.exe to execute a specified .msc file, demonstrating the potential for proxy execution.",
+    "evidence_predicates": [
+      "bounded_effect_observed",
+      "process_exit_recorded"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "mmc_file": "payload"
+    },
+    "produces": [
+      "execution of the .msc file through mmc.exe"
+    ],
+    "requires": [
+      "mmc.exe is available on the system",
+      "a valid .msc file is provided"
+    ],
+    "technique_ids": [
+      "T1218.014"
+    ],
+    "template_id": "execute-mmc-to-proxy-execution"
+  }
+}

@@ -1,0 +1,2 @@
+# Exact, transitive environment used by run_review_check.sh.
+-r requirements.lock

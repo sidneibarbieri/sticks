@@ -1,0 +1,22 @@
+{
+  "id": "chatcmpl-438",
+  "object": "chat.completion",
+  "created": 1788992670,
+  "model": "qwen2.5-coder:14b",
+  "system_fingerprint": "fp_ollama",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"proposals\": [\n    {\n      \"technique_id\": \"T1583.001\",\n      \"template_id\": \"record-controlled-domain\",\n      \"bindings\": {\n        \"actor\": \"actor.primary\",\n        \"manifest\": \"infrastructure.lab_manifest\"\n      },\n      \"rationale\": \"Record a lab-only domain manifest without registering external infrastructure.\",\n      \"source\": \"llm\"\n    },\n    {\n      \"technique_id\": \"T1005\",\n      \"template_id\": \"collect-declared-data-fixture\",\n      \"bindings\": {\n        \"data_source\": \"data.synthetic_fixture\",\n        \"target\": \"target.primary\"\n      },\n      \"rationale\": \"Collect only a declared synthetic data fixture.\",\n      \"source\": \"llm\"\n    },\n    {\n      \"technique_id\": \"T1560.001\",\n      \"template_id\": \"archive-declared-collection\",\n      \"bindings\": {\n        \"archive_tool\": \"archive_tool.local\",\n        \"target\": \"target.primary\"\n      },\n      \"rationale\": \"Archive the declared synthetic collection with a local utility.\",\n      \"source\": \"llm\"\n    },\n    {\n      \"technique_id\": \"T1030\",\n      \"template_id\": \"split-declared-archive\",\n      \"bindings\": {\n        \"archive\": \"archive.synthetic_collection\",\n        \"chunk_policy\": \"chunk_policy.bounded_local\"\n      },\n      \"rationale\": \"Split the synthetic archive into bounded local chunks without exfiltration.\",\n      \"source\": \"llm\"\n    }\n  ]\n}"
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 5831,
+    "completion_tokens": 334,
+    "total_tokens": 6165
+  }
+}

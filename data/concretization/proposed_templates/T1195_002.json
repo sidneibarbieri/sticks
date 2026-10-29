@@ -1,0 +1,35 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure simulates the compromise of a software supply chain by deploying a modified payload to a target host.",
+    "evidence_predicates": [
+      "artifact_hash_recorded",
+      "destination_hash_recorded",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "payload": "payload",
+      "target_host": "target_host"
+    },
+    "produces": [
+      "artifact_hash_recorded",
+      "destination_hash_recorded"
+    ],
+    "requires": [
+      "target_host is configured for software installation",
+      "payload is prepared for deployment"
+    ],
+    "technique_ids": [
+      "T1195.002"
+    ],
+    "template_id": "compromise-software-supply-chain-laboratory-harness"
+  }
+}

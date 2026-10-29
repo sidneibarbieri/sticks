@@ -1,0 +1,36 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "qwen3.6:latest",
+    "provider": "openai",
+    "review_pending": true,
+    "run_id": "stage2-qwen36-r1",
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "Simulates the generation of a self-signed code signing certificate and associated private key on a designated host using a standard cryptographic toolkit.",
+    "evidence_predicates": [
+      "artifact_hash_recorded",
+      "fixture_access_logged"
+    ],
+    "execution_domain": "attacker",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "cert_artifact": "infrastructure_artifact",
+      "host": "actor_host",
+      "tool": "archive_tool"
+    },
+    "produces": [
+      "certificate_generated",
+      "private_key_stored"
+    ],
+    "requires": [
+      "host_is_ready",
+      "tool_available"
+    ],
+    "technique_ids": [
+      "T1587.002"
+    ],
+    "template_id": "generate-self-signed-cert"
+  }
+}

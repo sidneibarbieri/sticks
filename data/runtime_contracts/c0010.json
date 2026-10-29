@@ -1,0 +1,105 @@
+{
+    "schema_version": "c0010-runtime-contracts/v1",
+    "campaign_id": "0.c0010",
+    "occurrences": [
+        {
+            "occurrence": 1,
+            "plan_sequence": 2,
+            "technique_id": "T1584.001",
+            "mode": "naive_simulated",
+            "locus": "controller",
+            "executor_id": "executors.legacy_campaign_executors.execute_t1584_001_simulated",
+            "executor_sha256": "05e01b3e9ba2ef4ebcd2a7e507861dcfa531ed799094a016bc639d4824388eed",
+            "requirements": [],
+            "observers": []
+        },
+        {
+            "occurrence": 2,
+            "plan_sequence": 5,
+            "technique_id": "T1608.001",
+            "mode": "real_controlled",
+            "locus": "controller",
+            "executor_id": "executors.executor_registry.execute_t1608_001_real",
+            "executor_sha256": "e0d82c36feddfbea345750a1f681bfc68af81869f6ef105895067019f9c3647d",
+            "requirements": [],
+            "observers": ["c0010-payload"]
+        },
+        {
+            "occurrence": 3,
+            "plan_sequence": 7,
+            "technique_id": "T1608.004",
+            "mode": "real_controlled",
+            "locus": "controller",
+            "executor_id": "executors.legacy_campaign_executors.execute_t1608_004_real",
+            "executor_sha256": "05e01b3e9ba2ef4ebcd2a7e507861dcfa531ed799094a016bc639d4824388eed",
+            "requirements": [],
+            "observers": ["c0010-page"]
+        },
+        {
+            "occurrence": 4,
+            "plan_sequence": 8,
+            "technique_id": "T1189",
+            "mode": "real_controlled",
+            "locus": "controller",
+            "executor_id": "executors.legacy_campaign_executors.execute_t1189_real",
+            "executor_sha256": "05e01b3e9ba2ef4ebcd2a7e507861dcfa531ed799094a016bc639d4824388eed",
+            "requirements": ["controller:watering_hole_staged"],
+            "observers": ["c0010-http"]
+        },
+        {
+            "occurrence": 5,
+            "plan_sequence": 3,
+            "technique_id": "T1587.001",
+            "mode": "naive_simulated",
+            "locus": "controller",
+            "executor_id": "executors.executor_registry.execute_t1587_001_simulated",
+            "executor_sha256": "e0d82c36feddfbea345750a1f681bfc68af81869f6ef105895067019f9c3647d",
+            "requirements": [],
+            "observers": []
+        },
+        {
+            "occurrence": 6,
+            "plan_sequence": 1,
+            "technique_id": "T1583.001",
+            "mode": "naive_simulated",
+            "locus": "controller",
+            "executor_id": "executors.executor_registry.execute_t1583_001_simulated",
+            "executor_sha256": "e0d82c36feddfbea345750a1f681bfc68af81869f6ef105895067019f9c3647d",
+            "requirements": [],
+            "observers": []
+        },
+        {
+            "occurrence": 7,
+            "plan_sequence": 6,
+            "technique_id": "T1608.002",
+            "mode": "real_controlled",
+            "locus": "controller",
+            "executor_id": "executors.legacy_campaign_executors.execute_t1608_002_real",
+            "executor_sha256": "05e01b3e9ba2ef4ebcd2a7e507861dcfa531ed799094a016bc639d4824388eed",
+            "requirements": [],
+            "observers": ["c0010-tool"]
+        },
+        {
+            "occurrence": 8,
+            "plan_sequence": 4,
+            "technique_id": "T1588.002",
+            "mode": "naive_simulated",
+            "locus": "controller",
+            "executor_id": "executors.executor_registry.execute_t1588_002_simulated",
+            "executor_sha256": "e0d82c36feddfbea345750a1f681bfc68af81869f6ef105895067019f9c3647d",
+            "requirements": [],
+            "observers": []
+        },
+        {
+            "occurrence": 9,
+            "plan_sequence": 9,
+            "technique_id": "T1105",
+            "mode": "real_controlled",
+            "locus": "target",
+            "executor_id": "executors.executor_registry.execute_t1105_real",
+            "executor_sha256": "e0d82c36feddfbea345750a1f681bfc68af81869f6ef105895067019f9c3647d",
+            "requirements": ["lab:shell"],
+            "observers": ["c0010-transfer"]
+        }
+    ]
+}

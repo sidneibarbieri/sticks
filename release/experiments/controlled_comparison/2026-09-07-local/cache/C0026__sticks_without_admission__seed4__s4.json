@@ -1,0 +1,17 @@
+{
+  "campaign_id": "C0026",
+  "arm_id": "sticks_without_admission",
+  "seed": 4,
+  "step_id": "s4",
+  "emitted": true,
+  "abstained": false,
+  "oracle_admitted": false,
+  "template_id": "collect-declared-data-fixture",
+  "proposal_sha256": "9c581aa2555361c81cee72895548913175a9a1223930c18133ba32fd721dab38",
+  "issue_codes": [
+    "EXECUTION_DOMAIN_MISMATCH",
+    "PARAMETER_SET_MISMATCH",
+    "BINDING_KIND_MISMATCH"
+  ],
+  "parse_error": null
+}

@@ -1,0 +1,36 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "qwen3.6:latest",
+    "provider": "openai",
+    "review_pending": true,
+    "run_id": "stage2-qwen36-r2",
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure template defines a controlled laboratory harness to safely execute and observe benign Unix shell scripts on an isolated target host.",
+    "evidence_predicates": [
+      "stdout_hash_recorded",
+      "process_exit_recorded"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "script_artifact": "encoded_artifact",
+      "shell_env": "runtime",
+      "target_machine": "target_host"
+    },
+    "produces": [
+      "execution_stdout_generated",
+      "process_exit_code_recorded"
+    ],
+    "requires": [
+      "target_host_is_reachable",
+      "script_artifact_is_staged"
+    ],
+    "technique_ids": [
+      "T1059.004"
+    ],
+    "template_id": "unix-shell-execution-harness"
+  }
+}

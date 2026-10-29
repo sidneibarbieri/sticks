@@ -1,0 +1,35 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "qwen3.6:latest",
+    "provider": "openai",
+    "review_pending": true,
+    "run_id": "stage2-qwen36-r2",
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "Simulates the acquisition of a digital certificate from a test authority for laboratory infrastructure setup.",
+    "evidence_predicates": [
+      "artifact_hash_recorded",
+      "fixture_hash_recorded"
+    ],
+    "execution_domain": "attacker",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "ca_endpoint": "endpoint",
+      "cert_artifact": "infrastructure_artifact"
+    },
+    "produces": [
+      "obtained_certificate_artifact",
+      "cert_chain_fingerprint"
+    ],
+    "requires": [
+      "test_ca_cert_bundle",
+      "target_domain_name"
+    ],
+    "technique_ids": [
+      "T1588.004"
+    ],
+    "template_id": "lab-cert-acquisition-sim"
+  }
+}

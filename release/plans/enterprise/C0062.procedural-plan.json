@@ -1,0 +1,626 @@
+{
+  "schema_version": "1",
+  "compiler_version": "1",
+  "campaign_id": "C0062",
+  "campaign_name": "Anthropic AI-orchestrated Campaign",
+  "source": {
+    "bundle_sha256": "dc1639caa5501d720e280cf1cbd8fbe009884a0c9b3e6e9ed9d0c25166c3d8f4",
+    "object_count": 26086,
+    "campaign_stix_id": "campaign--590cd5b0-2421-4158-84a2-db13b5db02a3",
+    "campaign_external_id": "C0062"
+  },
+  "ordering_policy": "tactic_rank_then_technique_id",
+  "steps": [
+    {
+      "technique_id": "T1590.004",
+      "technique_stix_id": "attack-pattern--34ab90a3-05f6-4259-8f21-621081fdaba5",
+      "name": "Network Topology",
+      "execution_domain": "attacker",
+      "tactics": [
+        "reconnaissance"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--426f52f4-4bd5-4370-9ef1-ae7c6926caa8"
+      ],
+      "procedure_descriptions": [
+        "During the [Anthropic AI-orchestrated Campaign](https://attack.mitre.org/campaigns/C0062), the adversary used Claude Code to map a complete network topology of the target infrastructure.(Citation: Anthropic AI Orchestrated Campaign NOV 2025)"
+      ]
+    },
+    {
+      "technique_id": "T1592.002",
+      "technique_stix_id": "attack-pattern--baf60e1a-afe5-4d31-830f-1b1ba2351884",
+      "name": "Software",
+      "execution_domain": "attacker",
+      "tactics": [
+        "reconnaissance"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--3dad2d50-94ce-4280-b3db-56286642c14b"
+      ],
+      "procedure_descriptions": [
+        "During the [Anthropic AI-orchestrated Campaign](https://attack.mitre.org/campaigns/C0062), the adversary utilized Claude Code to catalog services and data on discovered endpoints.(Citation: Anthropic AI Orchestrated Campaign NOV 2025)"
+      ]
+    },
+    {
+      "technique_id": "T1592.004",
+      "technique_stix_id": "attack-pattern--774ad5bb-2366-4c13-a8a9-65e50b292e7c",
+      "name": "Client Configurations",
+      "execution_domain": "attacker",
+      "tactics": [
+        "reconnaissance"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--c5cdae9b-22b6-4f35-a688-2e9ece0652ec"
+      ],
+      "procedure_descriptions": [
+        "During the [Anthropic AI-orchestrated Campaign](https://attack.mitre.org/campaigns/C0062), the adversary leveraged Claude Code to gather details of high-value systems to include databases and workflow orchestration platforms.(Citation: Anthropic AI Orchestrated Campaign NOV 2025)"
+      ]
+    },
+    {
+      "technique_id": "T1595.001",
+      "technique_stix_id": "attack-pattern--db8f5003-3b20-48f0-9b76-123e44208120",
+      "name": "Scanning IP Blocks",
+      "execution_domain": "attacker",
+      "tactics": [
+        "reconnaissance"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--94192fda-44af-4990-a2fb-4fe8fd23ba0d"
+      ],
+      "procedure_descriptions": [
+        "During the [Anthropic AI-orchestrated Campaign](https://attack.mitre.org/campaigns/C0062), the adversary used Claude Code to scan infrastructure across IP ranges associated with the target organization.(Citation: Anthropic AI Orchestrated Campaign NOV 2025)"
+      ]
+    },
+    {
+      "technique_id": "T1595.002",
+      "technique_stix_id": "attack-pattern--5502c4e9-24ef-4d5f-8ee9-9e906c2f82c4",
+      "name": "Vulnerability Scanning",
+      "execution_domain": "attacker",
+      "tactics": [
+        "reconnaissance"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--5a310c4b-4dab-45ad-80ef-351549c9cd65"
+      ],
+      "procedure_descriptions": [
+        "During the [Anthropic AI-orchestrated Campaign](https://attack.mitre.org/campaigns/C0062), the adversary used Claude Code to scan target infrastructure to identify potential vulnerabilities and to enumerate services and endpoints.(Citation: Anthropic AI Orchestrated Campaign NOV 2025)"
+      ]
+    },
+    {
+      "technique_id": "T1584.004",
+      "technique_stix_id": "attack-pattern--e196b5c5-8118-4a1c-ab8a-936586ce3db5",
+      "name": "Server",
+      "execution_domain": "attacker",
+      "tactics": [
+        "resource-development"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--a3c7c24f-c630-4a0e-a095-8918a7092547"
+      ],
+      "procedure_descriptions": [
+        "During the [Anthropic AI-orchestrated Campaign](https://attack.mitre.org/campaigns/C0062), the adversary operated dedicated penetration testing servers accessible via MCP to support remote command execution, simultaneous tool coordination, and persistent operational state maintenance across campaign sessions.(Citation: Anthropic AI Orchestrated Campaign NOV 2025)"
+      ]
+    },
+    {
+      "technique_id": "T1587.004",
+      "technique_stix_id": "attack-pattern--bbc3cba7-84ae-410d-b18b-16750731dfa2",
+      "name": "Exploits",
+      "execution_domain": "attacker",
+      "tactics": [
+        "resource-development"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--82a8a34c-a439-463a-822b-9305e30b0b32"
+      ],
+      "procedure_descriptions": [
+        "During the [Anthropic AI-orchestrated Campaign](https://attack.mitre.org/campaigns/C0062), the adversary used Claude Code to research exploitation techniques for an identified SSRF vulnerability, to generate a tailored custom attack payload, and to develop a full exploit chain prior to deployment.(Citation: Anthropic AI Orchestrated Campaign NOV 2025)"
+      ]
+    },
+    {
+      "technique_id": "T1588.002",
+      "technique_stix_id": "attack-pattern--a2fdce72-04b2-409a-ac10-cc1695f4fce0",
+      "name": "Tool",
+      "execution_domain": "attacker",
+      "tactics": [
+        "resource-development"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--312f2cb6-8528-4404-857a-c8c685d7e179"
+      ],
+      "procedure_descriptions": [
+        "During the [Anthropic AI-orchestrated Campaign](https://attack.mitre.org/campaigns/C0062), the adversary obtained open-source penetration testing tools including network scanners, database exploitation frameworks, password crackers, and binary analysis suites.(Citation: Anthropic AI Orchestrated Campaign NOV 2025)"
+      ]
+    },
+    {
+      "technique_id": "T1588.007",
+      "technique_stix_id": "attack-pattern--0cc222f5-c3ff-48e6-9f52-3314baf9d37e",
+      "name": "Artificial Intelligence",
+      "execution_domain": "attacker",
+      "tactics": [
+        "resource-development"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--33742c76-107b-455f-8462-40717e9f114b"
+      ],
+      "procedure_descriptions": [
+        "During the [Anthropic AI-orchestrated Campaign](https://attack.mitre.org/campaigns/C0062), the adversary obtained access to Claude Code to support cyber intrusion operations.(Citation: Anthropic AI Orchestrated Campaign NOV 2025)"
+      ]
+    },
+    {
+      "technique_id": "T1683",
+      "technique_stix_id": "attack-pattern--b512fb8a-18dd-4bfc-bbad-acbaaeb7dde3",
+      "name": "Generate Content",
+      "execution_domain": "attacker",
+      "tactics": [
+        "resource-development"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--bcd1d0a0-41d2-42a8-90f5-279abc20a84f"
+      ],
+      "procedure_descriptions": [
+        "During the [Anthropic AI-orchestrated Campaign](https://attack.mitre.org/campaigns/C0062), the adversary utilized Claude Code to automatically generate comprehensive documentation throughout the phases of the attack, including discovered services, harvested credentials, sensitive data, exploitation techniques, and complete attack progression.(Citation: Anthropic AI Orchestrated Campaign NOV 2025)"
+      ]
+    },
+    {
+      "technique_id": "T1078",
+      "technique_stix_id": "attack-pattern--b17a1a56-e99c-403c-8948-561df0cffe81",
+      "name": "Valid Accounts",
+      "execution_domain": "boundary",
+      "tactics": [
+        "initial-access",
+        "persistence",
+        "privilege-escalation",
+        "stealth"
+      ],
+      "platforms": [
+        "Containers",
+        "ESXi",
+        "IaaS",
+        "Identity Provider",
+        "Linux",
+        "Network Devices",
+        "Office Suite",
+        "SaaS",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--472109ce-48af-47b2-8f64-f05598c6cff0"
+      ],
+      "procedure_descriptions": [
+        "During the [Anthropic AI-orchestrated Campaign](https://attack.mitre.org/campaigns/C0062), the adversary used harvested credentials to authenticate against internal APIs, database systems, container registries, and logging infrastructure across targeted networks.(Citation: Anthropic AI Orchestrated Campaign NOV 2025)"
+      ]
+    },
+    {
+      "technique_id": "T1078.003",
+      "technique_stix_id": "attack-pattern--fdc47f44-dd32-4b99-af5f-209f556f63c2",
+      "name": "Local Accounts",
+      "execution_domain": "boundary",
+      "tactics": [
+        "initial-access",
+        "persistence",
+        "privilege-escalation",
+        "stealth"
+      ],
+      "platforms": [
+        "Containers",
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--a0d76a11-92bf-4292-b411-f3a8b019beb4"
+      ],
+      "procedure_descriptions": [
+        "During the [Anthropic AI-orchestrated Campaign](https://attack.mitre.org/campaigns/C0062), the adversary used Claude Code to test credentials harvested against discovered devices.(Citation: Anthropic AI Orchestrated Campaign NOV 2025)"
+      ]
+    },
+    {
+      "technique_id": "T1190",
+      "technique_stix_id": "attack-pattern--3f886f2a-874f-4333-b794-aa6075009b1c",
+      "name": "Exploit Public-Facing Application",
+      "execution_domain": "boundary",
+      "tactics": [
+        "initial-access"
+      ],
+      "platforms": [
+        "Containers",
+        "ESXi",
+        "IaaS",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--0365ae71-f035-48af-bed4-7609e7029804"
+      ],
+      "procedure_descriptions": [
+        "During the [Anthropic AI-orchestrated Campaign](https://attack.mitre.org/campaigns/C0062), the adversary used Claude Code to deploy a custom exploit payload targeting an identified SSRF vulnerability to gain initial access to a targeted environment.(Citation: Anthropic AI Orchestrated Campaign NOV 2025)"
+      ]
+    },
+    {
+      "technique_id": "T1136.001",
+      "technique_stix_id": "attack-pattern--635cbe30-392d-4e27-978e-66774357c762",
+      "name": "Local Account",
+      "execution_domain": "target",
+      "tactics": [
+        "persistence"
+      ],
+      "platforms": [
+        "Containers",
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--39cf444d-5b03-46f8-8de7-bdc8b92407a0"
+      ],
+      "procedure_descriptions": [
+        "During the [Anthropic AI-orchestrated Campaign](https://attack.mitre.org/campaigns/C0062), the adversary used Claude Code to create a local backdoor account to maintain access.(Citation: Anthropic AI Orchestrated Campaign NOV 2025)"
+      ]
+    },
+    {
+      "technique_id": "T1552.001",
+      "technique_stix_id": "attack-pattern--837f9164-50af-4ac0-8219-379d8a74cefc",
+      "name": "Credentials In Files",
+      "execution_domain": "target",
+      "tactics": [
+        "credential-access"
+      ],
+      "platforms": [
+        "Containers",
+        "IaaS",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--87066d7b-b843-44dd-9146-027ffe19fae8"
+      ],
+      "procedure_descriptions": [
+        "During the [Anthropic AI-orchestrated Campaign](https://attack.mitre.org/campaigns/C0062), the adversary used Claude Code to extract authentication certificates stored in system configuration files across compromised environments.(Citation: Anthropic AI Orchestrated Campaign NOV 2025)"
+      ]
+    },
+    {
+      "technique_id": "T1016",
+      "technique_stix_id": "attack-pattern--707399d6-ab3e-4963-9315-d9d3818cd6a0",
+      "name": "System Network Configuration Discovery",
+      "execution_domain": "target",
+      "tactics": [
+        "discovery"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--a681021a-b290-47cc-909a-cb9b0892eabd"
+      ],
+      "procedure_descriptions": [
+        "During the [Anthropic AI-orchestrated Campaign](https://attack.mitre.org/campaigns/C0062), the adversary configured Claude Code to identify and gather system configurations of discovered devices.(Citation: Anthropic AI Orchestrated Campaign NOV 2025)"
+      ]
+    },
+    {
+      "technique_id": "T1046",
+      "technique_stix_id": "attack-pattern--e3a12395-188d-4051-9a16-ea8e14d07b88",
+      "name": "Network Service Discovery",
+      "execution_domain": "target",
+      "tactics": [
+        "discovery"
+      ],
+      "platforms": [
+        "Containers",
+        "IaaS",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--97919ca1-4aec-4fa3-b698-ae4ec7524968"
+      ],
+      "procedure_descriptions": [
+        "During the [Anthropic AI-orchestrated Campaign](https://attack.mitre.org/campaigns/C0062), the adversary used Claude Code to enumerate internal network services and endpoints across targeted environments using browser automation via MCP, including databases, container registries, admin interfaces, and workflow orchestration platforms.(Citation: Anthropic AI Orchestrated Campaign NOV 2025)"
+      ]
+    },
+    {
+      "technique_id": "T1049",
+      "technique_stix_id": "attack-pattern--7e150503-88e7-4861-866b-ff1ac82c4475",
+      "name": "System Network Connections Discovery",
+      "execution_domain": "target",
+      "tactics": [
+        "discovery"
+      ],
+      "platforms": [
+        "ESXi",
+        "IaaS",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--ecdd4a9f-c89b-444f-ae27-c51c5714b60c"
+      ],
+      "procedure_descriptions": [
+        "During the [Anthropic AI-orchestrated Campaign](https://attack.mitre.org/campaigns/C0062), the adversary used Claude Code to map internal network architecture and access relationships.(Citation: Anthropic AI Orchestrated Campaign NOV 2025)"
+      ]
+    },
+    {
+      "technique_id": "T1082",
+      "technique_stix_id": "attack-pattern--354a7f88-63fb-41b5-a801-ce3b377b36f1",
+      "name": "System Information Discovery",
+      "execution_domain": "target",
+      "tactics": [
+        "discovery"
+      ],
+      "platforms": [
+        "ESXi",
+        "IaaS",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--cd18fa85-3b0c-4201-b85d-92dfaf91eb5a"
+      ],
+      "procedure_descriptions": [
+        "During the [Anthropic AI-orchestrated Campaign](https://attack.mitre.org/campaigns/C0062), the adversary tasked Claude Code to query databases and systems in order to identify proprietary information, including system configurations and database types.(Citation: Anthropic AI Orchestrated Campaign NOV 2025)"
+      ]
+    },
+    {
+      "technique_id": "T1083",
+      "technique_stix_id": "attack-pattern--7bc57495-ea59-4380-be31-a64af124ef18",
+      "name": "File and Directory Discovery",
+      "execution_domain": "target",
+      "tactics": [
+        "discovery"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--45264c38-14fb-4788-bc8f-97d26957e02e"
+      ],
+      "procedure_descriptions": [
+        "During the [Anthropic AI-orchestrated Campaign](https://attack.mitre.org/campaigns/C0062), the adversary leveraged Claude Code to identify sensitive data within the victim environment for extraction.(Citation: Anthropic AI Orchestrated Campaign NOV 2025)"
+      ]
+    },
+    {
+      "technique_id": "T1087",
+      "technique_stix_id": "attack-pattern--72b74d71-8169-42aa-92e0-e7b04b9f5a08",
+      "name": "Account Discovery",
+      "execution_domain": "target",
+      "tactics": [
+        "discovery"
+      ],
+      "platforms": [
+        "ESXi",
+        "IaaS",
+        "Identity Provider",
+        "Linux",
+        "Office Suite",
+        "SaaS",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--764862c1-bef5-45e0-9985-3fcae340cb9f"
+      ],
+      "procedure_descriptions": [
+        "During the [Anthropic AI-orchestrated Campaign](https://attack.mitre.org/campaigns/C0062), the adversary used Claude Code to query internal database user account tables to enumerate accounts and identify high-privilege accounts within compromised environments.(Citation: Anthropic AI Orchestrated Campaign NOV 2025)"
+      ]
+    },
+    {
+      "technique_id": "T1005",
+      "technique_stix_id": "attack-pattern--3c4a2599-71ee-4405-ba1e-0e28414b4bc5",
+      "name": "Data from Local System",
+      "execution_domain": "target",
+      "tactics": [
+        "collection"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--c773b719-edd5-46fc-a2b8-1bc36b2031d6"
+      ],
+      "procedure_descriptions": [
+        "During the [Anthropic AI-orchestrated Campaign](https://attack.mitre.org/campaigns/C0062), the adversary tasked Claude Code to automatically gather sensitive data stored within the local system to include credentials, system configurations and sensitive operational data.(Citation: Anthropic AI Orchestrated Campaign NOV 2025)"
+      ]
+    },
+    {
+      "technique_id": "T1074.001",
+      "technique_stix_id": "attack-pattern--1c34f7aa-9341-4a48-bfab-af22e51aca6c",
+      "name": "Local Data Staging",
+      "execution_domain": "target",
+      "tactics": [
+        "collection"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--585bbf8f-b2d3-4186-8e15-f57ea1961d8c"
+      ],
+      "procedure_descriptions": [
+        "During the [Anthropic AI-orchestrated Campaign](https://attack.mitre.org/campaigns/C0062), the adversary used Claude Code to stage extracted data and operational documentation in structured markdown files on local systems prior to exfiltration.(Citation: Anthropic AI Orchestrated Campaign NOV 2025)"
+      ]
+    },
+    {
+      "technique_id": "T1119",
+      "technique_stix_id": "attack-pattern--30208d3e-0d6b-43c8-883e-44462a514619",
+      "name": "Automated Collection",
+      "execution_domain": "target",
+      "tactics": [
+        "collection"
+      ],
+      "platforms": [
+        "IaaS",
+        "Linux",
+        "Office Suite",
+        "SaaS",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--bc96f71f-560a-4d41-b85a-09c4fbc14994"
+      ],
+      "procedure_descriptions": [
+        "During the [Anthropic AI-orchestrated Campaign](https://attack.mitre.org/campaigns/C0062), the adversary used Claude Code to automatically collect and process large volumes of data from without human direction.(Citation: Anthropic AI Orchestrated Campaign NOV 2025)"
+      ]
+    },
+    {
+      "technique_id": "T1213.006",
+      "technique_stix_id": "attack-pattern--248d3fe1-7fe1-4d71-91c7-8bb7ef35cad3",
+      "name": "Databases",
+      "execution_domain": "target",
+      "tactics": [
+        "collection"
+      ],
+      "platforms": [
+        "IaaS",
+        "Linux",
+        "SaaS",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--a4a622e8-be15-4592-8383-8f5d72861ad5"
+      ],
+      "procedure_descriptions": [
+        "During the [Anthropic AI-orchestrated Campaign](https://attack.mitre.org/campaigns/C0062), the adversary used Claude Code to query internal databases and systems to extract proprietary information, system configurations, and sensitive operational data. (Citation: Anthropic AI Orchestrated Campaign NOV 2025)"
+      ]
+    },
+    {
+      "technique_id": "T1567",
+      "technique_stix_id": "attack-pattern--40597f16-0963-4249-bf4c-ac93b7fb9807",
+      "name": "Exfiltration Over Web Service",
+      "execution_domain": "boundary",
+      "tactics": [
+        "exfiltration"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Office Suite",
+        "SaaS",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--8ace7a8d-d2c3-4fde-8044-5bcb55ea8f3d"
+      ],
+      "procedure_descriptions": [
+        "During the [Anthropic AI-orchestrated Campaign](https://attack.mitre.org/campaigns/C0062), the adversary utilized Claude Code to generate a detailed summary report of collected data, which is then reviewed and approved by the adversary prior to exfiltration of data over Claude.(Citation: Anthropic AI Orchestrated Campaign NOV 2025)"
+      ]
+    }
+  ],
+  "limitations": [
+    "ATT&CK uses-links do not encode a historical total order; the compiler applies a declared tactic-rank policy.",
+    "Technique metadata constrains procedures but does not uniquely determine an executable target environment."
+  ],
+  "content_sha256": "b8fa1261bc7b96f23de7daecab222fc44d85f5de7e046d11b05cba7687b07e04"
+}

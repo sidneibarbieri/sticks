@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure simulates a user being prompted to open a malicious document to observe the execution behavior.",
+    "evidence_predicates": [
+      "bounded_effect_observed",
+      "http_request_logged"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "malicious_document": "payload",
+      "user_action": "actor_host"
+    },
+    "produces": [
+      "user opened the malicious document"
+    ],
+    "requires": [
+      "user is prompted to open a document",
+      "document is accessible to the user"
+    ],
+    "technique_ids": [
+      "T1204"
+    ],
+    "template_id": "user-execution-laboratory-harness"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure extracts email addresses and accounts from a global address list using the Get-GlobalAddressList cmdlet in an authenticated session.",
+    "evidence_predicates": [
+      "collection_manifest_recorded",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "email_list": "data_source",
+      "target_host": "target_host"
+    },
+    "produces": [
+      "list of email addresses and accounts"
+    ],
+    "requires": [
+      "authenticated session to Exchange or Google Workspace"
+    ],
+    "technique_ids": [
+      "T1087.003"
+    ],
+    "template_id": "get-global-address-list-extraction"
+  }
+}

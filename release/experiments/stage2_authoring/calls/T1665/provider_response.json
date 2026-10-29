@@ -1,0 +1,36 @@
+{
+  "id": "chatcmpl-EOK69wtaOaXQJks2eOJtECT46WPvf",
+  "object": "chat.completion",
+  "created": 1789465837,
+  "model": "gpt-4o-mini-2024-07-18",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"template_id\": \"hide-infrastructure-laboratory-harness\",\n  \"technique_ids\": [\"T1665\"],\n  \"execution_domain\": \"target\",\n  \"parameter_kinds\": {\n    \"network_interface\": \"network_interface\",\n    \"payload\": \"payload\"\n  },\n  \"requires\": [\n    \"network interface configured\",\n    \"malicious payload prepared\"\n  ],\n  \"produces\": [\n    \"http request logged\",\n    \"destination hash recorded\"\n  ],\n  \"evidence_predicates\": [\n    \"http_request_logged\",\n    \"destination_hash_recorded\"\n  ],\n  \"fidelity_ceiling\": \"adapted\",\n  \"description\": \"This procedure simulates the manipulation of network traffic to hide C2 infrastructure by logging HTTP requests and recording destination hashes.\"\n}",
+        "refusal": null,
+        "annotations": []
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 815,
+    "completion_tokens": 163,
+    "total_tokens": 978,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_c577bb8647"
+}

@@ -1,0 +1,36 @@
+{
+  "id": "chatcmpl-EOgHFHUrhCOMexFmuulgQB86PVqHo",
+  "object": "chat.completion",
+  "created": 1789551093,
+  "model": "gpt-4o-mini-2024-07-18",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"template_id\": \"electron-apps-execution-lab\",\n  \"technique_ids\": [\n    \"T1218.015\"\n  ],\n  \"execution_domain\": \"target\",\n  \"parameter_kinds\": {\n    \"payload\": \"payload\",\n    \"target_host\": \"target_host\"\n  },\n  \"requires\": [\n    \"Electron application installed\",\n    \"Network access to the target host\"\n  ],\n  \"produces\": [\n    \"artifact_hash_recorded\",\n    \"process_exit_recorded\"\n  ],\n  \"evidence_predicates\": [\n    \"artifact_hash_recorded\",\n    \"bounded_effect_observed\"\n  ],\n  \"fidelity_ceiling\": \"adapted\",\n  \"description\": \"This procedure demonstrates the execution of a payload within an Electron application to observe the resulting artifacts.\"\n}",
+        "refusal": null,
+        "annotations": []
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 822,
+    "completion_tokens": 168,
+    "total_tokens": 990,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_c577bb8647"
+}

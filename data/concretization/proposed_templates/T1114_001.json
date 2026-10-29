@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure collects local email data files from a user's system to analyze sensitive information.",
+    "evidence_predicates": [
+      "collection_manifest_recorded",
+      "file_count_recorded"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "email_data_file": "archive_artifact",
+      "outlook_version": "capability_specification"
+    },
+    "produces": [
+      "email data file collected"
+    ],
+    "requires": [
+      "user has Outlook installed",
+      "user has email data files on local system"
+    ],
+    "technique_ids": [
+      "T1114.001"
+    ],
+    "template_id": "local-email-collection-laboratory-harness"
+  }
+}

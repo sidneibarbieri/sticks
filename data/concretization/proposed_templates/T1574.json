@@ -1,0 +1,34 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure tests the hijacking of execution flow using a benign payload to observe the effects on the target host.",
+    "evidence_predicates": [
+      "bounded_effect_observed",
+      "process_exit_recorded"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "payload": "payload",
+      "target_host": "target_host"
+    },
+    "produces": [
+      "execution flow has been hijacked",
+      "payload executed successfully"
+    ],
+    "requires": [
+      "target_host is configured for execution flow hijacking",
+      "payload is benign and designed for testing"
+    ],
+    "technique_ids": [
+      "T1574"
+    ],
+    "template_id": "hijack-execution-flow-laboratory-harness"
+  }
+}

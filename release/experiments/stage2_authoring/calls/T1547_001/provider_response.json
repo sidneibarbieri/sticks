@@ -1,0 +1,36 @@
+{
+  "id": "chatcmpl-EOgE5hKK7MVUXOaKknRp1jxblnXrB",
+  "object": "chat.completion",
+  "created": 1789550897,
+  "model": "gpt-4o-mini-2024-07-18",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"template_id\": \"add-registry-run-key-for-persistence\",\n  \"technique_ids\": [\n    \"T1547.001\"\n  ],\n  \"execution_domain\": \"target\",\n  \"parameter_kinds\": {\n    \"run_key\": \"registry_run_key\"\n  },\n  \"requires\": [\n    \"user account with appropriate permissions\"\n  ],\n  \"produces\": [\n    \"registry run key entry created\"\n  ],\n  \"evidence_predicates\": [\n    \"bounded_effect_observed\",\n    \"artifact_hash_recorded\"\n  ],\n  \"fidelity_ceiling\": \"adapted\",\n  \"description\": \"This procedure adds a registry run key entry to achieve persistence on the target system.\"\n}",
+        "refusal": null,
+        "annotations": []
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 840,
+    "completion_tokens": 148,
+    "total_tokens": 988,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_c577bb8647"
+}

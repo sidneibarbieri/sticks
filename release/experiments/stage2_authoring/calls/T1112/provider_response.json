@@ -1,0 +1,36 @@
+{
+  "id": "chatcmpl-EOK3Sbv1XB9EESb9RMX8L2xDz5xdg",
+  "object": "chat.completion",
+  "created": 1789465670,
+  "model": "gpt-4o-mini-2024-07-18",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"template_id\": \"modify-registry-laboratory-harness\",\n  \"technique_ids\": [\"T1112\"],\n  \"execution_domain\": \"target\",\n  \"parameter_kinds\": {\n    \"registry_key\": \"target_host\",\n    \"value\": \"data_source\"\n  },\n  \"requires\": [\n    \"administrator-level access to the registry\",\n    \"a valid registry key to modify\"\n  ],\n  \"produces\": [\n    \"registry modification recorded\"\n  ],\n  \"evidence_predicates\": [\n    \"fixture_access_logged\",\n    \"bounded_effect_observed\"\n  ],\n  \"fidelity_ceiling\": \"adapted\",\n  \"description\": \"This procedure modifies a specified registry key to observe the effects of registry manipulation in a controlled environment.\"\n}",
+        "refusal": null,
+        "annotations": []
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 820,
+    "completion_tokens": 159,
+    "total_tokens": 979,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_c577bb8647"
+}

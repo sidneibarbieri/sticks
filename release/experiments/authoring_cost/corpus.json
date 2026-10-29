@@ -1,0 +1,248 @@
+{
+  "question": "How much catalog authoring does admission require, how far does each authored template reach, and how much of the authoring can a proposer take over?",
+  "scope": "Structural and automation quantities only; not analyst time or expertise. Admitted drafts are contract-valid, not executed.",
+  "summary": {
+    "automation": {
+      "admitted": 226,
+      "proposals": 238,
+      "rejected": 12,
+      "rejected_by_code": {
+        "unbindable_parameter": 2,
+        "unknown_predicate": 10
+      }
+    },
+    "covered_steps": 252,
+    "covered_techniques": 26,
+    "max_fields": 12,
+    "median_fields": 8,
+    "steps_per_template": 9.0,
+    "templates": 28,
+    "total_fields": 216
+  },
+  "templates": [
+    {
+      "effects": 3,
+      "evidence_predicates": 1,
+      "fields": 7,
+      "parameters": 2,
+      "requirements": 1,
+      "template_id": "stage-benign-toolkit"
+    },
+    {
+      "effects": 2,
+      "evidence_predicates": 2,
+      "fields": 9,
+      "parameters": 3,
+      "requirements": 2,
+      "template_id": "probe-declared-public-service"
+    },
+    {
+      "effects": 3,
+      "evidence_predicates": 2,
+      "fields": 8,
+      "parameters": 2,
+      "requirements": 1,
+      "template_id": "run-benign-python"
+    },
+    {
+      "effects": 3,
+      "evidence_predicates": 2,
+      "fields": 8,
+      "parameters": 2,
+      "requirements": 1,
+      "template_id": "write-lab-shell-config"
+    },
+    {
+      "effects": 1,
+      "evidence_predicates": 1,
+      "fields": 6,
+      "parameters": 2,
+      "requirements": 2,
+      "template_id": "assess-privilege-boundary"
+    },
+    {
+      "effects": 3,
+      "evidence_predicates": 1,
+      "fields": 7,
+      "parameters": 2,
+      "requirements": 1,
+      "template_id": "encode-benign-artifact"
+    },
+    {
+      "effects": 3,
+      "evidence_predicates": 2,
+      "fields": 8,
+      "parameters": 2,
+      "requirements": 1,
+      "template_id": "read-declared-credential-fixture"
+    },
+    {
+      "effects": 2,
+      "evidence_predicates": 1,
+      "fields": 6,
+      "parameters": 2,
+      "requirements": 1,
+      "template_id": "inspect-declared-network"
+    },
+    {
+      "effects": 4,
+      "evidence_predicates": 1,
+      "fields": 12,
+      "parameters": 3,
+      "requirements": 4,
+      "template_id": "transfer-benign-payload"
+    },
+    {
+      "effects": 3,
+      "evidence_predicates": 2,
+      "fields": 8,
+      "parameters": 2,
+      "requirements": 1,
+      "template_id": "run-bounded-compute-workload"
+    },
+    {
+      "effects": 1,
+      "evidence_predicates": 2,
+      "fields": 6,
+      "parameters": 2,
+      "requirements": 1,
+      "template_id": "record-controlled-domain"
+    },
+    {
+      "effects": 1,
+      "evidence_predicates": 2,
+      "fields": 6,
+      "parameters": 2,
+      "requirements": 1,
+      "template_id": "record-controlled-compromised-domain"
+    },
+    {
+      "effects": 1,
+      "evidence_predicates": 2,
+      "fields": 6,
+      "parameters": 2,
+      "requirements": 1,
+      "template_id": "specify-benign-capability"
+    },
+    {
+      "effects": 1,
+      "evidence_predicates": 2,
+      "fields": 6,
+      "parameters": 2,
+      "requirements": 1,
+      "template_id": "stage-benign-payload"
+    },
+    {
+      "effects": 1,
+      "evidence_predicates": 2,
+      "fields": 6,
+      "parameters": 2,
+      "requirements": 1,
+      "template_id": "stage-benign-tool"
+    },
+    {
+      "effects": 1,
+      "evidence_predicates": 2,
+      "fields": 6,
+      "parameters": 2,
+      "requirements": 1,
+      "template_id": "stage-lab-web-target"
+    },
+    {
+      "effects": 3,
+      "evidence_predicates": 2,
+      "fields": 9,
+      "parameters": 2,
+      "requirements": 2,
+      "template_id": "visit-declared-web-target"
+    },
+    {
+      "effects": 4,
+      "evidence_predicates": 1,
+      "fields": 12,
+      "parameters": 3,
+      "requirements": 4,
+      "template_id": "transfer-staged-benign-tool"
+    },
+    {
+      "effects": 2,
+      "evidence_predicates": 2,
+      "fields": 7,
+      "parameters": 2,
+      "requirements": 1,
+      "template_id": "resolve-lab-domain"
+    },
+    {
+      "effects": 4,
+      "evidence_predicates": 1,
+      "fields": 11,
+      "parameters": 3,
+      "requirements": 3,
+      "template_id": "transfer-over-resolved-lab-channel"
+    },
+    {
+      "effects": 3,
+      "evidence_predicates": 2,
+      "fields": 9,
+      "parameters": 2,
+      "requirements": 2,
+      "template_id": "collect-declared-data-fixture"
+    },
+    {
+      "effects": 1,
+      "evidence_predicates": 2,
+      "fields": 8,
+      "parameters": 2,
+      "requirements": 3,
+      "template_id": "archive-declared-collection"
+    },
+    {
+      "effects": 2,
+      "evidence_predicates": 2,
+      "fields": 7,
+      "parameters": 2,
+      "requirements": 1,
+      "template_id": "split-declared-archive"
+    },
+    {
+      "effects": 3,
+      "evidence_predicates": 2,
+      "fields": 8,
+      "parameters": 2,
+      "requirements": 1,
+      "template_id": "collect-local-files"
+    },
+    {
+      "effects": 3,
+      "evidence_predicates": 2,
+      "fields": 9,
+      "parameters": 2,
+      "requirements": 2,
+      "template_id": "stage-local-archive"
+    },
+    {
+      "effects": 1,
+      "evidence_predicates": 1,
+      "fields": 5,
+      "parameters": 1,
+      "requirements": 2,
+      "template_id": "delete-staged-tool"
+    },
+    {
+      "effects": 1,
+      "evidence_predicates": 2,
+      "fields": 8,
+      "parameters": 3,
+      "requirements": 2,
+      "template_id": "beacon-over-web-protocol"
+    },
+    {
+      "effects": 1,
+      "evidence_predicates": 2,
+      "fields": 8,
+      "parameters": 3,
+      "requirements": 2,
+      "template_id": "exfiltrate-archive-to-declared-store"
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "qwen3.6:latest",
+    "provider": "openai",
+    "review_pending": true,
+    "run_id": "stage2-qwen36-r1",
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This benign laboratory harness systematically purges recorded network connection artifacts and resets configuration files to simulate adversary cleanup operations.",
+    "evidence_predicates": [
+      "file_absence_recorded",
+      "interface_snapshot_recorded"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "iface_binding": "network_interface"
+    },
+    "produces": [
+      "cleared_connection_log",
+      "reset_config_state"
+    ],
+    "requires": [
+      "active_network_connections",
+      "config_file_path"
+    ],
+    "technique_ids": [
+      "T1070.007"
+    ],
+    "template_id": "clear-network-connection-history"
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "campaign_id": "C0026",
+  "question": "Does the verified procedure depend on which proposer supplied it?",
+  "controlled_conditions": {
+    "action_catalog_sha256": "3624cf7ac33205c9825be64f1a269590d1fe6bf4516dd051cda02a6c41525cb6",
+    "system_prompt_sha256": "1902b33801c89e6dd3902776539b569f6fbb4822627bef259d9b943a80bf22c2",
+    "temperature": 0.7,
+    "max_output_tokens": 4000,
+    "retry_policy": "none: a single request per run, and a malformed or inadmissible proposal is rejected rather than retried",
+    "held_constant": [
+      "system prompt",
+      "action catalog",
+      "binding catalog",
+      "procedural plan",
+      "temperature",
+      "max output tokens",
+      "verifier version",
+      "admissibility scope"
+    ],
+    "varied_across_runs": [
+      "model",
+      "sampling seed (implicit, temperature 0.7)"
+    ]
+  },
+  "observations": [
+    {
+      "proposer": "finite_domain_solver",
+      "temperature": null,
+      "sample": null,
+      "usable_proposals": 0,
+      "malformed_proposals": 0,
+      "committed_from_proposer": 0,
+      "committed_steps": 6,
+      "execution_semantic_sha256": "ed09e8d5fe3915f19405024d59989c27148c84d1608c2af665511a6e5d53ad56",
+      "call_record_path": null,
+      "call_record_sha256": null
+    },
+    {
+      "proposer": "gpt-oss:20b",
+      "temperature": 0.7,
+      "sample": 1,
+      "usable_proposals": 6,
+      "malformed_proposals": 0,
+      "committed_from_proposer": 5,
+      "committed_steps": 6,
+      "execution_semantic_sha256": "ed09e8d5fe3915f19405024d59989c27148c84d1608c2af665511a6e5d53ad56",
+      "call_record_path": "calls/C0026/gpt-oss-20b/1/call_record.json",
+      "call_record_sha256": "a46faaf32ab163316a6aa5e9aab00316ba17f041712202287d724a39b24de36f"
+    },
+    {
+      "proposer": "gpt-oss:20b",
+      "temperature": 0.7,
+      "sample": 2,
+      "usable_proposals": 6,
+      "malformed_proposals": 0,
+      "committed_from_proposer": 5,
+      "committed_steps": 6,
+      "execution_semantic_sha256": "ed09e8d5fe3915f19405024d59989c27148c84d1608c2af665511a6e5d53ad56",
+      "call_record_path": "calls/C0026/gpt-oss-20b/2/call_record.json",
+      "call_record_sha256": "bd74e13ae8dbb67552d5e8966698d5e68030e45b4b0a4c1c77e320425d87ee32"
+    },
+    {
+      "proposer": "qwen2.5-coder:14b",
+      "temperature": 0.7,
+      "sample": 1,
+      "usable_proposals": 4,
+      "malformed_proposals": 0,
+      "committed_from_proposer": 4,
+      "committed_steps": 6,
+      "execution_semantic_sha256": "ed09e8d5fe3915f19405024d59989c27148c84d1608c2af665511a6e5d53ad56",
+      "call_record_path": "calls/C0026/qwen2-5-coder-14b/1/call_record.json",
+      "call_record_sha256": "eef44d73e513530a4a1426798c46865a44d5ce7c6de8a94ba87cdffd35182d8a"
+    }
+  ],
+  "distinct_execution_hashes": 1,
+  "converged": true,
+  "note": "Local models are sampled at temperature 0.7, so proposals vary between runs while the committed plan does not. Convergence is a property of the verifier over a finite catalog, not agreement between models."
+}

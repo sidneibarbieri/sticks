@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure demonstrates the Pass the Hash technique by authenticating to a target host using captured password hashes.",
+    "evidence_predicates": [
+      "archive_hash_recorded",
+      "source_and_destination_hashes_match"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "credential_source": "credential_source",
+      "target_host": "target_host"
+    },
+    "produces": [
+      "authentication using password hash"
+    ],
+    "requires": [
+      "valid password hashes captured",
+      "target host accessible"
+    ],
+    "technique_ids": [
+      "T1550.002"
+    ],
+    "template_id": "pass-the-hash-laboratory-harness"
+  }
+}

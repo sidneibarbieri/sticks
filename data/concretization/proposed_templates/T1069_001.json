@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure queries the local groups on a target system to gather information about user permissions.",
+    "evidence_predicates": [
+      "fixture_access_logged",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "command": "toolkit",
+      "os": "target_host"
+    },
+    "produces": [
+      "list of local groups and their members"
+    ],
+    "requires": [
+      "target system is accessible",
+      "appropriate permissions to query local groups"
+    ],
+    "technique_ids": [
+      "T1069.001"
+    ],
+    "template_id": "local-groups-query"
+  }
+}

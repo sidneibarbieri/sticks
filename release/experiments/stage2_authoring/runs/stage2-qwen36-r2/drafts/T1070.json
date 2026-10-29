@@ -1,0 +1,35 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "qwen3.6:latest",
+    "provider": "openai",
+    "review_pending": true,
+    "run_id": "stage2-qwen36-r2",
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This benign laboratory harness selectively purges and verifies the hash of designated log artifacts to simulate controlled indicator removal without disrupting system operations.",
+    "evidence_predicates": [
+      "file_absence_recorded",
+      "artifact_hash_recorded"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "artifact_path": "archive_artifact",
+      "log_target": "data_source"
+    },
+    "produces": [
+      "indicator_state_modified",
+      "artifact_hash_verified"
+    ],
+    "requires": [
+      "artifact_path_resolved",
+      "cleanup_scope_defined"
+    ],
+    "technique_ids": [
+      "T1070"
+    ],
+    "template_id": "t1070_indicator_cleanup_harness"
+  }
+}

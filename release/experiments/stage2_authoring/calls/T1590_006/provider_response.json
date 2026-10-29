@@ -1,0 +1,36 @@
+{
+  "id": "chatcmpl-EOgJGeCc49MlJolfOHSCulDLyUDg4",
+  "object": "chat.completion",
+  "created": 1789551218,
+  "model": "gpt-4o-mini-2024-07-18",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"template_id\": \"gather-network-security-appliances-info\",\n  \"technique_ids\": [\n    \"T1590.006\"\n  ],\n  \"execution_domain\": \"target\",\n  \"parameter_kinds\": {\n    \"target_host\": \"target_host\",\n    \"network_interface\": \"network_interface\"\n  },\n  \"requires\": [\n    \"access to the target network\",\n    \"knowledge of network architecture\"\n  ],\n  \"produces\": [\n    \"network security appliance details collected\"\n  ],\n  \"evidence_predicates\": [\n    \"interface_snapshot_recorded\",\n    \"collection_manifest_recorded\"\n  ],\n  \"fidelity_ceiling\": \"adapted\",\n  \"description\": \"This procedure gathers information about network security appliances within the target environment.\"\n}",
+        "refusal": null,
+        "annotations": []
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 816,
+    "completion_tokens": 159,
+    "total_tokens": 975,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_c577bb8647"
+}

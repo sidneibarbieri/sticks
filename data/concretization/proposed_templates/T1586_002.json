@@ -1,0 +1,34 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure simulates the compromise of an email account to establish trust with a target persona.",
+    "evidence_predicates": [
+      "archive_hash_recorded",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "email_account": "credential_source",
+      "target_persona": "web_asset"
+    },
+    "produces": [
+      "email account compromised",
+      "trust established with target"
+    ],
+    "requires": [
+      "existing email account",
+      "target persona relationship"
+    ],
+    "technique_ids": [
+      "T1586.002"
+    ],
+    "template_id": "compromise-email-accounts-laboratory"
+  }
+}

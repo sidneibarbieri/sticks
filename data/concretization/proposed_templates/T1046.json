@@ -1,0 +1,35 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure performs a network service discovery to identify services running on a specified target host.",
+    "evidence_predicates": [
+      "service_request_logged",
+      "interface_snapshot_recorded"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "network_interface": "network_interface",
+      "target_host": "target_host",
+      "toolkit": "toolkit"
+    },
+    "produces": [
+      "service listing generated",
+      "network interface snapshot recorded"
+    ],
+    "requires": [
+      "target host is reachable",
+      "network interface is configured"
+    ],
+    "technique_ids": [
+      "T1046"
+    ],
+    "template_id": "network-service-discovery-laboratory-harness"
+  }
+}

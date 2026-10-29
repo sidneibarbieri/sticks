@@ -1,0 +1,34 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure template outlines the execution of a benign .hta file using mshta.exe to observe its behavior in a controlled environment.",
+    "evidence_predicates": [
+      "process_exit_recorded",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "execution_context": "runtime",
+      "hta_file": "encoded_artifact"
+    },
+    "produces": [
+      "execution of the .hta file is logged",
+      "process exit status of mshta.exe is recorded"
+    ],
+    "requires": [
+      "mshta.exe is available on the system",
+      "a valid .hta file is prepared for execution"
+    ],
+    "technique_ids": [
+      "T1218.005"
+    ],
+    "template_id": "mshta-execution-laboratory-harness"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure gathers information about the software installed on a target host to aid in further targeting efforts.",
+    "evidence_predicates": [
+      "collection_manifest_recorded",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "data_source": "data_source",
+      "target_host": "target_host"
+    },
+    "produces": [
+      "software information collected"
+    ],
+    "requires": [
+      "target host is accessible",
+      "data collection tools are available"
+    ],
+    "technique_ids": [
+      "T1592.002"
+    ],
+    "template_id": "gather-host-software-information"
+  }
+}

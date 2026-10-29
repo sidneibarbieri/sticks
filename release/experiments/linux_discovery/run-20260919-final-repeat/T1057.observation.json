@@ -1,0 +1,10 @@
+{
+  "argv": [
+    "cat",
+    "/proc/1/comm"
+  ],
+  "exit_code": 0,
+  "stdout": "sleep\n",
+  "stderr": "",
+  "stdout_sha256": "9fee736a97a043c3988e5ea2dbb9f8b0e4dbdbbf135ba7ba61ea0bdc0b53cbad"
+}

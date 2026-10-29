@@ -1,0 +1,18 @@
+{
+  "schema_version": "c0045-compute-effect-series/v2",
+  "source_study_sha256": "0a26db0503b05b4cf78a6586d724a07c0b225a31b6669409a97da1ea45def105",
+  "prior_treatment_run": "81674e0b6b1a49039c4a259e1e315b4c",
+  "prior_treatment_role": "diagnostic_excluded",
+  "unit": "fresh_guest_boot_per_cell",
+  "selected_cells": [
+    "b1-treatment", "b1-busy", "b1-idle", "b1-controller_only",
+    "b2-busy", "b2-idle", "b2-controller_only", "b2-treatment",
+    "b3-idle", "b3-controller_only", "b3-treatment", "b3-busy",
+    "b4-controller_only", "b4-treatment", "b4-busy", "b4-idle",
+    "b5-treatment", "b5-busy", "b5-idle", "b5-controller_only"
+  ],
+  "stopping_rule": "run_all_20_selected_cells_record_failures_and_unsupported",
+  "claim_ceiling": "bounded_guest_compute_controlled_calibration_only",
+  "predecessor_series_sha256": "2bd4172f91cf73033ba727b6f4bcc5c07b707a3994316b0c2777c35a8a10d5d1",
+  "predecessor_status": "interrupted_post_boot_dependency_failure"
+}

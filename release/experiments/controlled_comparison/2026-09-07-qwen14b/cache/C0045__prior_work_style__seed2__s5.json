@@ -1,0 +1,13 @@
+{
+  "campaign_id": "C0045",
+  "arm_id": "prior_work_style",
+  "seed": 2,
+  "step_id": "s5",
+  "emitted": true,
+  "abstained": false,
+  "oracle_admitted": true,
+  "template_id": "assess-privilege-boundary",
+  "proposal_sha256": "0545099a16d39a8f101cf66c68dc5e6d9a1312548920e8f4a8b9def9d7c8c00a",
+  "issue_codes": [],
+  "parse_error": null
+}

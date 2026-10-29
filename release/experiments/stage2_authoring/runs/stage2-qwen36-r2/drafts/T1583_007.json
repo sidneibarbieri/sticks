@@ -1,0 +1,35 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "qwen3.6:latest",
+    "provider": "openai",
+    "review_pending": true,
+    "run_id": "stage2-qwen36-r2",
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "Benign laboratory harness that provisions and verifies a serverless cloud function to simulate infrastructure acquisition.",
+    "evidence_predicates": [
+      "http_status_recorded",
+      "web_asset_hash_recorded"
+    ],
+    "execution_domain": "attacker",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "deployed_url": "endpoint",
+      "function_code": "capability_specification"
+    },
+    "produces": [
+      "serverless_endpoint",
+      "deployment_manifest"
+    ],
+    "requires": [
+      "cloud_credentials",
+      "runtime_config"
+    ],
+    "technique_ids": [
+      "T1583.007"
+    ],
+    "template_id": "serverless-provision-harness"
+  }
+}

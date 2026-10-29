@@ -1,0 +1,15 @@
+{
+  "campaign_id": "C0010",
+  "arm_id": "prior_work_style",
+  "seed": 1,
+  "step_id": "s9",
+  "emitted": true,
+  "abstained": false,
+  "oracle_admitted": false,
+  "template_id": "transfer-benign-payload",
+  "proposal_sha256": "d9f3d0e2f3a32c68bc6a7247e04ff08842265d48fbf93f16812501dcd1ad2729",
+  "issue_codes": [
+    "UNSATISFIED_PRECONDITIONS"
+  ],
+  "parse_error": null
+}

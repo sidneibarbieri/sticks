@@ -1,0 +1,13 @@
+{
+  "campaign_id": "C0010",
+  "arm_id": "prior_work_style",
+  "seed": 5,
+  "step_id": "s8",
+  "emitted": true,
+  "abstained": false,
+  "oracle_admitted": true,
+  "template_id": "visit-declared-web-target",
+  "proposal_sha256": "364cc93b648773689569066390124f817f6a2c163f7b28ae07f78d550ebf8701",
+  "issue_codes": [],
+  "parse_error": null
+}

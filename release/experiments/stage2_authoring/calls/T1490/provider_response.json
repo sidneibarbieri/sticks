@@ -1,0 +1,36 @@
+{
+  "id": "chatcmpl-EOgHPmUBfImp7w0MeHZafUDsQybG2",
+  "object": "chat.completion",
+  "created": 1789551103,
+  "model": "gpt-4o-mini-2024-07-18",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"template_id\": \"inhibit-system-recovery-laboratory-harness\",\n  \"technique_ids\": [\"T1490\"],\n  \"execution_domain\": \"target\",\n  \"parameter_kinds\": {\n    \"target_host\": \"target_host\",\n    \"backup_service\": \"service_request_logged\"\n  },\n  \"requires\": [\n    \"system recovery features enabled\",\n    \"backup catalog present\"\n  ],\n  \"produces\": [\n    \"backup service disabled\",\n    \"system recovery features removed\"\n  ],\n  \"evidence_predicates\": [\n    \"file_absence_recorded\",\n    \"service_request_logged\"\n  ],\n  \"fidelity_ceiling\": \"adapted\",\n  \"description\": \"This procedure disables system recovery features to simulate the impact of adversarial actions on a target system.\"\n}",
+        "refusal": null,
+        "annotations": []
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 835,
+    "completion_tokens": 166,
+    "total_tokens": 1001,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_ffcc7ece91"
+}

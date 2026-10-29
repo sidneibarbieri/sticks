@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure gathers information on Group Policy settings within a controlled Active Directory environment.",
+    "evidence_predicates": [
+      "fixture_access_logged",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "domain_name": "data_source",
+      "gpo_path": "data_source"
+    },
+    "produces": [
+      "GPO settings information gathered"
+    ],
+    "requires": [
+      "Active Directory environment configured",
+      "Group Policy Objects available"
+    ],
+    "technique_ids": [
+      "T1615"
+    ],
+    "template_id": "group-policy-discovery-laboratory-harness"
+  }
+}

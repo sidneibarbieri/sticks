@@ -1,0 +1,17 @@
+{
+  "baseline_name": "Atomic Red Team technique index",
+  "baseline_reach_share": 0.664,
+  "baseline_reach_steps": 761,
+  "baseline_techniques": 344,
+  "baseline_uncovered_steps": 385,
+  "distinct_corpus_techniques": 320,
+  "matching_policy": "exact_technique_id",
+  "note": "Exact identifier membership only; parent and sibling identifiers do not imply support. Library metadata and dependencies are not evaluated here. Reach does not establish binding, admission, execution, or effect certification.",
+  "our_reach_share": 0.2199,
+  "our_reach_steps": 252,
+  "our_techniques": 26,
+  "question": "How much of the compiled corpus does a large public atomic library reach, compared with our catalog?",
+  "total_campaigns": 55,
+  "total_steps": 1146,
+  "union_uncovered_steps": 280
+}

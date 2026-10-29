@@ -1,0 +1,36 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "qwen3.6:latest",
+    "provider": "openai",
+    "review_pending": true,
+    "run_id": "stage2-qwen36-r2",
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "Benign laboratory harness that registers a harmless executable under the current user's HKCU Run key to simulate persistence without executing malicious code.",
+    "evidence_predicates": [
+      "artifact_hash_recorded",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "payload_exe": "encoded_artifact",
+      "run_key_path": "shell_config_artifact",
+      "target_host": "target_host"
+    },
+    "produces": [
+      "run_key_persistence_established",
+      "startup_entry_created"
+    ],
+    "requires": [
+      "registry_write_access",
+      "current_user_session"
+    ],
+    "technique_ids": [
+      "T1547.001"
+    ],
+    "template_id": "benign_registry_run_key_harness"
+  }
+}

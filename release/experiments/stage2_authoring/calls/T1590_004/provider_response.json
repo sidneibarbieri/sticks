@@ -1,0 +1,36 @@
+{
+  "id": "chatcmpl-EOgJEHmE9mhqLbRmIxpxCkxjhkmwO",
+  "object": "chat.completion",
+  "created": 1789551216,
+  "model": "gpt-4o-mini-2024-07-18",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"template_id\": \"gather-network-topology-information\",\n  \"technique_ids\": [\n    \"T1590.004\"\n  ],\n  \"execution_domain\": \"target\",\n  \"parameter_kinds\": {\n    \"network_interface\": \"network_interface\",\n    \"target_host\": \"target_host\"\n  },\n  \"requires\": [\n    \"network_interface is available\",\n    \"target_host is reachable\"\n  ],\n  \"produces\": [\n    \"network topology information collected\"\n  ],\n  \"evidence_predicates\": [\n    \"interface_snapshot_recorded\",\n    \"bounded_effect_observed\"\n  ],\n  \"fidelity_ceiling\": \"adapted\",\n  \"description\": \"This procedure gathers information about the network topology of the target environment.\"\n}",
+        "refusal": null,
+        "annotations": []
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 821,
+    "completion_tokens": 156,
+    "total_tokens": 977,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_c577bb8647"
+}

@@ -1,0 +1,13 @@
+{
+  "campaign_id": "C0026",
+  "arm_id": "sticks_admitted",
+  "seed": 3,
+  "step_id": "s1",
+  "emitted": true,
+  "abstained": false,
+  "oracle_admitted": true,
+  "template_id": "record-controlled-domain",
+  "proposal_sha256": "505c58b4ae9630984455e80a182594d20d300894e6d68c1566ca519d62ac93d6",
+  "issue_codes": [],
+  "parse_error": null
+}

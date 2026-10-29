@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure modifies a user document template to include references that may conceal malicious code.",
+    "evidence_predicates": [
+      "archive_hash_recorded",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "document": "archive_artifact",
+      "template": "archive_artifact"
+    },
+    "produces": [
+      "modified document template with references"
+    ],
+    "requires": [
+      "user document template exists",
+      "malicious code is defined"
+    ],
+    "technique_ids": [
+      "T1221"
+    ],
+    "template_id": "template-injection-laboratory-harness"
+  }
+}

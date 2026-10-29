@@ -1,0 +1,11 @@
+{
+  "argv": [
+    "ls",
+    "-1",
+    "/workspace/discovery"
+  ],
+  "exit_code": 0,
+  "stdout": "alpha.txt\nbeta.txt\n",
+  "stderr": "",
+  "stdout_sha256": "5f7593845081b19f501f7889c6edf1a8dcdd4e8a416cbe1d4ea601c950f9087b"
+}

@@ -1,0 +1,34 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure establishes a cloud account and configures a service to ensure accessibility and operational status.",
+    "evidence_predicates": [
+      "http_request_logged",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "cloud_account": "credential_source",
+      "service": "web_asset"
+    },
+    "produces": [
+      "cloud account accessible",
+      "service operational"
+    ],
+    "requires": [
+      "cloud account created",
+      "service configured"
+    ],
+    "technique_ids": [
+      "T1078.004"
+    ],
+    "template_id": "cloud-accounts-laboratory-harness"
+  }
+}

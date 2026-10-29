@@ -1,0 +1,34 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure scans a specified range of IP addresses to identify active hosts and gather network information.",
+    "evidence_predicates": [
+      "interface_snapshot_recorded",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "network_interface": "network_interface",
+      "target_host": "target_host"
+    },
+    "produces": [
+      "active IP addresses identified",
+      "host information gathered"
+    ],
+    "requires": [
+      "target_host is reachable",
+      "network_interface is configured"
+    ],
+    "technique_ids": [
+      "T1595.001"
+    ],
+    "template_id": "scanning-ip-blocks-laboratory-harness"
+  }
+}

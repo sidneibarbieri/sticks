@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure decodes obfuscated files using a specified decoding tool in a controlled laboratory environment.",
+    "evidence_predicates": [
+      "artifact_hash_recorded",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "encoded_artifact": "encoded_artifact",
+      "tool": "toolkit"
+    },
+    "produces": [
+      "decoded artifact available"
+    ],
+    "requires": [
+      "encoded artifact present",
+      "decoding tool available"
+    ],
+    "technique_ids": [
+      "T1140"
+    ],
+    "template_id": "deobfuscate-decode-files-or-information-laboratory-harness"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "id": "chatcmpl-EOK3WX7oexVjLSFz6Ci6ZHFJTusMM",
+  "object": "chat.completion",
+  "created": 1789465674,
+  "model": "gpt-4o-mini-2024-07-18",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"template_id\": \"create-windows-service-for-persistence\",\n  \"technique_ids\": [\"T1543.003\"],\n  \"execution_domain\": \"target\",\n  \"parameter_kinds\": {\n    \"service_name\": \"shell_config_artifact\",\n    \"executable_path\": \"payload\"\n  },\n  \"requires\": [\n    \"Windows operating system\",\n    \"Administrative privileges\"\n  ],\n  \"produces\": [\n    \"Windows service created\"\n  ],\n  \"evidence_predicates\": [\n    \"service_request_logged\",\n    \"bounded_effect_observed\"\n  ],\n  \"fidelity_ceiling\": \"adapted\",\n  \"description\": \"This procedure creates a Windows service that executes a specified payload at system startup.\"\n}",
+        "refusal": null,
+        "annotations": []
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 814,
+    "completion_tokens": 152,
+    "total_tokens": 966,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_ffcc7ece91"
+}

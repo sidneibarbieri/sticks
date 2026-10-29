@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure collects detailed system information from the target system using a specified tool.",
+    "evidence_predicates": [
+      "fixture_access_logged",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "target_system": "target_host",
+      "tool": "toolkit"
+    },
+    "produces": [
+      "system information collected"
+    ],
+    "requires": [
+      "tool is available",
+      "target system is accessible"
+    ],
+    "technique_ids": [
+      "T1082"
+    ],
+    "template_id": "system-information-discovery-laboratory-harness"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "id": "chatcmpl-EOgEaWEc0WFdpygs9lm9Dooy09z1y",
+  "object": "chat.completion",
+  "created": 1789550928,
+  "model": "gpt-4o-mini-2024-07-18",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"template_id\": \"gather-email-addresses-laboratory-harness\",\n  \"technique_ids\": [\n    \"T1589.002\"\n  ],\n  \"execution_domain\": \"target\",\n  \"parameter_kinds\": {\n    \"email_source\": \"data_source\",\n    \"target_website\": \"web_asset\"\n  },\n  \"requires\": [\n    \"publicly accessible email addresses\",\n    \"target websites with employee information\"\n  ],\n  \"produces\": [\n    \"list of gathered email addresses\"\n  ],\n  \"evidence_predicates\": [\n    \"collection_manifest_recorded\",\n    \"bounded_effect_observed\"\n  ],\n  \"fidelity_ceiling\": \"adapted\",\n  \"description\": \"This procedure gathers email addresses from publicly available sources to simulate data collection for analysis.\"\n}",
+        "refusal": null,
+        "annotations": []
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 839,
+    "completion_tokens": 167,
+    "total_tokens": 1006,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_c577bb8647"
+}

@@ -1,0 +1,36 @@
+{
+  "id": "chatcmpl-EOgJcCWiKeN6hgkJ97niUuRQxa7vE",
+  "object": "chat.completion",
+  "created": 1789551240,
+  "model": "gpt-4o-mini-2024-07-18",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"template_id\": \"network-device-configuration-dump-laboratory-harness\",\n  \"technique_ids\": [\n    \"T1602.002\"\n  ],\n  \"execution_domain\": \"target\",\n  \"parameter_kinds\": {\n    \"target_host\": \"target_host\",\n    \"network_interface\": \"network_interface\"\n  },\n  \"requires\": [\n    \"network device operational\",\n    \"access to configuration files\"\n  ],\n  \"produces\": [\n    \"configuration file accessed\",\n    \"sensitive data revealed\"\n  ],\n  \"evidence_predicates\": [\n    \"file_count_recorded\",\n    \"bounded_effect_observed\"\n  ],\n  \"fidelity_ceiling\": \"adapted\",\n  \"description\": \"This procedure simulates accessing and dumping the configuration files of a network device to analyze the sensitive data contained within.\"\n}",
+        "refusal": null,
+        "annotations": []
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 813,
+    "completion_tokens": 175,
+    "total_tokens": 988,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_c577bb8647"
+}

@@ -1,0 +1,20 @@
+{
+  "all_records_attest_independence": false,
+  "annotation_record_count": 0,
+  "claim_id": "STICKS-P16",
+  "distinct_annotator_count": 0,
+  "lexical_concordance": null,
+  "lexical_item_count": 27,
+  "lexical_record_sha256": "b5d807cb8d46c4c969d1caf264c108cb4a95b2ff986c4442d991e070f93a973d",
+  "pairwise_agreement": [],
+  "paper_eligible": false,
+  "protocol_id": "sticks-p16-lateral-grounding-v1",
+  "protocol_sha256": "1b4ca33ac27af263673c215eb5927b336bf466bd5c3767319851b2350425707c",
+  "reasons": [
+    "requires_at_least_2_annotation_records",
+    "requires_at_least_2_distinct_annotators"
+  ],
+  "schema_version": "1.0.0",
+  "status": "pending",
+  "task_packet_sha256": "80e2546a624a3975eee0356a989580c8ceb1e30235618b9c2ce5557de65b96ac"
+}

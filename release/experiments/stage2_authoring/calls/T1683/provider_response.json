@@ -1,0 +1,36 @@
+{
+  "id": "chatcmpl-EOgJx2nXkvDyWdR3TT9A73pw4ilGC",
+  "object": "chat.completion",
+  "created": 1789551261,
+  "model": "gpt-4o-mini-2024-07-18",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"template_id\": \"generate-content-laboratory-harness\",\n  \"technique_ids\": [\n    \"T1683\"\n  ],\n  \"execution_domain\": \"target\",\n  \"parameter_kinds\": {\n    \"content\": \"web_asset\",\n    \"source\": \"data_source\"\n  },\n  \"requires\": [\n    \"content_source_available\",\n    \"target_audience_identified\"\n  ],\n  \"produces\": [\n    \"generated_content_available\"\n  ],\n  \"evidence_predicates\": [\n    \"web_asset_hash_recorded\",\n    \"bounded_effect_observed\"\n  ],\n  \"fidelity_ceiling\": \"adapted\",\n  \"description\": \"This procedure generates content tailored for a specific target audience to simulate adversarial content creation.\"\n}",
+        "refusal": null,
+        "annotations": []
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 824,
+    "completion_tokens": 157,
+    "total_tokens": 981,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_c577bb8647"
+}

@@ -1,0 +1,32 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure creates a benign SQL stored procedure to demonstrate the functionality and persistence mechanism of stored procedures in a controlled environment.",
+    "evidence_predicates": [
+      "artifact_hash_recorded",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "stored_procedure": "capability_specification"
+    },
+    "produces": [
+      "stored procedure created"
+    ],
+    "requires": [
+      "database server is accessible",
+      "user has permission to create stored procedures"
+    ],
+    "technique_ids": [
+      "T1505.001"
+    ],
+    "template_id": "sql-stored-procedures-lab-harness"
+  }
+}

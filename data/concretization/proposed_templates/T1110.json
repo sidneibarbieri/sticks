@@ -1,0 +1,37 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure simulates a brute force attack on a target host to test the resilience of password policies.",
+    "evidence_predicates": [
+      "http_request_logged",
+      "fixture_access_logged",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "credential_source": "credential_source",
+      "target_host": "target_host",
+      "toolkit": "toolkit"
+    },
+    "produces": [
+      "attempted password guesses logged",
+      "success or failure of password attempts recorded"
+    ],
+    "requires": [
+      "target host is accessible",
+      "credential source is available",
+      "toolkit for brute forcing is configured"
+    ],
+    "technique_ids": [
+      "T1110"
+    ],
+    "template_id": "brute-force-password-guessing"
+  }
+}

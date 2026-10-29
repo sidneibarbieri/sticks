@@ -1,0 +1,35 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "qwen3.6:latest",
+    "provider": "openai",
+    "review_pending": true,
+    "run_id": "stage2-qwen36-r1",
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "A benign laboratory harness that simulates data exfiltration to a configurable webhook endpoint using standard HTTP POST requests.",
+    "evidence_predicates": [
+      "http_request_logged",
+      "bytes_transferred_recorded"
+    ],
+    "execution_domain": "attacker",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "payload_artifact": "encoded_artifact",
+      "webhook_url": "endpoint"
+    },
+    "produces": [
+      "webhook_response_recorded",
+      "payload_bytes_transferred"
+    ],
+    "requires": [
+      "actor_host_binding",
+      "network_interface_binding"
+    ],
+    "technique_ids": [
+      "T1567.004"
+    ],
+    "template_id": "exfil-over-webhook-harness"
+  }
+}

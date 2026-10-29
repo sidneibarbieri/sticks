@@ -1,0 +1,36 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "qwen3.6:latest",
+    "provider": "openai",
+    "review_pending": true,
+    "run_id": "stage2-qwen36-r1",
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This benign laboratory harness simulates the safe deletion of mailbox data to verify anti-forensic detection capabilities without impacting production systems.",
+    "evidence_predicates": [
+      "file_absence_recorded",
+      "cleanup_verified"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "deletion_tool": "archive_tool",
+      "mailbox_path": "data_source",
+      "target_host": "target_host"
+    },
+    "produces": [
+      "mailbox_entries_removed",
+      "deletion_log_generated"
+    ],
+    "requires": [
+      "mailbox_data_present",
+      "deletion_tool_available"
+    ],
+    "technique_ids": [
+      "T1070.008"
+    ],
+    "template_id": "clear-mailbox-data-harness"
+  }
+}

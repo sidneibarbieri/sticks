@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure modifies the permissions of a specified file or directory on a Linux or Mac system.",
+    "evidence_predicates": [
+      "file_count_recorded",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "privilege_boundary": "privilege_boundary",
+      "target_host": "target_host"
+    },
+    "produces": [
+      "file permissions modified"
+    ],
+    "requires": [
+      "user has permission to modify file attributes",
+      "target file or directory exists"
+    ],
+    "technique_ids": [
+      "T1222.002"
+    ],
+    "template_id": "modify-linux-mac-permissions"
+  }
+}

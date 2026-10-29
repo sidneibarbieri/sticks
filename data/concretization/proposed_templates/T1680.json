@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure enumerates local storage devices on an ESXi host using esxcli commands to gather attributes such as total space and volume serial numbers.",
+    "evidence_predicates": [
+      "interface_snapshot_recorded",
+      "file_count_recorded"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "command": "toolkit",
+      "storage_device": "data_source"
+    },
+    "produces": [
+      "list of storage devices and their attributes"
+    ],
+    "requires": [
+      "access to the ESXi host",
+      "appropriate permissions to execute esxcli commands"
+    ],
+    "technique_ids": [
+      "T1680"
+    ],
+    "template_id": "local-storage-discovery-laboratory-harness"
+  }
+}

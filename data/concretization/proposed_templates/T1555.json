@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure retrieves credentials from a specified password store on a target system for analysis.",
+    "evidence_predicates": [
+      "fixture_access_logged",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "password_store": "credential_source",
+      "target_system": "target_host"
+    },
+    "produces": [
+      "credentials retrieved from password store"
+    ],
+    "requires": [
+      "target_system is accessible",
+      "password_store is configured"
+    ],
+    "technique_ids": [
+      "T1555"
+    ],
+    "template_id": "credentials-from-password-stores-laboratory-harness"
+  }
+}

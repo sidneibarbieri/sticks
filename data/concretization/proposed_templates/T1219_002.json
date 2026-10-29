@@ -1,0 +1,34 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure establishes a connection to a target system using remote desktop software to verify control capabilities.",
+    "evidence_predicates": [
+      "bounded_effect_observed",
+      "fixture_access_logged"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "remote_tool": "toolkit",
+      "target_system": "target_host"
+    },
+    "produces": [
+      "remote_tool connection established",
+      "target_system control verified"
+    ],
+    "requires": [
+      "remote_tool is configured",
+      "target_system is accessible"
+    ],
+    "technique_ids": [
+      "T1219.002"
+    ],
+    "template_id": "remote-desktop-software-laboratory-harness"
+  }
+}

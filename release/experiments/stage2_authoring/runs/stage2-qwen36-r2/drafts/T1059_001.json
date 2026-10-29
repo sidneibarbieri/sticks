@@ -1,0 +1,35 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "qwen3.6:latest",
+    "provider": "openai",
+    "review_pending": true,
+    "run_id": "stage2-qwen36-r2",
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "Executes a benign PowerShell script on the target host to validate process creation and output capture mechanisms.",
+    "evidence_predicates": [
+      "process_exit_recorded",
+      "stdout_hash_recorded"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "host": "target_host",
+      "script": "capability_specification"
+    },
+    "produces": [
+      "process_id",
+      "stdout_hash"
+    ],
+    "requires": [
+      "target_host",
+      "capability_specification"
+    ],
+    "technique_ids": [
+      "T1059.001"
+    ],
+    "template_id": "benign-powershell-execution-harness"
+  }
+}

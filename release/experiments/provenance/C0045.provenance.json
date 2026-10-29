@@ -1,0 +1,219 @@
+{
+  "taxonomy_version": "1",
+  "campaign_id": "C0045",
+  "total_steps": 10,
+  "total_binding_occurrences": 22,
+  "binding_occurrence_counts": {
+    "cti_evidenced": 0,
+    "environment_determined": 16,
+    "runtime_derived": 0,
+    "system_introduced": 6
+  },
+  "unique_binding_count": 13,
+  "unique_binding_counts": {
+    "cti_evidenced": 0,
+    "environment_determined": 7,
+    "runtime_derived": 0,
+    "system_introduced": 6
+  },
+  "mechanism_counts": {
+    "contract_forced": 10,
+    "proposer_chosen": 0
+  },
+  "cti_binding_rate": 0.0,
+  "environment_binding_rate": 0.7272727272727273,
+  "system_introduced_rate": 0.2727272727272727,
+  "proposer_chosen_mechanism_rate": 0.0,
+  "steps": [
+    {
+      "sequence": 1,
+      "technique_id": "T1588.002",
+      "template_id": "stage-benign-toolkit",
+      "mechanism": "contract_forced",
+      "bindings": [
+        {
+          "parameter": "actor",
+          "binding_id": "actor.primary",
+          "provenance": "environment_determined"
+        },
+        {
+          "parameter": "toolkit",
+          "binding_id": "toolkit.benign",
+          "provenance": "system_introduced"
+        }
+      ]
+    },
+    {
+      "sequence": 2,
+      "technique_id": "T1190",
+      "template_id": "probe-declared-public-service",
+      "mechanism": "contract_forced",
+      "bindings": [
+        {
+          "parameter": "actor",
+          "binding_id": "actor.primary",
+          "provenance": "environment_determined"
+        },
+        {
+          "parameter": "endpoint",
+          "binding_id": "endpoint.public_service",
+          "provenance": "environment_determined"
+        },
+        {
+          "parameter": "target",
+          "binding_id": "target.primary",
+          "provenance": "environment_determined"
+        }
+      ]
+    },
+    {
+      "sequence": 3,
+      "technique_id": "T1059.006",
+      "template_id": "run-benign-python",
+      "mechanism": "contract_forced",
+      "bindings": [
+        {
+          "parameter": "runtime",
+          "binding_id": "runtime.python3",
+          "provenance": "environment_determined"
+        },
+        {
+          "parameter": "target",
+          "binding_id": "target.primary",
+          "provenance": "environment_determined"
+        }
+      ]
+    },
+    {
+      "sequence": 4,
+      "technique_id": "T1546.004",
+      "template_id": "write-lab-shell-config",
+      "mechanism": "contract_forced",
+      "bindings": [
+        {
+          "parameter": "artifact",
+          "binding_id": "artifact.shell_config",
+          "provenance": "system_introduced"
+        },
+        {
+          "parameter": "target",
+          "binding_id": "target.primary",
+          "provenance": "environment_determined"
+        }
+      ]
+    },
+    {
+      "sequence": 5,
+      "technique_id": "T1068",
+      "template_id": "assess-privilege-boundary",
+      "mechanism": "contract_forced",
+      "bindings": [
+        {
+          "parameter": "boundary",
+          "binding_id": "boundary.no_live_exploit",
+          "provenance": "system_introduced"
+        },
+        {
+          "parameter": "target",
+          "binding_id": "target.primary",
+          "provenance": "environment_determined"
+        }
+      ]
+    },
+    {
+      "sequence": 6,
+      "technique_id": "T1027.013",
+      "template_id": "encode-benign-artifact",
+      "mechanism": "contract_forced",
+      "bindings": [
+        {
+          "parameter": "artifact",
+          "binding_id": "artifact.encoded",
+          "provenance": "system_introduced"
+        },
+        {
+          "parameter": "target",
+          "binding_id": "target.primary",
+          "provenance": "environment_determined"
+        }
+      ]
+    },
+    {
+      "sequence": 7,
+      "technique_id": "T1003.008",
+      "template_id": "read-declared-credential-fixture",
+      "mechanism": "contract_forced",
+      "bindings": [
+        {
+          "parameter": "credential_source",
+          "binding_id": "credential.synthetic_fixture",
+          "provenance": "environment_determined"
+        },
+        {
+          "parameter": "target",
+          "binding_id": "target.primary",
+          "provenance": "environment_determined"
+        }
+      ]
+    },
+    {
+      "sequence": 8,
+      "technique_id": "T1016",
+      "template_id": "inspect-declared-network",
+      "mechanism": "contract_forced",
+      "bindings": [
+        {
+          "parameter": "interface",
+          "binding_id": "network.private_interface",
+          "provenance": "environment_determined"
+        },
+        {
+          "parameter": "target",
+          "binding_id": "target.primary",
+          "provenance": "environment_determined"
+        }
+      ]
+    },
+    {
+      "sequence": 9,
+      "technique_id": "T1105",
+      "template_id": "transfer-benign-payload",
+      "mechanism": "contract_forced",
+      "bindings": [
+        {
+          "parameter": "channel",
+          "binding_id": "channel.private_http",
+          "provenance": "environment_determined"
+        },
+        {
+          "parameter": "payload",
+          "binding_id": "payload.benign",
+          "provenance": "system_introduced"
+        },
+        {
+          "parameter": "target",
+          "binding_id": "target.primary",
+          "provenance": "environment_determined"
+        }
+      ]
+    },
+    {
+      "sequence": 10,
+      "technique_id": "T1496.001",
+      "template_id": "run-bounded-compute-workload",
+      "mechanism": "contract_forced",
+      "bindings": [
+        {
+          "parameter": "target",
+          "binding_id": "target.primary",
+          "provenance": "environment_determined"
+        },
+        {
+          "parameter": "workload",
+          "binding_id": "workload.bounded_hash",
+          "provenance": "system_introduced"
+        }
+      ]
+    }
+  ]
+}

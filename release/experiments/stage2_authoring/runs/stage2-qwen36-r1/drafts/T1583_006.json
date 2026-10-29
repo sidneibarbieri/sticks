@@ -1,0 +1,35 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "qwen3.6:latest",
+    "provider": "openai",
+    "review_pending": true,
+    "run_id": "stage2-qwen36-r1",
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This benign laboratory harness simulates the registration of a new web service account to validate provisioning workflows and network egress logging.",
+    "evidence_predicates": [
+      "http_status_recorded",
+      "service_request_logged"
+    ],
+    "execution_domain": "attacker",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "registrar_host": "actor_host",
+      "service_domain": "web_asset"
+    },
+    "produces": [
+      "registered_service_url",
+      "service_account_id"
+    ],
+    "requires": [
+      "target_domain_name",
+      "registrar_credentials"
+    ],
+    "technique_ids": [
+      "T1583.006"
+    ],
+    "template_id": "lab-register-web-service"
+  }
+}

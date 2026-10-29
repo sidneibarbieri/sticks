@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure collects data from a specified database using a valid query.",
+    "evidence_predicates": [
+      "collection_manifest_recorded",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "database": "data_source",
+      "query": "capability_specification"
+    },
+    "produces": [
+      "data_collected_from_database"
+    ],
+    "requires": [
+      "database_access_granted",
+      "query_syntax_valid"
+    ],
+    "technique_ids": [
+      "T1213.006"
+    ],
+    "template_id": "database-information-collection"
+  }
+}

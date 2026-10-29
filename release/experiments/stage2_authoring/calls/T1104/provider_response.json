@@ -1,0 +1,36 @@
+{
+  "id": "chatcmpl-EOgGd7nroDVs7VW6LScAE5Rjqlypv",
+  "object": "chat.completion",
+  "created": 1789551055,
+  "model": "gpt-4o-mini-2024-07-18",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"template_id\": \"multi-stage-channels-laboratory-harness\",\n  \"technique_ids\": [\"T1104\"],\n  \"execution_domain\": \"target\",\n  \"parameter_kinds\": {\n    \"first_stage\": \"payload\",\n    \"second_stage\": \"payload\",\n    \"command_channel\": \"channel\"\n  },\n  \"requires\": [\n    \"first stage payload deployed\",\n    \"second stage payload ready\"\n  ],\n  \"produces\": [\n    \"first stage command channel established\",\n    \"second stage command channel ready\"\n  ],\n  \"evidence_predicates\": [\n    \"http_request_logged\",\n    \"bounded_effect_observed\"\n  ],\n  \"fidelity_ceiling\": \"adapted\",\n  \"description\": \"This procedure simulates the establishment of multi-stage command and control channels for testing detection capabilities.\"\n}",
+        "refusal": null,
+        "annotations": []
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 817,
+    "completion_tokens": 172,
+    "total_tokens": 989,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_c577bb8647"
+}

@@ -1,0 +1,36 @@
+{
+  "id": "chatcmpl-EOgK0Cif2OFYnGA7z52EMq9ryXXUn",
+  "object": "chat.completion",
+  "created": 1789551264,
+  "model": "gpt-4o-mini-2024-07-18",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"template_id\": \"downgrade-attack-laboratory-harness\",\n  \"technique_ids\": [\"T1689\"],\n  \"execution_domain\": \"target\",\n  \"parameter_kinds\": {\n    \"target_host\": \"target_host\",\n    \"network_interface\": \"network_interface\"\n  },\n  \"requires\": [\n    \"system features are available\",\n    \"backward compatibility is enabled\"\n  ],\n  \"produces\": [\n    \"less secure system mode established\"\n  ],\n  \"evidence_predicates\": [\n    \"bounded_effect_observed\",\n    \"interface_snapshot_recorded\"\n  ],\n  \"fidelity_ceiling\": \"adapted\",\n  \"description\": \"This procedure simulates a downgrade attack by forcing a system to operate in a less secure mode.\"\n}",
+        "refusal": null,
+        "annotations": []
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 840,
+    "completion_tokens": 162,
+    "total_tokens": 1002,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_c577bb8647"
+}

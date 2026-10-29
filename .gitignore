@@ -1,0 +1,198 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+.env
+.venv
+.venv-qa/
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# STICKS specific
+results/evidence/*/artifacts/
+results/evidence/*/per_technique/
+results/evidence/batch_*/
+release/evidence/*/artifacts/
+release/evidence/*/per_technique/
+release/evidence/batch_*/
+sticks/data/state/
+sticks/data/artifacts/
+lab/vagrant/.vagrant/
+.vagrant/
+
+# Temporary files
+*.tmp
+*.temp
+/tmp/
+temp/
+
+# LaTeX
+*.aux
+*.log
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.synctex.gz
+*.out
+*.toc
+*.lot
+*.lof
+
+# Logs
+*.log
+logs/
+
+# Test coverage
+htmlcov/
+.coverage
+.coverage.*
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Generated evidence (regeneratable)
+results/evidence/
+release/evidence/
+release/realistic_data/
+release/sut_reports/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Temp artifacts from executors
+/tmp/sticks_*
+
+# Local provider configuration and credentials.
+config.json
+config.local.json
+config.*.local.json
+.env
+.env.*
+
+# Generated evidence (regeneratable)
+results/evidence/
+release/evidence/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Temp artifacts from executors
+/tmp/sticks_*
+data/artifacts/browser_request_*
+data/artifacts/compromise_*
+data/artifacts/credential_*
+data/artifacts/discovery_*
+data/artifacts/execution_*
+data/artifacts/exfil_*
+data/artifacts/lateral_*
+data/artifacts/persistence_*
+data/artifacts/shadowray_*
+data/artifacts/sticks_*
+
+# Generated artifacts
+data/artifacts/browser_request_*
+data/artifacts/compromise_*
+data/artifacts/credential_*
+data/artifacts/discovery_*
+data/artifacts/execution_*
+data/artifacts/exfil_*
+data/artifacts/lateral_*
+data/artifacts/persistence_*
+data/artifacts/shadowray_*
+data/artifacts/sticks_*
+
+# Python cache
+__pycache__/
+*.pyc
+
+# generated at runtime — not part of the artifact source
+results/evidence/
+release/evidence/
+data/artifacts/browser_request_*
+data/artifacts/compromise_*
+data/artifacts/credential_*
+data/artifacts/discovery_*
+data/artifacts/execution_*
+data/artifacts/exfil_*
+data/artifacts/lateral_*
+data/artifacts/persistence_*
+data/artifacts/shadowray_*
+data/artifacts/sticks_*
+__pycache__/
+*.pyc
+*.pyo
+data/artifacts/
+results/tables/all_tables_*.tex
+
+# Lab runtime state — regenerated locally and never part of source or evidence.
+lab/docker-campaign/kali-data/
+lab/docker-campaign/.docker/
+lab/qemu/images/
+lab/qemu/runtime/
+**/.bash_history
+**/.viminfo
+**/.wget-hsts
+
+# Vagrant machine state (not part of the artifact)
+lab/vagrant/**/.vagrant/
+
+# Host-specific timing observation, deliberately outside the frozen evidence surface.
+release/experiments/enumeration_scaling/timing.json
+results/enumeration_scaling_timing.json
+results/PUBLIC_SURFACE_REPORT.md
+results/public_surface_report.json
+config.author.local.json
+/runs/

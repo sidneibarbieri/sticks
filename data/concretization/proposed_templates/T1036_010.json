@@ -1,0 +1,34 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure creates a new account that mimics the name of a legitimate account to observe the effects of masquerading in a controlled environment.",
+    "evidence_predicates": [
+      "artifact_hash_recorded",
+      "fixture_access_logged",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "account_name": "credential_source",
+      "service_name": "data_source"
+    },
+    "produces": [
+      "a newly created account with a masqueraded name"
+    ],
+    "requires": [
+      "a legitimate account name",
+      "a service associated with the account"
+    ],
+    "technique_ids": [
+      "T1036.010"
+    ],
+    "template_id": "masquerade-account-name-laboratory-harness"
+  }
+}

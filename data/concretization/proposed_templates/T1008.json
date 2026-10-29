@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure establishes a fallback communication channel to ensure continuous command and control capabilities.",
+    "evidence_predicates": [
+      "http_request_logged",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "backup_endpoint": "endpoint",
+      "communication_channel": "channel"
+    },
+    "produces": [
+      "fallback communication channel operational"
+    ],
+    "requires": [
+      "primary communication channel established",
+      "backup communication channel configured"
+    ],
+    "technique_ids": [
+      "T1008"
+    ],
+    "template_id": "fallback-channels-laboratory-harness"
+  }
+}

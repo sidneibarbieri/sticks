@@ -1,0 +1,36 @@
+{
+  "id": "chatcmpl-EOgGFTdq9iO6RxEeugUfzQkZNBRJe",
+  "object": "chat.completion",
+  "created": 1789551031,
+  "model": "gpt-4o-mini-2024-07-18",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"template_id\": \"cron-scheduling-lab-harness\",\n  \"technique_ids\": [\n    \"T1053.003\"\n  ],\n  \"execution_domain\": \"target\",\n  \"parameter_kinds\": {\n    \"cron_job\": \"shell_config_artifact\",\n    \"execution_time\": \"runtime\"\n  },\n  \"requires\": [\n    \"cron utility installed\",\n    \"valid crontab file path\"\n  ],\n  \"produces\": [\n    \"cron job scheduled\"\n  ],\n  \"evidence_predicates\": [\n    \"bounded_effect_observed\",\n    \"cron job scheduled\"\n  ],\n  \"fidelity_ceiling\": \"adapted\",\n  \"description\": \"This procedure schedules a cron job to execute a benign script at specified intervals.\"\n}",
+        "refusal": null,
+        "annotations": []
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 842,
+    "completion_tokens": 159,
+    "total_tokens": 1001,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_c577bb8647"
+}

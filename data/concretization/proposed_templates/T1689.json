@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure simulates a downgrade attack by forcing a system to operate in a less secure mode.",
+    "evidence_predicates": [
+      "bounded_effect_observed",
+      "interface_snapshot_recorded"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "network_interface": "network_interface",
+      "target_host": "target_host"
+    },
+    "produces": [
+      "less secure system mode established"
+    ],
+    "requires": [
+      "system features are available",
+      "backward compatibility is enabled"
+    ],
+    "technique_ids": [
+      "T1689"
+    ],
+    "template_id": "downgrade-attack-laboratory-harness"
+  }
+}

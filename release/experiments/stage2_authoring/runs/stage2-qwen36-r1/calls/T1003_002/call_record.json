@@ -1,0 +1,14 @@
+{
+  "schema_version": "1",
+  "provider": "openai",
+  "model": "qwen3.6:latest",
+  "request_sha256": "fca90aaa75651f4142f5e453908a6d6938c46f65715f43df9c32d9dabcb1ef6f",
+  "response_sha256": "70e2e21b350d79ed8fc61e3cc89937f7d0425bb512bd20397e97bd45c560e7a8",
+  "usage": {
+    "prompt_tokens": 851,
+    "completion_tokens": 3906,
+    "estimated_usd": 0.0
+  },
+  "raw_response_path": "provider_response.json",
+  "content_sha256": "cf8fa001a72579d419fe7064657dc73ef318e1381a7a2427290c04fc9d1da860"
+}

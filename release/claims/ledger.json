@@ -1,0 +1,1056 @@
+{
+  "schema_version": "2",
+  "model": "STICKS is a finite-domain procedural admissibility model. Procedural realizations are versioned typed templates, admissibility is decided by deterministic constraint checking against an explicitly scoped campaign state, and execution is certified against declared evidence predicates.",
+  "description": "Properties the model claims and the chain that demonstrates each: statement, support type, frozen evidence, validation tests, and the wording the manuscript may and may not use. A property enters the manuscript through its claim_id; verify_claims.py checks the chain and the manuscript reference.",
+  "claims": [
+    {
+      "claim_id": "STICKS-B01",
+      "statement": "Admissible realizations are behaviorally equivalent over the full observable surface.",
+      "status": "blocked",
+      "support_type": "manual_validation",
+      "scope_restriction": "Requires process and network telemetry the local substrate does not capture. Equality on observed effect and evidence is not observational equivalence."
+    },
+    {
+      "claim_id": "STICKS-B02",
+      "statement": "The admitted realization is the procedure the adversary historically executed.",
+      "status": "blocked",
+      "support_type": "manual_validation",
+      "scope_restriction": "STICKS certifies a realization admissible under the available CTI constraints; it does not infer historical adversary behavior. The manuscript states this explicitly."
+    },
+    {
+      "claim_id": "STICKS-B03",
+      "statement": "The system replays campaigns end to end against a live environment.",
+      "status": "blocked",
+      "support_type": "controlled_experiment",
+      "scope_restriction": "Executed evidence covers selected templates on a local substrate, not full campaign replay in the lab."
+    },
+    {
+      "claim_id": "STICKS-B04",
+      "statement": "The system reduces analyst time or effort.",
+      "status": "blocked",
+      "support_type": "manual_validation",
+      "scope_restriction": "No user study was conducted; only the count of explicit execution commitments is measured."
+    },
+    {
+      "claim_id": "STICKS-P01",
+      "statement": "Admission is deterministic: fixed catalog, bindings, and scoped state yield the same admitted realization and the same execution-semantic hash on every run.",
+      "status": "supported",
+      "support_type": "implementation_invariant",
+      "unit_of_analysis": "campaign plan",
+      "population": "3 deeply evaluated campaigns, 25 steps",
+      "evidence_paths": [
+        "release/plans/C0045.binding-catalog.json",
+        "release/plans/C0045.procedural-plan.json",
+        "release/plans/C0010.procedural-plan.json",
+        "release/plans/C0026.procedural-plan.json"
+      ],
+      "test_paths": [
+        "tests/test_deterministic_concretization.py"
+      ],
+      "permitted_wording": "Under a fixed verifier version, catalog, bindings, and scoped state, admission is deterministic and reproduces the same execution-semantic hash.",
+      "forbidden_wording": [
+        "STICKS guarantees unique procedural reconstruction",
+        "deterministic reconstruction of adversary behavior"
+      ],
+      "quantities": [
+        {
+          "literal": "25",
+          "reduction": "total",
+          "evidence_paths": [
+            "release/plans/C0010.procedural-plan.json",
+            "release/plans/C0026.procedural-plan.json",
+            "release/plans/C0045.procedural-plan.json"
+          ],
+          "field_paths": [
+            "steps"
+          ],
+          "accessor": "length"
+        }
+      ]
+    },
+    {
+      "claim_id": "STICKS-P02",
+      "statement": "Enumeration over the finite candidate domain is complete: every candidate is examined, and a truncated set is never reported as complete.",
+      "status": "supported",
+      "support_type": "implementation_invariant",
+      "unit_of_analysis": "plan step",
+      "population": "all evaluated steps; largest observed candidate set is 3",
+      "evidence_paths": [
+        "release/experiments/substitution/corpus.json"
+      ],
+      "test_paths": [
+        "tests/test_admissibility_scope.py"
+      ],
+      "permitted_wording": "Within the versioned catalog, candidate enumeration is exhaustive and fails loud rather than truncating.",
+      "forbidden_wording": [
+        "complete over all possible procedural realizations",
+        "complete synthesis of attack programs"
+      ]
+    },
+    {
+      "claim_id": "STICKS-P03",
+      "statement": "Campaign state is explicitly scoped: admissibility is decided against a hypothetical, initial, or sequential fact state, and a state cannot be consumed under a scope other than its own.",
+      "status": "supported",
+      "support_type": "implementation_invariant",
+      "unit_of_analysis": "plan step",
+      "population": "C0045 T1105 step: 3 admitted hypothetically, 0 initially, 1 sequentially",
+      "evidence_paths": [
+        "release/experiments/behavioral_substitution/T1105.substitution.json"
+      ],
+      "test_paths": [
+        "tests/test_admissibility_scope.py",
+        "tests/test_fact_state.py"
+      ],
+      "permitted_wording": "The verifier requires an explicitly scoped state object and rejects scope mismatches at run time.",
+      "forbidden_wording": [
+        "the type system statically prevents scope confusion",
+        "formally verified state semantics"
+      ]
+    },
+    {
+      "claim_id": "STICKS-P04",
+      "statement": "Every executable binding carries provenance: each decision is attributed to the report, the declared environment, a run-time derivation, or the reconstruction, under a frozen taxonomy with fail-closed classification.",
+      "status": "supported",
+      "support_type": "corpus_measurement",
+      "unit_of_analysis": "binding occurrence",
+      "population": "3 campaigns, 54 binding occurrences",
+      "evidence_paths": [
+        "release/experiments/provenance/C0010.provenance.json",
+        "release/experiments/provenance/C0026.provenance.json",
+        "release/experiments/provenance/C0045.provenance.json",
+        "release/experiments/provenance/source_coverage.json",
+        "release/experiments/provenance/TAXONOMY.md"
+      ],
+      "test_paths": [
+        "tests/test_provenance.py",
+        "tests/test_provenance_conformance.py"
+      ],
+      "permitted_wording": "Across the evaluated campaigns, no concrete executable binding was supplied directly by the CTI; 62-73% were resolved from the declared environment and the remainder were introduced by the reconstruction and recorded as such.",
+      "forbidden_wording": [
+        "the provenance taxonomy is semantically validated",
+        "system-introduced bindings are fabricated adversary behavior"
+      ],
+      "quantities": [
+        {
+          "literal": "54",
+          "reduction": "total",
+          "evidence_paths": [
+            "release/experiments/provenance/C0010.provenance.json",
+            "release/experiments/provenance/C0026.provenance.json",
+            "release/experiments/provenance/C0045.provenance.json"
+          ],
+          "field_paths": [
+            "total_binding_occurrences"
+          ]
+        }
+      ]
+    },
+    {
+      "claim_id": "STICKS-P05",
+      "statement": "Structured CTI alone does not satisfy the execution requirements the pipeline enforces: under one admission pipeline, the unaugmented representation admits no executable step while the reconstructed contracts admit every step.",
+      "status": "supported",
+      "support_type": "controlled_experiment",
+      "unit_of_analysis": "plan step",
+      "population": "3 campaigns, 25 steps",
+      "evidence_paths": [
+        "release/experiments/enrichment_baseline/C0010.baseline.json",
+        "release/experiments/enrichment_baseline/C0026.baseline.json",
+        "release/experiments/enrichment_baseline/C0045.baseline.json"
+      ],
+      "test_paths": [
+        "tests/test_enrichment_baseline.py"
+      ],
+      "permitted_wording": "Under the same admission pipeline, the unaugmented ATT&CK-in-STIX representation admitted 0 of 25 steps as executable, while the reconstructed contracts admitted all 25.",
+      "forbidden_wording": [
+        "structured CTI contains no procedural information",
+        "STICKS supplies the attack steps"
+      ],
+      "quantities": [
+        {
+          "literal": "3",
+          "reduction": "document_count",
+          "evidence_paths": [
+            "release/experiments/enrichment_baseline/C0010.baseline.json",
+            "release/experiments/enrichment_baseline/C0026.baseline.json",
+            "release/experiments/enrichment_baseline/C0045.baseline.json"
+          ]
+        },
+        {
+          "literal": "25",
+          "reduction": "total",
+          "evidence_paths": [
+            "release/experiments/enrichment_baseline/C0010.baseline.json",
+            "release/experiments/enrichment_baseline/C0026.baseline.json",
+            "release/experiments/enrichment_baseline/C0045.baseline.json"
+          ],
+          "field_paths": [
+            "total_steps"
+          ],
+          "accessor": "value"
+        }
+      ]
+    },
+    {
+      "claim_id": "STICKS-P06",
+      "statement": "Procedural behavior is defined as an action instantiated with an execution mechanism, environment bindings, explicit preconditions, expected effects, and evidence predicates; the definition is machine-checkable on real output.",
+      "status": "supported",
+      "support_type": "formal_argument",
+      "unit_of_analysis": "procedural element",
+      "population": "canonical representatives plus a real concretized step",
+      "evidence_paths": [
+        "release/experiments/procedural_behavior/comparison.json",
+        "release/experiments/procedural_behavior/DEFINITION.md"
+      ],
+      "test_paths": [
+        "tests/test_procedural_behavior.py"
+      ],
+      "permitted_wording": "STICKS requires two properties a technique-and-flow representation does not by itself guarantee: executable environment grounding and effect verification.",
+      "forbidden_wording": [
+        "Attack Flow cannot express preconditions",
+        "STICKS is strictly more expressive than Attack Flow"
+      ]
+    },
+    {
+      "claim_id": "STICKS-P07",
+      "statement": "The reconstruction makes its procedural commitments explicit and countable: the executable contracts encode 79 commitments across the evaluated campaigns, 25 mechanism selections and 54 binding resolutions.",
+      "status": "supported",
+      "support_type": "corpus_measurement",
+      "unit_of_analysis": "execution commitment",
+      "population": "3 campaigns, 25 steps",
+      "evidence_paths": [
+        "release/experiments/execution_commitments/C0010.commitments.json",
+        "release/experiments/execution_commitments/C0026.commitments.json",
+        "release/experiments/execution_commitments/C0045.commitments.json"
+      ],
+      "test_paths": [
+        "tests/test_execution_commitments.py"
+      ],
+      "permitted_wording": "The executable contracts explicitly encode 79 procedural commitments, quantifying the procedural information the reconstruction makes explicit.",
+      "forbidden_wording": [
+        "STICKS saves analyst time",
+        "79 decisions a human would otherwise make manually"
+      ],
+      "quantities": [
+        {
+          "literal": "3",
+          "reduction": "document_count",
+          "evidence_paths": [
+            "release/experiments/execution_commitments/C0010.commitments.json",
+            "release/experiments/execution_commitments/C0026.commitments.json",
+            "release/experiments/execution_commitments/C0045.commitments.json"
+          ]
+        },
+        {
+          "literal": "25",
+          "reduction": "total",
+          "evidence_paths": [
+            "release/experiments/execution_commitments/C0010.commitments.json",
+            "release/experiments/execution_commitments/C0026.commitments.json",
+            "release/experiments/execution_commitments/C0045.commitments.json"
+          ],
+          "field_paths": [
+            "mechanism_commitments"
+          ]
+        },
+        {
+          "literal": "54",
+          "reduction": "total",
+          "evidence_paths": [
+            "release/experiments/execution_commitments/C0010.commitments.json",
+            "release/experiments/execution_commitments/C0026.commitments.json",
+            "release/experiments/execution_commitments/C0045.commitments.json"
+          ],
+          "field_paths": [
+            "binding_commitments"
+          ]
+        },
+        {
+          "literal": "79",
+          "reduction": "total",
+          "evidence_paths": [
+            "release/experiments/execution_commitments/C0010.commitments.json",
+            "release/experiments/execution_commitments/C0026.commitments.json",
+            "release/experiments/execution_commitments/C0045.commitments.json"
+          ],
+          "field_paths": [
+            "total_execution_commitments"
+          ]
+        }
+      ]
+    },
+    {
+      "claim_id": "STICKS-P08",
+      "statement": "Catalog-level multiplicity is measurable across the corpus: of 1146 steps in 55 campaigns, the versioned catalog supports 252, among which no step admits alternatives with divergent declared evidence signatures.",
+      "status": "supported",
+      "support_type": "corpus_measurement",
+      "unit_of_analysis": "plan step",
+      "population": "55 campaigns, 1146 steps, 252 catalog-supported",
+      "evidence_paths": [
+        "release/experiments/substitution/corpus.json"
+      ],
+      "test_paths": [
+        "tests/test_substitution.py"
+      ],
+      "permitted_wording": "Across 55 campaigns containing 1146 steps, the current catalog supported 252 steps; among those, no step admitted alternatives with divergent declared evidence signatures.",
+      "forbidden_wording": [
+        "ATT&CK campaigns are procedurally unambiguous",
+        "procedural ambiguity does not exist"
+      ]
+    },
+    {
+      "claim_id": "STICKS-P09",
+      "statement": "Execution is certified against declared evidence predicates rather than exit status: admitted realizations are evaluated on observed effect and predicate satisfaction.",
+      "status": "supported",
+      "support_type": "controlled_experiment",
+      "unit_of_analysis": "executed realization",
+      "population": "3 T1105 transport realizations on the local substrate",
+      "evidence_paths": [
+        "release/experiments/behavioral_substitution/T1105.substitution.json",
+        "release/experiments/behavioral_substitution/README.md"
+      ],
+      "test_paths": [
+        "tests/test_local_transport_realizations.py"
+      ],
+      "permitted_wording": "Three transport realizations produced identical terminal effects and satisfied identical evidence predicates under the observers available on the local substrate.",
+      "forbidden_wording": [
+        "the realizations are behaviorally equivalent",
+        "operational equivalence confirmed"
+      ]
+    },
+    {
+      "claim_id": "STICKS-P10",
+      "statement": "Reported results are reproducible from the artifact: a clean checkout regenerates every frozen record byte-identically and re-audits every registered claim.",
+      "status": "supported",
+      "support_type": "implementation_invariant",
+      "unit_of_analysis": "artifact",
+      "population": "full evidence set",
+      "evidence_paths": [
+        "release/claims/evidence_sha256.json"
+      ],
+      "test_paths": [
+        "tests/test_claim_ledger.py",
+        "tests/test_claim_integrity.py"
+      ],
+      "permitted_wording": "A clean checkout reproduces every reported record byte-identically and re-audits every registered claim.",
+      "forbidden_wording": [
+        "the results are independently validated"
+      ]
+    },
+    {
+      "claim_id": "STICKS-P11",
+      "statement": "Admission is safe against the proposer: no proposal naming an unknown template, the wrong technique, or an unavailable binding can be committed; the committed plan is identical to the plan committed with no proposal.",
+      "status": "supported",
+      "support_type": "controlled_experiment",
+      "unit_of_analysis": "campaign plan",
+      "population": "C0045, three inadmissible proposal kinds",
+      "evidence_paths": [
+        "release/experiments/admission_safety/C0045.admission_safety.json"
+      ],
+      "test_paths": [
+        "tests/test_admission_safety.py"
+      ],
+      "permitted_wording": "No proposal that fails admission can be committed; inadmissible proposals leave the committed plan unchanged.",
+      "forbidden_wording": [
+        "the committed procedure is independent of who proposes it",
+        "any proposer yields the same procedure"
+      ]
+    },
+    {
+      "claim_id": "STICKS-P12",
+      "statement": "The admitted plan is independent of its proposer: across three campaigns and two model families sampled at temperature 0.7, every proposer commits the execution semantics the solver commits with no proposal.",
+      "status": "supported",
+      "support_type": "controlled_experiment",
+      "unit_of_analysis": "campaign plan",
+      "population": "3 campaigns, 12 proposer observations, two model families and the solver",
+      "evidence_paths": [
+        "release/experiments/proposer_convergence/C0010.convergence.json",
+        "release/experiments/proposer_convergence/C0026.convergence.json",
+        "release/experiments/proposer_convergence/C0045.convergence.json"
+      ],
+      "test_paths": [
+        "tests/test_proposer_convergence.py"
+      ],
+      "permitted_wording": "Holding prompt, catalog, bindings, temperature, and verifier fixed and varying only the model, every proposer committed one execution semantics per campaign.",
+      "forbidden_wording": [
+        "the models agree with each other",
+        "any language model reconstructs the campaign correctly"
+      ],
+      "quantities": [
+        {
+          "literal": "3",
+          "reduction": "document_count",
+          "evidence_paths": [
+            "release/experiments/proposer_convergence/C0010.convergence.json",
+            "release/experiments/proposer_convergence/C0026.convergence.json",
+            "release/experiments/proposer_convergence/C0045.convergence.json"
+          ]
+        },
+        {
+          "literal": "12",
+          "reduction": "total",
+          "evidence_paths": [
+            "release/experiments/proposer_convergence/C0010.convergence.json",
+            "release/experiments/proposer_convergence/C0026.convergence.json",
+            "release/experiments/proposer_convergence/C0045.convergence.json"
+          ],
+          "field_paths": [
+            "observations"
+          ],
+          "accessor": "length"
+        }
+      ]
+    },
+    {
+      "claim_id": "STICKS-P13",
+      "statement": "The declared environment can be derived from the action catalog instead of authored per campaign, which extends admission from three hand-authored campaigns to 46 of 55.",
+      "status": "supported",
+      "support_type": "corpus_measurement",
+      "unit_of_analysis": "plan step",
+      "population": "55 campaigns, 1146 steps, environments derived per plan",
+      "evidence_paths": [
+        "release/experiments/derived_environment/corpus.json"
+      ],
+      "test_paths": [
+        "tests/test_lab_environment.py"
+      ],
+      "permitted_wording": "Deriving the environment from the catalog admits 148 of 1146 steps across 55 campaigns, with at least one admitted step in 46 of them.",
+      "forbidden_wording": [
+        "the environment is reconstructed from the report",
+        "derived environments reproduce the victim network"
+      ],
+      "quantities": [
+        {
+          "literal": "46",
+          "reduction": "total",
+          "evidence_paths": [
+            "release/experiments/derived_environment/corpus.json"
+          ],
+          "field_paths": [
+            "campaigns_fully_admitted",
+            "campaigns_partially_admitted"
+          ]
+        }
+      ]
+    },
+    {
+      "claim_id": "STICKS-P14",
+      "statement": "In the pinned Enterprise bundle, campaigns reference 320 of 697 active techniques (45.9%) while intrusion sets reference 498 (71.4%); 168 techniques are referenced by neither population.",
+      "status": "supported",
+      "support_type": "corpus_measurement",
+      "unit_of_analysis": "ATT&CK technique",
+      "population": "697 active Enterprise techniques in the pinned bundle",
+      "evidence_paths": [
+        "release/experiments/corpus_characterization/corpus.json"
+      ],
+      "test_paths": [
+        "tests/test_corpus_characterization.py"
+      ],
+      "permitted_wording": "In the pinned Enterprise bundle, campaign objects reference 320 of 697 active techniques (45.9%) and intrusion sets reference 498 (71.4%).",
+      "forbidden_wording": [
+        "campaigns document 43% of adversary behavior",
+        "intrusion sets are procedurally complete",
+        "broader technique coverage implies executability"
+      ]
+    },
+    {
+      "claim_id": "STICKS-P15",
+      "statement": "Restricting proposers to the versioned catalog removes most of the disagreement between independent reconstructions; deterministic admission closes the remainder and makes the outcome a guarantee rather than a tendency.",
+      "status": "supported",
+      "support_type": "controlled_experiment",
+      "unit_of_analysis": "plan step",
+      "population": "25 steps across 3 campaigns; three arms with 6 reconstructions per step (2 local model families x 3 samples, temperature 0.7): no catalog and no verifier, catalog without admission, and the finite-domain arm; plus a temperature-0 control",
+      "table_population": "25 steps / 3 campaigns; 3 arms, 2 model families, 3 samples; temperature-0 control",
+      "evidence_paths": [
+        "release/experiments/unconstrained_divergence/corpus.json"
+      ],
+      "test_paths": [
+        "tests/test_unconstrained_reconstruction.py"
+      ],
+      "permitted_wording": "With no catalog and no verifier, proposers commit a mean of 5.9 distinct procedures per step and agree on 0.5% of pairs. Supplying the catalog without applying admission raises pairwise agreement to 88.5% and converges 20 of 25 steps on its own. The verifier closes the remainder and makes agreement a property of the committed plan rather than an observed tendency.",
+      "forbidden_wording": [
+        "the reconstruction recovers the adversary's procedure",
+        "the catalog is the only possible realization",
+        "proposers cannot agree",
+        "disabling sampling makes every proposer deterministic",
+        "the verifier is what makes independent reconstructions agree"
+      ],
+      "numeric_exemptions": [
+        {
+          "literal": "0.7",
+          "justification": "Declared sampling temperature for the proposer arms. It is a configuration input to the experiment, not a measured outcome, and the frozen corpus record carries it in the run description rather than as a numeric field."
+        }
+      ]
+    },
+    {
+      "claim_id": "STICKS-P16",
+      "statement": "The fixed lexical screen labels 6 of 27 credential-to-lateral-movement descriptions across 21 campaigns as credential-reuse matches and labels none of those matches as Linux host-to-host realizable under the declared backend rule. This is a reproducible screening result, not semantic adjudication or evidence of historical ordering.",
+      "status": "limited",
+      "support_type": "corpus_measurement",
+      "unit_of_analysis": "lateral-movement step in a compiled campaign plan",
+      "population": "27 remote-service/alternate-authentication steps in the 21 pinned campaigns that also contain a credential-access technique",
+      "evidence_paths": [
+        "release/experiments/lateral_movement_grounding/grounding.json",
+        "release/experiments/lateral_movement_grounding/adjudication/protocol.v1.json",
+        "release/experiments/lateral_movement_grounding/adjudication/task_packet.v1.json",
+        "release/experiments/lateral_movement_grounding/adjudication/status.v1.json"
+      ],
+      "test_paths": [
+        "tests/test_lateral_movement_grounding.py",
+        "tests/test_p16_adjudication.py"
+      ],
+      "permitted_wording": "The pinned corpus's deterministic lexical screen labels 6 of 27 eligible descriptions as credential-reuse matches and labels no such match Linux host-to-host realizable. The result requires the versioned P16 adjudication gate before paper-facing interpretation.",
+      "forbidden_wording": [
+        "the lexical screen establishes semantic grounding",
+        "the corpus establishes the causal order of adversary procedures",
+        "technique co-occurrence proves procedural dependency",
+        "STICKS reconstructs the historical ordering of a campaign"
+      ],
+      "scope_restriction": "No independent human adjudication record exists in this release. The lexical classifier output is preserved for audit and candidate selection, but P16 is not paper-ready until the versioned blinded protocol has at least two complete, distinct, attested annotation records with exact pairwise agreement and full concordance with the frozen lexical labels.",
+      "paper_readiness_gate": {
+        "kind": "independent_adjudication",
+        "protocol_path": "release/experiments/lateral_movement_grounding/adjudication/protocol.v1.json",
+        "status_path": "release/experiments/lateral_movement_grounding/adjudication/status.v1.json",
+        "required_status": "qualified"
+      }
+    },
+    {
+      "claim_id": "STICKS-P17",
+      "statement": "No comparative operational claim is asserted for P17. The historical proposal collections are retained for audit, while the revision-bound v10 execution seal records only the admitted STICKS arm and cannot establish superiority over an unexecuted prior-work feedback loop.",
+      "status": "blocked",
+      "support_type": "controlled_experiment",
+      "unit_of_analysis": "campaign step proposal",
+      "population": "Historical three-arm proposal collections and a separate v10 admitted-arm execution batch",
+      "permitted_wording": "The historical proposal collections remain archival. The revision-bound v10 batch executes only the admitted STICKS arm, so it does not support a comparative operational claim.",
+      "forbidden_wording": [
+        "STICKS executes campaigns end to end",
+        "admission eliminates human curation",
+        "STICKS outperforms prior systems at campaign execution",
+        "the verifier guarantees historical fidelity"
+      ],
+      "scope_restriction": "The historical rates have unpinned source and plan lineage. The v10 batch pins proposal inputs and seals admitted-arm effects, but neither runs a faithful prior-work execution-feedback loop nor measures comparative SUT outcomes.",
+      "paper_readiness_gate": {
+        "kind": "prospective_requalification",
+        "protocol_path": "CONTROLLED_COMPARISON.md",
+        "status_path": "release/experiments/controlled_comparison/qualification_status.json",
+        "required_status": "qualified"
+      }
+    },
+    {
+      "claim_id": "STICKS-P18",
+      "statement": "Requiring one evidence predicate per template is too weak to support an execution claim, so the catalog declares the role of all 40 predicate names once and admits a template only when its policy observes a state the template produces. All 28 templates meet that standard: none rests on a safety boundary or on process exit alone.",
+      "status": "supported",
+      "support_type": "implementation_invariant",
+      "unit_of_analysis": "action template",
+      "population": "28 catalog templates, 40 registered predicate names",
+      "table_population": "action template; 28 templates, 40 predicate names",
+      "evidence_paths": [
+        "release/experiments/evidence_policy/catalog.json"
+      ],
+      "test_paths": [
+        "tests/test_evidence_policy.py"
+      ],
+      "permitted_wording": "Every one of the 28 catalog templates declares at least one evidence predicate that observes a state it produces; 26 of the 40 registered predicate names carry that role and 13 assert a safety boundary.",
+      "forbidden_wording": [
+        "the evidence policy proves behavioral equivalence",
+        "an observed effect establishes the historical mechanism"
+      ]
+    },
+    {
+      "claim_id": "STICKS-P19",
+      "statement": "The complete candidate set has a closed-form size that is known before enumerating it. Across 45 declared laboratory shapes the closed form agrees with the enumerator at every point, the largest complete set holds 65536 candidates, and a domain of 524288 is refused rather than truncated.",
+      "status": "supported",
+      "support_type": "implementation_invariant",
+      "unit_of_analysis": "declared catalog and laboratory shape",
+      "population": "45 grid points over templates, typed parameters, and bindings per kind",
+      "table_population": "laboratory shape; 45 grid points",
+      "evidence_paths": [
+        "release/experiments/enumeration_scaling/corpus.json"
+      ],
+      "test_paths": [
+        "tests/test_enumeration_scaling.py"
+      ],
+      "permitted_wording": "Over 45 declared shapes the enumerated candidate set matches its closed-form size at every point; the largest complete set holds 65536 candidates, and a shape yielding 524288 is refused rather than enumerated in part.",
+      "forbidden_wording": [
+        "candidate enumeration is constant time",
+        "the verifier scales to arbitrary laboratories"
+      ]
+    },
+    {
+      "claim_id": "STICKS-P20",
+      "statement": "A published Attack Flow compiles mechanically into source steps. Its 12 technique-bearing actions and 13 authored edges supply an order that disagrees with our tactic-rank policy on 21 of 66 ordered pairs, while supplying no procedure, binding, or success criterion; the current catalog reaches 2 of those 12 techniques.",
+      "status": "supported",
+      "support_type": "implementation_invariant",
+      "unit_of_analysis": "flow action",
+      "population": "one published Attack Flow corpus file, 12 technique-bearing actions",
+      "table_population": "flow action; 12 technique-bearing actions in one published flow",
+      "evidence_paths": [
+        "release/experiments/attack_flow_interop/flow.json"
+      ],
+      "test_paths": [
+        "tests/test_attack_flow_interop.py"
+      ],
+      "permitted_wording": "One published Attack Flow compiles into 12 technique-bearing source steps with 13 authored edges; the authored order disagrees with the tactic-rank policy on 21 of 66 ordered pairs, and the catalog reaches 2 of the 12 techniques.",
+      "forbidden_wording": [
+        "Attack Flow supplies executable procedures",
+        "reading a flow reconstructs the historical timeline"
+      ]
+    },
+    {
+      "claim_id": "STICKS-P21",
+      "statement": "Where a step runs is part of its contract, not a deployment detail. Every one of the 1146 compiled steps declares one of three execution domains, 718 on the target, 256 across the boundary and 172 on the attacker side, and the catalog carries templates in all three so a domain is never covered by substituting another.",
+      "status": "supported",
+      "support_type": "corpus_measurement",
+      "unit_of_analysis": "plan step",
+      "population": "55 campaigns, 1146 steps, 28 catalog templates",
+      "table_population": "plan step; 1146 steps across three execution domains",
+      "evidence_paths": [
+        "release/experiments/execution_locus/corpus.json"
+      ],
+      "test_paths": [
+        "tests/test_execution_locus.py"
+      ],
+      "permitted_wording": "All 1146 compiled steps declare an execution domain: 718 target, 256 boundary and 172 attacker, with catalog templates present in each.",
+      "forbidden_wording": [
+        "the execution domain identifies the host the adversary used",
+        "matching domains establishes that the procedure ran where the adversary ran it"
+      ]
+    },
+    {
+      "claim_id": "STICKS-P22",
+      "statement": "Exact technique-identifier membership reaches 252 of 1146 compiled steps in STICKS and 761 in the external index; 385 steps are absent from the external index. Index reach does not establish runtime coverage.",
+      "status": "supported",
+      "support_type": "corpus_measurement",
+      "unit_of_analysis": "plan step",
+      "population": "55 campaigns, 1146 steps; 344 externally indexed techniques",
+      "table_population": "plan step; 1146 steps against two technique libraries",
+      "evidence_paths": [
+        "release/experiments/catalog_baseline/corpus.json",
+        "data/concretization/action_templates.json",
+        "data/interop/atomic_red_team_techniques.txt",
+        "scripts/build_catalog_baseline_evidence.py",
+        "src/evaluation/technique_coverage.py",
+        "release/plans/enterprise/C0001.procedural-plan.json",
+        "release/plans/enterprise/C0002.procedural-plan.json",
+        "release/plans/enterprise/C0004.procedural-plan.json",
+        "release/plans/enterprise/C0005.procedural-plan.json",
+        "release/plans/enterprise/C0006.procedural-plan.json",
+        "release/plans/enterprise/C0007.procedural-plan.json",
+        "release/plans/enterprise/C0010.procedural-plan.json",
+        "release/plans/enterprise/C0011.procedural-plan.json",
+        "release/plans/enterprise/C0012.procedural-plan.json",
+        "release/plans/enterprise/C0013.procedural-plan.json",
+        "release/plans/enterprise/C0014.procedural-plan.json",
+        "release/plans/enterprise/C0015.procedural-plan.json",
+        "release/plans/enterprise/C0016.procedural-plan.json",
+        "release/plans/enterprise/C0017.procedural-plan.json",
+        "release/plans/enterprise/C0018.procedural-plan.json",
+        "release/plans/enterprise/C0021.procedural-plan.json",
+        "release/plans/enterprise/C0022.procedural-plan.json",
+        "release/plans/enterprise/C0023.procedural-plan.json",
+        "release/plans/enterprise/C0024.procedural-plan.json",
+        "release/plans/enterprise/C0025.procedural-plan.json",
+        "release/plans/enterprise/C0026.procedural-plan.json",
+        "release/plans/enterprise/C0027.procedural-plan.json",
+        "release/plans/enterprise/C0028.procedural-plan.json",
+        "release/plans/enterprise/C0029.procedural-plan.json",
+        "release/plans/enterprise/C0030.procedural-plan.json",
+        "release/plans/enterprise/C0032.procedural-plan.json",
+        "release/plans/enterprise/C0034.procedural-plan.json",
+        "release/plans/enterprise/C0035.procedural-plan.json",
+        "release/plans/enterprise/C0036.procedural-plan.json",
+        "release/plans/enterprise/C0037.procedural-plan.json",
+        "release/plans/enterprise/C0038.procedural-plan.json",
+        "release/plans/enterprise/C0039.procedural-plan.json",
+        "release/plans/enterprise/C0040.procedural-plan.json",
+        "release/plans/enterprise/C0041.procedural-plan.json",
+        "release/plans/enterprise/C0042.procedural-plan.json",
+        "release/plans/enterprise/C0043.procedural-plan.json",
+        "release/plans/enterprise/C0044.procedural-plan.json",
+        "release/plans/enterprise/C0045.procedural-plan.json",
+        "release/plans/enterprise/C0046.procedural-plan.json",
+        "release/plans/enterprise/C0047.procedural-plan.json",
+        "release/plans/enterprise/C0048.procedural-plan.json",
+        "release/plans/enterprise/C0049.procedural-plan.json",
+        "release/plans/enterprise/C0050.procedural-plan.json",
+        "release/plans/enterprise/C0051.procedural-plan.json",
+        "release/plans/enterprise/C0052.procedural-plan.json",
+        "release/plans/enterprise/C0053.procedural-plan.json",
+        "release/plans/enterprise/C0055.procedural-plan.json",
+        "release/plans/enterprise/C0056.procedural-plan.json",
+        "release/plans/enterprise/C0057.procedural-plan.json",
+        "release/plans/enterprise/C0058.procedural-plan.json",
+        "release/plans/enterprise/C0059.procedural-plan.json",
+        "release/plans/enterprise/C0060.procedural-plan.json",
+        "release/plans/enterprise/C0061.procedural-plan.json",
+        "release/plans/enterprise/C0062.procedural-plan.json",
+        "release/plans/enterprise/C0063.procedural-plan.json"
+      ],
+      "test_paths": [
+        "tests/test_catalog_baseline.py"
+      ],
+      "permitted_wording": "Exact technique-identifier membership reaches 252 of 1146 compiled steps in STICKS and 761 in the external index; 385 steps are absent from the external index. Index reach does not establish runtime coverage.",
+      "forbidden_wording": [
+        "the public library admits those steps",
+        "technique reach measures executable coverage"
+      ]
+    },
+    {
+      "claim_id": "STICKS-P23",
+      "statement": "Offline structural screening of 238 preserved proposals accepts 226 drafts and rejects 12; exact technique-index reach of the trusted-plus-draft union is 919 of 1146 steps. Drafts have not established semantic correctness or operational coverage.",
+      "status": "supported",
+      "support_type": "corpus_measurement",
+      "unit_of_analysis": "proposed template",
+      "population": "238 preserved model proposals",
+      "table_population": "238 preserved model proposals",
+      "evidence_paths": [
+        "release/experiments/stage2_authoring/corpus.json",
+        "data/concretization/action_templates.json",
+        "data/concretization/evidence_predicate_roles.json",
+        "scripts/build_stage2_authoring_evidence.py",
+        "src/curation/template_author.py",
+        "src/evaluation/technique_coverage.py",
+        "release/experiments/stage2_authoring/calls/T1001/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1001_002/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1001_003/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1006/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1007/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1008/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1012/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1014/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1018/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1020/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1021_001/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1021_002/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1021_004/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1021_006/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1021_007/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1033/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1036/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1036_004/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1036_005/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1036_008/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1036_010/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1037/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1039/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1040/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1041/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1046/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1047/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1048_002/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1048_003/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1049/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1053/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1053_003/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1053_005/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1055/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1055_001/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1055_002/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1055_009/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1056/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1056_001/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1056_003/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1057/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1069/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1069_001/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1069_002/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1069_003/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1072/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1078/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1078_001/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1078_002/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1078_003/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1078_004/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1082/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1083/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1087/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1087_001/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1087_002/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1087_003/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1087_004/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1090/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1090_001/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1090_002/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1090_003/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1095/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1098/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1098_001/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1098_002/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1098_003/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1098_004/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1098_005/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1102/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1102_001/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1102_002/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1102_003/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1104/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1106/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1110/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1110_002/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1110_003/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1111/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1112/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1113/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1114_001/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1114_002/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1115/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1120/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1124/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1127_001/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1132_001/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1133/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1134/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1134_001/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1135/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1136/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1136_001/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1136_002/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1137_001/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1140/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1195_002/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1199/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1201/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1203/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1204/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1204_001/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1204_002/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1205/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1212/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1213/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1213_002/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1213_003/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1213_004/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1213_006/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1217/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1218_005/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1218_007/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1218_010/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1218_011/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1218_014/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1218_015/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1219/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1219_001/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1219_002/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1220/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1221/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1222_002/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1480/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1482/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1484_001/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1484_002/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1485/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1486/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1490/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1495/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1497/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1497_001/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1497_003/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1505_001/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1505_003/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1505_004/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1518/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1518_001/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1528/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1529/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1530/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1534/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1539/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1543_002/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1543_003/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1543_004/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1547_001/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1547_006/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1548_002/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1550/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1550_001/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1550_002/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1550_004/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1552/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1552_001/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1552_004/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1553_002/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1554/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1555/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1555_003/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1555_004/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1555_005/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1556/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1556_006/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1557/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1558/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1558_003/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1559/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1559_002/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1561_001/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1561_002/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1564_013/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1566_001/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1566_002/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1566_003/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1566_004/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1569_002/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1570/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1571/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1572/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1573/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1573_001/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1573_002/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1574/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1574_001/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1574_011/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1578_002/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1585/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1585_001/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1585_002/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1585_003/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1586_002/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1586_003/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1589/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1589_001/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1589_002/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1590_004/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1590_006/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1591/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1591_004/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1592_002/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1592_004/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1593_001/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1593_002/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1594/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1595/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1595_001/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1595_002/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1596_005/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1598_001/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1598_004/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1599/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1602_002/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1606_001/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1606_002/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1614_001/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1615/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1621/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1622/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1653/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1657/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1665/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1669/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1671/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1678/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1680/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1683/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1684_001/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1685/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1685_001/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1685_005/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1686/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1686_002/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1686_003/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1689/provider_response.json",
+        "release/experiments/stage2_authoring/calls/T1690/provider_response.json",
+        "release/plans/C0010.binding-catalog.json",
+        "release/plans/C0026.binding-catalog.json",
+        "release/plans/C0045.binding-catalog.json",
+        "release/plans/C0045.raw.binding-catalog.json"
+      ],
+      "test_paths": [
+        "tests/test_template_author.py",
+        "tests/test_catalog_baseline.py"
+      ],
+      "permitted_wording": "Offline structural screening of 238 preserved proposals accepts 226 drafts and rejects 12; exact technique-index reach of the trusted-plus-draft union is 919 of 1146 steps. Drafts have not established semantic correctness or operational coverage.",
+      "forbidden_wording": [
+        "the model authored trusted templates",
+        "automated authoring raises admitted-and-executed coverage",
+        "the drafts reproduce historical procedures"
+      ]
+    },
+    {
+      "claim_id": "STICKS-P24",
+      "statement": "A bounded Linux discovery extension qualifies 4 techniques in 2 fresh container runs, totaling 8 procedure executions. Those identifiers add 45 indexed corpus steps, giving union reach 297 of 1146 versus baseline 252; these are not campaign execution counts.",
+      "status": "supported",
+      "support_type": "controlled_experiment",
+      "unit_of_analysis": "procedure execution",
+      "population": "4 techniques, 2 isolated container repetitions",
+      "table_population": "8 procedure executions",
+      "evidence_paths": [
+        "release/experiments/linux_discovery/corpus.json",
+        "data/concretization/extensions/linux_discovery.json",
+        "src/executors/discovery_qualification.py",
+        "scripts/qualify_linux_discovery.py",
+        "scripts/verify_linux_discovery.py",
+        "scripts/build_linux_discovery_evidence.py",
+        "release/experiments/linux_discovery/run-20260919-final/T1033.command.json",
+        "release/experiments/linux_discovery/run-20260919-final/T1033.observation.json",
+        "release/experiments/linux_discovery/run-20260919-final/T1057.command.json",
+        "release/experiments/linux_discovery/run-20260919-final/T1057.observation.json",
+        "release/experiments/linux_discovery/run-20260919-final/T1082.command.json",
+        "release/experiments/linux_discovery/run-20260919-final/T1082.observation.json",
+        "release/experiments/linux_discovery/run-20260919-final/T1083.command.json",
+        "release/experiments/linux_discovery/run-20260919-final/T1083.observation.json",
+        "release/experiments/linux_discovery/run-20260919-final/qualification.json",
+        "release/experiments/linux_discovery/run-20260919-final-repeat/T1033.command.json",
+        "release/experiments/linux_discovery/run-20260919-final-repeat/T1033.observation.json",
+        "release/experiments/linux_discovery/run-20260919-final-repeat/T1057.command.json",
+        "release/experiments/linux_discovery/run-20260919-final-repeat/T1057.observation.json",
+        "release/experiments/linux_discovery/run-20260919-final-repeat/T1082.command.json",
+        "release/experiments/linux_discovery/run-20260919-final-repeat/T1082.observation.json",
+        "release/experiments/linux_discovery/run-20260919-final-repeat/T1083.command.json",
+        "release/experiments/linux_discovery/run-20260919-final-repeat/T1083.observation.json",
+        "release/experiments/linux_discovery/run-20260919-final-repeat/qualification.json"
+      ],
+      "test_paths": [
+        "tests/test_discovery_qualification.py"
+      ],
+      "permitted_wording": "Four Linux discovery mechanisms were qualified in isolated containers with harness-provided shell access.",
+      "forbidden_wording": [
+        "the extension executed 45 campaign steps",
+        "discovery qualification demonstrates stealth"
+      ]
+    },
+    {
+      "claim_id": "STICKS-P25",
+      "statement": "Across 55 campaigns with at least one technique, each campaign's nearest neighbor shares a mean Jaccard similarity of 0.23 against 0.18 under a null preserving campaign sizes and technique frequencies, and none of 1000 null draws reaches the observed value; no two campaigns reach similarity 0.5, so no behavioral family forms.",
+      "status": "supported",
+      "support_type": "corpus_measurement",
+      "unit_of_analysis": "ATT&CK campaign technique set",
+      "population": "55 active Enterprise campaigns that reach at least one active technique",
+      "evidence_paths": [
+        "release/experiments/behavioral_structure/corpus.json"
+      ],
+      "test_paths": [
+        "tests/test_behavioral_structure.py"
+      ],
+      "permitted_wording": "Campaigns are more similar to their nearest neighbor than campaign sizes and technique frequencies imply (0.23 against 0.18), yet no two campaigns reach Jaccard similarity 0.5.",
+      "forbidden_wording": [
+        "campaigns form behavioral families",
+        "campaigns share procedures",
+        "technique-set similarity implies procedural similarity"
+      ]
+    },
+    {
+      "claim_id": "STICKS-P26",
+      "statement": "Two selected cold QEMU workflow cycles from one pinned source tree completed with scoped observations and teardown: C0010 recorded one target effect, four controller-side effects, and four simulations across nine occurrences; C0026 recorded five target effects and one simulation across six occurrences. Neither result establishes historical campaign fidelity.",
+      "status": "supported",
+      "support_type": "controlled_experiment",
+      "unit_of_analysis": "declared campaign occurrence",
+      "population": "all occurrences in the selected C0010 and C0026 cold QEMU workflow cycles",
+      "table_population": "selected C0010 and C0026 cold QEMU workflow cycles",
+      "evidence_paths": [
+        "release/experiments/typed_campaign_outcomes/C0010.final_run_receipt.json",
+        "release/experiments/typed_campaign_outcomes/C0026.final_run_receipt.json"
+      ],
+      "test_paths": [
+        "tests/test_audit_typed_campaign_outcomes.py",
+        "tests/test_verify_typed_evidence_archive.py",
+        "tests/test_reproduce_typed_evidence.py"
+      ],
+      "permitted_wording": "Two selected cold QEMU workflow cycles completed with scoped observations and teardown: C0010 recorded 1 target effect, 4 controller-side effects, and 4 simulations; C0026 recorded 5 target effects and 1 simulation.",
+      "forbidden_wording": [
+        "STICKS reproduced C0010 and C0026",
+        "the selected runs show target effects for every campaign step",
+        "the QEMU runs establish historical campaign fidelity",
+        "the QEMU observations validate all campaign procedures"
+      ],
+      "scope_restriction": "The receipts bind selected laboratory procedures and scoped effect observations from one source tree. They do not establish historical fidelity, external delivery or C2, process/network telemetry, detection outcomes, or corpus-wide execution success."
+    }
+  ]
+}

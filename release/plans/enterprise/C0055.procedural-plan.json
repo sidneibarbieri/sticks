@@ -1,0 +1,372 @@
+{
+  "schema_version": "1",
+  "compiler_version": "1",
+  "campaign_id": "C0055",
+  "campaign_name": "Quad7 Activity",
+  "source": {
+    "bundle_sha256": "dc1639caa5501d720e280cf1cbd8fbe009884a0c9b3e6e9ed9d0c25166c3d8f4",
+    "object_count": 26086,
+    "campaign_stix_id": "campaign--e7511089-1076-4a3b-984d-1a0a8afe31e9",
+    "campaign_external_id": "C0055"
+  },
+  "ordering_policy": "tactic_rank_then_technique_id",
+  "steps": [
+    {
+      "technique_id": "T1589.002",
+      "technique_stix_id": "attack-pattern--69f897fd-12a9-4c89-ad6a-46d2f3c38262",
+      "name": "Email Addresses",
+      "execution_domain": "attacker",
+      "tactics": [
+        "reconnaissance"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--4a6baa9b-c919-421b-8684-0ba7953bd8df"
+      ],
+      "procedure_descriptions": [
+        "[Quad7 Activity](https://attack.mitre.org/campaigns/C0055) has gathered targeted individual’s e-mail addresses for the password spraying attempts.(Citation: Medium 777-Botnet)"
+      ]
+    },
+    {
+      "technique_id": "T1584.005",
+      "technique_stix_id": "attack-pattern--810d8072-afb6-4a56-9ee7-86379ac4a6f3",
+      "name": "Botnet",
+      "execution_domain": "attacker",
+      "tactics": [
+        "resource-development"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--f5c8211d-e93f-4287-88dd-f6a4f1031098"
+      ],
+      "procedure_descriptions": [
+        "[Quad7 Activity](https://attack.mitre.org/campaigns/C0055) has compromised various branded SOHO routers to form a botnet that has been leveraged in password spraying activity.(Citation: Bitsight 7777 Botnet)(Citation: Microsoft Storm-0940)"
+      ]
+    },
+    {
+      "technique_id": "T1584.008",
+      "technique_stix_id": "attack-pattern--149b477f-f364-4824-b1b5-aa1d56115869",
+      "name": "Network Devices",
+      "execution_domain": "attacker",
+      "tactics": [
+        "resource-development"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--27e2b1aa-facc-4fd9-897d-32dd7590a752"
+      ],
+      "procedure_descriptions": [
+        "[Quad7 Activity](https://attack.mitre.org/campaigns/C0055) has compromised network devices, such as IP cameras, Network Attached Storage (NAS) devices, and SOHO routers, to leverage for follow-on activity.(Citation: Microsoft Storm-0940)(Citation: Sekoia 7777 Botnet JUL 2024)"
+      ]
+    },
+    {
+      "technique_id": "T1190",
+      "technique_stix_id": "attack-pattern--3f886f2a-874f-4333-b794-aa6075009b1c",
+      "name": "Exploit Public-Facing Application",
+      "execution_domain": "boundary",
+      "tactics": [
+        "initial-access"
+      ],
+      "platforms": [
+        "Containers",
+        "ESXi",
+        "IaaS",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--64711bac-8f6b-43f6-bcbc-1bdbf76dd47d"
+      ],
+      "procedure_descriptions": [
+        "[Quad7 Activity](https://attack.mitre.org/campaigns/C0055) has enabled the exploitation of vulnerabilities for remote code execution capabilities in SOHO routers including CVE-2023-50224 and CVE-2025-9377 in TP-Link devices.(Citation: Microsoft Storm-0940)(Citation: TP-Link Quad 7 AUG 2025)"
+      ]
+    },
+    {
+      "technique_id": "T1059.004",
+      "technique_stix_id": "attack-pattern--a9d4b653-6915-42af-98b2-5758c4ceee56",
+      "name": "Unix Shell",
+      "execution_domain": "target",
+      "tactics": [
+        "execution"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--c6a76d93-7007-4e1e-81ff-43341ca9932c"
+      ],
+      "procedure_descriptions": [
+        "[Quad7 Activity](https://attack.mitre.org/campaigns/C0055) has enabled the creation of an access-controlled command shell <code>/bin/sh</code> on compromised routers.(Citation: Microsoft Storm-0940)(Citation: Bitsight 7777 Botnet)"
+      ]
+    },
+    {
+      "technique_id": "T1027.011",
+      "technique_stix_id": "attack-pattern--02c5abff-30bf-4703-ab92-1f6072fae939",
+      "name": "Fileless Storage",
+      "execution_domain": "target",
+      "tactics": [
+        "stealth"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--a23a8716-ffd4-407e-9890-99a416c35efa"
+      ],
+      "procedure_descriptions": [
+        "[Quad7 Activity](https://attack.mitre.org/campaigns/C0055) has infected victim network devices by storing artifacts in the <code>/tmp</code> directory which is volatile in memory and will clear its contents upon shutdown or restart.(Citation: Bitsight 7777 Botnet)"
+      ]
+    },
+    {
+      "technique_id": "T1685",
+      "technique_stix_id": "attack-pattern--bbde9781-60aa-4b8a-a911-895b0c1b3872",
+      "name": "Disable or Modify Tools",
+      "execution_domain": "target",
+      "tactics": [
+        "defense-impairment"
+      ],
+      "platforms": [
+        "Containers",
+        "ESXi",
+        "IaaS",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--04d2c81c-1140-4eea-8383-d835c80df3bf"
+      ],
+      "procedure_descriptions": [
+        "[Quad7 Activity](https://attack.mitre.org/campaigns/C0055) has disabled the TP-Link management interface for TP-Link by killing the <code>/usr/bin/httpd</code> process.(Citation: Sekoia 7777 Botnet JUL 2024)(Citation: Microsoft Storm-0940)(Citation: Bitsight 7777 Botnet)"
+      ]
+    },
+    {
+      "technique_id": "T1110.003",
+      "technique_stix_id": "attack-pattern--692074ae-bb62-4a5e-a735-02cb6bde458c",
+      "name": "Password Spraying",
+      "execution_domain": "target",
+      "tactics": [
+        "credential-access"
+      ],
+      "platforms": [
+        "Containers",
+        "ESXi",
+        "IaaS",
+        "Identity Provider",
+        "Linux",
+        "Network Devices",
+        "Office Suite",
+        "SaaS",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--71960517-1700-47ed-8abe-85c384458630"
+      ],
+      "procedure_descriptions": [
+        "[Quad7 Activity](https://attack.mitre.org/campaigns/C0055) has conducted a throttled variant of password spraying techniques that only utilized a single attempt to sign in within a 24-hour time period, eluding brute force detection thresholds.(Citation: Microsoft Storm-0940) "
+      ]
+    },
+    {
+      "technique_id": "T1071.001",
+      "technique_stix_id": "attack-pattern--df8b2a25-8bdf-4856-953c-a04372b1c161",
+      "name": "Web Protocols",
+      "execution_domain": "boundary",
+      "tactics": [
+        "command-and-control"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--48bfeadd-125e-4bf6-bc45-c8e271c937e8"
+      ],
+      "procedure_descriptions": [
+        "[Quad7 Activity](https://attack.mitre.org/campaigns/C0055) has used the same User Agents of <code>Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; rv:11.0) like Gecko</code> and <code>Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149 Safari/537.36</code> combined with a reference to the Microsoft Azure PowerShell Application ID <code>1950a258-227b-4e31-a9cf-717495945fc2</code> in their sign-in attempts.(Citation: Microsoft Storm-0940)"
+      ]
+    },
+    {
+      "technique_id": "T1071.002",
+      "technique_stix_id": "attack-pattern--9a60a291-8960-4387-8a4a-2ab5c18bb50b",
+      "name": "File Transfer Protocols",
+      "execution_domain": "boundary",
+      "tactics": [
+        "command-and-control"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--3ec8d5a9-77b4-4406-8c0e-9bccaf4d0cea"
+      ],
+      "procedure_descriptions": [
+        "[Quad7 Activity](https://attack.mitre.org/campaigns/C0055) has used a File Transfer Protocol (FTP) server to download malicious binaries.(Citation: Microsoft Storm-0940)"
+      ]
+    },
+    {
+      "technique_id": "T1090.002",
+      "technique_stix_id": "attack-pattern--69b8fd78-40e8-4600-ae4d-662c9d7afdb3",
+      "name": "External Proxy",
+      "execution_domain": "boundary",
+      "tactics": [
+        "command-and-control"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--7063b404-bd10-4971-b207-70120180e20d"
+      ],
+      "procedure_descriptions": [
+        "[Quad7 Activity](https://attack.mitre.org/campaigns/C0055) has initialized SOCKS5 proxies on compromised devices.(Citation: Microsoft Storm-0940)(Citation: Bitsight 7777 Botnet)"
+      ]
+    },
+    {
+      "technique_id": "T1090.003",
+      "technique_stix_id": "attack-pattern--a782ebe2-daba-42c7-bc82-e8e9d923162d",
+      "name": "Multi-hop Proxy",
+      "execution_domain": "boundary",
+      "tactics": [
+        "command-and-control"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--923ece74-d9a7-4084-ba1a-7f3633f6df54"
+      ],
+      "procedure_descriptions": [
+        "[Quad7 Activity](https://attack.mitre.org/campaigns/C0055) has routed traffic through chains of compromised network devices for password spray attacks.(Citation: Microsoft Storm-0940)"
+      ]
+    },
+    {
+      "technique_id": "T1105",
+      "technique_stix_id": "attack-pattern--e6919abc-99f9-4c6c-95a5-14761e7b2add",
+      "name": "Ingress Tool Transfer",
+      "execution_domain": "boundary",
+      "tactics": [
+        "command-and-control"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--957b3755-fc4c-4178-aee2-7b228a5e227d"
+      ],
+      "procedure_descriptions": [
+        "[Quad7 Activity](https://attack.mitre.org/campaigns/C0055) has downloaded additional binaries from a remote File Transfer Protocol (FTP) server to compromised devices.(Citation: Microsoft Storm-0940)"
+      ]
+    },
+    {
+      "technique_id": "T1571",
+      "technique_stix_id": "attack-pattern--b18eae87-b469-4e14-b454-b171b416bc18",
+      "name": "Non-Standard Port",
+      "execution_domain": "boundary",
+      "tactics": [
+        "command-and-control"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--946ccfa8-eef3-41f6-99ef-74d6caa817ce"
+      ],
+      "procedure_descriptions": [
+        "[Quad7 Activity](https://attack.mitre.org/campaigns/C0055) has used non-standard TCP ports – such as 7777, 11288, 63256, 63210, 3256, and 3556 for C2.(Citation: Microsoft Storm-0940)(Citation: Sekoia 7777 Botnet JUL 2024)"
+      ]
+    },
+    {
+      "technique_id": "T1665",
+      "technique_stix_id": "attack-pattern--eb897572-8979-4242-a089-56f294f4c91d",
+      "name": "Hide Infrastructure",
+      "execution_domain": "boundary",
+      "tactics": [
+        "command-and-control"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--0f469bb5-2931-46e7-b350-f90374ff5589"
+      ],
+      "procedure_descriptions": [
+        "[Quad7 Activity](https://attack.mitre.org/campaigns/C0055) has rotated the compromised SOHO IPs used in password spraying activity to hamper detection and network blocking activities by defenders.(Citation: Microsoft Storm-0940)  "
+      ]
+    }
+  ],
+  "limitations": [
+    "ATT&CK uses-links do not encode a historical total order; the compiler applies a declared tactic-rank policy.",
+    "Technique metadata constrains procedures but does not uniquely determine an executable target environment."
+  ],
+  "content_sha256": "0a7faa1b850333debdae8a1bc5eed86ec6ee46db7736e393349aacc232916a90"
+}

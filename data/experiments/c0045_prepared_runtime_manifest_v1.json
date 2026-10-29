@@ -1,0 +1,36 @@
+{
+  "schema_version": "c0045-prepared-runtime-manifest/v1",
+  "images": {
+    "caldera": {
+      "box_name": "sticks/c0045-caldera-arm64",
+      "box_version": "0",
+      "image_fingerprint_sha256": "ce2954d79e41abbf4d531c56e18f55d597f79d3d88cf6c1b444fc7dd8ab610b9",
+      "guest_inventory_sha256": "6a718b12e6cfb81c4525fea8872e695aeb0ecd083abc87fe3027687af8b83417"
+    },
+    "attacker": {
+      "box_name": "sticks/c0045-attacker-arm64",
+      "box_version": "0",
+      "image_fingerprint_sha256": "21a518b0bc33d03a93ca731896a2a086e2626b693b3d7a32a7cbcd9d7b58bf5a",
+      "guest_inventory_sha256": "41941b6e9582025d97da9458264e6281c595c7ac6d9012795c38155739148bb6"
+    },
+    "target-linux-1": {
+      "box_name": "sticks/c0045-target-linux-1-arm64",
+      "box_version": "0",
+      "image_fingerprint_sha256": "d30619c5aa5d87a95679282df2eae184f43f83bc3767fe3e0286dde0df07fd64",
+      "guest_inventory_sha256": "1a1fc885afeef684664f0874333acc474694069f3e801f1590cd412374f046b6"
+    }
+  },
+  "provisioning_input_sha256": {
+    "lab/vagrant/shared/apt_guard.sh": "8e4e658e8da854c0e54f5fbd3c61002cc3330812704122c584018d708e8f1c9a",
+    "lab/vagrant/shared/base.sh": "f389a35b032f82c4edfa79ed75f0236503c7e4ff2bc53d2fa6e7fcc3ca14b063",
+    "lab/vagrant/shared/attacker.sh": "125c395b9e3ddbee794c55b463d2c6fc7f5af6576e2175ab8055947c5dafc0b4",
+    "lab/vagrant/shared/caldera.sh": "46f1c9688ce7e56e4ea5ae6a1dd2ce7075d9691d13e55191805edc0102c4a2f1",
+    "lab/vagrant/shared/target.sh": "4b586e435e15781d67c757b5e2e497fa636d98f013e1ef93ec846af69a992949",
+    "lab/vagrant/shared/caldera-runtime-requirements.txt": "a53f1b8bde078c3b82ae86be5734580cde772ff5cc719e4aec711f8e5234face",
+    "lab/vagrant/shared/qemu_network_yaml.rb": "61037fa110465629f060b73cefc24109bf06995446bda5c5aeec34caa70611d0",
+    "lab/vagrant/shared/qemu_ssh_port.rb": "b0f7c7aff2a4954644187525209b2d9760e6b749bc9fe8316af692f61aca42c1",
+    "lab/vagrant/apply_sut_profile.py": "b229f3876772d840b4026591197274ab0033abb33cdfd243dcdd47a4fcc5d301",
+    "campaigns/0.shadowray.json": "d9c85acee10925335f7c542a4057ef5d110391d26d29550713817014853921db",
+    "data/sut_profiles/0.shadowray.yml": "d0358dd5afe4f0afb3133f5650cfcc2887d10f78fdc7a0a51c51125ea36fd8fc"
+  }
+}

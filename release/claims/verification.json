@@ -1,0 +1,341 @@
+{
+  "total_claims": 30,
+  "supported": 24,
+  "limited": 1,
+  "blocked": 5,
+  "verifications": [
+    {
+      "claim_id": "STICKS-B01",
+      "status": "blocked",
+      "support_type": "manual_validation",
+      "missing_evidence": [],
+      "missing_tests": [],
+      "chain_complete": true,
+      "readiness_gate_status": null,
+      "readiness_blockers": [],
+      "paper_ready": false
+    },
+    {
+      "claim_id": "STICKS-B02",
+      "status": "blocked",
+      "support_type": "manual_validation",
+      "missing_evidence": [],
+      "missing_tests": [],
+      "chain_complete": true,
+      "readiness_gate_status": null,
+      "readiness_blockers": [],
+      "paper_ready": false
+    },
+    {
+      "claim_id": "STICKS-B03",
+      "status": "blocked",
+      "support_type": "controlled_experiment",
+      "missing_evidence": [],
+      "missing_tests": [],
+      "chain_complete": true,
+      "readiness_gate_status": null,
+      "readiness_blockers": [],
+      "paper_ready": false
+    },
+    {
+      "claim_id": "STICKS-B04",
+      "status": "blocked",
+      "support_type": "manual_validation",
+      "missing_evidence": [],
+      "missing_tests": [],
+      "chain_complete": true,
+      "readiness_gate_status": null,
+      "readiness_blockers": [],
+      "paper_ready": false
+    },
+    {
+      "claim_id": "STICKS-P01",
+      "status": "supported",
+      "support_type": "implementation_invariant",
+      "missing_evidence": [],
+      "missing_tests": [],
+      "chain_complete": true,
+      "readiness_gate_status": null,
+      "readiness_blockers": [],
+      "paper_ready": true
+    },
+    {
+      "claim_id": "STICKS-P02",
+      "status": "supported",
+      "support_type": "implementation_invariant",
+      "missing_evidence": [],
+      "missing_tests": [],
+      "chain_complete": true,
+      "readiness_gate_status": null,
+      "readiness_blockers": [],
+      "paper_ready": true
+    },
+    {
+      "claim_id": "STICKS-P03",
+      "status": "supported",
+      "support_type": "implementation_invariant",
+      "missing_evidence": [],
+      "missing_tests": [],
+      "chain_complete": true,
+      "readiness_gate_status": null,
+      "readiness_blockers": [],
+      "paper_ready": true
+    },
+    {
+      "claim_id": "STICKS-P04",
+      "status": "supported",
+      "support_type": "corpus_measurement",
+      "missing_evidence": [],
+      "missing_tests": [],
+      "chain_complete": true,
+      "readiness_gate_status": null,
+      "readiness_blockers": [],
+      "paper_ready": true
+    },
+    {
+      "claim_id": "STICKS-P05",
+      "status": "supported",
+      "support_type": "controlled_experiment",
+      "missing_evidence": [],
+      "missing_tests": [],
+      "chain_complete": true,
+      "readiness_gate_status": null,
+      "readiness_blockers": [],
+      "paper_ready": true
+    },
+    {
+      "claim_id": "STICKS-P06",
+      "status": "supported",
+      "support_type": "formal_argument",
+      "missing_evidence": [],
+      "missing_tests": [],
+      "chain_complete": true,
+      "readiness_gate_status": null,
+      "readiness_blockers": [],
+      "paper_ready": true
+    },
+    {
+      "claim_id": "STICKS-P07",
+      "status": "supported",
+      "support_type": "corpus_measurement",
+      "missing_evidence": [],
+      "missing_tests": [],
+      "chain_complete": true,
+      "readiness_gate_status": null,
+      "readiness_blockers": [],
+      "paper_ready": true
+    },
+    {
+      "claim_id": "STICKS-P08",
+      "status": "supported",
+      "support_type": "corpus_measurement",
+      "missing_evidence": [],
+      "missing_tests": [],
+      "chain_complete": true,
+      "readiness_gate_status": null,
+      "readiness_blockers": [],
+      "paper_ready": true
+    },
+    {
+      "claim_id": "STICKS-P09",
+      "status": "supported",
+      "support_type": "controlled_experiment",
+      "missing_evidence": [],
+      "missing_tests": [],
+      "chain_complete": true,
+      "readiness_gate_status": null,
+      "readiness_blockers": [],
+      "paper_ready": true
+    },
+    {
+      "claim_id": "STICKS-P10",
+      "status": "supported",
+      "support_type": "implementation_invariant",
+      "missing_evidence": [],
+      "missing_tests": [],
+      "chain_complete": true,
+      "readiness_gate_status": null,
+      "readiness_blockers": [],
+      "paper_ready": true
+    },
+    {
+      "claim_id": "STICKS-P11",
+      "status": "supported",
+      "support_type": "controlled_experiment",
+      "missing_evidence": [],
+      "missing_tests": [],
+      "chain_complete": true,
+      "readiness_gate_status": null,
+      "readiness_blockers": [],
+      "paper_ready": true
+    },
+    {
+      "claim_id": "STICKS-P12",
+      "status": "supported",
+      "support_type": "controlled_experiment",
+      "missing_evidence": [],
+      "missing_tests": [],
+      "chain_complete": true,
+      "readiness_gate_status": null,
+      "readiness_blockers": [],
+      "paper_ready": true
+    },
+    {
+      "claim_id": "STICKS-P13",
+      "status": "supported",
+      "support_type": "corpus_measurement",
+      "missing_evidence": [],
+      "missing_tests": [],
+      "chain_complete": true,
+      "readiness_gate_status": null,
+      "readiness_blockers": [],
+      "paper_ready": true
+    },
+    {
+      "claim_id": "STICKS-P14",
+      "status": "supported",
+      "support_type": "corpus_measurement",
+      "missing_evidence": [],
+      "missing_tests": [],
+      "chain_complete": true,
+      "readiness_gate_status": null,
+      "readiness_blockers": [],
+      "paper_ready": true
+    },
+    {
+      "claim_id": "STICKS-P15",
+      "status": "supported",
+      "support_type": "controlled_experiment",
+      "missing_evidence": [],
+      "missing_tests": [],
+      "chain_complete": true,
+      "readiness_gate_status": null,
+      "readiness_blockers": [],
+      "paper_ready": true
+    },
+    {
+      "claim_id": "STICKS-P16",
+      "status": "limited",
+      "support_type": "corpus_measurement",
+      "missing_evidence": [],
+      "missing_tests": [],
+      "chain_complete": true,
+      "readiness_gate_status": "pending",
+      "readiness_blockers": [
+        "required_qualified_got_pending"
+      ],
+      "paper_ready": false
+    },
+    {
+      "claim_id": "STICKS-P17",
+      "status": "blocked",
+      "support_type": "controlled_experiment",
+      "missing_evidence": [],
+      "missing_tests": [],
+      "chain_complete": true,
+      "readiness_gate_status": null,
+      "readiness_blockers": [],
+      "paper_ready": false
+    },
+    {
+      "claim_id": "STICKS-P18",
+      "status": "supported",
+      "support_type": "implementation_invariant",
+      "missing_evidence": [],
+      "missing_tests": [],
+      "chain_complete": true,
+      "readiness_gate_status": null,
+      "readiness_blockers": [],
+      "paper_ready": true
+    },
+    {
+      "claim_id": "STICKS-P19",
+      "status": "supported",
+      "support_type": "implementation_invariant",
+      "missing_evidence": [],
+      "missing_tests": [],
+      "chain_complete": true,
+      "readiness_gate_status": null,
+      "readiness_blockers": [],
+      "paper_ready": true
+    },
+    {
+      "claim_id": "STICKS-P20",
+      "status": "supported",
+      "support_type": "implementation_invariant",
+      "missing_evidence": [],
+      "missing_tests": [],
+      "chain_complete": true,
+      "readiness_gate_status": null,
+      "readiness_blockers": [],
+      "paper_ready": true
+    },
+    {
+      "claim_id": "STICKS-P21",
+      "status": "supported",
+      "support_type": "corpus_measurement",
+      "missing_evidence": [],
+      "missing_tests": [],
+      "chain_complete": true,
+      "readiness_gate_status": null,
+      "readiness_blockers": [],
+      "paper_ready": true
+    },
+    {
+      "claim_id": "STICKS-P22",
+      "status": "supported",
+      "support_type": "corpus_measurement",
+      "missing_evidence": [],
+      "missing_tests": [],
+      "chain_complete": true,
+      "readiness_gate_status": null,
+      "readiness_blockers": [],
+      "paper_ready": true
+    },
+    {
+      "claim_id": "STICKS-P23",
+      "status": "supported",
+      "support_type": "corpus_measurement",
+      "missing_evidence": [],
+      "missing_tests": [],
+      "chain_complete": true,
+      "readiness_gate_status": null,
+      "readiness_blockers": [],
+      "paper_ready": true
+    },
+    {
+      "claim_id": "STICKS-P24",
+      "status": "supported",
+      "support_type": "controlled_experiment",
+      "missing_evidence": [],
+      "missing_tests": [],
+      "chain_complete": true,
+      "readiness_gate_status": null,
+      "readiness_blockers": [],
+      "paper_ready": true
+    },
+    {
+      "claim_id": "STICKS-P25",
+      "status": "supported",
+      "support_type": "corpus_measurement",
+      "missing_evidence": [],
+      "missing_tests": [],
+      "chain_complete": true,
+      "readiness_gate_status": null,
+      "readiness_blockers": [],
+      "paper_ready": true
+    },
+    {
+      "claim_id": "STICKS-P26",
+      "status": "supported",
+      "support_type": "controlled_experiment",
+      "missing_evidence": [],
+      "missing_tests": [],
+      "chain_complete": true,
+      "readiness_gate_status": null,
+      "readiness_blockers": [],
+      "paper_ready": true
+    }
+  ],
+  "incomplete_chains": []
+}

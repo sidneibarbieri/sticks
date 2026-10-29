@@ -1,0 +1,31 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure lists domain accounts using appropriate commands in a controlled laboratory environment.",
+    "evidence_predicates": [
+      "collection_manifest_recorded",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "command": "toolkit"
+    },
+    "produces": [
+      "list of domain accounts"
+    ],
+    "requires": [
+      "access to a domain environment"
+    ],
+    "technique_ids": [
+      "T1087.002"
+    ],
+    "template_id": "domain-account-listing"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "id": "chatcmpl-EOK2gawjcG8NlZ8iZxrFbMgvoP31H",
+  "object": "chat.completion",
+  "created": 1789465622,
+  "model": "gpt-4o-mini-2024-07-18",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"template_id\": \"external-remote-services-laboratory-harness\",\n  \"technique_ids\": [\"T1133\"],\n  \"execution_domain\": \"target\",\n  \"parameter_kinds\": {\n    \"remote_service\": \"web_asset\",\n    \"user_credentials\": \"credential_source\"\n  },\n  \"requires\": [\n    \"remote service is accessible\",\n    \"user has valid credentials\"\n  ],\n  \"produces\": [\n    \"remote connection established\",\n    \"user session logged\"\n  ],\n  \"evidence_predicates\": [\n    \"http_request_logged\",\n    \"bounded_effect_observed\"\n  ],\n  \"fidelity_ceiling\": \"adapted\",\n  \"description\": \"This procedure establishes a remote connection to an external service using valid user credentials.\"\n}",
+        "refusal": null,
+        "annotations": []
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 829,
+    "completion_tokens": 159,
+    "total_tokens": 988,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_ffcc7ece91"
+}

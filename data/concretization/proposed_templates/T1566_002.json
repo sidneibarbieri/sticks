@@ -1,0 +1,34 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure simulates the sending of a spearphishing email containing a malicious link to observe the logging of HTTP requests and the recording of web asset hashes.",
+    "evidence_predicates": [
+      "http_request_logged",
+      "web_asset_hash_recorded"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "email_source": "infrastructure_artifact",
+      "malicious_link": "web_asset"
+    },
+    "produces": [
+      "http_request_logged",
+      "web_asset_hash_recorded"
+    ],
+    "requires": [
+      "email client configured",
+      "network access available"
+    ],
+    "technique_ids": [
+      "T1566.002"
+    ],
+    "template_id": "spearphishing-link-laboratory-harness"
+  }
+}

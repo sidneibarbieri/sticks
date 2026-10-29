@@ -1,0 +1,39 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "qwen3.6:latest",
+    "provider": "openai",
+    "review_pending": true,
+    "run_id": "stage2-qwen36-r1",
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure simulates controlled data exfiltration to a designated web service using standard HTTP uploads within an isolated laboratory environment.",
+    "evidence_predicates": [
+      "http_status_recorded",
+      "bytes_transferred_recorded"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "dest_service": "web_asset",
+      "exfil_data": "encoded_artifact",
+      "source_host": "actor_host",
+      "upload_channel": "channel"
+    },
+    "produces": [
+      "upload_channel.http_request_sent",
+      "dest_service.web_asset_updated",
+      "exfil_data.bytes_transferred_recorded"
+    ],
+    "requires": [
+      "target_host.network_interface_configured",
+      "dest_service.web_asset_accessible",
+      "exfil_data.encoded_artifact_ready"
+    ],
+    "technique_ids": [
+      "T1567"
+    ],
+    "template_id": "exfil-over-web-service-harness"
+  }
+}

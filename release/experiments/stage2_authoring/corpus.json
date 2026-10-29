@@ -1,0 +1,19 @@
+{
+  "admitted_step_reach": 667,
+  "admitted_templates": 226,
+  "evidence_tier": "schema_and_vocabulary_valid_draft",
+  "extended_contract_reach_share": 0.8019,
+  "extended_contract_reach_steps": 919,
+  "incremental_draft_reach_steps": 667,
+  "matching_policy": "exact_technique_id",
+  "note": "Proposals are frozen untrusted outputs; the gate is recomputed here. Schema- and vocabulary-valid templates remain DRAFT; reach is not semantic or runtime validation. They are not promoted to the trusted catalog.",
+  "proposals": 238,
+  "question": "Re-verified offline: how far does bounded proposal under deterministic admission extend contract-valid coverage, and does re-running the gate reproduce the verdicts?",
+  "rejected_by_code": {
+    "unbindable_parameter": 2,
+    "unknown_predicate": 10
+  },
+  "rejected_templates": 12,
+  "total_steps": 1146,
+  "trusted_contract_reach_steps": 252
+}

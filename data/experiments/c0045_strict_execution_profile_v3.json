@@ -1,0 +1,28 @@
+{
+  "schema_version": "c0045-strict-execution-profile/v3",
+  "mode": "strict_experiment",
+  "provider": "qemu",
+  "minimum_vagrant_qemu_version": "0.6.3",
+  "requirements_lock_sha256": "11e590536a287a8408ed339c9ee58f53d037834c0a06e53bf91cea0eedf0db4c",
+  "series_sha256": "2bd4172f91cf73033ba727b6f4bcc5c07b707a3994316b0c2777c35a8a10d5d1",
+  "study_sha256": "0a26db0503b05b4cf78a6586d724a07c0b225a31b6669409a97da1ea45def105",
+  "vagrantfile_sha256": {
+    "caldera": "1d3e58323d3927168287d0b60375d2344cca1fa44acb0f92d893ec6a6cf541d3",
+    "attacker": "ecdaf914ef92cbf1c8283178ead86a03da684577113fa051fc0146154571a721",
+    "target-linux-1": "d00485bbc3ff7a1782713aa5e0ca875d4f6b8a3218511bd33c0e30394b7d413f"
+  },
+  "provisioning_input_sha256": {
+    "lab/vagrant/shared/apt_guard.sh": "8e4e658e8da854c0e54f5fbd3c61002cc3330812704122c584018d708e8f1c9a",
+    "lab/vagrant/shared/base.sh": "f389a35b032f82c4edfa79ed75f0236503c7e4ff2bc53d2fa6e7fcc3ca14b063",
+    "lab/vagrant/shared/attacker.sh": "125c395b9e3ddbee794c55b463d2c6fc7f5af6576e2175ab8055947c5dafc0b4",
+    "lab/vagrant/shared/caldera.sh": "46f1c9688ce7e56e4ea5ae6a1dd2ce7075d9691d13e55191805edc0102c4a2f1",
+    "lab/vagrant/shared/target.sh": "4b586e435e15781d67c757b5e2e497fa636d98f013e1ef93ec846af69a992949",
+    "lab/vagrant/shared/caldera-runtime-requirements.txt": "a53f1b8bde078c3b82ae86be5734580cde772ff5cc719e4aec711f8e5234face",
+    "lab/vagrant/shared/qemu_network_yaml.rb": "61037fa110465629f060b73cefc24109bf06995446bda5c5aeec34caa70611d0",
+    "lab/vagrant/shared/qemu_ssh_port.rb": "b0f7c7aff2a4954644187525209b2d9760e6b749bc9fe8316af692f61aca42c1",
+    "lab/vagrant/apply_sut_profile.py": "b229f3876772d840b4026591197274ab0033abb33cdfd243dcdd47a4fcc5d301",
+    "campaigns/0.shadowray.json": "d9c85acee10925335f7c542a4057ef5d110391d26d29550713817014853921db",
+    "data/sut_profiles/0.shadowray.yml": "d0358dd5afe4f0afb3133f5650cfcc2887d10f78fdc7a0a51c51125ea36fd8fc"
+  },
+  "prepared_runtime_manifest_sha256": "690c4518c112a1472f72d027a5bdd23432a68329110f223f82c37bf91eeca93d"
+}

@@ -1,0 +1,16 @@
+{
+  "schema_version": "costaricto-runtime-contracts/v1",
+  "campaign_id": "0.costaricto",
+  "occurrences": [
+    {"occurrence": 1, "technique_id": "T1046", "mode": "real_controlled", "executor_id": "executors.fox_kitten_real.execute_t1046_registered", "executor_sha256": "cc6431a35cd7e121a7482777e37b9ed92bf61707fa8a3c9217070bba459987c9", "requirements": ["lab:shell"], "observers": ["costaricto-discovery"]},
+    {"occurrence": 2, "technique_id": "T1105", "mode": "real_controlled", "executor_id": "executors.executor_registry.execute_t1105_real", "executor_sha256": "e0d82c36feddfbea345750a1f681bfc68af81869f6ef105895067019f9c3647d", "requirements": ["lab:shell"], "observers": ["costaricto-transfer"]},
+    {"occurrence": 3, "technique_id": "T1090.003", "mode": "naive_simulated", "executor_id": "executors.legacy_parity_expansion_executors.execute_t1090_003_parity", "executor_sha256": "580e484384a7eedf54b5640a27256df1f26bdb675ac15be305a674194dd4dae7", "requirements": [], "observers": []},
+    {"occurrence": 4, "technique_id": "T1053.005", "mode": "naive_simulated", "executor_id": "executors.executor_registry.execute_t1053_005_simulated", "executor_sha256": "e0d82c36feddfbea345750a1f681bfc68af81869f6ef105895067019f9c3647d", "requirements": [], "observers": []},
+    {"occurrence": 5, "technique_id": "T1588.002", "mode": "naive_simulated", "executor_id": "executors.legacy_parity_expansion_executors.execute_costaricto_target_tool_staging", "executor_sha256": "580e484384a7eedf54b5640a27256df1f26bdb675ac15be305a674194dd4dae7", "requirements": [], "observers": []},
+    {"occurrence": 6, "technique_id": "T1133", "mode": "naive_simulated", "executor_id": "executors.executor_registry.execute_t1133_simulated", "executor_sha256": "e0d82c36feddfbea345750a1f681bfc68af81869f6ef105895067019f9c3647d", "requirements": [], "observers": []},
+    {"occurrence": 7, "technique_id": "T1583.001", "mode": "naive_simulated", "executor_id": "executors.executor_registry.execute_t1583_001_simulated", "executor_sha256": "e0d82c36feddfbea345750a1f681bfc68af81869f6ef105895067019f9c3647d", "requirements": [], "observers": []},
+    {"occurrence": 8, "technique_id": "T1587.001", "mode": "naive_simulated", "executor_id": "executors.executor_registry.execute_t1587_001_simulated", "executor_sha256": "e0d82c36feddfbea345750a1f681bfc68af81869f6ef105895067019f9c3647d", "requirements": [], "observers": []},
+    {"occurrence": 9, "technique_id": "T1005", "mode": "real_controlled", "executor_id": "executors.legacy_parity_expansion_executors.execute_costaricto_target_collection", "executor_sha256": "580e484384a7eedf54b5640a27256df1f26bdb675ac15be305a674194dd4dae7", "requirements": ["lab:shell"], "observers": ["costaricto-collection"]},
+    {"occurrence": 10, "technique_id": "T1572", "mode": "naive_simulated", "executor_id": "executors.executor_registry.execute_t1572_simulated", "executor_sha256": "e0d82c36feddfbea345750a1f681bfc68af81869f6ef105895067019f9c3647d", "requirements": [], "observers": []}
+  ]
+}

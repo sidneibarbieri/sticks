@@ -1,0 +1,34 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure outlines the steps to create cloud accounts for benign laboratory purposes.",
+    "evidence_predicates": [
+      "http_request_logged",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "account_credentials": "credential_source",
+      "cloud_provider": "web_asset"
+    },
+    "produces": [
+      "cloud account created",
+      "account usage logged"
+    ],
+    "requires": [
+      "cloud provider access",
+      "valid user credentials"
+    ],
+    "technique_ids": [
+      "T1585.003"
+    ],
+    "template_id": "create-cloud-accounts-laboratory-harness"
+  }
+}

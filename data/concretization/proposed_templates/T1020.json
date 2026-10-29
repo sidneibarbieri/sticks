@@ -1,0 +1,35 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure simulates automated data exfiltration to validate the effectiveness of monitoring tools.",
+    "evidence_predicates": [
+      "bytes_transferred_recorded",
+      "archive_hash_recorded"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "archive_tool": "archive_tool",
+      "data_source": "data_source",
+      "network_interface": "network_interface"
+    },
+    "produces": [
+      "bytes_transferred_recorded",
+      "archive_hash_recorded"
+    ],
+    "requires": [
+      "data_source is available",
+      "network_interface is configured"
+    ],
+    "technique_ids": [
+      "T1020"
+    ],
+    "template_id": "automated-exfiltration-laboratory-harness"
+  }
+}

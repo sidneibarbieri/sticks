@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure template outlines a benign method for discovering shared folders on a target host within a controlled laboratory environment.",
+    "evidence_predicates": [
+      "fixture_access_logged",
+      "file_count_recorded"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "network_interface": "network_interface",
+      "target_host": "target_host"
+    },
+    "produces": [
+      "shared_folders_discovered"
+    ],
+    "requires": [
+      "target_host is accessible",
+      "network_interface is configured"
+    ],
+    "technique_ids": [
+      "T1135"
+    ],
+    "template_id": "network-share-discovery-laboratory-harness"
+  }
+}

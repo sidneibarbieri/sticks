@@ -1,0 +1,350 @@
+{
+  "schema_version": "1",
+  "compiler_version": "1",
+  "campaign_id": "C0021",
+  "campaign_name": "C0021",
+  "source": {
+    "bundle_sha256": "dc1639caa5501d720e280cf1cbd8fbe009884a0c9b3e6e9ed9d0c25166c3d8f4",
+    "object_count": 26086,
+    "campaign_stix_id": "campaign--712e38c3-a656-426a-9b3b-a6bfb63294c6",
+    "campaign_external_id": "C0021"
+  },
+  "ordering_policy": "tactic_rank_then_technique_id",
+  "steps": [
+    {
+      "technique_id": "T1583.001",
+      "technique_stix_id": "attack-pattern--40f5caa0-4cb7-4117-89fc-d421bb493df3",
+      "name": "Domains",
+      "execution_domain": "attacker",
+      "tactics": [
+        "resource-development"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--07ef3f89-c78a-4aa0-a77e-842c5220244b"
+      ],
+      "procedure_descriptions": [
+        "For [C0021](https://attack.mitre.org/campaigns/C0021), the threat actors registered domains for use in C2.(Citation: FireEye APT29 Nov 2018)"
+      ]
+    },
+    {
+      "technique_id": "T1584.001",
+      "technique_stix_id": "attack-pattern--f9cc4d06-775f-4ee1-b401-4e2cc0da30ba",
+      "name": "Domains",
+      "execution_domain": "attacker",
+      "tactics": [
+        "resource-development"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--44e0a8c6-ccb4-4d4e-bcf0-0709f10dec51"
+      ],
+      "procedure_descriptions": [
+        "For [C0021](https://attack.mitre.org/campaigns/C0021), the threat actors used legitimate but compromised domains to host malicious payloads.(Citation: Microsoft Unidentified Dec 2018)"
+      ]
+    },
+    {
+      "technique_id": "T1588.002",
+      "technique_stix_id": "attack-pattern--a2fdce72-04b2-409a-ac10-cc1695f4fce0",
+      "name": "Tool",
+      "execution_domain": "attacker",
+      "tactics": [
+        "resource-development"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--747f1dcd-7af4-4a38-983b-e2d6108af677"
+      ],
+      "procedure_descriptions": [
+        "For [C0021](https://attack.mitre.org/campaigns/C0021), the threat actors used [Cobalt Strike](https://attack.mitre.org/software/S0154) configured with a modified variation of the publicly available Pandora Malleable C2 Profile.(Citation: FireEye APT29 Nov 2018)(Citation: Microsoft Unidentified Dec 2018)"
+      ]
+    },
+    {
+      "technique_id": "T1608.001",
+      "technique_stix_id": "attack-pattern--3ee16395-03f0-4690-a32e-69ce9ada0f9e",
+      "name": "Upload Malware",
+      "execution_domain": "attacker",
+      "tactics": [
+        "resource-development"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--895ab8e5-8f5f-420f-b283-61ee0d7ac37a"
+      ],
+      "procedure_descriptions": [
+        "For [C0021](https://attack.mitre.org/campaigns/C0021), the threat actors uploaded malware to websites under their control.(Citation: FireEye APT29 Nov 2018)(Citation: Microsoft Unidentified Dec 2018)"
+      ]
+    },
+    {
+      "technique_id": "T1566.002",
+      "technique_stix_id": "attack-pattern--2b742742-28c3-4e1b-bab7-8350d6300fa7",
+      "name": "Spearphishing Link",
+      "execution_domain": "boundary",
+      "tactics": [
+        "initial-access"
+      ],
+      "platforms": [
+        "Identity Provider",
+        "Linux",
+        "Office Suite",
+        "SaaS",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--aafab4f1-96d9-4c9e-8f87-98a38db520fe"
+      ],
+      "procedure_descriptions": [
+        "During [C0021](https://attack.mitre.org/campaigns/C0021), the threat actors sent phishing emails with unique malicious links, likely for tracking victim clicks.(Citation: FireEye APT29 Nov 2018)(Citation: Microsoft Unidentified Dec 2018)"
+      ]
+    },
+    {
+      "technique_id": "T1059.001",
+      "technique_stix_id": "attack-pattern--970a3432-3237-47ad-bcca-7d8cbb217736",
+      "name": "PowerShell",
+      "execution_domain": "target",
+      "tactics": [
+        "execution"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--c8bc8331-513b-40e1-a82b-67107d2babd4"
+      ],
+      "procedure_descriptions": [
+        "During [C0021](https://attack.mitre.org/campaigns/C0021), the threat actors used obfuscated PowerShell to extract an encoded payload from within an .LNK file.(Citation: FireEye APT29 Nov 2018)(Citation: Microsoft Unidentified Dec 2018)"
+      ]
+    },
+    {
+      "technique_id": "T1204.001",
+      "technique_stix_id": "attack-pattern--ef67e13e-5598-4adc-bdb2-998225874fa9",
+      "name": "Malicious Link",
+      "execution_domain": "target",
+      "tactics": [
+        "execution"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--5610e19c-de2e-4b9d-9e10-776e94528b0d"
+      ],
+      "procedure_descriptions": [
+        "During [C0021](https://attack.mitre.org/campaigns/C0021), the threat actors lured users into clicking a malicious link which led to the download of a  ZIP archive containing a malicious .LNK file.(Citation: FireEye APT29 Nov 2018)"
+      ]
+    },
+    {
+      "technique_id": "T1027.009",
+      "technique_stix_id": "attack-pattern--0533ab23-3f7d-463f-9bd8-634d27e4dee1",
+      "name": "Embedded Payloads",
+      "execution_domain": "target",
+      "tactics": [
+        "stealth"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--f5e601f7-5f7a-4888-9e90-e7f815d5013c"
+      ],
+      "procedure_descriptions": [
+        "For [C0021](https://attack.mitre.org/campaigns/C0021), the threat actors embedded a base64-encoded payload within a LNK file.(Citation: Microsoft Unidentified Dec 2018)"
+      ]
+    },
+    {
+      "technique_id": "T1027.010",
+      "technique_stix_id": "attack-pattern--d511a6f6-4a33-41d5-bc95-c343875d1377",
+      "name": "Command Obfuscation",
+      "execution_domain": "target",
+      "tactics": [
+        "stealth"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--38ecb5dd-08b5-45ca-b048-9c4ba6f842fc"
+      ],
+      "procedure_descriptions": [
+        "During [C0021](https://attack.mitre.org/campaigns/C0021), the threat actors used encoded PowerShell commands.(Citation: FireEye APT29 Nov 2018)(Citation: Microsoft Unidentified Dec 2018)"
+      ]
+    },
+    {
+      "technique_id": "T1140",
+      "technique_stix_id": "attack-pattern--3ccef7ae-cb5e-48f6-8302-897105fbf55c",
+      "name": "Deobfuscate/Decode Files or Information",
+      "execution_domain": "target",
+      "tactics": [
+        "stealth"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--a575b110-f622-4813-9fa7-bef6287bcb7b"
+      ],
+      "procedure_descriptions": [
+        "During [C0021](https://attack.mitre.org/campaigns/C0021), the threat actors deobfuscated encoded PowerShell commands including use of the specific string `'FromBase'+0x40+'String'`, in place of `FromBase64String` which is normally used to decode base64.(Citation: FireEye APT29 Nov 2018)(Citation: Microsoft Unidentified Dec 2018)"
+      ]
+    },
+    {
+      "technique_id": "T1218.011",
+      "technique_stix_id": "attack-pattern--045d0922-2310-4e60-b5e4-3302302cb3c5",
+      "name": "Rundll32",
+      "execution_domain": "target",
+      "tactics": [
+        "stealth"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--0e8a4965-f609-4cf1-bded-2b4a1ef5c5f3"
+      ],
+      "procedure_descriptions": [
+        "During [C0021](https://attack.mitre.org/campaigns/C0021), the threat actors used `rundll32.exe` to execute the [Cobalt Strike](https://attack.mitre.org/software/S0154) Beacon loader DLL.(Citation: FireEye APT29 Nov 2018)"
+      ]
+    },
+    {
+      "technique_id": "T1071.001",
+      "technique_stix_id": "attack-pattern--df8b2a25-8bdf-4856-953c-a04372b1c161",
+      "name": "Web Protocols",
+      "execution_domain": "boundary",
+      "tactics": [
+        "command-and-control"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--889f0ae5-cf9f-4418-8181-ebee62d64afb"
+      ],
+      "procedure_descriptions": [
+        "During [C0021](https://attack.mitre.org/campaigns/C0021), the threat actors used HTTP for some of their C2 communications.(Citation: FireEye APT29 Nov 2018)"
+      ]
+    },
+    {
+      "technique_id": "T1095",
+      "technique_stix_id": "attack-pattern--c21d5a77-d422-4a69-acd7-2c53c1faa34b",
+      "name": "Non-Application Layer Protocol",
+      "execution_domain": "boundary",
+      "tactics": [
+        "command-and-control"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--6daa0c15-e73b-4b0f-8069-8f89638bf6fd"
+      ],
+      "procedure_descriptions": [
+        "During [C0021](https://attack.mitre.org/campaigns/C0021), the threat actors used TCP for some C2 communications.(Citation: FireEye APT29 Nov 2018)"
+      ]
+    },
+    {
+      "technique_id": "T1105",
+      "technique_stix_id": "attack-pattern--e6919abc-99f9-4c6c-95a5-14761e7b2add",
+      "name": "Ingress Tool Transfer",
+      "execution_domain": "boundary",
+      "tactics": [
+        "command-and-control"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--961bbfd6-e487-4628-9956-5b497e622ae1"
+      ],
+      "procedure_descriptions": [
+        "During [C0021](https://attack.mitre.org/campaigns/C0021), the threat actors downloaded additional tools and files onto victim machines.(Citation: Microsoft Unidentified Dec 2018)(Citation: FireEye APT29 Nov 2018) "
+      ]
+    },
+    {
+      "technique_id": "T1573.002",
+      "technique_stix_id": "attack-pattern--bf176076-b789-408e-8cba-7275e81c0ada",
+      "name": "Asymmetric Cryptography",
+      "execution_domain": "boundary",
+      "tactics": [
+        "command-and-control"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--ba18c3d0-049b-40c0-b65f-fe0463b3a9d6"
+      ],
+      "procedure_descriptions": [
+        "During [C0021](https://attack.mitre.org/campaigns/C0021), the threat actors used SSL via TCP port 443 for C2 communications.(Citation: FireEye APT29 Nov 2018)"
+      ]
+    }
+  ],
+  "limitations": [
+    "ATT&CK uses-links do not encode a historical total order; the compiler applies a declared tactic-rank policy.",
+    "Technique metadata constrains procedures but does not uniquely determine an executable target environment."
+  ],
+  "content_sha256": "c60721d6f829db67ca2c14c8090dde6cb74c74f33afcf13a7a5dfcb081ab63d1"
+}

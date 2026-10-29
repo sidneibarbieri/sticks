@@ -1,0 +1,12 @@
+{
+  "schema_version": "c0026-runtime-contracts/v1",
+  "campaign_id": "0.c0026",
+  "occurrences": [
+    {"occurrence": 1, "technique_id": "T1583.001", "mode": "naive_simulated", "executor_id": "executors.executor_registry.execute_t1583_001_simulated", "executor_sha256": "e0d82c36feddfbea345750a1f681bfc68af81869f6ef105895067019f9c3647d", "requirements": [], "observers": []},
+    {"occurrence": 2, "technique_id": "T1568", "mode": "real_controlled", "executor_id": "executors.executor_registry.execute_t1568_real", "executor_sha256": "e0d82c36feddfbea345750a1f681bfc68af81869f6ef105895067019f9c3647d", "requirements": ["lab:shell"], "observers": ["c0026-resolution"]},
+    {"occurrence": 3, "technique_id": "T1105", "mode": "real_controlled", "executor_id": "executors.executor_registry.execute_t1105_real", "executor_sha256": "e0d82c36feddfbea345750a1f681bfc68af81869f6ef105895067019f9c3647d", "requirements": ["lab:shell"], "observers": ["c0026-payload"]},
+    {"occurrence": 4, "technique_id": "T1005", "mode": "real_controlled", "executor_id": "executors.legacy_parity_expansion_executors.execute_t1005_real", "executor_sha256": "580e484384a7eedf54b5640a27256df1f26bdb675ac15be305a674194dd4dae7", "requirements": ["lab:shell"], "observers": ["c0026-collection"]},
+    {"occurrence": 5, "technique_id": "T1560.001", "mode": "real_controlled", "executor_id": "executors.executor_registry.execute_t1560_001_real", "executor_sha256": "e0d82c36feddfbea345750a1f681bfc68af81869f6ef105895067019f9c3647d", "requirements": ["lab:shell", "collection:verified"], "observers": ["c0026-archive"]},
+    {"occurrence": 6, "technique_id": "T1030", "mode": "real_controlled", "executor_id": "executors.executor_registry.execute_t1030_real", "executor_sha256": "e0d82c36feddfbea345750a1f681bfc68af81869f6ef105895067019f9c3647d", "requirements": ["lab:shell", "archive:verified"], "observers": ["c0026-chunks"]}
+  ]
+}

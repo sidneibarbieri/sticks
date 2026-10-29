@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure registers a device to a user account in a controlled MFA environment to simulate device registration.",
+    "evidence_predicates": [
+      "fixture_access_logged",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "device": "target_host",
+      "user_account": "credential_source"
+    },
+    "produces": [
+      "device registered in MFA system"
+    ],
+    "requires": [
+      "user credentials",
+      "target device access"
+    ],
+    "technique_ids": [
+      "T1098.005"
+    ],
+    "template_id": "device-registration-laboratory-harness"
+  }
+}

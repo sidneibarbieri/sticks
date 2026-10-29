@@ -1,0 +1,77 @@
+{
+  "schema": "historical-technique-inventory/v1",
+  "source_file": "apt41_dust_dag.json",
+  "source_sha256": "4c0023b69d1feaa38041e38569692d7b6e0af10050d25ae069c8480cb284e891",
+  "scope": "Technique occurrences only; no procedure, ordering, execution, or fidelity claim.",
+  "structural_nodes": [
+    {
+      "technique_id": "T1102"
+    },
+    {
+      "technique_id": "T1213.006"
+    },
+    {
+      "technique_id": "T1543.003"
+    },
+    {
+      "technique_id": "T1070.004"
+    },
+    {
+      "technique_id": "T1105"
+    },
+    {
+      "technique_id": "T1505.003"
+    },
+    {
+      "technique_id": "T1593.002"
+    },
+    {
+      "technique_id": "T1588.003"
+    },
+    {
+      "technique_id": "T1586.003"
+    },
+    {
+      "technique_id": "T1119"
+    },
+    {
+      "technique_id": "T1027.013"
+    },
+    {
+      "technique_id": "T1074.001"
+    },
+    {
+      "technique_id": "T1567.002"
+    },
+    {
+      "technique_id": "T1036.004"
+    },
+    {
+      "technique_id": "T1596.005"
+    },
+    {
+      "technique_id": "T1574.001"
+    },
+    {
+      "technique_id": "T1569.002"
+    },
+    {
+      "technique_id": "T1560.001"
+    },
+    {
+      "technique_id": "T1071.001"
+    },
+    {
+      "technique_id": "T1594"
+    },
+    {
+      "technique_id": "T1583.007"
+    },
+    {
+      "technique_id": "T1573.002"
+    },
+    {
+      "technique_id": "T1553.002"
+    }
+  ]
+}

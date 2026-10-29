@@ -1,0 +1,15 @@
+{
+  "campaign_id": "C0026",
+  "arm_id": "prior_work_style",
+  "seed": 5,
+  "step_id": "s2",
+  "emitted": true,
+  "abstained": false,
+  "oracle_admitted": false,
+  "template_id": "resolve-lab-domain",
+  "proposal_sha256": "04cbed7347dd8e0ae0a0095f7dd0d78f65a4574d407a76eedda4d93230a38f3d",
+  "issue_codes": [
+    "EXECUTION_DOMAIN_MISMATCH"
+  ],
+  "parse_error": null
+}

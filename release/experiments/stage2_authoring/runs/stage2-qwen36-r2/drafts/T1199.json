@@ -1,0 +1,36 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "qwen3.6:latest",
+    "provider": "openai",
+    "review_pending": true,
+    "run_id": "stage2-qwen36-r2",
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This benign laboratory step simulates leveraging a pre-authorized third-party connection to establish a controlled access session within the test environment.",
+    "evidence_predicates": [
+      "service_request_logged",
+      "lab_scope_verified"
+    ],
+    "execution_domain": "boundary",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "auth_credential": "credential_source",
+      "target_scope": "network_interface",
+      "trust_connector": "infrastructure_artifact"
+    },
+    "produces": [
+      "simulated_trusted_session_active",
+      "third_party_access_log_entry"
+    ],
+    "requires": [
+      "pre_approved_trust_policy",
+      "provisioned_service_account"
+    ],
+    "technique_ids": [
+      "T1199"
+    ],
+    "template_id": "simulated-trusted-third-party-access"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "qwen3.6:latest",
+    "provider": "openai",
+    "review_pending": true,
+    "run_id": "stage2-qwen36-r2",
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "A benign laboratory harness that simulates the deployment of a legitimate installer package to verify persistence and privilege escalation mechanisms without executing malicious payloads.",
+    "evidence_predicates": [
+      "artifact_hash_recorded",
+      "process_exit_recorded"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "exec_env": "runtime",
+      "install_target": "target_host",
+      "pkg_artifact": "archive_artifact"
+    },
+    "produces": [
+      "persistence_entry_created",
+      "installer_execution_logged"
+    ],
+    "requires": [
+      "installer_package_available",
+      "target_host_accessible"
+    ],
+    "technique_ids": [
+      "T1546.016"
+    ],
+    "template_id": "installer-package-persistence-harness"
+  }
+}

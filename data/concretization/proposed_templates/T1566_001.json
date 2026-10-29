@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure simulates the delivery of a spearphishing email with a malicious attachment to observe the effects of user interaction.",
+    "evidence_predicates": [
+      "artifact_hash_recorded",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "email_channel": "channel",
+      "malicious_attachment": "payload"
+    },
+    "produces": [
+      "artifact_hash_recorded"
+    ],
+    "requires": [
+      "user interaction to open the attachment",
+      "email delivery to the target"
+    ],
+    "technique_ids": [
+      "T1566.001"
+    ],
+    "template_id": "spearphishing-attachment-laboratory-harness"
+  }
+}

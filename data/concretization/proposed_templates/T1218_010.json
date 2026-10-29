@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure demonstrates the benign use of Regsvr32.exe to execute a payload while monitoring the execution state.",
+    "evidence_predicates": [
+      "process_exit_recorded",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "payload": "payload",
+      "target_host": "target_host"
+    },
+    "produces": [
+      "The payload is executed via Regsvr32.exe"
+    ],
+    "requires": [
+      "Regsvr32.exe is available on the system",
+      "The payload is a valid DLL"
+    ],
+    "technique_ids": [
+      "T1218.010"
+    ],
+    "template_id": "regsvr32-execution-proxy"
+  }
+}

@@ -1,0 +1,196 @@
+{
+  "taxonomy_version": "1",
+  "campaign_id": "C0010",
+  "total_steps": 9,
+  "total_binding_occurrences": 19,
+  "binding_occurrence_counts": {
+    "cti_evidenced": 0,
+    "environment_determined": 12,
+    "runtime_derived": 0,
+    "system_introduced": 7
+  },
+  "unique_binding_count": 9,
+  "unique_binding_counts": {
+    "cti_evidenced": 0,
+    "environment_determined": 5,
+    "runtime_derived": 0,
+    "system_introduced": 4
+  },
+  "mechanism_counts": {
+    "contract_forced": 9,
+    "proposer_chosen": 0
+  },
+  "cti_binding_rate": 0.0,
+  "environment_binding_rate": 0.631578947368421,
+  "system_introduced_rate": 0.3684210526315789,
+  "proposer_chosen_mechanism_rate": 0.0,
+  "steps": [
+    {
+      "sequence": 1,
+      "technique_id": "T1583.001",
+      "template_id": "record-controlled-domain",
+      "mechanism": "contract_forced",
+      "bindings": [
+        {
+          "parameter": "actor",
+          "binding_id": "actor.primary",
+          "provenance": "environment_determined"
+        },
+        {
+          "parameter": "manifest",
+          "binding_id": "infrastructure.lab_manifest",
+          "provenance": "system_introduced"
+        }
+      ]
+    },
+    {
+      "sequence": 2,
+      "technique_id": "T1584.001",
+      "template_id": "record-controlled-compromised-domain",
+      "mechanism": "contract_forced",
+      "bindings": [
+        {
+          "parameter": "actor",
+          "binding_id": "actor.primary",
+          "provenance": "environment_determined"
+        },
+        {
+          "parameter": "manifest",
+          "binding_id": "infrastructure.lab_manifest",
+          "provenance": "system_introduced"
+        }
+      ]
+    },
+    {
+      "sequence": 3,
+      "technique_id": "T1587.001",
+      "template_id": "specify-benign-capability",
+      "mechanism": "contract_forced",
+      "bindings": [
+        {
+          "parameter": "actor",
+          "binding_id": "actor.primary",
+          "provenance": "environment_determined"
+        },
+        {
+          "parameter": "specification",
+          "binding_id": "capability.benign_specification",
+          "provenance": "system_introduced"
+        }
+      ]
+    },
+    {
+      "sequence": 4,
+      "technique_id": "T1588.002",
+      "template_id": "stage-benign-toolkit",
+      "mechanism": "contract_forced",
+      "bindings": [
+        {
+          "parameter": "actor",
+          "binding_id": "actor.primary",
+          "provenance": "environment_determined"
+        },
+        {
+          "parameter": "toolkit",
+          "binding_id": "toolkit.benign",
+          "provenance": "system_introduced"
+        }
+      ]
+    },
+    {
+      "sequence": 5,
+      "technique_id": "T1608.001",
+      "template_id": "stage-benign-payload",
+      "mechanism": "contract_forced",
+      "bindings": [
+        {
+          "parameter": "actor",
+          "binding_id": "actor.primary",
+          "provenance": "environment_determined"
+        },
+        {
+          "parameter": "payload",
+          "binding_id": "payload.benign",
+          "provenance": "system_introduced"
+        }
+      ]
+    },
+    {
+      "sequence": 6,
+      "technique_id": "T1608.002",
+      "template_id": "stage-benign-tool",
+      "mechanism": "contract_forced",
+      "bindings": [
+        {
+          "parameter": "actor",
+          "binding_id": "actor.primary",
+          "provenance": "environment_determined"
+        },
+        {
+          "parameter": "toolkit",
+          "binding_id": "toolkit.benign",
+          "provenance": "system_introduced"
+        }
+      ]
+    },
+    {
+      "sequence": 7,
+      "technique_id": "T1608.004",
+      "template_id": "stage-lab-web-target",
+      "mechanism": "contract_forced",
+      "bindings": [
+        {
+          "parameter": "actor",
+          "binding_id": "actor.primary",
+          "provenance": "environment_determined"
+        },
+        {
+          "parameter": "web_asset",
+          "binding_id": "web_asset.benign_landing",
+          "provenance": "environment_determined"
+        }
+      ]
+    },
+    {
+      "sequence": 8,
+      "technique_id": "T1189",
+      "template_id": "visit-declared-web-target",
+      "mechanism": "contract_forced",
+      "bindings": [
+        {
+          "parameter": "endpoint",
+          "binding_id": "endpoint.public_service",
+          "provenance": "environment_determined"
+        },
+        {
+          "parameter": "target",
+          "binding_id": "target.primary",
+          "provenance": "environment_determined"
+        }
+      ]
+    },
+    {
+      "sequence": 9,
+      "technique_id": "T1105",
+      "template_id": "transfer-staged-benign-tool",
+      "mechanism": "contract_forced",
+      "bindings": [
+        {
+          "parameter": "channel",
+          "binding_id": "channel.private_http",
+          "provenance": "environment_determined"
+        },
+        {
+          "parameter": "payload",
+          "binding_id": "payload.benign",
+          "provenance": "system_introduced"
+        },
+        {
+          "parameter": "target",
+          "binding_id": "target.primary",
+          "provenance": "environment_determined"
+        }
+      ]
+    }
+  ]
+}

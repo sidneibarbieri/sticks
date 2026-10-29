@@ -1,0 +1,34 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure schedules a benign task on a target system to execute a specified script at a designated time.",
+    "evidence_predicates": [
+      "bounded_effect_observed",
+      "fixture_access_logged"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "execution_time": "runtime",
+      "script_path": "payload",
+      "task_name": "shell_config_artifact"
+    },
+    "produces": [
+      "task scheduled successfully"
+    ],
+    "requires": [
+      "proper authentication to the target system",
+      "admin privileges on the target system"
+    ],
+    "technique_ids": [
+      "T1053"
+    ],
+    "template_id": "scheduled-task-job-laboratory-harness"
+  }
+}

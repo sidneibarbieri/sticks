@@ -1,0 +1,36 @@
+{
+  "id": "chatcmpl-EOgGXjPOYKl6p2Uyf0bOemKtgybx6",
+  "object": "chat.completion",
+  "created": 1789551049,
+  "model": "gpt-4o-mini-2024-07-18",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"template_id\": \"account-manipulation-laboratory-harness\",\n  \"technique_ids\": [\"T1098\"],\n  \"execution_domain\": \"target\",\n  \"parameter_kinds\": {\n    \"target_host\": \"target_host\",\n    \"credential_source\": \"credential_source\"\n  },\n  \"requires\": [\n    \"adversary has access to a compromised account\",\n    \"adversary has the ability to modify account settings\"\n  ],\n  \"produces\": [\n    \"account permissions modified\",\n    \"credentials updated\"\n  ],\n  \"evidence_predicates\": [\n    \"fixture_access_logged\",\n    \"bounded_effect_observed\"\n  ],\n  \"fidelity_ceiling\": \"adapted\",\n  \"description\": \"This procedure simulates the manipulation of account credentials and permissions to observe the effects on access control.\"\n}",
+        "refusal": null,
+        "annotations": []
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 813,
+    "completion_tokens": 173,
+    "total_tokens": 986,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_c577bb8647"
+}

@@ -1,0 +1,36 @@
+{
+  "id": "chatcmpl-EOK35oPr9groRPxWrL0loClP5mba9",
+  "object": "chat.completion",
+  "created": 1789465647,
+  "model": "gpt-4o-mini-2024-07-18",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"template_id\": \"rundll32-execution-proxy\",\n  \"technique_ids\": [\n    \"T1218.011\"\n  ],\n  \"execution_domain\": \"target\",\n  \"parameter_kinds\": {\n    \"dll_name\": \"payload\",\n    \"dll_function\": \"payload\"\n  },\n  \"requires\": [\n    \"rundll32.exe is available on the system\",\n    \"the specified DLL and function are valid\"\n  ],\n  \"produces\": [\n    \"process_exit_recorded\"\n  ],\n  \"evidence_predicates\": [\n    \"process_exit_recorded\",\n    \"bounded_effect_observed\"\n  ],\n  \"fidelity_ceiling\": \"adapted\",\n  \"description\": \"This procedure uses rundll32.exe to execute a specified DLL function, simulating a benign execution environment.\"\n}",
+        "refusal": null,
+        "annotations": []
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 855,
+    "completion_tokens": 173,
+    "total_tokens": 1028,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_c577bb8647"
+}

@@ -1,0 +1,13 @@
+{
+  "campaign_id": "C0045",
+  "arm_id": "prior_work_style",
+  "seed": 3,
+  "step_id": "s4",
+  "emitted": true,
+  "abstained": false,
+  "oracle_admitted": true,
+  "template_id": "write-lab-shell-config",
+  "proposal_sha256": "4c962e3ad0792e3469f77d1a9b801acc359e6b3eef03306245691d167bab5b1d",
+  "issue_codes": [],
+  "parse_error": null
+}

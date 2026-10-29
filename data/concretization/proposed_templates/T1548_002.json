@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure demonstrates how to bypass User Account Control to elevate process privileges in a controlled laboratory environment.",
+    "evidence_predicates": [
+      "bounded_effect_observed",
+      "process_exit_recorded"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "privilege_boundary": "privilege_boundary",
+      "target_host": "target_host"
+    },
+    "produces": [
+      "process elevated to administrator privileges"
+    ],
+    "requires": [
+      "user account control is enabled",
+      "administrator credentials are available"
+    ],
+    "technique_ids": [
+      "T1548.002"
+    ],
+    "template_id": "bypass-user-account-control-laboratory-harness"
+  }
+}

@@ -1,0 +1,106 @@
+{
+  "schema_version": "1",
+  "scope": "Linux container qualification; pre-provided target session; no initial-access claim",
+  "templates": [
+    {
+      "template_id": "discover-lab-system",
+      "technique_ids": [
+        "T1082"
+      ],
+      "execution_domain": "target",
+      "parameter_kinds": {
+        "target": "target_host"
+      },
+      "requires": [
+        "access.target.shell",
+        "sut.linux.procfs",
+        "sut.discovery.fixture"
+      ],
+      "produces": [
+        "system_information_observed"
+      ],
+      "evidence_predicates": [
+        "stdout_hash_recorded",
+        "discovery_matches_target_observation"
+      ],
+      "fidelity_ceiling": "adapted",
+      "description": "Query the kernel identity of the declared Linux laboratory target."
+    },
+    {
+      "template_id": "discover-lab-user",
+      "technique_ids": [
+        "T1033"
+      ],
+      "execution_domain": "target",
+      "parameter_kinds": {
+        "target": "target_host"
+      },
+      "requires": [
+        "access.target.shell",
+        "sut.linux.procfs",
+        "sut.discovery.fixture"
+      ],
+      "produces": [
+        "user_identity_observed"
+      ],
+      "evidence_predicates": [
+        "stdout_hash_recorded",
+        "discovery_matches_target_observation"
+      ],
+      "fidelity_ceiling": "adapted",
+      "description": "Query the effective user identity of the declared laboratory session."
+    },
+    {
+      "template_id": "discover-lab-processes",
+      "technique_ids": [
+        "T1057"
+      ],
+      "execution_domain": "target",
+      "parameter_kinds": {
+        "target": "target_host"
+      },
+      "requires": [
+        "access.target.shell",
+        "sut.linux.procfs",
+        "sut.discovery.fixture"
+      ],
+      "produces": [
+        "process_inventory_observed"
+      ],
+      "evidence_predicates": [
+        "stdout_hash_recorded",
+        "discovery_matches_target_observation"
+      ],
+      "fidelity_ceiling": "adapted",
+      "description": "Enumerate processes in the declared laboratory process namespace."
+    },
+    {
+      "template_id": "discover-lab-files",
+      "technique_ids": [
+        "T1083"
+      ],
+      "execution_domain": "target",
+      "parameter_kinds": {
+        "target": "target_host"
+      },
+      "requires": [
+        "access.target.shell",
+        "sut.linux.procfs",
+        "sut.discovery.fixture"
+      ],
+      "produces": [
+        "file_inventory_observed"
+      ],
+      "evidence_predicates": [
+        "stdout_hash_recorded",
+        "discovery_matches_target_observation"
+      ],
+      "fidelity_ceiling": "adapted",
+      "description": "Enumerate files only in the seeded laboratory fixture directory."
+    }
+  ],
+  "predicate_roles": {
+    "stdout_hash_recorded": "effect",
+    "discovery_matches_target_observation": "effect"
+  }
+}

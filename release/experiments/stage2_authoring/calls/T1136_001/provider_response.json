@@ -1,0 +1,36 @@
+{
+  "id": "chatcmpl-EOgGtSKLHZzzQth8aGOok26alBTjR",
+  "object": "chat.completion",
+  "created": 1789551071,
+  "model": "gpt-4o-mini-2024-07-18",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"template_id\": \"create-local-account-laboratory-harness\",\n  \"technique_ids\": [\n    \"T1136.001\"\n  ],\n  \"execution_domain\": \"target\",\n  \"parameter_kinds\": {\n    \"user_name\": \"credential_source\",\n    \"password\": \"credential_source\"\n  },\n  \"requires\": [\n    \"sufficient_access_level\"\n  ],\n  \"produces\": [\n    \"local_account_created\"\n  ],\n  \"evidence_predicates\": [\n    \"bounded_effect_observed\",\n    \"fixture_access_logged\"\n  ],\n  \"fidelity_ceiling\": \"adapted\",\n  \"description\": \"This procedure creates a local account on the target system to simulate access maintenance.\"\n}",
+        "refusal": null,
+        "annotations": []
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 845,
+    "completion_tokens": 150,
+    "total_tokens": 995,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_c577bb8647"
+}

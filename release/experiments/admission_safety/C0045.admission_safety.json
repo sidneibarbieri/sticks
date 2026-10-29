@@ -1,0 +1,31 @@
+{
+  "campaign_id": "C0045",
+  "unproposed_execution_semantic_sha256": "ffe478afcade8f930ea4ef3499e0798c6f0e34d120671f6473fdad09335b86f2",
+  "outcomes": [
+    {
+      "kind": "none",
+      "execution_semantic_sha256": "ffe478afcade8f930ea4ef3499e0798c6f0e34d120671f6473fdad09335b86f2",
+      "committed_steps": 10,
+      "matches_unproposed_plan": true
+    },
+    {
+      "kind": "unknown_template",
+      "execution_semantic_sha256": "ffe478afcade8f930ea4ef3499e0798c6f0e34d120671f6473fdad09335b86f2",
+      "committed_steps": 10,
+      "matches_unproposed_plan": true
+    },
+    {
+      "kind": "wrong_technique",
+      "execution_semantic_sha256": "ffe478afcade8f930ea4ef3499e0798c6f0e34d120671f6473fdad09335b86f2",
+      "committed_steps": 10,
+      "matches_unproposed_plan": true
+    },
+    {
+      "kind": "unavailable_binding",
+      "execution_semantic_sha256": "ffe478afcade8f930ea4ef3499e0798c6f0e34d120671f6473fdad09335b86f2",
+      "committed_steps": 10,
+      "matches_unproposed_plan": true
+    }
+  ],
+  "inadmissible_proposals_rejected": true
+}

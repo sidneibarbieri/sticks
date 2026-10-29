@@ -1,0 +1,34 @@
+{
+  "artifact_tree_sha256": "f6c14cf55e4fbcbb51d8c1c1e50638c7fa059e2eb511aabc4b7825e34e756ddf",
+  "campaign_id": "0.c0026",
+  "cycle_passed": true,
+  "execution_log_sha256": "e3a773ae2856d5bb53cc8f4e9012a8261c88c58bd596d9e31bbde22e7143a08f",
+  "final_evidence_tree_sha256": "b9607fb6ce798a0863aff5cc5bbcdd759e427e67fd09d0d12d7a331eac2e3fac",
+  "initial_evidence_tree_sha256": "344add55f191d0d1219ca7c02828abe5da72741d041d1ab761fa345a16dae17e",
+  "observation_path": "evidence/c0026-target-observation.json",
+  "observation_sha256": "1fce9f8c26231952c03d1cd17a7669efc3c96e20663846f35b41d8351236ed17",
+  "observer_checks": {
+    "archive_contains_collection": true,
+    "benign_transfer_retained": true,
+    "chunks_reassemble_archive": true,
+    "collection_matches_declared_sources": true,
+    "dynamic_resolution_recorded": true
+  },
+  "observer_transport_path": "evidence/c0026-target-observation.transport.json",
+  "observer_transport_sha256": "947e6d9ff62c3cec50357555765a9eda64860ddf82d5144a3c8b7c14d59ed6e2",
+  "probe_sha256": "57d9c6ae63cfafa64bc759210f940f7bee24050f209dc53009fecf594585ee70",
+  "runner_effects_observed": 5,
+  "runner_run_id": "ee1d15df14fd4b1e97fd925f9e02ca7e",
+  "runner_schema_version": "runtime-campaign/v2",
+  "runner_simulated": 1,
+  "runner_summary_path": "runtime-v2/ee1d15df14fd4b1e97fd925f9e02ca7e/summary.json",
+  "runner_total_techniques": 6,
+  "schema": "isolated-lab-final-receipt/v2",
+  "scope": "Controlled guest effects only; not historical fidelity or external C2.",
+  "source_tree_sha256": "c5ae8a9cade65a61462c545e48d0c906d0f52da319fcf6b9228e9d618f3e9dbe",
+  "vm_states": {
+    "attacker": "not_created",
+    "caldera": "not_created",
+    "target-linux-1": "not_created"
+  }
+}

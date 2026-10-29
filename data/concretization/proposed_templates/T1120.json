@@ -1,0 +1,32 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure gathers and records information about all connected peripheral devices to enhance system awareness.",
+    "evidence_predicates": [
+      "interface_snapshot_recorded",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "target_host": "target_host"
+    },
+    "produces": [
+      "list of connected peripheral devices"
+    ],
+    "requires": [
+      "system is powered on",
+      "peripheral devices are connected"
+    ],
+    "technique_ids": [
+      "T1120"
+    ],
+    "template_id": "peripheral-device-discovery-laboratory-harness"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "id": "chatcmpl-EOK7bnR7IO3zoCDWPf1TxkQ66KbTq",
+  "object": "chat.completion",
+  "created": 1789465927,
+  "model": "gpt-4o-mini-2024-07-18",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"template_id\": \"additional-email-delegate-permissions-lab-harness\",\n  \"technique_ids\": [\n    \"T1098.002\"\n  ],\n  \"execution_domain\": \"target\",\n  \"parameter_kinds\": {\n    \"mailbox\": \"target_host\",\n    \"permissions\": \"capability_specification\"\n  },\n  \"requires\": [\n    \"user has administrative access to the email system\",\n    \"target mailbox exists\"\n  ],\n  \"produces\": [\n    \"additional permissions granted to the mailbox\"\n  ],\n  \"evidence_predicates\": [\n    \"bounded_effect_observed\",\n    \"fixture_access_logged\"\n  ],\n  \"fidelity_ceiling\": \"adapted\",\n  \"description\": \"This procedure grants additional delegate permissions to a specified mailbox to simulate persistent access in a controlled environment.\"\n}",
+        "refusal": null,
+        "annotations": []
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 844,
+    "completion_tokens": 171,
+    "total_tokens": 1015,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_c577bb8647"
+}

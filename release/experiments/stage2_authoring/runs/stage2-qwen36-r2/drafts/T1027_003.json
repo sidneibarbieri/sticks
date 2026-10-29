@@ -1,0 +1,36 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "qwen3.6:latest",
+    "provider": "openai",
+    "review_pending": true,
+    "run_id": "stage2-qwen36-r2",
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "A benign laboratory harness that embeds a specified payload into a source media file to demonstrate steganographic data hiding without triggering detection mechanisms.",
+    "evidence_predicates": [
+      "artifact_hash_recorded",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "hidden_payload": "encoded_artifact",
+      "output_file": "infrastructure_artifact",
+      "source_media": "archive_artifact"
+    },
+    "produces": [
+      "steganographic_image_generated",
+      "payload_embedded_in_media"
+    ],
+    "requires": [
+      "media_file_present",
+      "host_execution_context_ready"
+    ],
+    "technique_ids": [
+      "T1027.003"
+    ],
+    "template_id": "benign-steganography-harness"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure simulates the wiping of disk structures on a target host to observe the absence of critical files.",
+    "evidence_predicates": [
+      "file_absence_recorded",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "target_host": "target_host",
+      "toolkit": "toolkit"
+    },
+    "produces": [
+      "file_absence_recorded"
+    ],
+    "requires": [
+      "target_host is operational",
+      "toolkit is configured"
+    ],
+    "technique_ids": [
+      "T1561.002"
+    ],
+    "template_id": "disk-structure-wipe-laboratory-harness"
+  }
+}

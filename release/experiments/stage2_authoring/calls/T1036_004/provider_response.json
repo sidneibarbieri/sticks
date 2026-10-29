@@ -1,0 +1,36 @@
+{
+  "id": "chatcmpl-EOK3GqKNoefzccECz8WD6UI7y4dyU",
+  "object": "chat.completion",
+  "created": 1789465658,
+  "model": "gpt-4o-mini-2024-07-18",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"template_id\": \"masquerade-task-or-service-laboratory-harness\",\n  \"technique_ids\": [\n    \"T1036.004\"\n  ],\n  \"execution_domain\": \"target\",\n  \"parameter_kinds\": {\n    \"task_name\": \"target_host\",\n    \"service_name\": \"target_host\"\n  },\n  \"requires\": [\n    \"a benign task or service name\",\n    \"a system capable of executing tasks or services\"\n  ],\n  \"produces\": [\n    \"task or service with a manipulated name\"\n  ],\n  \"evidence_predicates\": [\n    \"service_request_logged\",\n    \"bounded_effect_observed\"\n  ],\n  \"fidelity_ceiling\": \"adapted\",\n  \"description\": \"This procedure manipulates the name of a task or service to simulate a benign appearance.\"\n}",
+        "refusal": null,
+        "annotations": []
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 830,
+    "completion_tokens": 173,
+    "total_tokens": 1003,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_c577bb8647"
+}

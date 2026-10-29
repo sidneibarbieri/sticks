@@ -1,0 +1,630 @@
+{
+  "schema_version": "1",
+  "compiler_version": "1",
+  "campaign_id": "C0049",
+  "campaign_name": "Leviathan Australian Intrusions",
+  "source": {
+    "bundle_sha256": "dc1639caa5501d720e280cf1cbd8fbe009884a0c9b3e6e9ed9d0c25166c3d8f4",
+    "object_count": 26086,
+    "campaign_stix_id": "campaign--b66bc597-399c-4e4d-828a-1ed4a7f1fb15",
+    "campaign_external_id": "C0049"
+  },
+  "ordering_policy": "tactic_rank_then_technique_id",
+  "steps": [
+    {
+      "technique_id": "T1594",
+      "technique_stix_id": "attack-pattern--16cdd21f-da65-4e4f-bc04-dd7d198c7b26",
+      "name": "Search Victim-Owned Websites",
+      "execution_domain": "attacker",
+      "tactics": [
+        "reconnaissance"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--9d992708-bfc2-4c9c-95d2-d12b49985986"
+      ],
+      "procedure_descriptions": [
+        "[Leviathan](https://attack.mitre.org/groups/G0065) enumerated compromised web application resources to identify additional endpoints and resources linkd to the website for follow-on access during [Leviathan Australian Intrusions](https://attack.mitre.org/campaigns/C0049).(Citation: CISA Leviathan 2024)"
+      ]
+    },
+    {
+      "technique_id": "T1588.006",
+      "technique_stix_id": "attack-pattern--2b5aa86b-a0df-4382-848d-30abea443327",
+      "name": "Vulnerabilities",
+      "execution_domain": "attacker",
+      "tactics": [
+        "resource-development"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--e9e4e756-ab1e-4b60-9bc6-7ceb54834970"
+      ],
+      "procedure_descriptions": [
+        "[Leviathan](https://attack.mitre.org/groups/G0065) weaponized publicly-known vulnerabilities for initial access and other purposes during [Leviathan Australian Intrusions](https://attack.mitre.org/campaigns/C0049).(Citation: CISA Leviathan 2024)"
+      ]
+    },
+    {
+      "technique_id": "T1078",
+      "technique_stix_id": "attack-pattern--b17a1a56-e99c-403c-8948-561df0cffe81",
+      "name": "Valid Accounts",
+      "execution_domain": "boundary",
+      "tactics": [
+        "initial-access",
+        "persistence",
+        "privilege-escalation",
+        "stealth"
+      ],
+      "platforms": [
+        "Containers",
+        "ESXi",
+        "IaaS",
+        "Identity Provider",
+        "Linux",
+        "Network Devices",
+        "Office Suite",
+        "SaaS",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--9e91dca0-256b-48a0-97af-4d9bd6802bac"
+      ],
+      "procedure_descriptions": [
+        "[Leviathan](https://attack.mitre.org/groups/G0065) used captured, valid account information to log into victim web applications and appliances during [Leviathan Australian Intrusions](https://attack.mitre.org/campaigns/C0049).(Citation: CISA Leviathan 2024)"
+      ]
+    },
+    {
+      "technique_id": "T1078.002",
+      "technique_stix_id": "attack-pattern--c3d4bdd9-2cfe-4a80-9d0c-07a29ecdce8f",
+      "name": "Domain Accounts",
+      "execution_domain": "boundary",
+      "tactics": [
+        "initial-access",
+        "persistence",
+        "privilege-escalation",
+        "stealth"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--250eabe6-6a1f-4c07-a5d4-5d1aceb3a961"
+      ],
+      "procedure_descriptions": [
+        "[Leviathan](https://attack.mitre.org/groups/G0065) compromised domain credentials during [Leviathan Australian Intrusions](https://attack.mitre.org/campaigns/C0049).(Citation: CISA Leviathan 2024)"
+      ]
+    },
+    {
+      "technique_id": "T1078.003",
+      "technique_stix_id": "attack-pattern--fdc47f44-dd32-4b99-af5f-209f556f63c2",
+      "name": "Local Accounts",
+      "execution_domain": "boundary",
+      "tactics": [
+        "initial-access",
+        "persistence",
+        "privilege-escalation",
+        "stealth"
+      ],
+      "platforms": [
+        "Containers",
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--c9f76562-98c9-4f58-a9ea-790cf792490a"
+      ],
+      "procedure_descriptions": [
+        "[Leviathan](https://attack.mitre.org/groups/G0065) used captured local account information, such as service accounts, for actions during [Leviathan Australian Intrusions](https://attack.mitre.org/campaigns/C0049).(Citation: CISA Leviathan 2024)"
+      ]
+    },
+    {
+      "technique_id": "T1190",
+      "technique_stix_id": "attack-pattern--3f886f2a-874f-4333-b794-aa6075009b1c",
+      "name": "Exploit Public-Facing Application",
+      "execution_domain": "boundary",
+      "tactics": [
+        "initial-access"
+      ],
+      "platforms": [
+        "Containers",
+        "ESXi",
+        "IaaS",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--57b386c4-5322-4e5b-a8a9-37d68a75f4c0"
+      ],
+      "procedure_descriptions": [
+        "[Leviathan](https://attack.mitre.org/groups/G0065) exploited public-facing web applications and appliances for initial access during [Leviathan Australian Intrusions](https://attack.mitre.org/campaigns/C0049).(Citation: CISA Leviathan 2024)"
+      ]
+    },
+    {
+      "technique_id": "T1505.003",
+      "technique_stix_id": "attack-pattern--5d0d3609-d06d-49e1-b9c9-b544e0c618cb",
+      "name": "Web Shell",
+      "execution_domain": "target",
+      "tactics": [
+        "persistence"
+      ],
+      "platforms": [
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--af846746-077c-4696-b15a-1221914bf15b"
+      ],
+      "procedure_descriptions": [
+        "[Leviathan](https://attack.mitre.org/groups/G0065) relied extensively on web shell use following initial access for persistence and command execution purposes in victim environments during [Leviathan Australian Intrusions](https://attack.mitre.org/campaigns/C0049).(Citation: CISA Leviathan 2024)"
+      ]
+    },
+    {
+      "technique_id": "T1068",
+      "technique_stix_id": "attack-pattern--b21c3b2d-02e6-45b1-980b-e69051040839",
+      "name": "Exploitation for Privilege Escalation",
+      "execution_domain": "target",
+      "tactics": [
+        "privilege-escalation"
+      ],
+      "platforms": [
+        "Containers",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--cc27e415-6fd8-410e-8469-888959cf5a27"
+      ],
+      "procedure_descriptions": [
+        "[Leviathan](https://attack.mitre.org/groups/G0065) exploited software vulnerabilities in victim environments to escalate privileges during [Leviathan Australian Intrusions](https://attack.mitre.org/campaigns/C0049).(Citation: CISA Leviathan 2024)"
+      ]
+    },
+    {
+      "technique_id": "T1686",
+      "technique_stix_id": "attack-pattern--eec096b8-c207-43df-b6c1-11523861e452",
+      "name": "Disable or Modify System Firewall",
+      "execution_domain": "target",
+      "tactics": [
+        "defense-impairment"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--2b11b20a-2b25-417f-8826-0fef4336ebfc"
+      ],
+      "procedure_descriptions": [
+        "[Leviathan](https://attack.mitre.org/groups/G0065) modified system firewalls to add two open listening ports on 9998 and 9999 during [Leviathan Australian Intrusions](https://attack.mitre.org/campaigns/C0049).(Citation: CISA Leviathan 2024)"
+      ]
+    },
+    {
+      "technique_id": "T1056",
+      "technique_stix_id": "attack-pattern--bb5a00de-e086-4859-a231-fa793f6797e2",
+      "name": "Input Capture",
+      "execution_domain": "target",
+      "tactics": [
+        "credential-access",
+        "collection"
+      ],
+      "platforms": [
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--a923dc9f-1a0c-4f1c-ad52-4c07011afcf1"
+      ],
+      "procedure_descriptions": [
+        "[Leviathan](https://attack.mitre.org/groups/G0065) captured submitted multfactor authentication codes and other technical artifacts related to remote access sessions during [Leviathan Australian Intrusions](https://attack.mitre.org/campaigns/C0049).(Citation: CISA Leviathan 2024)"
+      ]
+    },
+    {
+      "technique_id": "T1111",
+      "technique_stix_id": "attack-pattern--dd43c543-bb85-4a6f-aa6e-160d90d06a49",
+      "name": "Multi-Factor Authentication Interception",
+      "execution_domain": "target",
+      "tactics": [
+        "credential-access"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--dde3cae1-3541-4a6f-a945-4bf5d3a391c3"
+      ],
+      "procedure_descriptions": [
+        "[Leviathan](https://attack.mitre.org/groups/G0065) abused compromised appliance access to collect multifactor authentication token values during [Leviathan Australian Intrusions](https://attack.mitre.org/campaigns/C0049).(Citation: CISA Leviathan 2024)"
+      ]
+    },
+    {
+      "technique_id": "T1212",
+      "technique_stix_id": "attack-pattern--9c306d8d-cde7-4b4c-b6e8-d0bb16caca36",
+      "name": "Exploitation for Credential Access",
+      "execution_domain": "target",
+      "tactics": [
+        "credential-access"
+      ],
+      "platforms": [
+        "Identity Provider",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--e6720572-b3ab-4e25-8cee-51d8c3e81dce"
+      ],
+      "procedure_descriptions": [
+        "[Leviathan](https://attack.mitre.org/groups/G0065) exploited vulnerable network appliances during [Leviathan Australian Intrusions](https://attack.mitre.org/campaigns/C0049), leading to the collection and exfiltration of valid credentials.(Citation: CISA Leviathan 2024)"
+      ]
+    },
+    {
+      "technique_id": "T1528",
+      "technique_stix_id": "attack-pattern--890c9858-598c-401d-a4d5-c67ebcdd703a",
+      "name": "Steal Application Access Token",
+      "execution_domain": "target",
+      "tactics": [
+        "credential-access"
+      ],
+      "platforms": [
+        "Containers",
+        "IaaS",
+        "Identity Provider",
+        "Office Suite",
+        "SaaS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--dc4faebd-ef8a-40ae-8d4c-e1f75aca123b"
+      ],
+      "procedure_descriptions": [
+        "[Leviathan](https://attack.mitre.org/groups/G0065) abused access to compromised appliances to collect JSON Web Tokens (JWTs), used for creating virtual desktop sessions, during [Leviathan Australian Intrusions](https://attack.mitre.org/campaigns/C0049).(Citation: CISA Leviathan 2024)"
+      ]
+    },
+    {
+      "technique_id": "T1552",
+      "technique_stix_id": "attack-pattern--435dfb86-2697-4867-85b5-2fef496c0517",
+      "name": "Unsecured Credentials",
+      "execution_domain": "target",
+      "tactics": [
+        "credential-access"
+      ],
+      "platforms": [
+        "Containers",
+        "IaaS",
+        "Identity Provider",
+        "Linux",
+        "Network Devices",
+        "Office Suite",
+        "SaaS",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--1f29d292-9d2a-438d-8b8b-c9838e62b045"
+      ],
+      "procedure_descriptions": [
+        "[Leviathan](https://attack.mitre.org/groups/G0065) gathered credentials hardcoded in binaries located on victim devices during [Leviathan Australian Intrusions](https://attack.mitre.org/campaigns/C0049).(Citation: CISA Leviathan 2024)"
+      ]
+    },
+    {
+      "technique_id": "T1552.001",
+      "technique_stix_id": "attack-pattern--837f9164-50af-4ac0-8219-379d8a74cefc",
+      "name": "Credentials In Files",
+      "execution_domain": "target",
+      "tactics": [
+        "credential-access"
+      ],
+      "platforms": [
+        "Containers",
+        "IaaS",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--37dd2d5d-83c3-4d13-ac68-c1dd8f776c51"
+      ],
+      "procedure_descriptions": [
+        "[Leviathan](https://attack.mitre.org/groups/G0065) gathered credentials stored in files related to Building Management System (BMS) operations during [Leviathan Australian Intrusions](https://attack.mitre.org/campaigns/C0049).(Citation: CISA Leviathan 2024)"
+      ]
+    },
+    {
+      "technique_id": "T1558.003",
+      "technique_stix_id": "attack-pattern--f2877f7f-9a4c-4251-879f-1224e3006bee",
+      "name": "Kerberoasting",
+      "execution_domain": "target",
+      "tactics": [
+        "credential-access"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--6181f0b4-be28-4612-b45d-b94c851ebb56"
+      ],
+      "procedure_descriptions": [
+        "[Leviathan](https://attack.mitre.org/groups/G0065) used Kerberoasting techniques during [Leviathan Australian Intrusions](https://attack.mitre.org/campaigns/C0049).(Citation: CISA Leviathan 2024)"
+      ]
+    },
+    {
+      "technique_id": "T1018",
+      "technique_stix_id": "attack-pattern--e358d692-23c0-4a31-9eb6-ecc13a8d7735",
+      "name": "Remote System Discovery",
+      "execution_domain": "target",
+      "tactics": [
+        "discovery"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--52ec8e9e-4276-4793-bc9b-76c312cba5cd"
+      ],
+      "procedure_descriptions": [
+        "[Leviathan](https://attack.mitre.org/groups/G0065) performed extensive remote host enumeration to build their own map of victim networks during [Leviathan Australian Intrusions](https://attack.mitre.org/campaigns/C0049).(Citation: CISA Leviathan 2024)"
+      ]
+    },
+    {
+      "technique_id": "T1082",
+      "technique_stix_id": "attack-pattern--354a7f88-63fb-41b5-a801-ce3b377b36f1",
+      "name": "System Information Discovery",
+      "execution_domain": "target",
+      "tactics": [
+        "discovery"
+      ],
+      "platforms": [
+        "ESXi",
+        "IaaS",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--3d2ef7e3-419b-47d6-9779-65cfd0f0b86c"
+      ],
+      "procedure_descriptions": [
+        "[Leviathan](https://attack.mitre.org/groups/G0065) performed host enumeration and data gathering operations on victim machines during [Leviathan Australian Intrusions](https://attack.mitre.org/campaigns/C0049).(Citation: CISA Leviathan 2024)"
+      ]
+    },
+    {
+      "technique_id": "T1135",
+      "technique_stix_id": "attack-pattern--3489cfc5-640f-4bb3-a103-9137b97de79f",
+      "name": "Network Share Discovery",
+      "execution_domain": "target",
+      "tactics": [
+        "discovery"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--9ce73f8c-85c0-45ee-93a2-11475e14de19"
+      ],
+      "procedure_descriptions": [
+        "[Leviathan](https://attack.mitre.org/groups/G0065) scanned and enumerated remote network shares in victim environments during [Leviathan Australian Intrusions](https://attack.mitre.org/campaigns/C0049).(Citation: CISA Leviathan 2024)"
+      ]
+    },
+    {
+      "technique_id": "T1482",
+      "technique_stix_id": "attack-pattern--767dbf9e-df3f-45cb-8998-4903ab5f80c0",
+      "name": "Domain Trust Discovery",
+      "execution_domain": "target",
+      "tactics": [
+        "discovery"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--6cc4b0dc-d6ec-4d33-81c2-698d0923c752"
+      ],
+      "procedure_descriptions": [
+        "[Leviathan](https://attack.mitre.org/groups/G0065) performed Active Directory enumeration of victim environments during [Leviathan Australian Intrusions](https://attack.mitre.org/campaigns/C0049).(Citation: CISA Leviathan 2024)"
+      ]
+    },
+    {
+      "technique_id": "T1615",
+      "technique_stix_id": "attack-pattern--1b20efbf-8063-4fc3-a07d-b575318a301b",
+      "name": "Group Policy Discovery",
+      "execution_domain": "target",
+      "tactics": [
+        "discovery"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--11df82f4-a3e8-4792-90f3-1787f05f0a5e"
+      ],
+      "procedure_descriptions": [
+        "[Leviathan](https://attack.mitre.org/groups/G0065) performed extensive Active Directory enumeration of victim environments during [Leviathan Australian Intrusions](https://attack.mitre.org/campaigns/C0049).(Citation: CISA Leviathan 2024)"
+      ]
+    },
+    {
+      "technique_id": "T1021.002",
+      "technique_stix_id": "attack-pattern--4f9ca633-15c5-463c-9724-bdcd54fde541",
+      "name": "SMB/Windows Admin Shares",
+      "execution_domain": "target",
+      "tactics": [
+        "lateral-movement"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--0a9bd6e2-f367-4403-82b1-ab4b484359b2"
+      ],
+      "procedure_descriptions": [
+        "[Leviathan](https://attack.mitre.org/groups/G0065) used remote shares to move laterally through victim networks during [Leviathan Australian Intrusions](https://attack.mitre.org/campaigns/C0049).(Citation: CISA Leviathan 2024)"
+      ]
+    },
+    {
+      "technique_id": "T1021.004",
+      "technique_stix_id": "attack-pattern--2db31dcd-54da-405d-acef-b9129b816ed6",
+      "name": "SSH",
+      "execution_domain": "target",
+      "tactics": [
+        "lateral-movement"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--e4b22c3e-24ae-4606-bd51-1f934f85034e"
+      ],
+      "procedure_descriptions": [
+        "[Leviathan](https://attack.mitre.org/groups/G0065) used SSH brute force techniques to move laterally within victim environments during [Leviathan Australian Intrusions](https://attack.mitre.org/campaigns/C0049).(Citation: CISA Leviathan 2024)"
+      ]
+    },
+    {
+      "technique_id": "T1074.001",
+      "technique_stix_id": "attack-pattern--1c34f7aa-9341-4a48-bfab-af22e51aca6c",
+      "name": "Local Data Staging",
+      "execution_domain": "target",
+      "tactics": [
+        "collection"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--0ce76eff-085b-47c7-bce4-144d4b4252fc"
+      ],
+      "procedure_descriptions": [
+        "[Leviathan](https://attack.mitre.org/groups/G0065) stored captured credential material on local log files on victim systems during [Leviathan Australian Intrusions](https://attack.mitre.org/campaigns/C0049).(Citation: CISA Leviathan 2024)"
+      ]
+    },
+    {
+      "technique_id": "T1213.006",
+      "technique_stix_id": "attack-pattern--248d3fe1-7fe1-4d71-91c7-8bb7ef35cad3",
+      "name": "Databases",
+      "execution_domain": "target",
+      "tactics": [
+        "collection"
+      ],
+      "platforms": [
+        "IaaS",
+        "Linux",
+        "SaaS",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--177a712f-3f52-49b6-8cf3-981991fd5e69"
+      ],
+      "procedure_descriptions": [
+        "[Leviathan](https://attack.mitre.org/groups/G0065) gathered information from SQL servers and Building Management System (BMS) servers during [Leviathan Australian Intrusions](https://attack.mitre.org/campaigns/C0049).(Citation: CISA Leviathan 2024)"
+      ]
+    },
+    {
+      "technique_id": "T1041",
+      "technique_stix_id": "attack-pattern--92d7da27-2d91-488e-a00c-059dc162766d",
+      "name": "Exfiltration Over C2 Channel",
+      "execution_domain": "boundary",
+      "tactics": [
+        "exfiltration"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--6862a553-961b-4def-86ed-3c7527bda572"
+      ],
+      "procedure_descriptions": [
+        "[Leviathan](https://attack.mitre.org/groups/G0065) exfiltrated collected data over existing command and control channels during [Leviathan Australian Intrusions](https://attack.mitre.org/campaigns/C0049).(Citation: CISA Leviathan 2024)"
+      ]
+    }
+  ],
+  "limitations": [
+    "ATT&CK uses-links do not encode a historical total order; the compiler applies a declared tactic-rank policy.",
+    "Technique metadata constrains procedures but does not uniquely determine an executable target environment."
+  ],
+  "content_sha256": "b41f5ef113ef74157f16746515f53f315facb6ceb257c7cf78485097453da306"
+}

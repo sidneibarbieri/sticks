@@ -1,0 +1,36 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "qwen3.6:latest",
+    "provider": "openai",
+    "review_pending": true,
+    "run_id": "stage2-qwen36-r1",
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure simulates targeted search engine queries against a controlled web asset to harvest indexed metadata for laboratory analysis.",
+    "evidence_predicates": [
+      "http_status_recorded",
+      "bytes_transferred_recorded"
+    ],
+    "execution_domain": "attacker",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "query_string": "capability_specification",
+      "result_store": "archive_artifact",
+      "target_domain": "web_asset"
+    },
+    "produces": [
+      "indexed_result_set",
+      "search_engine_response_body"
+    ],
+    "requires": [
+      "configured_query_syntax",
+      "resolved_target_domain"
+    ],
+    "technique_ids": [
+      "T1593.002"
+    ],
+    "template_id": "benign-search-engine-harvest"
+  }
+}

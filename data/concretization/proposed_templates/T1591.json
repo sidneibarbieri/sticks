@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure gathers publicly available information about the victim's organization from online sources.",
+    "evidence_predicates": [
+      "collection_manifest_recorded",
+      "http_request_logged"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "data_source": "data_source",
+      "web_asset": "web_asset"
+    },
+    "produces": [
+      "organization_information_collected"
+    ],
+    "requires": [
+      "access to online data sets",
+      "ability to query social media"
+    ],
+    "technique_ids": [
+      "T1591"
+    ],
+    "template_id": "gather-victim-org-information-laboratory-harness"
+  }
+}

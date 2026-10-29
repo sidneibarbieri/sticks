@@ -1,0 +1,36 @@
+{
+  "id": "chatcmpl-EOgEfm8RoWBwxLmLwReZf4MYq9mF9",
+  "object": "chat.completion",
+  "created": 1789550933,
+  "model": "gpt-4o-mini-2024-07-18",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"template_id\": \"system-language-discovery-laboratory-harness\",\n  \"technique_ids\": [\n    \"T1614.001\"\n  ],\n  \"execution_domain\": \"target\",\n  \"parameter_kinds\": {\n    \"target_host\": \"target_host\"\n  },\n  \"requires\": [\n    \"target host is operational\"\n  ],\n  \"produces\": [\n    \"system language information gathered\"\n  ],\n  \"evidence_predicates\": [\n    \"fixture_access_logged\",\n    \"bounded_effect_observed\"\n  ],\n  \"fidelity_ceiling\": \"adapted\",\n  \"description\": \"This procedure gathers system language information from a target host to simulate the discovery process used by adversaries.\"\n}",
+        "refusal": null,
+        "annotations": []
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 816,
+    "completion_tokens": 149,
+    "total_tokens": 965,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_c577bb8647"
+}

@@ -1,0 +1,34 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure template outlines a benign method for discovering group and permission settings in a controlled laboratory environment.",
+    "evidence_predicates": [
+      "collection_manifest_recorded",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "data_source": "data_source",
+      "target_host": "target_host"
+    },
+    "produces": [
+      "group permission settings discovered",
+      "user account and group membership information collected"
+    ],
+    "requires": [
+      "target host is accessible",
+      "data source for group permissions is available"
+    ],
+    "technique_ids": [
+      "T1069"
+    ],
+    "template_id": "permission-groups-discovery-laboratory-harness"
+  }
+}

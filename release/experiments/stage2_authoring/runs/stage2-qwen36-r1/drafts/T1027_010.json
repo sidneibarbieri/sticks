@@ -1,0 +1,35 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "qwen3.6:latest",
+    "provider": "openai",
+    "review_pending": true,
+    "run_id": "stage2-qwen36-r1",
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This laboratory harness demonstrates benign command-line obfuscation techniques to validate detection mechanisms against encoded script execution.",
+    "evidence_predicates": [
+      "stdout_hash_recorded",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "execution_runtime": "runtime",
+      "obfuscated_command": "encoded_artifact"
+    },
+    "produces": [
+      "obfuscated_command_executed",
+      "stdout_output_generated"
+    ],
+    "requires": [
+      "target_host_ready",
+      "shell_config_artifact_loaded"
+    ],
+    "technique_ids": [
+      "T1027.010"
+    ],
+    "template_id": "command-obfuscation-harness"
+  }
+}

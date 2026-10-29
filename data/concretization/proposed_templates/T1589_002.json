@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure gathers email addresses from publicly available sources to simulate data collection for analysis.",
+    "evidence_predicates": [
+      "collection_manifest_recorded",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "email_source": "data_source",
+      "target_website": "web_asset"
+    },
+    "produces": [
+      "list of gathered email addresses"
+    ],
+    "requires": [
+      "publicly accessible email addresses",
+      "target websites with employee information"
+    ],
+    "technique_ids": [
+      "T1589.002"
+    ],
+    "template_id": "gather-email-addresses-laboratory-harness"
+  }
+}

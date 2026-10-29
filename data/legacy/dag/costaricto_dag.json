@@ -1,0 +1,38 @@
+{
+  "schema": "historical-technique-inventory/v1",
+  "source_file": "costaricto_dag.json",
+  "source_sha256": "88861a7f559afe5f4f4e387094b380a0e515333492ad46b95ace171459779525",
+  "scope": "Technique occurrences only; no procedure, ordering, execution, or fidelity claim.",
+  "structural_nodes": [
+    {
+      "technique_id": "T1046"
+    },
+    {
+      "technique_id": "T1105"
+    },
+    {
+      "technique_id": "T1090.003"
+    },
+    {
+      "technique_id": "T1053.005"
+    },
+    {
+      "technique_id": "T1588.002"
+    },
+    {
+      "technique_id": "T1133"
+    },
+    {
+      "technique_id": "T1583.001"
+    },
+    {
+      "technique_id": "T1587.001"
+    },
+    {
+      "technique_id": "T1005"
+    },
+    {
+      "technique_id": "T1572"
+    }
+  ]
+}

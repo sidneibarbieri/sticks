@@ -1,0 +1,32 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure simulates a user clicking a malicious link to observe the resulting HTTP request.",
+    "evidence_predicates": [
+      "http_request_logged",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "malicious_link": "web_asset"
+    },
+    "produces": [
+      "http_request_logged"
+    ],
+    "requires": [
+      "user interaction",
+      "network access"
+    ],
+    "technique_ids": [
+      "T1204.001"
+    ],
+    "template_id": "malicious-link-laboratory-harness"
+  }
+}

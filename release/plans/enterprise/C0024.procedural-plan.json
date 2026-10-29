@@ -1,0 +1,1650 @@
+{
+  "schema_version": "1",
+  "compiler_version": "1",
+  "campaign_id": "C0024",
+  "campaign_name": "SolarWinds Compromise",
+  "source": {
+    "bundle_sha256": "dc1639caa5501d720e280cf1cbd8fbe009884a0c9b3e6e9ed9d0c25166c3d8f4",
+    "object_count": 26086,
+    "campaign_stix_id": "campaign--808d6b30-df4e-4341-8248-724da4bac650",
+    "campaign_external_id": "C0024"
+  },
+  "ordering_policy": "tactic_rank_then_technique_id",
+  "steps": [
+    {
+      "technique_id": "T1589.001",
+      "technique_stix_id": "attack-pattern--bc76d0a4-db11-4551-9ac4-01a469cfb161",
+      "name": "Credentials",
+      "execution_domain": "attacker",
+      "tactics": [
+        "reconnaissance"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--68b21708-d862-42ba-8067-7fdca0bd1455"
+      ],
+      "procedure_descriptions": [
+        "For the [SolarWinds Compromise](https://attack.mitre.org/campaigns/C0024), [APT29](https://attack.mitre.org/groups/G0016) conducted credential theft operations to obtain credentials to be used for access to victim environments.(Citation: CrowdStrike StellarParticle January 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1583.001",
+      "technique_stix_id": "attack-pattern--40f5caa0-4cb7-4117-89fc-d421bb493df3",
+      "name": "Domains",
+      "execution_domain": "attacker",
+      "tactics": [
+        "resource-development"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--eab4fb13-01cc-4d7c-87a8-dc52e172dfab"
+      ],
+      "procedure_descriptions": [
+        "For the [SolarWinds Compromise](https://attack.mitre.org/campaigns/C0024), [APT29](https://attack.mitre.org/groups/G0016) acquired C2 domains, sometimes through resellers.(Citation: MSTIC NOBELIUM Mar 2021)(Citation: FireEye SUNSHUTTLE Mar 2021)"
+      ]
+    },
+    {
+      "technique_id": "T1584.001",
+      "technique_stix_id": "attack-pattern--f9cc4d06-775f-4ee1-b401-4e2cc0da30ba",
+      "name": "Domains",
+      "execution_domain": "attacker",
+      "tactics": [
+        "resource-development"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--2389113c-9a72-4633-aa52-8f77c3df564a"
+      ],
+      "procedure_descriptions": [
+        "For the [SolarWinds Compromise](https://attack.mitre.org/campaigns/C0024), [APT29](https://attack.mitre.org/groups/G0016) compromised domains to use for C2.(Citation: MSTIC NOBELIUM Mar 2021)"
+      ]
+    },
+    {
+      "technique_id": "T1587.001",
+      "technique_stix_id": "attack-pattern--212306d8-efa4-44c9-8c2d-ed3d2e224aa0",
+      "name": "Malware",
+      "execution_domain": "attacker",
+      "tactics": [
+        "resource-development"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--6ce6e5d1-a9e1-43bb-a296-e6bd188081f4"
+      ],
+      "procedure_descriptions": [
+        "For the [SolarWinds Compromise](https://attack.mitre.org/campaigns/C0024), [APT29](https://attack.mitre.org/groups/G0016) used numerous pieces of malware that were likely developed for or by the group, including [SUNBURST](https://attack.mitre.org/software/S0559), [SUNSPOT](https://attack.mitre.org/software/S0562), [Raindrop](https://attack.mitre.org/software/S0565), and [TEARDROP](https://attack.mitre.org/software/S0560).(Citation: FireEye SUNBURST Backdoor December 2020)(Citation: CrowdStrike SUNSPOT Implant January 2021)(Citation: Microsoft Deep Dive Solorigate January 2021) "
+      ]
+    },
+    {
+      "technique_id": "T1078",
+      "technique_stix_id": "attack-pattern--b17a1a56-e99c-403c-8948-561df0cffe81",
+      "name": "Valid Accounts",
+      "execution_domain": "boundary",
+      "tactics": [
+        "initial-access",
+        "persistence",
+        "privilege-escalation",
+        "stealth"
+      ],
+      "platforms": [
+        "Containers",
+        "ESXi",
+        "IaaS",
+        "Identity Provider",
+        "Linux",
+        "Network Devices",
+        "Office Suite",
+        "SaaS",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--f059a1ec-1945-43b7-ba0c-0d304c5b6d74"
+      ],
+      "procedure_descriptions": [
+        "During the [SolarWinds Compromise](https://attack.mitre.org/campaigns/C0024), [APT29](https://attack.mitre.org/groups/G0016) used different compromised credentials for remote access and to move laterally.(Citation: FireEye SUNBURST Backdoor December 2020)(Citation: MSTIC NOBELIUM Mar 2021)(Citation: Cybersecurity Advisory SVR TTP May 2021)"
+      ]
+    },
+    {
+      "technique_id": "T1078.002",
+      "technique_stix_id": "attack-pattern--c3d4bdd9-2cfe-4a80-9d0c-07a29ecdce8f",
+      "name": "Domain Accounts",
+      "execution_domain": "boundary",
+      "tactics": [
+        "initial-access",
+        "persistence",
+        "privilege-escalation",
+        "stealth"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--37213eca-1510-4893-b27a-f17a8dd16a78"
+      ],
+      "procedure_descriptions": [
+        "During the [SolarWinds Compromise](https://attack.mitre.org/campaigns/C0024), [APT29](https://attack.mitre.org/groups/G0016) used domain administrators' accounts to help facilitate lateral movement on compromised networks.(Citation: CrowdStrike StellarParticle January 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1078.003",
+      "technique_stix_id": "attack-pattern--fdc47f44-dd32-4b99-af5f-209f556f63c2",
+      "name": "Local Accounts",
+      "execution_domain": "boundary",
+      "tactics": [
+        "initial-access",
+        "persistence",
+        "privilege-escalation",
+        "stealth"
+      ],
+      "platforms": [
+        "Containers",
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--bb886759-3494-4834-9765-2f0c12e0b391"
+      ],
+      "procedure_descriptions": [
+        "During the [SolarWinds Compromise](https://attack.mitre.org/campaigns/C0024), [APT29](https://attack.mitre.org/groups/G0016) used compromised local accounts to access victims' networks.(Citation: CrowdStrike StellarParticle January 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1078.004",
+      "technique_stix_id": "attack-pattern--f232fa7a-025c-4d43-abc7-318e81a73d65",
+      "name": "Cloud Accounts",
+      "execution_domain": "boundary",
+      "tactics": [
+        "initial-access",
+        "persistence",
+        "privilege-escalation",
+        "stealth"
+      ],
+      "platforms": [
+        "IaaS",
+        "Identity Provider",
+        "Office Suite",
+        "SaaS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--00fe17bc-f783-4cba-9171-e1fde2fa0efa"
+      ],
+      "procedure_descriptions": [
+        "During the [SolarWinds Compromise](https://attack.mitre.org/campaigns/C0024), [APT29](https://attack.mitre.org/groups/G0016) used a compromised O365 administrator account to create a new Service Principal.(Citation: CrowdStrike StellarParticle January 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1133",
+      "technique_stix_id": "attack-pattern--10d51417-ee35-4589-b1ff-b6df1c334e8d",
+      "name": "External Remote Services",
+      "execution_domain": "boundary",
+      "tactics": [
+        "initial-access",
+        "persistence"
+      ],
+      "platforms": [
+        "Containers",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--a0c23dc4-d3ad-4312-a10c-001e7040a32b"
+      ],
+      "procedure_descriptions": [
+        "For the [SolarWinds Compromise](https://attack.mitre.org/campaigns/C0024), [APT29](https://attack.mitre.org/groups/G0016) used compromised identities to access networks via SSH, VPNs, and other remote access tools.(Citation: MSTIC NOBELIUM Mar 2021)(Citation: CrowdStrike StellarParticle January 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1190",
+      "technique_stix_id": "attack-pattern--3f886f2a-874f-4333-b794-aa6075009b1c",
+      "name": "Exploit Public-Facing Application",
+      "execution_domain": "boundary",
+      "tactics": [
+        "initial-access"
+      ],
+      "platforms": [
+        "Containers",
+        "ESXi",
+        "IaaS",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--9171c149-2e87-4882-9e9d-8abce7533beb"
+      ],
+      "procedure_descriptions": [
+        "During the [SolarWinds Compromise](https://attack.mitre.org/campaigns/C0024), [APT29](https://attack.mitre.org/groups/G0016) exploited CVE-2020-0688 against the Microsoft Exchange Control Panel to regain access to a network.(Citation: Volexity SolarWinds)(Citation: Cybersecurity Advisory SVR TTP May 2021)"
+      ]
+    },
+    {
+      "technique_id": "T1195.002",
+      "technique_stix_id": "attack-pattern--bd369cd9-abb8-41ce-b5bb-fff23ee86c00",
+      "name": "Compromise Software Supply Chain",
+      "execution_domain": "boundary",
+      "tactics": [
+        "initial-access"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--dba2e83b-a79b-4d4e-8c32-70b7c8f2491f"
+      ],
+      "procedure_descriptions": [
+        "During the [SolarWinds Compromise](https://attack.mitre.org/campaigns/C0024), [APT29](https://attack.mitre.org/groups/G0016) gained initial network access to some victims via a trojanized update of SolarWinds Orion software.(Citation: SolarWinds Sunburst Sunspot Update January 2021)(Citation: FireEye SUNBURST Backdoor December 2020)(Citation: Cybersecurity Advisory SVR TTP May 2021)(Citation: Microsoft Deep Dive Solorigate January 2021)"
+      ]
+    },
+    {
+      "technique_id": "T1199",
+      "technique_stix_id": "attack-pattern--9fa07bef-9c81-421e-a8e5-ad4366c5a925",
+      "name": "Trusted Relationship",
+      "execution_domain": "boundary",
+      "tactics": [
+        "initial-access"
+      ],
+      "platforms": [
+        "IaaS",
+        "Identity Provider",
+        "Linux",
+        "Office Suite",
+        "SaaS",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--a246ff9a-6414-461f-b392-ac37bc3716c0"
+      ],
+      "procedure_descriptions": [
+        "During the [SolarWinds Compromise](https://attack.mitre.org/campaigns/C0024), [APT29](https://attack.mitre.org/groups/G0016) gained access through compromised accounts at cloud solution partners, and used compromised certificates issued by Mimecast to authenticate to Mimecast customer systems.(Citation: Cybersecurity Advisory SVR TTP May 2021)(Citation: CrowdStrike StellarParticle January 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1047",
+      "technique_stix_id": "attack-pattern--01a5a209-b94c-450b-b7f9-946497d91055",
+      "name": "Windows Management Instrumentation",
+      "execution_domain": "target",
+      "tactics": [
+        "execution"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--da68887e-3811-4537-90b1-21d42a90e960"
+      ],
+      "procedure_descriptions": [
+        "During the [SolarWinds Compromise](https://attack.mitre.org/campaigns/C0024), [APT29](https://attack.mitre.org/groups/G0016) used WMI for the remote execution of files for lateral movement.(Citation: Microsoft 365 Defender Solorigate)(Citation: Microsoft Deep Dive Solorigate January 2021)"
+      ]
+    },
+    {
+      "technique_id": "T1053.005",
+      "technique_stix_id": "attack-pattern--005a06c6-14bf-4118-afa0-ebcd8aebb0c9",
+      "name": "Scheduled Task",
+      "execution_domain": "target",
+      "tactics": [
+        "execution",
+        "persistence",
+        "privilege-escalation"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--081a9ee3-3609-4bab-8956-d0bd2b77754a"
+      ],
+      "procedure_descriptions": [
+        "During the [SolarWinds Compromise](https://attack.mitre.org/campaigns/C0024), [APT29](https://attack.mitre.org/groups/G0016) used `scheduler` and `schtasks` to create new tasks on remote host as part of their lateral movement. They manipulated scheduled tasks by updating an existing legitimate task to execute their tools and then returned the scheduled task to its original configuration. [APT29](https://attack.mitre.org/groups/G0016) also created a scheduled task to maintain [SUNSPOT](https://attack.mitre.org/software/S0562) persistence when the host booted.(Citation: Volexity SolarWinds)(Citation: FireEye SUNBURST Backdoor December 2020)(Citation: CrowdStrike SUNSPOT Implant January 2021)"
+      ]
+    },
+    {
+      "technique_id": "T1059.001",
+      "technique_stix_id": "attack-pattern--970a3432-3237-47ad-bcca-7d8cbb217736",
+      "name": "PowerShell",
+      "execution_domain": "target",
+      "tactics": [
+        "execution"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--949cf89d-6d65-4459-83e7-dc826ae9c894"
+      ],
+      "procedure_descriptions": [
+        "During the [SolarWinds Compromise](https://attack.mitre.org/campaigns/C0024), [APT29](https://attack.mitre.org/groups/G0016) used PowerShell to create new tasks on remote machines, identify configuration settings, exfiltrate data, and execute other commands.(Citation: Volexity SolarWinds)(Citation: Microsoft Analyzing Solorigate Dec 2020)(Citation: CrowdStrike StellarParticle January 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1059.003",
+      "technique_stix_id": "attack-pattern--d1fcf083-a721-4223-aedf-bf8960798d62",
+      "name": "Windows Command Shell",
+      "execution_domain": "target",
+      "tactics": [
+        "execution"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--a4346806-c7aa-4fa4-896d-a279ceeaf487"
+      ],
+      "procedure_descriptions": [
+        "During the [SolarWinds Compromise](https://attack.mitre.org/campaigns/C0024), [APT29](https://attack.mitre.org/groups/G0016) used `cmd.exe` to execute commands on remote machines.(Citation: Volexity SolarWinds)(Citation: Microsoft Analyzing Solorigate Dec 2020)"
+      ]
+    },
+    {
+      "technique_id": "T1059.005",
+      "technique_stix_id": "attack-pattern--dfd7cc1d-e1d8-4394-a198-97c4cab8aa67",
+      "name": "Visual Basic",
+      "execution_domain": "target",
+      "tactics": [
+        "execution"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--59fd7bfd-f99b-4a76-9ea0-4fc89c27f204"
+      ],
+      "procedure_descriptions": [
+        "For the [SolarWinds Compromise](https://attack.mitre.org/campaigns/C0024), [APT29](https://attack.mitre.org/groups/G0016) wrote malware such as [Sibot](https://attack.mitre.org/software/S0589) in Visual Basic.(Citation: Cybersecurity Advisory SVR TTP May 2021)"
+      ]
+    },
+    {
+      "technique_id": "T1098.001",
+      "technique_stix_id": "attack-pattern--8a2f40cf-8325-47f9-96e4-b1ca4c7389bd",
+      "name": "Additional Cloud Credentials",
+      "execution_domain": "target",
+      "tactics": [
+        "persistence",
+        "privilege-escalation"
+      ],
+      "platforms": [
+        "IaaS",
+        "Identity Provider",
+        "SaaS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--cd4655ac-8e31-4272-a944-9bf54074d3a0"
+      ],
+      "procedure_descriptions": [
+        "During the [SolarWinds Compromise](https://attack.mitre.org/campaigns/C0024), [APT29](https://attack.mitre.org/groups/G0016) added credentials to OAuth Applications and Service Principals.(Citation: Microsoft - Customer Guidance on Recent Nation-State Cyber Attacks)(Citation: CrowdStrike StellarParticle January 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1098.002",
+      "technique_stix_id": "attack-pattern--e74de37c-a829-446c-937d-56a44f0e9306",
+      "name": "Additional Email Delegate Permissions",
+      "execution_domain": "target",
+      "tactics": [
+        "persistence",
+        "privilege-escalation"
+      ],
+      "platforms": [
+        "Office Suite",
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--4b0b60ee-2ee8-4de0-868f-ae4c85e131ff"
+      ],
+      "procedure_descriptions": [
+        "During the [SolarWinds Compromise](https://attack.mitre.org/campaigns/C0024), [APT29](https://attack.mitre.org/groups/G0016) added their own devices as allowed IDs for active sync using `Set-CASMailbox`, allowing it to obtain copies of victim mailboxes. It also added additional permissions (such as Mail.Read and Mail.ReadWrite) to compromised Application or Service Principals.(Citation: Volexity SolarWinds)(Citation: Microsoft - Customer Guidance on Recent Nation-State Cyber Attacks)(Citation: MSTIC Nobelium Oct 2021)"
+      ]
+    },
+    {
+      "technique_id": "T1098.003",
+      "technique_stix_id": "attack-pattern--2dbbdcd5-92cf-44c0-aea2-fe24783a6bc3",
+      "name": "Additional Cloud Roles",
+      "execution_domain": "target",
+      "tactics": [
+        "persistence",
+        "privilege-escalation"
+      ],
+      "platforms": [
+        "IaaS",
+        "Identity Provider",
+        "Office Suite",
+        "SaaS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--80e8fae3-0b15-4e5b-bd69-af76dd3e5864"
+      ],
+      "procedure_descriptions": [
+        "During the [SolarWinds Compromise](https://attack.mitre.org/campaigns/C0024), [APT29](https://attack.mitre.org/groups/G0016) granted `company administrator` privileges to a newly created service principle.(Citation: CrowdStrike StellarParticle January 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1098.005",
+      "technique_stix_id": "attack-pattern--7decb26c-715c-40cf-b7e0-026f7d7cc215",
+      "name": "Device Registration",
+      "execution_domain": "target",
+      "tactics": [
+        "persistence",
+        "privilege-escalation"
+      ],
+      "platforms": [
+        "Identity Provider",
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--a05709f5-d61c-40cf-8fdc-d821eafce194"
+      ],
+      "procedure_descriptions": [
+        "During the [SolarWinds Compromise](https://attack.mitre.org/campaigns/C0024), [APT29](https://attack.mitre.org/groups/G0016) registered devices in order to enable mailbox syncing via the `Set-CASMailbox` command.(Citation: Volexity SolarWinds)"
+      ]
+    },
+    {
+      "technique_id": "T1546.003",
+      "technique_stix_id": "attack-pattern--910906dd-8c0a-475a-9cc1-5e029e2fad58",
+      "name": "Windows Management Instrumentation Event Subscription",
+      "execution_domain": "target",
+      "tactics": [
+        "persistence",
+        "privilege-escalation"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--8e8aced5-9391-47d8-bef7-894453048810"
+      ],
+      "procedure_descriptions": [
+        "During the [SolarWinds Compromise](https://attack.mitre.org/campaigns/C0024), [APT29](https://attack.mitre.org/groups/G0016) used a WMI event filter to invoke a command-line event consumer at system boot time to launch a backdoor with `rundll32.exe`.(Citation: Microsoft Deep Dive Solorigate January 2021)(Citation: Microsoft 365 Defender Solorigate)"
+      ]
+    },
+    {
+      "technique_id": "T1484.002",
+      "technique_stix_id": "attack-pattern--24769ab5-14bd-4f4e-a752-cfb185da53ee",
+      "name": "Trust Modification",
+      "execution_domain": "target",
+      "tactics": [
+        "privilege-escalation",
+        "defense-impairment"
+      ],
+      "platforms": [
+        "Identity Provider",
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--e43b9163-36cb-469a-9c47-9e4bd8af1383"
+      ],
+      "procedure_descriptions": [
+        "During the [SolarWinds Compromise](https://attack.mitre.org/campaigns/C0024), [APT29](https://attack.mitre.org/groups/G0016) changed domain federation trust settings using Azure AD administrative permissions to configure the domain to accept authorization tokens signed by their own SAML signing certificate.(Citation: Secureworks IRON RITUAL Profile)(Citation: Microsoft 365 Defender Solorigate)"
+      ]
+    },
+    {
+      "technique_id": "T1036.004",
+      "technique_stix_id": "attack-pattern--7bdca9d5-d500-4d7d-8c52-5fd47baf4c0c",
+      "name": "Masquerade Task or Service",
+      "execution_domain": "target",
+      "tactics": [
+        "stealth"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--cb7005a8-0c69-4f5f-b14c-aae0c8e2cced"
+      ],
+      "procedure_descriptions": [
+        "During the [SolarWinds Compromise](https://attack.mitre.org/campaigns/C0024), [APT29](https://attack.mitre.org/groups/G0016) named tasks `\\Microsoft\\Windows\\SoftwareProtectionPlatform\\EventCacheManager` in order to appear legitimate.(Citation: Volexity SolarWinds)"
+      ]
+    },
+    {
+      "technique_id": "T1036.005",
+      "technique_stix_id": "attack-pattern--1c4e5d32-1fe9-4116-9d9d-59e3925bd6a2",
+      "name": "Match Legitimate Resource Name or Location",
+      "execution_domain": "target",
+      "tactics": [
+        "stealth"
+      ],
+      "platforms": [
+        "Containers",
+        "ESXi",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--378bf78e-6c5c-4466-9d6b-a494ae375526"
+      ],
+      "procedure_descriptions": [
+        "During the [SolarWinds Compromise](https://attack.mitre.org/campaigns/C0024), [APT29](https://attack.mitre.org/groups/G0016) renamed software and DLLs with legitimate names to appear benign.(Citation: Volexity SolarWinds)(Citation: Microsoft Analyzing Solorigate Dec 2020)"
+      ]
+    },
+    {
+      "technique_id": "T1070",
+      "technique_stix_id": "attack-pattern--799ace7f-e227-4411-baa0-8868704f2a69",
+      "name": "Indicator Removal",
+      "execution_domain": "target",
+      "tactics": [
+        "stealth"
+      ],
+      "platforms": [
+        "Containers",
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Office Suite",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--bbc492bf-de7c-4ef7-ba1b-565ec0f22379"
+      ],
+      "procedure_descriptions": [
+        "During the [SolarWinds Compromise](https://attack.mitre.org/campaigns/C0024), [APT29](https://attack.mitre.org/groups/G0016) temporarily replaced legitimate utilities with their own, executed their payload, and then restored the original file.(Citation: FireEye SUNBURST Backdoor December 2020)"
+      ]
+    },
+    {
+      "technique_id": "T1070.004",
+      "technique_stix_id": "attack-pattern--d63a3fb8-9452-4e9d-a60a-54be68d5998c",
+      "name": "File Deletion",
+      "execution_domain": "target",
+      "tactics": [
+        "stealth"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--9505cb0b-a9b6-4680-94ed-ae74916444f0"
+      ],
+      "procedure_descriptions": [
+        "During the [SolarWinds Compromise](https://attack.mitre.org/campaigns/C0024), [APT29](https://attack.mitre.org/groups/G0016) routinely removed their tools, including custom backdoors, once remote access was achieved.(Citation: FireEye SUNBURST Backdoor December 2020)"
+      ]
+    },
+    {
+      "technique_id": "T1070.006",
+      "technique_stix_id": "attack-pattern--47f2d673-ca62-47e9-929b-1b0be9657611",
+      "name": "Timestomp",
+      "execution_domain": "target",
+      "tactics": [
+        "stealth"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--a4a0c78e-6f15-4304-9e40-36c09a532a05"
+      ],
+      "procedure_descriptions": [
+        "During the [SolarWinds Compromise](https://attack.mitre.org/campaigns/C0024), [APT29](https://attack.mitre.org/groups/G0016) modified timestamps of backdoors to match legitimate Windows files.(Citation: Microsoft Deep Dive Solorigate January 2021)"
+      ]
+    },
+    {
+      "technique_id": "T1070.008",
+      "technique_stix_id": "attack-pattern--438c967d-3996-4870-bfc2-3954752a1927",
+      "name": "Clear Mailbox Data",
+      "execution_domain": "target",
+      "tactics": [
+        "stealth"
+      ],
+      "platforms": [
+        "Linux",
+        "Office Suite",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--e30d2085-62df-4c4a-9828-a9b6d5396136"
+      ],
+      "procedure_descriptions": [
+        "During the [SolarWinds Compromise](https://attack.mitre.org/campaigns/C0024), [APT29](https://attack.mitre.org/groups/G0016) removed evidence of email export requests using `Remove-MailboxExportRequest`.(Citation: Volexity SolarWinds)"
+      ]
+    },
+    {
+      "technique_id": "T1140",
+      "technique_stix_id": "attack-pattern--3ccef7ae-cb5e-48f6-8302-897105fbf55c",
+      "name": "Deobfuscate/Decode Files or Information",
+      "execution_domain": "target",
+      "tactics": [
+        "stealth"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--73622af3-6412-4fb9-b0ba-6a127c0db558"
+      ],
+      "procedure_descriptions": [
+        "During the [SolarWinds Compromise](https://attack.mitre.org/campaigns/C0024), [APT29](https://attack.mitre.org/groups/G0016) used 7-Zip to decode their [Raindrop](https://attack.mitre.org/software/S0565) malware.(Citation: Symantec RAINDROP January 2021)"
+      ]
+    },
+    {
+      "technique_id": "T1218.011",
+      "technique_stix_id": "attack-pattern--045d0922-2310-4e60-b5e4-3302302cb3c5",
+      "name": "Rundll32",
+      "execution_domain": "target",
+      "tactics": [
+        "stealth"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--8cba1710-1963-4d83-99dd-88a1d6b2580f"
+      ],
+      "procedure_descriptions": [
+        "During the [SolarWinds Compromise](https://attack.mitre.org/campaigns/C0024), [APT29](https://attack.mitre.org/groups/G0016) used `Rundll32.exe` to execute payloads.(Citation: Microsoft - Customer Guidance on Recent Nation-State Cyber Attacks)(Citation: Microsoft Deep Dive Solorigate January 2021)"
+      ]
+    },
+    {
+      "technique_id": "T1553.002",
+      "technique_stix_id": "attack-pattern--32901740-b42c-4fdd-bc02-345b5dc57082",
+      "name": "Code Signing",
+      "execution_domain": "target",
+      "tactics": [
+        "defense-impairment"
+      ],
+      "platforms": [
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--84c18662-07de-4abc-99e2-f2bfb19cc5da"
+      ],
+      "procedure_descriptions": [
+        "During the [SolarWinds Compromise](https://attack.mitre.org/campaigns/C0024), [APT29](https://attack.mitre.org/groups/G0016) was able to get [SUNBURST](https://attack.mitre.org/software/S0559) signed by SolarWinds code signing certificates by injecting the malware into the SolarWinds Orion software lifecycle.(Citation: FireEye SUNBURST Backdoor December 2020)"
+      ]
+    },
+    {
+      "technique_id": "T1685",
+      "technique_stix_id": "attack-pattern--bbde9781-60aa-4b8a-a911-895b0c1b3872",
+      "name": "Disable or Modify Tools",
+      "execution_domain": "target",
+      "tactics": [
+        "defense-impairment"
+      ],
+      "platforms": [
+        "Containers",
+        "ESXi",
+        "IaaS",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--b426f4dd-2d0d-49d1-bbb3-82508df979a4"
+      ],
+      "procedure_descriptions": [
+        "During the [SolarWinds Compromise](https://attack.mitre.org/campaigns/C0024), [APT29](https://attack.mitre.org/groups/G0016) used the service control manager on a remote system to disable services associated with security monitoring products.(Citation: Microsoft Deep Dive Solorigate January 2021)"
+      ]
+    },
+    {
+      "technique_id": "T1685.001",
+      "technique_stix_id": "attack-pattern--1411e6b8-80a6-4465-9909-54eaa9c67ce0",
+      "name": "Disable or Modify Windows Event Log",
+      "execution_domain": "target",
+      "tactics": [
+        "defense-impairment"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--740cb688-3a2d-46fb-88de-6fbd61045889"
+      ],
+      "procedure_descriptions": [
+        "During the [SolarWinds Compromise](https://attack.mitre.org/campaigns/C0024), [APT29](https://attack.mitre.org/groups/G0016), used `AUDITPOL` to prevent the collection of audit logs.(Citation: Microsoft Deep Dive Solorigate January 2021)"
+      ]
+    },
+    {
+      "technique_id": "T1686",
+      "technique_stix_id": "attack-pattern--eec096b8-c207-43df-b6c1-11523861e452",
+      "name": "Disable or Modify System Firewall",
+      "execution_domain": "target",
+      "tactics": [
+        "defense-impairment"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--94380550-1855-4032-8635-9e19e5616903"
+      ],
+      "procedure_descriptions": [
+        "During the [SolarWinds Compromise](https://attack.mitre.org/campaigns/C0024), [APT29](https://attack.mitre.org/groups/G0016) used `netsh` to configure firewall rules that limited certain UDP outbound packets.(Citation: Microsoft Deep Dive Solorigate January 2021)"
+      ]
+    },
+    {
+      "technique_id": "T1003.006",
+      "technique_stix_id": "attack-pattern--f303a39a-6255-4b89-aecc-18c4d8ca7163",
+      "name": "DCSync",
+      "execution_domain": "target",
+      "tactics": [
+        "credential-access"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--c34b776e-2fca-4ff9-910d-486bf9447d78"
+      ],
+      "procedure_descriptions": [
+        "During the [SolarWinds Compromise](https://attack.mitre.org/campaigns/C0024), [APT29](https://attack.mitre.org/groups/G0016) used privileged accounts to replicate directory service data with domain controllers.(Citation: Microsoft 365 Defender Solorigate)(Citation: Microsoft Deep Dive Solorigate January 2021)(Citation: CrowdStrike StellarParticle January 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1539",
+      "technique_stix_id": "attack-pattern--10ffac09-e42d-4f56-ab20-db94c67d76ff",
+      "name": "Steal Web Session Cookie",
+      "execution_domain": "target",
+      "tactics": [
+        "credential-access"
+      ],
+      "platforms": [
+        "Linux",
+        "Office Suite",
+        "SaaS",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--95add276-6a4d-4281-82e5-7857b615742b"
+      ],
+      "procedure_descriptions": [
+        "During the [SolarWinds Compromise](https://attack.mitre.org/campaigns/C0024), [APT29](https://attack.mitre.org/groups/G0016) stole Chrome browser cookies by copying the Chrome profile directories of targeted users.(Citation: CrowdStrike StellarParticle January 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1552.004",
+      "technique_stix_id": "attack-pattern--60b508a1-6a5e-46b1-821a-9f7b78752abf",
+      "name": "Private Keys",
+      "execution_domain": "target",
+      "tactics": [
+        "credential-access"
+      ],
+      "platforms": [
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--6934c7b5-96ce-4265-aea3-7eae018d7f3c"
+      ],
+      "procedure_descriptions": [
+        "During the [SolarWinds Compromise](https://attack.mitre.org/campaigns/C0024), [APT29](https://attack.mitre.org/groups/G0016) obtained PKI keys, certificate files, and the private encryption key from an Active Directory Federation Services (AD FS) container to decrypt corresponding SAML signing certificates.(Citation: Microsoft 365 Defender Solorigate)(Citation: Cybersecurity Advisory SVR TTP May 2021)"
+      ]
+    },
+    {
+      "technique_id": "T1555",
+      "technique_stix_id": "attack-pattern--3fc9b85a-2862-4363-a64d-d692e3ffbee0",
+      "name": "Credentials from Password Stores",
+      "execution_domain": "target",
+      "tactics": [
+        "credential-access"
+      ],
+      "platforms": [
+        "IaaS",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--d398f48c-9d01-4f6e-bb19-3ebae25cb71c"
+      ],
+      "procedure_descriptions": [
+        "During the [SolarWinds Compromise](https://attack.mitre.org/campaigns/C0024), [APT29](https://attack.mitre.org/groups/G0016) used account credentials they obtained to attempt access to Group Managed Service Account (gMSA) passwords.(Citation: Microsoft Deep Dive Solorigate January 2021) "
+      ]
+    },
+    {
+      "technique_id": "T1555.003",
+      "technique_stix_id": "attack-pattern--58a3e6aa-4453-4cc8-a51f-4befe80b31a8",
+      "name": "Credentials from Web Browsers",
+      "execution_domain": "target",
+      "tactics": [
+        "credential-access"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--2cac54a6-fe28-45b2-b4f7-53a23f8a5f54"
+      ],
+      "procedure_descriptions": [
+        "During the [SolarWinds Compromise](https://attack.mitre.org/campaigns/C0024), [APT29](https://attack.mitre.org/groups/G0016) stole users' saved passwords from Chrome.(Citation: CrowdStrike StellarParticle January 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1558.003",
+      "technique_stix_id": "attack-pattern--f2877f7f-9a4c-4251-879f-1224e3006bee",
+      "name": "Kerberoasting",
+      "execution_domain": "target",
+      "tactics": [
+        "credential-access"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--aa84d43a-4f79-485c-95ea-a375d5f52838"
+      ],
+      "procedure_descriptions": [
+        "During the [SolarWinds Compromise](https://attack.mitre.org/campaigns/C0024), [APT29](https://attack.mitre.org/groups/G0016) obtained Ticket Granting Service (TGS) tickets for Active Directory Service Principle Names to crack offline.(Citation: Microsoft Deep Dive Solorigate January 2021)"
+      ]
+    },
+    {
+      "technique_id": "T1606.001",
+      "technique_stix_id": "attack-pattern--861b8fd2-57f3-4ee1-ab5d-c19c3b8c7a4a",
+      "name": "Web Cookies",
+      "execution_domain": "target",
+      "tactics": [
+        "credential-access"
+      ],
+      "platforms": [
+        "IaaS",
+        "Linux",
+        "SaaS",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--97ce46f9-4277-4700-99bb-b8bad6dfb393"
+      ],
+      "procedure_descriptions": [
+        "During the [SolarWinds Compromise](https://attack.mitre.org/campaigns/C0024), [APT29](https://attack.mitre.org/groups/G0016) bypassed MFA set on OWA accounts by generating a cookie value from a previously stolen secret key.(Citation: Volexity SolarWinds)"
+      ]
+    },
+    {
+      "technique_id": "T1606.002",
+      "technique_stix_id": "attack-pattern--1f9c2bae-b441-4f66-a8af-b65946ee72f2",
+      "name": "SAML Tokens",
+      "execution_domain": "target",
+      "tactics": [
+        "credential-access"
+      ],
+      "platforms": [
+        "IaaS",
+        "Identity Provider",
+        "Office Suite",
+        "SaaS",
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--00e7784e-d0c8-48d8-a377-7ec83cf6a474"
+      ],
+      "procedure_descriptions": [
+        "During the [SolarWinds Compromise](https://attack.mitre.org/campaigns/C0024), [APT29](https://attack.mitre.org/groups/G0016) created tokens using compromised SAML signing certificates.(Citation: Microsoft - Customer Guidance on Recent Nation-State Cyber Attacks)(Citation: Secureworks IRON RITUAL Profile)"
+      ]
+    },
+    {
+      "technique_id": "T1016.001",
+      "technique_stix_id": "attack-pattern--132d5b37-aac5-4378-a8dc-3127b18a73dc",
+      "name": "Internet Connection Discovery",
+      "execution_domain": "target",
+      "tactics": [
+        "discovery"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--2a764532-6758-4a82-90e4-eb53d1ac9c16"
+      ],
+      "procedure_descriptions": [
+        "During the [SolarWinds Compromise](https://attack.mitre.org/campaigns/C0024), [APT29](https://attack.mitre.org/groups/G0016) used [GoldFinder](https://attack.mitre.org/software/S0597) to perform HTTP GET requests to check internet connectivity and identify HTTP proxy servers and other redirectors that an HTTP request travels through.(Citation: MSTIC NOBELIUM Mar 2021)"
+      ]
+    },
+    {
+      "technique_id": "T1018",
+      "technique_stix_id": "attack-pattern--e358d692-23c0-4a31-9eb6-ecc13a8d7735",
+      "name": "Remote System Discovery",
+      "execution_domain": "target",
+      "tactics": [
+        "discovery"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--7748c6c9-d7a5-44e9-81bf-97d038e6edb1"
+      ],
+      "procedure_descriptions": [
+        "During the [SolarWinds Compromise](https://attack.mitre.org/campaigns/C0024), [APT29](https://attack.mitre.org/groups/G0016) used [AdFind](https://attack.mitre.org/software/S0552) to enumerate remote systems.(Citation: Microsoft Deep Dive Solorigate January 2021)"
+      ]
+    },
+    {
+      "technique_id": "T1057",
+      "technique_stix_id": "attack-pattern--8f4a33ec-8b1f-4b80-a2f6-642b2e479580",
+      "name": "Process Discovery",
+      "execution_domain": "target",
+      "tactics": [
+        "discovery"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--1a1d72d9-3dd3-410d-99cc-ada6def874ff"
+      ],
+      "procedure_descriptions": [
+        "During the [SolarWinds Compromise](https://attack.mitre.org/campaigns/C0024), [APT29](https://attack.mitre.org/groups/G0016) used multiple command-line utilities to enumerate running processes.(Citation: Volexity SolarWinds)(Citation: Microsoft Deep Dive Solorigate January 2021)(Citation: CrowdStrike StellarParticle January 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1069",
+      "technique_stix_id": "attack-pattern--15dbf668-795c-41e6-8219-f0447c0e64ce",
+      "name": "Permission Groups Discovery",
+      "execution_domain": "target",
+      "tactics": [
+        "discovery"
+      ],
+      "platforms": [
+        "Containers",
+        "IaaS",
+        "Identity Provider",
+        "Linux",
+        "Office Suite",
+        "SaaS",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--7657acc8-12ba-4e39-a739-011674d94f58"
+      ],
+      "procedure_descriptions": [
+        "During the [SolarWinds Compromise](https://attack.mitre.org/campaigns/C0024), [APT29](https://attack.mitre.org/groups/G0016) used the `Get-ManagementRoleAssignment` PowerShell cmdlet to enumerate Exchange management role assignments through an Exchange Management Shell.(Citation: Volexity SolarWinds)"
+      ]
+    },
+    {
+      "technique_id": "T1069.002",
+      "technique_stix_id": "attack-pattern--2aed01ad-3df3-4410-a8cb-11ea4ded587c",
+      "name": "Domain Groups",
+      "execution_domain": "target",
+      "tactics": [
+        "discovery"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--19baa7ba-5fdd-405e-996c-13e49299cbfb"
+      ],
+      "procedure_descriptions": [
+        "During the [SolarWinds Compromise](https://attack.mitre.org/campaigns/C0024), [APT29](https://attack.mitre.org/groups/G0016) used [AdFind](https://attack.mitre.org/software/S0552) to enumerate domain groups.(Citation: CrowdStrike StellarParticle January 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1083",
+      "technique_stix_id": "attack-pattern--7bc57495-ea59-4380-be31-a64af124ef18",
+      "name": "File and Directory Discovery",
+      "execution_domain": "target",
+      "tactics": [
+        "discovery"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--755e4d65-4e9f-499c-93f3-2aa9a9404000"
+      ],
+      "procedure_descriptions": [
+        "During the [SolarWinds Compromise](https://attack.mitre.org/campaigns/C0024), [APT29](https://attack.mitre.org/groups/G0016) obtained information about the configured Exchange virtual directory using `Get-WebServicesVirtualDirectory`.(Citation: Volexity SolarWinds)"
+      ]
+    },
+    {
+      "technique_id": "T1087",
+      "technique_stix_id": "attack-pattern--72b74d71-8169-42aa-92e0-e7b04b9f5a08",
+      "name": "Account Discovery",
+      "execution_domain": "target",
+      "tactics": [
+        "discovery"
+      ],
+      "platforms": [
+        "ESXi",
+        "IaaS",
+        "Identity Provider",
+        "Linux",
+        "Office Suite",
+        "SaaS",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--ecdd1bee-29eb-4f72-a506-6c33777a094f"
+      ],
+      "procedure_descriptions": [
+        "During the [SolarWinds Compromise](https://attack.mitre.org/campaigns/C0024), [APT29](https://attack.mitre.org/groups/G0016) obtained a list of users and their roles from an Exchange server using `Get-ManagementRoleAssignment`.(Citation: Volexity SolarWinds)"
+      ]
+    },
+    {
+      "technique_id": "T1087.002",
+      "technique_stix_id": "attack-pattern--21875073-b0ee-49e3-9077-1e2a885359af",
+      "name": "Domain Account",
+      "execution_domain": "target",
+      "tactics": [
+        "discovery"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--09cc5150-b68e-45de-9172-5fec7623c9ac"
+      ],
+      "procedure_descriptions": [
+        "During the [SolarWinds Compromise](https://attack.mitre.org/campaigns/C0024), [APT29](https://attack.mitre.org/groups/G0016) used PowerShell to discover domain accounts by exectuing `Get-ADUser` and `Get-ADGroupMember`.(Citation: CrowdStrike StellarParticle January 2022)(Citation: Secureworks IRON RITUAL Profile)"
+      ]
+    },
+    {
+      "technique_id": "T1482",
+      "technique_stix_id": "attack-pattern--767dbf9e-df3f-45cb-8998-4903ab5f80c0",
+      "name": "Domain Trust Discovery",
+      "execution_domain": "target",
+      "tactics": [
+        "discovery"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--cf0b7d7d-0770-4b97-86ff-cbb5ec19bb83"
+      ],
+      "procedure_descriptions": [
+        "During the [SolarWinds Compromise](https://attack.mitre.org/campaigns/C0024), [APT29](https://attack.mitre.org/groups/G0016) used the `Get-AcceptedDomain` PowerShell cmdlet to enumerate accepted domains through an Exchange Management Shell.(Citation: Volexity SolarWinds) They also used [AdFind](https://attack.mitre.org/software/S0552) to enumerate domains and to discover trust between federated domains.(Citation: CrowdStrike StellarParticle January 2022)(Citation: Microsoft Deep Dive Solorigate January 2021)"
+      ]
+    },
+    {
+      "technique_id": "T1680",
+      "technique_stix_id": "attack-pattern--f2514ae4-4e9b-4f26-a5ba-c4ae85fe93c3",
+      "name": "Local Storage Discovery",
+      "execution_domain": "target",
+      "tactics": [
+        "discovery"
+      ],
+      "platforms": [
+        "ESXi",
+        "IaaS",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--b16660dc-0675-462a-85fc-1902a751639e"
+      ],
+      "procedure_descriptions": [
+        "During the [SolarWinds Compromise](https://attack.mitre.org/campaigns/C0024), [APT29](https://attack.mitre.org/groups/G0016) used `fsutil` to check available free space before executing actions that might create large files on disk.(Citation: Microsoft Deep Dive Solorigate January 2021)"
+      ]
+    },
+    {
+      "technique_id": "T1021.001",
+      "technique_stix_id": "attack-pattern--eb062747-2193-45de-8fa2-e62549c37ddf",
+      "name": "Remote Desktop Protocol",
+      "execution_domain": "target",
+      "tactics": [
+        "lateral-movement"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--4b6f2524-85b4-4151-9001-32b875cfbb19"
+      ],
+      "procedure_descriptions": [
+        "During the [SolarWinds Compromise](https://attack.mitre.org/campaigns/C0024), [APT29](https://attack.mitre.org/groups/G0016) used RDP sessions from public-facing systems to internal servers.(Citation: CrowdStrike StellarParticle January 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1021.002",
+      "technique_stix_id": "attack-pattern--4f9ca633-15c5-463c-9724-bdcd54fde541",
+      "name": "SMB/Windows Admin Shares",
+      "execution_domain": "target",
+      "tactics": [
+        "lateral-movement"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--57d595d2-4363-4816-826e-91e45dd364e5"
+      ],
+      "procedure_descriptions": [
+        "During the [SolarWinds Compromise](https://attack.mitre.org/campaigns/C0024), [APT29](https://attack.mitre.org/groups/G0016) used administrative accounts to connect over SMB to targeted users.(Citation: CrowdStrike StellarParticle January 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1021.006",
+      "technique_stix_id": "attack-pattern--60d0c01d-e2bf-49dd-a453-f8a9c9fa6f65",
+      "name": "Windows Remote Management",
+      "execution_domain": "target",
+      "tactics": [
+        "lateral-movement"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--7779c4b8-d007-439a-81b7-b56efb8742ea"
+      ],
+      "procedure_descriptions": [
+        "During the [SolarWinds Compromise](https://attack.mitre.org/campaigns/C0024), [APT29](https://attack.mitre.org/groups/G0016) used WinRM via PowerShell to execute commands and payloads on remote hosts.(Citation: Symantec RAINDROP January 2021)"
+      ]
+    },
+    {
+      "technique_id": "T1550",
+      "technique_stix_id": "attack-pattern--51a14c76-dd3b-440b-9c20-2bf91d25a814",
+      "name": "Use Alternate Authentication Material",
+      "execution_domain": "target",
+      "tactics": [
+        "lateral-movement"
+      ],
+      "platforms": [
+        "Containers",
+        "IaaS",
+        "Identity Provider",
+        "Linux",
+        "Office Suite",
+        "SaaS",
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--2a8a7397-8977-4554-abbf-5168074cd4cc"
+      ],
+      "procedure_descriptions": [
+        "During the [SolarWinds Compromise](https://attack.mitre.org/campaigns/C0024), [APT29](https://attack.mitre.org/groups/G0016) used forged SAML tokens that allowed the actors to impersonate users and bypass MFA, enabling [APT29](https://attack.mitre.org/groups/G0016) to access enterprise cloud applications and services.(Citation: Microsoft 365 Defender Solorigate)(Citation: Secureworks IRON RITUAL Profile)"
+      ]
+    },
+    {
+      "technique_id": "T1550.001",
+      "technique_stix_id": "attack-pattern--f005e783-57d4-4837-88ad-dbe7faee1c51",
+      "name": "Application Access Token",
+      "execution_domain": "target",
+      "tactics": [
+        "lateral-movement"
+      ],
+      "platforms": [
+        "Containers",
+        "IaaS",
+        "Identity Provider",
+        "Office Suite",
+        "SaaS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--7b2cc5e3-11c3-4620-a787-04f2273bcbb8"
+      ],
+      "procedure_descriptions": [
+        "During the [SolarWinds Compromise](https://attack.mitre.org/campaigns/C0024), [APT29](https://attack.mitre.org/groups/G0016) used compromised service principals to make changes to the Office 365 environment.(Citation: CrowdStrike StellarParticle January 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1550.004",
+      "technique_stix_id": "attack-pattern--c3c8c916-2f3c-4e71-94b2-240bdfc996f0",
+      "name": "Web Session Cookie",
+      "execution_domain": "target",
+      "tactics": [
+        "lateral-movement"
+      ],
+      "platforms": [
+        "IaaS",
+        "Office Suite",
+        "SaaS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--9b03dca3-8d3f-42a6-9df1-44fdd732d393"
+      ],
+      "procedure_descriptions": [
+        "During the [SolarWinds Compromise](https://attack.mitre.org/campaigns/C0024), [APT29](https://attack.mitre.org/groups/G0016) used stolen cookies to access cloud resources and a forged `duo-sid` cookie to bypass MFA set on an email account.(Citation: Volexity SolarWinds)(Citation: CrowdStrike StellarParticle January 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1005",
+      "technique_stix_id": "attack-pattern--3c4a2599-71ee-4405-ba1e-0e28414b4bc5",
+      "name": "Data from Local System",
+      "execution_domain": "target",
+      "tactics": [
+        "collection"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--73b90f6c-b64d-4b7b-8142-b02f52e8cea1"
+      ],
+      "procedure_descriptions": [
+        "During the [SolarWinds Compromise](https://attack.mitre.org/campaigns/C0024), [APT29](https://attack.mitre.org/groups/G0016) extracted files from compromised networks.(Citation: Volexity SolarWinds)"
+      ]
+    },
+    {
+      "technique_id": "T1074.002",
+      "technique_stix_id": "attack-pattern--359b00ad-9425-420b-bba5-6de8d600cbc0",
+      "name": "Remote Data Staging",
+      "execution_domain": "target",
+      "tactics": [
+        "collection"
+      ],
+      "platforms": [
+        "ESXi",
+        "IaaS",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--9eb8df35-0cbf-490e-903a-f610a1387eb2"
+      ],
+      "procedure_descriptions": [
+        "During the [SolarWinds Compromise](https://attack.mitre.org/campaigns/C0024), [APT29](https://attack.mitre.org/groups/G0016) staged data and files in password-protected archives on a victim's OWA server.(Citation: Volexity SolarWinds)"
+      ]
+    },
+    {
+      "technique_id": "T1114.002",
+      "technique_stix_id": "attack-pattern--b4694861-542c-48ea-9eb1-10d356e7140a",
+      "name": "Remote Email Collection",
+      "execution_domain": "target",
+      "tactics": [
+        "collection"
+      ],
+      "platforms": [
+        "Office Suite",
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--1980e913-a4dc-415c-a98d-df1a20e001f2"
+      ],
+      "procedure_descriptions": [
+        "During the [SolarWinds Compromise](https://attack.mitre.org/campaigns/C0024), [APT29](https://attack.mitre.org/groups/G0016) collected emails from specific individuals, such as executives and IT staff, using `New-MailboxExportRequest` followed by `Get-MailboxExportRequest`.(Citation: Volexity SolarWinds)(Citation: Cybersecurity Advisory SVR TTP May 2021)"
+      ]
+    },
+    {
+      "technique_id": "T1213",
+      "technique_stix_id": "attack-pattern--d28ef391-8ed4-45dc-bc4a-2f43abf54416",
+      "name": "Data from Information Repositories",
+      "execution_domain": "target",
+      "tactics": [
+        "collection"
+      ],
+      "platforms": [
+        "IaaS",
+        "Linux",
+        "Office Suite",
+        "SaaS",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--5377ce7e-ae13-4902-a7f9-98e83d04808b"
+      ],
+      "procedure_descriptions": [
+        "During the [SolarWinds Compromise](https://attack.mitre.org/campaigns/C0024), [APT29](https://attack.mitre.org/groups/G0016) accessed victims' internal knowledge repositories (wikis) to view sensitive corporate information on products, services, and internal business operations.(Citation: CrowdStrike StellarParticle January 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1213.003",
+      "technique_stix_id": "attack-pattern--cff94884-3b1c-4987-a70b-6d5643c621c3",
+      "name": "Code Repositories",
+      "execution_domain": "target",
+      "tactics": [
+        "collection"
+      ],
+      "platforms": [
+        "SaaS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--93dc5023-3f2b-41a3-bd5a-68121a94280d"
+      ],
+      "procedure_descriptions": [
+        "During the [SolarWinds Compromise](https://attack.mitre.org/campaigns/C0024), [APT29](https://attack.mitre.org/groups/G0016) downloaded source code from code repositories.(Citation: Microsoft Internal Solorigate Investigation Blog)"
+      ]
+    },
+    {
+      "technique_id": "T1560.001",
+      "technique_stix_id": "attack-pattern--00f90846-cbd1-4fc5-9233-df5c2bf2a662",
+      "name": "Archive via Utility",
+      "execution_domain": "target",
+      "tactics": [
+        "collection"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--f5c854b7-6c1e-48bd-b8fd-c8fbebf4e326"
+      ],
+      "procedure_descriptions": [
+        "During the [SolarWinds Compromise](https://attack.mitre.org/campaigns/C0024), [APT29](https://attack.mitre.org/groups/G0016) used 7-Zip to compress stolen emails into password-protected archives prior to exfltration; [APT29](https://attack.mitre.org/groups/G0016) also compressed text files into zipped archives.(Citation: Volexity SolarWinds)(Citation: Microsoft Deep Dive Solorigate January 2021)(Citation: CrowdStrike StellarParticle January 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1071.001",
+      "technique_stix_id": "attack-pattern--df8b2a25-8bdf-4856-953c-a04372b1c161",
+      "name": "Web Protocols",
+      "execution_domain": "boundary",
+      "tactics": [
+        "command-and-control"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--fdd3d41d-beca-4b12-9330-8f26dd82367c"
+      ],
+      "procedure_descriptions": [
+        "During the [SolarWinds Compromise](https://attack.mitre.org/campaigns/C0024), [APT29](https://attack.mitre.org/groups/G0016) used HTTP for C2 and data exfiltration.(Citation: Volexity SolarWinds)"
+      ]
+    },
+    {
+      "technique_id": "T1090.001",
+      "technique_stix_id": "attack-pattern--f6dacc85-b37d-458e-b58d-74fc4bbf5755",
+      "name": "Internal Proxy",
+      "execution_domain": "boundary",
+      "tactics": [
+        "command-and-control"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--177d06e3-7e2f-47a1-8bbf-18a4787af5c7"
+      ],
+      "procedure_descriptions": [
+        "During the [SolarWinds Compromise](https://attack.mitre.org/campaigns/C0024), [APT29](https://attack.mitre.org/groups/G0016) used SSH port forwarding capabilities on public-facing systems, and configured at least one instance of [Cobalt Strike](https://attack.mitre.org/software/S0154) to use a network pipe over SMB.(Citation: CrowdStrike StellarParticle January 2022)(Citation: Symantec RAINDROP January 2021)"
+      ]
+    },
+    {
+      "technique_id": "T1105",
+      "technique_stix_id": "attack-pattern--e6919abc-99f9-4c6c-95a5-14761e7b2add",
+      "name": "Ingress Tool Transfer",
+      "execution_domain": "boundary",
+      "tactics": [
+        "command-and-control"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--b5234d9f-a581-4bcd-9441-2c1d111f3ce8"
+      ],
+      "procedure_descriptions": [
+        "During the [SolarWinds Compromise](https://attack.mitre.org/campaigns/C0024), [APT29](https://attack.mitre.org/groups/G0016) downloaded additional malware, such as [TEARDROP](https://attack.mitre.org/software/S0560) and [Cobalt Strike](https://attack.mitre.org/software/S0154), onto a compromised host following initial access.(Citation: FireEye SUNBURST Backdoor December 2020)"
+      ]
+    },
+    {
+      "technique_id": "T1568",
+      "technique_stix_id": "attack-pattern--7bd9c723-2f78-4309-82c5-47cad406572b",
+      "name": "Dynamic Resolution",
+      "execution_domain": "boundary",
+      "tactics": [
+        "command-and-control"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--67cf9a5c-3ecf-4280-9808-a027680f7444"
+      ],
+      "procedure_descriptions": [
+        "During the [SolarWinds Compromise](https://attack.mitre.org/campaigns/C0024), [APT29](https://attack.mitre.org/groups/G0016) used dynamic DNS resolution to construct and resolve to randomly-generated subdomains for C2.(Citation: Volexity SolarWinds) "
+      ]
+    },
+    {
+      "technique_id": "T1665",
+      "technique_stix_id": "attack-pattern--eb897572-8979-4242-a089-56f294f4c91d",
+      "name": "Hide Infrastructure",
+      "execution_domain": "boundary",
+      "tactics": [
+        "command-and-control"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--41ce73bb-344d-4078-8e4a-4a6f52b8616e"
+      ],
+      "procedure_descriptions": [
+        "During the [SolarWinds Compromise](https://attack.mitre.org/campaigns/C0024), [APT29](https://attack.mitre.org/groups/G0016) set the hostnames of their C2 infrastructure to match legitimate hostnames in the victim environment. They also used IP addresses originating from the same country as the victim for their VPN infrastructure.(Citation: FireEye SUNBURST Backdoor December 2020)"
+      ]
+    },
+    {
+      "technique_id": "T1048.002",
+      "technique_stix_id": "attack-pattern--8e350c1d-ac79-4b5c-bd4e-7476d7e84ec5",
+      "name": "Exfiltration Over Asymmetric Encrypted Non-C2 Protocol",
+      "execution_domain": "boundary",
+      "tactics": [
+        "exfiltration"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--fc56bf57-2188-4177-b0a3-e89bb8478523"
+      ],
+      "procedure_descriptions": [
+        "During the [SolarWinds Compromise](https://attack.mitre.org/campaigns/C0024), [APT29](https://attack.mitre.org/groups/G0016) exfiltrated collected data over a simple HTTPS request to a password-protected archive staged on a victim's OWA servers.(Citation: Volexity SolarWinds)"
+      ]
+    }
+  ],
+  "limitations": [
+    "ATT&CK uses-links do not encode a historical total order; the compiler applies a declared tactic-rank policy.",
+    "Technique metadata constrains procedures but does not uniquely determine an executable target environment."
+  ],
+  "content_sha256": "9d37ed01c6cfeed769e0f46a3ae48ff71153d97d650e3c63e89acd80a34a5116"
+}

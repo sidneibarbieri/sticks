@@ -1,0 +1,18 @@
+{
+  "admitted_templates": 63,
+  "attempted_techniques": 68,
+  "budget_estimated_usd": 0.0,
+  "budget_requests_used": 68,
+  "combined_reach_steps": 1125,
+  "evidence_tier": "schema_and_vocabulary_valid_draft",
+  "frozen_reach_steps": 919,
+  "matching_policy": "exact_technique_id",
+  "note": "Drafts of this run are untrusted, review-pending, and separate from the frozen run. Combined reach is contract-valid reach, not admitted-and-executed coverage.",
+  "provider_failures": 0,
+  "rejected_by_code": {
+    "malformed_schema": 5
+  },
+  "run_id": "stage2-qwen36-r1",
+  "run_increment_steps": 206,
+  "total_steps": 1146
+}

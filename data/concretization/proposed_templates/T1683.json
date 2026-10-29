@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure generates content tailored for a specific target audience to simulate adversarial content creation.",
+    "evidence_predicates": [
+      "web_asset_hash_recorded",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "content": "web_asset",
+      "source": "data_source"
+    },
+    "produces": [
+      "generated_content_available"
+    ],
+    "requires": [
+      "content_source_available",
+      "target_audience_identified"
+    ],
+    "technique_ids": [
+      "T1683"
+    ],
+    "template_id": "generate-content-laboratory-harness"
+  }
+}

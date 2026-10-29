@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure demonstrates how to embed VBA macros into Microsoft Office templates for testing persistence mechanisms.",
+    "evidence_predicates": [
+      "artifact_hash_recorded",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "macro_code": "payload",
+      "template_file": "archive_artifact"
+    },
+    "produces": [
+      "macro code embedded in template"
+    ],
+    "requires": [
+      "Microsoft Office installed",
+      "Access to create and modify templates"
+    ],
+    "technique_ids": [
+      "T1137.001"
+    ],
+    "template_id": "office-template-macros-laboratory-harness"
+  }
+}

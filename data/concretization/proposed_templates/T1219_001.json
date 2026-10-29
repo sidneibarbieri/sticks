@@ -1,0 +1,34 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure establishes an interactive command and control channel using IDE tunneling to simulate remote development workflows.",
+    "evidence_predicates": [
+      "bounded_effect_observed",
+      "bytes_transferred_recorded"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "local_port": "network_interface",
+      "remote_host": "target_host",
+      "remote_port": "network_interface"
+    },
+    "produces": [
+      "interactive command and control channel established"
+    ],
+    "requires": [
+      "IDE software installed",
+      "network connectivity established"
+    ],
+    "technique_ids": [
+      "T1219.001"
+    ],
+    "template_id": "ide-tunneling-laboratory-harness"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure queries domain-level groups to gather information about group memberships and permissions.",
+    "evidence_predicates": [
+      "fixture_access_logged",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "command": "toolkit"
+    },
+    "produces": [
+      "list of domain-level groups and their members"
+    ],
+    "requires": [
+      "access to a domain environment",
+      "appropriate permissions to query domain groups"
+    ],
+    "technique_ids": [
+      "T1069.002"
+    ],
+    "template_id": "domain-groups-query-laboratory"
+  }
+}

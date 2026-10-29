@@ -1,0 +1,682 @@
+{
+  "schema_version": "1",
+  "compiler_version": "1",
+  "campaign_id": "C0002",
+  "campaign_name": "Night Dragon",
+  "source": {
+    "bundle_sha256": "dc1639caa5501d720e280cf1cbd8fbe009884a0c9b3e6e9ed9d0c25166c3d8f4",
+    "object_count": 26086,
+    "campaign_stix_id": "campaign--ae407e32-87e0-4d92-8705-3ae25d504d8a",
+    "campaign_external_id": "C0002"
+  },
+  "ordering_policy": "tactic_rank_then_technique_id",
+  "steps": [
+    {
+      "technique_id": "T1583.004",
+      "technique_stix_id": "attack-pattern--60c4b628-4807-4b0b-bbf5-fdac8643c337",
+      "name": "Server",
+      "execution_domain": "attacker",
+      "tactics": [
+        "resource-development"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--b4ae0cf8-ad1f-4813-9e07-fc3faba1454e"
+      ],
+      "procedure_descriptions": [
+        "During [Night Dragon](https://attack.mitre.org/campaigns/C0002), threat actors purchased hosted services to use for C2.(Citation: McAfee Night Dragon)"
+      ]
+    },
+    {
+      "technique_id": "T1584.004",
+      "technique_stix_id": "attack-pattern--e196b5c5-8118-4a1c-ab8a-936586ce3db5",
+      "name": "Server",
+      "execution_domain": "attacker",
+      "tactics": [
+        "resource-development"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--dd49448e-10e3-4138-916b-1f3ba0727104"
+      ],
+      "procedure_descriptions": [
+        "During [Night Dragon](https://attack.mitre.org/campaigns/C0002), threat actors compromised web servers to use for C2.(Citation: McAfee Night Dragon)"
+      ]
+    },
+    {
+      "technique_id": "T1588.001",
+      "technique_stix_id": "attack-pattern--7807d3a4-a885-4639-a786-c1ed41484970",
+      "name": "Malware",
+      "execution_domain": "attacker",
+      "tactics": [
+        "resource-development"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--113fbb20-8dd7-4ba6-b5a8-486e46d9abeb"
+      ],
+      "procedure_descriptions": [
+        "During [Night Dragon](https://attack.mitre.org/campaigns/C0002), threat actors used Trojans from underground hacker websites.(Citation: McAfee Night Dragon)"
+      ]
+    },
+    {
+      "technique_id": "T1588.002",
+      "technique_stix_id": "attack-pattern--a2fdce72-04b2-409a-ac10-cc1695f4fce0",
+      "name": "Tool",
+      "execution_domain": "attacker",
+      "tactics": [
+        "resource-development"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--644bfb9b-0555-45e9-a967-c6bedcc05e88"
+      ],
+      "procedure_descriptions": [
+        "During [Night Dragon](https://attack.mitre.org/campaigns/C0002), threat actors obtained and used tools such as [gsecdump](https://attack.mitre.org/software/S0008).(Citation: McAfee Night Dragon)"
+      ]
+    },
+    {
+      "technique_id": "T1608.001",
+      "technique_stix_id": "attack-pattern--3ee16395-03f0-4690-a32e-69ce9ada0f9e",
+      "name": "Upload Malware",
+      "execution_domain": "attacker",
+      "tactics": [
+        "resource-development"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--0a49a3af-973d-43ea-b4d4-8cc21c12dfc0"
+      ],
+      "procedure_descriptions": [
+        "During [Night Dragon](https://attack.mitre.org/campaigns/C0002), threat actors uploaded commonly available hacker tools to compromised web servers.(Citation: McAfee Night Dragon)"
+      ]
+    },
+    {
+      "technique_id": "T1078",
+      "technique_stix_id": "attack-pattern--b17a1a56-e99c-403c-8948-561df0cffe81",
+      "name": "Valid Accounts",
+      "execution_domain": "boundary",
+      "tactics": [
+        "initial-access",
+        "persistence",
+        "privilege-escalation",
+        "stealth"
+      ],
+      "platforms": [
+        "Containers",
+        "ESXi",
+        "IaaS",
+        "Identity Provider",
+        "Linux",
+        "Network Devices",
+        "Office Suite",
+        "SaaS",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--3e1585d9-d6dc-4016-8cba-53ca08b7887e"
+      ],
+      "procedure_descriptions": [
+        "During [Night Dragon](https://attack.mitre.org/campaigns/C0002), threat actors used compromised VPN accounts to gain access to victim systems.(Citation: McAfee Night Dragon)"
+      ]
+    },
+    {
+      "technique_id": "T1078.002",
+      "technique_stix_id": "attack-pattern--c3d4bdd9-2cfe-4a80-9d0c-07a29ecdce8f",
+      "name": "Domain Accounts",
+      "execution_domain": "boundary",
+      "tactics": [
+        "initial-access",
+        "persistence",
+        "privilege-escalation",
+        "stealth"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--09c0322c-a714-4768-9d30-04160d2d7b2a"
+      ],
+      "procedure_descriptions": [
+        "During [Night Dragon](https://attack.mitre.org/campaigns/C0002), threat actors used domain accounts to gain further access to victim systems.(Citation: McAfee Night Dragon)"
+      ]
+    },
+    {
+      "technique_id": "T1133",
+      "technique_stix_id": "attack-pattern--10d51417-ee35-4589-b1ff-b6df1c334e8d",
+      "name": "External Remote Services",
+      "execution_domain": "boundary",
+      "tactics": [
+        "initial-access",
+        "persistence"
+      ],
+      "platforms": [
+        "Containers",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--21fdb8cc-baed-4b9a-871e-f74dc0f0f2d9"
+      ],
+      "procedure_descriptions": [
+        "During [Night Dragon](https://attack.mitre.org/campaigns/C0002), threat actors used compromised VPN accounts to gain access to victim systems.(Citation: McAfee Night Dragon)"
+      ]
+    },
+    {
+      "technique_id": "T1190",
+      "technique_stix_id": "attack-pattern--3f886f2a-874f-4333-b794-aa6075009b1c",
+      "name": "Exploit Public-Facing Application",
+      "execution_domain": "boundary",
+      "tactics": [
+        "initial-access"
+      ],
+      "platforms": [
+        "Containers",
+        "ESXi",
+        "IaaS",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--3c695c3d-7f8e-43dd-baad-b2afdfc86fc2"
+      ],
+      "procedure_descriptions": [
+        "During [Night Dragon](https://attack.mitre.org/campaigns/C0002), threat actors used SQL injection exploits against extranet web servers to gain access.(Citation: McAfee Night Dragon)"
+      ]
+    },
+    {
+      "technique_id": "T1566.002",
+      "technique_stix_id": "attack-pattern--2b742742-28c3-4e1b-bab7-8350d6300fa7",
+      "name": "Spearphishing Link",
+      "execution_domain": "boundary",
+      "tactics": [
+        "initial-access"
+      ],
+      "platforms": [
+        "Identity Provider",
+        "Linux",
+        "Office Suite",
+        "SaaS",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--1e3438f9-573c-4912-81e7-650094af62ac"
+      ],
+      "procedure_descriptions": [
+        "During [Night Dragon](https://attack.mitre.org/campaigns/C0002), threat actors sent spearphishing emails containing links to compromised websites where malware was downloaded.(Citation: McAfee Night Dragon)"
+      ]
+    },
+    {
+      "technique_id": "T1059.003",
+      "technique_stix_id": "attack-pattern--d1fcf083-a721-4223-aedf-bf8960798d62",
+      "name": "Windows Command Shell",
+      "execution_domain": "target",
+      "tactics": [
+        "execution"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--3a693ff6-1969-443b-8eb4-bb2ad56f0dba"
+      ],
+      "procedure_descriptions": [
+        "During [Night Dragon](https://attack.mitre.org/campaigns/C0002), threat actors used [zwShell](https://attack.mitre.org/software/S0350) to establish full remote control of the connected machine and run command-line shells.(Citation: McAfee Night Dragon)"
+      ]
+    },
+    {
+      "technique_id": "T1204.001",
+      "technique_stix_id": "attack-pattern--ef67e13e-5598-4adc-bdb2-998225874fa9",
+      "name": "Malicious Link",
+      "execution_domain": "target",
+      "tactics": [
+        "execution"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--1fdcaa51-4445-43be-99eb-52787756fa1c"
+      ],
+      "procedure_descriptions": [
+        "During [Night Dragon](https://attack.mitre.org/campaigns/C0002), threat actors enticed users to click on links in spearphishing emails to download malware.(Citation: McAfee Night Dragon)"
+      ]
+    },
+    {
+      "technique_id": "T1112",
+      "technique_stix_id": "attack-pattern--57340c81-c025-4189-8fa0-fc7ede51bae4",
+      "name": "Modify Registry",
+      "execution_domain": "target",
+      "tactics": [
+        "persistence",
+        "defense-impairment"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--66a7d5ae-7975-448d-ae40-b0786a3a8cd6"
+      ],
+      "procedure_descriptions": [
+        "During [Night Dragon](https://attack.mitre.org/campaigns/C0002), threat actors used [zwShell](https://attack.mitre.org/software/S0350) to establish full remote control of the connected machine and manipulate the Registry.(Citation: McAfee Night Dragon)"
+      ]
+    },
+    {
+      "technique_id": "T1027.002",
+      "technique_stix_id": "attack-pattern--deb98323-e13f-4b0c-8d94-175379069062",
+      "name": "Software Packing",
+      "execution_domain": "target",
+      "tactics": [
+        "stealth"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--3be6aadd-ea5f-4910-a8a0-d1019977dc43"
+      ],
+      "procedure_descriptions": [
+        "During [Night Dragon](https://attack.mitre.org/campaigns/C0002), threat actors used software packing in its tools.(Citation: McAfee Night Dragon)"
+      ]
+    },
+    {
+      "technique_id": "T1027.013",
+      "technique_stix_id": "attack-pattern--0d91b3c0-5e50-47c3-949a-2a796f04d144",
+      "name": "Encrypted/Encoded File",
+      "execution_domain": "target",
+      "tactics": [
+        "stealth"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--41c20ce1-3b9d-4293-a203-a4196d307c59"
+      ],
+      "procedure_descriptions": [
+        "During [Night Dragon](https://attack.mitre.org/campaigns/C0002), threat actors used a DLL that included an XOR-encoded section.(Citation: McAfee Night Dragon)"
+      ]
+    },
+    {
+      "technique_id": "T1685",
+      "technique_stix_id": "attack-pattern--bbde9781-60aa-4b8a-a911-895b0c1b3872",
+      "name": "Disable or Modify Tools",
+      "execution_domain": "target",
+      "tactics": [
+        "defense-impairment"
+      ],
+      "platforms": [
+        "Containers",
+        "ESXi",
+        "IaaS",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--a87a895a-406b-4051-b1fe-dc1fa64bf946"
+      ],
+      "procedure_descriptions": [
+        "During [Night Dragon](https://attack.mitre.org/campaigns/C0002), threat actors disabled anti-virus and anti-spyware tools in some instances on the victim’s machines. The actors also disabled proxy settings to allow direct communication from victims to the Internet.(Citation: McAfee Night Dragon)"
+      ]
+    },
+    {
+      "technique_id": "T1003.002",
+      "technique_stix_id": "attack-pattern--1644e709-12d2-41e5-a60f-3470991f5011",
+      "name": "Security Account Manager",
+      "execution_domain": "target",
+      "tactics": [
+        "credential-access"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--791d8691-7e06-4052-8c49-1a9f57ccf09d"
+      ],
+      "procedure_descriptions": [
+        "During [Night Dragon](https://attack.mitre.org/campaigns/C0002), threat actors dumped account hashes using [gsecdump](https://attack.mitre.org/software/S0008).(Citation: McAfee Night Dragon)"
+      ]
+    },
+    {
+      "technique_id": "T1110.002",
+      "technique_stix_id": "attack-pattern--1d24cdee-9ea2-4189-b08e-af110bf2435d",
+      "name": "Password Cracking",
+      "execution_domain": "target",
+      "tactics": [
+        "credential-access"
+      ],
+      "platforms": [
+        "Identity Provider",
+        "Linux",
+        "Network Devices",
+        "Office Suite",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--d6b2febc-64a1-48cd-88f1-67295650d9cb"
+      ],
+      "procedure_descriptions": [
+        "During [Night Dragon](https://attack.mitre.org/campaigns/C0002), threat actors used Cain & Abel to crack password hashes.(Citation: McAfee Night Dragon)"
+      ]
+    },
+    {
+      "technique_id": "T1033",
+      "technique_stix_id": "attack-pattern--03d7999c-1f4c-42cc-8373-e7690d318104",
+      "name": "System Owner/User Discovery",
+      "execution_domain": "target",
+      "tactics": [
+        "discovery"
+      ],
+      "platforms": [
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--5014ae85-9335-40df-b03b-bc08964d4ff7"
+      ],
+      "procedure_descriptions": [
+        "During [Night Dragon](https://attack.mitre.org/campaigns/C0002), threat actors used password cracking and pass-the-hash tools to discover usernames and passwords.(Citation: McAfee Night Dragon)"
+      ]
+    },
+    {
+      "technique_id": "T1083",
+      "technique_stix_id": "attack-pattern--7bc57495-ea59-4380-be31-a64af124ef18",
+      "name": "File and Directory Discovery",
+      "execution_domain": "target",
+      "tactics": [
+        "discovery"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--b0a6695b-e5ab-47b3-adfd-4db09c41457e"
+      ],
+      "procedure_descriptions": [
+        "During [Night Dragon](https://attack.mitre.org/campaigns/C0002), threat actors used [zwShell](https://attack.mitre.org/software/S0350) to establish full remote control of the connected machine and browse the victim file system.(Citation: McAfee Night Dragon)"
+      ]
+    },
+    {
+      "technique_id": "T1550.002",
+      "technique_stix_id": "attack-pattern--e624264c-033a-424d-9fd7-fc9c3bbdb03e",
+      "name": "Pass the Hash",
+      "execution_domain": "target",
+      "tactics": [
+        "lateral-movement"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--c4cd588d-264a-468d-a472-8667b363d819"
+      ],
+      "procedure_descriptions": [
+        "During [Night Dragon](https://attack.mitre.org/campaigns/C0002), threat actors used pass-the-hash tools to obtain authenticated access to sensitive internal desktops and servers.(Citation: McAfee Night Dragon)"
+      ]
+    },
+    {
+      "technique_id": "T1005",
+      "technique_stix_id": "attack-pattern--3c4a2599-71ee-4405-ba1e-0e28414b4bc5",
+      "name": "Data from Local System",
+      "execution_domain": "target",
+      "tactics": [
+        "collection"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--3173f84e-783b-43cd-95f7-b74277936b4d"
+      ],
+      "procedure_descriptions": [
+        "During [Night Dragon](https://attack.mitre.org/campaigns/C0002), the threat actors collected files and other data from compromised systems.(Citation: McAfee Night Dragon)"
+      ]
+    },
+    {
+      "technique_id": "T1074.002",
+      "technique_stix_id": "attack-pattern--359b00ad-9425-420b-bba5-6de8d600cbc0",
+      "name": "Remote Data Staging",
+      "execution_domain": "target",
+      "tactics": [
+        "collection"
+      ],
+      "platforms": [
+        "ESXi",
+        "IaaS",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--fa0e5b1c-2434-4aff-ab0c-25efb7ba1b49"
+      ],
+      "procedure_descriptions": [
+        "During [Night Dragon](https://attack.mitre.org/campaigns/C0002), threat actors copied files to company web servers and subsequently downloaded them.(Citation: McAfee Night Dragon)"
+      ]
+    },
+    {
+      "technique_id": "T1114.001",
+      "technique_stix_id": "attack-pattern--1e9eb839-294b-48cc-b0d3-c45555a2a004",
+      "name": "Local Email Collection",
+      "execution_domain": "target",
+      "tactics": [
+        "collection"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--90839ffa-293e-4fe3-98d2-e8edfd55be2c"
+      ],
+      "procedure_descriptions": [
+        "During [Night Dragon](https://attack.mitre.org/campaigns/C0002), threat actors used RAT malware to exfiltrate email archives.(Citation: McAfee Night Dragon)"
+      ]
+    },
+    {
+      "technique_id": "T1008",
+      "technique_stix_id": "attack-pattern--f24faf46-3b26-4dbb-98f2-63460498e433",
+      "name": "Fallback Channels",
+      "execution_domain": "boundary",
+      "tactics": [
+        "command-and-control"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--9b4a4f3b-d8f4-47d2-8e63-2687c566806b"
+      ],
+      "procedure_descriptions": [
+        "During [Night Dragon](https://attack.mitre.org/campaigns/C0002), threat actors used company extranet servers as secondary C2 servers.(Citation: McAfee Night Dragon)"
+      ]
+    },
+    {
+      "technique_id": "T1071.001",
+      "technique_stix_id": "attack-pattern--df8b2a25-8bdf-4856-953c-a04372b1c161",
+      "name": "Web Protocols",
+      "execution_domain": "boundary",
+      "tactics": [
+        "command-and-control"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--7ac258e9-acfa-4bc4-a676-201cf40be956"
+      ],
+      "procedure_descriptions": [
+        "During [Night Dragon](https://attack.mitre.org/campaigns/C0002), threat actors used HTTP for C2.(Citation: McAfee Night Dragon)"
+      ]
+    },
+    {
+      "technique_id": "T1105",
+      "technique_stix_id": "attack-pattern--e6919abc-99f9-4c6c-95a5-14761e7b2add",
+      "name": "Ingress Tool Transfer",
+      "execution_domain": "boundary",
+      "tactics": [
+        "command-and-control"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--ee93f001-962f-41f5-8f17-98243608aad6"
+      ],
+      "procedure_descriptions": [
+        "During [Night Dragon](https://attack.mitre.org/campaigns/C0002), threat actors used administrative utilities to deliver Trojan components to remote systems.(Citation: McAfee Night Dragon)"
+      ]
+    },
+    {
+      "technique_id": "T1219",
+      "technique_stix_id": "attack-pattern--4061e78c-1284-44b4-9116-73e4ac3912f7",
+      "name": "Remote Access Tools",
+      "execution_domain": "boundary",
+      "tactics": [
+        "command-and-control"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--d39f49f7-3e63-4625-b6e9-e3fdbd0ae013"
+      ],
+      "procedure_descriptions": [
+        "During [Night Dragon](https://attack.mitre.org/campaigns/C0002), threat actors used several remote administration tools as persistent infiltration channels.(Citation: McAfee Night Dragon)"
+      ]
+    },
+    {
+      "technique_id": "T1568",
+      "technique_stix_id": "attack-pattern--7bd9c723-2f78-4309-82c5-47cad406572b",
+      "name": "Dynamic Resolution",
+      "execution_domain": "boundary",
+      "tactics": [
+        "command-and-control"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--ebe49c13-057f-4dc4-b04b-f19ac2480c4a"
+      ],
+      "procedure_descriptions": [
+        "During [Night Dragon](https://attack.mitre.org/campaigns/C0002), threat actors used dynamic DNS services for C2.(Citation: McAfee Night Dragon)"
+      ]
+    }
+  ],
+  "limitations": [
+    "ATT&CK uses-links do not encode a historical total order; the compiler applies a declared tactic-rank policy.",
+    "Technique metadata constrains procedures but does not uniquely determine an executable target environment."
+  ],
+  "content_sha256": "f5f2471d5f7c96efae3cad918f634c6e3ee7e8ed1e5789975dfe4fc3e0d753c7"
+}

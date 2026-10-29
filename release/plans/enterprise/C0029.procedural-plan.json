@@ -1,0 +1,733 @@
+{
+  "schema_version": "1",
+  "compiler_version": "1",
+  "campaign_id": "C0029",
+  "campaign_name": "Cutting Edge",
+  "source": {
+    "bundle_sha256": "dc1639caa5501d720e280cf1cbd8fbe009884a0c9b3e6e9ed9d0c25166c3d8f4",
+    "object_count": 26086,
+    "campaign_stix_id": "campaign--4fdd2487-26c1-494e-8702-ec5abe9aa1d9",
+    "campaign_external_id": "C0029"
+  },
+  "ordering_policy": "tactic_rank_then_technique_id",
+  "steps": [
+    {
+      "technique_id": "T1594",
+      "technique_stix_id": "attack-pattern--16cdd21f-da65-4e4f-bc04-dd7d198c7b26",
+      "name": "Search Victim-Owned Websites",
+      "execution_domain": "attacker",
+      "tactics": [
+        "reconnaissance"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--57637c68-0d94-427a-a803-4f1900ccefac"
+      ],
+      "procedure_descriptions": [
+        "During [Cutting Edge](https://attack.mitre.org/campaigns/C0029), threat actors peformed reconnaissance of victims' internal websites via proxied connections.(Citation: Volexity Ivanti Zero-Day Exploitation January 2024)"
+      ]
+    },
+    {
+      "technique_id": "T1595.002",
+      "technique_stix_id": "attack-pattern--5502c4e9-24ef-4d5f-8ee9-9e906c2f82c4",
+      "name": "Vulnerability Scanning",
+      "execution_domain": "attacker",
+      "tactics": [
+        "reconnaissance"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--1509c545-be16-42be-8ec8-140b13f74555"
+      ],
+      "procedure_descriptions": [
+        "During [Cutting Edge](https://attack.mitre.org/campaigns/C0029), threat actors used the publicly available Interactsh tool to identify Ivanti Connect Secure VPNs vulnerable to CVE-2024-21893.(Citation: Mandiant Cutting Edge Part 3 February 2024)"
+      ]
+    },
+    {
+      "technique_id": "T1584.008",
+      "technique_stix_id": "attack-pattern--149b477f-f364-4824-b1b5-aa1d56115869",
+      "name": "Network Devices",
+      "execution_domain": "attacker",
+      "tactics": [
+        "resource-development"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--b1ce8372-ecac-40c4-9b92-a6073cacec31"
+      ],
+      "procedure_descriptions": [
+        "During [Cutting Edge](https://attack.mitre.org/campaigns/C0029), threat actors used compromised and out-of-support Cyberoam VPN appliances for C2.(Citation: Mandiant Cutting Edge January 2024)(Citation: Volexity Ivanti Global Exploitation January 2024)"
+      ]
+    },
+    {
+      "technique_id": "T1588.002",
+      "technique_stix_id": "attack-pattern--a2fdce72-04b2-409a-ac10-cc1695f4fce0",
+      "name": "Tool",
+      "execution_domain": "attacker",
+      "tactics": [
+        "resource-development"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--f2f3bc50-78d0-490f-a91a-c0df35f68891"
+      ],
+      "procedure_descriptions": [
+        "During [Cutting Edge](https://attack.mitre.org/campaigns/C0029), threat actors leveraged tools including Interactsh to identify vulnerable targets, PySoxy to simultaneously dispatch traffic between multiple endpoints, BusyBox to enable post exploitation activities, and Kubo Injector to inject shared objects into process memory.(Citation: Mandiant Cutting Edge January 2024)(Citation: Mandiant Cutting Edge Part 3 February 2024)"
+      ]
+    },
+    {
+      "technique_id": "T1078.002",
+      "technique_stix_id": "attack-pattern--c3d4bdd9-2cfe-4a80-9d0c-07a29ecdce8f",
+      "name": "Domain Accounts",
+      "execution_domain": "boundary",
+      "tactics": [
+        "initial-access",
+        "persistence",
+        "privilege-escalation",
+        "stealth"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--d45c5aa0-8f47-4ccc-b78f-48391d41ecc6"
+      ],
+      "procedure_descriptions": [
+        "During [Cutting Edge](https://attack.mitre.org/campaigns/C0029), threat actors used compromised VPN accounts for lateral movement on targeted networks.(Citation: Volexity Ivanti Zero-Day Exploitation January 2024)"
+      ]
+    },
+    {
+      "technique_id": "T1190",
+      "technique_stix_id": "attack-pattern--3f886f2a-874f-4333-b794-aa6075009b1c",
+      "name": "Exploit Public-Facing Application",
+      "execution_domain": "boundary",
+      "tactics": [
+        "initial-access"
+      ],
+      "platforms": [
+        "Containers",
+        "ESXi",
+        "IaaS",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--9cf09dbc-7668-4c1c-8e57-01f9c082c80d"
+      ],
+      "procedure_descriptions": [
+        "During [Cutting Edge](https://attack.mitre.org/campaigns/C0029), threat actors exploited CVE-2023-46805 and CVE-2024-21887 in Ivanti Connect Secure VPN appliances to enable authentication bypass and command injection. A server-side request forgery (SSRF) vulnerability, CVE-2024-21893, was identified later and used to bypass mitigations for the initial two vulnerabilities by chaining with CVE-2024-21887.(Citation: Mandiant Cutting Edge January 2024)(Citation: Volexity Ivanti Zero-Day Exploitation January 2024)(Citation: Volexity Ivanti Global Exploitation January 2024)(Citation: Mandiant Cutting Edge Part 2 January 2024)(Citation: Mandiant Cutting Edge Part 3 February 2024)"
+      ]
+    },
+    {
+      "technique_id": "T1059",
+      "technique_stix_id": "attack-pattern--7385dfaf-6886-4229-9ecd-6fd678040830",
+      "name": "Command and Scripting Interpreter",
+      "execution_domain": "target",
+      "tactics": [
+        "execution"
+      ],
+      "platforms": [
+        "Containers",
+        "ESXi",
+        "IaaS",
+        "Identity Provider",
+        "Linux",
+        "Network Devices",
+        "Office Suite",
+        "SaaS",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--4827d600-cf36-48c8-ba73-46d89d34143b"
+      ],
+      "procedure_descriptions": [
+        "During [Cutting Edge](https://attack.mitre.org/campaigns/C0029), threat actors used Perl scripts to enable the deployment of the THINSPOOL shell script dropper and for enumerating host data.(Citation: Mandiant Cutting Edge Part 2 January 2024)(Citation: Mandiant Cutting Edge January 2024)"
+      ]
+    },
+    {
+      "technique_id": "T1059.006",
+      "technique_stix_id": "attack-pattern--cc3502b5-30cc-4473-ad48-42d51a6ef6d1",
+      "name": "Python",
+      "execution_domain": "target",
+      "tactics": [
+        "execution"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--a5bcc6f7-27af-4335-bf02-59fe5d0cd62e"
+      ],
+      "procedure_descriptions": [
+        "During [Cutting Edge](https://attack.mitre.org/campaigns/C0029), threat actors used a Python reverse shell and the PySoxy SOCKS5 proxy tool.(Citation: Volexity Ivanti Zero-Day Exploitation January 2024)(Citation: Mandiant Cutting Edge Part 3 February 2024)"
+      ]
+    },
+    {
+      "technique_id": "T1205",
+      "technique_stix_id": "attack-pattern--451a9977-d255-43c9-b431-66de80130c8c",
+      "name": "Traffic Signaling",
+      "execution_domain": "boundary",
+      "tactics": [
+        "persistence",
+        "stealth",
+        "command-and-control"
+      ],
+      "platforms": [
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--15c274dd-c045-43d6-a038-fa969dd04c8d"
+      ],
+      "procedure_descriptions": [
+        "During [Cutting Edge](https://attack.mitre.org/campaigns/C0029), threat actors sent a magic 48-byte sequence to enable the PITSOCK backdoor to communicate via the `/tmp/clientsDownload.sock` socket.(Citation: Mandiant Cutting Edge Part 3 February 2024)"
+      ]
+    },
+    {
+      "technique_id": "T1505.003",
+      "technique_stix_id": "attack-pattern--5d0d3609-d06d-49e1-b9c9-b544e0c618cb",
+      "name": "Web Shell",
+      "execution_domain": "target",
+      "tactics": [
+        "persistence"
+      ],
+      "platforms": [
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--63534b4f-e8aa-4824-99ce-0daf9d765b9d"
+      ],
+      "procedure_descriptions": [
+        "During [Cutting Edge](https://attack.mitre.org/campaigns/C0029), threat actors used multiple web shells to maintain presence on compromised Connect Secure appliances such as [WIREFIRE](https://attack.mitre.org/software/S1115), [GLASSTOKEN](https://attack.mitre.org/software/S1117), [BUSHWALK](https://attack.mitre.org/software/S1118), [LIGHTWIRE](https://attack.mitre.org/software/S1119), and [FRAMESTING](https://attack.mitre.org/software/S1120).(Citation: Mandiant Cutting Edge January 2024)(Citation: Volexity Ivanti Zero-Day Exploitation January 2024)"
+      ]
+    },
+    {
+      "technique_id": "T1554",
+      "technique_stix_id": "attack-pattern--960c3c86-1480-4d72-b4e0-8c242e84a5c5",
+      "name": "Compromise Host Software Binary",
+      "execution_domain": "target",
+      "tactics": [
+        "persistence"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--4f2fa285-c269-4bbc-afe8-afbd8fcfcda9"
+      ],
+      "procedure_descriptions": [
+        "During [Cutting Edge](https://attack.mitre.org/campaigns/C0029), threat actors trojanized legitimate files in Ivanti Connect Secure appliances with malicious code.(Citation: Mandiant Cutting Edge January 2024)(Citation: Volexity Ivanti Zero-Day Exploitation January 2024)(Citation: Mandiant Cutting Edge Part 2 January 2024)"
+      ]
+    },
+    {
+      "technique_id": "T1055",
+      "technique_stix_id": "attack-pattern--43e7dc91-05b2-474c-b9ac-2ed4fe101f4d",
+      "name": "Process Injection",
+      "execution_domain": "target",
+      "tactics": [
+        "privilege-escalation",
+        "stealth"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--2f0bcef1-1f30-4585-b158-25d614f5f350"
+      ],
+      "procedure_descriptions": [
+        "During [Cutting Edge](https://attack.mitre.org/campaigns/C0029), threat actors used malicious SparkGateway plugins to inject shared objects into web process memory on compromised Ivanti Secure Connect VPNs to enable deployment of backdoors.(Citation: Mandiant Cutting Edge Part 3 February 2024)"
+      ]
+    },
+    {
+      "technique_id": "T1027.013",
+      "technique_stix_id": "attack-pattern--0d91b3c0-5e50-47c3-949a-2a796f04d144",
+      "name": "Encrypted/Encoded File",
+      "execution_domain": "target",
+      "tactics": [
+        "stealth"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--df5db6d7-a072-4d04-a638-843ac66234ef"
+      ],
+      "procedure_descriptions": [
+        "During [Cutting Edge](https://attack.mitre.org/campaigns/C0029), threat actors used a Base64-encoded Python script to write a patched version of the Ivanti Connect Secure `dsls` binary.(Citation: Mandiant Cutting Edge Part 2 January 2024)"
+      ]
+    },
+    {
+      "technique_id": "T1070",
+      "technique_stix_id": "attack-pattern--799ace7f-e227-4411-baa0-8868704f2a69",
+      "name": "Indicator Removal",
+      "execution_domain": "target",
+      "tactics": [
+        "stealth"
+      ],
+      "platforms": [
+        "Containers",
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Office Suite",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--25c038d5-7cba-4416-ac10-f1c893942042"
+      ],
+      "procedure_descriptions": [
+        "During [Cutting Edge](https://attack.mitre.org/campaigns/C0029), threat actors cleared logs to remove traces of their activity and restored compromised systems to a clean state to bypass manufacturer mitigations for CVE-2023-46805 and CVE-2024-21887.(Citation: Mandiant Cutting Edge Part 2 January 2024)(Citation: Volexity Ivanti Zero-Day Exploitation January 2024)"
+      ]
+    },
+    {
+      "technique_id": "T1070.004",
+      "technique_stix_id": "attack-pattern--d63a3fb8-9452-4e9d-a60a-54be68d5998c",
+      "name": "File Deletion",
+      "execution_domain": "target",
+      "tactics": [
+        "stealth"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--32621114-725a-4766-b057-2d091adba75b"
+      ],
+      "procedure_descriptions": [
+        "During [Cutting Edge](https://attack.mitre.org/campaigns/C0029), threat actors deleted `/tmp/test1.txt` on compromised Ivanti Connect Secure VPNs which was used to hold stolen configuration and cache files.(Citation: Mandiant Cutting Edge Part 2 January 2024)(Citation: Mandiant Cutting Edge Part 3 February 2024)"
+      ]
+    },
+    {
+      "technique_id": "T1070.006",
+      "technique_stix_id": "attack-pattern--47f2d673-ca62-47e9-929b-1b0be9657611",
+      "name": "Timestomp",
+      "execution_domain": "target",
+      "tactics": [
+        "stealth"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--4b688df5-5ecf-48ea-a15f-4509e557224c"
+      ],
+      "procedure_descriptions": [
+        "During [Cutting Edge](https://attack.mitre.org/campaigns/C0029), threat actors changed timestamps of multiple files on compromised Ivanti Secure Connect VPNs to conceal malicious activity.(Citation: Mandiant Cutting Edge Part 2 January 2024)(Citation: Mandiant Cutting Edge Part 3 February 2024)"
+      ]
+    },
+    {
+      "technique_id": "T1685",
+      "technique_stix_id": "attack-pattern--bbde9781-60aa-4b8a-a911-895b0c1b3872",
+      "name": "Disable or Modify Tools",
+      "execution_domain": "target",
+      "tactics": [
+        "defense-impairment"
+      ],
+      "platforms": [
+        "Containers",
+        "ESXi",
+        "IaaS",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--217968e0-0c70-4f57-a2e6-5add0bc51a11"
+      ],
+      "procedure_descriptions": [
+        "During [Cutting Edge](https://attack.mitre.org/campaigns/C0029), threat actors disabled logging and modified the `compcheckresult.cgi` component to edit the Ivanti Connect Secure built-in Integrity Checker exclusion list to evade detection.(Citation: Mandiant Cutting Edge Part 2 January 2024)(Citation: Volexity Ivanti Zero-Day Exploitation January 2024)"
+      ]
+    },
+    {
+      "technique_id": "T1003.001",
+      "technique_stix_id": "attack-pattern--65f2d882-3f41-4d48-8a06-29af77ec9f90",
+      "name": "LSASS Memory",
+      "execution_domain": "target",
+      "tactics": [
+        "credential-access"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--2b7df536-1a64-487a-9588-42f3bd411f3f"
+      ],
+      "procedure_descriptions": [
+        "During [Cutting Edge](https://attack.mitre.org/campaigns/C0029), threat actors used Task Manager to dump LSASS memory from Windows devices to disk.(Citation: Volexity Ivanti Zero-Day Exploitation January 2024)"
+      ]
+    },
+    {
+      "technique_id": "T1003.003",
+      "technique_stix_id": "attack-pattern--edf91964-b26e-4b4a-9600-ccacd7d7df24",
+      "name": "NTDS",
+      "execution_domain": "target",
+      "tactics": [
+        "credential-access"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--94175b7b-a332-4e38-9d7b-3b900825bb3a"
+      ],
+      "procedure_descriptions": [
+        "During [Cutting Edge](https://attack.mitre.org/campaigns/C0029), threat actors accessed and mounted virtual hard disk backups to extract \nntds.dit.(Citation: Volexity Ivanti Zero-Day Exploitation January 2024)"
+      ]
+    },
+    {
+      "technique_id": "T1056.001",
+      "technique_stix_id": "attack-pattern--09a60ea3-a8d1-4ae5-976e-5783248b72a4",
+      "name": "Keylogging",
+      "execution_domain": "target",
+      "tactics": [
+        "credential-access",
+        "collection"
+      ],
+      "platforms": [
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--de045bf6-5f26-485b-ab6d-74552b0cded9"
+      ],
+      "procedure_descriptions": [
+        "During [Cutting Edge](https://attack.mitre.org/campaigns/C0029), threat actors modified a JavaScript file on the Web SSL VPN component of Ivanti Connect Secure devices to keylog credentials.(Citation: Volexity Ivanti Zero-Day Exploitation January 2024)"
+      ]
+    },
+    {
+      "technique_id": "T1056.003",
+      "technique_stix_id": "attack-pattern--69e5226d-05dc-4f15-95d7-44f5ed78d06e",
+      "name": "Web Portal Capture",
+      "execution_domain": "target",
+      "tactics": [
+        "credential-access",
+        "collection"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--d2881846-1061-4f1e-a9bf-4dfc6a7e4b41"
+      ],
+      "procedure_descriptions": [
+        "During [Cutting Edge](https://attack.mitre.org/campaigns/C0029), threat actors modified the JavaScript loaded by the Ivanti Connect Secure login page to capture credentials entered.(Citation: Volexity Ivanti Zero-Day Exploitation January 2024)"
+      ]
+    },
+    {
+      "technique_id": "T1082",
+      "technique_stix_id": "attack-pattern--354a7f88-63fb-41b5-a801-ce3b377b36f1",
+      "name": "System Information Discovery",
+      "execution_domain": "target",
+      "tactics": [
+        "discovery"
+      ],
+      "platforms": [
+        "ESXi",
+        "IaaS",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--c2057ba9-0072-46aa-acce-f9277c4e38bd"
+      ],
+      "procedure_descriptions": [
+        "During [Cutting Edge](https://attack.mitre.org/campaigns/C0029), threat actors used the ENUM4LINUX Perl script for discovery on Windows and Samba hosts.(Citation: Mandiant Cutting Edge Part 2 January 2024)"
+      ]
+    },
+    {
+      "technique_id": "T1021.001",
+      "technique_stix_id": "attack-pattern--eb062747-2193-45de-8fa2-e62549c37ddf",
+      "name": "Remote Desktop Protocol",
+      "execution_domain": "target",
+      "tactics": [
+        "lateral-movement"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--510b9143-95fb-482b-8680-751317550260"
+      ],
+      "procedure_descriptions": [
+        "During [Cutting Edge](https://attack.mitre.org/campaigns/C0029), threat actors used RDP with compromised credentials for lateral movement.(Citation: Volexity Ivanti Zero-Day Exploitation January 2024)"
+      ]
+    },
+    {
+      "technique_id": "T1021.002",
+      "technique_stix_id": "attack-pattern--4f9ca633-15c5-463c-9724-bdcd54fde541",
+      "name": "SMB/Windows Admin Shares",
+      "execution_domain": "target",
+      "tactics": [
+        "lateral-movement"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--b5f6b196-576d-4f4e-be05-1923cbbd21a0"
+      ],
+      "procedure_descriptions": [
+        "During [Cutting Edge](https://attack.mitre.org/campaigns/C0029), threat actors moved laterally using compromised credentials to connect to internal Windows systems with SMB.(Citation: Volexity Ivanti Zero-Day Exploitation January 2024)"
+      ]
+    },
+    {
+      "technique_id": "T1021.004",
+      "technique_stix_id": "attack-pattern--2db31dcd-54da-405d-acef-b9129b816ed6",
+      "name": "SSH",
+      "execution_domain": "target",
+      "tactics": [
+        "lateral-movement"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--303221b5-f6eb-4fa2-b9d6-dd6d856dd79e"
+      ],
+      "procedure_descriptions": [
+        "During [Cutting Edge](https://attack.mitre.org/campaigns/C0029), threat actors used SSH for lateral movement.(Citation: Volexity Ivanti Zero-Day Exploitation January 2024)"
+      ]
+    },
+    {
+      "technique_id": "T1005",
+      "technique_stix_id": "attack-pattern--3c4a2599-71ee-4405-ba1e-0e28414b4bc5",
+      "name": "Data from Local System",
+      "execution_domain": "target",
+      "tactics": [
+        "collection"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--b49fbcf8-ccc9-442b-a0d5-0bb595691775"
+      ],
+      "procedure_descriptions": [
+        "During [Cutting Edge](https://attack.mitre.org/campaigns/C0029), threat actors stole the running configuration and cache data from targeted Ivanti Connect Secure VPNs.(Citation: Volexity Ivanti Zero-Day Exploitation January 2024)(Citation: Mandiant Cutting Edge Part 2 January 2024)"
+      ]
+    },
+    {
+      "technique_id": "T1560.001",
+      "technique_stix_id": "attack-pattern--00f90846-cbd1-4fc5-9233-df5c2bf2a662",
+      "name": "Archive via Utility",
+      "execution_domain": "target",
+      "tactics": [
+        "collection"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--9fdf1013-db2c-4aba-a723-e21ff9c18bee"
+      ],
+      "procedure_descriptions": [
+        "During [Cutting Edge](https://attack.mitre.org/campaigns/C0029), threat actors saved collected data to a tar archive.(Citation: Mandiant Cutting Edge Part 2 January 2024)"
+      ]
+    },
+    {
+      "technique_id": "T1071.004",
+      "technique_stix_id": "attack-pattern--1996eef1-ced3-4d7f-bf94-33298cabbf72",
+      "name": "DNS",
+      "execution_domain": "boundary",
+      "tactics": [
+        "command-and-control"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--4f27c041-e965-4ee3-b47c-6681e7fc1ace"
+      ],
+      "procedure_descriptions": [
+        "During [Cutting Edge](https://attack.mitre.org/campaigns/C0029), threat actors used DNS to tunnel IPv4 C2 traffic.(Citation: Mandiant Cutting Edge Part 2 January 2024)"
+      ]
+    },
+    {
+      "technique_id": "T1095",
+      "technique_stix_id": "attack-pattern--c21d5a77-d422-4a69-acd7-2c53c1faa34b",
+      "name": "Non-Application Layer Protocol",
+      "execution_domain": "boundary",
+      "tactics": [
+        "command-and-control"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--568964d5-6205-4d46-9d14-2914ba349afd"
+      ],
+      "procedure_descriptions": [
+        "During [Cutting Edge](https://attack.mitre.org/campaigns/C0029), threat actors used the Unix socket and a reverse TCP shell for C2 communications.(Citation: Mandiant Cutting Edge Part 3 February 2024)"
+      ]
+    },
+    {
+      "technique_id": "T1105",
+      "technique_stix_id": "attack-pattern--e6919abc-99f9-4c6c-95a5-14761e7b2add",
+      "name": "Ingress Tool Transfer",
+      "execution_domain": "boundary",
+      "tactics": [
+        "command-and-control"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--8c6af9f3-6301-4d49-afff-1fda7db57e3a"
+      ],
+      "procedure_descriptions": [
+        "During [Cutting Edge](https://attack.mitre.org/campaigns/C0029), threat actors leveraged exploits to download remote files to Ivanti Connect Secure VPNs.(Citation: Volexity Ivanti Zero-Day Exploitation January 2024)"
+      ]
+    },
+    {
+      "technique_id": "T1572",
+      "technique_stix_id": "attack-pattern--4fe28b27-b13c-453e-a386-c2ef362a573b",
+      "name": "Protocol Tunneling",
+      "execution_domain": "boundary",
+      "tactics": [
+        "command-and-control"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--9978b502-d1c2-4673-8df5-878f3184fe4e"
+      ],
+      "procedure_descriptions": [
+        "During [Cutting Edge](https://attack.mitre.org/campaigns/C0029), threat actors used Iodine to tunnel IPv4 traffic over DNS.(Citation: Mandiant Cutting Edge Part 2 January 2024)"
+      ]
+    }
+  ],
+  "limitations": [
+    "ATT&CK uses-links do not encode a historical total order; the compiler applies a declared tactic-rank policy.",
+    "Technique metadata constrains procedures but does not uniquely determine an executable target environment."
+  ],
+  "content_sha256": "c097b60d2001490e0fc3194181cecd0eb1ad8a43dc547c83ab0d0481209d7d4e"
+}

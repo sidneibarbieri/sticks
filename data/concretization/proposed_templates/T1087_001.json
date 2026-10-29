@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure enumerates local accounts on a target host using system commands.",
+    "evidence_predicates": [
+      "file_count_recorded",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "command": "toolkit",
+      "output": "data_source"
+    },
+    "produces": [
+      "list of local accounts"
+    ],
+    "requires": [
+      "target host is operational",
+      "user has permission to list accounts"
+    ],
+    "technique_ids": [
+      "T1087.001"
+    ],
+    "template_id": "local-account-enumeration-lab-harness"
+  }
+}

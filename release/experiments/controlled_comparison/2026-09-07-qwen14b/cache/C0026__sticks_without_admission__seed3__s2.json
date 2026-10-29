@@ -1,0 +1,15 @@
+{
+  "campaign_id": "C0026",
+  "arm_id": "sticks_without_admission",
+  "seed": 3,
+  "step_id": "s2",
+  "emitted": true,
+  "abstained": false,
+  "oracle_admitted": false,
+  "template_id": "resolve-lab-domain",
+  "proposal_sha256": "ffa414f49d0c0820473cfeca3cea47b7835141520dd5ee9fce4b7b5def46e6b2",
+  "issue_codes": [
+    "EXECUTION_DOMAIN_MISMATCH"
+  ],
+  "parse_error": null
+}

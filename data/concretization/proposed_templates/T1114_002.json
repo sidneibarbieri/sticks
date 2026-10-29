@@ -1,0 +1,34 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure simulates the collection of email data from a specified service using predefined search keywords.",
+    "evidence_predicates": [
+      "collection_manifest_recorded",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "email_service": "web_asset",
+      "search_keywords": "data_source"
+    },
+    "produces": [
+      "email_data_collected",
+      "collection_manifest_recorded"
+    ],
+    "requires": [
+      "user_credentials_available",
+      "target_email_service_accessible"
+    ],
+    "technique_ids": [
+      "T1114.002"
+    ],
+    "template_id": "remote-email-collection-laboratory-harness"
+  }
+}

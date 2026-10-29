@@ -1,0 +1,62 @@
+{
+  "schema": "historical-technique-inventory/v1",
+  "source_file": "salesforce_data_exfiltration_dag.json",
+  "source_sha256": "4059a9f3d8231cc1547d54c68299d22a8885d8c95927ca5bdb6109f2453d004e",
+  "scope": "Technique occurrences only; no procedure, ordering, execution, or fidelity claim.",
+  "structural_nodes": [
+    {
+      "technique_id": "T1608.005"
+    },
+    {
+      "technique_id": "T1059.006"
+    },
+    {
+      "technique_id": "T1213.004"
+    },
+    {
+      "technique_id": "T1671"
+    },
+    {
+      "technique_id": "T1078.002"
+    },
+    {
+      "technique_id": "T1567"
+    },
+    {
+      "technique_id": "T1036"
+    },
+    {
+      "technique_id": "T1090"
+    },
+    {
+      "technique_id": "T1585.002"
+    },
+    {
+      "technique_id": "T1083"
+    },
+    {
+      "technique_id": "T1090.003"
+    },
+    {
+      "technique_id": "T1585"
+    },
+    {
+      "technique_id": "T1587.001"
+    },
+    {
+      "technique_id": "T1588.002"
+    },
+    {
+      "technique_id": "T1020"
+    },
+    {
+      "technique_id": "T1586.002"
+    },
+    {
+      "technique_id": "T1598.004"
+    },
+    {
+      "technique_id": "T1656"
+    }
+  ]
+}

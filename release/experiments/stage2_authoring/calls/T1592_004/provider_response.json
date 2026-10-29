@@ -1,0 +1,36 @@
+{
+  "id": "chatcmpl-EOgJMevfatffTLS0VE10VJ246Cu5y",
+  "object": "chat.completion",
+  "created": 1789551224,
+  "model": "gpt-4o-mini-2024-07-18",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"template_id\": \"gather-client-configurations\",\n  \"technique_ids\": [\n    \"T1592.004\"\n  ],\n  \"execution_domain\": \"target\",\n  \"parameter_kinds\": {\n    \"target_host\": \"target_host\",\n    \"network_interface\": \"network_interface\"\n  },\n  \"requires\": [\n    \"target host is reachable\",\n    \"network interface is active\"\n  ],\n  \"produces\": [\n    \"client configuration data collected\"\n  ],\n  \"evidence_predicates\": [\n    \"collection_manifest_recorded\",\n    \"bounded_effect_observed\"\n  ],\n  \"fidelity_ceiling\": \"adapted\",\n  \"description\": \"This procedure gathers client configuration data from the target host to aid in further targeting.\"\n}",
+        "refusal": null,
+        "annotations": []
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 835,
+    "completion_tokens": 158,
+    "total_tokens": 993,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_c577bb8647"
+}

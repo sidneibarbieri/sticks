@@ -1,0 +1,34 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure demonstrates the injection of a portable executable into a target process to observe the effects of the operation.",
+    "evidence_predicates": [
+      "bounded_effect_observed",
+      "process_exit_recorded"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "injected_payload": "payload",
+      "target_process": "target_host"
+    },
+    "produces": [
+      "injection successful",
+      "new thread created in target process"
+    ],
+    "requires": [
+      "target process is running",
+      "injected payload is available"
+    ],
+    "technique_ids": [
+      "T1055.002"
+    ],
+    "template_id": "portable-executable-injection-laboratory-harness"
+  }
+}

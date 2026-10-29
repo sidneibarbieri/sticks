@@ -1,0 +1,36 @@
+{
+  "id": "chatcmpl-EOgFror3WLXFdWE3xui9nqDPQ3b4C",
+  "object": "chat.completion",
+  "created": 1789551007,
+  "model": "gpt-4o-mini-2024-07-18",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"template_id\": \"data-obfuscation-laboratory-harness\",\n  \"technique_ids\": [\"T1001\"],\n  \"execution_domain\": \"target\",\n  \"parameter_kinds\": {\n    \"obfuscation_method\": \"toolkit\",\n    \"traffic_data\": \"data_source\"\n  },\n  \"requires\": [\n    \"network_interface configured\",\n    \"target_host accessible\"\n  ],\n  \"produces\": [\n    \"obfuscated_traffic_generated\",\n    \"traffic_analysis_report\"\n  ],\n  \"evidence_predicates\": [\n    \"bytes_transferred_recorded\",\n    \"http_request_logged\",\n    \"bounded_effect_observed\"\n  ],\n  \"fidelity_ceiling\": \"adapted\",\n  \"description\": \"This procedure obfuscates command and control traffic to simulate adversarial techniques for research and analysis.\"\n}",
+        "refusal": null,
+        "annotations": []
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 810,
+    "completion_tokens": 173,
+    "total_tokens": 983,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_c577bb8647"
+}

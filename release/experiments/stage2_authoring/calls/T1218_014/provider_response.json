@@ -1,0 +1,36 @@
+{
+  "id": "chatcmpl-EOgHC128GI0xRM7NzNYXoj7up48SF",
+  "object": "chat.completion",
+  "created": 1789551090,
+  "model": "gpt-4o-mini-2024-07-18",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"template_id\": \"execute-mmc-to-proxy-execution\",\n  \"technique_ids\": [\n    \"T1218.014\"\n  ],\n  \"execution_domain\": \"target\",\n  \"parameter_kinds\": {\n    \"mmc_file\": \"payload\"\n  },\n  \"requires\": [\n    \"mmc.exe is available on the system\",\n    \"a valid .msc file is provided\"\n  ],\n  \"produces\": [\n    \"execution of the .msc file through mmc.exe\"\n  ],\n  \"evidence_predicates\": [\n    \"bounded_effect_observed\",\n    \"process_exit_recorded\"\n  ],\n  \"fidelity_ceiling\": \"adapted\",\n  \"description\": \"This procedure utilizes mmc.exe to execute a specified .msc file, demonstrating the potential for proxy execution.\"\n}",
+        "refusal": null,
+        "annotations": []
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 836,
+    "completion_tokens": 170,
+    "total_tokens": 1006,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_ffcc7ece91"
+}

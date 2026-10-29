@@ -1,0 +1,35 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure outlines the steps to exfiltrate data using an asymmetrically encrypted protocol to ensure secure transmission.",
+    "evidence_predicates": [
+      "bytes_transferred_recorded",
+      "destination_hash_recorded"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "data_source": "data_source",
+      "network_interface": "network_interface",
+      "payload": "payload"
+    },
+    "produces": [
+      "bytes_transferred_recorded",
+      "destination_hash_recorded"
+    ],
+    "requires": [
+      "asymmetric encryption keys available",
+      "target data identified for exfiltration"
+    ],
+    "technique_ids": [
+      "T1048.002"
+    ],
+    "template_id": "exfiltration-over-asymmetric-encrypted-non-c2-protocol"
+  }
+}

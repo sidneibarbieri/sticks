@@ -1,0 +1,68 @@
+{
+  "campaign_id": "C0045",
+  "technique_id": "T1105",
+  "execution_domain": "boundary",
+  "classification": "inconclusive",
+  "rationale": "equal on observed effect, evidence, and artifacts; telemetry and detection not instrumented",
+  "observations": [
+    {
+      "template_id": "transfer-benign-payload",
+      "substrate": "local",
+      "executed": true,
+      "exit_code": 0,
+      "evidence_predicate_satisfied": true,
+      "produced_effects": [
+        "destination_payload_present"
+      ],
+      "host_artifacts": [
+        "delivered.bin"
+      ],
+      "telemetry": "not_instrumented",
+      "detection": "not_instrumented"
+    },
+    {
+      "template_id": "transfer-over-resolved-lab-channel",
+      "substrate": "local",
+      "executed": true,
+      "exit_code": 0,
+      "evidence_predicate_satisfied": true,
+      "produced_effects": [
+        "destination_payload_present"
+      ],
+      "host_artifacts": [
+        "delivered.bin"
+      ],
+      "telemetry": "not_instrumented",
+      "detection": "not_instrumented"
+    },
+    {
+      "template_id": "transfer-staged-benign-tool",
+      "substrate": "local",
+      "executed": true,
+      "exit_code": 0,
+      "evidence_predicate_satisfied": true,
+      "produced_effects": [
+        "destination_payload_present"
+      ],
+      "host_artifacts": [
+        "delivered.bin"
+      ],
+      "telemetry": "not_instrumented",
+      "detection": "not_instrumented"
+    }
+  ],
+  "admitted_by_scope": {
+    "hypothetical": [
+      "transfer-benign-payload",
+      "transfer-over-resolved-lab-channel",
+      "transfer-staged-benign-tool"
+    ],
+    "initial": [],
+    "sequential": [
+      "transfer-benign-payload"
+    ]
+  },
+  "executed_scope": "hypothetical",
+  "is_campaign_derived_substitution": false,
+  "interpretation": "harness validation: the verifier admitted a single realization at the step's sequential state, so the executed alternatives are co-admitted only under the hypothetical scope and carry no claim about ambiguity in this campaign"
+}

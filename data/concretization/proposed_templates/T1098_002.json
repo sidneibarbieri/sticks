@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure grants additional delegate permissions to a specified mailbox to simulate persistent access in a controlled environment.",
+    "evidence_predicates": [
+      "bounded_effect_observed",
+      "fixture_access_logged"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "mailbox": "target_host",
+      "permissions": "capability_specification"
+    },
+    "produces": [
+      "additional permissions granted to the mailbox"
+    ],
+    "requires": [
+      "user has administrative access to the email system",
+      "target mailbox exists"
+    ],
+    "technique_ids": [
+      "T1098.002"
+    ],
+    "template_id": "additional-email-delegate-permissions-lab-harness"
+  }
+}

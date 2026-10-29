@@ -1,0 +1,1612 @@
+{
+  "schema_version": "1",
+  "compiler_version": "1",
+  "campaign_id": "C0014",
+  "campaign_name": "Operation Wocao",
+  "source": {
+    "bundle_sha256": "dc1639caa5501d720e280cf1cbd8fbe009884a0c9b3e6e9ed9d0c25166c3d8f4",
+    "object_count": 26086,
+    "campaign_stix_id": "campaign--b03d5112-e23a-4ac8-add0-be7502d24eff",
+    "campaign_external_id": "C0014"
+  },
+  "ordering_policy": "tactic_rank_then_technique_id",
+  "steps": [
+    {
+      "technique_id": "T1589",
+      "technique_stix_id": "attack-pattern--5282dd9a-d26d-4e16-88b7-7c0f4553daf4",
+      "name": "Gather Victim Identity Information",
+      "execution_domain": "attacker",
+      "tactics": [
+        "reconnaissance"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--96797e47-8984-40f8-ac55-af9fd0fecf55"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Wocao](https://attack.mitre.org/campaigns/C0014), threat actors targeted people based on their organizational roles and privileges.(Citation: FoxIT Wocao December 2019)"
+      ]
+    },
+    {
+      "technique_id": "T1583.004",
+      "technique_stix_id": "attack-pattern--60c4b628-4807-4b0b-bbf5-fdac8643c337",
+      "name": "Server",
+      "execution_domain": "attacker",
+      "tactics": [
+        "resource-development"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--576cbf79-037c-4265-af56-cd0d7a57c1b9"
+      ],
+      "procedure_descriptions": [
+        "For [Operation Wocao](https://attack.mitre.org/campaigns/C0014), the threat actors purchased servers with Bitcoin to use during the operation.(Citation: FoxIT Wocao December 2019)"
+      ]
+    },
+    {
+      "technique_id": "T1585.002",
+      "technique_stix_id": "attack-pattern--65013dd2-bc61-43e3-afb5-a14c4fa7437a",
+      "name": "Email Accounts",
+      "execution_domain": "attacker",
+      "tactics": [
+        "resource-development"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--27257b64-c32c-49cd-a4ce-f804c251829d"
+      ],
+      "procedure_descriptions": [
+        "For [Operation Wocao](https://attack.mitre.org/campaigns/C0014), the threat actors registered email accounts to use during the campaign.(Citation: FoxIT Wocao December 2019)"
+      ]
+    },
+    {
+      "technique_id": "T1587.001",
+      "technique_stix_id": "attack-pattern--212306d8-efa4-44c9-8c2d-ed3d2e224aa0",
+      "name": "Malware",
+      "execution_domain": "attacker",
+      "tactics": [
+        "resource-development"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--107d896b-a618-42fe-a453-76bc4b7d7330"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Wocao](https://attack.mitre.org/campaigns/C0014), threat actors developed their own custom webshells to upload to compromised servers.(Citation: FoxIT Wocao December 2019)"
+      ]
+    },
+    {
+      "technique_id": "T1588.002",
+      "technique_stix_id": "attack-pattern--a2fdce72-04b2-409a-ac10-cc1695f4fce0",
+      "name": "Tool",
+      "execution_domain": "attacker",
+      "tactics": [
+        "resource-development"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--8127487a-15fd-4802-8537-ddb2f72e72fd"
+      ],
+      "procedure_descriptions": [
+        "For [Operation Wocao](https://attack.mitre.org/campaigns/C0014), the threat actors obtained a variety of open source tools, including JexBoss, KeeThief, and [BloodHound](https://attack.mitre.org/software/S0521).(Citation: FoxIT Wocao December 2019)"
+      ]
+    },
+    {
+      "technique_id": "T1078",
+      "technique_stix_id": "attack-pattern--b17a1a56-e99c-403c-8948-561df0cffe81",
+      "name": "Valid Accounts",
+      "execution_domain": "boundary",
+      "tactics": [
+        "initial-access",
+        "persistence",
+        "privilege-escalation",
+        "stealth"
+      ],
+      "platforms": [
+        "Containers",
+        "ESXi",
+        "IaaS",
+        "Identity Provider",
+        "Linux",
+        "Network Devices",
+        "Office Suite",
+        "SaaS",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--70879424-99b5-4ebe-8c77-cf872738dfcf"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Wocao](https://attack.mitre.org/campaigns/C0014), threat actors used valid VPN credentials to gain initial access.(Citation: FoxIT Wocao December 2019)"
+      ]
+    },
+    {
+      "technique_id": "T1078.002",
+      "technique_stix_id": "attack-pattern--c3d4bdd9-2cfe-4a80-9d0c-07a29ecdce8f",
+      "name": "Domain Accounts",
+      "execution_domain": "boundary",
+      "tactics": [
+        "initial-access",
+        "persistence",
+        "privilege-escalation",
+        "stealth"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--94a6e104-9afd-4271-af39-6ab02eb53dfd"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Wocao](https://attack.mitre.org/campaigns/C0014), threat actors used domain credentials, including domain admin, for lateral movement and privilege escalation.(Citation: FoxIT Wocao December 2019)"
+      ]
+    },
+    {
+      "technique_id": "T1078.003",
+      "technique_stix_id": "attack-pattern--fdc47f44-dd32-4b99-af5f-209f556f63c2",
+      "name": "Local Accounts",
+      "execution_domain": "boundary",
+      "tactics": [
+        "initial-access",
+        "persistence",
+        "privilege-escalation",
+        "stealth"
+      ],
+      "platforms": [
+        "Containers",
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--f2064ee3-66e3-4856-a376-e34b2ec9f90f"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Wocao](https://attack.mitre.org/campaigns/C0014), threat actors used local account credentials found during the intrusion for lateral movement and privilege escalation.(Citation: FoxIT Wocao December 2019)"
+      ]
+    },
+    {
+      "technique_id": "T1133",
+      "technique_stix_id": "attack-pattern--10d51417-ee35-4589-b1ff-b6df1c334e8d",
+      "name": "External Remote Services",
+      "execution_domain": "boundary",
+      "tactics": [
+        "initial-access",
+        "persistence"
+      ],
+      "platforms": [
+        "Containers",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--e132dd40-7779-44dc-9e4a-74514381407c"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Wocao](https://attack.mitre.org/campaigns/C0014), threat actors used stolen credentials to connect to the victim's network via VPN.(Citation: FoxIT Wocao December 2019)"
+      ]
+    },
+    {
+      "technique_id": "T1190",
+      "technique_stix_id": "attack-pattern--3f886f2a-874f-4333-b794-aa6075009b1c",
+      "name": "Exploit Public-Facing Application",
+      "execution_domain": "boundary",
+      "tactics": [
+        "initial-access"
+      ],
+      "platforms": [
+        "Containers",
+        "ESXi",
+        "IaaS",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--3a41f311-3961-4446-ad71-2a6f4e3561ec"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Wocao](https://attack.mitre.org/campaigns/C0014), threat actors gained initial access by exploiting vulnerabilities in JBoss webservers.(Citation: FoxIT Wocao December 2019)"
+      ]
+    },
+    {
+      "technique_id": "T1047",
+      "technique_stix_id": "attack-pattern--01a5a209-b94c-450b-b7f9-946497d91055",
+      "name": "Windows Management Instrumentation",
+      "execution_domain": "target",
+      "tactics": [
+        "execution"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--c380f574-0f88-4481-84c2-f429bd47c84d"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Wocao](https://attack.mitre.org/campaigns/C0014), threat actors has used WMI to execute commands.(Citation: FoxIT Wocao December 2019)"
+      ]
+    },
+    {
+      "technique_id": "T1053.005",
+      "technique_stix_id": "attack-pattern--005a06c6-14bf-4118-afa0-ebcd8aebb0c9",
+      "name": "Scheduled Task",
+      "execution_domain": "target",
+      "tactics": [
+        "execution",
+        "persistence",
+        "privilege-escalation"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--b7c3b6c4-9f4b-4e11-92df-a4bb6e82a66a"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Wocao](https://attack.mitre.org/campaigns/C0014), threat actors used scheduled tasks to execute malicious PowerShell code on remote systems.(Citation: FoxIT Wocao December 2019)"
+      ]
+    },
+    {
+      "technique_id": "T1059.001",
+      "technique_stix_id": "attack-pattern--970a3432-3237-47ad-bcca-7d8cbb217736",
+      "name": "PowerShell",
+      "execution_domain": "target",
+      "tactics": [
+        "execution"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--c2745621-0b03-4b9d-b2f7-4e3b80487f87"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Wocao](https://attack.mitre.org/campaigns/C0014), threat actors used PowerShell on compromised systems.(Citation: FoxIT Wocao December 2019)"
+      ]
+    },
+    {
+      "technique_id": "T1059.003",
+      "technique_stix_id": "attack-pattern--d1fcf083-a721-4223-aedf-bf8960798d62",
+      "name": "Windows Command Shell",
+      "execution_domain": "target",
+      "tactics": [
+        "execution"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--11ab0bc2-4baa-4d06-a001-2b59d3bc5567"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Wocao](https://attack.mitre.org/campaigns/C0014), threat actors spawned a new `cmd.exe` process to execute commands.(Citation: FoxIT Wocao December 2019) "
+      ]
+    },
+    {
+      "technique_id": "T1059.005",
+      "technique_stix_id": "attack-pattern--dfd7cc1d-e1d8-4394-a198-97c4cab8aa67",
+      "name": "Visual Basic",
+      "execution_domain": "target",
+      "tactics": [
+        "execution"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--86d110ea-060e-462f-a520-ad650564c05e"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Wocao](https://attack.mitre.org/campaigns/C0014), threat actors used VBScript to conduct reconnaissance on targeted systems.(Citation: FoxIT Wocao December 2019)"
+      ]
+    },
+    {
+      "technique_id": "T1059.006",
+      "technique_stix_id": "attack-pattern--cc3502b5-30cc-4473-ad48-42d51a6ef6d1",
+      "name": "Python",
+      "execution_domain": "target",
+      "tactics": [
+        "execution"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--971d6207-8f0f-4771-8f7e-a6aa9aadda1c"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Wocao](https://attack.mitre.org/campaigns/C0014), threat actors' backdoors were written in Python and compiled with py2exe.(Citation: FoxIT Wocao December 2019)"
+      ]
+    },
+    {
+      "technique_id": "T1106",
+      "technique_stix_id": "attack-pattern--391d824f-0ef1-47a0-b0ee-c59a75e27670",
+      "name": "Native API",
+      "execution_domain": "target",
+      "tactics": [
+        "execution"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--64c3c385-6e1f-438f-ba7e-ac7d79375ada"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Wocao](https://attack.mitre.org/campaigns/C0014), threat actors used the `CreateProcessA` and `ShellExecute` API functions to launch commands after being injected into a selected process.(Citation: FoxIT Wocao December 2019)"
+      ]
+    },
+    {
+      "technique_id": "T1569.002",
+      "technique_stix_id": "attack-pattern--f1951e8a-500e-4a26-8803-76d95c4554b4",
+      "name": "Service Execution",
+      "execution_domain": "target",
+      "tactics": [
+        "execution"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--4d7faa7b-2fd2-4c40-89c2-e8171055733c"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Wocao](https://attack.mitre.org/campaigns/C0014), threat actors created services on remote systems for execution purposes.(Citation: FoxIT Wocao December 2019)"
+      ]
+    },
+    {
+      "technique_id": "T1112",
+      "technique_stix_id": "attack-pattern--57340c81-c025-4189-8fa0-fc7ede51bae4",
+      "name": "Modify Registry",
+      "execution_domain": "target",
+      "tactics": [
+        "persistence",
+        "defense-impairment"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--98b39362-d743-49be-b07e-748b19e12158"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Wocao](https://attack.mitre.org/campaigns/C0014), the threat actors enabled Wdigest by changing the `HKLM\\SYSTEM\\\\ControlSet001\\\\Control\\\\SecurityProviders\\\\WDigest` registry value from 0 (disabled) to 1 (enabled).(Citation: FoxIT Wocao December 2019)"
+      ]
+    },
+    {
+      "technique_id": "T1505.003",
+      "technique_stix_id": "attack-pattern--5d0d3609-d06d-49e1-b9c9-b544e0c618cb",
+      "name": "Web Shell",
+      "execution_domain": "target",
+      "tactics": [
+        "persistence"
+      ],
+      "platforms": [
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--e49ceb1e-8ab0-44c5-8232-2b9aa0cf17ad"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Wocao](https://attack.mitre.org/campaigns/C0014), threat actors used their own web shells, as well as those previously placed on target systems by other threat actors, for reconnaissance and lateral movement.(Citation: FoxIT Wocao December 2019)"
+      ]
+    },
+    {
+      "technique_id": "T1055",
+      "technique_stix_id": "attack-pattern--43e7dc91-05b2-474c-b9ac-2ed4fe101f4d",
+      "name": "Process Injection",
+      "execution_domain": "target",
+      "tactics": [
+        "privilege-escalation",
+        "stealth"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--95d0ca69-0e05-4f68-ba95-99094f01e140"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Wocao](https://attack.mitre.org/campaigns/C0014), threat actors injected code into a selected process, which in turn launches a command as a child process of the original.(Citation: FoxIT Wocao December 2019)"
+      ]
+    },
+    {
+      "technique_id": "T1027.005",
+      "technique_stix_id": "attack-pattern--b0533c6e-8fea-4788-874f-b799cacc4b92",
+      "name": "Indicator Removal from Tools",
+      "execution_domain": "target",
+      "tactics": [
+        "stealth"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--b71e1e23-5fc2-46af-ab0b-afa442c24b66"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Wocao](https://attack.mitre.org/campaigns/C0014), threat actors edited variable names within the [Impacket](https://attack.mitre.org/software/S0357) suite to avoid automated detection.(Citation: FoxIT Wocao December 2019)"
+      ]
+    },
+    {
+      "technique_id": "T1027.010",
+      "technique_stix_id": "attack-pattern--d511a6f6-4a33-41d5-bc95-c343875d1377",
+      "name": "Command Obfuscation",
+      "execution_domain": "target",
+      "tactics": [
+        "stealth"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--c0a4bcc3-8e3c-4f92-8b87-db70483e10e4"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Wocao](https://attack.mitre.org/campaigns/C0014), threat actors executed PowerShell commands which were encoded or compressed using Base64, zlib, and XOR.(Citation: FoxIT Wocao December 2019)"
+      ]
+    },
+    {
+      "technique_id": "T1036.005",
+      "technique_stix_id": "attack-pattern--1c4e5d32-1fe9-4116-9d9d-59e3925bd6a2",
+      "name": "Match Legitimate Resource Name or Location",
+      "execution_domain": "target",
+      "tactics": [
+        "stealth"
+      ],
+      "platforms": [
+        "Containers",
+        "ESXi",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--a90a5b4d-b677-4a69-8fa0-feab294c9daf"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Wocao](https://attack.mitre.org/campaigns/C0014), the threat actors renamed some tools and executables to appear as legitimate programs.(Citation: FoxIT Wocao December 2019)"
+      ]
+    },
+    {
+      "technique_id": "T1070.004",
+      "technique_stix_id": "attack-pattern--d63a3fb8-9452-4e9d-a60a-54be68d5998c",
+      "name": "File Deletion",
+      "execution_domain": "target",
+      "tactics": [
+        "stealth"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--7e26e90e-79b1-45ab-94dd-ea7b35cffbf8"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Wocao](https://attack.mitre.org/campaigns/C0014), the threat actors consistently removed traces of their activity by first overwriting a file using `/c cd /d c:\\windows\\temp\\ & copy \\\\<IP ADDRESS>\\c$\\windows\\system32\\devmgr.dll \\\\<IP ADDRESS>\\c$\\windows\\temp\\LMAKSW.ps1 /y` and then deleting the overwritten file using `/c cd /d c:\\windows\\temp\\ & del \\\\<IP ADDRESS>\\c$\\windows\\temp\\LMAKSW.ps1`.(Citation: FoxIT Wocao December 2019)"
+      ]
+    },
+    {
+      "technique_id": "T1685.005",
+      "technique_stix_id": "attack-pattern--75b9a4d2-d4e2-4ca1-9aab-1badd9e05fd0",
+      "name": "Clear Windows Event Logs",
+      "execution_domain": "target",
+      "tactics": [
+        "defense-impairment"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--7f746c17-946d-46c9-a2fe-7155b468f14e"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Wocao](https://attack.mitre.org/campaigns/C0014), the threat actors deleted all Windows system and security event logs using `/Q /c wevtutil cl system` and `/Q /c wevtutil cl security`.(Citation: FoxIT Wocao December 2019)"
+      ]
+    },
+    {
+      "technique_id": "T1686.003",
+      "technique_stix_id": "attack-pattern--291ede6c-1473-454c-b614-5ac5ea63c987",
+      "name": "Windows Host Firewall",
+      "execution_domain": "target",
+      "tactics": [
+        "defense-impairment"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--3218d9f3-7179-4e47-b68f-8ff2a4266bd2"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Wocao](https://attack.mitre.org/campaigns/C0014), threat actors used PowerShell to add and delete rules in the Windows firewall.(Citation: FoxIT Wocao December 2019)"
+      ]
+    },
+    {
+      "technique_id": "T1003.001",
+      "technique_stix_id": "attack-pattern--65f2d882-3f41-4d48-8a06-29af77ec9f90",
+      "name": "LSASS Memory",
+      "execution_domain": "target",
+      "tactics": [
+        "credential-access"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--02a05d88-504c-4b79-bc55-1174b02e62c2"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Wocao](https://attack.mitre.org/campaigns/C0014), threat actors used ProcDump to dump credentials from memory.(Citation: FoxIT Wocao December 2019)"
+      ]
+    },
+    {
+      "technique_id": "T1003.006",
+      "technique_stix_id": "attack-pattern--f303a39a-6255-4b89-aecc-18c4d8ca7163",
+      "name": "DCSync",
+      "execution_domain": "target",
+      "tactics": [
+        "credential-access"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--b4decb48-0877-418c-83cc-9967b369f5b2"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Wocao](https://attack.mitre.org/campaigns/C0014), threat actors used [Mimikatz](https://attack.mitre.org/software/S0002)'s DCSync to dump credentials from the memory of the targeted system.(Citation: FoxIT Wocao December 2019) "
+      ]
+    },
+    {
+      "technique_id": "T1056.001",
+      "technique_stix_id": "attack-pattern--09a60ea3-a8d1-4ae5-976e-5783248b72a4",
+      "name": "Keylogging",
+      "execution_domain": "target",
+      "tactics": [
+        "credential-access",
+        "collection"
+      ],
+      "platforms": [
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--034a2bc9-62a9-413f-b167-0b348928eba0"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Wocao](https://attack.mitre.org/campaigns/C0014), threat actors obtained the password for the victim's password manager via a custom keylogger.(Citation: FoxIT Wocao December 2019)"
+      ]
+    },
+    {
+      "technique_id": "T1111",
+      "technique_stix_id": "attack-pattern--dd43c543-bb85-4a6f-aa6e-160d90d06a49",
+      "name": "Multi-Factor Authentication Interception",
+      "execution_domain": "target",
+      "tactics": [
+        "credential-access"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--381a628b-5401-43d0-853a-c2b0dbce83c3"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Wocao](https://attack.mitre.org/campaigns/C0014), threat actors used a custom collection method to intercept two-factor authentication soft tokens.(Citation: FoxIT Wocao December 2019)"
+      ]
+    },
+    {
+      "technique_id": "T1552.004",
+      "technique_stix_id": "attack-pattern--60b508a1-6a5e-46b1-821a-9f7b78752abf",
+      "name": "Private Keys",
+      "execution_domain": "target",
+      "tactics": [
+        "credential-access"
+      ],
+      "platforms": [
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--1d2ee595-1972-46ac-bd85-322bdc5e35de"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Wocao](https://attack.mitre.org/campaigns/C0014), threat actors used [Mimikatz](https://attack.mitre.org/software/S0002) to dump certificates and private keys from the Windows certificate store.(Citation: FoxIT Wocao December 2019)"
+      ]
+    },
+    {
+      "technique_id": "T1555.005",
+      "technique_stix_id": "attack-pattern--315f51f0-6b03-4c1e-bfb2-84740afb8e21",
+      "name": "Password Managers",
+      "execution_domain": "target",
+      "tactics": [
+        "credential-access"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--13e7416a-7a02-438f-a708-598f132ea394"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Wocao](https://attack.mitre.org/campaigns/C0014), threat actors accessed and collected credentials from password managers.(Citation: FoxIT Wocao December 2019)"
+      ]
+    },
+    {
+      "technique_id": "T1558.003",
+      "technique_stix_id": "attack-pattern--f2877f7f-9a4c-4251-879f-1224e3006bee",
+      "name": "Kerberoasting",
+      "execution_domain": "target",
+      "tactics": [
+        "credential-access"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--827cbddc-3e19-4aff-a27a-5cce63812d44"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Wocao](https://attack.mitre.org/campaigns/C0014), threat actors used [PowerSploit](https://attack.mitre.org/software/S0194)'s `Invoke-Kerberoast` module to request encrypted service tickets and bruteforce the passwords of Windows service accounts offline.(Citation: FoxIT Wocao December 2019)"
+      ]
+    },
+    {
+      "technique_id": "T1007",
+      "technique_stix_id": "attack-pattern--322bad5a-1c49-4d23-ab79-76d641794afa",
+      "name": "System Service Discovery",
+      "execution_domain": "target",
+      "tactics": [
+        "discovery"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--b3492594-4cb7-4c5c-a0b4-5054720e83fe"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Wocao](https://attack.mitre.org/campaigns/C0014), threat actors used the `tasklist` command to search for one of its backdoors.(Citation: FoxIT Wocao December 2019)"
+      ]
+    },
+    {
+      "technique_id": "T1012",
+      "technique_stix_id": "attack-pattern--c32f7008-9fea-41f7-8366-5eb9b74bd896",
+      "name": "Query Registry",
+      "execution_domain": "target",
+      "tactics": [
+        "discovery"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--0032f447-1ab7-427d-b7ae-baa436dc2411"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Wocao](https://attack.mitre.org/campaigns/C0014), the threat actors executed `/c cd /d c:\\windows\\temp\\ & reg query HKEY_CURRENT_USER\\Software\\<username>\\PuTTY\\Sessions\\` to detect recent PuTTY sessions, likely to further lateral movement.(Citation: FoxIT Wocao December 2019)"
+      ]
+    },
+    {
+      "technique_id": "T1016",
+      "technique_stix_id": "attack-pattern--707399d6-ab3e-4963-9315-d9d3818cd6a0",
+      "name": "System Network Configuration Discovery",
+      "execution_domain": "target",
+      "tactics": [
+        "discovery"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--dfc90c30-4cc7-4f5f-8315-6a20c14696d9"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Wocao](https://attack.mitre.org/campaigns/C0014), threat actors discovered the local network configuration with `ipconfig`.(Citation: FoxIT Wocao December 2019)"
+      ]
+    },
+    {
+      "technique_id": "T1016.001",
+      "technique_stix_id": "attack-pattern--132d5b37-aac5-4378-a8dc-3127b18a73dc",
+      "name": "Internet Connection Discovery",
+      "execution_domain": "target",
+      "tactics": [
+        "discovery"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--88231281-0f0d-4655-b083-a90faf9056fe"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Wocao](https://attack.mitre.org/campaigns/C0014), threat actors used a Visual Basic script that checked for internet connectivity.(Citation: FoxIT Wocao December 2019)"
+      ]
+    },
+    {
+      "technique_id": "T1018",
+      "technique_stix_id": "attack-pattern--e358d692-23c0-4a31-9eb6-ecc13a8d7735",
+      "name": "Remote System Discovery",
+      "execution_domain": "target",
+      "tactics": [
+        "discovery"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--0d7506cd-4869-48f9-a0e0-cb70d6b482ff"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Wocao](https://attack.mitre.org/campaigns/C0014), threat actors used `nbtscan` and `ping` to discover remote systems, as well as `dsquery subnet` on a domain controller to retrieve all subnets in the Active Directory.(Citation: FoxIT Wocao December 2019)"
+      ]
+    },
+    {
+      "technique_id": "T1033",
+      "technique_stix_id": "attack-pattern--03d7999c-1f4c-42cc-8373-e7690d318104",
+      "name": "System Owner/User Discovery",
+      "execution_domain": "target",
+      "tactics": [
+        "discovery"
+      ],
+      "platforms": [
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--41c81917-ca17-4d7f-abdd-dcd408ad230d"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Wocao](https://attack.mitre.org/campaigns/C0014), threat actors enumerated sessions and users on a remote host, and identified privileged users logged into a targeted system.(Citation: FoxIT Wocao December 2019)"
+      ]
+    },
+    {
+      "technique_id": "T1046",
+      "technique_stix_id": "attack-pattern--e3a12395-188d-4051-9a16-ea8e14d07b88",
+      "name": "Network Service Discovery",
+      "execution_domain": "target",
+      "tactics": [
+        "discovery"
+      ],
+      "platforms": [
+        "Containers",
+        "IaaS",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--c4693c3d-7ec1-4e6d-9788-b3aa39d97e10"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Wocao](https://attack.mitre.org/campaigns/C0014), threat actors scanned for open ports and used nbtscan to find NETBIOS nameservers.(Citation: FoxIT Wocao December 2019)"
+      ]
+    },
+    {
+      "technique_id": "T1049",
+      "technique_stix_id": "attack-pattern--7e150503-88e7-4861-866b-ff1ac82c4475",
+      "name": "System Network Connections Discovery",
+      "execution_domain": "target",
+      "tactics": [
+        "discovery"
+      ],
+      "platforms": [
+        "ESXi",
+        "IaaS",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--26aac288-6032-4925-afbe-506c8ea06300"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Wocao](https://attack.mitre.org/campaigns/C0014), threat actors collected a list of open connections on the infected system using `netstat` and checks whether it has an internet connection.(Citation: FoxIT Wocao December 2019)"
+      ]
+    },
+    {
+      "technique_id": "T1057",
+      "technique_stix_id": "attack-pattern--8f4a33ec-8b1f-4b80-a2f6-642b2e479580",
+      "name": "Process Discovery",
+      "execution_domain": "target",
+      "tactics": [
+        "discovery"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--fe7c5c1c-b5b2-4770-911c-415839d5ede4"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Wocao](https://attack.mitre.org/campaigns/C0014), the threat actors used `tasklist` to collect a list of running processes on an infected system.(Citation: FoxIT Wocao December 2019)"
+      ]
+    },
+    {
+      "technique_id": "T1069.001",
+      "technique_stix_id": "attack-pattern--a01bf75f-00b2-4568-a58f-565ff9bf202b",
+      "name": "Local Groups",
+      "execution_domain": "target",
+      "tactics": [
+        "discovery"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--664d1aaf-eb98-4683-bc57-1a19934d934a"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Wocao](https://attack.mitre.org/campaigns/C0014), threat actors used the command `net localgroup administrators` to list all administrators part of a local group.(Citation: FoxIT Wocao December 2019)"
+      ]
+    },
+    {
+      "technique_id": "T1082",
+      "technique_stix_id": "attack-pattern--354a7f88-63fb-41b5-a801-ce3b377b36f1",
+      "name": "System Information Discovery",
+      "execution_domain": "target",
+      "tactics": [
+        "discovery"
+      ],
+      "platforms": [
+        "ESXi",
+        "IaaS",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--bc52cbe2-32a0-4491-aa57-46ef39e431b9"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Wocao](https://attack.mitre.org/campaigns/C0014), threat actors discovered the OS versions of systems connected to a targeted network.(Citation: FoxIT Wocao December 2019)"
+      ]
+    },
+    {
+      "technique_id": "T1083",
+      "technique_stix_id": "attack-pattern--7bc57495-ea59-4380-be31-a64af124ef18",
+      "name": "File and Directory Discovery",
+      "execution_domain": "target",
+      "tactics": [
+        "discovery"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--9627b2de-6420-480f-add5-312622eb957c"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Wocao](https://attack.mitre.org/campaigns/C0014), threat actors gathered a recursive directory listing to find files and directories of interest.(Citation: FoxIT Wocao December 2019)"
+      ]
+    },
+    {
+      "technique_id": "T1087.002",
+      "technique_stix_id": "attack-pattern--21875073-b0ee-49e3-9077-1e2a885359af",
+      "name": "Domain Account",
+      "execution_domain": "target",
+      "tactics": [
+        "discovery"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--8d43c2da-0d5e-478a-aacb-b9da651854ce"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Wocao](https://attack.mitre.org/campaigns/C0014), threat actors used the `net` command to retrieve information about domain accounts.(Citation: FoxIT Wocao December 2019) "
+      ]
+    },
+    {
+      "technique_id": "T1120",
+      "technique_stix_id": "attack-pattern--348f1eef-964b-4eb6-bb53-69b3dcb0c643",
+      "name": "Peripheral Device Discovery",
+      "execution_domain": "target",
+      "tactics": [
+        "discovery"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--b3f7d095-c7eb-4a4b-909d-e3b831c7ed16"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Wocao](https://attack.mitre.org/campaigns/C0014), threat actors discovered removable disks attached to a system.(Citation: FoxIT Wocao December 2019)"
+      ]
+    },
+    {
+      "technique_id": "T1124",
+      "technique_stix_id": "attack-pattern--f3c544dc-673c-4ef3-accb-53229f1ae077",
+      "name": "System Time Discovery",
+      "execution_domain": "target",
+      "tactics": [
+        "discovery"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--30ee835f-64a1-4e14-8c9c-648e24fc9b0b"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Wocao](https://attack.mitre.org/campaigns/C0014), threat actors used the `time` command to retrieve the current time of a compromised system.(Citation: FoxIT Wocao December 2019)"
+      ]
+    },
+    {
+      "technique_id": "T1135",
+      "technique_stix_id": "attack-pattern--3489cfc5-640f-4bb3-a103-9137b97de79f",
+      "name": "Network Share Discovery",
+      "execution_domain": "target",
+      "tactics": [
+        "discovery"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--7d7e63bb-1b78-459d-a300-d21bb270ad7d"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Wocao](https://attack.mitre.org/campaigns/C0014), threat actors discovered network disks mounted to the system using [netstat](https://attack.mitre.org/software/S0104).(Citation: FoxIT Wocao December 2019)"
+      ]
+    },
+    {
+      "technique_id": "T1518",
+      "technique_stix_id": "attack-pattern--e3b6daca-e963-4a69-aee6-ed4fd653ad58",
+      "name": "Software Discovery",
+      "execution_domain": "target",
+      "tactics": [
+        "discovery"
+      ],
+      "platforms": [
+        "ESXi",
+        "IaaS",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--e848e92c-af22-4284-a27d-7c2673a4b0fe"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Wocao](https://attack.mitre.org/campaigns/C0014), threat actors collected a list of installed software on the infected system.(Citation: FoxIT Wocao December 2019)"
+      ]
+    },
+    {
+      "technique_id": "T1518.001",
+      "technique_stix_id": "attack-pattern--cba37adb-d6fb-4610-b069-dd04c0643384",
+      "name": "Security Software Discovery",
+      "execution_domain": "target",
+      "tactics": [
+        "discovery"
+      ],
+      "platforms": [
+        "IaaS",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--07b15826-1fe3-42db-afdb-9f18e2c8ef2b"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Wocao](https://attack.mitre.org/campaigns/C0014), threat actors used scripts to detect security software.(Citation: FoxIT Wocao December 2019)"
+      ]
+    },
+    {
+      "technique_id": "T1680",
+      "technique_stix_id": "attack-pattern--f2514ae4-4e9b-4f26-a5ba-c4ae85fe93c3",
+      "name": "Local Storage Discovery",
+      "execution_domain": "target",
+      "tactics": [
+        "discovery"
+      ],
+      "platforms": [
+        "ESXi",
+        "IaaS",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--ed758a74-c91c-413d-a7a9-f09f697f4574"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Wocao](https://attack.mitre.org/campaigns/C0014), threat actors discovered the local disks attached to the system and their hardware information including manufacturer and model.(Citation: FoxIT Wocao December 2019)"
+      ]
+    },
+    {
+      "technique_id": "T1021.002",
+      "technique_stix_id": "attack-pattern--4f9ca633-15c5-463c-9724-bdcd54fde541",
+      "name": "SMB/Windows Admin Shares",
+      "execution_domain": "target",
+      "tactics": [
+        "lateral-movement"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--82e1cb6f-7528-430f-8e8e-fc3213f25402"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Wocao](https://attack.mitre.org/campaigns/C0014), threat actors used [Impacket](https://attack.mitre.org/software/S0357)'s smbexec.py as well as accessing the C$ and IPC$ shares to move laterally.(Citation: FoxIT Wocao December 2019)"
+      ]
+    },
+    {
+      "technique_id": "T1570",
+      "technique_stix_id": "attack-pattern--bf90d72c-c00b-45e3-b3aa-68560560d4c5",
+      "name": "Lateral Tool Transfer",
+      "execution_domain": "target",
+      "tactics": [
+        "lateral-movement"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--839d6bf7-6a63-48c0-8433-0d8d6c7ea61f"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Wocao](https://attack.mitre.org/campaigns/C0014), threat actors used SMB to copy files to and from target systems.(Citation: FoxIT Wocao December 2019)"
+      ]
+    },
+    {
+      "technique_id": "T1005",
+      "technique_stix_id": "attack-pattern--3c4a2599-71ee-4405-ba1e-0e28414b4bc5",
+      "name": "Data from Local System",
+      "execution_domain": "target",
+      "tactics": [
+        "collection"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--4f6975b8-e16e-47ba-b241-b2267c5da4ef"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Wocao](https://attack.mitre.org/campaigns/C0014), threat actors exfiltrated files and directories of interest from the targeted system.(Citation: FoxIT Wocao December 2019)"
+      ]
+    },
+    {
+      "technique_id": "T1074.001",
+      "technique_stix_id": "attack-pattern--1c34f7aa-9341-4a48-bfab-af22e51aca6c",
+      "name": "Local Data Staging",
+      "execution_domain": "target",
+      "tactics": [
+        "collection"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--3f564288-8695-4cbc-a8b9-813cb67e0f1e"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Wocao](https://attack.mitre.org/campaigns/C0014), threat actors staged archived files in a temporary directory prior to exfiltration.(Citation: FoxIT Wocao December 2019) "
+      ]
+    },
+    {
+      "technique_id": "T1115",
+      "technique_stix_id": "attack-pattern--30973a08-aed9-4edf-8604-9084ce1b5c4f",
+      "name": "Clipboard Data",
+      "execution_domain": "target",
+      "tactics": [
+        "collection"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--5093ddae-6bc9-401e-b35f-9f3139efafd0"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Wocao](https://attack.mitre.org/campaigns/C0014), threat actors collected clipboard data in plaintext.(Citation: FoxIT Wocao December 2019)"
+      ]
+    },
+    {
+      "technique_id": "T1119",
+      "technique_stix_id": "attack-pattern--30208d3e-0d6b-43c8-883e-44462a514619",
+      "name": "Automated Collection",
+      "execution_domain": "target",
+      "tactics": [
+        "collection"
+      ],
+      "platforms": [
+        "IaaS",
+        "Linux",
+        "Office Suite",
+        "SaaS",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--26088143-9fdc-4fb5-aa04-27ea21836da0"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Wocao](https://attack.mitre.org/campaigns/C0014), threat actors used a script to collect information about the infected system.(Citation: FoxIT Wocao December 2019)"
+      ]
+    },
+    {
+      "technique_id": "T1560.001",
+      "technique_stix_id": "attack-pattern--00f90846-cbd1-4fc5-9233-df5c2bf2a662",
+      "name": "Archive via Utility",
+      "execution_domain": "target",
+      "tactics": [
+        "collection"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--6239c9a5-5ab9-425d-a767-0d4e6262a598"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Wocao](https://attack.mitre.org/campaigns/C0014), threat actors archived collected files with WinRAR, prior to exfiltration.(Citation: FoxIT Wocao December 2019)"
+      ]
+    },
+    {
+      "technique_id": "T1001",
+      "technique_stix_id": "attack-pattern--ad255bfe-a9e6-4b52-a258-8d3462abe842",
+      "name": "Data Obfuscation",
+      "execution_domain": "boundary",
+      "tactics": [
+        "command-and-control"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--80a8cd03-8f65-41fb-803a-64d92f9f1522"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Wocao](https://attack.mitre.org/campaigns/C0014), threat actors encrypted IP addresses used for \"Agent\" proxy hops with RC4.(Citation: FoxIT Wocao December 2019)"
+      ]
+    },
+    {
+      "technique_id": "T1071.001",
+      "technique_stix_id": "attack-pattern--df8b2a25-8bdf-4856-953c-a04372b1c161",
+      "name": "Web Protocols",
+      "execution_domain": "boundary",
+      "tactics": [
+        "command-and-control"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--45df3c58-de91-4f36-a094-44e52b077f41"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Wocao](https://attack.mitre.org/campaigns/C0014), threat actors’ XServer tool communicated using HTTP and HTTPS.(Citation: FoxIT Wocao December 2019)"
+      ]
+    },
+    {
+      "technique_id": "T1090",
+      "technique_stix_id": "attack-pattern--731f4f55-b6d0-41d1-a7a9-072a66389aea",
+      "name": "Proxy",
+      "execution_domain": "boundary",
+      "tactics": [
+        "command-and-control"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--9df6635a-b3ed-494c-845e-b743e494861c"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Wocao](https://attack.mitre.org/campaigns/C0014), threat actors used a custom proxy tool called \"Agent\" which has support for multiple hops.(Citation: FoxIT Wocao December 2019)"
+      ]
+    },
+    {
+      "technique_id": "T1090.001",
+      "technique_stix_id": "attack-pattern--f6dacc85-b37d-458e-b58d-74fc4bbf5755",
+      "name": "Internal Proxy",
+      "execution_domain": "boundary",
+      "tactics": [
+        "command-and-control"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--9a462c0e-a60e-4983-8839-1f0e41cc133a"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Wocao](https://attack.mitre.org/campaigns/C0014), threat actors proxied traffic through multiple infected systems.(Citation: FoxIT Wocao December 2019)"
+      ]
+    },
+    {
+      "technique_id": "T1090.003",
+      "technique_stix_id": "attack-pattern--a782ebe2-daba-42c7-bc82-e8e9d923162d",
+      "name": "Multi-hop Proxy",
+      "execution_domain": "boundary",
+      "tactics": [
+        "command-and-control"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--3d02f381-1402-430e-aacd-5e9350df2505"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Wocao](https://attack.mitre.org/campaigns/C0014), threat actors executed commands through the installed web shell via [Tor](https://attack.mitre.org/software/S0183) exit nodes.(Citation: FoxIT Wocao December 2019)"
+      ]
+    },
+    {
+      "technique_id": "T1095",
+      "technique_stix_id": "attack-pattern--c21d5a77-d422-4a69-acd7-2c53c1faa34b",
+      "name": "Non-Application Layer Protocol",
+      "execution_domain": "boundary",
+      "tactics": [
+        "command-and-control"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--cbf2f9fe-e61b-4a04-a135-d1f6c4ec6cc3"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Wocao](https://attack.mitre.org/campaigns/C0014), threat actors used a custom protocol for command and control.(Citation: FoxIT Wocao December 2019)"
+      ]
+    },
+    {
+      "technique_id": "T1105",
+      "technique_stix_id": "attack-pattern--e6919abc-99f9-4c6c-95a5-14761e7b2add",
+      "name": "Ingress Tool Transfer",
+      "execution_domain": "boundary",
+      "tactics": [
+        "command-and-control"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--ef203c63-b93c-413a-83ed-4785399f3a51"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Wocao](https://attack.mitre.org/campaigns/C0014), threat actors downloaded additional files to the infected system.(Citation: FoxIT Wocao December 2019)"
+      ]
+    },
+    {
+      "technique_id": "T1571",
+      "technique_stix_id": "attack-pattern--b18eae87-b469-4e14-b454-b171b416bc18",
+      "name": "Non-Standard Port",
+      "execution_domain": "boundary",
+      "tactics": [
+        "command-and-control"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--30f0fc1f-d2fb-4bc8-98b1-431324127f07"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Wocao](https://attack.mitre.org/campaigns/C0014), the threat actors used uncommon high ports for its backdoor C2, including ports 25667 and 47000.(Citation: FoxIT Wocao December 2019)"
+      ]
+    },
+    {
+      "technique_id": "T1573.002",
+      "technique_stix_id": "attack-pattern--bf176076-b789-408e-8cba-7275e81c0ada",
+      "name": "Asymmetric Cryptography",
+      "execution_domain": "boundary",
+      "tactics": [
+        "command-and-control"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--0f8086c2-5432-455f-8012-201aed337725"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Wocao](https://attack.mitre.org/campaigns/C0014), threat actors' proxy implementation \"Agent\" upgraded the socket in use to a TLS socket.(Citation: FoxIT Wocao December 2019)"
+      ]
+    },
+    {
+      "technique_id": "T1041",
+      "technique_stix_id": "attack-pattern--92d7da27-2d91-488e-a00c-059dc162766d",
+      "name": "Exfiltration Over C2 Channel",
+      "execution_domain": "boundary",
+      "tactics": [
+        "exfiltration"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--a778d83c-5452-49ff-87dd-dbd3ef0d380f"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Wocao](https://attack.mitre.org/campaigns/C0014), threat actors used the XServer backdoor to exfiltrate data.(Citation: FoxIT Wocao December 2019)"
+      ]
+    }
+  ],
+  "limitations": [
+    "ATT&CK uses-links do not encode a historical total order; the compiler applies a declared tactic-rank policy.",
+    "Technique metadata constrains procedures but does not uniquely determine an executable target environment."
+  ],
+  "content_sha256": "d83f3ad0572ddcd4d38f917f46d5738882b1b5c75719a91d8b12428c469aefd4"
+}

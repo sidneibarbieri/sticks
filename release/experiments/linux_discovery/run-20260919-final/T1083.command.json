@@ -1,0 +1,14 @@
+{
+  "argv": [
+    "find",
+    "/workspace/discovery",
+    "-maxdepth",
+    "1",
+    "-type",
+    "f"
+  ],
+  "exit_code": 0,
+  "stdout": "/workspace/discovery/beta.txt\n/workspace/discovery/alpha.txt\n",
+  "stderr": "",
+  "stdout_sha256": "89e5ac8ee040bc9526654e7fc8f3d92afcba62c89388cc155a159d14dec4938c"
+}

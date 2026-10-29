@@ -1,0 +1,35 @@
+{
+  "schema": "historical-technique-inventory/v1",
+  "source_file": "c0010_dag.json",
+  "source_sha256": "d5236a56ce8569bdf9d41efff1da5b591ddd2a2182a4f8f4f51b6c23b8e9e86c",
+  "scope": "Technique occurrences only; no procedure, ordering, execution, or fidelity claim.",
+  "structural_nodes": [
+    {
+      "technique_id": "T1584.001"
+    },
+    {
+      "technique_id": "T1608.001"
+    },
+    {
+      "technique_id": "T1189"
+    },
+    {
+      "technique_id": "T1608.004"
+    },
+    {
+      "technique_id": "T1587.001"
+    },
+    {
+      "technique_id": "T1583.001"
+    },
+    {
+      "technique_id": "T1105"
+    },
+    {
+      "technique_id": "T1608.002"
+    },
+    {
+      "technique_id": "T1588.002"
+    }
+  ]
+}

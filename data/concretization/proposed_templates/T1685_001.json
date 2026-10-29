@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure modifies the Windows Event Log settings to simulate the disabling of event logging for testing detection capabilities.",
+    "evidence_predicates": [
+      "bounded_effect_observed",
+      "fixture_access_logged"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "event_log_policy": "chunk_policy",
+      "system_state": "target_host"
+    },
+    "produces": [
+      "Event log modification confirmed"
+    ],
+    "requires": [
+      "Windows operating system",
+      "Administrative privileges"
+    ],
+    "technique_ids": [
+      "T1685.001"
+    ],
+    "template_id": "disable-or-modify-windows-event-log-laboratory-harness"
+  }
+}

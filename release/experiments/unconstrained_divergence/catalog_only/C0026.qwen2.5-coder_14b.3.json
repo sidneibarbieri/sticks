@@ -1,0 +1,50 @@
+{
+  "campaign_id": "C0026",
+  "model": "qwen2.5-coder:14b",
+  "sample": 3,
+  "temperature": 0.7,
+  "proposals": [
+    {
+      "technique_id": "T1005",
+      "template_id": "collect-declared-data-fixture",
+      "bindings": {
+        "data_source": "data.synthetic_fixture",
+        "target": "target.primary"
+      }
+    },
+    {
+      "technique_id": "T1560.001",
+      "template_id": "archive-declared-collection",
+      "bindings": {
+        "archive_tool": "archive_tool.local",
+        "target": "target.primary"
+      }
+    },
+    {
+      "technique_id": "T1105",
+      "template_id": "transfer-benign-payload",
+      "bindings": {
+        "channel": "channel.private_http",
+        "payload": "payload.benign",
+        "target": "target.primary"
+      }
+    },
+    {
+      "technique_id": "T1030",
+      "template_id": "split-declared-archive",
+      "bindings": {
+        "archive": "artifact.encoded",
+        "chunk_policy": "chunk_policy.bounded_local"
+      }
+    },
+    {
+      "technique_id": "T1568",
+      "template_id": "resolve-lab-domain",
+      "bindings": {
+        "domain": "infrastructure.lab_manifest",
+        "target": "actor.primary"
+      }
+    }
+  ],
+  "malformed_proposals": 0
+}

@@ -1,0 +1,36 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "qwen3.6:latest",
+    "provider": "openai",
+    "review_pending": true,
+    "run_id": "stage2-qwen36-r1",
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This benign laboratory harness safely simulates the extraction and staging of a domain controller database copy for credential analysis training.",
+    "evidence_predicates": [
+      "artifact_hash_recorded",
+      "staging_path_recorded"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "copy_utility": "archive_tool",
+      "destination_archive": "archive_artifact",
+      "source_ntds": "data_source"
+    },
+    "produces": [
+      "ntds_copy_staged",
+      "archive_integrity_verified"
+    ],
+    "requires": [
+      "domain_controller_online",
+      "ntds_dit_accessible"
+    ],
+    "technique_ids": [
+      "T1003.003"
+    ],
+    "template_id": "ntds-database-copy-harness"
+  }
+}

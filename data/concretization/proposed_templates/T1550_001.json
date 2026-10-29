@@ -1,0 +1,34 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure simulates the use of an application access token to make authorized API requests in a controlled environment.",
+    "evidence_predicates": [
+      "http_request_logged",
+      "fixture_access_logged"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "access_token": "credential_source",
+      "api_endpoint": "endpoint"
+    },
+    "produces": [
+      "API request logged",
+      "access token usage recorded"
+    ],
+    "requires": [
+      "valid access token",
+      "configured API endpoint"
+    ],
+    "technique_ids": [
+      "T1550.001"
+    ],
+    "template_id": "application-access-token-laboratory-harness"
+  }
+}

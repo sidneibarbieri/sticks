@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "qwen3.6:latest",
+    "provider": "openai",
+    "review_pending": true,
+    "run_id": "stage2-qwen36-r1",
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "Provisions a laboratory-generated code signing certificate and records its cryptographic fingerprint for subsequent benign execution testing.",
+    "evidence_predicates": [
+      "artifact_hash_recorded",
+      "fixture_access_logged"
+    ],
+    "execution_domain": "attacker",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "cert_artifact": "archive_artifact"
+    },
+    "produces": [
+      "signing_cert_path",
+      "cert_fingerprint"
+    ],
+    "requires": [
+      "lab_scope_verified"
+    ],
+    "technique_ids": [
+      "T1588.003"
+    ],
+    "template_id": "provision_benign_signing_cert"
+  }
+}

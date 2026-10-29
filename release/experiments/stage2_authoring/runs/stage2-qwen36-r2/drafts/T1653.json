@@ -1,0 +1,36 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "qwen3.6:latest",
+    "provider": "openai",
+    "review_pending": true,
+    "run_id": "stage2-qwen36-r2",
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "A benign laboratory harness modifies the target system's power configuration to prevent sleep states, verifying the policy application through bounded effect observation and file count recording.",
+    "evidence_predicates": [
+      "bounded_effect_observed",
+      "file_count_recorded"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "config_tool": "toolkit",
+      "policy_type": "capability_specification",
+      "target_host": "target_host"
+    },
+    "produces": [
+      "power_settings.applied",
+      "sleep_policy.enforced"
+    ],
+    "requires": [
+      "target_host.address",
+      "config_tool.path"
+    ],
+    "technique_ids": [
+      "T1653"
+    ],
+    "template_id": "lab-modify-power-settings"
+  }
+}

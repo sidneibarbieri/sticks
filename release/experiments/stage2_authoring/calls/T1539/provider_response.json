@@ -1,0 +1,36 @@
+{
+  "id": "chatcmpl-EOgHggwclKHvfsh1VgkG63hMndY3B",
+  "object": "chat.completion",
+  "created": 1789551120,
+  "model": "gpt-4o-mini-2024-07-18",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"template_id\": \"steal-web-session-cookie-laboratory-harness\",\n  \"technique_ids\": [\"T1539\"],\n  \"execution_domain\": \"target\",\n  \"parameter_kinds\": {\n    \"target_host\": \"target_host\",\n    \"web_asset\": \"web_asset\"\n  },\n  \"requires\": [\n    \"web application is accessible\",\n    \"session cookies are stored in the browser\"\n  ],\n  \"produces\": [\n    \"session cookie data extracted\"\n  ],\n  \"evidence_predicates\": [\n    \"http_request_logged\",\n    \"bounded_effect_observed\"\n  ],\n  \"fidelity_ceiling\": \"adapted\",\n  \"description\": \"This procedure outlines the steps to extract session cookies from a web application for analysis in a controlled environment.\"\n}",
+        "refusal": null,
+        "annotations": []
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 816,
+    "completion_tokens": 163,
+    "total_tokens": 979,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_c577bb8647"
+}

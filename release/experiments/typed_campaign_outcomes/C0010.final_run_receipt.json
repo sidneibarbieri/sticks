@@ -1,0 +1,32 @@
+{
+  "artifact_tree_sha256": "0a1e7b2c7be5c363a695f3abf82e951bd4b2144e17548926ddc787e6b014ed22",
+  "campaign_id": "0.c0010",
+  "controller_effects_observed": 4,
+  "cycle_passed": true,
+  "evidence_tree_sha256": "e379795011caff512d1c8b1bcf9397354787927c5ac36e08e83b2df1b6192abb",
+  "execution_log_sha256": "7f0215208231eadcf8420d39283e71f1b800b430032b768aa3497bd2f23a39db",
+  "final_evidence_tree_sha256": "dedaf1b901c1f55b3726214040c6beb722b80e1f70188fcfd2e71fcde8131d29",
+  "guest_effects_observed": 1,
+  "observer_checks": {
+    "declared_notice_present": true,
+    "declared_page_present": true,
+    "download_executable": true,
+    "http_get_recorded": true,
+    "transfer_matches_source": true
+  },
+  "observer_transport_path": "evidence/c0010-target-observation.transport.json",
+  "observer_transport_sha256": "1eddecfae646a9f33da1ea1f52a1b644bfd3c128820211fd80c55d1389227d0b",
+  "probe_sha256": "86d3aba78162074808224ada5e9a9ac1daa4b5541d39f9b9990c635e41d5a522",
+  "run_id": "ba2b940d48e74cb5bd959ef73a373e94",
+  "schema": "isolated-c0010-typed-receipt/v1",
+  "scope": "Four controller staging/fetch effects and one bounded guest transfer; not historical watering-hole fidelity, external delivery, or five guest effects.",
+  "simulated": 4,
+  "source_tree_sha256": "c5ae8a9cade65a61462c545e48d0c906d0f52da319fcf6b9228e9d618f3e9dbe",
+  "summary_path": "runtime-v2/ba2b940d48e74cb5bd959ef73a373e94/summary.json",
+  "summary_sha256": "d17628eb744d29a4c631a7812286cb716c54d3af36093bd44fbd9b5c0fc7f620",
+  "vm_states": {
+    "attacker": "not_created",
+    "caldera": "not_created",
+    "target-linux-1": "not_created"
+  }
+}

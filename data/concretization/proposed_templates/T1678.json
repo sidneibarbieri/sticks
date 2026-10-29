@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure implements a delay in command execution to simulate time-based evasion techniques.",
+    "evidence_predicates": [
+      "duration_and_cpu_bound_recorded",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "command": "toolkit",
+      "sleep_duration": "runtime"
+    },
+    "produces": [
+      "execution of the command after a delay"
+    ],
+    "requires": [
+      "a benign command to execute",
+      "a specified duration for the delay"
+    ],
+    "technique_ids": [
+      "T1678"
+    ],
+    "template_id": "delay-execution-laboratory-harness"
+  }
+}

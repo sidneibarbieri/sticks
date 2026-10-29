@@ -1,0 +1,36 @@
+{
+  "id": "chatcmpl-EOK3I6zc2nEOgIAMmrjP09U1fIQPt",
+  "object": "chat.completion",
+  "created": 1789465660,
+  "model": "gpt-4o-mini-2024-07-18",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"template_id\": \"network-service-discovery-laboratory-harness\",\n  \"technique_ids\": [\"T1046\"],\n  \"execution_domain\": \"target\",\n  \"parameter_kinds\": {\n    \"target_host\": \"target_host\",\n    \"network_interface\": \"network_interface\",\n    \"toolkit\": \"toolkit\"\n  },\n  \"requires\": [\n    \"target host is reachable\",\n    \"network interface is configured\"\n  ],\n  \"produces\": [\n    \"service listing generated\",\n    \"network interface snapshot recorded\"\n  ],\n  \"evidence_predicates\": [\n    \"service_request_logged\",\n    \"interface_snapshot_recorded\"\n  ],\n  \"fidelity_ceiling\": \"adapted\",\n  \"description\": \"This procedure performs a network service discovery to identify services running on a specified target host.\"\n}",
+        "refusal": null,
+        "annotations": []
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 823,
+    "completion_tokens": 171,
+    "total_tokens": 994,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_c577bb8647"
+}

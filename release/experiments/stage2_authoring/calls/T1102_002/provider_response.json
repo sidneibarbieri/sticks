@@ -1,0 +1,36 @@
+{
+  "id": "chatcmpl-EOK7i37dTroYdiOsp3OjOe26E29Jg",
+  "object": "chat.completion",
+  "created": 1789465934,
+  "model": "gpt-4o-mini-2024-07-18",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"template_id\": \"bidirectional-communication-laboratory-harness\",\n  \"technique_ids\": [\n    \"T1102.002\"\n  ],\n  \"execution_domain\": \"target\",\n  \"parameter_kinds\": {\n    \"web_service\": \"web_asset\",\n    \"command\": \"payload\",\n    \"response\": \"payload\"\n  },\n  \"requires\": [\n    \"web service is accessible\",\n    \"command is defined\"\n  ],\n  \"produces\": [\n    \"response is recorded\",\n    \"http request logged\"\n  ],\n  \"evidence_predicates\": [\n    \"http_request_logged\",\n    \"bounded_effect_observed\"\n  ],\n  \"fidelity_ceiling\": \"adapted\",\n  \"description\": \"This procedure simulates bidirectional communication with a web service to send commands and receive responses in a controlled laboratory environment.\"\n}",
+        "refusal": null,
+        "annotations": []
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 823,
+    "completion_tokens": 177,
+    "total_tokens": 1000,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_c577bb8647"
+}

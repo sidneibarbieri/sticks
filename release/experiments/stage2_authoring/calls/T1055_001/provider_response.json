@@ -1,0 +1,36 @@
+{
+  "id": "chatcmpl-EOgGGeDdLw17Ey4aMXoVOlAKelEn4",
+  "object": "chat.completion",
+  "created": 1789551032,
+  "model": "gpt-4o-mini-2024-07-18",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"template_id\": \"dll-injection-laboratory-harness\",\n  \"technique_ids\": [\n    \"T1055.001\"\n  ],\n  \"execution_domain\": \"target\",\n  \"parameter_kinds\": {\n    \"target_process\": \"target_host\",\n    \"dll_path\": \"payload\"\n  },\n  \"requires\": [\n    \"target process is running\",\n    \"DLL file is accessible\"\n  ],\n  \"produces\": [\n    \"DLL injection successful\"\n  ],\n  \"evidence_predicates\": [\n    \"bounded_effect_observed\",\n    \"artifact_hash_recorded\"\n  ],\n  \"fidelity_ceiling\": \"adapted\",\n  \"description\": \"This procedure demonstrates the process of injecting a DLL into a target process for educational purposes.\"\n}",
+        "refusal": null,
+        "annotations": []
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 832,
+    "completion_tokens": 160,
+    "total_tokens": 992,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_c577bb8647"
+}

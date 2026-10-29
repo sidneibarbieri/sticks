@@ -1,0 +1,38 @@
+{
+  "sticks_source_campaign": "C0045",
+  "representations": {
+    "TTP (ATT&CK technique in STIX)": {
+      "components": {
+        "technique_identity": true,
+        "execution_order": false,
+        "causal_preconditions": false,
+        "causal_postconditions": false,
+        "verification": false,
+        "execution_grounding": false
+      },
+      "is_procedural_behavior": false
+    },
+    "MITRE Attack Flow node": {
+      "components": {
+        "technique_identity": true,
+        "execution_order": true,
+        "causal_preconditions": true,
+        "causal_postconditions": true,
+        "verification": false,
+        "execution_grounding": false
+      },
+      "is_procedural_behavior": false
+    },
+    "STICKS procedural behavior": {
+      "components": {
+        "technique_identity": true,
+        "execution_order": true,
+        "causal_preconditions": true,
+        "causal_postconditions": true,
+        "verification": true,
+        "execution_grounding": true
+      },
+      "is_procedural_behavior": true
+    }
+  }
+}

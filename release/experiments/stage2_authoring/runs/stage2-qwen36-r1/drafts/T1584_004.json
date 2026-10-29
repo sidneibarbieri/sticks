@@ -1,0 +1,36 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "qwen3.6:latest",
+    "provider": "openai",
+    "review_pending": true,
+    "run_id": "stage2-qwen36-r1",
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "Simulates the benign staging of a laboratory artifact on a compromised third-party server to validate infrastructure provisioning controls.",
+    "evidence_predicates": [
+      "lab_scope_verified",
+      "staging_path_recorded"
+    ],
+    "execution_domain": "attacker",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "server_endpoint": "endpoint",
+      "staging_artifact": "infrastructure_artifact"
+    },
+    "produces": [
+      "staging_path_recorded",
+      "server_endpoint",
+      "access_creds"
+    ],
+    "requires": [
+      "lab_scope_verified",
+      "target_host"
+    ],
+    "technique_ids": [
+      "T1584.004"
+    ],
+    "template_id": "benign-server-staging-harness"
+  }
+}

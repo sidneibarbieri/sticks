@@ -1,0 +1,36 @@
+{
+  "id": "chatcmpl-EOgGgIqGhVNHO3ys86sZ8bAXfHHgY",
+  "object": "chat.completion",
+  "created": 1789551058,
+  "model": "gpt-4o-mini-2024-07-18",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"template_id\": \"local-email-collection-laboratory-harness\",\n  \"technique_ids\": [\n    \"T1114.001\"\n  ],\n  \"execution_domain\": \"target\",\n  \"parameter_kinds\": {\n    \"email_data_file\": \"archive_artifact\",\n    \"outlook_version\": \"capability_specification\"\n  },\n  \"requires\": [\n    \"user has Outlook installed\",\n    \"user has email data files on local system\"\n  ],\n  \"produces\": [\n    \"email data file collected\"\n  ],\n  \"evidence_predicates\": [\n    \"collection_manifest_recorded\",\n    \"file_count_recorded\"\n  ],\n  \"fidelity_ceiling\": \"adapted\",\n  \"description\": \"This procedure collects local email data files from a user's system to analyze sensitive information.\"\n}",
+        "refusal": null,
+        "annotations": []
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 845,
+    "completion_tokens": 171,
+    "total_tokens": 1016,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_c577bb8647"
+}

@@ -1,0 +1,454 @@
+{
+  "schema_version": "1",
+  "bundle_sha256": "dc1639caa5501d720e280cf1cbd8fbe009884a0c9b3e6e9ed9d0c25166c3d8f4",
+  "campaign_count": 56,
+  "compiled_count": 55,
+  "not_compiled_count": 1,
+  "campaigns": [
+    {
+      "campaign_id": "C0001",
+      "campaign_name": "Frankenstein",
+      "status": "compiled",
+      "step_count": 27,
+      "content_sha256": "b5640fa059be917a3d54ae96b3ff79a1845f7899831a6e67a424d8781a294d7e",
+      "path": "C0001.procedural-plan.json"
+    },
+    {
+      "campaign_id": "C0002",
+      "campaign_name": "Night Dragon",
+      "status": "compiled",
+      "step_count": 29,
+      "content_sha256": "f5f2471d5f7c96efae3cad918f634c6e3ee7e8ed1e5789975dfe4fc3e0d753c7",
+      "path": "C0002.procedural-plan.json"
+    },
+    {
+      "campaign_id": "C0004",
+      "campaign_name": "CostaRicto",
+      "status": "compiled",
+      "step_count": 10,
+      "content_sha256": "31ae158809a986dcfa7fceff45a7ac033d53d0fbeac92ea2c7fb2c57141a8dfa",
+      "path": "C0004.procedural-plan.json"
+    },
+    {
+      "campaign_id": "C0005",
+      "campaign_name": "Operation Spalax",
+      "status": "compiled",
+      "step_count": 17,
+      "content_sha256": "b80eceecdda3492e30f515b190f03f64d697efd3a28849c7f7c8a3a8475d666d",
+      "path": "C0005.procedural-plan.json"
+    },
+    {
+      "campaign_id": "C0006",
+      "campaign_name": "Operation Honeybee",
+      "status": "compiled",
+      "step_count": 28,
+      "content_sha256": "978d5364f03d55157146fdbb96463fda14466b692c1b35992d2674cff7c824de",
+      "path": "C0006.procedural-plan.json"
+    },
+    {
+      "campaign_id": "C0007",
+      "campaign_name": "FunnyDream",
+      "status": "compiled",
+      "step_count": 14,
+      "content_sha256": "3b7c163e9078ee0e9f39d6b1c451dbfac1da78ac6f4b2c967668010552417213",
+      "path": "C0007.procedural-plan.json"
+    },
+    {
+      "campaign_id": "C0010",
+      "campaign_name": "C0010",
+      "status": "compiled",
+      "step_count": 9,
+      "content_sha256": "24c7d91dbe879dcc357957569bde0bfb677cbf163ed9b56bb04c925a5f28eaf4",
+      "path": "C0010.procedural-plan.json"
+    },
+    {
+      "campaign_id": "C0011",
+      "campaign_name": "C0011",
+      "status": "compiled",
+      "step_count": 8,
+      "content_sha256": "1ccba488f440d1e31591d3bbd90679b93635867aaff71183d47b4250c89b35ac",
+      "path": "C0011.procedural-plan.json"
+    },
+    {
+      "campaign_id": "C0012",
+      "campaign_name": "Operation CuckooBees",
+      "status": "compiled",
+      "step_count": 33,
+      "content_sha256": "205acce6cab88ed377bb2ea4e1ee74cd0319806ba2270884af2cf676faa2d67c",
+      "path": "C0012.procedural-plan.json"
+    },
+    {
+      "campaign_id": "C0013",
+      "campaign_name": "Operation Sharpshooter",
+      "status": "compiled",
+      "step_count": 13,
+      "content_sha256": "61d716bb1eaeb8ce48742a74e58b7e3d099dda26c52bf40e58792c675a5d83a9",
+      "path": "C0013.procedural-plan.json"
+    },
+    {
+      "campaign_id": "C0014",
+      "campaign_name": "Operation Wocao",
+      "status": "compiled",
+      "step_count": 70,
+      "content_sha256": "d83f3ad0572ddcd4d38f917f46d5738882b1b5c75719a91d8b12428c469aefd4",
+      "path": "C0014.procedural-plan.json"
+    },
+    {
+      "campaign_id": "C0015",
+      "campaign_name": "C0015",
+      "status": "compiled",
+      "step_count": 34,
+      "content_sha256": "6eb5675287bad25cb962fdb4f17c120fec4f02bcb36f92fcaad1d8f0eb71b90d",
+      "path": "C0015.procedural-plan.json"
+    },
+    {
+      "campaign_id": "C0016",
+      "campaign_name": "Operation Dust Storm",
+      "status": "compiled",
+      "step_count": 17,
+      "content_sha256": "7e3b8bd36e0dba25a2a0a88cff5d6508972d10176845795ee94ec6298e806c89",
+      "path": "C0016.procedural-plan.json"
+    },
+    {
+      "campaign_id": "C0017",
+      "campaign_name": "C0017",
+      "status": "compiled",
+      "step_count": 29,
+      "content_sha256": "2ae3d49359e377985605cd8aca253031a874cbc30edef2cd071a2921e64e2fcd",
+      "path": "C0017.procedural-plan.json"
+    },
+    {
+      "campaign_id": "C0018",
+      "campaign_name": "C0018",
+      "status": "compiled",
+      "step_count": 19,
+      "content_sha256": "0e35d7ebf428efe6c6d1e24c1bc03335e50ff1d1aedc8721b67714bc7b4d6031",
+      "path": "C0018.procedural-plan.json"
+    },
+    {
+      "campaign_id": "C0021",
+      "campaign_name": "C0021",
+      "status": "compiled",
+      "step_count": 15,
+      "content_sha256": "c60721d6f829db67ca2c14c8090dde6cb74c74f33afcf13a7a5dfcb081ab63d1",
+      "path": "C0021.procedural-plan.json"
+    },
+    {
+      "campaign_id": "C0022",
+      "campaign_name": "Operation Dream Job",
+      "status": "compiled",
+      "step_count": 55,
+      "content_sha256": "f96aa8a0493960daff4f2e88e50b6ba77b2f9ff56c14d74c9292fddfea755868",
+      "path": "C0022.procedural-plan.json"
+    },
+    {
+      "campaign_id": "C0023",
+      "campaign_name": "Operation Ghost",
+      "status": "compiled",
+      "step_count": 8,
+      "content_sha256": "4b0f0a4891c56e82fece55be6c92841c2774a235b9c8e4b7f8461141f03d78f4",
+      "path": "C0023.procedural-plan.json"
+    },
+    {
+      "campaign_id": "C0024",
+      "campaign_name": "SolarWinds Compromise",
+      "status": "compiled",
+      "step_count": 71,
+      "content_sha256": "9d37ed01c6cfeed769e0f46a3ae48ff71153d97d650e3c63e89acd80a34a5116",
+      "path": "C0024.procedural-plan.json"
+    },
+    {
+      "campaign_id": "C0025",
+      "campaign_name": "2016 Ukraine Electric Power Attack",
+      "status": "compiled",
+      "step_count": 21,
+      "content_sha256": "a0fc48f68f68fe19b996b2266d429366788f5f9c68c9f3cd59d511b80432a4bd",
+      "path": "C0025.procedural-plan.json"
+    },
+    {
+      "campaign_id": "C0026",
+      "campaign_name": "C0026",
+      "status": "compiled",
+      "step_count": 6,
+      "content_sha256": "32b6206f5273788e3383f82058bfa7ffaa5e34a6dd6459a79f082c160bbda8d8",
+      "path": "C0026.procedural-plan.json"
+    },
+    {
+      "campaign_id": "C0027",
+      "campaign_name": "C0027",
+      "status": "compiled",
+      "step_count": 28,
+      "content_sha256": "9eacc24b9a22ab1d82dfba927293bf1327046b1f11bcf88ba12ea119ec49e669",
+      "path": "C0027.procedural-plan.json"
+    },
+    {
+      "campaign_id": "C0028",
+      "campaign_name": "2015 Ukraine Electric Power Attack",
+      "status": "compiled",
+      "step_count": 17,
+      "content_sha256": "37ff38db96f98290378625a941c716ee93806e3503dbe4a3d8e91d788e8b9ed8",
+      "path": "C0028.procedural-plan.json"
+    },
+    {
+      "campaign_id": "C0029",
+      "campaign_name": "Cutting Edge",
+      "status": "compiled",
+      "step_count": 31,
+      "content_sha256": "c097b60d2001490e0fc3194181cecd0eb1ad8a43dc547c83ab0d0481209d7d4e",
+      "path": "C0029.procedural-plan.json"
+    },
+    {
+      "campaign_id": "C0030",
+      "campaign_name": "Triton Safety Instrumented System Attack",
+      "status": "compiled",
+      "step_count": 10,
+      "content_sha256": "37a626e777847f13705b350749ff91f79a2ab3ed68133c10ec9de41e94b57ad5",
+      "path": "C0030.procedural-plan.json"
+    },
+    {
+      "campaign_id": "C0032",
+      "campaign_name": "C0032",
+      "status": "compiled",
+      "step_count": 17,
+      "content_sha256": "01e92e6b114438dd74b3a6877ef15bb821744558265331eff052324ea94ba019",
+      "path": "C0032.procedural-plan.json"
+    },
+    {
+      "campaign_id": "C0033",
+      "status": "not_compiled",
+      "reason": "campaign C0033 has no active technique uses-links"
+    },
+    {
+      "campaign_id": "C0034",
+      "campaign_name": "2022 Ukraine Electric Power Attack",
+      "status": "compiled",
+      "step_count": 10,
+      "content_sha256": "78494ec866858b087e36679be70928f60c6c89d54c69ef935f22dc42c5ef75bc",
+      "path": "C0034.procedural-plan.json"
+    },
+    {
+      "campaign_id": "C0035",
+      "campaign_name": "KV Botnet Activity",
+      "status": "compiled",
+      "step_count": 20,
+      "content_sha256": "e1c0e95b4f0f8399decb27ac95f3c413e0c125ad762701225f939af5b0e35093",
+      "path": "C0035.procedural-plan.json"
+    },
+    {
+      "campaign_id": "C0036",
+      "campaign_name": "Pikabot Distribution February 2024",
+      "status": "compiled",
+      "step_count": 4,
+      "content_sha256": "5c4762f5c18d4abd2fc8ea5ce515ffed5f96d3ec9c532af9dec752ccac4c889a",
+      "path": "C0036.procedural-plan.json"
+    },
+    {
+      "campaign_id": "C0037",
+      "campaign_name": "Water Curupira Pikabot Distribution",
+      "status": "compiled",
+      "step_count": 10,
+      "content_sha256": "335fd2b213bb32c5ee236c0cccdabf59748871b853f967b35149af92dfef2bb5",
+      "path": "C0037.procedural-plan.json"
+    },
+    {
+      "campaign_id": "C0038",
+      "campaign_name": "HomeLand Justice",
+      "status": "compiled",
+      "step_count": 25,
+      "content_sha256": "217659a5ad81b754044c29de28d6d77fc7301d3d5c5c09decd8957aeb3962c36",
+      "path": "C0038.procedural-plan.json"
+    },
+    {
+      "campaign_id": "C0039",
+      "campaign_name": "Versa Director Zero Day Exploitation",
+      "status": "compiled",
+      "step_count": 8,
+      "content_sha256": "8eefc55a5aaa41b794ecf0fb3a9828fd2bc91e7ba9f3596bfdffe5680f6b0794",
+      "path": "C0039.procedural-plan.json"
+    },
+    {
+      "campaign_id": "C0040",
+      "campaign_name": "APT41 DUST",
+      "status": "compiled",
+      "step_count": 23,
+      "content_sha256": "7e4f4722eda7173db51da82093f3c89be1d103375d5b89d8d4cd15256de1d762",
+      "path": "C0040.procedural-plan.json"
+    },
+    {
+      "campaign_id": "C0041",
+      "campaign_name": "FrostyGoop Incident",
+      "status": "compiled",
+      "step_count": 5,
+      "content_sha256": "b7199fe54d1a514124316a6071333cf2c9763701841d0f3791c9d355b8e970b1",
+      "path": "C0041.procedural-plan.json"
+    },
+    {
+      "campaign_id": "C0042",
+      "campaign_name": "Outer Space",
+      "status": "compiled",
+      "step_count": 8,
+      "content_sha256": "46101fa011822e932329206527a222be68436a7dbe94d698a875751bc8632f69",
+      "path": "C0042.procedural-plan.json"
+    },
+    {
+      "campaign_id": "C0043",
+      "campaign_name": "Indian Critical Infrastructure Intrusions",
+      "status": "compiled",
+      "step_count": 8,
+      "content_sha256": "a7ef2e63324a3463944dcec0aafa38691fede9879d060d0991b24aad68ce521b",
+      "path": "C0043.procedural-plan.json"
+    },
+    {
+      "campaign_id": "C0044",
+      "campaign_name": "Juicy Mix",
+      "status": "compiled",
+      "step_count": 14,
+      "content_sha256": "0866b95932ceffdd268027e45fd35138b730058772cb4ad0a7bda9e5a0a525e0",
+      "path": "C0044.procedural-plan.json"
+    },
+    {
+      "campaign_id": "C0045",
+      "campaign_name": "ShadowRay",
+      "status": "compiled",
+      "step_count": 10,
+      "content_sha256": "c63c19ea8366bd75991e62c9a12faee48417afbe453a6abbefa3353b34ab6db1",
+      "path": "C0045.procedural-plan.json"
+    },
+    {
+      "campaign_id": "C0046",
+      "campaign_name": "ArcaneDoor",
+      "status": "compiled",
+      "step_count": 25,
+      "content_sha256": "4a55d453784c42fd0ea2938677597a1ea2b7eb5517a5739d4eb33a5fbee4fff2",
+      "path": "C0046.procedural-plan.json"
+    },
+    {
+      "campaign_id": "C0047",
+      "campaign_name": "RedDelta Modified PlugX Infection Chain Operations",
+      "status": "compiled",
+      "step_count": 22,
+      "content_sha256": "ec1610671860edc68e5017ec4bef74749c0f710ee9a0d8043e92b11de8685802",
+      "path": "C0047.procedural-plan.json"
+    },
+    {
+      "campaign_id": "C0048",
+      "campaign_name": "Operation MidnightEclipse",
+      "status": "compiled",
+      "step_count": 17,
+      "content_sha256": "08689d9458b5dd9c64527d83e557d1404d04631dbe9f341f7384b7a092abed04",
+      "path": "C0048.procedural-plan.json"
+    },
+    {
+      "campaign_id": "C0049",
+      "campaign_name": "Leviathan Australian Intrusions",
+      "status": "compiled",
+      "step_count": 26,
+      "content_sha256": "b41f5ef113ef74157f16746515f53f315facb6ceb257c7cf78485097453da306",
+      "path": "C0049.procedural-plan.json"
+    },
+    {
+      "campaign_id": "C0050",
+      "campaign_name": "J-magic Campaign",
+      "status": "compiled",
+      "step_count": 4,
+      "content_sha256": "7645db01478cdc2604a50932904f22750039049538ccd2b0710d42e5cea6d4fa",
+      "path": "C0050.procedural-plan.json"
+    },
+    {
+      "campaign_id": "C0051",
+      "campaign_name": "APT28 Nearest Neighbor Campaign",
+      "status": "compiled",
+      "step_count": 18,
+      "content_sha256": "cd8b8aa129f8dd0a8fcfcdb6c42922a1204d03b08b6c92f99a14e17bb719e598",
+      "path": "C0051.procedural-plan.json"
+    },
+    {
+      "campaign_id": "C0052",
+      "campaign_name": "SPACEHOP Activity",
+      "status": "compiled",
+      "step_count": 4,
+      "content_sha256": "a1531c1b00bde7a07c1e935ca43248bf070a15c8679b6980db8336cf5954fe12",
+      "path": "C0052.procedural-plan.json"
+    },
+    {
+      "campaign_id": "C0053",
+      "campaign_name": "FLORAHOX Activity",
+      "status": "compiled",
+      "step_count": 6,
+      "content_sha256": "7b68ec9e1d1813751fdba39d0988b574393ccbf62b46fbbf5b47f2cff923f97b",
+      "path": "C0053.procedural-plan.json"
+    },
+    {
+      "campaign_id": "C0055",
+      "campaign_name": "Quad7 Activity",
+      "status": "compiled",
+      "step_count": 15,
+      "content_sha256": "0a7faa1b850333debdae8a1bc5eed86ec6ee46db7736e393349aacc232916a90",
+      "path": "C0055.procedural-plan.json"
+    },
+    {
+      "campaign_id": "C0056",
+      "campaign_name": "RedPenguin",
+      "status": "compiled",
+      "step_count": 26,
+      "content_sha256": "75c3c36e75c7e327e0a6c31cced6ec3be40cf1c65dc097f69f1ed616e2683077",
+      "path": "C0056.procedural-plan.json"
+    },
+    {
+      "campaign_id": "C0057",
+      "campaign_name": "3CX Supply Chain Attack",
+      "status": "compiled",
+      "step_count": 22,
+      "content_sha256": "bab069f9dce34fac56b524222fc0691c2f5e4d6a8fa6f218ded8e4720a257d27",
+      "path": "C0057.procedural-plan.json"
+    },
+    {
+      "campaign_id": "C0058",
+      "campaign_name": "SharePoint ToolShell Exploitation",
+      "status": "compiled",
+      "step_count": 35,
+      "content_sha256": "71eb6a0ca6f4a76d453df6058e1e96f44940bbcf9b548659bdd4449100e9ab22",
+      "path": "C0058.procedural-plan.json"
+    },
+    {
+      "campaign_id": "C0059",
+      "campaign_name": "Salesforce Data Exfiltration",
+      "status": "compiled",
+      "step_count": 18,
+      "content_sha256": "ea436a20f01854f8bba30a770c139057f3e4bc173147382741a184fa5c688c66",
+      "path": "C0059.procedural-plan.json"
+    },
+    {
+      "campaign_id": "C0060",
+      "campaign_name": "Operation AkaiRy\u016b",
+      "status": "compiled",
+      "step_count": 26,
+      "content_sha256": "f74e38ef40021e7e0abec5b063e29ca833a338b3878cad34547e0aed91bd8d2a",
+      "path": "C0060.procedural-plan.json"
+    },
+    {
+      "campaign_id": "C0061",
+      "campaign_name": "Operation Digital Eye",
+      "status": "compiled",
+      "step_count": 22,
+      "content_sha256": "a31247c5c750c91e454ba62e98f20c1e39dd3dc097d1e209b633179cd3f0e670",
+      "path": "C0061.procedural-plan.json"
+    },
+    {
+      "campaign_id": "C0062",
+      "campaign_name": "Anthropic AI-orchestrated Campaign",
+      "status": "compiled",
+      "step_count": 26,
+      "content_sha256": "b8fa1261bc7b96f23de7daecab222fc44d85f5de7e046d11b05cba7687b07e04",
+      "path": "C0062.procedural-plan.json"
+    },
+    {
+      "campaign_id": "C0063",
+      "campaign_name": "2025 Poland Wiper Attacks",
+      "status": "compiled",
+      "step_count": 53,
+      "content_sha256": "3cf6432f62221067bd7f40139894eaff97c2fcb719626e2316fee8ce8f7737fa",
+      "path": "C0063.procedural-plan.json"
+    }
+  ]
+}

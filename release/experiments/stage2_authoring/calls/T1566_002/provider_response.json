@@ -1,0 +1,36 @@
+{
+  "id": "chatcmpl-EOK2rrtsyfZziwgcG12alqyfthlFL",
+  "object": "chat.completion",
+  "created": 1789465633,
+  "model": "gpt-4o-mini-2024-07-18",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"template_id\": \"spearphishing-link-laboratory-harness\",\n  \"technique_ids\": [\n    \"T1566.002\"\n  ],\n  \"execution_domain\": \"target\",\n  \"parameter_kinds\": {\n    \"malicious_link\": \"web_asset\",\n    \"email_source\": \"infrastructure_artifact\"\n  },\n  \"requires\": [\n    \"email client configured\",\n    \"network access available\"\n  ],\n  \"produces\": [\n    \"http_request_logged\",\n    \"web_asset_hash_recorded\"\n  ],\n  \"evidence_predicates\": [\n    \"http_request_logged\",\n    \"web_asset_hash_recorded\"\n  ],\n  \"fidelity_ceiling\": \"adapted\",\n  \"description\": \"This procedure simulates the sending of a spearphishing email containing a malicious link to observe the logging of HTTP requests and the recording of web asset hashes.\"\n}",
+        "refusal": null,
+        "annotations": []
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 827,
+    "completion_tokens": 186,
+    "total_tokens": 1013,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_c577bb8647"
+}

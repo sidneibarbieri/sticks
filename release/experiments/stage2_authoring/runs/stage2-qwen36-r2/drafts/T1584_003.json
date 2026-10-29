@@ -1,0 +1,35 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "qwen3.6:latest",
+    "provider": "openai",
+    "review_pending": true,
+    "run_id": "stage2-qwen36-r2",
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "Simulates the benign provisioning of a third-party virtual private server instance for laboratory infrastructure staging.",
+    "evidence_predicates": [
+      "service_request_logged",
+      "artifact_hash_recorded"
+    ],
+    "execution_domain": "attacker",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "compute_spec": "compute_workload",
+      "provider_endpoint": "endpoint"
+    },
+    "produces": [
+      "infrastructure_artifact",
+      "network_interface"
+    ],
+    "requires": [
+      "lab_scope_verified",
+      "credential_source"
+    ],
+    "technique_ids": [
+      "T1584.003"
+    ],
+    "template_id": "provision_vps_infrastructure"
+  }
+}

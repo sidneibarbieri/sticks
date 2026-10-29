@@ -1,0 +1,32 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure captures the network connection details of a target system to analyze its connectivity within a cloud environment.",
+    "evidence_predicates": [
+      "interface_snapshot_recorded",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "network_interface": "network_interface"
+    },
+    "produces": [
+      "network connection details"
+    ],
+    "requires": [
+      "access to the target system",
+      "network interface configuration"
+    ],
+    "technique_ids": [
+      "T1049"
+    ],
+    "template_id": "system-network-connections-discovery-laboratory-harness"
+  }
+}

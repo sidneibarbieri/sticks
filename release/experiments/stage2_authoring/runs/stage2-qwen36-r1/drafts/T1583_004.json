@@ -1,0 +1,36 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "qwen3.6:latest",
+    "provider": "openai",
+    "review_pending": true,
+    "run_id": "stage2-qwen36-r1",
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "Provisions a benign virtual server instance within the laboratory environment to simulate adversary infrastructure acquisition.",
+    "evidence_predicates": [
+      "lab_scope_verified",
+      "staging_path_recorded",
+      "interface_snapshot_recorded"
+    ],
+    "execution_domain": "attacker",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "network_config": "network_interface",
+      "server_spec": "infrastructure_artifact"
+    },
+    "produces": [
+      "staging_path_recorded",
+      "interface_snapshot_recorded"
+    ],
+    "requires": [
+      "lab_scope_verified",
+      "provisioning_context_established"
+    ],
+    "technique_ids": [
+      "T1583.004"
+    ],
+    "template_id": "provision_lab_server"
+  }
+}

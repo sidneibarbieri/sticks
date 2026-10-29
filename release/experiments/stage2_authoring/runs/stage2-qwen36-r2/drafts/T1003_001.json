@@ -1,0 +1,36 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "qwen3.6:latest",
+    "provider": "openai",
+    "review_pending": true,
+    "run_id": "stage2-qwen36-r2",
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure simulates a controlled LSASS memory dump using authorized diagnostic tools to verify credential extraction mechanisms without compromising actual secrets.",
+    "evidence_predicates": [
+      "artifact_hash_recorded",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "dump_target": "target_host",
+      "dump_tool": "archive_tool",
+      "privilege_level": "privilege_boundary"
+    },
+    "produces": [
+      "memory_dump_artifact_created",
+      "credential_material_extracted"
+    ],
+    "requires": [
+      "lsass_process_active",
+      "admin_privileges_established"
+    ],
+    "technique_ids": [
+      "T1003.001"
+    ],
+    "template_id": "lsass-memory-harness"
+  }
+}

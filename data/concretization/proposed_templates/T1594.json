@@ -1,0 +1,31 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure allows for the simulation of searching victim-owned websites to gather information for targeting.",
+    "evidence_predicates": [
+      "http_request_logged",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "web_asset": "web_asset"
+    },
+    "produces": [
+      "information gathered from victim-owned websites"
+    ],
+    "requires": [
+      "access to victim-owned websites"
+    ],
+    "technique_ids": [
+      "T1594"
+    ],
+    "template_id": "search-victim-owned-websites-laboratory-harness"
+  }
+}

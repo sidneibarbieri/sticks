@@ -1,0 +1,29 @@
+{
+  "claim_id": "STICKS-P17",
+  "status": "pending",
+  "paper_eligible": false,
+  "qualified_collection": null,
+  "latest_retained_collection": "prospective-qwen36-p17-v5-20261023",
+  "earlier_diagnostic_collection": "prospective-qwen36-p17-v4-20261023",
+  "proposal_cells": 375,
+  "execution_cells_planned": 15,
+  "execution_cells_eligible": 5,
+  "execution_cells_completed": 5,
+  "executed_campaigns": 1,
+  "execution_scope": "Five C0026 repetitions on one laboratory; five target-observed effects and one simulated step per repetition.",
+  "eligible_campaign_seeds": [
+    "C0026:1",
+    "C0026:2",
+    "C0026:3",
+    "C0026:4",
+    "C0026:5"
+  ],
+  "execution_cells_ineligible": 10,
+  "ineligible_reason": "C0010 and C0045 lack a complete admitted plan in every frozen seed; those cells remain in the denominator and cannot enter the execution arm.",
+  "additional_runtime_blockers": [
+    "C0010 frozen concretized plan and runtime contract differ at occurrences 1 through 8.",
+    "C0045 has a bounded compute-study contract, not a full-campaign runtime contract."
+  ],
+  "reason": "The v5 source lock, full terminal accounting and five C0026 execution receipts replay privately. This supports bounded descriptive reporting, not the historical P17 claim or operational superiority. The prior-work-style arm lacks its execution-feedback loop, only one campaign executes, and the public reviewer package remains unqualified.",
+  "evidence_availability": "Retained privately; this status record does not provide a downloadable evidence package."
+}

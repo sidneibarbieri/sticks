@@ -1,0 +1,36 @@
+{
+  "id": "chatcmpl-EOK3o6jq2zTuuAWSigNzxb7X3f9jE",
+  "object": "chat.completion",
+  "created": 1789465692,
+  "model": "gpt-4o-mini-2024-07-18",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"template_id\": \"data-encrypted-for-impact-laboratory-harness\",\n  \"technique_ids\": [\n    \"T1486\"\n  ],\n  \"execution_domain\": \"target\",\n  \"parameter_kinds\": {\n    \"target_host\": \"target_host\",\n    \"encryption_tool\": \"toolkit\"\n  },\n  \"requires\": [\n    \"target host is accessible\",\n    \"encryption tool is installed\"\n  ],\n  \"produces\": [\n    \"files are encrypted\"\n  ],\n  \"evidence_predicates\": [\n    \"file_count_recorded\",\n    \"archive_hash_recorded\"\n  ],\n  \"fidelity_ceiling\": \"adapted\",\n  \"description\": \"This procedure simulates the encryption of files on a target host to assess the impact of data encryption for availability.\"\n}",
+        "refusal": null,
+        "annotations": []
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 833,
+    "completion_tokens": 168,
+    "total_tokens": 1001,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_c577bb8647"
+}

@@ -1,0 +1,36 @@
+{
+  "id": "chatcmpl-EOK2Z90GyioNp6WtBWUnKWL1yh4LS",
+  "object": "chat.completion",
+  "created": 1789465615,
+  "model": "gpt-4o-mini-2024-07-18",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"template_id\": \"process-discovery-laboratory-harness\",\n  \"technique_ids\": [\"T1057\"],\n  \"execution_domain\": \"target\",\n  \"parameter_kinds\": {\n    \"target_host\": \"target_host\",\n    \"data_source\": \"data_source\"\n  },\n  \"requires\": [\n    \"administrator access\",\n    \"target host running Windows\"\n  ],\n  \"produces\": [\n    \"process list obtained\",\n    \"process details recorded\"\n  ],\n  \"evidence_predicates\": [\n    \"process_exit_recorded\",\n    \"fixture_access_logged\"\n  ],\n  \"fidelity_ceiling\": \"adapted\",\n  \"description\": \"This procedure captures the list of running processes on a Windows target host to analyze the software environment.\"\n}",
+        "refusal": null,
+        "annotations": []
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 814,
+    "completion_tokens": 160,
+    "total_tokens": 974,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_c577bb8647"
+}

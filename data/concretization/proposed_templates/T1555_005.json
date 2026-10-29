@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure outlines the steps to extract the master password from a password manager application.",
+    "evidence_predicates": [
+      "artifact_hash_recorded",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "master_password": "credential_source",
+      "password_manager": "target_host"
+    },
+    "produces": [
+      "master password extracted"
+    ],
+    "requires": [
+      "password_manager is accessible",
+      "user has provided the master password"
+    ],
+    "technique_ids": [
+      "T1555.005"
+    ],
+    "template_id": "extract-master-password-from-password-manager"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "id": "chatcmpl-EOgHJyAvcYViK33aLJndgqpey2fwO",
+  "object": "chat.completion",
+  "created": 1789551097,
+  "model": "gpt-4o-mini-2024-07-18",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"template_id\": \"modify-linux-mac-permissions\",\n  \"technique_ids\": [\"T1222.002\"],\n  \"execution_domain\": \"target\",\n  \"parameter_kinds\": {\n    \"target_host\": \"target_host\",\n    \"privilege_boundary\": \"privilege_boundary\"\n  },\n  \"requires\": [\n    \"user has permission to modify file attributes\",\n    \"target file or directory exists\"\n  ],\n  \"produces\": [\n    \"file permissions modified\"\n  ],\n  \"evidence_predicates\": [\n    \"file_count_recorded\",\n    \"bounded_effect_observed\"\n  ],\n  \"fidelity_ceiling\": \"adapted\",\n  \"description\": \"This procedure modifies the permissions of a specified file or directory on a Linux or Mac system.\"\n}",
+        "refusal": null,
+        "annotations": []
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 829,
+    "completion_tokens": 162,
+    "total_tokens": 991,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_c577bb8647"
+}

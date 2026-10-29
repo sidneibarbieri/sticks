@@ -1,0 +1,33 @@
+{
+  "schema_version": "c0010-controller-spec/v1",
+  "predicates": [
+    {
+      "predicate_id": "payload-staged",
+      "authority_id": "c0010-payload",
+      "product": "controller:payload_staged",
+      "occurrence": 2,
+      "files": [
+        {"path": "data/artifacts/staging/benign_payload.bin", "utf8": "#!/bin/sh\necho 'STICKS controlled payload artifact'\n"}
+      ]
+    },
+    {
+      "predicate_id": "watering-hole-staged",
+      "authority_id": "c0010-page",
+      "product": "controller:watering_hole_staged",
+      "occurrence": 3,
+      "files": [
+        {"path": "data/artifacts/0.c0010_watering_hole/index.html", "utf8": "<html><body><h1>Israeli Shipping Login</h1><script src=\"/exploit.js\"></script></body></html>\n"},
+        {"path": "data/artifacts/0.c0010_watering_hole/exploit.js", "utf8": "console.log('STICKS benign drive-by profile script');\n"}
+      ]
+    },
+    {
+      "predicate_id": "tool-staged",
+      "authority_id": "c0010-tool",
+      "product": "controller:tool_staged",
+      "occurrence": 7,
+      "files": [
+        {"path": "data/artifacts/staging/0.c0010_tool.sh", "utf8": "#!/bin/sh\necho 'STICKS benign staged tool'\n"}
+      ]
+    }
+  ]
+}

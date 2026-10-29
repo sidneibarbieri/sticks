@@ -1,0 +1,39 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "qwen3.6:latest",
+    "provider": "openai",
+    "review_pending": true,
+    "run_id": "stage2-qwen36-r2",
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This benign laboratory harness configures a simulated event trigger to execute a harmless script, validating that the target system correctly registers and fires scheduled execution mechanisms.",
+    "evidence_predicates": [
+      "service_request_logged",
+      "fixture_access_logged",
+      "process_exit_recorded"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "exec_script": "capability_specification",
+      "target_system": "target_host",
+      "trigger_event": "data_source"
+    },
+    "produces": [
+      "scheduled_task_registered",
+      "event_monitor_active",
+      "execution_log_created"
+    ],
+    "requires": [
+      "target_host_available",
+      "trigger_event_defined",
+      "exec_script_staged"
+    ],
+    "technique_ids": [
+      "T1546"
+    ],
+    "template_id": "event-triggered-execution-harness"
+  }
+}

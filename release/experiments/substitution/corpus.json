@@ -1,0 +1,563 @@
+{
+  "total_campaigns": 55,
+  "total_steps": 1146,
+  "determined": 223,
+  "evidence_equivalent": 29,
+  "evidence_divergent": 0,
+  "unsupported": 894,
+  "catalog_supported_steps": 252,
+  "catalog_coverage_rate": 0.2198952879581152,
+  "evidence_divergence_rate_over_supported": 0.0,
+  "campaigns": [
+    {
+      "campaign_id": "C0001",
+      "total_steps": 27,
+      "determined": 5,
+      "evidence_equivalent": 1,
+      "evidence_divergent": 0,
+      "unsupported": 21,
+      "multiplicity_rate": 0.037037037037037035,
+      "evidence_divergence_rate": 0.0
+    },
+    {
+      "campaign_id": "C0002",
+      "total_steps": 29,
+      "determined": 7,
+      "evidence_equivalent": 1,
+      "evidence_divergent": 0,
+      "unsupported": 21,
+      "multiplicity_rate": 0.034482758620689655,
+      "evidence_divergence_rate": 0.0
+    },
+    {
+      "campaign_id": "C0004",
+      "total_steps": 10,
+      "determined": 4,
+      "evidence_equivalent": 1,
+      "evidence_divergent": 0,
+      "unsupported": 5,
+      "multiplicity_rate": 0.1,
+      "evidence_divergence_rate": 0.0
+    },
+    {
+      "campaign_id": "C0005",
+      "total_steps": 17,
+      "determined": 5,
+      "evidence_equivalent": 0,
+      "evidence_divergent": 0,
+      "unsupported": 12,
+      "multiplicity_rate": 0.0,
+      "evidence_divergence_rate": 0.0
+    },
+    {
+      "campaign_id": "C0006",
+      "total_steps": 28,
+      "determined": 6,
+      "evidence_equivalent": 1,
+      "evidence_divergent": 0,
+      "unsupported": 21,
+      "multiplicity_rate": 0.03571428571428571,
+      "evidence_divergence_rate": 0.0
+    },
+    {
+      "campaign_id": "C0007",
+      "total_steps": 14,
+      "determined": 4,
+      "evidence_equivalent": 1,
+      "evidence_divergent": 0,
+      "unsupported": 9,
+      "multiplicity_rate": 0.07142857142857142,
+      "evidence_divergence_rate": 0.0
+    },
+    {
+      "campaign_id": "C0010",
+      "total_steps": 9,
+      "determined": 8,
+      "evidence_equivalent": 1,
+      "evidence_divergent": 0,
+      "unsupported": 0,
+      "multiplicity_rate": 0.1111111111111111,
+      "evidence_divergence_rate": 0.0
+    },
+    {
+      "campaign_id": "C0011",
+      "total_steps": 8,
+      "determined": 2,
+      "evidence_equivalent": 0,
+      "evidence_divergent": 0,
+      "unsupported": 6,
+      "multiplicity_rate": 0.0,
+      "evidence_divergence_rate": 0.0
+    },
+    {
+      "campaign_id": "C0012",
+      "total_steps": 33,
+      "determined": 6,
+      "evidence_equivalent": 0,
+      "evidence_divergent": 0,
+      "unsupported": 27,
+      "multiplicity_rate": 0.0,
+      "evidence_divergence_rate": 0.0
+    },
+    {
+      "campaign_id": "C0013",
+      "total_steps": 13,
+      "determined": 2,
+      "evidence_equivalent": 1,
+      "evidence_divergent": 0,
+      "unsupported": 10,
+      "multiplicity_rate": 0.07692307692307693,
+      "evidence_divergence_rate": 0.0
+    },
+    {
+      "campaign_id": "C0014",
+      "total_steps": 70,
+      "determined": 11,
+      "evidence_equivalent": 1,
+      "evidence_divergent": 0,
+      "unsupported": 58,
+      "multiplicity_rate": 0.014285714285714285,
+      "evidence_divergence_rate": 0.0
+    },
+    {
+      "campaign_id": "C0015",
+      "total_steps": 34,
+      "determined": 6,
+      "evidence_equivalent": 1,
+      "evidence_divergent": 0,
+      "unsupported": 27,
+      "multiplicity_rate": 0.029411764705882353,
+      "evidence_divergence_rate": 0.0
+    },
+    {
+      "campaign_id": "C0016",
+      "total_steps": 17,
+      "determined": 4,
+      "evidence_equivalent": 0,
+      "evidence_divergent": 0,
+      "unsupported": 13,
+      "multiplicity_rate": 0.0,
+      "evidence_divergence_rate": 0.0
+    },
+    {
+      "campaign_id": "C0017",
+      "total_steps": 29,
+      "determined": 6,
+      "evidence_equivalent": 1,
+      "evidence_divergent": 0,
+      "unsupported": 22,
+      "multiplicity_rate": 0.034482758620689655,
+      "evidence_divergence_rate": 0.0
+    },
+    {
+      "campaign_id": "C0018",
+      "total_steps": 19,
+      "determined": 4,
+      "evidence_equivalent": 1,
+      "evidence_divergent": 0,
+      "unsupported": 14,
+      "multiplicity_rate": 0.05263157894736842,
+      "evidence_divergence_rate": 0.0
+    },
+    {
+      "campaign_id": "C0021",
+      "total_steps": 15,
+      "determined": 5,
+      "evidence_equivalent": 1,
+      "evidence_divergent": 0,
+      "unsupported": 9,
+      "multiplicity_rate": 0.06666666666666667,
+      "evidence_divergence_rate": 0.0
+    },
+    {
+      "campaign_id": "C0022",
+      "total_steps": 55,
+      "determined": 12,
+      "evidence_equivalent": 1,
+      "evidence_divergent": 0,
+      "unsupported": 42,
+      "multiplicity_rate": 0.01818181818181818,
+      "evidence_divergence_rate": 0.0
+    },
+    {
+      "campaign_id": "C0023",
+      "total_steps": 8,
+      "determined": 2,
+      "evidence_equivalent": 0,
+      "evidence_divergent": 0,
+      "unsupported": 6,
+      "multiplicity_rate": 0.0,
+      "evidence_divergence_rate": 0.0
+    },
+    {
+      "campaign_id": "C0024",
+      "total_steps": 71,
+      "determined": 9,
+      "evidence_equivalent": 1,
+      "evidence_divergent": 0,
+      "unsupported": 61,
+      "multiplicity_rate": 0.014084507042253521,
+      "evidence_divergence_rate": 0.0
+    },
+    {
+      "campaign_id": "C0025",
+      "total_steps": 21,
+      "determined": 0,
+      "evidence_equivalent": 0,
+      "evidence_divergent": 0,
+      "unsupported": 21,
+      "multiplicity_rate": 0.0,
+      "evidence_divergence_rate": 0.0
+    },
+    {
+      "campaign_id": "C0026",
+      "total_steps": 6,
+      "determined": 5,
+      "evidence_equivalent": 1,
+      "evidence_divergent": 0,
+      "unsupported": 0,
+      "multiplicity_rate": 0.16666666666666666,
+      "evidence_divergence_rate": 0.0
+    },
+    {
+      "campaign_id": "C0027",
+      "total_steps": 28,
+      "determined": 2,
+      "evidence_equivalent": 1,
+      "evidence_divergent": 0,
+      "unsupported": 25,
+      "multiplicity_rate": 0.03571428571428571,
+      "evidence_divergence_rate": 0.0
+    },
+    {
+      "campaign_id": "C0028",
+      "total_steps": 17,
+      "determined": 2,
+      "evidence_equivalent": 1,
+      "evidence_divergent": 0,
+      "unsupported": 14,
+      "multiplicity_rate": 0.058823529411764705,
+      "evidence_divergence_rate": 0.0
+    },
+    {
+      "campaign_id": "C0029",
+      "total_steps": 31,
+      "determined": 7,
+      "evidence_equivalent": 1,
+      "evidence_divergent": 0,
+      "unsupported": 23,
+      "multiplicity_rate": 0.03225806451612903,
+      "evidence_divergence_rate": 0.0
+    },
+    {
+      "campaign_id": "C0030",
+      "total_steps": 10,
+      "determined": 2,
+      "evidence_equivalent": 0,
+      "evidence_divergent": 0,
+      "unsupported": 8,
+      "multiplicity_rate": 0.0,
+      "evidence_divergence_rate": 0.0
+    },
+    {
+      "campaign_id": "C0032",
+      "total_steps": 17,
+      "determined": 3,
+      "evidence_equivalent": 0,
+      "evidence_divergent": 0,
+      "unsupported": 14,
+      "multiplicity_rate": 0.0,
+      "evidence_divergence_rate": 0.0
+    },
+    {
+      "campaign_id": "C0034",
+      "total_steps": 10,
+      "determined": 0,
+      "evidence_equivalent": 0,
+      "evidence_divergent": 0,
+      "unsupported": 10,
+      "multiplicity_rate": 0.0,
+      "evidence_divergence_rate": 0.0
+    },
+    {
+      "campaign_id": "C0035",
+      "total_steps": 20,
+      "determined": 2,
+      "evidence_equivalent": 1,
+      "evidence_divergent": 0,
+      "unsupported": 17,
+      "multiplicity_rate": 0.05,
+      "evidence_divergence_rate": 0.0
+    },
+    {
+      "campaign_id": "C0036",
+      "total_steps": 4,
+      "determined": 0,
+      "evidence_equivalent": 0,
+      "evidence_divergent": 0,
+      "unsupported": 4,
+      "multiplicity_rate": 0.0,
+      "evidence_divergence_rate": 0.0
+    },
+    {
+      "campaign_id": "C0037",
+      "total_steps": 10,
+      "determined": 0,
+      "evidence_equivalent": 1,
+      "evidence_divergent": 0,
+      "unsupported": 9,
+      "multiplicity_rate": 0.1,
+      "evidence_divergence_rate": 0.0
+    },
+    {
+      "campaign_id": "C0038",
+      "total_steps": 25,
+      "determined": 2,
+      "evidence_equivalent": 1,
+      "evidence_divergent": 0,
+      "unsupported": 22,
+      "multiplicity_rate": 0.04,
+      "evidence_divergence_rate": 0.0
+    },
+    {
+      "campaign_id": "C0039",
+      "total_steps": 8,
+      "determined": 3,
+      "evidence_equivalent": 0,
+      "evidence_divergent": 0,
+      "unsupported": 5,
+      "multiplicity_rate": 0.0,
+      "evidence_divergence_rate": 0.0
+    },
+    {
+      "campaign_id": "C0040",
+      "total_steps": 23,
+      "determined": 7,
+      "evidence_equivalent": 1,
+      "evidence_divergent": 0,
+      "unsupported": 15,
+      "multiplicity_rate": 0.043478260869565216,
+      "evidence_divergence_rate": 0.0
+    },
+    {
+      "campaign_id": "C0041",
+      "total_steps": 5,
+      "determined": 1,
+      "evidence_equivalent": 0,
+      "evidence_divergent": 0,
+      "unsupported": 4,
+      "multiplicity_rate": 0.0,
+      "evidence_divergence_rate": 0.0
+    },
+    {
+      "campaign_id": "C0042",
+      "total_steps": 8,
+      "determined": 3,
+      "evidence_equivalent": 1,
+      "evidence_divergent": 0,
+      "unsupported": 4,
+      "multiplicity_rate": 0.125,
+      "evidence_divergence_rate": 0.0
+    },
+    {
+      "campaign_id": "C0043",
+      "total_steps": 8,
+      "determined": 3,
+      "evidence_equivalent": 0,
+      "evidence_divergent": 0,
+      "unsupported": 5,
+      "multiplicity_rate": 0.0,
+      "evidence_divergence_rate": 0.0
+    },
+    {
+      "campaign_id": "C0044",
+      "total_steps": 14,
+      "determined": 3,
+      "evidence_equivalent": 0,
+      "evidence_divergent": 0,
+      "unsupported": 11,
+      "multiplicity_rate": 0.0,
+      "evidence_divergence_rate": 0.0
+    },
+    {
+      "campaign_id": "C0045",
+      "total_steps": 10,
+      "determined": 9,
+      "evidence_equivalent": 1,
+      "evidence_divergent": 0,
+      "unsupported": 0,
+      "multiplicity_rate": 0.1,
+      "evidence_divergence_rate": 0.0
+    },
+    {
+      "campaign_id": "C0046",
+      "total_steps": 25,
+      "determined": 5,
+      "evidence_equivalent": 0,
+      "evidence_divergent": 0,
+      "unsupported": 20,
+      "multiplicity_rate": 0.0,
+      "evidence_divergence_rate": 0.0
+    },
+    {
+      "campaign_id": "C0047",
+      "total_steps": 22,
+      "determined": 4,
+      "evidence_equivalent": 0,
+      "evidence_divergent": 0,
+      "unsupported": 18,
+      "multiplicity_rate": 0.0,
+      "evidence_divergence_rate": 0.0
+    },
+    {
+      "campaign_id": "C0048",
+      "total_steps": 17,
+      "determined": 5,
+      "evidence_equivalent": 1,
+      "evidence_divergent": 0,
+      "unsupported": 11,
+      "multiplicity_rate": 0.058823529411764705,
+      "evidence_divergence_rate": 0.0
+    },
+    {
+      "campaign_id": "C0049",
+      "total_steps": 26,
+      "determined": 3,
+      "evidence_equivalent": 0,
+      "evidence_divergent": 0,
+      "unsupported": 23,
+      "multiplicity_rate": 0.0,
+      "evidence_divergence_rate": 0.0
+    },
+    {
+      "campaign_id": "C0050",
+      "total_steps": 4,
+      "determined": 0,
+      "evidence_equivalent": 0,
+      "evidence_divergent": 0,
+      "unsupported": 4,
+      "multiplicity_rate": 0.0,
+      "evidence_divergence_rate": 0.0
+    },
+    {
+      "campaign_id": "C0051",
+      "total_steps": 18,
+      "determined": 2,
+      "evidence_equivalent": 0,
+      "evidence_divergent": 0,
+      "unsupported": 16,
+      "multiplicity_rate": 0.0,
+      "evidence_divergence_rate": 0.0
+    },
+    {
+      "campaign_id": "C0052",
+      "total_steps": 4,
+      "determined": 2,
+      "evidence_equivalent": 0,
+      "evidence_divergent": 0,
+      "unsupported": 2,
+      "multiplicity_rate": 0.0,
+      "evidence_divergence_rate": 0.0
+    },
+    {
+      "campaign_id": "C0053",
+      "total_steps": 6,
+      "determined": 1,
+      "evidence_equivalent": 0,
+      "evidence_divergent": 0,
+      "unsupported": 5,
+      "multiplicity_rate": 0.0,
+      "evidence_divergence_rate": 0.0
+    },
+    {
+      "campaign_id": "C0055",
+      "total_steps": 15,
+      "determined": 2,
+      "evidence_equivalent": 1,
+      "evidence_divergent": 0,
+      "unsupported": 12,
+      "multiplicity_rate": 0.06666666666666667,
+      "evidence_divergence_rate": 0.0
+    },
+    {
+      "campaign_id": "C0056",
+      "total_steps": 26,
+      "determined": 4,
+      "evidence_equivalent": 1,
+      "evidence_divergent": 0,
+      "unsupported": 21,
+      "multiplicity_rate": 0.038461538461538464,
+      "evidence_divergence_rate": 0.0
+    },
+    {
+      "campaign_id": "C0057",
+      "total_steps": 22,
+      "determined": 3,
+      "evidence_equivalent": 0,
+      "evidence_divergent": 0,
+      "unsupported": 19,
+      "multiplicity_rate": 0.0,
+      "evidence_divergence_rate": 0.0
+    },
+    {
+      "campaign_id": "C0058",
+      "total_steps": 35,
+      "determined": 7,
+      "evidence_equivalent": 1,
+      "evidence_divergent": 0,
+      "unsupported": 27,
+      "multiplicity_rate": 0.02857142857142857,
+      "evidence_divergence_rate": 0.0
+    },
+    {
+      "campaign_id": "C0059",
+      "total_steps": 18,
+      "determined": 3,
+      "evidence_equivalent": 0,
+      "evidence_divergent": 0,
+      "unsupported": 15,
+      "multiplicity_rate": 0.0,
+      "evidence_divergence_rate": 0.0
+    },
+    {
+      "campaign_id": "C0060",
+      "total_steps": 26,
+      "determined": 4,
+      "evidence_equivalent": 0,
+      "evidence_divergent": 0,
+      "unsupported": 22,
+      "multiplicity_rate": 0.0,
+      "evidence_divergence_rate": 0.0
+    },
+    {
+      "campaign_id": "C0061",
+      "total_steps": 22,
+      "determined": 3,
+      "evidence_equivalent": 0,
+      "evidence_divergent": 0,
+      "unsupported": 19,
+      "multiplicity_rate": 0.0,
+      "evidence_divergence_rate": 0.0
+    },
+    {
+      "campaign_id": "C0062",
+      "total_steps": 26,
+      "determined": 6,
+      "evidence_equivalent": 0,
+      "evidence_divergent": 0,
+      "unsupported": 20,
+      "multiplicity_rate": 0.0,
+      "evidence_divergence_rate": 0.0
+    },
+    {
+      "campaign_id": "C0063",
+      "total_steps": 53,
+      "determined": 7,
+      "evidence_equivalent": 1,
+      "evidence_divergent": 0,
+      "unsupported": 45,
+      "multiplicity_rate": 0.018867924528301886,
+      "evidence_divergence_rate": 0.0
+    }
+  ]
+}

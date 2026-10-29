@@ -1,0 +1,13 @@
+{
+  "campaign_id": "C0010",
+  "arm_id": "sticks_admitted",
+  "seed": 1,
+  "step_id": "s7",
+  "emitted": true,
+  "abstained": false,
+  "oracle_admitted": true,
+  "template_id": "stage-lab-web-target",
+  "proposal_sha256": "7f1bc208913585d5660ff29375b7e7b3b8cf58bf145e58c0104143382529c90c",
+  "issue_codes": [],
+  "parse_error": null
+}

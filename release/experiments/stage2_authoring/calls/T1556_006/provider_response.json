@@ -1,0 +1,36 @@
+{
+  "id": "chatcmpl-EOgI5W49I7b2eTkp8HPnK1PPpRAsf",
+  "object": "chat.completion",
+  "created": 1789551145,
+  "model": "gpt-4o-mini-2024-07-18",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"template_id\": \"disable-mfa-mechanism-laboratory-harness\",\n  \"technique_ids\": [\n    \"T1556.006\"\n  ],\n  \"execution_domain\": \"target\",\n  \"parameter_kinds\": {\n    \"target_host\": \"target_host\",\n    \"credential_source\": \"credential_source\"\n  },\n  \"requires\": [\n    \"access to a compromised account\",\n    \"administrative privileges\"\n  ],\n  \"produces\": [\n    \"multi-factor authentication disabled\"\n  ],\n  \"evidence_predicates\": [\n    \"bounded_effect_observed\",\n    \"fixture_access_logged\"\n  ],\n  \"fidelity_ceiling\": \"adapted\",\n  \"description\": \"This procedure outlines the steps to disable multi-factor authentication mechanisms in a controlled laboratory environment.\"\n}",
+        "refusal": null,
+        "annotations": []
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 819,
+    "completion_tokens": 164,
+    "total_tokens": 983,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_ffcc7ece91"
+}

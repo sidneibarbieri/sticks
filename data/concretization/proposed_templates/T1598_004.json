@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure simulates a benign spearphishing voice interaction to elicit sensitive information from a target.",
+    "evidence_predicates": [
+      "http_request_logged",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "target_identity": "credential_source",
+      "voice_channel": "channel"
+    },
+    "produces": [
+      "sensitive information elicited"
+    ],
+    "requires": [
+      "target identity established",
+      "voice communication setup"
+    ],
+    "technique_ids": [
+      "T1598.004"
+    ],
+    "template_id": "spearphishing-voice-laboratory-harness"
+  }
+}

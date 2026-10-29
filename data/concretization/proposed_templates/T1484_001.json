@@ -1,0 +1,34 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure modifies a Group Policy Object to simulate the effects of GPO manipulation in a controlled environment.",
+    "evidence_predicates": [
+      "fixture_access_logged",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "gpo_path": "chunk_policy",
+      "modification_type": "capability_specification"
+    },
+    "produces": [
+      "GPO modification logged",
+      "GPO settings updated"
+    ],
+    "requires": [
+      "access to the domain controller",
+      "permissions to modify GPOs"
+    ],
+    "technique_ids": [
+      "T1484.001"
+    ],
+    "template_id": "group-policy-modification-laboratory-harness"
+  }
+}

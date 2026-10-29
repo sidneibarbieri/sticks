@@ -1,0 +1,36 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "qwen3.6:latest",
+    "provider": "openai",
+    "review_pending": true,
+    "run_id": "stage2-qwen36-r1",
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "A benign laboratory harness that simulates the establishment of a coordinated botnet network by provisioning isolated endpoints and registering them to a controlled command-and-control channel.",
+    "evidence_predicates": [
+      "service_request_logged",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "bot_endpoints": "endpoint",
+      "c2_channel": "channel",
+      "implant_payload": "payload"
+    },
+    "produces": [
+      "infrastructure_artifact",
+      "endpoint"
+    ],
+    "requires": [
+      "actor_host",
+      "target_host"
+    ],
+    "technique_ids": [
+      "T1584.005"
+    ],
+    "template_id": "simulate-botnet-formation"
+  }
+}

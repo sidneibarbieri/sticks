@@ -1,0 +1,162 @@
+{
+  "schema_version": "1",
+  "compiler_version": "1",
+  "campaign_id": "C0053",
+  "campaign_name": "FLORAHOX Activity",
+  "source": {
+    "bundle_sha256": "dc1639caa5501d720e280cf1cbd8fbe009884a0c9b3e6e9ed9d0c25166c3d8f4",
+    "object_count": 26086,
+    "campaign_stix_id": "campaign--f494272a-c110-4574-be90-42c4957f7ae7",
+    "campaign_external_id": "C0053"
+  },
+  "ordering_policy": "tactic_rank_then_technique_id",
+  "steps": [
+    {
+      "technique_id": "T1583.003",
+      "technique_stix_id": "attack-pattern--79da0971-3147-4af6-a4f5-e8cd447cd795",
+      "name": "Virtual Private Server",
+      "execution_domain": "attacker",
+      "tactics": [
+        "resource-development"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--1bb1fe87-de75-4030-9b9c-691671412be1"
+      ],
+      "procedure_descriptions": [
+        "[FLORAHOX Activity](https://attack.mitre.org/campaigns/C0053) has used acquired Virtual Private Servers as control systems for the ORB network.(Citation: ORB Mandiant)"
+      ]
+    },
+    {
+      "technique_id": "T1584.008",
+      "technique_stix_id": "attack-pattern--149b477f-f364-4824-b1b5-aa1d56115869",
+      "name": "Network Devices",
+      "execution_domain": "attacker",
+      "tactics": [
+        "resource-development"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--04885879-10a9-4d12-b9f5-08bfae9da800"
+      ],
+      "procedure_descriptions": [
+        "[FLORAHOX Activity](https://attack.mitre.org/campaigns/C0053) has compromised network routers and IoT devices for the ORB network.(Citation: ORB Mandiant)"
+      ]
+    },
+    {
+      "technique_id": "T1190",
+      "technique_stix_id": "attack-pattern--3f886f2a-874f-4333-b794-aa6075009b1c",
+      "name": "Exploit Public-Facing Application",
+      "execution_domain": "boundary",
+      "tactics": [
+        "initial-access"
+      ],
+      "platforms": [
+        "Containers",
+        "ESXi",
+        "IaaS",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--b1eac432-b174-49c1-a8bf-93cedcc7d407"
+      ],
+      "procedure_descriptions": [
+        "[FLORAHOX Activity](https://attack.mitre.org/campaigns/C0053) has exploited and infected vulnerable routers to recruit additional network devices into the ORB.(Citation: ORB Mandiant)"
+      ]
+    },
+    {
+      "technique_id": "T1059",
+      "technique_stix_id": "attack-pattern--7385dfaf-6886-4229-9ecd-6fd678040830",
+      "name": "Command and Scripting Interpreter",
+      "execution_domain": "target",
+      "tactics": [
+        "execution"
+      ],
+      "platforms": [
+        "Containers",
+        "ESXi",
+        "IaaS",
+        "Identity Provider",
+        "Linux",
+        "Network Devices",
+        "Office Suite",
+        "SaaS",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--828cc716-d3ea-49e8-80a8-67d471a62017"
+      ],
+      "procedure_descriptions": [
+        "[FLORAHOX Activity](https://attack.mitre.org/campaigns/C0053) has executed PHP and Shell scripts to identify and infect subsequent routers for the ORB network.(Citation: ORB Mandiant)"
+      ]
+    },
+    {
+      "technique_id": "T1059.004",
+      "technique_stix_id": "attack-pattern--a9d4b653-6915-42af-98b2-5758c4ceee56",
+      "name": "Unix Shell",
+      "execution_domain": "target",
+      "tactics": [
+        "execution"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--4d99ce05-a9d1-4359-b0e0-8c3126ca7e29"
+      ],
+      "procedure_descriptions": [
+        "[FLORAHOX Activity](https://attack.mitre.org/campaigns/C0053) has executed multiple Bash controller scripts to provide command line inputs for FLORAHOX traversal configurations.(Citation: ORB Mandiant)"
+      ]
+    },
+    {
+      "technique_id": "T1090.003",
+      "technique_stix_id": "attack-pattern--a782ebe2-daba-42c7-bc82-e8e9d923162d",
+      "name": "Multi-hop Proxy",
+      "execution_domain": "boundary",
+      "tactics": [
+        "command-and-control"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--6b3adc08-6687-4b92-a0bd-b12f6eecbf2b"
+      ],
+      "procedure_descriptions": [
+        "[FLORAHOX Activity](https://attack.mitre.org/campaigns/C0053) has routed traffic through a customized [Tor](https://attack.mitre.org/software/S0183) relay network layer.(Citation: ORB Mandiant)"
+      ]
+    }
+  ],
+  "limitations": [
+    "ATT&CK uses-links do not encode a historical total order; the compiler applies a declared tactic-rank policy.",
+    "Technique metadata constrains procedures but does not uniquely determine an executable target environment."
+  ],
+  "content_sha256": "7b68ec9e1d1813751fdba39d0988b574393ccbf62b46fbbf5b47f2cff923f97b"
+}

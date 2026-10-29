@@ -1,0 +1,36 @@
+{
+  "id": "chatcmpl-EOgHi6VJ9UOsxCs8YVysbysOByXiJ",
+  "object": "chat.completion",
+  "created": 1789551122,
+  "model": "gpt-4o-mini-2024-07-18",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"template_id\": \"create-systemd-service\",\n  \"technique_ids\": [\"T1543.002\"],\n  \"execution_domain\": \"target\",\n  \"parameter_kinds\": {\n    \"service_file\": \"shell_config_artifact\",\n    \"payload\": \"payload\"\n  },\n  \"requires\": [\n    \"systemd installed\",\n    \"user has permission to create services\"\n  ],\n  \"produces\": [\n    \"systemd service created\"\n  ],\n  \"evidence_predicates\": [\n    \"service_request_logged\",\n    \"bounded_effect_observed\"\n  ],\n  \"fidelity_ceiling\": \"adapted\",\n  \"description\": \"This procedure outlines the steps to create a systemd service that executes a specified payload.\"\n}",
+        "refusal": null,
+        "annotations": []
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 820,
+    "completion_tokens": 154,
+    "total_tokens": 974,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_ffcc7ece91"
+}

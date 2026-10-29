@@ -1,0 +1,34 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure demonstrates the execution of a payload via the Windows service control manager in a controlled laboratory environment.",
+    "evidence_predicates": [
+      "service_request_logged",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "payload": "payload",
+      "target_host": "target_host"
+    },
+    "produces": [
+      "service request logged",
+      "payload execution confirmed"
+    ],
+    "requires": [
+      "target host is accessible",
+      "payload is prepared"
+    ],
+    "technique_ids": [
+      "T1569.002"
+    ],
+    "template_id": "service-execution-laboratory-harness"
+  }
+}

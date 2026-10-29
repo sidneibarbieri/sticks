@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure gathers information about the network topology of the target environment.",
+    "evidence_predicates": [
+      "interface_snapshot_recorded",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "network_interface": "network_interface",
+      "target_host": "target_host"
+    },
+    "produces": [
+      "network topology information collected"
+    ],
+    "requires": [
+      "network_interface is available",
+      "target_host is reachable"
+    ],
+    "technique_ids": [
+      "T1590.004"
+    ],
+    "template_id": "gather-network-topology-information"
+  }
+}

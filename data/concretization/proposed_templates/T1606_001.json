@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure outlines the steps to forge web cookies for testing web application security.",
+    "evidence_predicates": [
+      "http_request_logged",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "cookie_data": "payload",
+      "web_application": "web_asset"
+    },
+    "produces": [
+      "forged web cookie created"
+    ],
+    "requires": [
+      "web application is accessible",
+      "valid cookie structure defined"
+    ],
+    "technique_ids": [
+      "T1606.001"
+    ],
+    "template_id": "forge-web-cookies-laboratory-harness"
+  }
+}

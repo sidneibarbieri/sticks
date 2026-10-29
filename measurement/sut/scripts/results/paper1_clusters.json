@@ -1,0 +1,224 @@
+{
+  "n_campaigns": 52,
+  "k": 7,
+  "silhouette_score": 0.1218,
+  "cluster_sizes": {
+    "1": 45,
+    "3": 1,
+    "5": 1,
+    "2": 1,
+    "4": 1,
+    "6": 2,
+    "0": 1
+  },
+  "campaign_clusters": [
+    {
+      "campaign": "C0027",
+      "cluster": 1
+    },
+    {
+      "campaign": "Operation Wocao",
+      "cluster": 3
+    },
+    {
+      "campaign": "APT41 DUST",
+      "cluster": 1
+    },
+    {
+      "campaign": "FunnyDream",
+      "cluster": 1
+    },
+    {
+      "campaign": "ArcaneDoor",
+      "cluster": 1
+    },
+    {
+      "campaign": "SolarWinds Compromise",
+      "cluster": 5
+    },
+    {
+      "campaign": "C0010",
+      "cluster": 1
+    },
+    {
+      "campaign": "Operation CuckooBees",
+      "cluster": 1
+    },
+    {
+      "campaign": "Juicy Mix",
+      "cluster": 1
+    },
+    {
+      "campaign": "CostaRicto",
+      "cluster": 1
+    },
+    {
+      "campaign": "Operation Honeybee",
+      "cluster": 1
+    },
+    {
+      "campaign": "2016 Ukraine Electric Power Attack",
+      "cluster": 1
+    },
+    {
+      "campaign": "RedDelta Modified PlugX Infection Chain Operations",
+      "cluster": 1
+    },
+    {
+      "campaign": "2015 Ukraine Electric Power Attack",
+      "cluster": 1
+    },
+    {
+      "campaign": "C0018",
+      "cluster": 1
+    },
+    {
+      "campaign": "Operation Dust Storm",
+      "cluster": 1
+    },
+    {
+      "campaign": "Operation Dream Job",
+      "cluster": 2
+    },
+    {
+      "campaign": "FLORAHOX Activity",
+      "cluster": 1
+    },
+    {
+      "campaign": "C0015",
+      "cluster": 4
+    },
+    {
+      "campaign": "RedPenguin",
+      "cluster": 1
+    },
+    {
+      "campaign": "Versa Director Zero Day Exploitation",
+      "cluster": 1
+    },
+    {
+      "campaign": "C0021",
+      "cluster": 1
+    },
+    {
+      "campaign": "Frankenstein",
+      "cluster": 1
+    },
+    {
+      "campaign": "Outer Space",
+      "cluster": 1
+    },
+    {
+      "campaign": "APT28 Nearest Neighbor Campaign",
+      "cluster": 1
+    },
+    {
+      "campaign": "Night Dragon",
+      "cluster": 1
+    },
+    {
+      "campaign": "Operation Ghost",
+      "cluster": 1
+    },
+    {
+      "campaign": "Indian Critical Infrastructure Intrusions",
+      "cluster": 1
+    },
+    {
+      "campaign": "Leviathan Australian Intrusions",
+      "cluster": 1
+    },
+    {
+      "campaign": "Water Curupira Pikabot Distribution",
+      "cluster": 1
+    },
+    {
+      "campaign": "ShadowRay",
+      "cluster": 1
+    },
+    {
+      "campaign": "Operation MidnightEclipse",
+      "cluster": 1
+    },
+    {
+      "campaign": "C0032",
+      "cluster": 1
+    },
+    {
+      "campaign": "Quad7 Activity",
+      "cluster": 1
+    },
+    {
+      "campaign": "HomeLand Justice",
+      "cluster": 6
+    },
+    {
+      "campaign": "Salesforce Data Exfiltration",
+      "cluster": 1
+    },
+    {
+      "campaign": "SharePoint ToolShell Exploitation",
+      "cluster": 6
+    },
+    {
+      "campaign": "C0017",
+      "cluster": 0
+    },
+    {
+      "campaign": "Operation Spalax",
+      "cluster": 1
+    },
+    {
+      "campaign": "Operation Sharpshooter",
+      "cluster": 1
+    },
+    {
+      "campaign": "Cutting Edge",
+      "cluster": 1
+    },
+    {
+      "campaign": "2022 Ukraine Electric Power Attack",
+      "cluster": 1
+    },
+    {
+      "campaign": "3CX Supply Chain Attack",
+      "cluster": 1
+    },
+    {
+      "campaign": "C0011",
+      "cluster": 1
+    },
+    {
+      "campaign": "J-magic Campaign",
+      "cluster": 1
+    },
+    {
+      "campaign": "Triton Safety Instrumented System Attack",
+      "cluster": 1
+    },
+    {
+      "campaign": "FrostyGoop Incident",
+      "cluster": 1
+    },
+    {
+      "campaign": "KV Botnet Activity",
+      "cluster": 1
+    },
+    {
+      "campaign": "C0026",
+      "cluster": 1
+    },
+    {
+      "campaign": "SPACEHOP Activity",
+      "cluster": 1
+    },
+    {
+      "campaign": "Pikabot Distribution February 2024",
+      "cluster": 1
+    },
+    {
+      "campaign": "C0033",
+      "cluster": 1
+    }
+  ]
+}

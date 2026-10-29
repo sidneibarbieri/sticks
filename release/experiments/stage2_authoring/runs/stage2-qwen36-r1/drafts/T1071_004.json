@@ -1,0 +1,38 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "qwen3.6:latest",
+    "provider": "openai",
+    "review_pending": true,
+    "run_id": "stage2-qwen36-r1",
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This laboratory harness simulates benign DNS protocol interactions to validate network monitoring capabilities without generating malicious traffic.",
+    "evidence_predicates": [
+      "resolver_query_logged",
+      "bytes_transferred_recorded",
+      "no_external_compromise"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "dns_server": "endpoint",
+      "query_payload": "payload",
+      "resolver_host": "actor_host"
+    },
+    "produces": [
+      "dns_query_log_recorded",
+      "encoded_payload_transmitted",
+      "response_bytes_collected"
+    ],
+    "requires": [
+      "target_dns_resolver_available",
+      "network_interface_configured"
+    ],
+    "technique_ids": [
+      "T1071.004"
+    ],
+    "template_id": "benign-dns-protocol-harness"
+  }
+}

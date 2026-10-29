@@ -1,0 +1,63 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# Target Linux 1 Vagrantfile
+# Ubuntu 22.04 ARM64 with deliberate weaknesses
+
+Vagrant.configure("2") do |config|
+  require_relative "../shared/qemu_ssh_port"
+  strict_prepared = ENV.fetch("STICKS_STRICT_PREPARED", "0") == "1"
+  config.vm.synced_folder ".", "/vagrant", disabled: true if strict_prepared
+  config.ssh.insert_key = false if strict_prepared
+  ssh_port = SticksQemuSshPort.for(2203)
+  config.vm.box = strict_prepared ? ENV.fetch("STICKS_STRICT_BOX_TARGET") : "perk/ubuntu-2204-arm64"
+  config.vm.box_version = strict_prepared ? ENV.fetch("STICKS_STRICT_BOX_VERSION_TARGET") : "20250702"
+
+  config.vm.hostname = "target-linux-1"
+  config.vm.define "target1"
+
+  # Network
+  config.vm.network "private_network", ip: "192.168.56.30"
+  config.vm.network "forwarded_port", guest: 22, host: ssh_port,
+    host_ip: "127.0.0.1", id: "ssh", auto_correct: false, disabled: true
+
+  # Provider settings
+  # Provider settings - libvirt for ARM64
+  config.vm.provider "libvirt" do |libvirt|
+    libvirt.memory = "1024"
+    libvirt.cpus = 1
+    libvirt.machine_arch = "aarch64"
+    libvirt.machine_type = "virt"
+    libvirt.cpu_mode = "custom"
+    libvirt.cpu_model = "cortex-a72"
+    libvirt.nic_model_type = "virtio"
+    libvirt.driver = "qemu"
+    libvirt.uri = "qemu:///session"
+  end
+
+  config.vm.provider "qemu" do |qemu|
+    require_relative "../shared/qemu_network_yaml"
+    SticksQemuNetworkYaml.install!
+    qemu.memory = "1024"
+    qemu.cpus = 1
+    qemu.arch = "aarch64"
+    qemu.ssh_port = ssh_port
+    qemu.ssh_auto_correct = false
+    qemu.advanced_network = true
+    qemu.net_mode = :socket_vmnet
+    qemu.socket_vmnet_socket = ENV.fetch("STICKS_SOCKET_VMNET_SOCKET", "/opt/homebrew/var/run/socket_vmnet")
+  end
+
+  config.vm.provider "virtualbox" do |vb|
+    vb.memory = "1024"
+    vb.cpus = 1
+    vb.name = "sticks-target-linux-1"
+  end
+
+  unless strict_prepared
+    config.vm.provision "file", source: "../shared/apt_guard.sh", destination: "/tmp/apt_guard.sh"
+    config.vm.provision "shell", path: "../shared/base.sh"
+    config.vm.provision "shell", path: "../shared/target.sh"
+    config.vm.provision "shell", path: "../shared/prepare_strict_ssh.sh"
+  end
+end

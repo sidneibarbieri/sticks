@@ -1,0 +1,36 @@
+{
+  "id": "chatcmpl-EOK89M0g9YD1lT7TdwJCobwAtmGHl",
+  "object": "chat.completion",
+  "created": 1789465961,
+  "model": "gpt-4o-mini-2024-07-18",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"template_id\": \"regsvr32-execution-proxy\",\n  \"technique_ids\": [\"T1218.010\"],\n  \"execution_domain\": \"target\",\n  \"parameter_kinds\": {\n    \"payload\": \"payload\",\n    \"target_host\": \"target_host\"\n  },\n  \"requires\": [\n    \"Regsvr32.exe is available on the system\",\n    \"The payload is a valid DLL\"\n  ],\n  \"produces\": [\n    \"The payload is executed via Regsvr32.exe\"\n  ],\n  \"evidence_predicates\": [\n    \"process_exit_recorded\",\n    \"bounded_effect_observed\"\n  ],\n  \"fidelity_ceiling\": \"adapted\",\n  \"description\": \"This procedure demonstrates the benign use of Regsvr32.exe to execute a payload while monitoring the execution state.\"\n}",
+        "refusal": null,
+        "annotations": []
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 843,
+    "completion_tokens": 175,
+    "total_tokens": 1018,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_c577bb8647"
+}

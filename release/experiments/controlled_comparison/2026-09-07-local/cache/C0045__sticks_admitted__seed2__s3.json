@@ -1,0 +1,13 @@
+{
+  "campaign_id": "C0045",
+  "arm_id": "sticks_admitted",
+  "seed": 2,
+  "step_id": "s3",
+  "emitted": true,
+  "abstained": false,
+  "oracle_admitted": true,
+  "template_id": "run-benign-python",
+  "proposal_sha256": "ce7288a70bbe43b261dcf7ab20801c8ca3e50c8cf02105c2095ce47eb573918f",
+  "issue_codes": [],
+  "parse_error": null
+}

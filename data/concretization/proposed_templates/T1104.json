@@ -1,0 +1,35 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure simulates the establishment of multi-stage command and control channels for testing detection capabilities.",
+    "evidence_predicates": [
+      "http_request_logged",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "command_channel": "channel",
+      "first_stage": "payload",
+      "second_stage": "payload"
+    },
+    "produces": [
+      "first stage command channel established",
+      "second stage command channel ready"
+    ],
+    "requires": [
+      "first stage payload deployed",
+      "second stage payload ready"
+    ],
+    "technique_ids": [
+      "T1104"
+    ],
+    "template_id": "multi-stage-channels-laboratory-harness"
+  }
+}

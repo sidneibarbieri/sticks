@@ -1,0 +1,35 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "qwen3.6:latest",
+    "provider": "openai",
+    "review_pending": true,
+    "run_id": "stage2-qwen36-r1",
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure benignly modifies Windows host firewall profiles and rules to verify network access control adjustments within a controlled laboratory environment.",
+    "evidence_predicates": [
+      "bounded_effect_observed",
+      "interface_snapshot_recorded"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "host_addr": "target_host",
+      "rule_spec": "capability_specification"
+    },
+    "produces": [
+      "modified_rule_manifest",
+      "network_access_policy"
+    ],
+    "requires": [
+      "admin_privilege_boundary",
+      "current_firewall_state"
+    ],
+    "technique_ids": [
+      "T1686.003"
+    ],
+    "template_id": "modify-windows-host-firewall"
+  }
+}

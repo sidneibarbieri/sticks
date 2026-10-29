@@ -1,0 +1,40 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "qwen3.6:latest",
+    "provider": "openai",
+    "review_pending": true,
+    "run_id": "stage2-qwen36-r2",
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "A benign laboratory harness that simulates standard FTP file transfer operations to validate network monitoring and protocol parsing capabilities without executing malicious payloads.",
+    "evidence_predicates": [
+      "bytes_transferred_recorded",
+      "destination_hash_recorded",
+      "service_request_logged"
+    ],
+    "execution_domain": "boundary",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "dest_host": "target_host",
+      "protocol_config": "channel",
+      "source_host": "actor_host",
+      "transfer_payload": "payload"
+    },
+    "produces": [
+      "transfer_bytes_recorded",
+      "destination_file_hash",
+      "protocol_session_id"
+    ],
+    "requires": [
+      "source_host_ip",
+      "dest_host_ip",
+      "payload_content"
+    ],
+    "technique_ids": [
+      "T1071.002"
+    ],
+    "template_id": "ftp-file-transfer-harness"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure sets up an external proxy to facilitate network communications to a command and control server.",
+    "evidence_predicates": [
+      "http_request_logged",
+      "bytes_transferred_recorded",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "proxy_tool": "toolkit",
+      "target_server": "web_asset"
+    },
+    "produces": [
+      "http_request_logged",
+      "bytes_transferred_recorded"
+    ],
+    "requires": [
+      "proxy_tool is configured",
+      "target_server is reachable"
+    ],
+    "technique_ids": [
+      "T1090.002"
+    ],
+    "template_id": "external-proxy-communication-setup"
+  }
+}

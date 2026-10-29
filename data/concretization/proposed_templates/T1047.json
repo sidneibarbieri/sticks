@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure template outlines the execution of a WMI command on a target host in a controlled laboratory environment.",
+    "evidence_predicates": [
+      "bounded_effect_observed",
+      "process_exit_recorded"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "payload": "payload",
+      "target_host": "target_host"
+    },
+    "produces": [
+      "WMI command executed successfully"
+    ],
+    "requires": [
+      "WMI service is running",
+      "Access to target host"
+    ],
+    "technique_ids": [
+      "T1047"
+    ],
+    "template_id": "wmi-execution-laboratory-harness"
+  }
+}

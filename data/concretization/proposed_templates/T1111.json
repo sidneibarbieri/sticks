@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure captures the password entered for a smart card using a keylogger during normal usage.",
+    "evidence_predicates": [
+      "fixture_access_logged",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "keylogger": "toolkit",
+      "smart_card": "credential_source"
+    },
+    "produces": [
+      "keylogger captures password"
+    ],
+    "requires": [
+      "smart card in use",
+      "user input of password"
+    ],
+    "technique_ids": [
+      "T1111"
+    ],
+    "template_id": "mfa-interception-keylogger"
+  }
+}

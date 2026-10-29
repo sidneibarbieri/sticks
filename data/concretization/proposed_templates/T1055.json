@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure demonstrates the process injection technique by executing a benign payload within a specified target process.",
+    "evidence_predicates": [
+      "process_exit_recorded",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "payload": "payload",
+      "target_host": "target_host"
+    },
+    "produces": [
+      "injected code is executed in target process"
+    ],
+    "requires": [
+      "target process is running",
+      "payload is prepared"
+    ],
+    "technique_ids": [
+      "T1055"
+    ],
+    "template_id": "process-injection-laboratory-harness"
+  }
+}

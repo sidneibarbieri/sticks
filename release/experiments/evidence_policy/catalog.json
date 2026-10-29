@@ -1,0 +1,14 @@
+{
+  "effect_certified_count": 28,
+  "liveness_only_templates": [],
+  "question": "Does every catalog template declare evidence that observes a state it produces, rather than only a safety boundary or the fact that a command ran?",
+  "registered_predicate_count": 40,
+  "role_counts": {
+    "effect": 26,
+    "liveness": 1,
+    "safety": 13
+  },
+  "safety_only_templates": [],
+  "template_count": 28,
+  "unregistered_predicates": []
+}

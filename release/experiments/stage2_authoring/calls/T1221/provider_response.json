@@ -1,0 +1,36 @@
+{
+  "id": "chatcmpl-EOK8GJo7v16MZMFCMPoEBwChnDYIP",
+  "object": "chat.completion",
+  "created": 1789465968,
+  "model": "gpt-4o-mini-2024-07-18",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"template_id\": \"template-injection-laboratory-harness\",\n  \"technique_ids\": [\"T1221\"],\n  \"execution_domain\": \"target\",\n  \"parameter_kinds\": {\n    \"document\": \"archive_artifact\",\n    \"template\": \"archive_artifact\"\n  },\n  \"requires\": [\n    \"user document template exists\",\n    \"malicious code is defined\"\n  ],\n  \"produces\": [\n    \"modified document template with references\"\n  ],\n  \"evidence_predicates\": [\n    \"archive_hash_recorded\",\n    \"bounded_effect_observed\"\n  ],\n  \"fidelity_ceiling\": \"adapted\",\n  \"description\": \"This procedure modifies a user document template to include references that may conceal malicious code.\"\n}",
+        "refusal": null,
+        "annotations": []
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 823,
+    "completion_tokens": 157,
+    "total_tokens": 980,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_c577bb8647"
+}

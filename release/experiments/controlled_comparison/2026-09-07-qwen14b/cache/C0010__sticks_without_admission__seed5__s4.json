@@ -1,0 +1,13 @@
+{
+  "campaign_id": "C0010",
+  "arm_id": "sticks_without_admission",
+  "seed": 5,
+  "step_id": "s4",
+  "emitted": true,
+  "abstained": false,
+  "oracle_admitted": true,
+  "template_id": "stage-benign-toolkit",
+  "proposal_sha256": "a8cc6223d6c768f08f09dfb2eaeb881faf055077e27ec9da6a5866867bb688cd",
+  "issue_codes": [],
+  "parse_error": null
+}

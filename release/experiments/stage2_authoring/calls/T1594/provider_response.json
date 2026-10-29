@@ -1,0 +1,36 @@
+{
+  "id": "chatcmpl-EOK65R2s8kmZwMGPRwYW0rtTOhUOt",
+  "object": "chat.completion",
+  "created": 1789465833,
+  "model": "gpt-4o-mini-2024-07-18",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"template_id\": \"search-victim-owned-websites-laboratory-harness\",\n  \"technique_ids\": [\"T1594\"],\n  \"execution_domain\": \"target\",\n  \"parameter_kinds\": {\n    \"web_asset\": \"web_asset\"\n  },\n  \"requires\": [\n    \"access to victim-owned websites\"\n  ],\n  \"produces\": [\n    \"information gathered from victim-owned websites\"\n  ],\n  \"evidence_predicates\": [\n    \"http_request_logged\",\n    \"bounded_effect_observed\"\n  ],\n  \"fidelity_ceiling\": \"adapted\",\n  \"description\": \"This procedure allows for the simulation of searching victim-owned websites to gather information for targeting.\"\n}",
+        "refusal": null,
+        "annotations": []
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 824,
+    "completion_tokens": 145,
+    "total_tokens": 969,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_c577bb8647"
+}

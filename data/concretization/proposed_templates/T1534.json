@@ -1,0 +1,35 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure simulates an internal spearphishing attempt to evaluate the response of users within a controlled environment.",
+    "evidence_predicates": [
+      "http_request_logged",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "channel": "channel",
+      "payload": "payload",
+      "target_host": "target_host"
+    },
+    "produces": [
+      "internal phishing attempt logged",
+      "target user interaction recorded"
+    ],
+    "requires": [
+      "user account is compromised",
+      "malicious payload is prepared"
+    ],
+    "technique_ids": [
+      "T1534"
+    ],
+    "template_id": "internal-spearphishing-laboratory-harness"
+  }
+}

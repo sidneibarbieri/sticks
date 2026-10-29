@@ -1,0 +1,193 @@
+{
+  "schema_version": "1",
+  "compiler_version": "1",
+  "campaign_id": "C0011",
+  "campaign_name": "C0011",
+  "source": {
+    "bundle_sha256": "dc1639caa5501d720e280cf1cbd8fbe009884a0c9b3e6e9ed9d0c25166c3d8f4",
+    "object_count": 26086,
+    "campaign_stix_id": "campaign--b4e5a4a9-f3be-4631-ba8f-da6ebb067fac",
+    "campaign_external_id": "C0011"
+  },
+  "ordering_policy": "tactic_rank_then_technique_id",
+  "steps": [
+    {
+      "technique_id": "T1583.001",
+      "technique_stix_id": "attack-pattern--40f5caa0-4cb7-4117-89fc-d421bb493df3",
+      "name": "Domains",
+      "execution_domain": "attacker",
+      "tactics": [
+        "resource-development"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--bb52c6a4-4602-4284-8128-cdf296e9a620"
+      ],
+      "procedure_descriptions": [
+        "For [C0011](https://attack.mitre.org/campaigns/C0011), [Transparent Tribe](https://attack.mitre.org/groups/G0134) registered domains likely designed to appear relevant to student targets in India.(Citation: Cisco Talos Transparent Tribe Education Campaign July 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1587.003",
+      "technique_stix_id": "attack-pattern--1cec9319-743b-4840-bb65-431547bce82a",
+      "name": "Digital Certificates",
+      "execution_domain": "attacker",
+      "tactics": [
+        "resource-development"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--f0883623-a612-4e9e-ad46-cfb0964248f0"
+      ],
+      "procedure_descriptions": [
+        "For [C0011](https://attack.mitre.org/campaigns/C0011), [Transparent Tribe](https://attack.mitre.org/groups/G0134) established SSL certificates on the typo-squatted domains the group registered.(Citation: Cisco Talos Transparent Tribe Education Campaign July 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1608.001",
+      "technique_stix_id": "attack-pattern--3ee16395-03f0-4690-a32e-69ce9ada0f9e",
+      "name": "Upload Malware",
+      "execution_domain": "attacker",
+      "tactics": [
+        "resource-development"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--1a28bcb2-fbac-4bc3-a42c-a254b3e9643e"
+      ],
+      "procedure_descriptions": [
+        "For [C0011](https://attack.mitre.org/campaigns/C0011), [Transparent Tribe](https://attack.mitre.org/groups/G0134) hosted malicious documents on domains registered by the group.(Citation: Cisco Talos Transparent Tribe Education Campaign July 2022) "
+      ]
+    },
+    {
+      "technique_id": "T1566.001",
+      "technique_stix_id": "attack-pattern--2e34237d-8574-43f6-aace-ae2915de8597",
+      "name": "Spearphishing Attachment",
+      "execution_domain": "boundary",
+      "tactics": [
+        "initial-access"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--844a2a38-68aa-45ed-8fa8-4854500cb63d"
+      ],
+      "procedure_descriptions": [
+        "During [C0011](https://attack.mitre.org/campaigns/C0011), [Transparent Tribe](https://attack.mitre.org/groups/G0134) sent malicious attachments via email to student targets in India.(Citation: Cisco Talos Transparent Tribe Education Campaign July 2022) "
+      ]
+    },
+    {
+      "technique_id": "T1566.002",
+      "technique_stix_id": "attack-pattern--2b742742-28c3-4e1b-bab7-8350d6300fa7",
+      "name": "Spearphishing Link",
+      "execution_domain": "boundary",
+      "tactics": [
+        "initial-access"
+      ],
+      "platforms": [
+        "Identity Provider",
+        "Linux",
+        "Office Suite",
+        "SaaS",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--74953cb2-4d72-487b-959b-57602ce28d07"
+      ],
+      "procedure_descriptions": [
+        "During [C0011](https://attack.mitre.org/campaigns/C0011), [Transparent Tribe](https://attack.mitre.org/groups/G0134) sent emails containing a malicious link to student targets in India.(Citation: Cisco Talos Transparent Tribe Education Campaign July 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1059.005",
+      "technique_stix_id": "attack-pattern--dfd7cc1d-e1d8-4394-a198-97c4cab8aa67",
+      "name": "Visual Basic",
+      "execution_domain": "target",
+      "tactics": [
+        "execution"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--b0e23cdb-b676-4cad-b814-589734dfcb43"
+      ],
+      "procedure_descriptions": [
+        "For [C0011](https://attack.mitre.org/campaigns/C0011), [Transparent Tribe](https://attack.mitre.org/groups/G0134) used malicious VBA macros within a lure document as part of the [Crimson](https://attack.mitre.org/software/S0115) malware installation process onto a compromised host.(Citation: Cisco Talos Transparent Tribe Education Campaign July 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1204.001",
+      "technique_stix_id": "attack-pattern--ef67e13e-5598-4adc-bdb2-998225874fa9",
+      "name": "Malicious Link",
+      "execution_domain": "target",
+      "tactics": [
+        "execution"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--7bda4cc5-09d8-4e0e-87af-f33cdb7a63d1"
+      ],
+      "procedure_descriptions": [
+        "During [C0011](https://attack.mitre.org/campaigns/C0011), [Transparent Tribe](https://attack.mitre.org/groups/G0134) relied on student targets to click on a malicious link sent via email.(Citation: Cisco Talos Transparent Tribe Education Campaign July 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1204.002",
+      "technique_stix_id": "attack-pattern--232b7f21-adf9-4b42-b936-b9d6f7df856e",
+      "name": "Malicious File",
+      "execution_domain": "target",
+      "tactics": [
+        "execution"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--7f08eca5-83e2-4d12-9c65-69691fbed054"
+      ],
+      "procedure_descriptions": [
+        "During [C0011](https://attack.mitre.org/campaigns/C0011), [Transparent Tribe](https://attack.mitre.org/groups/G0134) relied on a student target to open a malicious document delivered via email.(Citation: Cisco Talos Transparent Tribe Education Campaign July 2022)"
+      ]
+    }
+  ],
+  "limitations": [
+    "ATT&CK uses-links do not encode a historical total order; the compiler applies a declared tactic-rank policy.",
+    "Technique metadata constrains procedures but does not uniquely determine an executable target environment."
+  ],
+  "content_sha256": "1ccba488f440d1e31591d3bbd90679b93635867aaff71183d47b4250c89b35ac"
+}

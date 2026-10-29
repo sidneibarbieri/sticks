@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure gathers and records information about domain trust relationships in a controlled laboratory environment.",
+    "evidence_predicates": [
+      "collection_manifest_recorded",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "data_source": "data_source",
+      "target_host": "target_host"
+    },
+    "produces": [
+      "domain trust relationships identified"
+    ],
+    "requires": [
+      "target_host is accessible",
+      "data_source contains domain trust information"
+    ],
+    "technique_ids": [
+      "T1482"
+    ],
+    "template_id": "domain-trust-discovery-laboratory-harness"
+  }
+}

@@ -1,0 +1,177 @@
+{
+  "experiment_id": "2026-09-07-qwen14b",
+  "observations": 375,
+  "campaigns": [
+    "C0010",
+    "C0026",
+    "C0045"
+  ],
+  "overall": [
+    {
+      "arm": "prior_work_style",
+      "steps": 125,
+      "emitted": 125,
+      "valid": 99,
+      "abstained": 0,
+      "validity_rate": 0.792,
+      "abstention_rate": 0.0,
+      "mean_distinct_templates_per_step": 1.08
+    },
+    {
+      "arm": "sticks_without_admission",
+      "steps": 125,
+      "emitted": 125,
+      "valid": 91,
+      "abstained": 0,
+      "validity_rate": 0.728,
+      "abstention_rate": 0.0,
+      "mean_distinct_templates_per_step": 1.16
+    },
+    {
+      "arm": "sticks_admitted",
+      "steps": 125,
+      "emitted": 91,
+      "valid": 91,
+      "abstained": 34,
+      "validity_rate": 1.0,
+      "abstention_rate": 0.272,
+      "mean_distinct_templates_per_step": 1.0
+    }
+  ],
+  "per_campaign": {
+    "C0010": [
+      {
+        "arm": "prior_work_style",
+        "steps": 45,
+        "emitted": 45,
+        "valid": 40,
+        "abstained": 0,
+        "validity_rate": 0.8888888888888888,
+        "abstention_rate": 0.0,
+        "mean_distinct_templates_per_step": 1.0
+      },
+      {
+        "arm": "sticks_without_admission",
+        "steps": 45,
+        "emitted": 45,
+        "valid": 40,
+        "abstained": 0,
+        "validity_rate": 0.8888888888888888,
+        "abstention_rate": 0.0,
+        "mean_distinct_templates_per_step": 1.3333333333333333
+      },
+      {
+        "arm": "sticks_admitted",
+        "steps": 45,
+        "emitted": 40,
+        "valid": 40,
+        "abstained": 5,
+        "validity_rate": 1.0,
+        "abstention_rate": 0.1111111111111111,
+        "mean_distinct_templates_per_step": 1.0
+      }
+    ],
+    "C0026": [
+      {
+        "arm": "prior_work_style",
+        "steps": 30,
+        "emitted": 30,
+        "valid": 10,
+        "abstained": 0,
+        "validity_rate": 0.3333333333333333,
+        "abstention_rate": 0.0,
+        "mean_distinct_templates_per_step": 1.3333333333333333
+      },
+      {
+        "arm": "sticks_without_admission",
+        "steps": 30,
+        "emitted": 30,
+        "valid": 9,
+        "abstained": 0,
+        "validity_rate": 0.3,
+        "abstention_rate": 0.0,
+        "mean_distinct_templates_per_step": 1.0
+      },
+      {
+        "arm": "sticks_admitted",
+        "steps": 30,
+        "emitted": 9,
+        "valid": 9,
+        "abstained": 21,
+        "validity_rate": 1.0,
+        "abstention_rate": 0.7,
+        "mean_distinct_templates_per_step": 1.0
+      }
+    ],
+    "C0045": [
+      {
+        "arm": "prior_work_style",
+        "steps": 50,
+        "emitted": 50,
+        "valid": 49,
+        "abstained": 0,
+        "validity_rate": 0.98,
+        "abstention_rate": 0.0,
+        "mean_distinct_templates_per_step": 1.0
+      },
+      {
+        "arm": "sticks_without_admission",
+        "steps": 50,
+        "emitted": 50,
+        "valid": 42,
+        "abstained": 0,
+        "validity_rate": 0.84,
+        "abstention_rate": 0.0,
+        "mean_distinct_templates_per_step": 1.1
+      },
+      {
+        "arm": "sticks_admitted",
+        "steps": 50,
+        "emitted": 42,
+        "valid": 42,
+        "abstained": 8,
+        "validity_rate": 1.0,
+        "abstention_rate": 0.16,
+        "mean_distinct_templates_per_step": 1.0
+      }
+    ]
+  },
+  "validity_gap_vs_admitted": {
+    "prior_work_style": {
+      "mean_gap": 0.20793199999999998,
+      "ci_low": 0.06399999999999995,
+      "ci_high": 0.376,
+      "resamples": 2000
+    },
+    "sticks_without_admission": {
+      "mean_gap": 0.27113600000000004,
+      "ci_low": 0.128,
+      "ci_high": 0.44799999999999995,
+      "resamples": 2000
+    }
+  },
+  "failure_profile": {
+    "prior_work_invalid_by_technique": {
+      "T1005": 5,
+      "T1105": 11,
+      "T1560.001": 5,
+      "T1568": 5
+    },
+    "admitted_abstained_by_technique": {
+      "T1005": 5,
+      "T1030": 1,
+      "T1059.006": 1,
+      "T1105": 13,
+      "T1546.004": 3,
+      "T1560.001": 5,
+      "T1568": 5,
+      "T1608.004": 1
+    }
+  },
+  "abstention_profile": {
+    "abstentions": 34,
+    "justified_no_admissible_realization": 20,
+    "recoverable_proposer_miss": 14,
+    "justified_share": 0.5882352941176471
+  }
+}

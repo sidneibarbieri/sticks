@@ -1,0 +1,58 @@
+{
+  "campaign_id": "C0026",
+  "model": "gpt-oss:20b",
+  "sample": 2,
+  "temperature": 0.7,
+  "proposals": [
+    {
+      "technique_id": "T1583.001",
+      "template_id": "record-controlled-domain",
+      "bindings": {
+        "actor": "actor.primary",
+        "manifest": "infrastructure.lab_manifest"
+      }
+    },
+    {
+      "technique_id": "T1005",
+      "template_id": "collect-declared-data-fixture",
+      "bindings": {
+        "data_source": "data.synthetic_fixture",
+        "target": "target.primary"
+      }
+    },
+    {
+      "technique_id": "T1560.001",
+      "template_id": "archive-declared-collection",
+      "bindings": {
+        "archive_tool": "archive_tool.local",
+        "target": "target.primary"
+      }
+    },
+    {
+      "technique_id": "T1105",
+      "template_id": "transfer-benign-payload",
+      "bindings": {
+        "channel": "channel.private_http",
+        "payload": "payload.benign",
+        "target": "target.primary"
+      }
+    },
+    {
+      "technique_id": "T1568",
+      "template_id": "resolve-lab-domain",
+      "bindings": {
+        "domain": "infrastructure.lab_manifest",
+        "target": "target.primary"
+      }
+    },
+    {
+      "technique_id": "T1030",
+      "template_id": "split-declared-archive",
+      "bindings": {
+        "archive": "archive.synthetic_collection",
+        "chunk_policy": "chunk_policy.bounded_local"
+      }
+    }
+  ],
+  "malformed_proposals": 0
+}

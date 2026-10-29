@@ -1,0 +1,36 @@
+{
+  "id": "chatcmpl-EOgESwL7Rkd2yzePr9tCx1nWnM3mu",
+  "object": "chat.completion",
+  "created": 1789550920,
+  "model": "gpt-4o-mini-2024-07-18",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"template_id\": \"create-cloud-accounts-laboratory-harness\",\n  \"technique_ids\": [\n    \"T1585.003\"\n  ],\n  \"execution_domain\": \"target\",\n  \"parameter_kinds\": {\n    \"cloud_provider\": \"web_asset\",\n    \"account_credentials\": \"credential_source\"\n  },\n  \"requires\": [\n    \"cloud provider access\",\n    \"valid user credentials\"\n  ],\n  \"produces\": [\n    \"cloud account created\",\n    \"account usage logged\"\n  ],\n  \"evidence_predicates\": [\n    \"http_request_logged\",\n    \"bounded_effect_observed\"\n  ],\n  \"fidelity_ceiling\": \"adapted\",\n  \"description\": \"This procedure outlines the steps to create cloud accounts for benign laboratory purposes.\"\n}",
+        "refusal": null,
+        "annotations": []
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 849,
+    "completion_tokens": 162,
+    "total_tokens": 1011,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_c577bb8647"
+}

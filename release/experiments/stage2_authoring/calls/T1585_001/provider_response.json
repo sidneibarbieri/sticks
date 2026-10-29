@@ -1,0 +1,36 @@
+{
+  "id": "chatcmpl-EOgERT59SS8G0hXPqEFkq6yS1PIe2",
+  "object": "chat.completion",
+  "created": 1789550919,
+  "model": "gpt-4o-mini-2024-07-18",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"template_id\": \"create-social-media-accounts\",\n  \"technique_ids\": [\n    \"T1585.001\"\n  ],\n  \"execution_domain\": \"target\",\n  \"parameter_kinds\": {\n    \"social_media_account\": \"web_asset\"\n  },\n  \"requires\": [\n    \"access to social media platform\",\n    \"internet connectivity\"\n  ],\n  \"produces\": [\n    \"social media account created\"\n  ],\n  \"evidence_predicates\": [\n    \"http_request_logged\",\n    \"bounded_effect_observed\"\n  ],\n  \"fidelity_ceiling\": \"adapted\",\n  \"description\": \"This procedure outlines the steps to create and manage social media accounts for persona development in a controlled laboratory environment.\"\n}",
+        "refusal": null,
+        "annotations": []
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 821,
+    "completion_tokens": 153,
+    "total_tokens": 974,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_aae9cb823a"
+}

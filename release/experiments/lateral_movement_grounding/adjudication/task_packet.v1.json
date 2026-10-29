@@ -1,0 +1,197 @@
+{
+  "items": [
+    {
+      "campaign_id": "C0002",
+      "item_id": "C0002:T1550.002:01",
+      "procedure_excerpt": "During [Night Dragon](https://attack.mitre.org/campaigns/C0002), threat actors used pass-the-hash tools to obtain authenticated access to sensitive internal desktops and servers.(Citation: McAfee Night Dragon)",
+      "procedure_excerpt_sha256": "1897bd796faea14b4142a4ee155b6466107aaa0bdf5c4e34f7cfe92605e3aae2",
+      "technique_id": "T1550.002"
+    },
+    {
+      "campaign_id": "C0014",
+      "item_id": "C0014:T1021.002:01",
+      "procedure_excerpt": "During [Operation Wocao](https://attack.mitre.org/campaigns/C0014), threat actors used [Impacket](https://attack.mitre.org/software/S0357)'s smbexec.py as well as accessing the C$ and IPC$ shares to move laterally.(Citation: FoxIT Wocao December 2019)",
+      "procedure_excerpt_sha256": "e0a91fee6910b91d109b58a917c7badeacca0b919a864b4bdf3bb223ae297943",
+      "technique_id": "T1021.002"
+    },
+    {
+      "campaign_id": "C0024",
+      "item_id": "C0024:T1021.001:01",
+      "procedure_excerpt": "During the [SolarWinds Compromise](https://attack.mitre.org/campaigns/C0024), [APT29](https://attack.mitre.org/groups/G0016) used RDP sessions from public-facing systems to internal servers.(Citation: CrowdStrike StellarParticle January 2022)",
+      "procedure_excerpt_sha256": "3c075186c28b620f2e41b018adf8fe25ff49ab6101e15b6200969f30662e91d5",
+      "technique_id": "T1021.001"
+    },
+    {
+      "campaign_id": "C0024",
+      "item_id": "C0024:T1021.002:01",
+      "procedure_excerpt": "During the [SolarWinds Compromise](https://attack.mitre.org/campaigns/C0024), [APT29](https://attack.mitre.org/groups/G0016) used administrative accounts to connect over SMB to targeted users.(Citation: CrowdStrike StellarParticle January 2022)",
+      "procedure_excerpt_sha256": "849ba8bc6e247edb4a26c749d0981006231dbbd1b3cf49d3471a4881d61723fb",
+      "technique_id": "T1021.002"
+    },
+    {
+      "campaign_id": "C0024",
+      "item_id": "C0024:T1021.006:01",
+      "procedure_excerpt": "During the [SolarWinds Compromise](https://attack.mitre.org/campaigns/C0024), [APT29](https://attack.mitre.org/groups/G0016) used WinRM via PowerShell to execute commands and payloads on remote hosts.(Citation: Symantec RAINDROP January 2021)",
+      "procedure_excerpt_sha256": "5598b661a1a9f559c70970ff7a4ca603176b52c7eb49cc116320999c3f795e9d",
+      "technique_id": "T1021.006"
+    },
+    {
+      "campaign_id": "C0024",
+      "item_id": "C0024:T1550:01",
+      "procedure_excerpt": "During the [SolarWinds Compromise](https://attack.mitre.org/campaigns/C0024), [APT29](https://attack.mitre.org/groups/G0016) used forged SAML tokens that allowed the actors to impersonate users and bypass MFA, enabling [APT29](https://attack.mitre.org/groups/G0016) to access enterprise cloud applications and services.(Citation: Microsoft 365 Defender Solorigate)(Citation: Secureworks IRON RITUAL P",
+      "procedure_excerpt_sha256": "040faa76a86f53b2c34470f06127733ff2e889e781f00b04f7cd0ae38ade1eb3",
+      "technique_id": "T1550"
+    },
+    {
+      "campaign_id": "C0024",
+      "item_id": "C0024:T1550.001:01",
+      "procedure_excerpt": "During the [SolarWinds Compromise](https://attack.mitre.org/campaigns/C0024), [APT29](https://attack.mitre.org/groups/G0016) used compromised service principals to make changes to the Office 365 environment.(Citation: CrowdStrike StellarParticle January 2022)",
+      "procedure_excerpt_sha256": "b4757e01001affc2fd23c44d34c5389feabdb36c71b1754f307c52c6b395d591",
+      "technique_id": "T1550.001"
+    },
+    {
+      "campaign_id": "C0024",
+      "item_id": "C0024:T1550.004:01",
+      "procedure_excerpt": "During the [SolarWinds Compromise](https://attack.mitre.org/campaigns/C0024), [APT29](https://attack.mitre.org/groups/G0016) used stolen cookies to access cloud resources and a forged `duo-sid` cookie to bypass MFA set on an email account.(Citation: Volexity SolarWinds)(Citation: CrowdStrike StellarParticle January 2022)",
+      "procedure_excerpt_sha256": "5569db372dd60a9a742b640a2c5ade4d1ba84aed7552433d7e3b310c18a05c84",
+      "technique_id": "T1550.004"
+    },
+    {
+      "campaign_id": "C0025",
+      "item_id": "C0025:T1021.002:01",
+      "procedure_excerpt": "During the [2016 Ukraine Electric Power Attack](https://attack.mitre.org/campaigns/C0025), [Sandworm Team](https://attack.mitre.org/groups/G0034) utilized `net use` to connect to network shares.(Citation: Dragos Crashoverride 2018)",
+      "procedure_excerpt_sha256": "3bdcc4164206e777617a4b676ec80e42244afe80c2cc2bb6e2653b61895622f6",
+      "technique_id": "T1021.002"
+    },
+    {
+      "campaign_id": "C0027",
+      "item_id": "C0027:T1021.007:01",
+      "procedure_excerpt": "During [C0027](https://attack.mitre.org/campaigns/C0027), [Scattered Spider](https://attack.mitre.org/groups/G1015) used compromised Azure credentials for credential theft activity and lateral movement to on-premises systems.(Citation: Crowdstrike TELCO BPO Campaign December 2022)",
+      "procedure_excerpt_sha256": "2ed99ffbfdc2f5037c6742af654ed0e625afa8732ed8a52cdb604214dc166623",
+      "technique_id": "T1021.007"
+    },
+    {
+      "campaign_id": "C0029",
+      "item_id": "C0029:T1021.001:01",
+      "procedure_excerpt": "During [Cutting Edge](https://attack.mitre.org/campaigns/C0029), threat actors used RDP with compromised credentials for lateral movement.(Citation: Volexity Ivanti Zero-Day Exploitation January 2024)",
+      "procedure_excerpt_sha256": "1290e96e71c221433c6b7c9325f5264531724030fd9f29233639520cdaeb509a",
+      "technique_id": "T1021.001"
+    },
+    {
+      "campaign_id": "C0029",
+      "item_id": "C0029:T1021.002:01",
+      "procedure_excerpt": "During [Cutting Edge](https://attack.mitre.org/campaigns/C0029), threat actors moved laterally using compromised credentials to connect to internal Windows systems with SMB.(Citation: Volexity Ivanti Zero-Day Exploitation January 2024)",
+      "procedure_excerpt_sha256": "c51bf7f2f9f63c2f315b8863a6b50b45ccb3d39b15364bfa5e0cc69baf7585d5",
+      "technique_id": "T1021.002"
+    },
+    {
+      "campaign_id": "C0029",
+      "item_id": "C0029:T1021.004:01",
+      "procedure_excerpt": "During [Cutting Edge](https://attack.mitre.org/campaigns/C0029), threat actors used SSH for lateral movement.(Citation: Volexity Ivanti Zero-Day Exploitation January 2024)",
+      "procedure_excerpt_sha256": "9458aaec670d56ce36602e468b722993ba5a42807a070886ad4ed267ae6d3c00",
+      "technique_id": "T1021.004"
+    },
+    {
+      "campaign_id": "C0032",
+      "item_id": "C0032:T1021.001:01",
+      "procedure_excerpt": "During the [C0032](https://attack.mitre.org/campaigns/C0032) campaign, [TEMP.Veles](https://attack.mitre.org/groups/G0088) utilized RDP throughout an operation.(Citation: FireEye TRITON 2019)",
+      "procedure_excerpt_sha256": "4d5da02ffbc851a9f58840daccdf17e904866182e353ccc57ac73c50a840cae9",
+      "technique_id": "T1021.001"
+    },
+    {
+      "campaign_id": "C0032",
+      "item_id": "C0032:T1021.004:01",
+      "procedure_excerpt": "During the [C0032](https://attack.mitre.org/campaigns/C0032) campaign, [TEMP.Veles](https://attack.mitre.org/groups/G0088) relied on encrypted SSH-based tunnels to transfer tools and for remote command/program execution.(Citation: FireEye TRITON 2019)",
+      "procedure_excerpt_sha256": "750e96395a59879b5180f7f62c3535d0e3e48246bb595a94da799af613e0703f",
+      "technique_id": "T1021.004"
+    },
+    {
+      "campaign_id": "C0038",
+      "item_id": "C0038:T1021.001:01",
+      "procedure_excerpt": "During [HomeLand Justice](https://attack.mitre.org/campaigns/C0038), threat actors primarily used RDP for lateral movement in the victim environment.(Citation: CISA Iran Albanian Attacks September 2022)(Citation: Microsoft Albanian Government Attacks September 2022)",
+      "procedure_excerpt_sha256": "398e4431d28bd180cfbf60502bf64d995120eb4ff2ba792f947476fd8dbc3b31",
+      "technique_id": "T1021.001"
+    },
+    {
+      "campaign_id": "C0038",
+      "item_id": "C0038:T1021.002:01",
+      "procedure_excerpt": "During [HomeLand Justice](https://attack.mitre.org/campaigns/C0038), threat actors used SMB for lateral movement.(Citation: CISA Iran Albanian Attacks September 2022)(Citation: Microsoft Albanian Government Attacks September 2022)",
+      "procedure_excerpt_sha256": "b7a726b24449c2d6fb219fb563b86b5eaa51a8109deb94d0eb5b1ed4de5f5674",
+      "technique_id": "T1021.002"
+    },
+    {
+      "campaign_id": "C0048",
+      "item_id": "C0048:T1021.002:01",
+      "procedure_excerpt": "During [Operation MidnightEclipse](https://attack.mitre.org/campaigns/C0048), threat actors used SMB to pivot internally in victim networks.(Citation: Volexity UPSTYLE 2024)",
+      "procedure_excerpt_sha256": "c337d7950496a894036a29db45e417672b7cd74d8f3b08ce6fa8870de1f4b429",
+      "technique_id": "T1021.002"
+    },
+    {
+      "campaign_id": "C0048",
+      "item_id": "C0048:T1021.006:01",
+      "procedure_excerpt": "During [Operation MidnightEclipse](https://attack.mitre.org/campaigns/C0048), threat actors used WinRM to move laterally in targeted networks.(Citation: Volexity UPSTYLE 2024)",
+      "procedure_excerpt_sha256": "44a3067fab31040b64d084dc7d8b25c30da2bf67d5ce27669288d47920b98b6f",
+      "technique_id": "T1021.006"
+    },
+    {
+      "campaign_id": "C0049",
+      "item_id": "C0049:T1021.002:01",
+      "procedure_excerpt": "[Leviathan](https://attack.mitre.org/groups/G0065) used remote shares to move laterally through victim networks during [Leviathan Australian Intrusions](https://attack.mitre.org/campaigns/C0049).(Citation: CISA Leviathan 2024)",
+      "procedure_excerpt_sha256": "c16e31f11391bb768f0aa29454a4bed1ed272ecd932810ed169cf0e981d44eaf",
+      "technique_id": "T1021.002"
+    },
+    {
+      "campaign_id": "C0049",
+      "item_id": "C0049:T1021.004:01",
+      "procedure_excerpt": "[Leviathan](https://attack.mitre.org/groups/G0065) used SSH brute force techniques to move laterally within victim environments during [Leviathan Australian Intrusions](https://attack.mitre.org/campaigns/C0049).(Citation: CISA Leviathan 2024)",
+      "procedure_excerpt_sha256": "754ce5389acc5cb265101cd69e95c8e9ab6cea7dd6bf33da6cf41e7816545912",
+      "technique_id": "T1021.004"
+    },
+    {
+      "campaign_id": "C0051",
+      "item_id": "C0051:T1021.001:01",
+      "procedure_excerpt": "During [APT28 Nearest Neighbor Campaign](https://attack.mitre.org/campaigns/C0051), [APT28](https://attack.mitre.org/groups/G0007) used RDP for lateral movement.(Citation: Nearest Neighbor Volexity)",
+      "procedure_excerpt_sha256": "ea3aaef430604ad3ff4854c3c5d2033d0024dbbb6a6ab6e2df11a19cfa4e3460",
+      "technique_id": "T1021.001"
+    },
+    {
+      "campaign_id": "C0051",
+      "item_id": "C0051:T1021.002:01",
+      "procedure_excerpt": "During [APT28 Nearest Neighbor Campaign](https://attack.mitre.org/campaigns/C0051), [APT28](https://attack.mitre.org/groups/G0007) leveraged SMB to transfer files and move laterally.(Citation: Nearest Neighbor Volexity)",
+      "procedure_excerpt_sha256": "0f76b28d2da0aa1d4027aa339b7342801701225a0445df5a68be34956b7f9138",
+      "technique_id": "T1021.002"
+    },
+    {
+      "campaign_id": "C0061",
+      "item_id": "C0061:T1021.001:01",
+      "procedure_excerpt": "During [Operation Digital Eye](https://attack.mitre.org/campaigns/C0061), threat actors moved laterally using RDP.(Citation: sentinelone operationDigitalEye Dec 2024)",
+      "procedure_excerpt_sha256": "1427f1c99fbbc3c6e93a3c9668c98c45624d5cdc793be6df36d50b4f0a10ca53",
+      "technique_id": "T1021.001"
+    },
+    {
+      "campaign_id": "C0061",
+      "item_id": "C0061:T1550.002:01",
+      "procedure_excerpt": "During [Operation Digital Eye](https://attack.mitre.org/campaigns/C0061), threat actors used a pass-the-hash capability to move laterally.(Citation: sentinelone operationDigitalEye Dec 2024)",
+      "procedure_excerpt_sha256": "b4dfd5fee5cc7fa183225ea5f895cbee7acc715425d6b66318813db7b98e8b9b",
+      "technique_id": "T1550.002"
+    },
+    {
+      "campaign_id": "C0063",
+      "item_id": "C0063:T1021.001:01",
+      "procedure_excerpt": "During the [2025 Poland Wiper Attacks](https://attack.mitre.org/campaigns/C0063), adversaries utilized RDP to log into jump hosts and then moved laterally to other victim devices to include a domain controller.(Citation: CERT Polska)",
+      "procedure_excerpt_sha256": "9a25cd8ae480c8bacde5f999cf493bf52b1f2812a485390f7829f1ea13c2f80e",
+      "technique_id": "T1021.001"
+    },
+    {
+      "campaign_id": "C0063",
+      "item_id": "C0063:T1550.002:01",
+      "procedure_excerpt": "During the [2025 Poland Wiper Attacks](https://attack.mitre.org/campaigns/C0063), the adversaries attempted to reuse password hash values to gain access to other systems.(Citation: CERT Polska)",
+      "procedure_excerpt_sha256": "6594d28bb139ca48efeebdaf1ba16cea0678e56cad8a1f5f4b26048b1d22b6ac",
+      "technique_id": "T1550.002"
+    }
+  ],
+  "protocol_id": "sticks-p16-lateral-grounding-v1",
+  "protocol_sha256": "1b4ca33ac27af263673c215eb5927b336bf466bd5c3767319851b2350425707c",
+  "schema_version": "1.0.0",
+  "source_record_sha256": "b5d807cb8d46c4c969d1caf264c108cb4a95b2ff986c4442d991e070f93a973d"
+}

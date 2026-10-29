@@ -1,0 +1,35 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "qwen3.6:latest",
+    "provider": "openai",
+    "review_pending": true,
+    "run_id": "stage2-qwen36-r2",
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "A benign laboratory harness that compiles and executes a controlled Visual Basic script to validate runtime environment compatibility and output capture mechanisms.",
+    "evidence_predicates": [
+      "bounded_effect_observed",
+      "stdout_hash_recorded"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "runtime_env": "runtime",
+      "script_source": "encoded_artifact"
+    },
+    "produces": [
+      "vb_execution_output_hash",
+      "runtime_environment_snapshot"
+    ],
+    "requires": [
+      "lab_scope_verified",
+      "endpoint_access_granted"
+    ],
+    "technique_ids": [
+      "T1059.005"
+    ],
+    "template_id": "visual-basic-harness"
+  }
+}

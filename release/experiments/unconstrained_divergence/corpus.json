@@ -1,0 +1,235 @@
+{
+  "question": "Given the same CTI and declared environment, do independent unconstrained proposers commit the same executable procedure?",
+  "method": "The same steps and declared environment as the finite-domain arm are given to the same local models at the same temperature, with no action catalog and no verifier. Each proposer commits a free-choice realization; divergence is counted at the method, executable-decision, and command levels.",
+  "campaigns": 3,
+  "steps": 25,
+  "proposers_per_step": 6,
+  "mean_distinct_methods": 5.0,
+  "mean_distinct_executable_decisions": 5.92,
+  "mean_distinct_commands": 5.76,
+  "steps_with_full_method_agreement": 0,
+  "steps_with_full_decision_agreement": 0,
+  "mean_decision_agreement_rate": 0.005333333333333333,
+  "deterministic_control": {
+    "proposers_per_step": 2,
+    "mean_distinct_procedures": 2.0,
+    "steps_with_full_agreement": 0,
+    "pairwise_agreement_rate": 0.0,
+    "within_proposer_reproducible": {
+      "gpt-oss:20b": false,
+      "qwen2.5-coder:14b": true
+    }
+  },
+  "catalog_only_arm": {
+    "steps": 25,
+    "proposers_per_step": 6,
+    "mean_distinct_realizations": 1.24,
+    "steps_with_full_agreement": 20,
+    "pairwise_agreement_rate": 0.8853333333333333,
+    "proposals_outside_catalog": 0,
+    "malformed_proposals": 0
+  },
+  "per_step": [
+    {
+      "technique_id": "T1583.001",
+      "reconstruction_count": 6,
+      "distinct_methods": 5,
+      "distinct_executable_decisions": 6,
+      "distinct_commands": 6,
+      "decision_agreement_rate": 0.0
+    },
+    {
+      "technique_id": "T1584.001",
+      "reconstruction_count": 6,
+      "distinct_methods": 5,
+      "distinct_executable_decisions": 6,
+      "distinct_commands": 6,
+      "decision_agreement_rate": 0.0
+    },
+    {
+      "technique_id": "T1587.001",
+      "reconstruction_count": 6,
+      "distinct_methods": 5,
+      "distinct_executable_decisions": 6,
+      "distinct_commands": 6,
+      "decision_agreement_rate": 0.0
+    },
+    {
+      "technique_id": "T1588.002",
+      "reconstruction_count": 6,
+      "distinct_methods": 5,
+      "distinct_executable_decisions": 6,
+      "distinct_commands": 6,
+      "decision_agreement_rate": 0.0
+    },
+    {
+      "technique_id": "T1608.001",
+      "reconstruction_count": 6,
+      "distinct_methods": 4,
+      "distinct_executable_decisions": 6,
+      "distinct_commands": 6,
+      "decision_agreement_rate": 0.0
+    },
+    {
+      "technique_id": "T1608.002",
+      "reconstruction_count": 6,
+      "distinct_methods": 5,
+      "distinct_executable_decisions": 6,
+      "distinct_commands": 6,
+      "decision_agreement_rate": 0.0
+    },
+    {
+      "technique_id": "T1608.004",
+      "reconstruction_count": 6,
+      "distinct_methods": 5,
+      "distinct_executable_decisions": 6,
+      "distinct_commands": 6,
+      "decision_agreement_rate": 0.0
+    },
+    {
+      "technique_id": "T1189",
+      "reconstruction_count": 6,
+      "distinct_methods": 6,
+      "distinct_executable_decisions": 6,
+      "distinct_commands": 6,
+      "decision_agreement_rate": 0.0
+    },
+    {
+      "technique_id": "T1105",
+      "reconstruction_count": 6,
+      "distinct_methods": 6,
+      "distinct_executable_decisions": 6,
+      "distinct_commands": 6,
+      "decision_agreement_rate": 0.0
+    },
+    {
+      "technique_id": "T1583.001",
+      "reconstruction_count": 6,
+      "distinct_methods": 6,
+      "distinct_executable_decisions": 6,
+      "distinct_commands": 6,
+      "decision_agreement_rate": 0.0
+    },
+    {
+      "technique_id": "T1005",
+      "reconstruction_count": 6,
+      "distinct_methods": 5,
+      "distinct_executable_decisions": 6,
+      "distinct_commands": 6,
+      "decision_agreement_rate": 0.0
+    },
+    {
+      "technique_id": "T1560.001",
+      "reconstruction_count": 6,
+      "distinct_methods": 5,
+      "distinct_executable_decisions": 6,
+      "distinct_commands": 6,
+      "decision_agreement_rate": 0.0
+    },
+    {
+      "technique_id": "T1105",
+      "reconstruction_count": 6,
+      "distinct_methods": 6,
+      "distinct_executable_decisions": 6,
+      "distinct_commands": 6,
+      "decision_agreement_rate": 0.0
+    },
+    {
+      "technique_id": "T1568",
+      "reconstruction_count": 6,
+      "distinct_methods": 5,
+      "distinct_executable_decisions": 6,
+      "distinct_commands": 6,
+      "decision_agreement_rate": 0.0
+    },
+    {
+      "technique_id": "T1030",
+      "reconstruction_count": 6,
+      "distinct_methods": 5,
+      "distinct_executable_decisions": 6,
+      "distinct_commands": 6,
+      "decision_agreement_rate": 0.0
+    },
+    {
+      "technique_id": "T1588.002",
+      "reconstruction_count": 6,
+      "distinct_methods": 5,
+      "distinct_executable_decisions": 6,
+      "distinct_commands": 5,
+      "decision_agreement_rate": 0.0
+    },
+    {
+      "technique_id": "T1190",
+      "reconstruction_count": 6,
+      "distinct_methods": 5,
+      "distinct_executable_decisions": 6,
+      "distinct_commands": 6,
+      "decision_agreement_rate": 0.0
+    },
+    {
+      "technique_id": "T1059.006",
+      "reconstruction_count": 6,
+      "distinct_methods": 4,
+      "distinct_executable_decisions": 5,
+      "distinct_commands": 4,
+      "decision_agreement_rate": 0.06666666666666667
+    },
+    {
+      "technique_id": "T1546.004",
+      "reconstruction_count": 6,
+      "distinct_methods": 5,
+      "distinct_executable_decisions": 6,
+      "distinct_commands": 6,
+      "decision_agreement_rate": 0.0
+    },
+    {
+      "technique_id": "T1068",
+      "reconstruction_count": 6,
+      "distinct_methods": 4,
+      "distinct_executable_decisions": 6,
+      "distinct_commands": 6,
+      "decision_agreement_rate": 0.0
+    },
+    {
+      "technique_id": "T1027.013",
+      "reconstruction_count": 6,
+      "distinct_methods": 4,
+      "distinct_executable_decisions": 6,
+      "distinct_commands": 6,
+      "decision_agreement_rate": 0.0
+    },
+    {
+      "technique_id": "T1003.008",
+      "reconstruction_count": 6,
+      "distinct_methods": 5,
+      "distinct_executable_decisions": 5,
+      "distinct_commands": 4,
+      "decision_agreement_rate": 0.06666666666666667
+    },
+    {
+      "technique_id": "T1016",
+      "reconstruction_count": 6,
+      "distinct_methods": 6,
+      "distinct_executable_decisions": 6,
+      "distinct_commands": 5,
+      "decision_agreement_rate": 0.0
+    },
+    {
+      "technique_id": "T1105",
+      "reconstruction_count": 6,
+      "distinct_methods": 5,
+      "distinct_executable_decisions": 6,
+      "distinct_commands": 6,
+      "decision_agreement_rate": 0.0
+    },
+    {
+      "technique_id": "T1496.001",
+      "reconstruction_count": 6,
+      "distinct_methods": 4,
+      "distinct_executable_decisions": 6,
+      "distinct_commands": 6,
+      "decision_agreement_rate": 0.0
+    }
+  ],
+  "note": "Three arms share the same steps and declared environment. The unconstrained arm has neither catalog nor verifier, the catalog-only arm supplies the catalog through the finite-domain prompt but applies no admission, and the finite-domain arm applies both. Comparing them separates restricting the space of realizations from deciding admission over that space. The finite-domain arm's convergence is not evidence that sampling was eliminated, since that arm collapses any proposal set by construction; the temperature-0 control tests that separately. Proposers often agree on what to do while committing different concrete tools, sources, targets, and parameters."
+}

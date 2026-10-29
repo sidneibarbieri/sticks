@@ -1,0 +1,36 @@
+{
+  "id": "chatcmpl-EOgJUPhBWRvjJKVq8jxqBVNo8NVKk",
+  "object": "chat.completion",
+  "created": 1789551232,
+  "model": "gpt-4o-mini-2024-07-18",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"template_id\": \"scanning-ip-blocks-laboratory-harness\",\n  \"technique_ids\": [\"T1595.001\"],\n  \"execution_domain\": \"target\",\n  \"parameter_kinds\": {\n    \"target_host\": \"target_host\",\n    \"network_interface\": \"network_interface\"\n  },\n  \"requires\": [\n    \"target_host is reachable\",\n    \"network_interface is configured\"\n  ],\n  \"produces\": [\n    \"active IP addresses identified\",\n    \"host information gathered\"\n  ],\n  \"evidence_predicates\": [\n    \"interface_snapshot_recorded\",\n    \"bounded_effect_observed\"\n  ],\n  \"fidelity_ceiling\": \"adapted\",\n  \"description\": \"This procedure scans a specified range of IP addresses to identify active hosts and gather network information.\"\n}",
+        "refusal": null,
+        "annotations": []
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 831,
+    "completion_tokens": 167,
+    "total_tokens": 998,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_c577bb8647"
+}

@@ -1,0 +1,34 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure simulates the use of an encryption algorithm to secure command and control traffic in a controlled environment.",
+    "evidence_predicates": [
+      "bytes_transferred_recorded",
+      "archive_hash_recorded"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "command_and_control_traffic": "channel",
+      "encryption_algorithm": "capability_specification"
+    },
+    "produces": [
+      "bytes_transferred_recorded",
+      "archive_hash_recorded"
+    ],
+    "requires": [
+      "encryption_algorithm defined",
+      "command_and_control_traffic established"
+    ],
+    "technique_ids": [
+      "T1573"
+    ],
+    "template_id": "encrypted-channel-laboratory-harness"
+  }
+}

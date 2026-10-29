@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure outlines the steps to create a systemd service that executes a specified payload.",
+    "evidence_predicates": [
+      "service_request_logged",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "payload": "payload",
+      "service_file": "shell_config_artifact"
+    },
+    "produces": [
+      "systemd service created"
+    ],
+    "requires": [
+      "systemd installed",
+      "user has permission to create services"
+    ],
+    "technique_ids": [
+      "T1543.002"
+    ],
+    "template_id": "create-systemd-service"
+  }
+}

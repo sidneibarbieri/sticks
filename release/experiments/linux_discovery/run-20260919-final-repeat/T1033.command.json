@@ -1,0 +1,10 @@
+{
+  "argv": [
+    "id",
+    "-u"
+  ],
+  "exit_code": 0,
+  "stdout": "1000\n",
+  "stderr": "",
+  "stdout_sha256": "83c02ac2d48c863dab2ccf6870455aadfc2cec073b8db269b517c879d76aa6d9"
+}

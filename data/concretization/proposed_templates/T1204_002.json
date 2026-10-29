@@ -1,0 +1,35 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure simulates a user opening a malicious file to observe the resulting file interactions and system responses.",
+    "evidence_predicates": [
+      "file_count_recorded",
+      "artifact_hash_recorded",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "malicious_file": "payload",
+      "user_action": "actor_host"
+    },
+    "produces": [
+      "file_count_recorded",
+      "artifact_hash_recorded"
+    ],
+    "requires": [
+      "user has access to the malicious file",
+      "user is prompted to open the file"
+    ],
+    "technique_ids": [
+      "T1204.002"
+    ],
+    "template_id": "malicious-file-laboratory-harness"
+  }
+}

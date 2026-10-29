@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure simulates sending a spearphishing message via a third-party email service to test the response of the target.",
+    "evidence_predicates": [
+      "http_request_logged",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "email_service": "channel",
+      "target_email": "credential_source"
+    },
+    "produces": [
+      "spearphishing message sent"
+    ],
+    "requires": [
+      "target email address is valid",
+      "email service is configured"
+    ],
+    "technique_ids": [
+      "T1598.001"
+    ],
+    "template_id": "spearphishing-service-laboratory-harness"
+  }
+}

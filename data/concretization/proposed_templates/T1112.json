@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure modifies a specified registry key to observe the effects of registry manipulation in a controlled environment.",
+    "evidence_predicates": [
+      "fixture_access_logged",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "registry_key": "target_host",
+      "value": "data_source"
+    },
+    "produces": [
+      "registry modification recorded"
+    ],
+    "requires": [
+      "administrator-level access to the registry",
+      "a valid registry key to modify"
+    ],
+    "technique_ids": [
+      "T1112"
+    ],
+    "template_id": "modify-registry-laboratory-harness"
+  }
+}

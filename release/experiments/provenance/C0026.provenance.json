@@ -1,0 +1,142 @@
+{
+  "taxonomy_version": "1",
+  "campaign_id": "C0026",
+  "total_steps": 6,
+  "total_binding_occurrences": 13,
+  "binding_occurrence_counts": {
+    "cti_evidenced": 0,
+    "environment_determined": 8,
+    "runtime_derived": 0,
+    "system_introduced": 5
+  },
+  "unique_binding_count": 9,
+  "unique_binding_counts": {
+    "cti_evidenced": 0,
+    "environment_determined": 5,
+    "runtime_derived": 0,
+    "system_introduced": 4
+  },
+  "mechanism_counts": {
+    "contract_forced": 6,
+    "proposer_chosen": 0
+  },
+  "cti_binding_rate": 0.0,
+  "environment_binding_rate": 0.6153846153846154,
+  "system_introduced_rate": 0.38461538461538464,
+  "proposer_chosen_mechanism_rate": 0.0,
+  "steps": [
+    {
+      "sequence": 1,
+      "technique_id": "T1583.001",
+      "template_id": "record-controlled-domain",
+      "mechanism": "contract_forced",
+      "bindings": [
+        {
+          "parameter": "actor",
+          "binding_id": "actor.primary",
+          "provenance": "environment_determined"
+        },
+        {
+          "parameter": "manifest",
+          "binding_id": "infrastructure.lab_manifest",
+          "provenance": "system_introduced"
+        }
+      ]
+    },
+    {
+      "sequence": 2,
+      "technique_id": "T1568",
+      "template_id": "resolve-lab-domain",
+      "mechanism": "contract_forced",
+      "bindings": [
+        {
+          "parameter": "domain",
+          "binding_id": "infrastructure.lab_manifest",
+          "provenance": "system_introduced"
+        },
+        {
+          "parameter": "target",
+          "binding_id": "target.primary",
+          "provenance": "environment_determined"
+        }
+      ]
+    },
+    {
+      "sequence": 3,
+      "technique_id": "T1105",
+      "template_id": "transfer-over-resolved-lab-channel",
+      "mechanism": "contract_forced",
+      "bindings": [
+        {
+          "parameter": "channel",
+          "binding_id": "channel.private_http",
+          "provenance": "environment_determined"
+        },
+        {
+          "parameter": "payload",
+          "binding_id": "payload.benign",
+          "provenance": "system_introduced"
+        },
+        {
+          "parameter": "target",
+          "binding_id": "target.primary",
+          "provenance": "environment_determined"
+        }
+      ]
+    },
+    {
+      "sequence": 4,
+      "technique_id": "T1005",
+      "template_id": "collect-declared-data-fixture",
+      "mechanism": "contract_forced",
+      "bindings": [
+        {
+          "parameter": "data_source",
+          "binding_id": "data.synthetic_fixture",
+          "provenance": "environment_determined"
+        },
+        {
+          "parameter": "target",
+          "binding_id": "target.primary",
+          "provenance": "environment_determined"
+        }
+      ]
+    },
+    {
+      "sequence": 5,
+      "technique_id": "T1560.001",
+      "template_id": "archive-declared-collection",
+      "mechanism": "contract_forced",
+      "bindings": [
+        {
+          "parameter": "archive_tool",
+          "binding_id": "archive_tool.local",
+          "provenance": "environment_determined"
+        },
+        {
+          "parameter": "target",
+          "binding_id": "target.primary",
+          "provenance": "environment_determined"
+        }
+      ]
+    },
+    {
+      "sequence": 6,
+      "technique_id": "T1030",
+      "template_id": "split-declared-archive",
+      "mechanism": "contract_forced",
+      "bindings": [
+        {
+          "parameter": "archive",
+          "binding_id": "archive.synthetic_collection",
+          "provenance": "system_introduced"
+        },
+        {
+          "parameter": "chunk_policy",
+          "binding_id": "chunk_policy.bounded_local",
+          "provenance": "system_introduced"
+        }
+      ]
+    }
+  ]
+}

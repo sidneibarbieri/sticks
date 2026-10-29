@@ -1,0 +1,36 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "qwen3.6:latest",
+    "provider": "openai",
+    "review_pending": true,
+    "run_id": "stage2-qwen36-r2",
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This benign laboratory harness establishes a controlled application-layer communication channel to simulate protocol-based command and control traffic for validation purposes.",
+    "evidence_predicates": [
+      "http_status_recorded",
+      "bytes_transferred_recorded"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "cmd_payload": "payload",
+      "exec_runtime": "runtime",
+      "target_host": "endpoint"
+    },
+    "produces": [
+      "protocol_session_established",
+      "traffic_pattern_obfuscated"
+    ],
+    "requires": [
+      "network_interface_active",
+      "protocol_stack_loaded"
+    ],
+    "technique_ids": [
+      "T1071"
+    ],
+    "template_id": "protocol_tunnel_harness"
+  }
+}

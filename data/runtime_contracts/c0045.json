@@ -1,0 +1,136 @@
+{
+  "schema_version": "c0045-runtime-contracts/v1",
+  "campaign_id": "0.shadowray",
+  "occurrences": [
+    {
+      "occurrence": 1,
+            "plan_sequence": 2,
+      "technique_id": "T1190",
+      "mode": "real_controlled",
+      "executor_id": "executors.shadowray_fixed_executors.execute_t1190_shadowray_fixed",
+      "executor_sha256": "2cb46f64c6fb3b34e4aef21bd36d9f4d06f5f460801fb641eacd8af3bf9e33b3",
+      "requirements": [
+        "lab:shell"
+      ],
+      "observers": [
+        "c0045-api"
+      ]
+    },
+    {
+      "occurrence": 2,
+            "plan_sequence": 6,
+      "technique_id": "T1027.013",
+      "mode": "naive_simulated",
+      "executor_id": "executors.shadowray_fixed_executors.execute_t1027_013_shadowray_fixed",
+      "executor_sha256": "2cb46f64c6fb3b34e4aef21bd36d9f4d06f5f460801fb641eacd8af3bf9e33b3",
+      "requirements": [
+        "lab:shell"
+      ],
+      "observers": []
+    },
+    {
+      "occurrence": 3,
+            "plan_sequence": 7,
+      "technique_id": "T1003.008",
+      "mode": "naive_simulated",
+      "executor_id": "executors.shadowray_fixed_executors.execute_t1003_008_shadowray_vm",
+      "executor_sha256": "2cb46f64c6fb3b34e4aef21bd36d9f4d06f5f460801fb641eacd8af3bf9e33b3",
+      "requirements": [
+        "lab:shell"
+      ],
+      "observers": []
+    },
+    {
+      "occurrence": 4,
+            "plan_sequence": 4,
+      "technique_id": "T1546.004",
+      "mode": "naive_simulated",
+      "executor_id": "executors.shadowray_fixed_executors.execute_t1546_004_shadowray_vm",
+      "executor_sha256": "2cb46f64c6fb3b34e4aef21bd36d9f4d06f5f460801fb641eacd8af3bf9e33b3",
+      "requirements": [
+        "lab:shell"
+      ],
+      "observers": []
+    },
+    {
+      "occurrence": 5,
+            "plan_sequence": 1,
+      "technique_id": "T1588.002",
+      "mode": "real_controlled",
+      "executor_id": "executors.shadowray_fixed_executors.execute_t1588_002_shadowray_fixed",
+      "executor_sha256": "2cb46f64c6fb3b34e4aef21bd36d9f4d06f5f460801fb641eacd8af3bf9e33b3",
+      "requirements": [
+        "lab:shell"
+      ],
+      "observers": [
+        "c0045-toolkit"
+      ]
+    },
+    {
+      "occurrence": 6,
+            "plan_sequence": 9,
+      "technique_id": "T1105",
+      "mode": "real_controlled",
+      "executor_id": "executors.shadowray_fixed_executors.execute_t1105_shadowray_fixed",
+      "executor_sha256": "2cb46f64c6fb3b34e4aef21bd36d9f4d06f5f460801fb641eacd8af3bf9e33b3",
+      "requirements": [
+        "lab:shell"
+      ],
+      "observers": [
+        "c0045-transfer"
+      ]
+    },
+    {
+      "occurrence": 7,
+            "plan_sequence": 3,
+      "technique_id": "T1059.006",
+      "mode": "real_controlled",
+      "executor_id": "executors.shadowray_fixed_executors.execute_t1059_006_shadowray_vm",
+      "executor_sha256": "2cb46f64c6fb3b34e4aef21bd36d9f4d06f5f460801fb641eacd8af3bf9e33b3",
+      "requirements": [
+        "lab:shell"
+      ],
+      "observers": [
+        "c0045-python"
+      ]
+    },
+    {
+      "occurrence": 8,
+            "plan_sequence": 8,
+      "technique_id": "T1016",
+      "mode": "real_controlled",
+      "executor_id": "executors.shadowray_fixed_executors.execute_t1016_shadowray_fixed",
+      "executor_sha256": "2cb46f64c6fb3b34e4aef21bd36d9f4d06f5f460801fb641eacd8af3bf9e33b3",
+      "requirements": [
+        "lab:shell"
+      ],
+      "observers": [
+        "c0045-network"
+      ]
+    },
+    {
+      "occurrence": 9,
+            "plan_sequence": 5,
+      "technique_id": "T1068",
+      "mode": "naive_simulated",
+      "executor_id": "executors.privilege_escalation_executors.execute_t1068_inspired",
+      "executor_sha256": "92b1b02e26388d48d6bbf02b8f936c2f88b1176beb459fed5afee628dacd1d0d",
+      "requirements": [
+        "lab:shell"
+      ],
+      "observers": []
+    },
+    {
+      "occurrence": 10,
+            "plan_sequence": 10,
+      "technique_id": "T1496.001",
+      "mode": "naive_simulated",
+      "executor_id": "executors.shadowray_fixed_executors.execute_t1496_001_shadowray_vm",
+      "executor_sha256": "2cb46f64c6fb3b34e4aef21bd36d9f4d06f5f460801fb641eacd8af3bf9e33b3",
+      "requirements": [
+        "lab:shell"
+      ],
+      "observers": []
+    }
+  ]
+}

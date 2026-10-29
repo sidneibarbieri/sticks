@@ -1,0 +1,382 @@
+{
+  "closed_form_agrees_everywhere": true,
+  "default_ceiling": 512,
+  "grid_points": 45,
+  "largest_candidate_set": 65536,
+  "method": "For each grid point a synthetic catalog and laboratory are declared, the closed-form candidate count is computed, the enumerator is run, and the two are compared. Any disagreement fails the step, so a truncated set cannot be reported as complete.",
+  "note": "Growth is polynomial in the bindings declared per consumed kind, with the exponent set by how many typed parameters a template consumes. A laboratory host that no template consumes adds nothing to the candidate set.",
+  "points": [
+    {
+      "bindings_per_kind": 1,
+      "enumerated_candidates": 1,
+      "parameters": 1,
+      "predicted_candidates": 1,
+      "refused_by_default_ceiling": false,
+      "templates": 1
+    },
+    {
+      "bindings_per_kind": 2,
+      "enumerated_candidates": 2,
+      "parameters": 1,
+      "predicted_candidates": 2,
+      "refused_by_default_ceiling": false,
+      "templates": 1
+    },
+    {
+      "bindings_per_kind": 4,
+      "enumerated_candidates": 4,
+      "parameters": 1,
+      "predicted_candidates": 4,
+      "refused_by_default_ceiling": false,
+      "templates": 1
+    },
+    {
+      "bindings_per_kind": 8,
+      "enumerated_candidates": 8,
+      "parameters": 1,
+      "predicted_candidates": 8,
+      "refused_by_default_ceiling": false,
+      "templates": 1
+    },
+    {
+      "bindings_per_kind": 16,
+      "enumerated_candidates": 16,
+      "parameters": 1,
+      "predicted_candidates": 16,
+      "refused_by_default_ceiling": false,
+      "templates": 1
+    },
+    {
+      "bindings_per_kind": 1,
+      "enumerated_candidates": 1,
+      "parameters": 2,
+      "predicted_candidates": 1,
+      "refused_by_default_ceiling": false,
+      "templates": 1
+    },
+    {
+      "bindings_per_kind": 2,
+      "enumerated_candidates": 4,
+      "parameters": 2,
+      "predicted_candidates": 4,
+      "refused_by_default_ceiling": false,
+      "templates": 1
+    },
+    {
+      "bindings_per_kind": 4,
+      "enumerated_candidates": 16,
+      "parameters": 2,
+      "predicted_candidates": 16,
+      "refused_by_default_ceiling": false,
+      "templates": 1
+    },
+    {
+      "bindings_per_kind": 8,
+      "enumerated_candidates": 64,
+      "parameters": 2,
+      "predicted_candidates": 64,
+      "refused_by_default_ceiling": false,
+      "templates": 1
+    },
+    {
+      "bindings_per_kind": 16,
+      "enumerated_candidates": 256,
+      "parameters": 2,
+      "predicted_candidates": 256,
+      "refused_by_default_ceiling": false,
+      "templates": 1
+    },
+    {
+      "bindings_per_kind": 1,
+      "enumerated_candidates": 1,
+      "parameters": 3,
+      "predicted_candidates": 1,
+      "refused_by_default_ceiling": false,
+      "templates": 1
+    },
+    {
+      "bindings_per_kind": 2,
+      "enumerated_candidates": 8,
+      "parameters": 3,
+      "predicted_candidates": 8,
+      "refused_by_default_ceiling": false,
+      "templates": 1
+    },
+    {
+      "bindings_per_kind": 4,
+      "enumerated_candidates": 64,
+      "parameters": 3,
+      "predicted_candidates": 64,
+      "refused_by_default_ceiling": false,
+      "templates": 1
+    },
+    {
+      "bindings_per_kind": 8,
+      "enumerated_candidates": 512,
+      "parameters": 3,
+      "predicted_candidates": 512,
+      "refused_by_default_ceiling": false,
+      "templates": 1
+    },
+    {
+      "bindings_per_kind": 16,
+      "enumerated_candidates": 4096,
+      "parameters": 3,
+      "predicted_candidates": 4096,
+      "refused_by_default_ceiling": true,
+      "templates": 1
+    },
+    {
+      "bindings_per_kind": 1,
+      "enumerated_candidates": 4,
+      "parameters": 1,
+      "predicted_candidates": 4,
+      "refused_by_default_ceiling": false,
+      "templates": 4
+    },
+    {
+      "bindings_per_kind": 2,
+      "enumerated_candidates": 8,
+      "parameters": 1,
+      "predicted_candidates": 8,
+      "refused_by_default_ceiling": false,
+      "templates": 4
+    },
+    {
+      "bindings_per_kind": 4,
+      "enumerated_candidates": 16,
+      "parameters": 1,
+      "predicted_candidates": 16,
+      "refused_by_default_ceiling": false,
+      "templates": 4
+    },
+    {
+      "bindings_per_kind": 8,
+      "enumerated_candidates": 32,
+      "parameters": 1,
+      "predicted_candidates": 32,
+      "refused_by_default_ceiling": false,
+      "templates": 4
+    },
+    {
+      "bindings_per_kind": 16,
+      "enumerated_candidates": 64,
+      "parameters": 1,
+      "predicted_candidates": 64,
+      "refused_by_default_ceiling": false,
+      "templates": 4
+    },
+    {
+      "bindings_per_kind": 1,
+      "enumerated_candidates": 4,
+      "parameters": 2,
+      "predicted_candidates": 4,
+      "refused_by_default_ceiling": false,
+      "templates": 4
+    },
+    {
+      "bindings_per_kind": 2,
+      "enumerated_candidates": 16,
+      "parameters": 2,
+      "predicted_candidates": 16,
+      "refused_by_default_ceiling": false,
+      "templates": 4
+    },
+    {
+      "bindings_per_kind": 4,
+      "enumerated_candidates": 64,
+      "parameters": 2,
+      "predicted_candidates": 64,
+      "refused_by_default_ceiling": false,
+      "templates": 4
+    },
+    {
+      "bindings_per_kind": 8,
+      "enumerated_candidates": 256,
+      "parameters": 2,
+      "predicted_candidates": 256,
+      "refused_by_default_ceiling": false,
+      "templates": 4
+    },
+    {
+      "bindings_per_kind": 16,
+      "enumerated_candidates": 1024,
+      "parameters": 2,
+      "predicted_candidates": 1024,
+      "refused_by_default_ceiling": true,
+      "templates": 4
+    },
+    {
+      "bindings_per_kind": 1,
+      "enumerated_candidates": 4,
+      "parameters": 3,
+      "predicted_candidates": 4,
+      "refused_by_default_ceiling": false,
+      "templates": 4
+    },
+    {
+      "bindings_per_kind": 2,
+      "enumerated_candidates": 32,
+      "parameters": 3,
+      "predicted_candidates": 32,
+      "refused_by_default_ceiling": false,
+      "templates": 4
+    },
+    {
+      "bindings_per_kind": 4,
+      "enumerated_candidates": 256,
+      "parameters": 3,
+      "predicted_candidates": 256,
+      "refused_by_default_ceiling": false,
+      "templates": 4
+    },
+    {
+      "bindings_per_kind": 8,
+      "enumerated_candidates": 2048,
+      "parameters": 3,
+      "predicted_candidates": 2048,
+      "refused_by_default_ceiling": true,
+      "templates": 4
+    },
+    {
+      "bindings_per_kind": 16,
+      "enumerated_candidates": 16384,
+      "parameters": 3,
+      "predicted_candidates": 16384,
+      "refused_by_default_ceiling": true,
+      "templates": 4
+    },
+    {
+      "bindings_per_kind": 1,
+      "enumerated_candidates": 16,
+      "parameters": 1,
+      "predicted_candidates": 16,
+      "refused_by_default_ceiling": false,
+      "templates": 16
+    },
+    {
+      "bindings_per_kind": 2,
+      "enumerated_candidates": 32,
+      "parameters": 1,
+      "predicted_candidates": 32,
+      "refused_by_default_ceiling": false,
+      "templates": 16
+    },
+    {
+      "bindings_per_kind": 4,
+      "enumerated_candidates": 64,
+      "parameters": 1,
+      "predicted_candidates": 64,
+      "refused_by_default_ceiling": false,
+      "templates": 16
+    },
+    {
+      "bindings_per_kind": 8,
+      "enumerated_candidates": 128,
+      "parameters": 1,
+      "predicted_candidates": 128,
+      "refused_by_default_ceiling": false,
+      "templates": 16
+    },
+    {
+      "bindings_per_kind": 16,
+      "enumerated_candidates": 256,
+      "parameters": 1,
+      "predicted_candidates": 256,
+      "refused_by_default_ceiling": false,
+      "templates": 16
+    },
+    {
+      "bindings_per_kind": 1,
+      "enumerated_candidates": 16,
+      "parameters": 2,
+      "predicted_candidates": 16,
+      "refused_by_default_ceiling": false,
+      "templates": 16
+    },
+    {
+      "bindings_per_kind": 2,
+      "enumerated_candidates": 64,
+      "parameters": 2,
+      "predicted_candidates": 64,
+      "refused_by_default_ceiling": false,
+      "templates": 16
+    },
+    {
+      "bindings_per_kind": 4,
+      "enumerated_candidates": 256,
+      "parameters": 2,
+      "predicted_candidates": 256,
+      "refused_by_default_ceiling": false,
+      "templates": 16
+    },
+    {
+      "bindings_per_kind": 8,
+      "enumerated_candidates": 1024,
+      "parameters": 2,
+      "predicted_candidates": 1024,
+      "refused_by_default_ceiling": true,
+      "templates": 16
+    },
+    {
+      "bindings_per_kind": 16,
+      "enumerated_candidates": 4096,
+      "parameters": 2,
+      "predicted_candidates": 4096,
+      "refused_by_default_ceiling": true,
+      "templates": 16
+    },
+    {
+      "bindings_per_kind": 1,
+      "enumerated_candidates": 16,
+      "parameters": 3,
+      "predicted_candidates": 16,
+      "refused_by_default_ceiling": false,
+      "templates": 16
+    },
+    {
+      "bindings_per_kind": 2,
+      "enumerated_candidates": 128,
+      "parameters": 3,
+      "predicted_candidates": 128,
+      "refused_by_default_ceiling": false,
+      "templates": 16
+    },
+    {
+      "bindings_per_kind": 4,
+      "enumerated_candidates": 1024,
+      "parameters": 3,
+      "predicted_candidates": 1024,
+      "refused_by_default_ceiling": true,
+      "templates": 16
+    },
+    {
+      "bindings_per_kind": 8,
+      "enumerated_candidates": 8192,
+      "parameters": 3,
+      "predicted_candidates": 8192,
+      "refused_by_default_ceiling": true,
+      "templates": 16
+    },
+    {
+      "bindings_per_kind": 16,
+      "enumerated_candidates": 65536,
+      "parameters": 3,
+      "predicted_candidates": 65536,
+      "refused_by_default_ceiling": true,
+      "templates": 16
+    }
+  ],
+  "points_refused_by_default_ceiling": 9,
+  "probe_ceiling": 100000,
+  "question": "How does the complete candidate set grow with the declared catalog and laboratory, and is its size known before enumeration?",
+  "refusal_probe": {
+    "bindings_per_kind": 32,
+    "ceiling": 100000,
+    "parameters": 3,
+    "predicted_candidates": 524288,
+    "refusal_message": "candidate enumeration for T9999 exceeded 100000; raise maximum_candidates rather than reporting a truncated candidate set as complete",
+    "refused": true,
+    "templates": 16
+  }
+}

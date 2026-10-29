@@ -1,0 +1,36 @@
+{
+  "id": "chatcmpl-EOK7VWypCl2kZuHvlzaZiSJS9WyCF",
+  "object": "chat.completion",
+  "created": 1789465921,
+  "model": "gpt-4o-mini-2024-07-18",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"template_id\": \"local-account-enumeration-lab-harness\",\n  \"technique_ids\": [\n    \"T1087.001\"\n  ],\n  \"execution_domain\": \"target\",\n  \"parameter_kinds\": {\n    \"command\": \"toolkit\",\n    \"output\": \"data_source\"\n  },\n  \"requires\": [\n    \"target host is operational\",\n    \"user has permission to list accounts\"\n  ],\n  \"produces\": [\n    \"list of local accounts\"\n  ],\n  \"evidence_predicates\": [\n    \"file_count_recorded\",\n    \"bounded_effect_observed\"\n  ],\n  \"fidelity_ceiling\": \"adapted\",\n  \"description\": \"This procedure enumerates local accounts on a target host using system commands.\"\n}",
+        "refusal": null,
+        "annotations": []
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 862,
+    "completion_tokens": 160,
+    "total_tokens": 1022,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_c577bb8647"
+}

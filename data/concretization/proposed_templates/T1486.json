@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure simulates the encryption of files on a target host to assess the impact of data encryption for availability.",
+    "evidence_predicates": [
+      "file_count_recorded",
+      "archive_hash_recorded"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "encryption_tool": "toolkit",
+      "target_host": "target_host"
+    },
+    "produces": [
+      "files are encrypted"
+    ],
+    "requires": [
+      "target host is accessible",
+      "encryption tool is installed"
+    ],
+    "technique_ids": [
+      "T1486"
+    ],
+    "template_id": "data-encrypted-for-impact-laboratory-harness"
+  }
+}

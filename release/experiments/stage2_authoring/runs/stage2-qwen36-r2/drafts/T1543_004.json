@@ -1,0 +1,35 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "qwen3.6:latest",
+    "provider": "openai",
+    "review_pending": true,
+    "run_id": "stage2-qwen36-r2",
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "A benign laboratory harness that registers a harmless launch daemon plist to verify service management framework interactions without executing malicious payloads.",
+    "evidence_predicates": [
+      "artifact_hash_recorded",
+      "service_request_logged"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "inspired",
+    "parameter_kinds": {
+      "install_path": "endpoint",
+      "plist_content": "encoded_artifact"
+    },
+    "produces": [
+      "launchd_service_registered",
+      "plist_file_written"
+    ],
+    "requires": [
+      "target_host_access",
+      "elevated_privileges"
+    ],
+    "technique_ids": [
+      "T1543.004"
+    ],
+    "template_id": "benign-launch-daemon-harness"
+  }
+}

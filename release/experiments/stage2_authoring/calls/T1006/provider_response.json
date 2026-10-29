@@ -1,0 +1,36 @@
+{
+  "id": "chatcmpl-EOK7DuzGlnwk1b0gClxKnAvDWpHJp",
+  "object": "chat.completion",
+  "created": 1789465903,
+  "model": "gpt-4o-mini-2024-07-18",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"template_id\": \"direct-volume-access-laboratory-harness\",\n  \"technique_ids\": [\"T1006\"],\n  \"execution_domain\": \"target\",\n  \"parameter_kinds\": {\n    \"tool\": \"toolkit\",\n    \"target_volume\": \"target_host\"\n  },\n  \"requires\": [\n    \"access to the target volume\",\n    \"appropriate permissions to execute the tool\"\n  ],\n  \"produces\": [\n    \"volume access logged\",\n    \"file operations recorded\"\n  ],\n  \"evidence_predicates\": [\n    \"fixture_access_logged\",\n    \"bounded_effect_observed\"\n  ],\n  \"fidelity_ceiling\": \"adapted\",\n  \"description\": \"This procedure demonstrates how to access a volume directly using a specified tool in a controlled laboratory environment.\"\n}",
+        "refusal": null,
+        "annotations": []
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 830,
+    "completion_tokens": 164,
+    "total_tokens": 994,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_c577bb8647"
+}

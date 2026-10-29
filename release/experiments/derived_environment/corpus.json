@@ -1,0 +1,399 @@
+{
+  "question": "Can the declared environment be derived from the action catalog instead of authored per campaign?",
+  "method": "For each plan, the environment is derived from the templates that plan can retrieve: one laboratory binding per consumed parameter kind, and initial facts are exactly the required facts those templates never produce. Every derived binding is a system choice, so provenance still reports it as introduced by the reconstruction.",
+  "campaigns": 55,
+  "total_steps": 1146,
+  "admitted_steps": 148,
+  "admitted_rate": 0.12914485165794065,
+  "campaigns_fully_admitted": 2,
+  "campaigns_partially_admitted": 44,
+  "campaigns_with_no_admitted_step": 9,
+  "note": "Authored environments remain the deep-evaluation baseline. Derivation removes the per-campaign authoring step, which is what limited execution to three campaigns; it does not reproduce a historical victim network.",
+  "per_campaign": [
+    {
+      "campaign_id": "C0001",
+      "total_steps": 27,
+      "admitted_steps": 1,
+      "environment_bindings": 18,
+      "environment_sha256": "834315cd7e4821e146f38670c52f174cc3b334cb128fdb18eec6387b2d67b34b"
+    },
+    {
+      "campaign_id": "C0002",
+      "total_steps": 29,
+      "admitted_steps": 4,
+      "environment_bindings": 20,
+      "environment_sha256": "d4239511e138a091b4c927155e584fcc9d61c1397b697659c63405287015add9"
+    },
+    {
+      "campaign_id": "C0004",
+      "total_steps": 10,
+      "admitted_steps": 3,
+      "environment_bindings": 16,
+      "environment_sha256": "1321192ac240df064c3c4905ed02b3026ee2df0828e26951309b883a30769bb9"
+    },
+    {
+      "campaign_id": "C0005",
+      "total_steps": 17,
+      "admitted_steps": 4,
+      "environment_bindings": 17,
+      "environment_sha256": "c947c2e48796f322a728ed57cd771372779dae33423d26037dda26c99fcaefac"
+    },
+    {
+      "campaign_id": "C0006",
+      "total_steps": 28,
+      "admitted_steps": 2,
+      "environment_bindings": 19,
+      "environment_sha256": "1c0dfa524379d94b69dd51516c739eb825c5538aa2684813af38dd8dab9e156a"
+    },
+    {
+      "campaign_id": "C0007",
+      "total_steps": 14,
+      "admitted_steps": 4,
+      "environment_bindings": 16,
+      "environment_sha256": "ed4d7f69f2f43f8ffddd09a849eda3bea7c5e42c45a327532ae533d6d796918d"
+    },
+    {
+      "campaign_id": "C0010",
+      "total_steps": 9,
+      "admitted_steps": 8,
+      "environment_bindings": 10,
+      "environment_sha256": "8f8851138441ef65d36234b9d21505bc64857a5c3aeca3ec31173a05d0349aa4"
+    },
+    {
+      "campaign_id": "C0011",
+      "total_steps": 8,
+      "admitted_steps": 2,
+      "environment_bindings": 15,
+      "environment_sha256": "486825ec62254554a2b05a5335f7418d21c79bf2a1a983317a0180338ad8f415"
+    },
+    {
+      "campaign_id": "C0012",
+      "total_steps": 33,
+      "admitted_steps": 5,
+      "environment_bindings": 18,
+      "environment_sha256": "af59931d9edda2b82279091774b34d757217d91a8728cce14557bc91dc6d499e"
+    },
+    {
+      "campaign_id": "C0013",
+      "total_steps": 13,
+      "admitted_steps": 3,
+      "environment_bindings": 18,
+      "environment_sha256": "dfa42a3453dc4fd01b1411e9439096a3608ea3c6d23f99dc9244345a312d88f8"
+    },
+    {
+      "campaign_id": "C0014",
+      "total_steps": 70,
+      "admitted_steps": 7,
+      "environment_bindings": 20,
+      "environment_sha256": "006f97ce95fdd1b54d0387dffddf93d24451b990a9abfc83a390e387dbbef93d"
+    },
+    {
+      "campaign_id": "C0015",
+      "total_steps": 34,
+      "admitted_steps": 1,
+      "environment_bindings": 18,
+      "environment_sha256": "077dd36b7b74140c76976aca21726e1a1182515ae8caa78028b6e3f8fd8f41d8"
+    },
+    {
+      "campaign_id": "C0016",
+      "total_steps": 17,
+      "admitted_steps": 2,
+      "environment_bindings": 15,
+      "environment_sha256": "99a3462c005de67692d789b2f324ab5c85b82362d491489f7d9802b61761d22d"
+    },
+    {
+      "campaign_id": "C0017",
+      "total_steps": 29,
+      "admitted_steps": 3,
+      "environment_bindings": 18,
+      "environment_sha256": "5a48e63d245ea0c1b4a7e2db3c8e824383b537014c4058f466a8597d2eafe7bd"
+    },
+    {
+      "campaign_id": "C0018",
+      "total_steps": 19,
+      "admitted_steps": 3,
+      "environment_bindings": 18,
+      "environment_sha256": "3bd0cde3046417f543d81d0bc3eb0f5bce35b20988bd8538bc872a6e0a0d22f0"
+    },
+    {
+      "campaign_id": "C0021",
+      "total_steps": 15,
+      "admitted_steps": 4,
+      "environment_bindings": 16,
+      "environment_sha256": "55d703f266b6868c376e744b45771d8c7ee91e6a5f3db2bbcc04e6515b2bf6b2"
+    },
+    {
+      "campaign_id": "C0022",
+      "total_steps": 55,
+      "admitted_steps": 6,
+      "environment_bindings": 19,
+      "environment_sha256": "0a526b442b890f9032b62e93c0551faaf4cafea54ee1ddf81a8dd69b56afe55e"
+    },
+    {
+      "campaign_id": "C0023",
+      "total_steps": 8,
+      "admitted_steps": 2,
+      "environment_bindings": 14,
+      "environment_sha256": "7c24dacb066f9f5f6df087d3135ec49e6307d42ad426adca5c6afc6570d6d943"
+    },
+    {
+      "campaign_id": "C0024",
+      "total_steps": 71,
+      "admitted_steps": 10,
+      "environment_bindings": 20,
+      "environment_sha256": "fe01b3da1fd7569bac1e2e73395206c3e9ad4fef3fe03dd06760eb8e06680a24"
+    },
+    {
+      "campaign_id": "C0025",
+      "total_steps": 21,
+      "admitted_steps": 0,
+      "environment_bindings": 11,
+      "environment_sha256": "cbc98ff4d7d1f93d67b27bd956de5efec930be82febb07a8fb2aa70919601f95"
+    },
+    {
+      "campaign_id": "C0026",
+      "total_steps": 6,
+      "admitted_steps": 6,
+      "environment_bindings": 15,
+      "environment_sha256": "d0db3ca31166d54977c9e2bbb2911399344c315c3baec53bbcc3ab2c4fab9c22"
+    },
+    {
+      "campaign_id": "C0027",
+      "total_steps": 28,
+      "admitted_steps": 2,
+      "environment_bindings": 19,
+      "environment_sha256": "7599557141e19c9424e58cea93c176909aa1cf31156bef7eef846a3040ae6d51"
+    },
+    {
+      "campaign_id": "C0028",
+      "total_steps": 17,
+      "admitted_steps": 0,
+      "environment_bindings": 16,
+      "environment_sha256": "090e6c55e22f1b41338d064df377a3d74d5c673cf1b803b7c66e7b38141cd44e"
+    },
+    {
+      "campaign_id": "C0029",
+      "total_steps": 31,
+      "admitted_steps": 4,
+      "environment_bindings": 20,
+      "environment_sha256": "a8e8953df35838021c352fddd1e5e90a52cc042285fa42efa59000975208f710"
+    },
+    {
+      "campaign_id": "C0030",
+      "total_steps": 10,
+      "admitted_steps": 2,
+      "environment_bindings": 15,
+      "environment_sha256": "326a6f44477796ad511751561d3bac25c8cf101596bba71d571215d982655208"
+    },
+    {
+      "campaign_id": "C0032",
+      "total_steps": 17,
+      "admitted_steps": 1,
+      "environment_bindings": 18,
+      "environment_sha256": "f3aadbde58b6263ecd38f1b9067f23ac7a9621c92b9507e33d50c0e0e339f533"
+    },
+    {
+      "campaign_id": "C0034",
+      "total_steps": 10,
+      "admitted_steps": 0,
+      "environment_bindings": 15,
+      "environment_sha256": "78f0373ce0b0f301288ff1e1b2c0dba2bcd7692910ac8f1de741929ed984e1dd"
+    },
+    {
+      "campaign_id": "C0035",
+      "total_steps": 20,
+      "admitted_steps": 0,
+      "environment_bindings": 18,
+      "environment_sha256": "e6d967f8a28341223fa9995a5f68019c0c283998bd431d3386028b5f9c2ba89a"
+    },
+    {
+      "campaign_id": "C0036",
+      "total_steps": 4,
+      "admitted_steps": 0,
+      "environment_bindings": 13,
+      "environment_sha256": "ed9e24403e7f78cf798fc09f75d0f0d2321aa077f13518834ed7fe031ccb1e89"
+    },
+    {
+      "campaign_id": "C0037",
+      "total_steps": 10,
+      "admitted_steps": 0,
+      "environment_bindings": 17,
+      "environment_sha256": "bf6190b16ce57c9b94c0fbe6fe60fdc19f96e9fff7df41be5edeaccaeaa6f5e6"
+    },
+    {
+      "campaign_id": "C0038",
+      "total_steps": 25,
+      "admitted_steps": 3,
+      "environment_bindings": 18,
+      "environment_sha256": "1f9c5a6713b0238fa1f01e7e0d30eec3df14354bd651d2ec9665e2acf530ddc5"
+    },
+    {
+      "campaign_id": "C0039",
+      "total_steps": 8,
+      "admitted_steps": 3,
+      "environment_bindings": 16,
+      "environment_sha256": "fd94f9a7e2a3765d7678f50b11b724274e229c5fbc2de06001898bf39a240830"
+    },
+    {
+      "campaign_id": "C0040",
+      "total_steps": 23,
+      "admitted_steps": 0,
+      "environment_bindings": 20,
+      "environment_sha256": "7f6cdff005f0c91a974e8c43c3c17a99060441c1df8de6d6f7b06664d3f879b2"
+    },
+    {
+      "campaign_id": "C0041",
+      "total_steps": 5,
+      "admitted_steps": 1,
+      "environment_bindings": 13,
+      "environment_sha256": "22c451bb1551099cd9bde25101cb254d2955efa5d10cef4eacd2b610b7728e97"
+    },
+    {
+      "campaign_id": "C0042",
+      "total_steps": 8,
+      "admitted_steps": 3,
+      "environment_bindings": 14,
+      "environment_sha256": "1a02da941680975040f5075b917548a5d801ee54f7131c13fc689e64bf426119"
+    },
+    {
+      "campaign_id": "C0043",
+      "total_steps": 8,
+      "admitted_steps": 3,
+      "environment_bindings": 15,
+      "environment_sha256": "8b4b39edbe9186ca0350497d084ea1f7ffdcfec2c4fe37ace57c6fbac7a199a6"
+    },
+    {
+      "campaign_id": "C0044",
+      "total_steps": 14,
+      "admitted_steps": 1,
+      "environment_bindings": 18,
+      "environment_sha256": "0a4d4d769eb16f4d3262206936596669e5d08e08ee7856b36a378e643c7d92d1"
+    },
+    {
+      "campaign_id": "C0045",
+      "total_steps": 10,
+      "admitted_steps": 10,
+      "environment_bindings": 18,
+      "environment_sha256": "96d730f35cca56c6a1f9a678857ba1cf635128b785231d4bfd8f632991b6e867"
+    },
+    {
+      "campaign_id": "C0046",
+      "total_steps": 25,
+      "admitted_steps": 3,
+      "environment_bindings": 18,
+      "environment_sha256": "28c527e068b548279128402fbe21a96cdaf03ee97fdb17c2d0aec1f2a628ce19"
+    },
+    {
+      "campaign_id": "C0047",
+      "total_steps": 22,
+      "admitted_steps": 2,
+      "environment_bindings": 19,
+      "environment_sha256": "396a50a60e651a66a56bf29353adcbbd4ba66155319fb68afa51195160fb4ecd"
+    },
+    {
+      "campaign_id": "C0048",
+      "total_steps": 17,
+      "admitted_steps": 2,
+      "environment_bindings": 18,
+      "environment_sha256": "871b37806acb2b0b8f9082f2ab959adba9a0bd515c4ac334f137ac26dfb6f8a4"
+    },
+    {
+      "campaign_id": "C0049",
+      "total_steps": 26,
+      "admitted_steps": 2,
+      "environment_bindings": 20,
+      "environment_sha256": "b8da5968d07a11a1ba30b4bebd5b85670c2c0cd8852bb76cba1b52868ce862af"
+    },
+    {
+      "campaign_id": "C0050",
+      "total_steps": 4,
+      "admitted_steps": 0,
+      "environment_bindings": 12,
+      "environment_sha256": "64c887e87ca080f694edc47abc0f2538f7afa5b371027bcbaf3cf2c6fc9f1a33"
+    },
+    {
+      "campaign_id": "C0051",
+      "total_steps": 18,
+      "admitted_steps": 0,
+      "environment_bindings": 18,
+      "environment_sha256": "7a97fd5e8e0314e1ac0cc1a74c89fd0eae22bc6a7df8af00f8b8dcf700191159"
+    },
+    {
+      "campaign_id": "C0052",
+      "total_steps": 4,
+      "admitted_steps": 2,
+      "environment_bindings": 10,
+      "environment_sha256": "3bb88e8d78a7ec63440234bdd7b6b4602da128fea10bbd7287a5ab4c13012d85"
+    },
+    {
+      "campaign_id": "C0053",
+      "total_steps": 6,
+      "admitted_steps": 1,
+      "environment_bindings": 15,
+      "environment_sha256": "b17bc47bd8d04e2ce34e945c59e5c2bbd98c997b8689d06b05b4a7ed4a1b8380"
+    },
+    {
+      "campaign_id": "C0055",
+      "total_steps": 15,
+      "admitted_steps": 1,
+      "environment_bindings": 18,
+      "environment_sha256": "9e245efa2b8bad955e32589c67a200bf5d522422a9c1ffe27047b3b586d2652f"
+    },
+    {
+      "campaign_id": "C0056",
+      "total_steps": 26,
+      "admitted_steps": 1,
+      "environment_bindings": 18,
+      "environment_sha256": "fe1776ab21bff01f29342aacbcfa105d4a609be8fedf237ad50a65d39ac1ad1c"
+    },
+    {
+      "campaign_id": "C0057",
+      "total_steps": 22,
+      "admitted_steps": 1,
+      "environment_bindings": 15,
+      "environment_sha256": "361baaf512c97429a3ac023ef4fbc1648c523d52701382e55788b75d71fa7398"
+    },
+    {
+      "campaign_id": "C0058",
+      "total_steps": 35,
+      "admitted_steps": 5,
+      "environment_bindings": 18,
+      "environment_sha256": "d042198e45a0052ffbab755cdf9fb5f6698f75ede7127e3e681b7729dc3ed742"
+    },
+    {
+      "campaign_id": "C0059",
+      "total_steps": 18,
+      "admitted_steps": 2,
+      "environment_bindings": 17,
+      "environment_sha256": "11f680ef8a149717eac757bba93f9433bec51abedcd9d386681612e126d3a595"
+    },
+    {
+      "campaign_id": "C0060",
+      "total_steps": 26,
+      "admitted_steps": 2,
+      "environment_bindings": 19,
+      "environment_sha256": "ee2864c922debe4d9c5db99a587519b65b1f405b9d2bffdb50ec5ece7144cf11"
+    },
+    {
+      "campaign_id": "C0061",
+      "total_steps": 22,
+      "admitted_steps": 2,
+      "environment_bindings": 18,
+      "environment_sha256": "69052b22d16760e71a0e31f7813d2dc07b8c40ccb1dab89c2818b014547dfa07"
+    },
+    {
+      "campaign_id": "C0062",
+      "total_steps": 26,
+      "admitted_steps": 6,
+      "environment_bindings": 18,
+      "environment_sha256": "754cc0945aa67bc3f39baba8f2229d25837e2151b855257ec22d807a62309ca0"
+    },
+    {
+      "campaign_id": "C0063",
+      "total_steps": 53,
+      "admitted_steps": 3,
+      "environment_bindings": 20,
+      "environment_sha256": "2b1c0304f980e90385e95feb8c08a0773babb1d1fd46a6dde71b6d8ea2c2825c"
+    }
+  ]
+}

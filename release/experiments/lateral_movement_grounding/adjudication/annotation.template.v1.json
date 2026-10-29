@@ -1,0 +1,363 @@
+{
+  "_template": true,
+  "annotations": [
+    {
+      "evidence_spans": [
+        {
+          "end": 1,
+          "start": 0
+        }
+      ],
+      "item_id": "C0002:T1550.002:01",
+      "label": "REPLACE_WITH_PROTOCOL_LABEL",
+      "rationale_codes": [
+        "REPLACE_WITH_PROTOCOL_RATIONALE"
+      ]
+    },
+    {
+      "evidence_spans": [
+        {
+          "end": 1,
+          "start": 0
+        }
+      ],
+      "item_id": "C0014:T1021.002:01",
+      "label": "REPLACE_WITH_PROTOCOL_LABEL",
+      "rationale_codes": [
+        "REPLACE_WITH_PROTOCOL_RATIONALE"
+      ]
+    },
+    {
+      "evidence_spans": [
+        {
+          "end": 1,
+          "start": 0
+        }
+      ],
+      "item_id": "C0024:T1021.001:01",
+      "label": "REPLACE_WITH_PROTOCOL_LABEL",
+      "rationale_codes": [
+        "REPLACE_WITH_PROTOCOL_RATIONALE"
+      ]
+    },
+    {
+      "evidence_spans": [
+        {
+          "end": 1,
+          "start": 0
+        }
+      ],
+      "item_id": "C0024:T1021.002:01",
+      "label": "REPLACE_WITH_PROTOCOL_LABEL",
+      "rationale_codes": [
+        "REPLACE_WITH_PROTOCOL_RATIONALE"
+      ]
+    },
+    {
+      "evidence_spans": [
+        {
+          "end": 1,
+          "start": 0
+        }
+      ],
+      "item_id": "C0024:T1021.006:01",
+      "label": "REPLACE_WITH_PROTOCOL_LABEL",
+      "rationale_codes": [
+        "REPLACE_WITH_PROTOCOL_RATIONALE"
+      ]
+    },
+    {
+      "evidence_spans": [
+        {
+          "end": 1,
+          "start": 0
+        }
+      ],
+      "item_id": "C0024:T1550:01",
+      "label": "REPLACE_WITH_PROTOCOL_LABEL",
+      "rationale_codes": [
+        "REPLACE_WITH_PROTOCOL_RATIONALE"
+      ]
+    },
+    {
+      "evidence_spans": [
+        {
+          "end": 1,
+          "start": 0
+        }
+      ],
+      "item_id": "C0024:T1550.001:01",
+      "label": "REPLACE_WITH_PROTOCOL_LABEL",
+      "rationale_codes": [
+        "REPLACE_WITH_PROTOCOL_RATIONALE"
+      ]
+    },
+    {
+      "evidence_spans": [
+        {
+          "end": 1,
+          "start": 0
+        }
+      ],
+      "item_id": "C0024:T1550.004:01",
+      "label": "REPLACE_WITH_PROTOCOL_LABEL",
+      "rationale_codes": [
+        "REPLACE_WITH_PROTOCOL_RATIONALE"
+      ]
+    },
+    {
+      "evidence_spans": [
+        {
+          "end": 1,
+          "start": 0
+        }
+      ],
+      "item_id": "C0025:T1021.002:01",
+      "label": "REPLACE_WITH_PROTOCOL_LABEL",
+      "rationale_codes": [
+        "REPLACE_WITH_PROTOCOL_RATIONALE"
+      ]
+    },
+    {
+      "evidence_spans": [
+        {
+          "end": 1,
+          "start": 0
+        }
+      ],
+      "item_id": "C0027:T1021.007:01",
+      "label": "REPLACE_WITH_PROTOCOL_LABEL",
+      "rationale_codes": [
+        "REPLACE_WITH_PROTOCOL_RATIONALE"
+      ]
+    },
+    {
+      "evidence_spans": [
+        {
+          "end": 1,
+          "start": 0
+        }
+      ],
+      "item_id": "C0029:T1021.001:01",
+      "label": "REPLACE_WITH_PROTOCOL_LABEL",
+      "rationale_codes": [
+        "REPLACE_WITH_PROTOCOL_RATIONALE"
+      ]
+    },
+    {
+      "evidence_spans": [
+        {
+          "end": 1,
+          "start": 0
+        }
+      ],
+      "item_id": "C0029:T1021.002:01",
+      "label": "REPLACE_WITH_PROTOCOL_LABEL",
+      "rationale_codes": [
+        "REPLACE_WITH_PROTOCOL_RATIONALE"
+      ]
+    },
+    {
+      "evidence_spans": [
+        {
+          "end": 1,
+          "start": 0
+        }
+      ],
+      "item_id": "C0029:T1021.004:01",
+      "label": "REPLACE_WITH_PROTOCOL_LABEL",
+      "rationale_codes": [
+        "REPLACE_WITH_PROTOCOL_RATIONALE"
+      ]
+    },
+    {
+      "evidence_spans": [
+        {
+          "end": 1,
+          "start": 0
+        }
+      ],
+      "item_id": "C0032:T1021.001:01",
+      "label": "REPLACE_WITH_PROTOCOL_LABEL",
+      "rationale_codes": [
+        "REPLACE_WITH_PROTOCOL_RATIONALE"
+      ]
+    },
+    {
+      "evidence_spans": [
+        {
+          "end": 1,
+          "start": 0
+        }
+      ],
+      "item_id": "C0032:T1021.004:01",
+      "label": "REPLACE_WITH_PROTOCOL_LABEL",
+      "rationale_codes": [
+        "REPLACE_WITH_PROTOCOL_RATIONALE"
+      ]
+    },
+    {
+      "evidence_spans": [
+        {
+          "end": 1,
+          "start": 0
+        }
+      ],
+      "item_id": "C0038:T1021.001:01",
+      "label": "REPLACE_WITH_PROTOCOL_LABEL",
+      "rationale_codes": [
+        "REPLACE_WITH_PROTOCOL_RATIONALE"
+      ]
+    },
+    {
+      "evidence_spans": [
+        {
+          "end": 1,
+          "start": 0
+        }
+      ],
+      "item_id": "C0038:T1021.002:01",
+      "label": "REPLACE_WITH_PROTOCOL_LABEL",
+      "rationale_codes": [
+        "REPLACE_WITH_PROTOCOL_RATIONALE"
+      ]
+    },
+    {
+      "evidence_spans": [
+        {
+          "end": 1,
+          "start": 0
+        }
+      ],
+      "item_id": "C0048:T1021.002:01",
+      "label": "REPLACE_WITH_PROTOCOL_LABEL",
+      "rationale_codes": [
+        "REPLACE_WITH_PROTOCOL_RATIONALE"
+      ]
+    },
+    {
+      "evidence_spans": [
+        {
+          "end": 1,
+          "start": 0
+        }
+      ],
+      "item_id": "C0048:T1021.006:01",
+      "label": "REPLACE_WITH_PROTOCOL_LABEL",
+      "rationale_codes": [
+        "REPLACE_WITH_PROTOCOL_RATIONALE"
+      ]
+    },
+    {
+      "evidence_spans": [
+        {
+          "end": 1,
+          "start": 0
+        }
+      ],
+      "item_id": "C0049:T1021.002:01",
+      "label": "REPLACE_WITH_PROTOCOL_LABEL",
+      "rationale_codes": [
+        "REPLACE_WITH_PROTOCOL_RATIONALE"
+      ]
+    },
+    {
+      "evidence_spans": [
+        {
+          "end": 1,
+          "start": 0
+        }
+      ],
+      "item_id": "C0049:T1021.004:01",
+      "label": "REPLACE_WITH_PROTOCOL_LABEL",
+      "rationale_codes": [
+        "REPLACE_WITH_PROTOCOL_RATIONALE"
+      ]
+    },
+    {
+      "evidence_spans": [
+        {
+          "end": 1,
+          "start": 0
+        }
+      ],
+      "item_id": "C0051:T1021.001:01",
+      "label": "REPLACE_WITH_PROTOCOL_LABEL",
+      "rationale_codes": [
+        "REPLACE_WITH_PROTOCOL_RATIONALE"
+      ]
+    },
+    {
+      "evidence_spans": [
+        {
+          "end": 1,
+          "start": 0
+        }
+      ],
+      "item_id": "C0051:T1021.002:01",
+      "label": "REPLACE_WITH_PROTOCOL_LABEL",
+      "rationale_codes": [
+        "REPLACE_WITH_PROTOCOL_RATIONALE"
+      ]
+    },
+    {
+      "evidence_spans": [
+        {
+          "end": 1,
+          "start": 0
+        }
+      ],
+      "item_id": "C0061:T1021.001:01",
+      "label": "REPLACE_WITH_PROTOCOL_LABEL",
+      "rationale_codes": [
+        "REPLACE_WITH_PROTOCOL_RATIONALE"
+      ]
+    },
+    {
+      "evidence_spans": [
+        {
+          "end": 1,
+          "start": 0
+        }
+      ],
+      "item_id": "C0061:T1550.002:01",
+      "label": "REPLACE_WITH_PROTOCOL_LABEL",
+      "rationale_codes": [
+        "REPLACE_WITH_PROTOCOL_RATIONALE"
+      ]
+    },
+    {
+      "evidence_spans": [
+        {
+          "end": 1,
+          "start": 0
+        }
+      ],
+      "item_id": "C0063:T1021.001:01",
+      "label": "REPLACE_WITH_PROTOCOL_LABEL",
+      "rationale_codes": [
+        "REPLACE_WITH_PROTOCOL_RATIONALE"
+      ]
+    },
+    {
+      "evidence_spans": [
+        {
+          "end": 1,
+          "start": 0
+        }
+      ],
+      "item_id": "C0063:T1550.002:01",
+      "label": "REPLACE_WITH_PROTOCOL_LABEL",
+      "rationale_codes": [
+        "REPLACE_WITH_PROTOCOL_RATIONALE"
+      ]
+    }
+  ],
+  "annotator_id": "annotator-00000000",
+  "independence_attestation": false,
+  "instructions": "Copy this file to records/<opaque-id>.json, replace the placeholders, and remove the _template and instructions fields. Do not add identity-bearing or free-form text.",
+  "protocol_id": "sticks-p16-lateral-grounding-v1",
+  "protocol_sha256": "1b4ca33ac27af263673c215eb5927b336bf466bd5c3767319851b2350425707c",
+  "schema_version": "1.0.0",
+  "task_packet_sha256": "80e2546a624a3975eee0356a989580c8ceb1e30235618b9c2ce5557de65b96ac"
+}

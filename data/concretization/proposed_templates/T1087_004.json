@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure retrieves a list of cloud accounts associated with a specified role using the Get-MsolRoleMember PowerShell cmdlet.",
+    "evidence_predicates": [
+      "collection_manifest_recorded",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "output": "archive_artifact",
+      "role": "data_source"
+    },
+    "produces": [
+      "list of cloud accounts associated with the specified role"
+    ],
+    "requires": [
+      "authenticated access to Office 365",
+      "appropriate permissions to query roles"
+    ],
+    "technique_ids": [
+      "T1087.004"
+    ],
+    "template_id": "get-msol-role-member-cloud-account-listing"
+  }
+}

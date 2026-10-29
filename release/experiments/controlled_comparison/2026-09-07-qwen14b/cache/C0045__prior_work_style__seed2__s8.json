@@ -1,0 +1,13 @@
+{
+  "campaign_id": "C0045",
+  "arm_id": "prior_work_style",
+  "seed": 2,
+  "step_id": "s8",
+  "emitted": true,
+  "abstained": false,
+  "oracle_admitted": true,
+  "template_id": "inspect-declared-network",
+  "proposal_sha256": "fc9dcb33bf99a905fa7368f846a56e7b49aadeb76b0cdc8370f0db870bf936f1",
+  "issue_codes": [],
+  "parse_error": null
+}

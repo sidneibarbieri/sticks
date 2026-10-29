@@ -1,0 +1,36 @@
+{
+  "id": "chatcmpl-EOgGnCIIDeVbnVwKsV7uiKYEPZGjG",
+  "object": "chat.completion",
+  "created": 1789551065,
+  "model": "gpt-4o-mini-2024-07-18",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"template_id\": \"access-token-manipulation-laboratory-harness\",\n  \"technique_ids\": [\"T1134\"],\n  \"execution_domain\": \"target\",\n  \"parameter_kinds\": {\n    \"target_host\": \"target_host\",\n    \"toolkit\": \"toolkit\"\n  },\n  \"requires\": [\n    \"a valid access token\",\n    \"a running process to manipulate\"\n  ],\n  \"produces\": [\n    \"the process now runs under a different security context\"\n  ],\n  \"evidence_predicates\": [\n    \"bounded_effect_observed\",\n    \"fixture_access_logged\"\n  ],\n  \"fidelity_ceiling\": \"adapted\",\n  \"description\": \"This procedure demonstrates how to manipulate access tokens to change the security context of a running process.\"\n}",
+        "refusal": null,
+        "annotations": []
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 818,
+    "completion_tokens": 164,
+    "total_tokens": 982,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_c577bb8647"
+}

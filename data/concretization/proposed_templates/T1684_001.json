@@ -1,0 +1,34 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure simulates an impersonation attempt by establishing a communication channel with a trusted entity.",
+    "evidence_predicates": [
+      "http_request_logged",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "communication_channel": "channel",
+      "trusted_entity": "endpoint"
+    },
+    "produces": [
+      "impersonation attempt logged",
+      "trust relationship verified"
+    ],
+    "requires": [
+      "trusted entity identified",
+      "communication channel established"
+    ],
+    "technique_ids": [
+      "T1684.001"
+    ],
+    "template_id": "impersonation-laboratory-harness"
+  }
+}

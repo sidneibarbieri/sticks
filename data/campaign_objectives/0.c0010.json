@@ -1,0 +1,7 @@
+{
+  "campaign_id": "0.c0010",
+  "description": "Ingress tool transfer: a staged tool reaches the target host.",
+  "clauses": [
+    {"fact": "target:benign_payload_transferred", "locus": "target", "require_observed": true}
+  ]
+}

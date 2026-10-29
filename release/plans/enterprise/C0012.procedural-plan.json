@@ -1,0 +1,777 @@
+{
+  "schema_version": "1",
+  "compiler_version": "1",
+  "campaign_id": "C0012",
+  "campaign_name": "Operation CuckooBees",
+  "source": {
+    "bundle_sha256": "dc1639caa5501d720e280cf1cbd8fbe009884a0c9b3e6e9ed9d0c25166c3d8f4",
+    "object_count": 26086,
+    "campaign_stix_id": "campaign--93c23946-49af-41f4-ac03-40f9ffc7419b",
+    "campaign_external_id": "C0012"
+  },
+  "ordering_policy": "tactic_rank_then_technique_id",
+  "steps": [
+    {
+      "technique_id": "T1588.002",
+      "technique_stix_id": "attack-pattern--a2fdce72-04b2-409a-ac10-cc1695f4fce0",
+      "name": "Tool",
+      "execution_domain": "attacker",
+      "tactics": [
+        "resource-development"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--5f3f6350-5e69-4b50-a0c7-c1f04ae85976"
+      ],
+      "procedure_descriptions": [
+        "For [Operation CuckooBees](https://attack.mitre.org/campaigns/C0012), the threat actors obtained publicly-available JSP code that was used to deploy a webshell onto a compromised server.(Citation: Cybereason OperationCuckooBees May 2022)   "
+      ]
+    },
+    {
+      "technique_id": "T1078.002",
+      "technique_stix_id": "attack-pattern--c3d4bdd9-2cfe-4a80-9d0c-07a29ecdce8f",
+      "name": "Domain Accounts",
+      "execution_domain": "boundary",
+      "tactics": [
+        "initial-access",
+        "persistence",
+        "privilege-escalation",
+        "stealth"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--269229ec-bb95-4ad1-b68e-267b2cce4f24"
+      ],
+      "procedure_descriptions": [
+        "During [Operation CuckooBees](https://attack.mitre.org/campaigns/C0012), the threat actors used compromised domain administrator credentials as part of their lateral movement.(Citation: Cybereason OperationCuckooBees May 2022) "
+      ]
+    },
+    {
+      "technique_id": "T1133",
+      "technique_stix_id": "attack-pattern--10d51417-ee35-4589-b1ff-b6df1c334e8d",
+      "name": "External Remote Services",
+      "execution_domain": "boundary",
+      "tactics": [
+        "initial-access",
+        "persistence"
+      ],
+      "platforms": [
+        "Containers",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--1b85db78-5473-4cfb-8908-13b108289df2"
+      ],
+      "procedure_descriptions": [
+        "During [Operation CuckooBees](https://attack.mitre.org/campaigns/C0012), the threat actors enabled WinRM over HTTP/HTTPS as a backup persistence mechanism using the following command: `cscript //nologo \"C:\\Windows\\System32\\winrm.vbs\" set winrm/config/service@{EnableCompatibilityHttpsListener=\"true\"}`.(Citation: Cybereason OperationCuckooBees May 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1190",
+      "technique_stix_id": "attack-pattern--3f886f2a-874f-4333-b794-aa6075009b1c",
+      "name": "Exploit Public-Facing Application",
+      "execution_domain": "boundary",
+      "tactics": [
+        "initial-access"
+      ],
+      "platforms": [
+        "Containers",
+        "ESXi",
+        "IaaS",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--83ac4384-a6a8-42d1-9b1b-273902c57144"
+      ],
+      "procedure_descriptions": [
+        "During [Operation CuckooBees](https://attack.mitre.org/campaigns/C0012), the threat actors exploited multiple vulnerabilities in externally facing servers.(Citation: Cybereason OperationCuckooBees May 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1053.005",
+      "technique_stix_id": "attack-pattern--005a06c6-14bf-4118-afa0-ebcd8aebb0c9",
+      "name": "Scheduled Task",
+      "execution_domain": "target",
+      "tactics": [
+        "execution",
+        "persistence",
+        "privilege-escalation"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--80e20d44-b799-4734-9de3-009f564f3ca0"
+      ],
+      "procedure_descriptions": [
+        "During [Operation CuckooBees](https://attack.mitre.org/campaigns/C0012), the threat actors used scheduled tasks to execute batch scripts for lateral movement with the following command: `SCHTASKS /Create /S <IP Address> /U <Username> /p <Password> /SC ONCE /TN test /TR <Path to a Batch File> /ST <Time> /RU SYSTEM.`(Citation: Cybereason OperationCuckooBees May 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1059.003",
+      "technique_stix_id": "attack-pattern--d1fcf083-a721-4223-aedf-bf8960798d62",
+      "name": "Windows Command Shell",
+      "execution_domain": "target",
+      "tactics": [
+        "execution"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--b2e82bbd-629f-47e6-9306-970d12d0f0bc"
+      ],
+      "procedure_descriptions": [
+        "During [Operation CuckooBees](https://attack.mitre.org/campaigns/C0012), the threat actors used batch scripts to perform reconnaissance.(Citation: Cybereason OperationCuckooBees May 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1059.005",
+      "technique_stix_id": "attack-pattern--dfd7cc1d-e1d8-4394-a198-97c4cab8aa67",
+      "name": "Visual Basic",
+      "execution_domain": "target",
+      "tactics": [
+        "execution"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--be6891d8-5053-4877-836d-b8fd47cb74de"
+      ],
+      "procedure_descriptions": [
+        "During [Operation CuckooBees](https://attack.mitre.org/campaigns/C0012), the threat actors executed an encoded VBScript file using `wscript` and wrote the decoded output to a text file.(Citation: Cybereason OperationCuckooBees May 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1574.001",
+      "technique_stix_id": "attack-pattern--2fee9321-3e71-4cf4-af24-d4d40d355b34",
+      "name": "DLL",
+      "execution_domain": "target",
+      "tactics": [
+        "execution",
+        "stealth"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--db13473b-3541-4be6-a5ad-042e83b37e3e"
+      ],
+      "procedure_descriptions": [
+        "During [Operation CuckooBees](https://attack.mitre.org/campaigns/C0012), the threat actors used the legitimate Windows services `IKEEXT` and `PrintNotify` to side-load malicious DLLs.(Citation: Cybereason OperationCuckooBees May 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1505.003",
+      "technique_stix_id": "attack-pattern--5d0d3609-d06d-49e1-b9c9-b544e0c618cb",
+      "name": "Web Shell",
+      "execution_domain": "target",
+      "tactics": [
+        "persistence"
+      ],
+      "platforms": [
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--b3fc9f8c-9074-42b8-a144-ad97aa017dce"
+      ],
+      "procedure_descriptions": [
+        "During [Operation CuckooBees](https://attack.mitre.org/campaigns/C0012), the threat actors generated a web shell within a vulnerable Enterprise Resource Planning Web Application Server as a persistence mechanism.(Citation: Cybereason OperationCuckooBees May 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1543.003",
+      "technique_stix_id": "attack-pattern--2959d63f-73fd-46a1-abd2-109d7dcede32",
+      "name": "Windows Service",
+      "execution_domain": "target",
+      "tactics": [
+        "persistence",
+        "privilege-escalation"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--128ecd12-77db-4117-be2f-2bf5476de670"
+      ],
+      "procedure_descriptions": [
+        "During [Operation CuckooBees](https://attack.mitre.org/campaigns/C0012), the threat actors modified the `IKEEXT` and `PrintNotify` Windows services for persistence.(Citation: Cybereason OperationCuckooBees May 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1547.006",
+      "technique_stix_id": "attack-pattern--a1b52199-c8c5-438a-9ded-656f1d0888c6",
+      "name": "Kernel Modules and Extensions",
+      "execution_domain": "target",
+      "tactics": [
+        "persistence",
+        "privilege-escalation"
+      ],
+      "platforms": [
+        "Linux",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--e6a1906d-43d1-454c-8150-053759421b74"
+      ],
+      "procedure_descriptions": [
+        "During [Operation CuckooBees](https://attack.mitre.org/campaigns/C0012), attackers used a signed kernel rootkit to establish additional persistence.(Citation: Cybereason OperationCuckooBees May 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1027.010",
+      "technique_stix_id": "attack-pattern--d511a6f6-4a33-41d5-bc95-c343875d1377",
+      "name": "Command Obfuscation",
+      "execution_domain": "target",
+      "tactics": [
+        "stealth"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--75a779b1-7b77-40bd-86cd-7ef5e54e78c1"
+      ],
+      "procedure_descriptions": [
+        "During [Operation CuckooBees](https://attack.mitre.org/campaigns/C0012), the threat actors executed an encoded VBScript file.(Citation: Cybereason OperationCuckooBees May 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1027.011",
+      "technique_stix_id": "attack-pattern--02c5abff-30bf-4703-ab92-1f6072fae939",
+      "name": "Fileless Storage",
+      "execution_domain": "target",
+      "tactics": [
+        "stealth"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--a2648a96-b282-4624-a91c-f97688c2f3b1"
+      ],
+      "procedure_descriptions": [
+        "During [Operation CuckooBees](https://attack.mitre.org/campaigns/C0012), the threat actors stroed payloads in Windows CLFS (Common Log File System) transactional logs.(Citation: Cybereason OperationCuckooBees May 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1036.005",
+      "technique_stix_id": "attack-pattern--1c4e5d32-1fe9-4116-9d9d-59e3925bd6a2",
+      "name": "Match Legitimate Resource Name or Location",
+      "execution_domain": "target",
+      "tactics": [
+        "stealth"
+      ],
+      "platforms": [
+        "Containers",
+        "ESXi",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--6a9d5f63-e3f8-4980-834b-f83660095e5c"
+      ],
+      "procedure_descriptions": [
+        "During [Operation CuckooBees](https://attack.mitre.org/campaigns/C0012), the threat actors renamed a malicious executable to `rundll32.exe` to allow it to blend in with other Windows system files.(Citation: Cybereason OperationCuckooBees May 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1003.002",
+      "technique_stix_id": "attack-pattern--1644e709-12d2-41e5-a60f-3470991f5011",
+      "name": "Security Account Manager",
+      "execution_domain": "target",
+      "tactics": [
+        "credential-access"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--b69fa422-d118-4d30-948b-422e737b1116"
+      ],
+      "procedure_descriptions": [
+        "During [Operation CuckooBees](https://attack.mitre.org/campaigns/C0012), the threat actors leveraged a custom tool to dump OS credentials and used following commands: `reg save HKLM\\\\SYSTEM system.hiv`, `reg save HKLM\\\\SAM sam.hiv`, and `reg save HKLM\\\\SECURITY security.hiv`, to dump SAM, SYSTEM and SECURITY hives.(Citation: Cybereason OperationCuckooBees May 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1007",
+      "technique_stix_id": "attack-pattern--322bad5a-1c49-4d23-ab79-76d641794afa",
+      "name": "System Service Discovery",
+      "execution_domain": "target",
+      "tactics": [
+        "discovery"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--e9af5cec-1afb-46da-9d2c-1c0c78ea312b"
+      ],
+      "procedure_descriptions": [
+        "During [Operation CuckooBees](https://attack.mitre.org/campaigns/C0012), the threat actors used the `net start` command as part of their initial reconnaissance.(Citation: Cybereason OperationCuckooBees May 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1016",
+      "technique_stix_id": "attack-pattern--707399d6-ab3e-4963-9315-d9d3818cd6a0",
+      "name": "System Network Configuration Discovery",
+      "execution_domain": "target",
+      "tactics": [
+        "discovery"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--2f61aca0-55a8-46cb-aa37-a1789fc07c40"
+      ],
+      "procedure_descriptions": [
+        "During [Operation CuckooBees](https://attack.mitre.org/campaigns/C0012), the threat actors used `ipconfig`, `nbtstat`, `tracert`, `route print`, and `cat /etc/hosts` commands.(Citation: Cybereason OperationCuckooBees May 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1018",
+      "technique_stix_id": "attack-pattern--e358d692-23c0-4a31-9eb6-ecc13a8d7735",
+      "name": "Remote System Discovery",
+      "execution_domain": "target",
+      "tactics": [
+        "discovery"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--0d6b67b8-016a-4335-89f1-2cdb7ed778c1"
+      ],
+      "procedure_descriptions": [
+        "During [Operation CuckooBees](https://attack.mitre.org/campaigns/C0012), the threat actors used the `net view` and `ping` commands as part of their advanced reconnaissance.(Citation: Cybereason OperationCuckooBees May 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1033",
+      "technique_stix_id": "attack-pattern--03d7999c-1f4c-42cc-8373-e7690d318104",
+      "name": "System Owner/User Discovery",
+      "execution_domain": "target",
+      "tactics": [
+        "discovery"
+      ],
+      "platforms": [
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--71f80d4d-daf5-4da2-811b-0ebd3365b79c"
+      ],
+      "procedure_descriptions": [
+        "During [Operation CuckooBees](https://attack.mitre.org/campaigns/C0012), the threat actors used the `query user` and `whoami` commands as part of their advanced reconnaissance.(Citation: Cybereason OperationCuckooBees May 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1049",
+      "technique_stix_id": "attack-pattern--7e150503-88e7-4861-866b-ff1ac82c4475",
+      "name": "System Network Connections Discovery",
+      "execution_domain": "target",
+      "tactics": [
+        "discovery"
+      ],
+      "platforms": [
+        "ESXi",
+        "IaaS",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--bb7ce54a-20a5-434e-99f1-ad37cbac0777"
+      ],
+      "procedure_descriptions": [
+        "During [Operation CuckooBees](https://attack.mitre.org/campaigns/C0012), the threat actors used the `net session`, `net use`, and `netstat` commands as part of their advanced reconnaissance.(Citation: Cybereason OperationCuckooBees May 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1057",
+      "technique_stix_id": "attack-pattern--8f4a33ec-8b1f-4b80-a2f6-642b2e479580",
+      "name": "Process Discovery",
+      "execution_domain": "target",
+      "tactics": [
+        "discovery"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--e53818ed-808a-46f6-a266-098f19895379"
+      ],
+      "procedure_descriptions": [
+        "During [Operation CuckooBees](https://attack.mitre.org/campaigns/C0012), the threat actors used the `tasklist` command as part of their advanced reconnaissance.(Citation: Cybereason OperationCuckooBees May 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1069.001",
+      "technique_stix_id": "attack-pattern--a01bf75f-00b2-4568-a58f-565ff9bf202b",
+      "name": "Local Groups",
+      "execution_domain": "target",
+      "tactics": [
+        "discovery"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--938fe8be-be14-41a6-9db5-238866bb77ea"
+      ],
+      "procedure_descriptions": [
+        "During [Operation CuckooBees](https://attack.mitre.org/campaigns/C0012), the threat actors used the `net group` command as part of their advanced reconnaissance.(Citation: Cybereason OperationCuckooBees May 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1082",
+      "technique_stix_id": "attack-pattern--354a7f88-63fb-41b5-a801-ce3b377b36f1",
+      "name": "System Information Discovery",
+      "execution_domain": "target",
+      "tactics": [
+        "discovery"
+      ],
+      "platforms": [
+        "ESXi",
+        "IaaS",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--2026783b-b6c7-432f-9c28-72090cb5539a"
+      ],
+      "procedure_descriptions": [
+        "During [Operation CuckooBees](https://attack.mitre.org/campaigns/C0012), the threat actors used the `systeminfo` command to gather details about a compromised system.(Citation: Cybereason OperationCuckooBees May 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1083",
+      "technique_stix_id": "attack-pattern--7bc57495-ea59-4380-be31-a64af124ef18",
+      "name": "File and Directory Discovery",
+      "execution_domain": "target",
+      "tactics": [
+        "discovery"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--1c9b32f8-f78d-4580-b183-676c7203286d"
+      ],
+      "procedure_descriptions": [
+        "During [Operation CuckooBees](https://attack.mitre.org/campaigns/C0012), the threat actors used `dir c:\\\\` to search for files.(Citation: Cybereason OperationCuckooBees May 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1087.001",
+      "technique_stix_id": "attack-pattern--25659dd6-ea12-45c4-97e6-381e3e4b593e",
+      "name": "Local Account",
+      "execution_domain": "target",
+      "tactics": [
+        "discovery"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--71819612-01e7-48cf-89ea-09da4f05c2e8"
+      ],
+      "procedure_descriptions": [
+        "During [Operation CuckooBees](https://attack.mitre.org/campaigns/C0012), the threat actors used the `net user` command to gather account information.(Citation: Cybereason OperationCuckooBees May 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1087.002",
+      "technique_stix_id": "attack-pattern--21875073-b0ee-49e3-9077-1e2a885359af",
+      "name": "Domain Account",
+      "execution_domain": "target",
+      "tactics": [
+        "discovery"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--7903f25e-388e-4cda-bd09-bc83fa64d62e"
+      ],
+      "procedure_descriptions": [
+        "During [Operation CuckooBees](https://attack.mitre.org/campaigns/C0012), the threat actors used the `dsquery` and `dsget` commands to get domain environment information and to query users in administrative groups.(Citation: Cybereason OperationCuckooBees May 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1120",
+      "technique_stix_id": "attack-pattern--348f1eef-964b-4eb6-bb53-69b3dcb0c643",
+      "name": "Peripheral Device Discovery",
+      "execution_domain": "target",
+      "tactics": [
+        "discovery"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--0882cca9-ed77-4c71-85e4-78988d79236f"
+      ],
+      "procedure_descriptions": [
+        "During [Operation CuckooBees](https://attack.mitre.org/campaigns/C0012), the threat actors used the `fsutil fsinfo drives` command as part of their advanced reconnaissance.(Citation: Cybereason OperationCuckooBees May 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1124",
+      "technique_stix_id": "attack-pattern--f3c544dc-673c-4ef3-accb-53229f1ae077",
+      "name": "System Time Discovery",
+      "execution_domain": "target",
+      "tactics": [
+        "discovery"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--23c72a20-1982-4207-9905-d3aa45f94c23"
+      ],
+      "procedure_descriptions": [
+        "During [Operation CuckooBees](https://attack.mitre.org/campaigns/C0012), the threat actors used the `net time` command as part of their advanced reconnaissance.(Citation: Cybereason OperationCuckooBees May 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1135",
+      "technique_stix_id": "attack-pattern--3489cfc5-640f-4bb3-a103-9137b97de79f",
+      "name": "Network Share Discovery",
+      "execution_domain": "target",
+      "tactics": [
+        "discovery"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--d7f25b51-f596-4745-8c2d-b0fa074a89b5"
+      ],
+      "procedure_descriptions": [
+        "During [Operation CuckooBees](https://attack.mitre.org/campaigns/C0012), the threat actors used the `net share` command as part of their advanced reconnaissance.(Citation: Cybereason OperationCuckooBees May 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1201",
+      "technique_stix_id": "attack-pattern--b6075259-dba3-44e9-87c7-e954f37ec0d5",
+      "name": "Password Policy Discovery",
+      "execution_domain": "target",
+      "tactics": [
+        "discovery"
+      ],
+      "platforms": [
+        "IaaS",
+        "Identity Provider",
+        "Linux",
+        "Network Devices",
+        "Office Suite",
+        "SaaS",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--55b9483d-2d73-433c-ad5a-d29dcce6e4e4"
+      ],
+      "procedure_descriptions": [
+        "During [Operation CuckooBees](https://attack.mitre.org/campaigns/C0012), the threat actors used the `net accounts` command as part of their advanced reconnaissance.(Citation: Cybereason OperationCuckooBees May 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1005",
+      "technique_stix_id": "attack-pattern--3c4a2599-71ee-4405-ba1e-0e28414b4bc5",
+      "name": "Data from Local System",
+      "execution_domain": "target",
+      "tactics": [
+        "collection"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--ea944454-a4e9-44fb-9cf1-3f018a455740"
+      ],
+      "procedure_descriptions": [
+        "During [Operation CuckooBees](https://attack.mitre.org/campaigns/C0012), the threat actors collected data, files, and other information from compromised networks.(Citation: Cybereason OperationCuckooBees May 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1560.001",
+      "technique_stix_id": "attack-pattern--00f90846-cbd1-4fc5-9233-df5c2bf2a662",
+      "name": "Archive via Utility",
+      "execution_domain": "target",
+      "tactics": [
+        "collection"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--12ee5148-c274-4c94-a0da-69316cb329d2"
+      ],
+      "procedure_descriptions": [
+        "During [Operation CuckooBees](https://attack.mitre.org/campaigns/C0012), the threat actors used the Makecab utility to compress and a version of WinRAR to create password-protected archives of stolen data prior to exfiltration.(Citation: Cybereason OperationCuckooBees May 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1071.001",
+      "technique_stix_id": "attack-pattern--df8b2a25-8bdf-4856-953c-a04372b1c161",
+      "name": "Web Protocols",
+      "execution_domain": "boundary",
+      "tactics": [
+        "command-and-control"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--b6d0a9fa-a908-4837-9484-91d07cde5e42"
+      ],
+      "procedure_descriptions": [
+        "During [Operation CuckooBees](https://attack.mitre.org/campaigns/C0012), the threat actors enabled HTTP and HTTPS listeners.(Citation: Cybereason OperationCuckooBees May 2022)"
+      ]
+    }
+  ],
+  "limitations": [
+    "ATT&CK uses-links do not encode a historical total order; the compiler applies a declared tactic-rank policy.",
+    "Technique metadata constrains procedures but does not uniquely determine an executable target environment."
+  ],
+  "content_sha256": "205acce6cab88ed377bb2ea4e1ee74cd0319806ba2270884af2cf676faa2d67c"
+}

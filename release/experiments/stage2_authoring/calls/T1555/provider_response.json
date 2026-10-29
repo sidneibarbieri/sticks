@@ -1,0 +1,36 @@
+{
+  "id": "chatcmpl-EOgEGZqarkCi2a5y1gABRbDk7JAQ8",
+  "object": "chat.completion",
+  "created": 1789550908,
+  "model": "gpt-4o-mini-2024-07-18",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"template_id\": \"credentials-from-password-stores-laboratory-harness\",\n  \"technique_ids\": [\"T1555\"],\n  \"execution_domain\": \"target\",\n  \"parameter_kinds\": {\n    \"password_store\": \"credential_source\",\n    \"target_system\": \"target_host\"\n  },\n  \"requires\": [\n    \"target_system is accessible\",\n    \"password_store is configured\"\n  ],\n  \"produces\": [\n    \"credentials retrieved from password store\"\n  ],\n  \"evidence_predicates\": [\n    \"fixture_access_logged\",\n    \"bounded_effect_observed\"\n  ],\n  \"fidelity_ceiling\": \"adapted\",\n  \"description\": \"This procedure retrieves credentials from a specified password store on a target system for analysis.\"\n}",
+        "refusal": null,
+        "annotations": []
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 803,
+    "completion_tokens": 157,
+    "total_tokens": 960,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_c577bb8647"
+}

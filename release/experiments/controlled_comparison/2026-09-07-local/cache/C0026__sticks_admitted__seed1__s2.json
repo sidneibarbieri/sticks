@@ -1,0 +1,15 @@
+{
+  "campaign_id": "C0026",
+  "arm_id": "sticks_admitted",
+  "seed": 1,
+  "step_id": "s2",
+  "emitted": false,
+  "abstained": true,
+  "oracle_admitted": null,
+  "template_id": null,
+  "proposal_sha256": null,
+  "issue_codes": [
+    "EXECUTION_DOMAIN_MISMATCH"
+  ],
+  "parse_error": null
+}

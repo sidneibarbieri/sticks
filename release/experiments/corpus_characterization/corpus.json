@@ -1,0 +1,13 @@
+{
+  "question": "How much of the technique space does each documenting population reference?",
+  "active_techniques": 697,
+  "campaign_referenced": 320,
+  "intrusion_set_referenced": 498,
+  "campaign_reference_rate": 0.45911047345767575,
+  "intrusion_set_reference_rate": 0.7144906743185079,
+  "campaign_only": 31,
+  "referenced_by_both": 289,
+  "intrusion_set_only": 209,
+  "referenced_by_neither": 168,
+  "note": "Reference rates measure documented behavioral reach, not procedural completeness: neither population encodes the ordering, parameters, or environment binding an execution requires."
+}

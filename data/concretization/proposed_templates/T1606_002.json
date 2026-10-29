@@ -1,0 +1,32 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure outlines the steps to forge SAML tokens with specified lifetimes using a valid signing certificate.",
+    "evidence_predicates": [
+      "artifact_hash_recorded",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "lifetime_policy": "chunk_policy",
+      "saml_token": "payload"
+    },
+    "produces": [
+      "forged_saml_token"
+    ],
+    "requires": [
+      "valid_saml_signing_certificate"
+    ],
+    "technique_ids": [
+      "T1606.002"
+    ],
+    "template_id": "forge-saml-tokens-lifetime-policy"
+  }
+}

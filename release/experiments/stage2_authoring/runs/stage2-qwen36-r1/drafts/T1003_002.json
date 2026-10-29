@@ -1,0 +1,37 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "qwen3.6:latest",
+    "provider": "openai",
+    "review_pending": true,
+    "run_id": "stage2-qwen36-r1",
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This benign laboratory harness simulates controlled extraction of local account data from the Security Account Manager database using elevated privileges to validate credential collection workflows.",
+    "evidence_predicates": [
+      "artifact_hash_recorded",
+      "process_exit_recorded"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "access_level": "privilege_boundary",
+      "host_target": "target_host",
+      "output_store": "archive_artifact",
+      "tool_bundle": "archive_tool"
+    },
+    "produces": [
+      "extracted_data_archive",
+      "credential_hash_collection"
+    ],
+    "requires": [
+      "system_privilege_established",
+      "sam_registry_accessible"
+    ],
+    "technique_ids": [
+      "T1003.002"
+    ],
+    "template_id": "sam-harness-extract"
+  }
+}

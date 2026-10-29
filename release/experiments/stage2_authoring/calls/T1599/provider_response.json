@@ -1,0 +1,36 @@
+{
+  "id": "chatcmpl-EOgJaq0GD1vrIvGkgaowntRzXqReO",
+  "object": "chat.completion",
+  "created": 1789551238,
+  "model": "gpt-4o-mini-2024-07-18",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"template_id\": \"network-boundary-bridging-laboratory-harness\",\n  \"technique_ids\": [\"T1599\"],\n  \"execution_domain\": \"boundary\",\n  \"parameter_kinds\": {\n    \"network_device\": \"network_interface\",\n    \"traffic_policy\": \"chunk_policy\"\n  },\n  \"requires\": [\n    \"network_device_access\",\n    \"traffic_policy_configuration\"\n  ],\n  \"produces\": [\n    \"boundary_check_recorded\",\n    \"traffic_routing_verified\"\n  ],\n  \"evidence_predicates\": [\n    \"boundary_check_recorded\",\n    \"bounded_effect_observed\"\n  ],\n  \"fidelity_ceiling\": \"adapted\",\n  \"description\": \"This procedure simulates the bridging of network boundaries by manipulating network devices to observe the effects on traffic routing.\"\n}",
+        "refusal": null,
+        "annotations": []
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 809,
+    "completion_tokens": 168,
+    "total_tokens": 977,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_c577bb8647"
+}

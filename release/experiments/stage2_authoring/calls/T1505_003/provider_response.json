@@ -1,0 +1,36 @@
+{
+  "id": "chatcmpl-EOK2MEXReuxLCrjJtYuKbcNUPApXa",
+  "object": "chat.completion",
+  "created": 1789465602,
+  "model": "gpt-4o-mini-2024-07-18",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"template_id\": \"web-shell-laboratory-harness\",\n  \"technique_ids\": [\n    \"T1505.003\"\n  ],\n  \"execution_domain\": \"target\",\n  \"parameter_kinds\": {\n    \"web_asset\": \"web_asset\",\n    \"payload\": \"payload\"\n  },\n  \"requires\": [\n    \"web server is accessible\",\n    \"web shell script is prepared\"\n  ],\n  \"produces\": [\n    \"web asset hash recorded\",\n    \"http request logged\"\n  ],\n  \"evidence_predicates\": [\n    \"web_asset_hash_recorded\",\n    \"http_request_logged\"\n  ],\n  \"fidelity_ceiling\": \"adapted\",\n  \"description\": \"This procedure demonstrates the deployment of a web shell on a benign web server for testing purposes.\"\n}",
+        "refusal": null,
+        "annotations": []
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 845,
+    "completion_tokens": 167,
+    "total_tokens": 1012,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_c577bb8647"
+}

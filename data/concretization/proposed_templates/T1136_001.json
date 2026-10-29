@@ -1,0 +1,32 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure creates a local account on the target system to simulate access maintenance.",
+    "evidence_predicates": [
+      "bounded_effect_observed",
+      "fixture_access_logged"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "password": "credential_source",
+      "user_name": "credential_source"
+    },
+    "produces": [
+      "local_account_created"
+    ],
+    "requires": [
+      "sufficient_access_level"
+    ],
+    "technique_ids": [
+      "T1136.001"
+    ],
+    "template_id": "create-local-account-laboratory-harness"
+  }
+}

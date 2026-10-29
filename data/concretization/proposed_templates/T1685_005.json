@@ -1,0 +1,31 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure clears specified Windows Event Logs to simulate the effect of log clearing in a controlled environment.",
+    "evidence_predicates": [
+      "bounded_effect_observed",
+      "file_absence_recorded"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "event_log": "data_source"
+    },
+    "produces": [
+      "event logs cleared"
+    ],
+    "requires": [
+      "administrator privileges"
+    ],
+    "technique_ids": [
+      "T1685.005"
+    ],
+    "template_id": "clear-windows-event-logs-laboratory-harness"
+  }
+}

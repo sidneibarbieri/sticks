@@ -1,0 +1,36 @@
+{
+  "id": "chatcmpl-EOgGK1JrW4reIbfjE4wJFG6lRDgu3",
+  "object": "chat.completion",
+  "created": 1789551036,
+  "model": "gpt-4o-mini-2024-07-18",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"template_id\": \"proc-memory-injection-lab-harness\",\n  \"technique_ids\": [\n    \"T1055.009\"\n  ],\n  \"execution_domain\": \"target\",\n  \"parameter_kinds\": {\n    \"target_host\": \"target_host\",\n    \"payload\": \"payload\"\n  },\n  \"requires\": [\n    \"target process is running\",\n    \"access to /proc filesystem\"\n  ],\n  \"produces\": [\n    \"memory state modified\",\n    \"ROP payload executed\"\n  ],\n  \"evidence_predicates\": [\n    \"bounded_effect_observed\",\n    \"process_exit_recorded\"\n  ],\n  \"fidelity_ceiling\": \"adapted\",\n  \"description\": \"This procedure outlines the steps to perform proc memory injection in a controlled laboratory environment.\"\n}",
+        "refusal": null,
+        "annotations": []
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 818,
+    "completion_tokens": 165,
+    "total_tokens": 983,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_c577bb8647"
+}

@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure retrieves cloud permission groups using authenticated access to identify user roles within a cloud environment.",
+    "evidence_predicates": [
+      "collection_manifest_recorded",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "tool": "toolkit",
+      "user": "credential_source"
+    },
+    "produces": [
+      "list of cloud permission groups"
+    ],
+    "requires": [
+      "authenticated access to cloud environment",
+      "appropriate permissions to query roles"
+    ],
+    "technique_ids": [
+      "T1069.003"
+    ],
+    "template_id": "cloud-groups-retrieval"
+  }
+}

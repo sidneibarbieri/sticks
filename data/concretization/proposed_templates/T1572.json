@@ -1,0 +1,34 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure encapsulates a payload within a network protocol to simulate tunneling behavior for analysis.",
+    "evidence_predicates": [
+      "bytes_transferred_recorded",
+      "boundary_check_recorded"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "network_interface": "network_interface",
+      "payload": "payload"
+    },
+    "produces": [
+      "bytes transferred recorded",
+      "boundary check recorded"
+    ],
+    "requires": [
+      "network interface configured",
+      "payload ready for transmission"
+    ],
+    "technique_ids": [
+      "T1572"
+    ],
+    "template_id": "protocol-tunneling-laboratory-harness"
+  }
+}

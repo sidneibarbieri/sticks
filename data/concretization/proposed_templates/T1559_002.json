@@ -1,0 +1,34 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure demonstrates the use of Dynamic Data Exchange to execute a command on a target host in a controlled laboratory environment.",
+    "evidence_predicates": [
+      "bounded_effect_observed",
+      "fixture_access_logged"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "payload": "payload",
+      "target_host": "target_host"
+    },
+    "produces": [
+      "DDE command executed",
+      "payload execution logged"
+    ],
+    "requires": [
+      "target_host is accessible",
+      "payload is prepared"
+    ],
+    "technique_ids": [
+      "T1559.002"
+    ],
+    "template_id": "dynamic-data-exchange-laboratory-harness"
+  }
+}

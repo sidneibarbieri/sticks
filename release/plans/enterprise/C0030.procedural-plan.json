@@ -1,0 +1,235 @@
+{
+  "schema_version": "1",
+  "compiler_version": "1",
+  "campaign_id": "C0030",
+  "campaign_name": "Triton Safety Instrumented System Attack",
+  "source": {
+    "bundle_sha256": "dc1639caa5501d720e280cf1cbd8fbe009884a0c9b3e6e9ed9d0c25166c3d8f4",
+    "object_count": 26086,
+    "campaign_stix_id": "campaign--45a98f02-852f-49b2-94c0-c63207bebbbf",
+    "campaign_external_id": "C0030"
+  },
+  "ordering_policy": "tactic_rank_then_technique_id",
+  "steps": [
+    {
+      "technique_id": "T1595",
+      "technique_stix_id": "attack-pattern--67073dde-d720-45ae-83da-b12d5e73ca3b",
+      "name": "Active Scanning",
+      "execution_domain": "attacker",
+      "tactics": [
+        "reconnaissance"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--ef19089b-8d71-4fdb-9fdc-2eb8521d634f"
+      ],
+      "procedure_descriptions": [
+        "In the [Triton Safety Instrumented System Attack](https://attack.mitre.org/campaigns/C0030), [TEMP.Veles](https://attack.mitre.org/groups/G0088) engaged in network reconnaissance against targets of interest.(Citation: FireEye TEMP.Veles 2018)"
+      ]
+    },
+    {
+      "technique_id": "T1587.001",
+      "technique_stix_id": "attack-pattern--212306d8-efa4-44c9-8c2d-ed3d2e224aa0",
+      "name": "Malware",
+      "execution_domain": "attacker",
+      "tactics": [
+        "resource-development"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--97ca11ce-025d-4e46-93d7-deadd4bcd780"
+      ],
+      "procedure_descriptions": [
+        "In the [Triton Safety Instrumented System Attack](https://attack.mitre.org/campaigns/C0030), [TEMP.Veles](https://attack.mitre.org/groups/G0088) developed, prior to the attack, malware capabilities that would require access to specific and specialized hardware and software.(Citation: FireEye TRITON Dec 2017)"
+      ]
+    },
+    {
+      "technique_id": "T1588.002",
+      "technique_stix_id": "attack-pattern--a2fdce72-04b2-409a-ac10-cc1695f4fce0",
+      "name": "Tool",
+      "execution_domain": "attacker",
+      "tactics": [
+        "resource-development"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--1e7a35d2-4fbf-4e9c-8ad4-c21634540cbb"
+      ],
+      "procedure_descriptions": [
+        "In the [Triton Safety Instrumented System Attack](https://attack.mitre.org/campaigns/C0030), [TEMP.Veles](https://attack.mitre.org/groups/G0088) used tools such as Mimikatz and other open-source software.(Citation: FireEye TEMP.Veles 2018)"
+      ]
+    },
+    {
+      "technique_id": "T1053.005",
+      "technique_stix_id": "attack-pattern--005a06c6-14bf-4118-afa0-ebcd8aebb0c9",
+      "name": "Scheduled Task",
+      "execution_domain": "target",
+      "tactics": [
+        "execution",
+        "persistence",
+        "privilege-escalation"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--5ce08d76-1b27-42c7-88f0-5591ee4b33af"
+      ],
+      "procedure_descriptions": [
+        "In the [Triton Safety Instrumented System Attack](https://attack.mitre.org/campaigns/C0030), [TEMP.Veles](https://attack.mitre.org/groups/G0088) installed scheduled tasks defined in XML files.(Citation: FireEye TEMP.Veles 2018)"
+      ]
+    },
+    {
+      "technique_id": "T1059.001",
+      "technique_stix_id": "attack-pattern--970a3432-3237-47ad-bcca-7d8cbb217736",
+      "name": "PowerShell",
+      "execution_domain": "target",
+      "tactics": [
+        "execution"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--b4c5b1ac-a2bd-4440-82bd-2de419ee1517"
+      ],
+      "procedure_descriptions": [
+        "In the [Triton Safety Instrumented System Attack](https://attack.mitre.org/campaigns/C0030), [TEMP.Veles](https://attack.mitre.org/groups/G0088) used a publicly available PowerShell-based tool, WMImplant.(Citation: FireEye TEMP.Veles 2018)"
+      ]
+    },
+    {
+      "technique_id": "T1027.005",
+      "technique_stix_id": "attack-pattern--b0533c6e-8fea-4788-874f-b799cacc4b92",
+      "name": "Indicator Removal from Tools",
+      "execution_domain": "target",
+      "tactics": [
+        "stealth"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--c902196d-7a86-4235-b2a8-bf380a0cab3c"
+      ],
+      "procedure_descriptions": [
+        "In the [Triton Safety Instrumented System Attack](https://attack.mitre.org/campaigns/C0030), [TEMP.Veles](https://attack.mitre.org/groups/G0088) modified files based on the open-source project cryptcat in an apparent attempt to decrease anti-virus detection rates.(Citation: FireEye TEMP.Veles 2018)"
+      ]
+    },
+    {
+      "technique_id": "T1036.005",
+      "technique_stix_id": "attack-pattern--1c4e5d32-1fe9-4116-9d9d-59e3925bd6a2",
+      "name": "Match Legitimate Resource Name or Location",
+      "execution_domain": "target",
+      "tactics": [
+        "stealth"
+      ],
+      "platforms": [
+        "Containers",
+        "ESXi",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--30ac4618-8059-4e7a-869a-4c3cb84577a2"
+      ],
+      "procedure_descriptions": [
+        "In the [Triton Safety Instrumented System Attack](https://attack.mitre.org/campaigns/C0030), [TEMP.Veles](https://attack.mitre.org/groups/G0088) renamed files to look like legitimate files, such as Windows update files or Schneider Electric application files."
+      ]
+    },
+    {
+      "technique_id": "T1003.001",
+      "technique_stix_id": "attack-pattern--65f2d882-3f41-4d48-8a06-29af77ec9f90",
+      "name": "LSASS Memory",
+      "execution_domain": "target",
+      "tactics": [
+        "credential-access"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--94cc0bdc-a2a6-4032-8099-34124c45976b"
+      ],
+      "procedure_descriptions": [
+        "In the [Triton Safety Instrumented System Attack](https://attack.mitre.org/campaigns/C0030), [TEMP.Veles](https://attack.mitre.org/groups/G0088) used Mimikatz.(Citation: FireEye TRITON 2018)"
+      ]
+    },
+    {
+      "technique_id": "T1056.003",
+      "technique_stix_id": "attack-pattern--69e5226d-05dc-4f15-95d7-44f5ed78d06e",
+      "name": "Web Portal Capture",
+      "execution_domain": "target",
+      "tactics": [
+        "credential-access",
+        "collection"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--aca39122-03de-4eb0-b73a-cbcbc52ca3de"
+      ],
+      "procedure_descriptions": [
+        "In the [Triton Safety Instrumented System Attack](https://attack.mitre.org/campaigns/C0030), [TEMP.Veles](https://attack.mitre.org/groups/G0088) captured credentials as they were being changed by redirecting text-based login codes to websites they controlled.(Citation: Triton-EENews-2017)"
+      ]
+    },
+    {
+      "technique_id": "T1573",
+      "technique_stix_id": "attack-pattern--b8902400-e6c5-4ba2-95aa-2d35b442b118",
+      "name": "Encrypted Channel",
+      "execution_domain": "boundary",
+      "tactics": [
+        "command-and-control"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--eb4c544b-2c30-4d61-aaee-13a7bf21a182"
+      ],
+      "procedure_descriptions": [
+        "In the [Triton Safety Instrumented System Attack](https://attack.mitre.org/campaigns/C0030), [TEMP.Veles](https://attack.mitre.org/groups/G0088) used cryptcat binaries to encrypt their traffic.(Citation: FireEye TEMP.Veles 2018)"
+      ]
+    }
+  ],
+  "limitations": [
+    "ATT&CK uses-links do not encode a historical total order; the compiler applies a declared tactic-rank policy.",
+    "Technique metadata constrains procedures but does not uniquely determine an executable target environment."
+  ],
+  "content_sha256": "37a626e777847f13705b350749ff91f79a2ab3ed68133c10ec9de41e94b57ad5"
+}

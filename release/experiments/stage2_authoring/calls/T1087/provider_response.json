@@ -1,0 +1,36 @@
+{
+  "id": "chatcmpl-EOK7T8SWGapMa1PWlMh9kj4ucvMwB",
+  "object": "chat.completion",
+  "created": 1789465919,
+  "model": "gpt-4o-mini-2024-07-18",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"template_id\": \"account-discovery-laboratory-harness\",\n  \"technique_ids\": [\n    \"T1087\"\n  ],\n  \"execution_domain\": \"target\",\n  \"parameter_kinds\": {\n    \"target_host\": \"target_host\",\n    \"data_source\": \"data_source\"\n  },\n  \"requires\": [\n    \"valid accounts list available\",\n    \"system access granted\"\n  ],\n  \"produces\": [\n    \"account enumeration completed\",\n    \"list of valid accounts generated\"\n  ],\n  \"evidence_predicates\": [\n    \"file_count_recorded\",\n    \"bounded_effect_observed\"\n  ],\n  \"fidelity_ceiling\": \"adapted\",\n  \"description\": \"This procedure enumerates valid accounts on a target host to simulate account discovery in a controlled environment.\"\n}",
+        "refusal": null,
+        "annotations": []
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 827,
+    "completion_tokens": 168,
+    "total_tokens": 995,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_c577bb8647"
+}

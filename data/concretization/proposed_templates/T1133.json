@@ -1,0 +1,34 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure establishes a remote connection to an external service using valid user credentials.",
+    "evidence_predicates": [
+      "http_request_logged",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "remote_service": "web_asset",
+      "user_credentials": "credential_source"
+    },
+    "produces": [
+      "remote connection established",
+      "user session logged"
+    ],
+    "requires": [
+      "remote service is accessible",
+      "user has valid credentials"
+    ],
+    "technique_ids": [
+      "T1133"
+    ],
+    "template_id": "external-remote-services-laboratory-harness"
+  }
+}

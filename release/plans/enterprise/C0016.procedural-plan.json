@@ -1,0 +1,398 @@
+{
+  "schema_version": "1",
+  "compiler_version": "1",
+  "campaign_id": "C0016",
+  "campaign_name": "Operation Dust Storm",
+  "source": {
+    "bundle_sha256": "dc1639caa5501d720e280cf1cbd8fbe009884a0c9b3e6e9ed9d0c25166c3d8f4",
+    "object_count": 26086,
+    "campaign_stix_id": "campaign--4603cf2f-06d0-4970-9c5d-5071b08c817f",
+    "campaign_external_id": "C0016"
+  },
+  "ordering_policy": "tactic_rank_then_technique_id",
+  "steps": [
+    {
+      "technique_id": "T1583.001",
+      "technique_stix_id": "attack-pattern--40f5caa0-4cb7-4117-89fc-d421bb493df3",
+      "name": "Domains",
+      "execution_domain": "attacker",
+      "tactics": [
+        "resource-development"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--4f1793cb-51f9-47d0-a2a7-374a57f56b82"
+      ],
+      "procedure_descriptions": [
+        "For [Operation Dust Storm](https://attack.mitre.org/campaigns/C0016), the threat actors established domains as part of their operational infrastructure.(Citation: Cylance Dust Storm)"
+      ]
+    },
+    {
+      "technique_id": "T1585.002",
+      "technique_stix_id": "attack-pattern--65013dd2-bc61-43e3-afb5-a14c4fa7437a",
+      "name": "Email Accounts",
+      "execution_domain": "attacker",
+      "tactics": [
+        "resource-development"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--dc64a0c1-9302-4816-8b1d-b6b348f12efb"
+      ],
+      "procedure_descriptions": [
+        "For [Operation Dust Storm](https://attack.mitre.org/campaigns/C0016), the threat actors established email addresses to register domains for their operations.(Citation: Cylance Dust Storm)"
+      ]
+    },
+    {
+      "technique_id": "T1189",
+      "technique_stix_id": "attack-pattern--d742a578-d70e-4d0e-96a6-02a9c30204e6",
+      "name": "Drive-by Compromise",
+      "execution_domain": "boundary",
+      "tactics": [
+        "initial-access"
+      ],
+      "platforms": [
+        "Identity Provider",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--820a35e0-11fe-42c4-84d2-a29cc5026426"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Dust Storm](https://attack.mitre.org/campaigns/C0016), the threat actors used a watering hole attack on a popular software reseller to exploit the then-zero-day Internet Explorer vulnerability CVE-2014-0322.(Citation: Cylance Dust Storm)"
+      ]
+    },
+    {
+      "technique_id": "T1566.001",
+      "technique_stix_id": "attack-pattern--2e34237d-8574-43f6-aace-ae2915de8597",
+      "name": "Spearphishing Attachment",
+      "execution_domain": "boundary",
+      "tactics": [
+        "initial-access"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--713c3a5e-931b-4c43-a945-c26f031b0183"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Dust Storm](https://attack.mitre.org/campaigns/C0016), the threat actors sent spearphishing emails that contained a malicious Microsoft Word document.(Citation: Cylance Dust Storm)"
+      ]
+    },
+    {
+      "technique_id": "T1566.002",
+      "technique_stix_id": "attack-pattern--2b742742-28c3-4e1b-bab7-8350d6300fa7",
+      "name": "Spearphishing Link",
+      "execution_domain": "boundary",
+      "tactics": [
+        "initial-access"
+      ],
+      "platforms": [
+        "Identity Provider",
+        "Linux",
+        "Office Suite",
+        "SaaS",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--e8009877-1d59-4742-8d9a-61e0cda1f0b1"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Dust Storm](https://attack.mitre.org/campaigns/C0016), the threat actors sent spearphishing emails containing a malicious link.(Citation: Cylance Dust Storm)"
+      ]
+    },
+    {
+      "technique_id": "T1059.005",
+      "technique_stix_id": "attack-pattern--dfd7cc1d-e1d8-4394-a198-97c4cab8aa67",
+      "name": "Visual Basic",
+      "execution_domain": "target",
+      "tactics": [
+        "execution"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--bc0704ff-406d-4be2-90ef-6a667041365f"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Dust Storm](https://attack.mitre.org/campaigns/C0016), the threat actors used Visual Basic scripts.(Citation: Cylance Dust Storm)"
+      ]
+    },
+    {
+      "technique_id": "T1059.007",
+      "technique_stix_id": "attack-pattern--0f4a0c76-ab2d-4cb0-85d3-3f0efb8cba0d",
+      "name": "JavaScript",
+      "execution_domain": "target",
+      "tactics": [
+        "execution"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--cea08e8e-2209-4d29-bc76-722091344259"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Dust Storm](https://attack.mitre.org/campaigns/C0016), the threat actors used JavaScript code.(Citation: Cylance Dust Storm)"
+      ]
+    },
+    {
+      "technique_id": "T1203",
+      "technique_stix_id": "attack-pattern--be2dcee9-a7a7-4e38-afd6-21b31ecc3d63",
+      "name": "Exploitation for Client Execution",
+      "execution_domain": "target",
+      "tactics": [
+        "execution"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--c837d369-bb16-464b-9cae-8eca38124c4e"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Dust Storm](https://attack.mitre.org/campaigns/C0016), the threat actors exploited Adobe Flash vulnerability CVE-2011-0611, Microsoft Windows Help vulnerability CVE-2010-1885, and several Internet Explorer vulnerabilities, including CVE-2011-1255, CVE-2012-1889, and CVE-2014-0322.(Citation: Cylance Dust Storm)"
+      ]
+    },
+    {
+      "technique_id": "T1204.001",
+      "technique_stix_id": "attack-pattern--ef67e13e-5598-4adc-bdb2-998225874fa9",
+      "name": "Malicious Link",
+      "execution_domain": "target",
+      "tactics": [
+        "execution"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--387640be-2b25-40c3-9048-f6cb86beab78"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Dust Storm](https://attack.mitre.org/campaigns/C0016), the threat actors relied on a victim clicking on a malicious link sent via email.(Citation: Cylance Dust Storm)"
+      ]
+    },
+    {
+      "technique_id": "T1204.002",
+      "technique_stix_id": "attack-pattern--232b7f21-adf9-4b42-b936-b9d6f7df856e",
+      "name": "Malicious File",
+      "execution_domain": "target",
+      "tactics": [
+        "execution"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--33666771-34e3-41a9-8e98-57a99e92c40a"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Dust Storm](https://attack.mitre.org/campaigns/C0016), the threat actors relied on potential victims to open a malicious Microsoft Word document sent via email.(Citation: Cylance Dust Storm)"
+      ]
+    },
+    {
+      "technique_id": "T1027.002",
+      "technique_stix_id": "attack-pattern--deb98323-e13f-4b0c-8d94-175379069062",
+      "name": "Software Packing",
+      "execution_domain": "target",
+      "tactics": [
+        "stealth"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--583335b0-7d65-4fbb-aa41-3bbbd08598cd"
+      ],
+      "procedure_descriptions": [
+        "For [Operation Dust Storm](https://attack.mitre.org/campaigns/C0016), the threat actors used UPX to pack some payloads.(Citation: Cylance Dust Storm)"
+      ]
+    },
+    {
+      "technique_id": "T1027.013",
+      "technique_stix_id": "attack-pattern--0d91b3c0-5e50-47c3-949a-2a796f04d144",
+      "name": "Encrypted/Encoded File",
+      "execution_domain": "target",
+      "tactics": [
+        "stealth"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--a3b40306-fafa-47e6-9164-fbd75e04b645"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Dust Storm](https://attack.mitre.org/campaigns/C0016), the threat actors encoded some payloads with a single-byte XOR, both skipping the key itself and zeroing in an attempt to avoid exposing the key; other payloads were Base64-encoded.(Citation: Cylance Dust Storm)"
+      ]
+    },
+    {
+      "technique_id": "T1036",
+      "technique_stix_id": "attack-pattern--42e8de7b-37b2-4258-905a-6897815e58e0",
+      "name": "Masquerading",
+      "execution_domain": "target",
+      "tactics": [
+        "stealth"
+      ],
+      "platforms": [
+        "Containers",
+        "ESXi",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--aba65eb4-6bd9-40bc-9b06-48b86e9a85e2"
+      ],
+      "procedure_descriptions": [
+        "For [Operation Dust Storm](https://attack.mitre.org/campaigns/C0016), the threat actors disguised some executables as JPG files.(Citation: Cylance Dust Storm) "
+      ]
+    },
+    {
+      "technique_id": "T1140",
+      "technique_stix_id": "attack-pattern--3ccef7ae-cb5e-48f6-8302-897105fbf55c",
+      "name": "Deobfuscate/Decode Files or Information",
+      "execution_domain": "target",
+      "tactics": [
+        "stealth"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--e359da34-bc39-4e72-9db1-49aa5da6c8b4"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Dust Storm](https://attack.mitre.org/campaigns/C0016), attackers used VBS code to decode payloads.(Citation: Cylance Dust Storm)"
+      ]
+    },
+    {
+      "technique_id": "T1218.005",
+      "technique_stix_id": "attack-pattern--840a987a-99bd-4a80-a5c9-0cb2baa6cade",
+      "name": "Mshta",
+      "execution_domain": "target",
+      "tactics": [
+        "stealth"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--b00d5e69-736f-47b9-befd-f5593550ad11"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Dust Storm](https://attack.mitre.org/campaigns/C0016), the threat actors executed JavaScript code via `mshta.exe`.(Citation: Cylance Dust Storm)"
+      ]
+    },
+    {
+      "technique_id": "T1518",
+      "technique_stix_id": "attack-pattern--e3b6daca-e963-4a69-aee6-ed4fd653ad58",
+      "name": "Software Discovery",
+      "execution_domain": "target",
+      "tactics": [
+        "discovery"
+      ],
+      "platforms": [
+        "ESXi",
+        "IaaS",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--c1214ef3-9bff-4702-8f54-4e6ddf955d93"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Dust Storm](https://attack.mitre.org/campaigns/C0016), the threat actors deployed a file called `DeployJava.js` to fingerprint installed software on a victim system prior to exploit delivery.(Citation: Cylance Dust Storm)"
+      ]
+    },
+    {
+      "technique_id": "T1568",
+      "technique_stix_id": "attack-pattern--7bd9c723-2f78-4309-82c5-47cad406572b",
+      "name": "Dynamic Resolution",
+      "execution_domain": "boundary",
+      "tactics": [
+        "command-and-control"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--b965ddc5-3017-4857-9a3d-44aaf24b6bfd"
+      ],
+      "procedure_descriptions": [
+        "For [Operation Dust Storm](https://attack.mitre.org/campaigns/C0016), the threat actors used dynamic DNS domains from a variety of free providers, including No-IP, Oray, and 3322.(Citation: Cylance Dust Storm) "
+      ]
+    }
+  ],
+  "limitations": [
+    "ATT&CK uses-links do not encode a historical total order; the compiler applies a declared tactic-rank policy.",
+    "Technique metadata constrains procedures but does not uniquely determine an executable target environment."
+  ],
+  "content_sha256": "7e3b8bd36e0dba25a2a0a88cff5d6508972d10176845795ee94ec6298e806c89"
+}

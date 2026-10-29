@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure retrieves data from a specified cloud storage service using valid access credentials.",
+    "evidence_predicates": [
+      "bytes_transferred_recorded",
+      "http_request_logged"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "access_credentials": "credential_source",
+      "cloud_storage_service": "data_source"
+    },
+    "produces": [
+      "data retrieved from cloud storage"
+    ],
+    "requires": [
+      "cloud storage service is accessible",
+      "valid access credentials are available"
+    ],
+    "technique_ids": [
+      "T1530"
+    ],
+    "template_id": "data-from-cloud-storage-laboratory-harness"
+  }
+}

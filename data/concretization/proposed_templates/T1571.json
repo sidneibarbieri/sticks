@@ -1,0 +1,34 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure demonstrates how to establish communication over a non-standard port using a specified protocol.",
+    "evidence_predicates": [
+      "http_request_logged",
+      "boundary_check_recorded"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "port": "network_interface",
+      "protocol": "channel"
+    },
+    "produces": [
+      "http_request_logged",
+      "boundary_check_recorded"
+    ],
+    "requires": [
+      "target_host is configured to allow non-standard ports",
+      "network interface is operational"
+    ],
+    "technique_ids": [
+      "T1571"
+    ],
+    "template_id": "non-standard-port-communication"
+  }
+}

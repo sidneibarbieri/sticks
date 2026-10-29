@@ -1,0 +1,35 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure simulates the exfiltration of data over a command and control channel using encoded artifacts.",
+    "evidence_predicates": [
+      "bytes_transferred_recorded",
+      "collection_manifest_recorded"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "channel": "channel",
+      "data_source": "data_source",
+      "encoded_artifact": "encoded_artifact"
+    },
+    "produces": [
+      "bytes_transferred_recorded",
+      "collection_manifest_recorded"
+    ],
+    "requires": [
+      "data_source is available",
+      "channel is established"
+    ],
+    "technique_ids": [
+      "T1041"
+    ],
+    "template_id": "exfiltration-over-c2-channel-laboratory-harness"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "id": "chatcmpl-EOK41ET2t5BDJ2mfj1ll7Ald3ULno",
+  "object": "chat.completion",
+  "created": 1789465705,
+  "model": "gpt-4o-mini-2024-07-18",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"template_id\": \"network-sniffing-laboratory-harness\",\n  \"technique_ids\": [\"T1040\"],\n  \"execution_domain\": \"target\",\n  \"parameter_kinds\": {\n    \"network_interface\": \"network_interface\",\n    \"data_source\": \"data_source\"\n  },\n  \"requires\": [\n    \"network_interface configured in promiscuous mode\",\n    \"data source for capturing network traffic\"\n  ],\n  \"produces\": [\n    \"captured network traffic data\",\n    \"logged network interface activity\"\n  ],\n  \"evidence_predicates\": [\n    \"interface_snapshot_recorded\",\n    \"bytes_transferred_recorded\"\n  ],\n  \"fidelity_ceiling\": \"adapted\",\n  \"description\": \"This procedure captures network traffic data by configuring a network interface in promiscuous mode.\"\n}",
+        "refusal": null,
+        "annotations": []
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 817,
+    "completion_tokens": 172,
+    "total_tokens": 989,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_c577bb8647"
+}

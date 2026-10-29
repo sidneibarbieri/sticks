@@ -1,0 +1,32 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure modifies the shell configuration to prevent command history logging.",
+    "evidence_predicates": [
+      "file_absence_recorded",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "shell_config": "shell_config_artifact"
+    },
+    "produces": [
+      "command history logging disabled"
+    ],
+    "requires": [
+      "access to a terminal",
+      "appropriate permissions to modify shell configuration"
+    ],
+    "technique_ids": [
+      "T1690"
+    ],
+    "template_id": "prevent-command-history-logging-lab-harness"
+  }
+}

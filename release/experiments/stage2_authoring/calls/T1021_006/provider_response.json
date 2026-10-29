@@ -1,0 +1,36 @@
+{
+  "id": "chatcmpl-EOK7JczLpklSlJjoKSqIArYQhVMKC",
+  "object": "chat.completion",
+  "created": 1789465909,
+  "model": "gpt-4o-mini-2024-07-18",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"template_id\": \"winrm-remote-execution-laboratory\",\n  \"technique_ids\": [\n    \"T1021.006\"\n  ],\n  \"execution_domain\": \"target\",\n  \"parameter_kinds\": {\n    \"target_host\": \"target_host\",\n    \"credential_source\": \"credential_source\"\n  },\n  \"requires\": [\n    \"valid user credentials\",\n    \"target host is accessible\"\n  ],\n  \"produces\": [\n    \"remote command execution logged\"\n  ],\n  \"evidence_predicates\": [\n    \"fixture_access_logged\",\n    \"bounded_effect_observed\"\n  ],\n  \"fidelity_ceiling\": \"adapted\",\n  \"description\": \"This procedure allows for the execution of commands on a remote Windows system using WinRM in a controlled laboratory environment.\"\n}",
+        "refusal": null,
+        "annotations": []
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 848,
+    "completion_tokens": 166,
+    "total_tokens": 1014,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_c577bb8647"
+}

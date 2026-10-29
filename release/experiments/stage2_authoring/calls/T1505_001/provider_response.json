@@ -1,0 +1,36 @@
+{
+  "id": "chatcmpl-EOgHZ9DPv7DiV1BG7s0jSi3zwHa4S",
+  "object": "chat.completion",
+  "created": 1789551113,
+  "model": "gpt-4o-mini-2024-07-18",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"template_id\": \"sql-stored-procedures-lab-harness\",\n  \"technique_ids\": [\n    \"T1505.001\"\n  ],\n  \"execution_domain\": \"target\",\n  \"parameter_kinds\": {\n    \"stored_procedure\": \"capability_specification\"\n  },\n  \"requires\": [\n    \"database server is accessible\",\n    \"user has permission to create stored procedures\"\n  ],\n  \"produces\": [\n    \"stored procedure created\"\n  ],\n  \"evidence_predicates\": [\n    \"artifact_hash_recorded\",\n    \"bounded_effect_observed\"\n  ],\n  \"fidelity_ceiling\": \"adapted\",\n  \"description\": \"This procedure creates a benign SQL stored procedure to demonstrate the functionality and persistence mechanism of stored procedures in a controlled environment.\"\n}",
+        "refusal": null,
+        "annotations": []
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 822,
+    "completion_tokens": 166,
+    "total_tokens": 988,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_c577bb8647"
+}

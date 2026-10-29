@@ -1,0 +1,37 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure sets up a proxy to redirect network traffic for testing purposes.",
+    "evidence_predicates": [
+      "http_request_logged",
+      "bytes_transferred_recorded",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "network_interface": "network_interface",
+      "proxy_tool": "toolkit",
+      "target_host": "target_host"
+    },
+    "produces": [
+      "traffic routed through proxy",
+      "network connection established"
+    ],
+    "requires": [
+      "proxy_tool installed",
+      "target_host reachable",
+      "network_interface configured"
+    ],
+    "technique_ids": [
+      "T1090"
+    ],
+    "template_id": "proxy-traffic-redirection-laboratory-harness"
+  }
+}

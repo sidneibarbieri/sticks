@@ -1,0 +1,59 @@
+{
+  "schema": "historical-technique-inventory/v1",
+  "source_file": "operation_midnighteclipse_dag.json",
+  "source_sha256": "0be4e9d40fcdc2fa7aca18a3537fede6004b2f12a195a38b4883858b252956b7",
+  "scope": "Technique occurrences only; no procedure, ordering, execution, or fidelity claim.",
+  "structural_nodes": [
+    {
+      "technique_id": "T1005"
+    },
+    {
+      "technique_id": "T1078.002"
+    },
+    {
+      "technique_id": "T1003.003"
+    },
+    {
+      "technique_id": "T1059.004"
+    },
+    {
+      "technique_id": "T1090"
+    },
+    {
+      "technique_id": "T1559"
+    },
+    {
+      "technique_id": "T1071.001"
+    },
+    {
+      "technique_id": "T1078"
+    },
+    {
+      "technique_id": "T1190"
+    },
+    {
+      "technique_id": "T1584.003"
+    },
+    {
+      "technique_id": "T1105"
+    },
+    {
+      "technique_id": "T1588.002"
+    },
+    {
+      "technique_id": "T1053.003"
+    },
+    {
+      "technique_id": "T1021.002"
+    },
+    {
+      "technique_id": "T1074.001"
+    },
+    {
+      "technique_id": "T1021.006"
+    },
+    {
+      "technique_id": "T1584.006"
+    }
+  ]
+}

@@ -1,0 +1,580 @@
+{
+  "schema_version": "1",
+  "compiler_version": "1",
+  "campaign_id": "C0060",
+  "campaign_name": "Operation AkaiRyū",
+  "source": {
+    "bundle_sha256": "dc1639caa5501d720e280cf1cbd8fbe009884a0c9b3e6e9ed9d0c25166c3d8f4",
+    "object_count": 26086,
+    "campaign_stix_id": "campaign--8a7c55ea-f363-4a03-b4c5-fa3fdb132d8f",
+    "campaign_external_id": "C0060"
+  },
+  "ordering_policy": "tactic_rank_then_technique_id",
+  "steps": [
+    {
+      "technique_id": "T1585.002",
+      "technique_stix_id": "attack-pattern--65013dd2-bc61-43e3-afb5-a14c4fa7437a",
+      "name": "Email Accounts",
+      "execution_domain": "attacker",
+      "tactics": [
+        "resource-development"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--f58e5c25-e80b-45fb-8eb4-61daa2256842"
+      ],
+      "procedure_descriptions": [
+        "During [Operation AkaiRyū](https://attack.mitre.org/campaigns/C0060), [MirrorFace](https://attack.mitre.org/groups/G1054) used free email providers such as Gmail for spearphishing.(Citation: Trend Micro Earth Kasha Anel NOV 2024)(Citation: ESET MirrorFace 2025)"
+      ]
+    },
+    {
+      "technique_id": "T1585.003",
+      "technique_stix_id": "attack-pattern--926d8cfd-1d0d-4da2-ab49-3ca10ec3f3b5",
+      "name": "Cloud Accounts",
+      "execution_domain": "attacker",
+      "tactics": [
+        "resource-development"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--119e8f52-ad4b-431f-b50a-bd59263451be"
+      ],
+      "procedure_descriptions": [
+        "During [Operation AkaiRyū](https://attack.mitre.org/campaigns/C0060), [MirrorFace](https://attack.mitre.org/groups/G1054) established OneDrive accounts to host malicious payloads.(Citation: ESET MirrorFace 2025)"
+      ]
+    },
+    {
+      "technique_id": "T1586.002",
+      "technique_stix_id": "attack-pattern--3dc8c101-d4db-4f4d-8150-1b5a76ca5f1b",
+      "name": "Email Accounts",
+      "execution_domain": "attacker",
+      "tactics": [
+        "resource-development"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--b8fe7b85-3b63-4881-9d26-9874eb2d7bdd"
+      ],
+      "procedure_descriptions": [
+        "During [Operation AkaiRyū](https://attack.mitre.org/campaigns/C0060), [MirrorFace](https://attack.mitre.org/groups/G1054) used compromised accounts to send spearphishing emails.(Citation: Trend Micro Earth Kasha Anel NOV 2024)"
+      ]
+    },
+    {
+      "technique_id": "T1587.001",
+      "technique_stix_id": "attack-pattern--212306d8-efa4-44c9-8c2d-ed3d2e224aa0",
+      "name": "Malware",
+      "execution_domain": "attacker",
+      "tactics": [
+        "resource-development"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--22a3f284-c5b3-4e99-b278-0fdc33a8952b"
+      ],
+      "procedure_descriptions": [
+        "During [Operation AkaiRyū](https://attack.mitre.org/campaigns/C0060), [MirrorFace](https://attack.mitre.org/groups/G1054) used  custom malware, as well as customized variants of publicly available tools.(Citation: ESET MirrorFace 2025)"
+      ]
+    },
+    {
+      "technique_id": "T1588.002",
+      "technique_stix_id": "attack-pattern--a2fdce72-04b2-409a-ac10-cc1695f4fce0",
+      "name": "Tool",
+      "execution_domain": "attacker",
+      "tactics": [
+        "resource-development"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--0937991f-a349-4d87-96b4-856ed2c13f97"
+      ],
+      "procedure_descriptions": [
+        "During [Operation AkaiRyū](https://attack.mitre.org/campaigns/C0060), [MirrorFace](https://attack.mitre.org/groups/G1054) deployed multiple publicly available tools including PuTTY, [FRP](https://attack.mitre.org/software/S1144), and [Rubeus](https://attack.mitre.org/software/S1071).(Citation: ESET MirrorFace 2025)"
+      ]
+    },
+    {
+      "technique_id": "T1608.005",
+      "technique_stix_id": "attack-pattern--84ae8255-b4f4-4237-b5c5-e717405a9701",
+      "name": "Link Target",
+      "execution_domain": "attacker",
+      "tactics": [
+        "resource-development"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--992c1bd2-c4f3-4de4-a6d2-852c942d51a7"
+      ],
+      "procedure_descriptions": [
+        "During [Operation AkaiRyū](https://attack.mitre.org/campaigns/C0060), [MirrorFace](https://attack.mitre.org/groups/G1054) used links to direct victims to malicious files hosted on OneDrive.(Citation: Trend Micro Earth Kasha Anel NOV 2024)(Citation: ESET MirrorFace 2025)"
+      ]
+    },
+    {
+      "technique_id": "T1566.001",
+      "technique_stix_id": "attack-pattern--2e34237d-8574-43f6-aace-ae2915de8597",
+      "name": "Spearphishing Attachment",
+      "execution_domain": "boundary",
+      "tactics": [
+        "initial-access"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--9b9e1922-1b87-479d-8fcf-b75af9a0e850"
+      ],
+      "procedure_descriptions": [
+        "During [Operation AkaiRyū](https://attack.mitre.org/campaigns/C0060), [MirrorFace](https://attack.mitre.org/groups/G1054) distributed crafted spearphishing emails containing malicious attachments.(Citation: ESET MirrorFace 2025)(Citation: Trend Micro Earth Kasha Anel NOV 2024)"
+      ]
+    },
+    {
+      "technique_id": "T1566.002",
+      "technique_stix_id": "attack-pattern--2b742742-28c3-4e1b-bab7-8350d6300fa7",
+      "name": "Spearphishing Link",
+      "execution_domain": "boundary",
+      "tactics": [
+        "initial-access"
+      ],
+      "platforms": [
+        "Identity Provider",
+        "Linux",
+        "Office Suite",
+        "SaaS",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--b711fa36-192b-4ad6-9462-790533469ce9"
+      ],
+      "procedure_descriptions": [
+        "During [Operation AkaiRyū](https://attack.mitre.org/campaigns/C0060), [MirrorFace](https://attack.mitre.org/groups/G1054) sent spearphishing emails with malicious OneDrive links.(Citation: Trend Micro Earth Kasha Anel NOV 2024)"
+      ]
+    },
+    {
+      "technique_id": "T1047",
+      "technique_stix_id": "attack-pattern--01a5a209-b94c-450b-b7f9-946497d91055",
+      "name": "Windows Management Instrumentation",
+      "execution_domain": "target",
+      "tactics": [
+        "execution"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--bf2a459d-7a6f-4945-a3f6-3dbf8a40a8c6"
+      ],
+      "procedure_descriptions": [
+        "During [Operation AkaiRyū](https://attack.mitre.org/campaigns/C0060), [MirrorFace](https://attack.mitre.org/groups/G1054) used WMI to proxy execution of [UPPERCUT](https://attack.mitre.org/software/S0275).(Citation: ESET MirrorFace 2025)"
+      ]
+    },
+    {
+      "technique_id": "T1059.001",
+      "technique_stix_id": "attack-pattern--970a3432-3237-47ad-bcca-7d8cbb217736",
+      "name": "PowerShell",
+      "execution_domain": "target",
+      "tactics": [
+        "execution"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--e59e3fc8-eba4-4874-9e51-7e8f88afe06b"
+      ],
+      "procedure_descriptions": [
+        "During [Operation AkaiRyū](https://attack.mitre.org/campaigns/C0060), [MirrorFace](https://attack.mitre.org/groups/G1054) used PowerShell in execution chains to drop additional files such as embedded CAB files.(Citation: Trend Micro Earth Kasha Anel NOV 2024)(Citation: ESET MirrorFace 2025)"
+      ]
+    },
+    {
+      "technique_id": "T1059.003",
+      "technique_stix_id": "attack-pattern--d1fcf083-a721-4223-aedf-bf8960798d62",
+      "name": "Windows Command Shell",
+      "execution_domain": "target",
+      "tactics": [
+        "execution"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--606ec55f-09f7-4204-9b86-81ce32b9b96e"
+      ],
+      "procedure_descriptions": [
+        "During [Operation AkaiRyū](https://attack.mitre.org/campaigns/C0060), [MirrorFace](https://attack.mitre.org/groups/G1054) used `cmd.exe` to run PowerShell commands to drop additional files on the compromised host.(Citation: ESET MirrorFace 2025)"
+      ]
+    },
+    {
+      "technique_id": "T1059.005",
+      "technique_stix_id": "attack-pattern--dfd7cc1d-e1d8-4394-a198-97c4cab8aa67",
+      "name": "Visual Basic",
+      "execution_domain": "target",
+      "tactics": [
+        "execution"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--04aedfef-4f86-414f-8465-4fdc3f419aa9"
+      ],
+      "procedure_descriptions": [
+        "During [Operation AkaiRyū](https://attack.mitre.org/campaigns/C0060), [MirrorFace](https://attack.mitre.org/groups/G1054) used Word templates containing VBA code for malware execution.(Citation: ESET MirrorFace 2025)"
+      ]
+    },
+    {
+      "technique_id": "T1127.001",
+      "technique_stix_id": "attack-pattern--c92e3d68-2349-49e4-a341-7edca2deff96",
+      "name": "MSBuild",
+      "execution_domain": "target",
+      "tactics": [
+        "execution",
+        "stealth"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--2e5b915d-21ee-4be2-8834-b09b2260ae5f"
+      ],
+      "procedure_descriptions": [
+        "During [Operation AkaiRyū](https://attack.mitre.org/campaigns/C0060), [MirrorFace](https://attack.mitre.org/groups/G1054) used MSBuild to compile and execute its FaceXInjector injection tool.(Citation: ESET MirrorFace 2025)"
+      ]
+    },
+    {
+      "technique_id": "T1204.001",
+      "technique_stix_id": "attack-pattern--ef67e13e-5598-4adc-bdb2-998225874fa9",
+      "name": "Malicious Link",
+      "execution_domain": "target",
+      "tactics": [
+        "execution"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--039373a2-84b0-4780-b3ca-475ce5207a94"
+      ],
+      "procedure_descriptions": [
+        "During [Operation AkaiRyū](https://attack.mitre.org/campaigns/C0060), [MirrorFace](https://attack.mitre.org/groups/G1054) lured users into executing malicious payloads with links to resources hosted on OneDrive.(Citation: Trend Micro Earth Kasha Anel NOV 2024)(Citation: ESET MirrorFace 2025)"
+      ]
+    },
+    {
+      "technique_id": "T1204.002",
+      "technique_stix_id": "attack-pattern--232b7f21-adf9-4b42-b936-b9d6f7df856e",
+      "name": "Malicious File",
+      "execution_domain": "target",
+      "tactics": [
+        "execution"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--13646672-412d-43e8-bd07-f54ef34d79f3"
+      ],
+      "procedure_descriptions": [
+        "During [Operation AkaiRyū](https://attack.mitre.org/campaigns/C0060), [MirrorFace](https://attack.mitre.org/groups/G1054) lured victims into executing malicious payloads by opening email attachments.(Citation: ESET MirrorFace 2025)"
+      ]
+    },
+    {
+      "technique_id": "T1137.001",
+      "technique_stix_id": "attack-pattern--79a47ad0-fc3b-4821-9f01-a026b1ddba21",
+      "name": "Office Template Macros",
+      "execution_domain": "target",
+      "tactics": [
+        "persistence"
+      ],
+      "platforms": [
+        "Office Suite",
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--c3d716d9-a94d-49a7-af66-0166d9fe1f58"
+      ],
+      "procedure_descriptions": [
+        "During [Operation AkaiRyū](https://attack.mitre.org/campaigns/C0060), [MirrorFace](https://attack.mitre.org/groups/G1054) loaded malicious Word templates containing VBA code leading to installation of [UPPERCUT](https://attack.mitre.org/software/S0275).(Citation: ESET MirrorFace 2025)"
+      ]
+    },
+    {
+      "technique_id": "T1036.008",
+      "technique_stix_id": "attack-pattern--208884f1-7b83-4473-ac22-4e1cf6c41471",
+      "name": "Masquerade File Type",
+      "execution_domain": "target",
+      "tactics": [
+        "stealth"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--c5f5995d-2792-4571-95c4-3085b843d917"
+      ],
+      "procedure_descriptions": [
+        "During [Operation AkaiRyū](https://attack.mitre.org/campaigns/C0060), [MirrorFace](https://attack.mitre.org/groups/G1054) disguised LNK and SFX (self-extracting) files as Word documents to lure victims into opening malicious files.(Citation: Trend Micro Earth Kasha Anel NOV 2024)(Citation: ESET MirrorFace 2025)"
+      ]
+    },
+    {
+      "technique_id": "T1070.004",
+      "technique_stix_id": "attack-pattern--d63a3fb8-9452-4e9d-a60a-54be68d5998c",
+      "name": "File Deletion",
+      "execution_domain": "target",
+      "tactics": [
+        "stealth"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--6affe529-57fa-43f5-9ab8-6b59209dc74f"
+      ],
+      "procedure_descriptions": [
+        "During [Operation AkaiRyū](https://attack.mitre.org/campaigns/C0060), [MirrorFace](https://attack.mitre.org/groups/G1054) deleted delivered tools and files from compromised hosts.(Citation: ESET MirrorFace 2025)"
+      ]
+    },
+    {
+      "technique_id": "T1553.002",
+      "technique_stix_id": "attack-pattern--32901740-b42c-4fdd-bc02-345b5dc57082",
+      "name": "Code Signing",
+      "execution_domain": "target",
+      "tactics": [
+        "defense-impairment"
+      ],
+      "platforms": [
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--41ef6c98-467f-4994-a264-1c4464e94acf"
+      ],
+      "procedure_descriptions": [
+        "During [Operation AkaiRyū](https://attack.mitre.org/campaigns/C0060), [MirrorFace](https://attack.mitre.org/groups/G1054) abused a signed McAfee executable to load [UPPERCUT](https://attack.mitre.org/software/S0275).(Citation: ESET MirrorFace 2025)"
+      ]
+    },
+    {
+      "technique_id": "T1685.005",
+      "technique_stix_id": "attack-pattern--75b9a4d2-d4e2-4ca1-9aab-1badd9e05fd0",
+      "name": "Clear Windows Event Logs",
+      "execution_domain": "target",
+      "tactics": [
+        "defense-impairment"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--4193ee99-a77c-47c7-97a4-7d3f3917242d"
+      ],
+      "procedure_descriptions": [
+        "During [Operation AkaiRyū](https://attack.mitre.org/campaigns/C0060), [MirrorFace](https://attack.mitre.org/groups/G1054) cleared Windows event logs post compromise.(Citation: ESET MirrorFace 2025)"
+      ]
+    },
+    {
+      "technique_id": "T1016",
+      "technique_stix_id": "attack-pattern--707399d6-ab3e-4963-9315-d9d3818cd6a0",
+      "name": "System Network Configuration Discovery",
+      "execution_domain": "target",
+      "tactics": [
+        "discovery"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--699faca5-f170-4413-89ce-7fb7a69ca2d5"
+      ],
+      "procedure_descriptions": [
+        "During [Operation AkaiRyū](https://attack.mitre.org/campaigns/C0060), [MirrorFace](https://attack.mitre.org/groups/G1054) used [Arp](https://attack.mitre.org/software/S0099) and `dir` for discovery in compromised environments.(Citation: Trend Micro Earth Kasha Anel NOV 2024)"
+      ]
+    },
+    {
+      "technique_id": "T1082",
+      "technique_stix_id": "attack-pattern--354a7f88-63fb-41b5-a801-ce3b377b36f1",
+      "name": "System Information Discovery",
+      "execution_domain": "target",
+      "tactics": [
+        "discovery"
+      ],
+      "platforms": [
+        "ESXi",
+        "IaaS",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--108fe161-3cea-4517-bd7c-4c623de4094f"
+      ],
+      "procedure_descriptions": [
+        "\nDuring [Operation AkaiRyū](https://attack.mitre.org/campaigns/C0060), [MirrorFace](https://attack.mitre.org/groups/G1054) collected system information.(Citation: Trend Micro Earth Kasha Anel NOV 2024)"
+      ]
+    },
+    {
+      "technique_id": "T1083",
+      "technique_stix_id": "attack-pattern--7bc57495-ea59-4380-be31-a64af124ef18",
+      "name": "File and Directory Discovery",
+      "execution_domain": "target",
+      "tactics": [
+        "discovery"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--98396d16-6e9a-4eee-a806-a841ed334142"
+      ],
+      "procedure_descriptions": [
+        "\nDuring [Operation AkaiRyū](https://attack.mitre.org/campaigns/C0060), [MirrorFace](https://attack.mitre.org/groups/G1054) enumerated file system details in compromised environments.(Citation: Trend Micro Earth Kasha Anel NOV 2024)"
+      ]
+    },
+    {
+      "technique_id": "T1217",
+      "technique_stix_id": "attack-pattern--5e4a2073-9643-44cb-a0b5-e7f4048446c7",
+      "name": "Browser Information Discovery",
+      "execution_domain": "target",
+      "tactics": [
+        "discovery"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--a44fb8bd-e57d-4a75-8d4d-1b77f77d8b5f"
+      ],
+      "procedure_descriptions": [
+        "During [Operation AkaiRyū](https://attack.mitre.org/campaigns/C0060), [MirrorFace](https://attack.mitre.org/groups/G1054) exported Chrome web data including contact information, keywords, autofill data, and stored credit card information.(Citation: ESET MirrorFace 2025)"
+      ]
+    },
+    {
+      "technique_id": "T1219",
+      "technique_stix_id": "attack-pattern--4061e78c-1284-44b4-9116-73e4ac3912f7",
+      "name": "Remote Access Tools",
+      "execution_domain": "boundary",
+      "tactics": [
+        "command-and-control"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--b46ccff3-bf2a-448a-9214-7490d422ce8f"
+      ],
+      "procedure_descriptions": [
+        "During [Operation AkaiRyū](https://attack.mitre.org/campaigns/C0060), [MirrorFace](https://attack.mitre.org/groups/G1054) used remote access tools including PuTTY.(Citation: ESET MirrorFace 2025)"
+      ]
+    },
+    {
+      "technique_id": "T1219.001",
+      "technique_stix_id": "attack-pattern--77e29a47-e263-4f11-8692-e5012f44dbac",
+      "name": "IDE Tunneling",
+      "execution_domain": "boundary",
+      "tactics": [
+        "command-and-control"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--6b12862a-3b6f-4071-a049-b0fa4955bc45"
+      ],
+      "procedure_descriptions": [
+        "During [Operation AkaiRyū](https://attack.mitre.org/campaigns/C0060), [MirrorFace](https://attack.mitre.org/groups/G1054) abused Visual Studio Code (VS Code) remote tunnels to gain access and execute code on compromised machines.(Citation: ESET MirrorFace 2025)\n"
+      ]
+    }
+  ],
+  "limitations": [
+    "ATT&CK uses-links do not encode a historical total order; the compiler applies a declared tactic-rank policy.",
+    "Technique metadata constrains procedures but does not uniquely determine an executable target environment."
+  ],
+  "content_sha256": "f74e38ef40021e7e0abec5b063e29ca833a338b3878cad34547e0aed91bd8d2a"
+}

@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure establishes a connection to a Wi-Fi network using valid credentials and a specified network interface.",
+    "evidence_predicates": [
+      "bounded_effect_observed",
+      "fixture_access_logged"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "credential_source": "credential_source",
+      "network_interface": "network_interface"
+    },
+    "produces": [
+      "wifi_connection_established"
+    ],
+    "requires": [
+      "proximity_to_wifi_access_point",
+      "valid_wifi_credentials"
+    ],
+    "technique_ids": [
+      "T1669"
+    ],
+    "template_id": "establish-wifi-connection-laboratory-harness"
+  }
+}

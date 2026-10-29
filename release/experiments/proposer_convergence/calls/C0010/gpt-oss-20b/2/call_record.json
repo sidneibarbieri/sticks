@@ -1,0 +1,108 @@
+{
+  "schema_version": "1",
+  "provider": "openai",
+  "model": "gpt-oss:20b",
+  "request_sha256": "b3fd0ae2c7c7941b41e0a2977596f7cc7f52860e20749f38fae376daccf3abb9",
+  "response_sha256": "eaf8932bb111a4c256d5b8529b02a7ed9108047b7ce8fd44e9cca4e27ebb16c9",
+  "usage": {
+    "prompt_tokens": 7776,
+    "completion_tokens": 558,
+    "estimated_usd": 0.0
+  },
+  "proposals": [
+    {
+      "technique_id": "T1583.001",
+      "template_id": "record-controlled-domain",
+      "bindings": {
+        "actor": "actor.primary",
+        "manifest": "infrastructure.lab_manifest"
+      },
+      "rationale": "Stage a lab-only domain manifest, matching the attacker‐side resource development step for a legitimate domain.",
+      "source": "llm"
+    },
+    {
+      "technique_id": "T1584.001",
+      "template_id": "record-controlled-compromised-domain",
+      "bindings": {
+        "actor": "actor.primary",
+        "manifest": "infrastructure.lab_manifest"
+      },
+      "rationale": "Represent a compromised‑domain condition with a local manifest, matching the attacker’s domain compromise step.",
+      "source": "llm"
+    },
+    {
+      "technique_id": "T1587.001",
+      "template_id": "specify-benign-capability",
+      "bindings": {
+        "actor": "actor.primary",
+        "specification": "capability.benign_specification"
+      },
+      "rationale": "Describe a benign capability, aligning with the malware step that avoids creating malicious payloads.",
+      "source": "llm"
+    },
+    {
+      "technique_id": "T1588.002",
+      "template_id": "stage-benign-toolkit",
+      "bindings": {
+        "actor": "actor.primary",
+        "toolkit": "toolkit.benign"
+      },
+      "rationale": "Stage a benign toolkit for later transfer, corresponding to the attacker’s tool acquisition step.",
+      "source": "llm"
+    },
+    {
+      "technique_id": "T1608.001",
+      "template_id": "stage-benign-payload",
+      "bindings": {
+        "actor": "actor.primary",
+        "payload": "payload.benign"
+      },
+      "rationale": "Stage a benign payload in the actor workspace, matching the malware staging step.",
+      "source": "llm"
+    },
+    {
+      "technique_id": "T1608.002",
+      "template_id": "stage-benign-tool",
+      "bindings": {
+        "actor": "actor.primary",
+        "toolkit": "toolkit.benign"
+      },
+      "rationale": "Stage a benign tool artifact for transfer, aligning with the tool staging step.",
+      "source": "llm"
+    },
+    {
+      "technique_id": "T1608.004",
+      "template_id": "stage-lab-web-target",
+      "bindings": {
+        "actor": "actor.primary",
+        "web_asset": "web_asset.benign_landing"
+      },
+      "rationale": "Create a benign web target on the lab network, matching the drive‑by target step.",
+      "source": "llm"
+    },
+    {
+      "technique_id": "T1189",
+      "template_id": "visit-declared-web-target",
+      "bindings": {
+        "endpoint": "endpoint.public_service",
+        "target": "target.primary"
+      },
+      "rationale": "Visit the declared lab page without exploitation, fulfilling the drive‑by compromise boundary step.",
+      "source": "llm"
+    },
+    {
+      "technique_id": "T1105",
+      "template_id": "transfer-staged-benign-tool",
+      "bindings": {
+        "channel": "channel.private_http",
+        "payload": "payload.benign",
+        "target": "target.primary"
+      },
+      "rationale": "Transfer the staged benign tool (or payload) over the private channel, satisfying the ingression tool transfer step.",
+      "source": "llm"
+    }
+  ],
+  "malformed_proposals": 0,
+  "raw_response_path": "proposal_response.json",
+  "content_sha256": "b964e2077fba164a96507ef75a4c7889ed8a3c7a2b2fa5aaedfe396fc8bbb50e"
+}

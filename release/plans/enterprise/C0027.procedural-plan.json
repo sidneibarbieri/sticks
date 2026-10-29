@@ -1,0 +1,652 @@
+{
+  "schema_version": "1",
+  "compiler_version": "1",
+  "campaign_id": "C0027",
+  "campaign_name": "C0027",
+  "source": {
+    "bundle_sha256": "dc1639caa5501d720e280cf1cbd8fbe009884a0c9b3e6e9ed9d0c25166c3d8f4",
+    "object_count": 26086,
+    "campaign_stix_id": "campaign--df74f7ad-b10d-431c-9f1d-a2bc18dadefa",
+    "campaign_external_id": "C0027"
+  },
+  "ordering_policy": "tactic_rank_then_technique_id",
+  "steps": [
+    {
+      "technique_id": "T1589.001",
+      "technique_stix_id": "attack-pattern--bc76d0a4-db11-4551-9ac4-01a469cfb161",
+      "name": "Credentials",
+      "execution_domain": "attacker",
+      "tactics": [
+        "reconnaissance"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--e0d494d7-f081-4195-92c6-95aae2f2cadc"
+      ],
+      "procedure_descriptions": [
+        "During [C0027](https://attack.mitre.org/campaigns/C0027), [Scattered Spider](https://attack.mitre.org/groups/G1015) sent phishing messages via SMS to steal credentials.(Citation: Crowdstrike TELCO BPO Campaign December 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1598.001",
+      "technique_stix_id": "attack-pattern--f870408c-b1cd-49c7-a5c7-0ef0fc496cc6",
+      "name": "Spearphishing Service",
+      "execution_domain": "attacker",
+      "tactics": [
+        "reconnaissance"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--91df24f7-6089-4f42-a63e-6ecaa5d4af8e"
+      ],
+      "procedure_descriptions": [
+        "During [C0027](https://attack.mitre.org/campaigns/C0027), [Scattered Spider](https://attack.mitre.org/groups/G1015) sent Telegram messages impersonating IT personnel to harvest credentials.(Citation: Crowdstrike TELCO BPO Campaign December 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1598.004",
+      "technique_stix_id": "attack-pattern--6a5d222a-a7e0-4656-b110-782c33098289",
+      "name": "Spearphishing Voice",
+      "execution_domain": "attacker",
+      "tactics": [
+        "reconnaissance"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--1769fb21-c686-4af1-ba8f-8bfa48ecf585"
+      ],
+      "procedure_descriptions": [
+        "During [C0027](https://attack.mitre.org/campaigns/C0027), [Scattered Spider](https://attack.mitre.org/groups/G1015) used phone calls to instruct victims to navigate to credential-harvesting websites.(Citation: Crowdstrike TELCO BPO Campaign December 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1588.002",
+      "technique_stix_id": "attack-pattern--a2fdce72-04b2-409a-ac10-cc1695f4fce0",
+      "name": "Tool",
+      "execution_domain": "attacker",
+      "tactics": [
+        "resource-development"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--dbcd9d76-b527-472f-8d3f-944cee432479"
+      ],
+      "procedure_descriptions": [
+        "During [C0027](https://attack.mitre.org/campaigns/C0027), [Scattered Spider](https://attack.mitre.org/groups/G1015) obtained and used multiple tools including the LINpeas privilege escalation utility, aws_consoler, rsocx reverse proxy, Level RMM tool, and RustScan port scanner.(Citation: Crowdstrike TELCO BPO Campaign December 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1078.004",
+      "technique_stix_id": "attack-pattern--f232fa7a-025c-4d43-abc7-318e81a73d65",
+      "name": "Cloud Accounts",
+      "execution_domain": "boundary",
+      "tactics": [
+        "initial-access",
+        "persistence",
+        "privilege-escalation",
+        "stealth"
+      ],
+      "platforms": [
+        "IaaS",
+        "Identity Provider",
+        "Office Suite",
+        "SaaS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--86c9276e-1144-42b9-971f-8ba4eefec3be"
+      ],
+      "procedure_descriptions": [
+        "During [C0027](https://attack.mitre.org/campaigns/C0027), [Scattered Spider](https://attack.mitre.org/groups/G1015) leveraged compromised credentials from victim users  to authenticate to Azure tenants.(Citation: Crowdstrike TELCO BPO Campaign December 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1133",
+      "technique_stix_id": "attack-pattern--10d51417-ee35-4589-b1ff-b6df1c334e8d",
+      "name": "External Remote Services",
+      "execution_domain": "boundary",
+      "tactics": [
+        "initial-access",
+        "persistence"
+      ],
+      "platforms": [
+        "Containers",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--bbb92214-8772-4e46-916b-2d9c0cdec83e"
+      ],
+      "procedure_descriptions": [
+        "During [C0027](https://attack.mitre.org/campaigns/C0027), [Scattered Spider](https://attack.mitre.org/groups/G1015) used Citrix and VPNs to persist in compromised environments.(Citation: Crowdstrike TELCO BPO Campaign December 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1190",
+      "technique_stix_id": "attack-pattern--3f886f2a-874f-4333-b794-aa6075009b1c",
+      "name": "Exploit Public-Facing Application",
+      "execution_domain": "boundary",
+      "tactics": [
+        "initial-access"
+      ],
+      "platforms": [
+        "Containers",
+        "ESXi",
+        "IaaS",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--04e866d0-5d9d-435d-b37c-311bb0bbdb1e"
+      ],
+      "procedure_descriptions": [
+        "During [C0027](https://attack.mitre.org/campaigns/C0027), [Scattered Spider](https://attack.mitre.org/groups/G1015) exploited CVE-2021-35464 in the ForgeRock Open Access Management (OpenAM) application server to gain initial access.(Citation: Crowdstrike TELCO BPO Campaign December 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1566.004",
+      "technique_stix_id": "attack-pattern--bb5e59c4-abe7-40c7-8196-e373cb1e5974",
+      "name": "Spearphishing Voice",
+      "execution_domain": "boundary",
+      "tactics": [
+        "initial-access"
+      ],
+      "platforms": [
+        "Identity Provider",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--f417c73d-20a3-447c-8839-5897e01d2a90"
+      ],
+      "procedure_descriptions": [
+        "During [C0027](https://attack.mitre.org/campaigns/C0027), [Scattered Spider](https://attack.mitre.org/groups/G1015) impersonated legitimate IT personnel in phone calls to direct victims to download a remote monitoring and management (RMM) tool that would allow the adversary to remotely control their system.(Citation: Crowdstrike TELCO BPO Campaign December 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1047",
+      "technique_stix_id": "attack-pattern--01a5a209-b94c-450b-b7f9-946497d91055",
+      "name": "Windows Management Instrumentation",
+      "execution_domain": "target",
+      "tactics": [
+        "execution"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--ab4d5c44-b402-4b17-8c23-719e74076dce"
+      ],
+      "procedure_descriptions": [
+        "During [C0027](https://attack.mitre.org/campaigns/C0027), [Scattered Spider](https://attack.mitre.org/groups/G1015) used Windows Management Instrumentation (WMI) to move laterally via [Impacket](https://attack.mitre.org/software/S0357).(Citation: Crowdstrike TELCO BPO Campaign December 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1098.001",
+      "technique_stix_id": "attack-pattern--8a2f40cf-8325-47f9-96e4-b1ca4c7389bd",
+      "name": "Additional Cloud Credentials",
+      "execution_domain": "target",
+      "tactics": [
+        "persistence",
+        "privilege-escalation"
+      ],
+      "platforms": [
+        "IaaS",
+        "Identity Provider",
+        "SaaS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--b546ebe4-90cb-4e2f-92fe-2d1c019f44c4"
+      ],
+      "procedure_descriptions": [
+        "During [C0027](https://attack.mitre.org/campaigns/C0027), [Scattered Spider](https://attack.mitre.org/groups/G1015) used aws_consoler  to create temporary federated credentials for fake users in order to obfuscate which AWS credential is compromised and enable pivoting from the AWS CLI to console sessions without MFA.(Citation: Crowdstrike TELCO BPO Campaign December 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1098.003",
+      "technique_stix_id": "attack-pattern--2dbbdcd5-92cf-44c0-aea2-fe24783a6bc3",
+      "name": "Additional Cloud Roles",
+      "execution_domain": "target",
+      "tactics": [
+        "persistence",
+        "privilege-escalation"
+      ],
+      "platforms": [
+        "IaaS",
+        "Identity Provider",
+        "Office Suite",
+        "SaaS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--4e23f18f-9418-462d-9f59-a527cb15ba9d"
+      ],
+      "procedure_descriptions": [
+        "During [C0027](https://attack.mitre.org/campaigns/C0027), [Scattered Spider](https://attack.mitre.org/groups/G1015) used IAM manipulation to gain persistence and to assume or elevate privileges.(Citation: Crowdstrike TELCO BPO Campaign December 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1098.005",
+      "technique_stix_id": "attack-pattern--7decb26c-715c-40cf-b7e0-026f7d7cc215",
+      "name": "Device Registration",
+      "execution_domain": "target",
+      "tactics": [
+        "persistence",
+        "privilege-escalation"
+      ],
+      "platforms": [
+        "Identity Provider",
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--a7392d5f-d653-4b74-bf08-d95beb5fabcc"
+      ],
+      "procedure_descriptions": [
+        "During [C0027](https://attack.mitre.org/campaigns/C0027), [Scattered Spider](https://attack.mitre.org/groups/G1015) registered devices for MFA to maintain persistence through victims' VPN.(Citation: Crowdstrike TELCO BPO Campaign December 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1684.001",
+      "technique_stix_id": "attack-pattern--cd92d2b8-ce43-4666-9472-f1b4b9f4f8be",
+      "name": "Impersonation",
+      "execution_domain": "target",
+      "tactics": [
+        "stealth"
+      ],
+      "platforms": [
+        "Linux",
+        "Office Suite",
+        "SaaS",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--0029bcd7-f5f2-410e-84d4-39302d4d1b1f"
+      ],
+      "procedure_descriptions": [
+        "During [C0027](https://attack.mitre.org/campaigns/C0027), [Scattered Spider](https://attack.mitre.org/groups/G1015) impersonated legitimate IT personnel in phone calls and text messages either to direct victims to a credential harvesting site or getting victims to run commercial remote monitoring and management (RMM) tools.(Citation: Crowdstrike TELCO BPO Campaign December 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1578.002",
+      "technique_stix_id": "attack-pattern--cf1c2504-433f-4c4e-a1f8-91de45a0318c",
+      "name": "Create Cloud Instance",
+      "execution_domain": "target",
+      "tactics": [
+        "defense-impairment"
+      ],
+      "platforms": [
+        "IaaS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--593d77c0-bcd3-4331-a75b-66cfa103e31d"
+      ],
+      "procedure_descriptions": [
+        "During [C0027](https://attack.mitre.org/campaigns/C0027), [Scattered Spider](https://attack.mitre.org/groups/G1015) used access to the victim's Azure tenant to create Azure VMs.(Citation: Crowdstrike TELCO BPO Campaign December 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1003.006",
+      "technique_stix_id": "attack-pattern--f303a39a-6255-4b89-aecc-18c4d8ca7163",
+      "name": "DCSync",
+      "execution_domain": "target",
+      "tactics": [
+        "credential-access"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--1a080d89-1319-4b5d-8e62-d185172559da"
+      ],
+      "procedure_descriptions": [
+        "During [C0027](https://attack.mitre.org/campaigns/C0027), [Scattered Spider](https://attack.mitre.org/groups/G1015) performed domain replication.(Citation: Crowdstrike TELCO BPO Campaign December 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1621",
+      "technique_stix_id": "attack-pattern--954a1639-f2d6-407d-aef3-4917622ca493",
+      "name": "Multi-Factor Authentication Request Generation",
+      "execution_domain": "target",
+      "tactics": [
+        "credential-access"
+      ],
+      "platforms": [
+        "IaaS",
+        "Identity Provider",
+        "Linux",
+        "Office Suite",
+        "SaaS",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--952ee3df-24da-4537-9e36-583e8f178f50"
+      ],
+      "procedure_descriptions": [
+        "During [C0027](https://attack.mitre.org/campaigns/C0027), [Scattered Spider](https://attack.mitre.org/groups/G1015) attempted to gain access by continuously sending MFA messages to the victim until they accept the MFA push challenge.(Citation: Crowdstrike TELCO BPO Campaign December 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1046",
+      "technique_stix_id": "attack-pattern--e3a12395-188d-4051-9a16-ea8e14d07b88",
+      "name": "Network Service Discovery",
+      "execution_domain": "target",
+      "tactics": [
+        "discovery"
+      ],
+      "platforms": [
+        "Containers",
+        "IaaS",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--5dd2c2dd-dcc3-44f5-9c9a-3055cda6c5fa"
+      ],
+      "procedure_descriptions": [
+        "During [C0027](https://attack.mitre.org/campaigns/C0027), used RustScan to scan for open ports on targeted ESXi appliances.(Citation: Crowdstrike TELCO BPO Campaign December 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1069.003",
+      "technique_stix_id": "attack-pattern--16e94db9-b5b1-4cd0-b851-f38fbd0a70f2",
+      "name": "Cloud Groups",
+      "execution_domain": "target",
+      "tactics": [
+        "discovery"
+      ],
+      "platforms": [
+        "IaaS",
+        "Identity Provider",
+        "Office Suite",
+        "SaaS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--11f6bf91-2330-4490-831d-3c84982a2280"
+      ],
+      "procedure_descriptions": [
+        "During [C0027](https://attack.mitre.org/campaigns/C0027), [Scattered Spider](https://attack.mitre.org/groups/G1015) accessed Azure AD to download bulk lists of group members and their Active Directory attributes.(Citation: Crowdstrike TELCO BPO Campaign December 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1087.003",
+      "technique_stix_id": "attack-pattern--4bc31b94-045b-4752-8920-aebaebdb6470",
+      "name": "Email Account",
+      "execution_domain": "target",
+      "tactics": [
+        "discovery"
+      ],
+      "platforms": [
+        "Office Suite",
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--8a03f60e-bb09-4f4d-815e-88d86192042f"
+      ],
+      "procedure_descriptions": [
+        "During [C0027](https://attack.mitre.org/campaigns/C0027), [Scattered Spider](https://attack.mitre.org/groups/G1015) accessed Azure AD to identify email addresses.(Citation: Crowdstrike TELCO BPO Campaign December 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1087.004",
+      "technique_stix_id": "attack-pattern--8f104855-e5b7-4077-b1f5-bc3103b41abe",
+      "name": "Cloud Account",
+      "execution_domain": "target",
+      "tactics": [
+        "discovery"
+      ],
+      "platforms": [
+        "IaaS",
+        "Identity Provider",
+        "Office Suite",
+        "SaaS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--050f4038-bed5-4353-970c-d32be292a037"
+      ],
+      "procedure_descriptions": [
+        "During [C0027](https://attack.mitre.org/campaigns/C0027), [Scattered Spider](https://attack.mitre.org/groups/G1015) accessed Azure AD to download bulk lists of group members and to identify privileged users, along with the email addresses and AD attributes.(Citation: Crowdstrike TELCO BPO Campaign December 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1021.007",
+      "technique_stix_id": "attack-pattern--8861073d-d1b8-4941-82ce-dce621d398f0",
+      "name": "Cloud Services",
+      "execution_domain": "target",
+      "tactics": [
+        "lateral-movement"
+      ],
+      "platforms": [
+        "IaaS",
+        "Identity Provider",
+        "Office Suite",
+        "SaaS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--603bfd74-0585-40f7-ba65-1a72d87f0775"
+      ],
+      "procedure_descriptions": [
+        "During [C0027](https://attack.mitre.org/campaigns/C0027), [Scattered Spider](https://attack.mitre.org/groups/G1015) used compromised Azure credentials for credential theft activity and lateral movement to on-premises systems.(Citation: Crowdstrike TELCO BPO Campaign December 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1213.002",
+      "technique_stix_id": "attack-pattern--0c4b4fda-9062-47da-98b9-ceae2dcf052a",
+      "name": "Sharepoint",
+      "execution_domain": "target",
+      "tactics": [
+        "collection"
+      ],
+      "platforms": [
+        "Office Suite",
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--7b2f6151-c019-4910-91a7-9dd6744c4ffb"
+      ],
+      "procedure_descriptions": [
+        "During [C0027](https://attack.mitre.org/campaigns/C0027), [Scattered Spider](https://attack.mitre.org/groups/G1015) accessed victim SharePoint environments to search for VPN and MFA enrollment information, help desk instructions, and new hire guides.(Citation: Crowdstrike TELCO BPO Campaign December 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1530",
+      "technique_stix_id": "attack-pattern--3298ce88-1628-43b1-87d9-0b5336b193d7",
+      "name": "Data from Cloud Storage",
+      "execution_domain": "target",
+      "tactics": [
+        "collection"
+      ],
+      "platforms": [
+        "IaaS",
+        "Office Suite",
+        "SaaS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--db315985-f1c1-4d7f-a154-c65351602680"
+      ],
+      "procedure_descriptions": [
+        "During [C0027](https://attack.mitre.org/campaigns/C0027), [Scattered Spider](https://attack.mitre.org/groups/G1015) accessed victim OneDrive environments to search for VPN and MFA enrollment information, help desk instructions, and new hire guides.(Citation: Crowdstrike TELCO BPO Campaign December 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1090",
+      "technique_stix_id": "attack-pattern--731f4f55-b6d0-41d1-a7a9-072a66389aea",
+      "name": "Proxy",
+      "execution_domain": "boundary",
+      "tactics": [
+        "command-and-control"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--f38960c1-2f2a-42d4-96f0-661d91062af3"
+      ],
+      "procedure_descriptions": [
+        "During [C0027](https://attack.mitre.org/campaigns/C0027), [Scattered Spider](https://attack.mitre.org/groups/G1015) installed the open-source rsocx reverse proxy tool on a targeted ESXi appliance.(Citation: Crowdstrike TELCO BPO Campaign December 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1102",
+      "technique_stix_id": "attack-pattern--830c9528-df21-472c-8c14-a036bf17d665",
+      "name": "Web Service",
+      "execution_domain": "boundary",
+      "tactics": [
+        "command-and-control"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--08f2da07-4e03-46bd-a3d9-c79ef7dd9a45"
+      ],
+      "procedure_descriptions": [
+        "During [C0027](https://attack.mitre.org/campaigns/C0027), [Scattered Spider](https://attack.mitre.org/groups/G1015) downloaded tools from sites including file.io, GitHub, and paste.ee.(Citation: Crowdstrike TELCO BPO Campaign December 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1105",
+      "technique_stix_id": "attack-pattern--e6919abc-99f9-4c6c-95a5-14761e7b2add",
+      "name": "Ingress Tool Transfer",
+      "execution_domain": "boundary",
+      "tactics": [
+        "command-and-control"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--2f785f1f-04f8-42f0-8082-a03fed3c3a94"
+      ],
+      "procedure_descriptions": [
+        "During [C0027](https://attack.mitre.org/campaigns/C0027), [Scattered Spider](https://attack.mitre.org/groups/G1015) downloaded tools using victim organization systems.(Citation: Crowdstrike TELCO BPO Campaign December 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1219.002",
+      "technique_stix_id": "attack-pattern--d4287702-e2f7-4946-bdfa-2c7f5aaa5032",
+      "name": "Remote Desktop Software",
+      "execution_domain": "boundary",
+      "tactics": [
+        "command-and-control"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--aa308c15-3c8d-4df7-a6b2-0a4f61ef8d03"
+      ],
+      "procedure_descriptions": [
+        "During [C0027](https://attack.mitre.org/campaigns/C0027), [Scattered Spider](https://attack.mitre.org/groups/G1015) directed victims to run remote monitoring and management (RMM) tools.(Citation: Crowdstrike TELCO BPO Campaign December 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1572",
+      "technique_stix_id": "attack-pattern--4fe28b27-b13c-453e-a386-c2ef362a573b",
+      "name": "Protocol Tunneling",
+      "execution_domain": "boundary",
+      "tactics": [
+        "command-and-control"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--002e561a-5500-4293-a876-01e8205a67c8"
+      ],
+      "procedure_descriptions": [
+        "During [C0027](https://attack.mitre.org/campaigns/C0027), [Scattered Spider](https://attack.mitre.org/groups/G1015) used SSH tunneling in targeted environments.(Citation: Crowdstrike TELCO BPO Campaign December 2022)"
+      ]
+    }
+  ],
+  "limitations": [
+    "ATT&CK uses-links do not encode a historical total order; the compiler applies a declared tactic-rank policy.",
+    "Technique metadata constrains procedures but does not uniquely determine an executable target environment."
+  ],
+  "content_sha256": "9eacc24b9a22ab1d82dfba927293bf1327046b1f11bcf88ba12ea119ec49e669"
+}

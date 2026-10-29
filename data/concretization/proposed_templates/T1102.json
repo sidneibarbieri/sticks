@@ -1,0 +1,34 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure utilizes a legitimate external web service to relay data from a compromised system.",
+    "evidence_predicates": [
+      "http_request_logged",
+      "bytes_transferred_recorded"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "data_source": "data_source",
+      "web_asset": "web_asset"
+    },
+    "produces": [
+      "http_request_logged",
+      "bytes_transferred_recorded"
+    ],
+    "requires": [
+      "external web service is accessible",
+      "data to be relayed is prepared"
+    ],
+    "technique_ids": [
+      "T1102"
+    ],
+    "template_id": "web-service-data-relay"
+  }
+}

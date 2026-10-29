@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure creates a Windows service that executes a specified payload at system startup.",
+    "evidence_predicates": [
+      "service_request_logged",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "executable_path": "payload",
+      "service_name": "shell_config_artifact"
+    },
+    "produces": [
+      "Windows service created"
+    ],
+    "requires": [
+      "Windows operating system",
+      "Administrative privileges"
+    ],
+    "technique_ids": [
+      "T1543.003"
+    ],
+    "template_id": "create-windows-service-for-persistence"
+  }
+}

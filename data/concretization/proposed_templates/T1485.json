@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure simulates the deletion of files on a target host to observe the effects of data destruction.",
+    "evidence_predicates": [
+      "file_absence_recorded",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "data_source": "data_source",
+      "target_host": "target_host"
+    },
+    "produces": [
+      "files on data_source are absent"
+    ],
+    "requires": [
+      "target_host is accessible",
+      "data_source contains files to be deleted"
+    ],
+    "technique_ids": [
+      "T1485"
+    ],
+    "template_id": "data-destruction-laboratory-harness"
+  }
+}

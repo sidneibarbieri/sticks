@@ -1,0 +1,35 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "qwen3.6:latest",
+    "provider": "openai",
+    "review_pending": true,
+    "run_id": "stage2-qwen36-r2",
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "Executes a controlled cloud account provisioning workflow to verify identity resolution and credential issuance mechanisms.",
+    "evidence_predicates": [
+      "service_request_logged",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "attacker",
+    "fidelity_ceiling": "inspired",
+    "parameter_kinds": {
+      "account_handle": "infrastructure_artifact",
+      "cloud_creds": "credential_source"
+    },
+    "produces": [
+      "new_account_id",
+      "service_principal_secret"
+    ],
+    "requires": [
+      "provider_api_endpoint",
+      "admin_token"
+    ],
+    "technique_ids": [
+      "T1586.003"
+    ],
+    "template_id": "cloud_account_provisioning_harness"
+  }
+}

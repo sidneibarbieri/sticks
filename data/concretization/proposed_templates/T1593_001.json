@@ -1,0 +1,34 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure outlines the steps to passively gather information from social media platforms about potential victims.",
+    "evidence_predicates": [
+      "http_request_logged",
+      "collection_manifest_recorded"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "search_query": "data_source",
+      "social_media_platform": "web_asset"
+    },
+    "produces": [
+      "collected victim information",
+      "search results from social media"
+    ],
+    "requires": [
+      "access to social media platforms",
+      "internet connectivity"
+    ],
+    "technique_ids": [
+      "T1593.001"
+    ],
+    "template_id": "social-media-data-harvesting"
+  }
+}

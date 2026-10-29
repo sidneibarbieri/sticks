@@ -1,0 +1,34 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure demonstrates how to access a volume directly using a specified tool in a controlled laboratory environment.",
+    "evidence_predicates": [
+      "fixture_access_logged",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "target_volume": "target_host",
+      "tool": "toolkit"
+    },
+    "produces": [
+      "volume access logged",
+      "file operations recorded"
+    ],
+    "requires": [
+      "access to the target volume",
+      "appropriate permissions to execute the tool"
+    ],
+    "technique_ids": [
+      "T1006"
+    ],
+    "template_id": "direct-volume-access-laboratory-harness"
+  }
+}

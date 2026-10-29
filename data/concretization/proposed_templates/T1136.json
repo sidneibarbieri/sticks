@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure simulates the creation of an account on a target host to evaluate access control mechanisms.",
+    "evidence_predicates": [
+      "fixture_access_logged",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "credential_source": "credential_source",
+      "target_host": "target_host"
+    },
+    "produces": [
+      "new_account_created"
+    ],
+    "requires": [
+      "sufficient_access_level",
+      "target_host_available"
+    ],
+    "technique_ids": [
+      "T1136"
+    ],
+    "template_id": "create-account-laboratory-harness"
+  }
+}

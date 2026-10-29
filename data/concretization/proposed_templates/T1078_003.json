@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure outlines the steps to harvest local account credentials from a target system.",
+    "evidence_predicates": [
+      "fixture_access_logged",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "local_account": "credential_source",
+      "target_system": "target_host"
+    },
+    "produces": [
+      "local account credentials harvested"
+    ],
+    "requires": [
+      "local account credentials available",
+      "target system accessible"
+    ],
+    "technique_ids": [
+      "T1078.003"
+    ],
+    "template_id": "local-accounts-credential-harvest"
+  }
+}

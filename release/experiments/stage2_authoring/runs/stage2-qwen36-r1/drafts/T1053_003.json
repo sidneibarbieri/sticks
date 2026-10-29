@@ -1,0 +1,36 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "qwen3.6:latest",
+    "provider": "openai",
+    "review_pending": true,
+    "run_id": "stage2-qwen36-r1",
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "A benign harness that schedules a harmless shell script via the system crontab to verify task scheduling mechanisms without executing malicious payloads.",
+    "evidence_predicates": [
+      "staging_path_recorded",
+      "file_count_recorded",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "execution_target": "payload",
+      "schedule_entry": "shell_config_artifact"
+    },
+    "produces": [
+      "staging_path_recorded",
+      "file_count_recorded"
+    ],
+    "requires": [
+      "lab_scope_verified",
+      "fixture_access_logged"
+    ],
+    "technique_ids": [
+      "T1053.003"
+    ],
+    "template_id": "cron-schedule-harness"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "qwen3.6:latest",
+    "provider": "openai",
+    "review_pending": true,
+    "run_id": "stage2-qwen36-r1",
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This benign laboratory harness creates a Windows scheduled task to execute a harmless script, verifies successful execution via service logs, and confirms cleanup.",
+    "evidence_predicates": [
+      "service_request_logged",
+      "bounded_effect_observed",
+      "process_exit_recorded"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "env_vars": "runtime",
+      "script_path": "encoded_artifact",
+      "target_host": "target_host",
+      "task_name": "capability_specification"
+    },
+    "produces": [
+      "task.scheduled_id",
+      "log.execution_recorded"
+    ],
+    "requires": [
+      "host.target_host",
+      "spec.task_name",
+      "artifact.script_path"
+    ],
+    "technique_ids": [
+      "T1053.005"
+    ],
+    "template_id": "benign-scheduled-task-harness"
+  }
+}

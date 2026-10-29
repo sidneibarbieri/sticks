@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure modifies the SSH authorized_keys file to include a new key for persistent access.",
+    "evidence_predicates": [
+      "file_count_recorded",
+      "artifact_hash_recorded"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "ssh_key": "credential_source",
+      "user_home": "target_host"
+    },
+    "produces": [
+      "SSH authorized_keys file modified"
+    ],
+    "requires": [
+      "SSH service running",
+      "User has appropriate permissions"
+    ],
+    "technique_ids": [
+      "T1098.004"
+    ],
+    "template_id": "modify-ssh-authorized-keys"
+  }
+}

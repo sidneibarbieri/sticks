@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure outlines the steps to create email accounts using various providers for operational purposes.",
+    "evidence_predicates": [
+      "http_request_logged",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "account_credentials": "credential_source",
+      "email_provider": "web_asset"
+    },
+    "produces": [
+      "newly created email account"
+    ],
+    "requires": [
+      "access to a web browser",
+      "availability of email providers"
+    ],
+    "technique_ids": [
+      "T1585.002"
+    ],
+    "template_id": "create-email-accounts-for-targeting"
+  }
+}

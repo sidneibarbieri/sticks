@@ -1,0 +1,35 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "qwen3.6:latest",
+    "provider": "openai",
+    "review_pending": true,
+    "run_id": "stage2-qwen36-r2",
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "Simulates the creation of a benign web link pointing to a local test resource for laboratory validation.",
+    "evidence_predicates": [
+      "http_request_logged",
+      "web_asset_hash_recorded"
+    ],
+    "execution_domain": "attacker",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "link_url": "web_asset",
+      "target_resource": "endpoint"
+    },
+    "produces": [
+      "staging_path_recorded",
+      "web_asset_hash_recorded"
+    ],
+    "requires": [
+      "lab_scope_verified",
+      "endpoint_available"
+    ],
+    "technique_ids": [
+      "T1608.005"
+    ],
+    "template_id": "lab-link-target-simulation"
+  }
+}

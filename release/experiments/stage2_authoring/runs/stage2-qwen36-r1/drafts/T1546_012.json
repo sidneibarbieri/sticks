@@ -1,0 +1,36 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "qwen3.6:latest",
+    "provider": "openai",
+    "review_pending": true,
+    "run_id": "stage2-qwen36-r1",
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "A benign laboratory harness that configures a dummy debugger in the Windows registry to intercept process creation for controlled IFEO testing.",
+    "evidence_predicates": [
+      "bounded_effect_observed",
+      "fixture_access_logged"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "debugger_path": "shell_config_artifact",
+      "registry_key": "data_source",
+      "target_process": "capability_specification"
+    },
+    "produces": [
+      "ifeo_debugger_registered",
+      "process_launch_hooked"
+    ],
+    "requires": [
+      "target_host_accessible",
+      "registry_write_privilege"
+    ],
+    "technique_ids": [
+      "T1546.012"
+    ],
+    "template_id": "ifeo-debugger-harness"
+  }
+}

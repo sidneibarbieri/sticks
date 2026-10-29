@@ -1,0 +1,34 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure checks for time-based discrepancies to identify potential virtualization or sandbox environments.",
+    "evidence_predicates": [
+      "boundary_check_recorded",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "environment_check": "capability_specification",
+      "time_check_tool": "toolkit"
+    },
+    "produces": [
+      "time_check_results recorded",
+      "environment_check_status"
+    ],
+    "requires": [
+      "virtualization environment present",
+      "time manipulation capabilities"
+    ],
+    "technique_ids": [
+      "T1497.003"
+    ],
+    "template_id": "time-based-checks-laboratory-harness"
+  }
+}

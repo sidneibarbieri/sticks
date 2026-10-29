@@ -1,0 +1,36 @@
+{
+  "id": "chatcmpl-EOK5ntfpMRtG6PJNBh50yMbV8OEQl",
+  "object": "chat.completion",
+  "created": 1789465815,
+  "model": "gpt-4o-mini-2024-07-18",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"template_id\": \"domain-trust-discovery-laboratory-harness\",\n  \"technique_ids\": [\n    \"T1482\"\n  ],\n  \"execution_domain\": \"target\",\n  \"parameter_kinds\": {\n    \"target_host\": \"target_host\",\n    \"data_source\": \"data_source\"\n  },\n  \"requires\": [\n    \"target_host is accessible\",\n    \"data_source contains domain trust information\"\n  ],\n  \"produces\": [\n    \"domain trust relationships identified\"\n  ],\n  \"evidence_predicates\": [\n    \"collection_manifest_recorded\",\n    \"bounded_effect_observed\"\n  ],\n  \"fidelity_ceiling\": \"adapted\",\n  \"description\": \"This procedure gathers and records information about domain trust relationships in a controlled laboratory environment.\"\n}",
+        "refusal": null,
+        "annotations": []
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 821,
+    "completion_tokens": 163,
+    "total_tokens": 984,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_c577bb8647"
+}

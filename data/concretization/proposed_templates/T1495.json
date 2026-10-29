@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure simulates the corruption of firmware on a target host to assess the impact on system availability.",
+    "evidence_predicates": [
+      "bounded_effect_observed",
+      "fixture_hash_recorded"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "payload": "payload",
+      "target_host": "target_host"
+    },
+    "produces": [
+      "firmware state is corrupted"
+    ],
+    "requires": [
+      "target_host is operational",
+      "payload is available"
+    ],
+    "technique_ids": [
+      "T1495"
+    ],
+    "template_id": "firmware-corruption-laboratory-harness"
+  }
+}

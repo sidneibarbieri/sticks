@@ -1,0 +1,32 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure simulates a benign spearphishing voice scenario to observe user interactions and logging of voice communications.",
+    "evidence_predicates": [
+      "fixture_access_logged",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "trusted_source": "actor_host",
+      "voice_channel": "channel"
+    },
+    "produces": [
+      "voice communication logged"
+    ],
+    "requires": [
+      "user is manipulated into providing access"
+    ],
+    "technique_ids": [
+      "T1566.004"
+    ],
+    "template_id": "spearphishing-voice-laboratory-harness"
+  }
+}

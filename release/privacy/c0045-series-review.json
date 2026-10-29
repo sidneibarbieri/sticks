@@ -1,0 +1,16 @@
+{
+  "schema_version": "c0045-privacy-review/v1",
+  "archive_sha256": "90fc056112b4f8f575bd650ca9b74f273d81ad21650473b9fba9e629ec2893c9",
+  "json_members": 250,
+  "lexical_screen_passed": true,
+  "reviewer_role": "artifact_privacy_reviewer",
+  "checked_categories": [
+    "author_machine_paths",
+    "credentials",
+    "external_network_endpoints",
+    "personal_identifiers",
+    "tenant_or_organization_identifiers"
+  ],
+  "approved_for_anonymous_review": true,
+  "approved_for_identified_release": false
+}

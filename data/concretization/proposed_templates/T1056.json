@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure captures user input in a controlled laboratory environment to analyze input capture techniques.",
+    "evidence_predicates": [
+      "input_manifest_recorded",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "capture_tool": "toolkit",
+      "input_source": "data_source"
+    },
+    "produces": [
+      "input manifest recorded"
+    ],
+    "requires": [
+      "user input is provided",
+      "capture tool is active"
+    ],
+    "technique_ids": [
+      "T1056"
+    ],
+    "template_id": "input-capture-laboratory-harness"
+  }
+}

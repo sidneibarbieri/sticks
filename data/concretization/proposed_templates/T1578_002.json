@@ -1,0 +1,34 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure creates a new cloud instance within a specified compute service to simulate the creation of virtual machines.",
+    "evidence_predicates": [
+      "bounded_effect_observed",
+      "collection_manifest_recorded"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "instance": "compute_workload",
+      "security_policy": "chunk_policy"
+    },
+    "produces": [
+      "new cloud instance created",
+      "security policy applied"
+    ],
+    "requires": [
+      "cloud account access",
+      "compute service availability"
+    ],
+    "technique_ids": [
+      "T1578.002"
+    ],
+    "template_id": "create-cloud-instance-laboratory-harness"
+  }
+}

@@ -1,0 +1,503 @@
+{
+  "schema_version": "1",
+  "compiler_version": "1",
+  "campaign_id": "C0025",
+  "campaign_name": "2016 Ukraine Electric Power Attack",
+  "source": {
+    "bundle_sha256": "dc1639caa5501d720e280cf1cbd8fbe009884a0c9b3e6e9ed9d0c25166c3d8f4",
+    "object_count": 26086,
+    "campaign_stix_id": "campaign--aa73efef-1418-4dbe-b43c-87a498e97234",
+    "campaign_external_id": "C0025"
+  },
+  "ordering_policy": "tactic_rank_then_technique_id",
+  "steps": [
+    {
+      "technique_id": "T1047",
+      "technique_stix_id": "attack-pattern--01a5a209-b94c-450b-b7f9-946497d91055",
+      "name": "Windows Management Instrumentation",
+      "execution_domain": "target",
+      "tactics": [
+        "execution"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--b792772b-381c-4ad3-896b-52f7873d88fa"
+      ],
+      "procedure_descriptions": [
+        "During the [2016 Ukraine Electric Power Attack](https://attack.mitre.org/campaigns/C0025), WMI in scripts were used for remote execution and system surveys. (Citation: Dragos Crashoverride 2018)"
+      ]
+    },
+    {
+      "technique_id": "T1059.001",
+      "technique_stix_id": "attack-pattern--970a3432-3237-47ad-bcca-7d8cbb217736",
+      "name": "PowerShell",
+      "execution_domain": "target",
+      "tactics": [
+        "execution"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--04175eba-3f58-42ce-897b-1d483c4c12e0"
+      ],
+      "procedure_descriptions": [
+        "During the [2016 Ukraine Electric Power Attack](https://attack.mitre.org/campaigns/C0025), [Sandworm Team](https://attack.mitre.org/groups/G0034) used PowerShell scripts to run a credential harvesting tool in memory to evade defenses.(Citation: Dragos Crashoverride 2018)"
+      ]
+    },
+    {
+      "technique_id": "T1059.003",
+      "technique_stix_id": "attack-pattern--d1fcf083-a721-4223-aedf-bf8960798d62",
+      "name": "Windows Command Shell",
+      "execution_domain": "target",
+      "tactics": [
+        "execution"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--6b52a0a1-0919-4817-af22-31cd6cc404ad"
+      ],
+      "procedure_descriptions": [
+        "During the [2016 Ukraine Electric Power Attack](https://attack.mitre.org/campaigns/C0025), [Sandworm Team](https://attack.mitre.org/groups/G0034) used the `xp_cmdshell` command in MS-SQL.(Citation: Dragos Crashoverride 2018)"
+      ]
+    },
+    {
+      "technique_id": "T1059.005",
+      "technique_stix_id": "attack-pattern--dfd7cc1d-e1d8-4394-a198-97c4cab8aa67",
+      "name": "Visual Basic",
+      "execution_domain": "target",
+      "tactics": [
+        "execution"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--029ee791-c82b-43b4-8107-e3c0dfcfe3f4"
+      ],
+      "procedure_descriptions": [
+        "During the [2016 Ukraine Electric Power Attack](https://attack.mitre.org/campaigns/C0025), [Sandworm Team](https://attack.mitre.org/groups/G0034) created VBScripts to run on an SSH server.(Citation: Dragos Crashoverride 2018)"
+      ]
+    },
+    {
+      "technique_id": "T1098",
+      "technique_stix_id": "attack-pattern--a10641f4-87b4-45a3-a906-92a149cb2c27",
+      "name": "Account Manipulation",
+      "execution_domain": "target",
+      "tactics": [
+        "persistence",
+        "privilege-escalation"
+      ],
+      "platforms": [
+        "Containers",
+        "ESXi",
+        "IaaS",
+        "Identity Provider",
+        "Linux",
+        "Network Devices",
+        "Office Suite",
+        "SaaS",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--c23d5ed2-f358-41d7-99c3-658f4d584786"
+      ],
+      "procedure_descriptions": [
+        "During the [2016 Ukraine Electric Power Attack](https://attack.mitre.org/campaigns/C0025), [Sandworm Team](https://attack.mitre.org/groups/G0034) used the `sp_addlinkedsrvlogin` command in MS-SQL to create a link between a created account and other servers in the network.(Citation: Dragos Crashoverride 2018)"
+      ]
+    },
+    {
+      "technique_id": "T1136",
+      "technique_stix_id": "attack-pattern--e01be9c5-e763-4caf-aeb7-000b416aef67",
+      "name": "Create Account",
+      "execution_domain": "target",
+      "tactics": [
+        "persistence"
+      ],
+      "platforms": [
+        "Containers",
+        "ESXi",
+        "IaaS",
+        "Identity Provider",
+        "Linux",
+        "Network Devices",
+        "Office Suite",
+        "SaaS",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--4f41a697-db81-4df8-8b46-a59d294112fa"
+      ],
+      "procedure_descriptions": [
+        "During the [2016 Ukraine Electric Power Attack](https://attack.mitre.org/campaigns/C0025), [Sandworm Team](https://attack.mitre.org/groups/G0034) added a login to a SQL Server with `sp_addlinkedsrvlogin`.(Citation: Dragos Crashoverride 2018)"
+      ]
+    },
+    {
+      "technique_id": "T1136.002",
+      "technique_stix_id": "attack-pattern--7610cada-1499-41a4-b3dd-46467b68d177",
+      "name": "Domain Account",
+      "execution_domain": "target",
+      "tactics": [
+        "persistence"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--cf17ef95-3173-4bfd-be73-1cd920e8c2da"
+      ],
+      "procedure_descriptions": [
+        "During the [2016 Ukraine Electric Power Attack](https://attack.mitre.org/campaigns/C0025), [Sandworm Team](https://attack.mitre.org/groups/G0034) created two new accounts, “admin” and “система” (System). The accounts were then assigned to a domain matching local operation and were delegated new privileges.(Citation: Dragos Crashoverride 2018)"
+      ]
+    },
+    {
+      "technique_id": "T1505.001",
+      "technique_stix_id": "attack-pattern--f9e9365a-9ca2-4d9c-8e7c-050d73d1101a",
+      "name": "SQL Stored Procedures",
+      "execution_domain": "target",
+      "tactics": [
+        "persistence"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--2542a753-4cfb-408f-98a8-e1b11f1bce10"
+      ],
+      "procedure_descriptions": [
+        "During the [2016 Ukraine Electric Power Attack](https://attack.mitre.org/campaigns/C0025), [Sandworm Team](https://attack.mitre.org/groups/G0034) used various MS-SQL stored procedures.(Citation: Dragos Crashoverride 2018)"
+      ]
+    },
+    {
+      "technique_id": "T1543.003",
+      "technique_stix_id": "attack-pattern--2959d63f-73fd-46a1-abd2-109d7dcede32",
+      "name": "Windows Service",
+      "execution_domain": "target",
+      "tactics": [
+        "persistence",
+        "privilege-escalation"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--8bf25335-9705-4737-82cf-218832c5e1c0"
+      ],
+      "procedure_descriptions": [
+        "During the [2016 Ukraine Electric Power Attack](https://attack.mitre.org/campaigns/C0025), [Sandworm Team](https://attack.mitre.org/groups/G0034) used an arbitrary system service to load at system boot for persistence for [Industroyer](https://attack.mitre.org/software/S0604). They also replaced the ImagePath registry value of a Windows service with a new backdoor binary. (Citation: Dragos Crashoverride 2017)"
+      ]
+    },
+    {
+      "technique_id": "T1554",
+      "technique_stix_id": "attack-pattern--960c3c86-1480-4d72-b4e0-8c242e84a5c5",
+      "name": "Compromise Host Software Binary",
+      "execution_domain": "target",
+      "tactics": [
+        "persistence"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--e51f5310-3508-4a79-8f3e-3a02f5d685e8"
+      ],
+      "procedure_descriptions": [
+        "During the [2016 Ukraine Electric Power Attack](https://attack.mitre.org/campaigns/C0025), [Sandworm Team](https://attack.mitre.org/groups/G0034) used a trojanized version of Windows Notepad to add a layer of persistence for [Industroyer](https://attack.mitre.org/software/S0604).(Citation: ESET Industroyer)"
+      ]
+    },
+    {
+      "technique_id": "T1027",
+      "technique_stix_id": "attack-pattern--b3d682b6-98f2-4fb0-aa3b-b4df007ca70a",
+      "name": "Obfuscated Files or Information",
+      "execution_domain": "target",
+      "tactics": [
+        "stealth"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--7fa59950-8a54-430f-b10a-4eb12566ece7"
+      ],
+      "procedure_descriptions": [
+        "During the [2016 Ukraine Electric Power Attack](https://attack.mitre.org/campaigns/C0025), [Sandworm Team](https://attack.mitre.org/groups/G0034) used heavily obfuscated code with [Industroyer](https://attack.mitre.org/software/S0604) in its Windows Notepad backdoor.(Citation: ESET Industroyer)"
+      ]
+    },
+    {
+      "technique_id": "T1027.002",
+      "technique_stix_id": "attack-pattern--deb98323-e13f-4b0c-8d94-175379069062",
+      "name": "Software Packing",
+      "execution_domain": "target",
+      "tactics": [
+        "stealth"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--998add45-ac31-4020-9179-5730f06ae9cd"
+      ],
+      "procedure_descriptions": [
+        "During the [2016 Ukraine Electric Power Attack](https://attack.mitre.org/campaigns/C0025), [Sandworm Team](https://attack.mitre.org/groups/G0034) used UPX to pack a copy of [Mimikatz](https://attack.mitre.org/software/S0002).(Citation: Dragos Crashoverride 2018)"
+      ]
+    },
+    {
+      "technique_id": "T1036.005",
+      "technique_stix_id": "attack-pattern--1c4e5d32-1fe9-4116-9d9d-59e3925bd6a2",
+      "name": "Match Legitimate Resource Name or Location",
+      "execution_domain": "target",
+      "tactics": [
+        "stealth"
+      ],
+      "platforms": [
+        "Containers",
+        "ESXi",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--10976d43-afcf-44d5-bcbf-122f39e0cbff"
+      ],
+      "procedure_descriptions": [
+        "During the [2016 Ukraine Electric Power Attack](https://attack.mitre.org/campaigns/C0025), DLLs and EXEs with filenames associated with common electric power sector protocols were used to masquerade files.(Citation: Dragos Crashoverride 2017)"
+      ]
+    },
+    {
+      "technique_id": "T1036.008",
+      "technique_stix_id": "attack-pattern--208884f1-7b83-4473-ac22-4e1cf6c41471",
+      "name": "Masquerade File Type",
+      "execution_domain": "target",
+      "tactics": [
+        "stealth"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--03927cb1-f80c-4b86-ac8d-f0963141eaa8"
+      ],
+      "procedure_descriptions": [
+        "During the [2016 Ukraine Electric Power Attack](https://attack.mitre.org/campaigns/C0025), [Sandworm Team](https://attack.mitre.org/groups/G0034) masqueraded executables as `.txt` files.(Citation: Dragos Crashoverride 2018)"
+      ]
+    },
+    {
+      "technique_id": "T1036.010",
+      "technique_stix_id": "attack-pattern--d349c66e-18e1-4d8b-a2d7-65af7cbd2ba0",
+      "name": "Masquerade Account Name",
+      "execution_domain": "target",
+      "tactics": [
+        "stealth"
+      ],
+      "platforms": [
+        "Containers",
+        "IaaS",
+        "Identity Provider",
+        "Linux",
+        "Office Suite",
+        "SaaS",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--adce22f8-e689-47b1-b6ca-414eb5c617c5"
+      ],
+      "procedure_descriptions": [
+        "During the [2016 Ukraine Electric Power Attack](https://attack.mitre.org/campaigns/C0025), [Sandworm Team](https://attack.mitre.org/groups/G0034) created two new accounts, “admin” and “система” (System).(Citation: Dragos Crashoverride 2018)"
+      ]
+    },
+    {
+      "technique_id": "T1685.001",
+      "technique_stix_id": "attack-pattern--1411e6b8-80a6-4465-9909-54eaa9c67ce0",
+      "name": "Disable or Modify Windows Event Log",
+      "execution_domain": "target",
+      "tactics": [
+        "defense-impairment"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--59c982c5-c471-44fc-9ace-721866be4e18"
+      ],
+      "procedure_descriptions": [
+        "During the [2016 Ukraine Electric Power Attack](https://attack.mitre.org/campaigns/C0025), [Sandworm Team](https://attack.mitre.org/groups/G0034) disabled event logging on compromised systems.(Citation: Dragos Crashoverride 2018)"
+      ]
+    },
+    {
+      "technique_id": "T1003.001",
+      "technique_stix_id": "attack-pattern--65f2d882-3f41-4d48-8a06-29af77ec9f90",
+      "name": "LSASS Memory",
+      "execution_domain": "target",
+      "tactics": [
+        "credential-access"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--b1b935ac-1823-48a8-ac16-b9d17e519475"
+      ],
+      "procedure_descriptions": [
+        "During the [2016 Ukraine Electric Power Attack](https://attack.mitre.org/campaigns/C0025), [Sandworm Team](https://attack.mitre.org/groups/G0034) used [Mimikatz](https://attack.mitre.org/software/S0002) to capture and use legitimate credentials.(Citation: Dragos Crashoverride 2018)"
+      ]
+    },
+    {
+      "technique_id": "T1110",
+      "technique_stix_id": "attack-pattern--a93494bb-4b80-4ea1-8695-3236a49916fd",
+      "name": "Brute Force",
+      "execution_domain": "target",
+      "tactics": [
+        "credential-access"
+      ],
+      "platforms": [
+        "Containers",
+        "ESXi",
+        "IaaS",
+        "Identity Provider",
+        "Linux",
+        "Network Devices",
+        "Office Suite",
+        "SaaS",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--cbfa121a-bf32-42fe-917a-d3533a6697bb"
+      ],
+      "procedure_descriptions": [
+        "During the [2016 Ukraine Electric Power Attack](https://attack.mitre.org/campaigns/C0025), [Sandworm Team](https://attack.mitre.org/groups/G0034) used a script to attempt RPC authentication against a number of hosts.(Citation: Dragos Crashoverride 2018)"
+      ]
+    },
+    {
+      "technique_id": "T1018",
+      "technique_stix_id": "attack-pattern--e358d692-23c0-4a31-9eb6-ecc13a8d7735",
+      "name": "Remote System Discovery",
+      "execution_domain": "target",
+      "tactics": [
+        "discovery"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--dae53ce2-d59e-47d2-b3ac-edd4be97a5ee"
+      ],
+      "procedure_descriptions": [
+        "During the [2016 Ukraine Electric Power Attack](https://attack.mitre.org/campaigns/C0025), [Sandworm Team](https://attack.mitre.org/groups/G0034) checked for connectivity to resources within the network and used LDAP to query Active Directory, discovering information about computers listed in AD.(Citation: Dragos Crashoverride 2018)"
+      ]
+    },
+    {
+      "technique_id": "T1021.002",
+      "technique_stix_id": "attack-pattern--4f9ca633-15c5-463c-9724-bdcd54fde541",
+      "name": "SMB/Windows Admin Shares",
+      "execution_domain": "target",
+      "tactics": [
+        "lateral-movement"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--f08b8e20-4dda-4ced-8e9d-f0a5e4ebcc52"
+      ],
+      "procedure_descriptions": [
+        "During the [2016 Ukraine Electric Power Attack](https://attack.mitre.org/campaigns/C0025), [Sandworm Team](https://attack.mitre.org/groups/G0034) utilized `net use` to connect to network shares.(Citation: Dragos Crashoverride 2018)"
+      ]
+    },
+    {
+      "technique_id": "T1570",
+      "technique_stix_id": "attack-pattern--bf90d72c-c00b-45e3-b3aa-68560560d4c5",
+      "name": "Lateral Tool Transfer",
+      "execution_domain": "target",
+      "tactics": [
+        "lateral-movement"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--698b7d6f-1198-4b8a-bc9c-8d0baa162b2b"
+      ],
+      "procedure_descriptions": [
+        "During the [2016 Ukraine Electric Power Attack](https://attack.mitre.org/campaigns/C0025), [Sandworm Team](https://attack.mitre.org/groups/G0034) used `move` to transfer files to a network share.(Citation: Dragos Crashoverride 2018)"
+      ]
+    }
+  ],
+  "limitations": [
+    "ATT&CK uses-links do not encode a historical total order; the compiler applies a declared tactic-rank policy.",
+    "Technique metadata constrains procedures but does not uniquely determine an executable target environment."
+  ],
+  "content_sha256": "a0fc48f68f68fe19b996b2266d429366788f5f9c68c9f3cd59d511b80432a4bd"
+}

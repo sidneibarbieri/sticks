@@ -1,0 +1,13 @@
+{
+  "campaign_id": "C0010",
+  "arm_id": "prior_work_style",
+  "seed": 3,
+  "step_id": "s6",
+  "emitted": true,
+  "abstained": false,
+  "oracle_admitted": true,
+  "template_id": "stage-benign-tool",
+  "proposal_sha256": "5377ee33b51d9600812661d57c2c1dc4b02f49c93fea37f716a6609f2b7ccff1",
+  "issue_codes": [],
+  "parse_error": null
+}

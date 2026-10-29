@@ -1,0 +1,37 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "qwen3.6:latest",
+    "provider": "openai",
+    "review_pending": true,
+    "run_id": "stage2-qwen36-r1",
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "A benign laboratory harness that simulates authorized command-line interpreter interactions on network devices to validate monitoring and detection capabilities without executing malicious payloads.",
+    "evidence_predicates": [
+      "stdout_hash_recorded",
+      "process_exit_recorded"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "cli_target": "target_host",
+      "cmd_payload": "payload",
+      "exec_runtime": "runtime"
+    },
+    "produces": [
+      "cli_session_active",
+      "command_output_stored",
+      "device_state_modified"
+    ],
+    "requires": [
+      "network_device_reachable",
+      "admin_credentials_established"
+    ],
+    "technique_ids": [
+      "T1059.008"
+    ],
+    "template_id": "network-device-cli-harness"
+  }
+}

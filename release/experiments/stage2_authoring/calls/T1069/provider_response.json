@@ -1,0 +1,36 @@
+{
+  "id": "chatcmpl-EOgGMIQGjnZPgItLduqnQzfzh3Jf0",
+  "object": "chat.completion",
+  "created": 1789551038,
+  "model": "gpt-4o-mini-2024-07-18",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"template_id\": \"permission-groups-discovery-laboratory-harness\",\n  \"technique_ids\": [\"T1069\"],\n  \"execution_domain\": \"target\",\n  \"parameter_kinds\": {\n    \"target_host\": \"target_host\",\n    \"data_source\": \"data_source\"\n  },\n  \"requires\": [\n    \"target host is accessible\",\n    \"data source for group permissions is available\"\n  ],\n  \"produces\": [\n    \"group permission settings discovered\",\n    \"user account and group membership information collected\"\n  ],\n  \"evidence_predicates\": [\n    \"collection_manifest_recorded\",\n    \"bounded_effect_observed\"\n  ],\n  \"fidelity_ceiling\": \"adapted\",\n  \"description\": \"This procedure template outlines a benign method for discovering group and permission settings in a controlled laboratory environment.\"\n}",
+        "refusal": null,
+        "annotations": []
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 802,
+    "completion_tokens": 173,
+    "total_tokens": 975,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_c577bb8647"
+}

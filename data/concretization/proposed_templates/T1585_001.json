@@ -1,0 +1,32 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure outlines the steps to create and manage social media accounts for persona development in a controlled laboratory environment.",
+    "evidence_predicates": [
+      "http_request_logged",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "social_media_account": "web_asset"
+    },
+    "produces": [
+      "social media account created"
+    ],
+    "requires": [
+      "access to social media platform",
+      "internet connectivity"
+    ],
+    "technique_ids": [
+      "T1585.001"
+    ],
+    "template_id": "create-social-media-accounts"
+  }
+}

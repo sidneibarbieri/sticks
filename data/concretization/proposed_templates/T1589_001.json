@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure gathers credentials from a specified target host using a configured credential source.",
+    "evidence_predicates": [
+      "collection_manifest_recorded",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "credential_source": "credential_source",
+      "target_host": "target_host"
+    },
+    "produces": [
+      "credentials_collected"
+    ],
+    "requires": [
+      "target_host is accessible",
+      "credential_source is configured"
+    ],
+    "technique_ids": [
+      "T1589.001"
+    ],
+    "template_id": "gather-credentials-laboratory-harness"
+  }
+}

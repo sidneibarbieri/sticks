@@ -1,0 +1,35 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "qwen3.6:latest",
+    "provider": "openai",
+    "review_pending": true,
+    "run_id": "stage2-qwen36-r1",
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "Simulates the benign provisioning and resolution of a third-party infrastructure asset to validate detection capabilities for adversary infrastructure compromise.",
+    "evidence_predicates": [
+      "web_asset_hash_recorded",
+      "http_status_recorded"
+    ],
+    "execution_domain": "attacker",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "domain_target": "web_asset",
+      "resource_handle": "infrastructure_artifact"
+    },
+    "produces": [
+      "compromised_infrastructure_provisioned",
+      "domain_resolution_verified"
+    ],
+    "requires": [
+      "lab_scope_verified",
+      "dns_resolver_available"
+    ],
+    "technique_ids": [
+      "T1584"
+    ],
+    "template_id": "benign-infrastructure-provisioning-sim"
+  }
+}

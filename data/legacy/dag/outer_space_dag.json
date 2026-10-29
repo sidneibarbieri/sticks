@@ -1,0 +1,32 @@
+{
+  "schema": "historical-technique-inventory/v1",
+  "source_file": "outer_space_dag.json",
+  "source_sha256": "98a1ee45670c2af70e1df9e7924295d41c586e2cfb035c9dc6067a72132b19fb",
+  "scope": "Technique occurrences only; no procedure, ordering, execution, or fidelity claim.",
+  "structural_nodes": [
+    {
+      "technique_id": "T1105"
+    },
+    {
+      "technique_id": "T1584.004"
+    },
+    {
+      "technique_id": "T1217"
+    },
+    {
+      "technique_id": "T1071.001"
+    },
+    {
+      "technique_id": "T1585.003"
+    },
+    {
+      "technique_id": "T1027.013"
+    },
+    {
+      "technique_id": "T1587.001"
+    },
+    {
+      "technique_id": "T1059.005"
+    }
+  ]
+}

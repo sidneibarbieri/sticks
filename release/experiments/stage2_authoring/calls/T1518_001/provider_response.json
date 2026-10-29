@@ -1,0 +1,36 @@
+{
+  "id": "chatcmpl-EOK5uGxtK9FoCbMFY8Dr11afPViqq",
+  "object": "chat.completion",
+  "created": 1789465822,
+  "model": "gpt-4o-mini-2024-07-18",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"template_id\": \"security-software-discovery-laboratory-harness\",\n  \"technique_ids\": [\"T1518.001\"],\n  \"execution_domain\": \"target\",\n  \"parameter_kinds\": {\n    \"target_host\": \"target_host\",\n    \"security_tool\": \"toolkit\"\n  },\n  \"requires\": [\n    \"target host is operational\",\n    \"security tools are installed\"\n  ],\n  \"produces\": [\n    \"list of installed security software\"\n  ],\n  \"evidence_predicates\": [\n    \"collection_manifest_recorded\",\n    \"bounded_effect_observed\"\n  ],\n  \"fidelity_ceiling\": \"adapted\",\n  \"description\": \"This procedure gathers and records a list of security software installed on a target host.\"\n}",
+        "refusal": null,
+        "annotations": []
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 827,
+    "completion_tokens": 160,
+    "total_tokens": 987,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_c577bb8647"
+}

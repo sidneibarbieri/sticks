@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure gathers information about network security appliances within the target environment.",
+    "evidence_predicates": [
+      "interface_snapshot_recorded",
+      "collection_manifest_recorded"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "network_interface": "network_interface",
+      "target_host": "target_host"
+    },
+    "produces": [
+      "network security appliance details collected"
+    ],
+    "requires": [
+      "access to the target network",
+      "knowledge of network architecture"
+    ],
+    "technique_ids": [
+      "T1590.006"
+    ],
+    "template_id": "gather-network-security-appliances-info"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "id": "chatcmpl-EOgHWUgt3FSkE2SS6fyJVYqrtuxCM",
+  "object": "chat.completion",
+  "created": 1789551110,
+  "model": "gpt-4o-mini-2024-07-18",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"template_id\": \"time-based-checks-laboratory-harness\",\n  \"technique_ids\": [\n    \"T1497.003\"\n  ],\n  \"execution_domain\": \"target\",\n  \"parameter_kinds\": {\n    \"time_check_tool\": \"toolkit\",\n    \"environment_check\": \"capability_specification\"\n  },\n  \"requires\": [\n    \"virtualization environment present\",\n    \"time manipulation capabilities\"\n  ],\n  \"produces\": [\n    \"time_check_results recorded\",\n    \"environment_check_status\"\n  ],\n  \"evidence_predicates\": [\n    \"boundary_check_recorded\",\n    \"bounded_effect_observed\"\n  ],\n  \"fidelity_ceiling\": \"adapted\",\n  \"description\": \"This procedure checks for time-based discrepancies to identify potential virtualization or sandbox environments.\"\n}",
+        "refusal": null,
+        "annotations": []
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 821,
+    "completion_tokens": 169,
+    "total_tokens": 990,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_ffcc7ece91"
+}

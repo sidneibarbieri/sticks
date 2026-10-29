@@ -1,0 +1,36 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "qwen3.6:latest",
+    "provider": "openai",
+    "review_pending": true,
+    "run_id": "stage2-qwen36-r1",
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "A benign laboratory harness that executes a controlled script via a specified interpreter to verify command execution capabilities and capture output hashes without impacting system integrity.",
+    "evidence_predicates": [
+      "bounded_effect_observed",
+      "stdout_hash_recorded",
+      "process_exit_recorded"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "interpreter_runtime": "runtime",
+      "script_payload": "payload"
+    },
+    "produces": [
+      "stdout_hash_recorded",
+      "file_count_recorded"
+    ],
+    "requires": [
+      "target_host",
+      "lab_scope_verified"
+    ],
+    "technique_ids": [
+      "T1059"
+    ],
+    "template_id": "benign-shell-execution-harness"
+  }
+}

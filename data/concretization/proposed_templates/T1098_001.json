@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure adds additional credentials to a cloud account to simulate the persistence of access in a controlled environment.",
+    "evidence_predicates": [
+      "archive_hash_recorded",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "credential_source": "credential_source",
+      "target_host": "target_host"
+    },
+    "produces": [
+      "additional_credentials_added"
+    ],
+    "requires": [
+      "sufficient_permissions_granted",
+      "existing_cloud_account_access"
+    ],
+    "technique_ids": [
+      "T1098.001"
+    ],
+    "template_id": "add-cloud-credentials-laboratory-harness"
+  }
+}

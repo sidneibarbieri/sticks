@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure searches for private key files in common directories on the target host.",
+    "evidence_predicates": [
+      "file_count_recorded",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "file_extension": "data_source",
+      "key_directory": "target_host"
+    },
+    "produces": [
+      "file_count_recorded"
+    ],
+    "requires": [
+      "access to the target host",
+      "knowledge of common key file extensions"
+    ],
+    "technique_ids": [
+      "T1552.004"
+    ],
+    "template_id": "search-private-keys-laboratory-harness"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure simulates traffic signaling to verify the response of a target host under controlled conditions.",
+    "evidence_predicates": [
+      "http_request_logged",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "network_interface": "network_interface",
+      "payload": "payload",
+      "target_host": "target_host"
+    },
+    "produces": [
+      "traffic signaling response recorded",
+      "network interface state verified"
+    ],
+    "requires": [
+      "target host is configured to respond to traffic signaling",
+      "network interface is active"
+    ],
+    "technique_ids": [
+      "T1205"
+    ],
+    "template_id": "traffic-signaling-laboratory-harness"
+  }
+}

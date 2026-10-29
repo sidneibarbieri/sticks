@@ -1,0 +1,36 @@
+{
+  "id": "chatcmpl-EOK678aYY26TMNfP70dgeVvFO9zUU",
+  "object": "chat.completion",
+  "created": 1789465835,
+  "model": "gpt-4o-mini-2024-07-18",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"template_id\": \"vulnerability-scanning-laboratory-harness\",\n  \"technique_ids\": [\n    \"T1595.002\"\n  ],\n  \"execution_domain\": \"target\",\n  \"parameter_kinds\": {\n    \"target_host\": \"target_host\",\n    \"scanning_tool\": \"toolkit\"\n  },\n  \"requires\": [\n    \"target host is configured for scanning\",\n    \"scanning tool is available\"\n  ],\n  \"produces\": [\n    \"vulnerability scan results recorded\"\n  ],\n  \"evidence_predicates\": [\n    \"collection_manifest_recorded\",\n    \"bounded_effect_observed\"\n  ],\n  \"fidelity_ceiling\": \"adapted\",\n  \"description\": \"This procedure performs a vulnerability scan on a target host to identify potential security weaknesses.\"\n}",
+        "refusal": null,
+        "annotations": []
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 822,
+    "completion_tokens": 167,
+    "total_tokens": 989,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_c577bb8647"
+}

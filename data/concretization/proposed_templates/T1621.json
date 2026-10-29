@@ -1,0 +1,32 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure generates a multi-factor authentication request to simulate the bypassing of MFA mechanisms.",
+    "evidence_predicates": [
+      "http_request_logged",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "mfa_service": "web_asset",
+      "user_account": "credential_source"
+    },
+    "produces": [
+      "MFA request generated"
+    ],
+    "requires": [
+      "Valid Accounts"
+    ],
+    "technique_ids": [
+      "T1621"
+    ],
+    "template_id": "multi-factor-authentication-request-generation-lab"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure demonstrates the process of signing a binary with a valid code signing certificate in a controlled laboratory environment.",
+    "evidence_predicates": [
+      "artifact_hash_recorded",
+      "manifest_hash_recorded"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "code_signing_certificate": "credential_source",
+      "malware_binary": "archive_artifact"
+    },
+    "produces": [
+      "valid code signature established"
+    ],
+    "requires": [
+      "code signing certificate available",
+      "malware binary prepared"
+    ],
+    "technique_ids": [
+      "T1553.002"
+    ],
+    "template_id": "code-signing-laboratory-harness"
+  }
+}

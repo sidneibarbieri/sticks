@@ -1,0 +1,36 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "qwen3.6:latest",
+    "provider": "openai",
+    "review_pending": true,
+    "run_id": "stage2-qwen36-r1",
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure establishes a benign WMI event subscription on the target host to trigger a harmless script upon system login for laboratory persistence testing.",
+    "evidence_predicates": [
+      "service_request_logged",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "consumer_script": "encoded_artifact",
+      "event_filter": "capability_specification",
+      "registration_host": "target_host"
+    },
+    "produces": [
+      "wmi_event_subscription_created",
+      "persistence_mechanism_active"
+    ],
+    "requires": [
+      "target_host_credentials",
+      "wmi_service_available"
+    ],
+    "technique_ids": [
+      "T1546.003"
+    ],
+    "template_id": "wmi-event-subscription-harness"
+  }
+}

@@ -1,0 +1,398 @@
+{
+  "schema_version": "1",
+  "compiler_version": "1",
+  "campaign_id": "C0005",
+  "campaign_name": "Operation Spalax",
+  "source": {
+    "bundle_sha256": "dc1639caa5501d720e280cf1cbd8fbe009884a0c9b3e6e9ed9d0c25166c3d8f4",
+    "object_count": 26086,
+    "campaign_stix_id": "campaign--4c840263-bbda-440d-a22b-674679ddebf1",
+    "campaign_external_id": "C0005"
+  },
+  "ordering_policy": "tactic_rank_then_technique_id",
+  "steps": [
+    {
+      "technique_id": "T1583.001",
+      "technique_stix_id": "attack-pattern--40f5caa0-4cb7-4117-89fc-d421bb493df3",
+      "name": "Domains",
+      "execution_domain": "attacker",
+      "tactics": [
+        "resource-development"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--168c9371-c88c-45bf-9256-df78683685a2"
+      ],
+      "procedure_descriptions": [
+        "For [Operation Spalax](https://attack.mitre.org/campaigns/C0005), the threat actors registered hundreds of domains using Duck DNS and DNS Exit.(Citation: ESET Operation Spalax Jan 2021)"
+      ]
+    },
+    {
+      "technique_id": "T1588.001",
+      "technique_stix_id": "attack-pattern--7807d3a4-a885-4639-a786-c1ed41484970",
+      "name": "Malware",
+      "execution_domain": "attacker",
+      "tactics": [
+        "resource-development"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--1ae7391e-c622-45ee-8f8d-dca29b8bfea8"
+      ],
+      "procedure_descriptions": [
+        "For [Operation Spalax](https://attack.mitre.org/campaigns/C0005), the threat actors obtained malware, including [Remcos](https://attack.mitre.org/software/S0332), [njRAT](https://attack.mitre.org/software/S0385), and AsyncRAT.(Citation: ESET Operation Spalax Jan 2021)"
+      ]
+    },
+    {
+      "technique_id": "T1588.002",
+      "technique_stix_id": "attack-pattern--a2fdce72-04b2-409a-ac10-cc1695f4fce0",
+      "name": "Tool",
+      "execution_domain": "attacker",
+      "tactics": [
+        "resource-development"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--13a41ddf-24f2-4c73-a047-7093f94a2573"
+      ],
+      "procedure_descriptions": [
+        "For [Operation Spalax](https://attack.mitre.org/campaigns/C0005), the threat actors obtained packers such as CyaX.(Citation: ESET Operation Spalax Jan 2021)"
+      ]
+    },
+    {
+      "technique_id": "T1608.001",
+      "technique_stix_id": "attack-pattern--3ee16395-03f0-4690-a32e-69ce9ada0f9e",
+      "name": "Upload Malware",
+      "execution_domain": "attacker",
+      "tactics": [
+        "resource-development"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--3de46cc5-5049-4105-8fcc-ede3f51f30c5"
+      ],
+      "procedure_descriptions": [
+        "For [Operation Spalax](https://attack.mitre.org/campaigns/C0005), the threat actors staged malware and malicious files in legitimate hosting services such as OneDrive or MediaFire.(Citation: ESET Operation Spalax Jan 2021)"
+      ]
+    },
+    {
+      "technique_id": "T1566.001",
+      "technique_stix_id": "attack-pattern--2e34237d-8574-43f6-aace-ae2915de8597",
+      "name": "Spearphishing Attachment",
+      "execution_domain": "boundary",
+      "tactics": [
+        "initial-access"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--85b4d635-f5f4-4f4f-abc2-31203cad496d"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Spalax](https://attack.mitre.org/campaigns/C0005), the threat actors sent phishing emails that included a PDF document that in some cases led to the download and execution of malware.(Citation: ESET Operation Spalax Jan 2021)"
+      ]
+    },
+    {
+      "technique_id": "T1566.002",
+      "technique_stix_id": "attack-pattern--2b742742-28c3-4e1b-bab7-8350d6300fa7",
+      "name": "Spearphishing Link",
+      "execution_domain": "boundary",
+      "tactics": [
+        "initial-access"
+      ],
+      "platforms": [
+        "Identity Provider",
+        "Linux",
+        "Office Suite",
+        "SaaS",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--386d6f27-a0a6-44c9-bd03-8a332c5ce9e2"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Spalax](https://attack.mitre.org/campaigns/C0005), the threat actors sent phishing emails to victims that contained a malicious link.(Citation: ESET Operation Spalax Jan 2021)"
+      ]
+    },
+    {
+      "technique_id": "T1059",
+      "technique_stix_id": "attack-pattern--7385dfaf-6886-4229-9ecd-6fd678040830",
+      "name": "Command and Scripting Interpreter",
+      "execution_domain": "target",
+      "tactics": [
+        "execution"
+      ],
+      "platforms": [
+        "Containers",
+        "ESXi",
+        "IaaS",
+        "Identity Provider",
+        "Linux",
+        "Network Devices",
+        "Office Suite",
+        "SaaS",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--2b4b6861-7143-4155-aaac-60213a314abd"
+      ],
+      "procedure_descriptions": [
+        "For [Operation Spalax](https://attack.mitre.org/campaigns/C0005), the threat actors used Nullsoft Scriptable Install System (NSIS) scripts to install malware.(Citation: ESET Operation Spalax Jan 2021)"
+      ]
+    },
+    {
+      "technique_id": "T1204.001",
+      "technique_stix_id": "attack-pattern--ef67e13e-5598-4adc-bdb2-998225874fa9",
+      "name": "Malicious Link",
+      "execution_domain": "target",
+      "tactics": [
+        "execution"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--3445ad37-1738-45c3-aabd-dcc048d2ad2d"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Spalax](https://attack.mitre.org/campaigns/C0005), the threat actors relied on a victim to click on a malicious link distributed via phishing emails.(Citation: ESET Operation Spalax Jan 2021)"
+      ]
+    },
+    {
+      "technique_id": "T1204.002",
+      "technique_stix_id": "attack-pattern--232b7f21-adf9-4b42-b936-b9d6f7df856e",
+      "name": "Malicious File",
+      "execution_domain": "target",
+      "tactics": [
+        "execution"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--48cff69b-577c-4837-b894-95b19f255134"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Spalax](https://attack.mitre.org/campaigns/C0005), the threat actors relied on a victim to open a PDF document and click on an embedded malicious link to download malware.(Citation: ESET Operation Spalax Jan 2021) "
+      ]
+    },
+    {
+      "technique_id": "T1027.002",
+      "technique_stix_id": "attack-pattern--deb98323-e13f-4b0c-8d94-175379069062",
+      "name": "Software Packing",
+      "execution_domain": "target",
+      "tactics": [
+        "stealth"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--3da56da6-08fe-406b-bd0d-cd4f72dd67f4"
+      ],
+      "procedure_descriptions": [
+        "For [Operation Spalax](https://attack.mitre.org/campaigns/C0005), the threat actors used a variety of packers, including CyaX, to obfuscate malicious executables.(Citation: ESET Operation Spalax Jan 2021)"
+      ]
+    },
+    {
+      "technique_id": "T1027.003",
+      "technique_stix_id": "attack-pattern--c2e147a9-d1a8-4074-811a-d8789202d916",
+      "name": "Steganography",
+      "execution_domain": "target",
+      "tactics": [
+        "stealth"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--1aad8f36-aec7-4210-8edb-7ad3dd14f5ed"
+      ],
+      "procedure_descriptions": [
+        "For [Operation Spalax](https://attack.mitre.org/campaigns/C0005), the threat actors used packers that read pixel data from images contained in PE files' resource sections and build the next layer of execution from the data.(Citation: ESET Operation Spalax Jan 2021)"
+      ]
+    },
+    {
+      "technique_id": "T1027.013",
+      "technique_stix_id": "attack-pattern--0d91b3c0-5e50-47c3-949a-2a796f04d144",
+      "name": "Encrypted/Encoded File",
+      "execution_domain": "target",
+      "tactics": [
+        "stealth"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--d6de484e-a1f6-43cb-a506-ec4888e69bdd"
+      ],
+      "procedure_descriptions": [
+        "For [Operation Spalax](https://attack.mitre.org/campaigns/C0005), the threat actors used XOR-encrypted payloads.(Citation: ESET Operation Spalax Jan 2021)"
+      ]
+    },
+    {
+      "technique_id": "T1140",
+      "technique_stix_id": "attack-pattern--3ccef7ae-cb5e-48f6-8302-897105fbf55c",
+      "name": "Deobfuscate/Decode Files or Information",
+      "execution_domain": "target",
+      "tactics": [
+        "stealth"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--25446e74-d461-4113-8ff9-9d6984696680"
+      ],
+      "procedure_descriptions": [
+        "For [Operation Spalax](https://attack.mitre.org/campaigns/C0005), the threat actors used a variety of packers and droppers to decrypt malicious payloads.(Citation: ESET Operation Spalax Jan 2021)"
+      ]
+    },
+    {
+      "technique_id": "T1218.011",
+      "technique_stix_id": "attack-pattern--045d0922-2310-4e60-b5e4-3302302cb3c5",
+      "name": "Rundll32",
+      "execution_domain": "target",
+      "tactics": [
+        "stealth"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--b7f5a141-2db6-4f76-b3d7-bbd665035f84"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Spalax](https://attack.mitre.org/campaigns/C0005), the threat actors used `rundll32.exe` to execute malicious installers.(Citation: ESET Operation Spalax Jan 2021)"
+      ]
+    },
+    {
+      "technique_id": "T1497",
+      "technique_stix_id": "attack-pattern--82caa33e-d11a-433a-94ea-9b5a5fbef81d",
+      "name": "Virtualization/Sandbox Evasion",
+      "execution_domain": "target",
+      "tactics": [
+        "stealth",
+        "discovery"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--3ff416c3-63dd-4050-82f9-fcf4820a7b12"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Spalax](https://attack.mitre.org/campaigns/C0005), the threat actors used droppers that would run anti-analysis checks before executing malware on a compromised host.(Citation: ESET Operation Spalax Jan 2021)"
+      ]
+    },
+    {
+      "technique_id": "T1102",
+      "technique_stix_id": "attack-pattern--830c9528-df21-472c-8c14-a036bf17d665",
+      "name": "Web Service",
+      "execution_domain": "boundary",
+      "tactics": [
+        "command-and-control"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--3bdacd96-1c94-4af2-b0b3-d44542c31ccd"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Spalax](https://attack.mitre.org/campaigns/C0005), the threat actors used OneDrive and MediaFire to host payloads.(Citation: ESET Operation Spalax Jan 2021)"
+      ]
+    },
+    {
+      "technique_id": "T1568",
+      "technique_stix_id": "attack-pattern--7bd9c723-2f78-4309-82c5-47cad406572b",
+      "name": "Dynamic Resolution",
+      "execution_domain": "boundary",
+      "tactics": [
+        "command-and-control"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--1e04ed60-7e43-4bad-a4c2-462b0b001dda"
+      ],
+      "procedure_descriptions": [
+        "For [Operation Spalax](https://attack.mitre.org/campaigns/C0005), the threat actors used dynamic DNS services, including Duck DNS and DNS Exit, as part of their C2 infrastructure.(Citation: ESET Operation Spalax Jan 2021)"
+      ]
+    }
+  ],
+  "limitations": [
+    "ATT&CK uses-links do not encode a historical total order; the compiler applies a declared tactic-rank policy.",
+    "Technique metadata constrains procedures but does not uniquely determine an executable target environment."
+  ],
+  "content_sha256": "b80eceecdda3492e30f515b190f03f64d697efd3a28849c7f7c8a3a8475d666d"
+}

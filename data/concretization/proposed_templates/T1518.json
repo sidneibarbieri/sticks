@@ -1,0 +1,34 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure outlines the steps to perform software discovery in a controlled laboratory environment.",
+    "evidence_predicates": [
+      "collection_manifest_recorded",
+      "file_count_recorded"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "software_list": "data_source",
+      "target_host": "target_host"
+    },
+    "produces": [
+      "software list generated",
+      "software version information recorded"
+    ],
+    "requires": [
+      "target_host is accessible",
+      "software discovery tool is available"
+    ],
+    "technique_ids": [
+      "T1518"
+    ],
+    "template_id": "software-discovery-laboratory-harness"
+  }
+}

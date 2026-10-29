@@ -1,0 +1,20 @@
+{
+  "experiment_id": "2026-09-07-qwen14b",
+  "model": "qwen2.5-coder:14b",
+  "temperature": 0.7,
+  "campaigns": [
+    "C0010",
+    "C0026",
+    "C0045"
+  ],
+  "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "shuffle_seed": 20260907,
+  "cells": 375,
+  "completed_at": "2026-09-07T10:18:55.264367+00:00"
+}

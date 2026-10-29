@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure simulates the use of valid accounts to gain access to a target system in a controlled laboratory environment.",
+    "evidence_predicates": [
+      "fixture_access_logged",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "credential_source": "credential_source",
+      "target_host": "target_host"
+    },
+    "produces": [
+      "access granted to target system"
+    ],
+    "requires": [
+      "valid user credentials",
+      "target system access"
+    ],
+    "technique_ids": [
+      "T1078"
+    ],
+    "template_id": "valid-accounts-laboratory-harness"
+  }
+}

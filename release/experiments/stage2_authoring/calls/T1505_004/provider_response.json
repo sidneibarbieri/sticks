@@ -1,0 +1,36 @@
+{
+  "id": "chatcmpl-EOgEAT2WFaJAcKsFlJuYEXX4iJ67e",
+  "object": "chat.completion",
+  "created": 1789550902,
+  "model": "gpt-4o-mini-2024-07-18",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"template_id\": \"iis-components-installation\",\n  \"technique_ids\": [\n    \"T1505.004\"\n  ],\n  \"execution_domain\": \"target\",\n  \"parameter_kinds\": {\n    \"dll_file\": \"payload\",\n    \"web_server\": \"target_host\"\n  },\n  \"requires\": [\n    \"IIS web server is operational\",\n    \"sufficient privileges to install components\"\n  ],\n  \"produces\": [\n    \"malicious IIS component installed\"\n  ],\n  \"evidence_predicates\": [\n    \"http_request_logged\",\n    \"bounded_effect_observed\"\n  ],\n  \"fidelity_ceiling\": \"adapted\",\n  \"description\": \"This procedure outlines the steps to install a malicious component on an IIS web server to establish persistence.\"\n}",
+        "refusal": null,
+        "annotations": []
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 828,
+    "completion_tokens": 163,
+    "total_tokens": 991,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_c577bb8647"
+}

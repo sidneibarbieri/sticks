@@ -1,0 +1,16 @@
+{
+  "campaign_id": "C0026",
+  "arm_id": "prior_work_style",
+  "seed": 2,
+  "step_id": "s3",
+  "emitted": true,
+  "abstained": false,
+  "oracle_admitted": false,
+  "template_id": "archive-declared-collection",
+  "proposal_sha256": "b8d143071735eb35338b20bcce87615366acb4fc3ec402f04300334cc1712b78",
+  "issue_codes": [
+    "UNSUPPORTED_TECHNIQUE",
+    "UNSATISFIED_PRECONDITIONS"
+  ],
+  "parse_error": null
+}

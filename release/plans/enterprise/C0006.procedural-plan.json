@@ -1,0 +1,639 @@
+{
+  "schema_version": "1",
+  "compiler_version": "1",
+  "campaign_id": "C0006",
+  "campaign_name": "Operation Honeybee",
+  "source": {
+    "bundle_sha256": "dc1639caa5501d720e280cf1cbd8fbe009884a0c9b3e6e9ed9d0c25166c3d8f4",
+    "object_count": 26086,
+    "campaign_stix_id": "campaign--4553292d-12c6-4a93-934d-12160370d4e0",
+    "campaign_external_id": "C0006"
+  },
+  "ordering_policy": "tactic_rank_then_technique_id",
+  "steps": [
+    {
+      "technique_id": "T1583.001",
+      "technique_stix_id": "attack-pattern--40f5caa0-4cb7-4117-89fc-d421bb493df3",
+      "name": "Domains",
+      "execution_domain": "attacker",
+      "tactics": [
+        "resource-development"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--44bfcd86-2fa2-4e00-a9af-ab66d4d834cd"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Honeybee](https://attack.mitre.org/campaigns/C0006), threat actors registered domains for C2.(Citation: McAfee Honeybee)"
+      ]
+    },
+    {
+      "technique_id": "T1583.004",
+      "technique_stix_id": "attack-pattern--60c4b628-4807-4b0b-bbf5-fdac8643c337",
+      "name": "Server",
+      "execution_domain": "attacker",
+      "tactics": [
+        "resource-development"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--b923a6b3-acae-4ecf-bb56-63188d0e4553"
+      ],
+      "procedure_descriptions": [
+        "For [Operation Honeybee](https://attack.mitre.org/campaigns/C0006), at least one identified persona was used to register for a free account for a control server.(Citation: McAfee Honeybee) "
+      ]
+    },
+    {
+      "technique_id": "T1585.002",
+      "technique_stix_id": "attack-pattern--65013dd2-bc61-43e3-afb5-a14c4fa7437a",
+      "name": "Email Accounts",
+      "execution_domain": "attacker",
+      "tactics": [
+        "resource-development"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--02838a73-1e42-4fda-a27b-044d14f303d9"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Honeybee](https://attack.mitre.org/campaigns/C0006), attackers created email addresses to register for a free account for a control server used for the implants.(Citation: McAfee Honeybee) "
+      ]
+    },
+    {
+      "technique_id": "T1588.004",
+      "technique_stix_id": "attack-pattern--19401639-28d0-4c3c-adcc-bc2ba22f6421",
+      "name": "Digital Certificates",
+      "execution_domain": "attacker",
+      "tactics": [
+        "resource-development"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--989a5b4d-14d3-4942-8326-91d677e4d38a"
+      ],
+      "procedure_descriptions": [
+        "For [Operation Honeybee](https://attack.mitre.org/campaigns/C0006), the threat actors stole a digital signature from Adobe Systems to use with their MaoCheng dropper.(Citation: McAfee Honeybee)"
+      ]
+    },
+    {
+      "technique_id": "T1059.003",
+      "technique_stix_id": "attack-pattern--d1fcf083-a721-4223-aedf-bf8960798d62",
+      "name": "Windows Command Shell",
+      "execution_domain": "target",
+      "tactics": [
+        "execution"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--826301cd-9f66-4e5d-a63a-8b0283f1e2fe"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Honeybee](https://attack.mitre.org/campaigns/C0006), various implants used batch scripting and `cmd.exe` for execution.(Citation: McAfee Honeybee) "
+      ]
+    },
+    {
+      "technique_id": "T1059.005",
+      "technique_stix_id": "attack-pattern--dfd7cc1d-e1d8-4394-a198-97c4cab8aa67",
+      "name": "Visual Basic",
+      "execution_domain": "target",
+      "tactics": [
+        "execution"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--d36067ad-c612-46bb-b857-bb2d74f8f3c2"
+      ],
+      "procedure_descriptions": [
+        "For [Operation Honeybee](https://attack.mitre.org/campaigns/C0006), the threat actors used a Visual Basic script embedded within a Word document to download an implant.(Citation: McAfee Honeybee) "
+      ]
+    },
+    {
+      "technique_id": "T1106",
+      "technique_stix_id": "attack-pattern--391d824f-0ef1-47a0-b0ee-c59a75e27670",
+      "name": "Native API",
+      "execution_domain": "target",
+      "tactics": [
+        "execution"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--28427b29-2088-44f7-8acd-5df104dcb8ee"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Honeybee](https://attack.mitre.org/campaigns/C0006), the threat actors deployed malware that used API calls, including `CreateProcessAsUser`.(Citation: McAfee Honeybee)"
+      ]
+    },
+    {
+      "technique_id": "T1204.002",
+      "technique_stix_id": "attack-pattern--232b7f21-adf9-4b42-b936-b9d6f7df856e",
+      "name": "Malicious File",
+      "execution_domain": "target",
+      "tactics": [
+        "execution"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--be9e89ef-de70-44e3-b3cb-73844f069ac4"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Honeybee](https://attack.mitre.org/campaigns/C0006), threat actors relied on a victim to enable macros within a malicious Word document.(Citation: McAfee Honeybee)"
+      ]
+    },
+    {
+      "technique_id": "T1569.002",
+      "technique_stix_id": "attack-pattern--f1951e8a-500e-4a26-8803-76d95c4554b4",
+      "name": "Service Execution",
+      "execution_domain": "target",
+      "tactics": [
+        "execution"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--968911f0-2158-4c76-9fab-562a00ecc418"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Honeybee](https://attack.mitre.org/campaigns/C0006), threat actors ran <code>sc start</code> to start the COMSysApp as part of the service hijacking and <code>sc stop</code> to stop and reconfigure the COMSysApp.(Citation: McAfee Honeybee)"
+      ]
+    },
+    {
+      "technique_id": "T1574.011",
+      "technique_stix_id": "attack-pattern--17cc750b-e95b-4d7d-9dde-49e0de24148c",
+      "name": "Services Registry Permissions Weakness",
+      "execution_domain": "target",
+      "tactics": [
+        "execution",
+        "stealth"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--981648bc-e5b1-46b3-adf6-92caae84cfa4"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Honeybee](https://attack.mitre.org/campaigns/C0006), the threat actors used a batch file that modified the COMSysApp service to load a malicious ipnet.dll payload and to load a DLL into the `svchost.exe` process.(Citation: McAfee Honeybee)"
+      ]
+    },
+    {
+      "technique_id": "T1112",
+      "technique_stix_id": "attack-pattern--57340c81-c025-4189-8fa0-fc7ede51bae4",
+      "name": "Modify Registry",
+      "execution_domain": "target",
+      "tactics": [
+        "persistence",
+        "defense-impairment"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--7af7bfc3-7b1b-41aa-b162-47c222390815"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Honeybee](https://attack.mitre.org/campaigns/C0006), the threat actors used batch files that modified registry keys.(Citation: McAfee Honeybee)"
+      ]
+    },
+    {
+      "technique_id": "T1543.003",
+      "technique_stix_id": "attack-pattern--2959d63f-73fd-46a1-abd2-109d7dcede32",
+      "name": "Windows Service",
+      "execution_domain": "target",
+      "tactics": [
+        "persistence",
+        "privilege-escalation"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--a9468e2e-1525-4311-8f11-d63b5d6b4e58"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Honeybee](https://attack.mitre.org/campaigns/C0006), threat actors installed DLLs and backdoors as Windows services.(Citation: McAfee Honeybee)"
+      ]
+    },
+    {
+      "technique_id": "T1548.002",
+      "technique_stix_id": "attack-pattern--120d5519-3098-4e1c-9191-2aa61232f073",
+      "name": "Bypass User Account Control",
+      "execution_domain": "target",
+      "tactics": [
+        "privilege-escalation"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--a88fe386-79eb-48d0-a982-033b6f75845a"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Honeybee](https://attack.mitre.org/campaigns/C0006), the threat actors used the malicious NTWDBLIB.DLL and `cliconfig.exe` to bypass UAC protections.(Citation: McAfee Honeybee)"
+      ]
+    },
+    {
+      "technique_id": "T1027.013",
+      "technique_stix_id": "attack-pattern--0d91b3c0-5e50-47c3-949a-2a796f04d144",
+      "name": "Encrypted/Encoded File",
+      "execution_domain": "target",
+      "tactics": [
+        "stealth"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--45803290-efab-46d3-873d-0c4f19f5e406"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Honeybee](https://attack.mitre.org/campaigns/C0006), the threat actors used Base64 to encode files with a custom key.(Citation: McAfee Honeybee)"
+      ]
+    },
+    {
+      "technique_id": "T1036",
+      "technique_stix_id": "attack-pattern--42e8de7b-37b2-4258-905a-6897815e58e0",
+      "name": "Masquerading",
+      "execution_domain": "target",
+      "tactics": [
+        "stealth"
+      ],
+      "platforms": [
+        "Containers",
+        "ESXi",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--ff7ecfd6-bbe0-4fc6-9ea2-551ff2359157"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Honeybee](https://attack.mitre.org/campaigns/C0006), the threat actors modified the MaoCheng dropper so its icon appeared as a Word document.(Citation: McAfee Honeybee)"
+      ]
+    },
+    {
+      "technique_id": "T1036.005",
+      "technique_stix_id": "attack-pattern--1c4e5d32-1fe9-4116-9d9d-59e3925bd6a2",
+      "name": "Match Legitimate Resource Name or Location",
+      "execution_domain": "target",
+      "tactics": [
+        "stealth"
+      ],
+      "platforms": [
+        "Containers",
+        "ESXi",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--bc1bee0f-2e60-452d-8e11-3ba3993ebbd9"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Honeybee](https://attack.mitre.org/campaigns/C0006), the threat actors used a legitimate Windows executable and secure directory for their payloads to bypass UAC.(Citation: McAfee Honeybee) "
+      ]
+    },
+    {
+      "technique_id": "T1070.004",
+      "technique_stix_id": "attack-pattern--d63a3fb8-9452-4e9d-a60a-54be68d5998c",
+      "name": "File Deletion",
+      "execution_domain": "target",
+      "tactics": [
+        "stealth"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--3b4aaacf-d721-4bad-a64e-37d48c6b847d"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Honeybee](https://attack.mitre.org/campaigns/C0006), the threat actors used batch files that reduced their fingerprint on a compromised system by deleting malware-related files.(Citation: McAfee Honeybee) "
+      ]
+    },
+    {
+      "technique_id": "T1140",
+      "technique_stix_id": "attack-pattern--3ccef7ae-cb5e-48f6-8302-897105fbf55c",
+      "name": "Deobfuscate/Decode Files or Information",
+      "execution_domain": "target",
+      "tactics": [
+        "stealth"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--f813e8ab-96d7-4880-a3c2-50e164d4bd66"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Honeybee](https://attack.mitre.org/campaigns/C0006), malicious files were decoded prior to execution.(Citation: McAfee Honeybee)"
+      ]
+    },
+    {
+      "technique_id": "T1553.002",
+      "technique_stix_id": "attack-pattern--32901740-b42c-4fdd-bc02-345b5dc57082",
+      "name": "Code Signing",
+      "execution_domain": "target",
+      "tactics": [
+        "defense-impairment"
+      ],
+      "platforms": [
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--5b6f04b3-9178-45af-be77-bdde4cf47db1"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Honeybee](https://attack.mitre.org/campaigns/C0006), the threat actors deployed the MaoCheng dropper with a stolen Adobe Systems digital signature.(Citation: McAfee Honeybee)"
+      ]
+    },
+    {
+      "technique_id": "T1057",
+      "technique_stix_id": "attack-pattern--8f4a33ec-8b1f-4b80-a2f6-642b2e479580",
+      "name": "Process Discovery",
+      "execution_domain": "target",
+      "tactics": [
+        "discovery"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--e169d920-59ab-4a07-928e-858b878fd7bc"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Honeybee](https://attack.mitre.org/campaigns/C0006), the threat actors obtained a list of running processes on a victim machine using `cmd /c tasklist > %temp%\\temp.ini`.(Citation: McAfee Honeybee)"
+      ]
+    },
+    {
+      "technique_id": "T1082",
+      "technique_stix_id": "attack-pattern--354a7f88-63fb-41b5-a801-ce3b377b36f1",
+      "name": "System Information Discovery",
+      "execution_domain": "target",
+      "tactics": [
+        "discovery"
+      ],
+      "platforms": [
+        "ESXi",
+        "IaaS",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--8b6f5eed-f21e-41db-a858-32bb0d12e593"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Honeybee](https://attack.mitre.org/campaigns/C0006), the threat actors collected the computer name, OS, and other system information using `cmd /c systeminfo > %temp%\\ temp.ini`.(Citation: McAfee Honeybee)"
+      ]
+    },
+    {
+      "technique_id": "T1083",
+      "technique_stix_id": "attack-pattern--7bc57495-ea59-4380-be31-a64af124ef18",
+      "name": "File and Directory Discovery",
+      "execution_domain": "target",
+      "tactics": [
+        "discovery"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--15fd646c-172b-4458-945a-69a07a5648bb"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Honeybee](https://attack.mitre.org/campaigns/C0006), the threat actors used a malicious DLL to search for files with specific keywords.(Citation: McAfee Honeybee)"
+      ]
+    },
+    {
+      "technique_id": "T1005",
+      "technique_stix_id": "attack-pattern--3c4a2599-71ee-4405-ba1e-0e28414b4bc5",
+      "name": "Data from Local System",
+      "execution_domain": "target",
+      "tactics": [
+        "collection"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--a9062634-d5c3-4154-bea0-e4e76821d944"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Honeybee](https://attack.mitre.org/campaigns/C0006), the threat actors collected data from compromised hosts.(Citation: McAfee Honeybee)"
+      ]
+    },
+    {
+      "technique_id": "T1074.001",
+      "technique_stix_id": "attack-pattern--1c34f7aa-9341-4a48-bfab-af22e51aca6c",
+      "name": "Local Data Staging",
+      "execution_domain": "target",
+      "tactics": [
+        "collection"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--3c3646c8-56a5-443a-a71f-a32ea6269750"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Honeybee](https://attack.mitre.org/campaigns/C0006), stolen data was copied into a text file using the format `From <COMPUTER-NAME> (<Month>-<Day> <Hour>-<Minute>-<Second>).txt` prior to compression, encoding, and exfiltration.(Citation: McAfee Honeybee)"
+      ]
+    },
+    {
+      "technique_id": "T1560.001",
+      "technique_stix_id": "attack-pattern--00f90846-cbd1-4fc5-9233-df5c2bf2a662",
+      "name": "Archive via Utility",
+      "execution_domain": "target",
+      "tactics": [
+        "collection"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--973ed739-22d9-433f-ba63-f4881639a22d"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Honeybee](https://attack.mitre.org/campaigns/C0006), the threat actors uses zip to pack collected files before exfiltration.(Citation: McAfee Honeybee)"
+      ]
+    },
+    {
+      "technique_id": "T1071.002",
+      "technique_stix_id": "attack-pattern--9a60a291-8960-4387-8a4a-2ab5c18bb50b",
+      "name": "File Transfer Protocols",
+      "execution_domain": "boundary",
+      "tactics": [
+        "command-and-control"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--9d7fb3cf-ccee-4f04-b7ef-ee42c320e513"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Honeybee](https://attack.mitre.org/campaigns/C0006), the threat actors had the ability to use FTP for C2.(Citation: McAfee Honeybee)"
+      ]
+    },
+    {
+      "technique_id": "T1105",
+      "technique_stix_id": "attack-pattern--e6919abc-99f9-4c6c-95a5-14761e7b2add",
+      "name": "Ingress Tool Transfer",
+      "execution_domain": "boundary",
+      "tactics": [
+        "command-and-control"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--c9d15fcf-d9f2-4f03-aabf-0e84523efc2b"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Honeybee](https://attack.mitre.org/campaigns/C0006), the threat actors downloaded additional malware and malicious scripts onto a compromised host.(Citation: McAfee Honeybee)"
+      ]
+    },
+    {
+      "technique_id": "T1041",
+      "technique_stix_id": "attack-pattern--92d7da27-2d91-488e-a00c-059dc162766d",
+      "name": "Exfiltration Over C2 Channel",
+      "execution_domain": "boundary",
+      "tactics": [
+        "exfiltration"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--69e152de-4cf5-416b-a52b-c6a067f1789e"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Honeybee](https://attack.mitre.org/campaigns/C0006), the threat actors uploaded stolen files to their C2 servers.(Citation: McAfee Honeybee)"
+      ]
+    }
+  ],
+  "limitations": [
+    "ATT&CK uses-links do not encode a historical total order; the compiler applies a declared tactic-rank policy.",
+    "Technique metadata constrains procedures but does not uniquely determine an executable target environment."
+  ],
+  "content_sha256": "978d5364f03d55157146fdbb96463fda14466b692c1b35992d2674cff7c824de"
+}

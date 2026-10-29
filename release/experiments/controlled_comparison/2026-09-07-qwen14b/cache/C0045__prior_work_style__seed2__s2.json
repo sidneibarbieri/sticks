@@ -1,0 +1,13 @@
+{
+  "campaign_id": "C0045",
+  "arm_id": "prior_work_style",
+  "seed": 2,
+  "step_id": "s2",
+  "emitted": true,
+  "abstained": false,
+  "oracle_admitted": true,
+  "template_id": "probe-declared-public-service",
+  "proposal_sha256": "e8e2dfcb0ae4a9c0d57767f90fd39d8906e5d69a95385a3a25ef904c98c32491",
+  "issue_codes": [],
+  "parse_error": null
+}

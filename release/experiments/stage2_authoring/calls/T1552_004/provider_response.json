@@ -1,0 +1,36 @@
+{
+  "id": "chatcmpl-EOgEF8UujBUZefFe86izSot85P5qY",
+  "object": "chat.completion",
+  "created": 1789550907,
+  "model": "gpt-4o-mini-2024-07-18",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"template_id\": \"search-private-keys-laboratory-harness\",\n  \"technique_ids\": [\n    \"T1552.004\"\n  ],\n  \"execution_domain\": \"target\",\n  \"parameter_kinds\": {\n    \"key_directory\": \"target_host\",\n    \"file_extension\": \"data_source\"\n  },\n  \"requires\": [\n    \"access to the target host\",\n    \"knowledge of common key file extensions\"\n  ],\n  \"produces\": [\n    \"file_count_recorded\"\n  ],\n  \"evidence_predicates\": [\n    \"file_count_recorded\",\n    \"bounded_effect_observed\"\n  ],\n  \"fidelity_ceiling\": \"adapted\",\n  \"description\": \"This procedure searches for private key files in common directories on the target host.\"\n}",
+        "refusal": null,
+        "annotations": []
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 862,
+    "completion_tokens": 164,
+    "total_tokens": 1026,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_c577bb8647"
+}

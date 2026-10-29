@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure simulates the compromise of domain accounts to assess the security posture of Active Directory environments.",
+    "evidence_predicates": [
+      "artifact_hash_recorded",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "credential_source": "credential_source",
+      "target_host": "target_host"
+    },
+    "produces": [
+      "domain_account_compromised"
+    ],
+    "requires": [
+      "active_directory_access",
+      "user_credentials_available"
+    ],
+    "technique_ids": [
+      "T1078.002"
+    ],
+    "template_id": "domain-accounts-harness"
+  }
+}

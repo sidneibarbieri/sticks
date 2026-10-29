@@ -1,0 +1,35 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "qwen3.6:latest",
+    "provider": "openai",
+    "review_pending": true,
+    "run_id": "stage2-qwen36-r2",
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "Simulates the benign acquisition of a laboratory malware artifact from a controlled web asset for testing purposes.",
+    "evidence_predicates": [
+      "http_request_logged",
+      "artifact_hash_recorded"
+    ],
+    "execution_domain": "attacker",
+    "fidelity_ceiling": "inspired",
+    "parameter_kinds": {
+      "source_url": "web_asset",
+      "target_artifact": "archive_artifact"
+    },
+    "produces": [
+      "staging_path_recorded",
+      "manifest_hash_recorded"
+    ],
+    "requires": [
+      "lab_scope_verified",
+      "network_interface_snapshot"
+    ],
+    "technique_ids": [
+      "T1588.001"
+    ],
+    "template_id": "benign-malware-acquisition-harness"
+  }
+}

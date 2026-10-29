@@ -1,0 +1,34 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure captures user credentials from a compromised web portal during login attempts.",
+    "evidence_predicates": [
+      "http_request_logged",
+      "input_manifest_recorded",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "credential_source": "credential_source",
+      "web_asset": "web_asset"
+    },
+    "produces": [
+      "user credentials are captured"
+    ],
+    "requires": [
+      "user attempts to log in to the service",
+      "compromised login page is accessible"
+    ],
+    "technique_ids": [
+      "T1056.003"
+    ],
+    "template_id": "web-portal-capture-laboratory-harness"
+  }
+}

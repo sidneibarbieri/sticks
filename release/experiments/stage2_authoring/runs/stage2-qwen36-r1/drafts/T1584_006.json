@@ -1,0 +1,36 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "qwen3.6:latest",
+    "provider": "openai",
+    "review_pending": true,
+    "run_id": "stage2-qwen36-r1",
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "A benign laboratory harness that simulates third-party web service registration and credential binding to validate target-side monitoring without external compromise.",
+    "evidence_predicates": [
+      "http_status_recorded",
+      "service_request_logged"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "auth_creds": "credential_source",
+      "output_artifact": "infrastructure_artifact",
+      "service_endpoint": "endpoint"
+    },
+    "produces": [
+      "web_asset_registration_recorded",
+      "service_request_logged"
+    ],
+    "requires": [
+      "lab_scope_verified",
+      "host_network_config"
+    ],
+    "technique_ids": [
+      "T1584.006"
+    ],
+    "template_id": "lab-web-service-harness"
+  }
+}

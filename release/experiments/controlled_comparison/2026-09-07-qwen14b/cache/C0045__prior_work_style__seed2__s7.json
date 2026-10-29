@@ -1,0 +1,13 @@
+{
+  "campaign_id": "C0045",
+  "arm_id": "prior_work_style",
+  "seed": 2,
+  "step_id": "s7",
+  "emitted": true,
+  "abstained": false,
+  "oracle_admitted": true,
+  "template_id": "read-declared-credential-fixture",
+  "proposal_sha256": "946dbc867a44611f6d845687491394849687121fd7ac1d95c8b5e4e638e0cb2e",
+  "issue_codes": [],
+  "parse_error": null
+}

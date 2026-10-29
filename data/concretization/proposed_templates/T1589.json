@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure gathers identity information from a specified target host using a configured data source.",
+    "evidence_predicates": [
+      "collection_manifest_recorded",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "data_source": "data_source",
+      "target_host": "target_host"
+    },
+    "produces": [
+      "identity information collected"
+    ],
+    "requires": [
+      "target host is accessible",
+      "data source is configured"
+    ],
+    "technique_ids": [
+      "T1589"
+    ],
+    "template_id": "gather-victim-identity-information-laboratory"
+  }
+}

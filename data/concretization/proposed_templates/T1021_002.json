@@ -1,0 +1,34 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure simulates accessing a remote SMB share using valid accounts to observe file access and data transfer.",
+    "evidence_predicates": [
+      "file_count_recorded",
+      "bytes_transferred_recorded"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "credential_source": "credential_source",
+      "target_host": "target_host"
+    },
+    "produces": [
+      "file access logged",
+      "bytes transferred recorded"
+    ],
+    "requires": [
+      "valid accounts",
+      "network access to SMB shares"
+    ],
+    "technique_ids": [
+      "T1021.002"
+    ],
+    "template_id": "smb-windows-admin-shares-laboratory-harness"
+  }
+}

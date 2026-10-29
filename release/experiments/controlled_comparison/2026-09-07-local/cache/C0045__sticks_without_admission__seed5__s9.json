@@ -1,0 +1,13 @@
+{
+  "campaign_id": "C0045",
+  "arm_id": "sticks_without_admission",
+  "seed": 5,
+  "step_id": "s9",
+  "emitted": true,
+  "abstained": false,
+  "oracle_admitted": true,
+  "template_id": "transfer-benign-payload",
+  "proposal_sha256": "95d75db8979ec0cd2f7f985d80c8d87e5bf261fb3a4e727bc2f48356141e6c2e",
+  "issue_codes": [],
+  "parse_error": null
+}

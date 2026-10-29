@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure outlines the steps to extract customer data from CRM software in a controlled laboratory environment.",
+    "evidence_predicates": [
+      "collection_manifest_recorded",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "crm_tool": "toolkit",
+      "customer_data": "data_source"
+    },
+    "produces": [
+      "customer data extracted from CRM"
+    ],
+    "requires": [
+      "access to CRM software",
+      "valid user credentials"
+    ],
+    "technique_ids": [
+      "T1213.004"
+    ],
+    "template_id": "crm-software-data-mining"
+  }
+}

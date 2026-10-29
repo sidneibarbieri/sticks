@@ -1,0 +1,36 @@
+{
+  "id": "chatcmpl-EOgHwyPKSFMF8UaWbDwJJX8zS5sEi",
+  "object": "chat.completion",
+  "created": 1789551136,
+  "model": "gpt-4o-mini-2024-07-18",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"template_id\": \"unsecured-credentials-laboratory-harness\",\n  \"technique_ids\": [\"T1552\"],\n  \"execution_domain\": \"target\",\n  \"parameter_kinds\": {\n    \"credential_source\": \"credential_source\"\n  },\n  \"requires\": [\n    \"system access\",\n    \"credential storage location\"\n  ],\n  \"produces\": [\n    \"insecurely stored credentials identified\"\n  ],\n  \"evidence_predicates\": [\n    \"file_count_recorded\",\n    \"bounded_effect_observed\"\n  ],\n  \"fidelity_ceiling\": \"adapted\",\n  \"description\": \"This procedure identifies insecurely stored credentials on a target system.\"\n}",
+        "refusal": null,
+        "annotations": []
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 835,
+    "completion_tokens": 142,
+    "total_tokens": 977,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_c577bb8647"
+}

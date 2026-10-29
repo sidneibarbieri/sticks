@@ -1,0 +1,36 @@
+{
+  "id": "chatcmpl-EOK3q2GgOJZDZ4GhUo4S3Yb9TFwf6",
+  "object": "chat.completion",
+  "created": 1789465694,
+  "model": "gpt-4o-mini-2024-07-18",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"template_id\": \"symmetric-cryptography-laboratory-harness\",\n  \"technique_ids\": [\n    \"T1573.001\"\n  ],\n  \"execution_domain\": \"target\",\n  \"parameter_kinds\": {\n    \"encryption_algorithm\": \"capability_specification\",\n    \"key\": \"credential_source\",\n    \"data\": \"data_source\"\n  },\n  \"requires\": [\n    \"encryption_algorithm defined\",\n    \"key generated\",\n    \"data to encrypt available\"\n  ],\n  \"produces\": [\n    \"encrypted_data available\",\n    \"encryption_hash_recorded\"\n  ],\n  \"evidence_predicates\": [\n    \"archive_hash_recorded\",\n    \"bytes_transferred_recorded\"\n  ],\n  \"fidelity_ceiling\": \"adapted\",\n  \"description\": \"This procedure demonstrates the use of symmetric cryptography to encrypt data for secure transmission.\"\n}",
+        "refusal": null,
+        "annotations": []
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 775,
+    "completion_tokens": 186,
+    "total_tokens": 961,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_c577bb8647"
+}

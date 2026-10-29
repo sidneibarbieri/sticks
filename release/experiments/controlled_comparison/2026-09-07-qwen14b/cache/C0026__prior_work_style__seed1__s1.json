@@ -1,0 +1,13 @@
+{
+  "campaign_id": "C0026",
+  "arm_id": "prior_work_style",
+  "seed": 1,
+  "step_id": "s1",
+  "emitted": true,
+  "abstained": false,
+  "oracle_admitted": true,
+  "template_id": "record-controlled-domain",
+  "proposal_sha256": "5c6ce9b7d0eccdc538c1474c777d013cd6dc71ede83ec8aaa2964c729036f66b",
+  "issue_codes": [],
+  "parse_error": null
+}

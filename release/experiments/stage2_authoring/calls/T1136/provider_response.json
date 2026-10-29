@@ -1,0 +1,36 @@
+{
+  "id": "chatcmpl-EOgGrv1VDz4dBxq0FkHk22Facq2XX",
+  "object": "chat.completion",
+  "created": 1789551069,
+  "model": "gpt-4o-mini-2024-07-18",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"template_id\": \"create-account-laboratory-harness\",\n  \"technique_ids\": [\"T1136\"],\n  \"execution_domain\": \"target\",\n  \"parameter_kinds\": {\n    \"target_host\": \"target_host\",\n    \"credential_source\": \"credential_source\"\n  },\n  \"requires\": [\n    \"sufficient_access_level\",\n    \"target_host_available\"\n  ],\n  \"produces\": [\n    \"new_account_created\"\n  ],\n  \"evidence_predicates\": [\n    \"fixture_access_logged\",\n    \"bounded_effect_observed\"\n  ],\n  \"fidelity_ceiling\": \"adapted\",\n  \"description\": \"This procedure simulates the creation of an account on a target host to evaluate access control mechanisms.\"\n}",
+        "refusal": null,
+        "annotations": []
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 807,
+    "completion_tokens": 154,
+    "total_tokens": 961,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_c577bb8647"
+}

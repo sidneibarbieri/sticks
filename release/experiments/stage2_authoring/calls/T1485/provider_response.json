@@ -1,0 +1,36 @@
+{
+  "id": "chatcmpl-EOK8IQBy6cfT30Y4zntvnwmUgZinR",
+  "object": "chat.completion",
+  "created": 1789465970,
+  "model": "gpt-4o-mini-2024-07-18",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"template_id\": \"data-destruction-laboratory-harness\",\n  \"technique_ids\": [\"T1485\"],\n  \"execution_domain\": \"target\",\n  \"parameter_kinds\": {\n    \"target_host\": \"target_host\",\n    \"data_source\": \"data_source\"\n  },\n  \"requires\": [\n    \"target_host is accessible\",\n    \"data_source contains files to be deleted\"\n  ],\n  \"produces\": [\n    \"files on data_source are absent\"\n  ],\n  \"evidence_predicates\": [\n    \"file_absence_recorded\",\n    \"bounded_effect_observed\"\n  ],\n  \"fidelity_ceiling\": \"adapted\",\n  \"description\": \"This procedure simulates the deletion of files on a target host to observe the effects of data destruction.\"\n}",
+        "refusal": null,
+        "annotations": []
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 845,
+    "completion_tokens": 166,
+    "total_tokens": 1011,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_c577bb8647"
+}

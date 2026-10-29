@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure renames a system utility to make it appear legitimate, thereby evading detection.",
+    "evidence_predicates": [
+      "artifact_hash_recorded",
+      "file_count_recorded"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "new_name": "infrastructure_artifact",
+      "utility_name": "infrastructure_artifact"
+    },
+    "produces": [
+      "utility renamed to appear legitimate"
+    ],
+    "requires": [
+      "abusable system utilities available",
+      "user permissions to rename files"
+    ],
+    "technique_ids": [
+      "T1036"
+    ],
+    "template_id": "masquerading-laboratory-harness"
+  }
+}

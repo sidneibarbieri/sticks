@@ -1,0 +1,11 @@
+{
+  "campaign_id": "C0045",
+  "total_steps": 10,
+  "raw_stix_executable_steps": 0,
+  "enriched_executable_steps": 10,
+  "enrichment_delta": 10,
+  "raw_stix_executable_rate": 0.0,
+  "enriched_executable_rate": 1.0,
+  "declared_catalog_sha256": "ee9cbd4a64e308e332d7f3df1259208fdc9085d8e5d8d8e01fef8a9cc83c87aa",
+  "raw_catalog_sha256": "57a8418a550092a1c99aa25e99f456ef17eed152001e6e7aa54054b2b14c0669"
+}

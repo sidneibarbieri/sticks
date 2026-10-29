@@ -1,0 +1,34 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure demonstrates the use of software deployment tools in a controlled laboratory environment to verify their functionality and logging capabilities.",
+    "evidence_predicates": [
+      "service_request_logged",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "endpoint": "target_host",
+      "tool": "toolkit"
+    },
+    "produces": [
+      "software deployment action logged",
+      "tool usage verified"
+    ],
+    "requires": [
+      "access to centralized software deployment tools",
+      "network connectivity to target hosts"
+    ],
+    "technique_ids": [
+      "T1072"
+    ],
+    "template_id": "software-deployment-tools-laboratory-harness"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "id": "chatcmpl-EOgGxQF4tMb3bf83igjI5OCfdzJoV",
+  "object": "chat.completion",
+  "created": 1789551075,
+  "model": "gpt-4o-mini-2024-07-18",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"template_id\": \"trusted-relationship-laboratory-harness\",\n  \"technique_ids\": [\n    \"T1199\"\n  ],\n  \"execution_domain\": \"target\",\n  \"parameter_kinds\": {\n    \"target_host\": \"target_host\",\n    \"credential_source\": \"credential_source\"\n  },\n  \"requires\": [\n    \"trusted third-party access established\",\n    \"elevated privileges granted\"\n  ],\n  \"produces\": [\n    \"access logged\",\n    \"credential usage recorded\"\n  ],\n  \"evidence_predicates\": [\n    \"fixture_access_logged\",\n    \"credential_source_recorded\"\n  ],\n  \"fidelity_ceiling\": \"adapted\",\n  \"description\": \"This procedure simulates the exploitation of a trusted relationship to access a target system while logging all access attempts.\"\n}",
+        "refusal": null,
+        "annotations": []
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 804,
+    "completion_tokens": 169,
+    "total_tokens": 973,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_c577bb8647"
+}

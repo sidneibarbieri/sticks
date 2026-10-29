@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure establishes communication using ICMP as a non-application layer protocol.",
+    "evidence_predicates": [
+      "bytes_transferred_recorded",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "network_interface": "network_interface",
+      "payload": "payload"
+    },
+    "produces": [
+      "bytes_transferred_recorded"
+    ],
+    "requires": [
+      "network_interface configured for ICMP",
+      "payload for ICMP communication"
+    ],
+    "technique_ids": [
+      "T1095"
+    ],
+    "template_id": "non-application-layer-protocol-communication"
+  }
+}

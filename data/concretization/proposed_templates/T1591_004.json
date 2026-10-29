@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure gathers information about roles within an organization to establish a baseline of access and responsibilities.",
+    "evidence_predicates": [
+      "collection_manifest_recorded",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "data_source": "data_source",
+      "target_host": "target_host"
+    },
+    "produces": [
+      "roles_and_access_information"
+    ],
+    "requires": [
+      "access to organizational data",
+      "availability of online resources"
+    ],
+    "technique_ids": [
+      "T1591.004"
+    ],
+    "template_id": "identify-roles-laboratory-harness"
+  }
+}

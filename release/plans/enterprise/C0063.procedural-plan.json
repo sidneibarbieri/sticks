@@ -1,0 +1,1215 @@
+{
+  "schema_version": "1",
+  "compiler_version": "1",
+  "campaign_id": "C0063",
+  "campaign_name": "2025 Poland Wiper Attacks",
+  "source": {
+    "bundle_sha256": "dc1639caa5501d720e280cf1cbd8fbe009884a0c9b3e6e9ed9d0c25166c3d8f4",
+    "object_count": 26086,
+    "campaign_stix_id": "campaign--a6aba167-5ada-4812-9da1-912c0e73335d",
+    "campaign_external_id": "C0063"
+  },
+  "ordering_policy": "tactic_rank_then_technique_id",
+  "steps": [
+    {
+      "technique_id": "T1590.006",
+      "technique_stix_id": "attack-pattern--6c2957f9-502a-478c-b1dd-d626c0659413",
+      "name": "Network Security Appliances",
+      "execution_domain": "attacker",
+      "tactics": [
+        "reconnaissance"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--e7b1b6e5-83c5-4774-aac1-2dbf845d712a"
+      ],
+      "procedure_descriptions": [
+        "During the [2025 Poland Wiper Attacks](https://attack.mitre.org/campaigns/C0063), the adversaries  obtained details on the configuration of the victim Fortinet perimeter device to include publicly disclosed details on an online forum used by criminal communities.(Citation: CERT Polska)"
+      ]
+    },
+    {
+      "technique_id": "T1583.006",
+      "technique_stix_id": "attack-pattern--88d31120-5bc7-4ce3-a9c0-7cf147be8e54",
+      "name": "Web Services",
+      "execution_domain": "attacker",
+      "tactics": [
+        "resource-development"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--a83255d3-38a5-49a0-998d-ba4720e28678"
+      ],
+      "procedure_descriptions": [
+        "During the [2025 Poland Wiper Attacks](https://attack.mitre.org/campaigns/C0063), the adversaries configured the FortiGate devices to send notifications to an attacker-controlled Slack channel.  During the [2025 Poland Wiper Attacks](https://attack.mitre.org/campaigns/C0063), the adversaries had also staged tools and files on services such as Dropbox and Pastebin.(Citation: CERT Polska)"
+      ]
+    },
+    {
+      "technique_id": "T1584.001",
+      "technique_stix_id": "attack-pattern--f9cc4d06-775f-4ee1-b401-4e2cc0da30ba",
+      "name": "Domains",
+      "execution_domain": "attacker",
+      "tactics": [
+        "resource-development"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--378fcd18-9928-419c-b5c6-8fd1397bb425"
+      ],
+      "procedure_descriptions": [
+        "During the [2025 Poland Wiper Attacks](https://attack.mitre.org/campaigns/C0063), the adversaries compromised infrastructure to use for C2.(Citation: ESET DynoWiper Update JAN 2026)"
+      ]
+    },
+    {
+      "technique_id": "T1584.003",
+      "technique_stix_id": "attack-pattern--39cc9f64-cf74-4a48-a4d8-fe98c54a02e0",
+      "name": "Virtual Private Server",
+      "execution_domain": "attacker",
+      "tactics": [
+        "resource-development"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--a7496ea6-6bb1-487c-947c-c546af28a453"
+      ],
+      "procedure_descriptions": [
+        "During the [2025 Poland Wiper Attacks](https://attack.mitre.org/campaigns/C0063), the adversaries used compromised VPS servers for C2.(Citation: CERT Polska)"
+      ]
+    },
+    {
+      "technique_id": "T1584.008",
+      "technique_stix_id": "attack-pattern--149b477f-f364-4824-b1b5-aa1d56115869",
+      "name": "Network Devices",
+      "execution_domain": "attacker",
+      "tactics": [
+        "resource-development"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--72601af4-90e2-4dcc-8bb1-6f9dc6db8205"
+      ],
+      "procedure_descriptions": [
+        "During the [2025 Poland Wiper Attacks](https://attack.mitre.org/campaigns/C0063), the adversaries used compromised Cisco routers for network communications.(Citation: CERT Polska)"
+      ]
+    },
+    {
+      "technique_id": "T1587.001",
+      "technique_stix_id": "attack-pattern--212306d8-efa4-44c9-8c2d-ed3d2e224aa0",
+      "name": "Malware",
+      "execution_domain": "attacker",
+      "tactics": [
+        "resource-development"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--580696cf-0816-4b7a-bfcf-ce61e59c6073"
+      ],
+      "procedure_descriptions": [
+        "During the [2025 Poland Wiper Attacks](https://attack.mitre.org/campaigns/C0063), the adversaries observed that their malware was initially detected by the victims EDR solutions, so they modified the payload and attempted to execute the new version within the same day.(Citation: CERT Polska)(Citation: ESET DynoWiper JAN 2026)(Citation: ESET DynoWiper Update JAN 2026)"
+      ]
+    },
+    {
+      "technique_id": "T1588.007",
+      "technique_stix_id": "attack-pattern--0cc222f5-c3ff-48e6-9f52-3314baf9d37e",
+      "name": "Artificial Intelligence",
+      "execution_domain": "attacker",
+      "tactics": [
+        "resource-development"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--e44edad2-1c0f-4329-a9d0-a9f24e6f078a"
+      ],
+      "procedure_descriptions": [
+        "During the [2025 Poland Wiper Attacks](https://attack.mitre.org/campaigns/C0063), the adversaries generated custom script with an LLM.(Citation: CERT Polska)"
+      ]
+    },
+    {
+      "technique_id": "T1608.002",
+      "technique_stix_id": "attack-pattern--506f6f49-7045-4156-9007-7474cb44ad6d",
+      "name": "Upload Tool",
+      "execution_domain": "attacker",
+      "tactics": [
+        "resource-development"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--e6a996ea-b761-477c-b5a3-5cb3f9132f68"
+      ],
+      "procedure_descriptions": [
+        "During the [2025 Poland Wiper Attacks](https://attack.mitre.org/campaigns/C0063), the adversaries had staged tools and files for use on Dropbox and Pastebin.(Citation: CERT Polska)"
+      ]
+    },
+    {
+      "technique_id": "T1078.002",
+      "technique_stix_id": "attack-pattern--c3d4bdd9-2cfe-4a80-9d0c-07a29ecdce8f",
+      "name": "Domain Accounts",
+      "execution_domain": "boundary",
+      "tactics": [
+        "initial-access",
+        "persistence",
+        "privilege-escalation",
+        "stealth"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--94c6a2cd-b987-46bc-b9e4-48e17bd1f165"
+      ],
+      "procedure_descriptions": [
+        "During the [2025 Poland Wiper Attacks](https://attack.mitre.org/campaigns/C0063), threat actors utilized privileged accounts to access the FortiGate VPN solution and subsequent subnets.(Citation: CERT Polska)"
+      ]
+    },
+    {
+      "technique_id": "T1078.004",
+      "technique_stix_id": "attack-pattern--f232fa7a-025c-4d43-abc7-318e81a73d65",
+      "name": "Cloud Accounts",
+      "execution_domain": "boundary",
+      "tactics": [
+        "initial-access",
+        "persistence",
+        "privilege-escalation",
+        "stealth"
+      ],
+      "platforms": [
+        "IaaS",
+        "Identity Provider",
+        "Office Suite",
+        "SaaS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--9ca6d3b2-eb89-466f-910c-49b18fe78add"
+      ],
+      "procedure_descriptions": [
+        "During the [2025 Poland Wiper Attacks](https://attack.mitre.org/campaigns/C0063), the adversaries  leveraged stolen credentials from on-premises environments to access cloud services.(Citation: CERT Polska)"
+      ]
+    },
+    {
+      "technique_id": "T1133",
+      "technique_stix_id": "attack-pattern--10d51417-ee35-4589-b1ff-b6df1c334e8d",
+      "name": "External Remote Services",
+      "execution_domain": "boundary",
+      "tactics": [
+        "initial-access",
+        "persistence"
+      ],
+      "platforms": [
+        "Containers",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--98a10168-649c-4153-b321-e12a7df9010c"
+      ],
+      "procedure_descriptions": [
+        "During the [2025 Poland Wiper Attacks](https://attack.mitre.org/campaigns/C0063), threat actors leveraged the FortiGate VPN interface that was exposed to the internet to gain access to the victim environment.(Citation: CERT Polska)(Citation: Dragos ELECTRUM JAN 2026)"
+      ]
+    },
+    {
+      "technique_id": "T1053",
+      "technique_stix_id": "attack-pattern--35dd844a-b219-4e2b-a6bb-efa9a75995a9",
+      "name": "Scheduled Task/Job",
+      "execution_domain": "target",
+      "tactics": [
+        "execution",
+        "persistence",
+        "privilege-escalation"
+      ],
+      "platforms": [
+        "Containers",
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--0695efe3-ed6b-4372-94d6-f509641c9238"
+      ],
+      "procedure_descriptions": [
+        "During the [2025 Poland Wiper Attacks](https://attack.mitre.org/campaigns/C0063), the adversaries set FortiGate scheduled tasks to run the adversary generated CLI scripts weekly.(Citation: CERT Polska)"
+      ]
+    },
+    {
+      "technique_id": "T1059.003",
+      "technique_stix_id": "attack-pattern--d1fcf083-a721-4223-aedf-bf8960798d62",
+      "name": "Windows Command Shell",
+      "execution_domain": "target",
+      "tactics": [
+        "execution"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--e5c01d5d-f031-4aee-8d95-641e904e7dec"
+      ],
+      "procedure_descriptions": [
+        "During the [2025 Poland Wiper Attacks](https://attack.mitre.org/campaigns/C0063), the adversaries leveraged PsExec to run `cmd.exe` commands on multiple victim machines.(Citation: CERT Polska)"
+      ]
+    },
+    {
+      "technique_id": "T1059.004",
+      "technique_stix_id": "attack-pattern--a9d4b653-6915-42af-98b2-5758c4ceee56",
+      "name": "Unix Shell",
+      "execution_domain": "target",
+      "tactics": [
+        "execution"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--7d6c7fdf-2a63-44ac-b709-ea360c054513"
+      ],
+      "procedure_descriptions": [
+        "During the [2025 Poland Wiper Attacks](https://attack.mitre.org/campaigns/C0063), the adversaries utilized the Linux `dd` command to overwrite portions of the disks with random data.(Citation: CERT Polska)"
+      ]
+    },
+    {
+      "technique_id": "T1059.008",
+      "technique_stix_id": "attack-pattern--818302b2-d640-477b-bf88-873120ce85c4",
+      "name": "Network Device CLI",
+      "execution_domain": "target",
+      "tactics": [
+        "execution"
+      ],
+      "platforms": [
+        "Network Devices"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--09e5a2d0-3af9-4bea-95cc-61af0b15f125"
+      ],
+      "procedure_descriptions": [
+        "During the [2025 Poland Wiper Attacks](https://attack.mitre.org/campaigns/C0063), the adversaries leveraged the native CLI of the targeted FortiGate device.(Citation: CERT Polska)"
+      ]
+    },
+    {
+      "technique_id": "T1556.006",
+      "technique_stix_id": "attack-pattern--b4409cd8-0da9-46e1-a401-a241afd4d1cc",
+      "name": "Multi-Factor Authentication",
+      "execution_domain": "target",
+      "tactics": [
+        "persistence",
+        "defense-impairment",
+        "credential-access"
+      ],
+      "platforms": [
+        "IaaS",
+        "Identity Provider",
+        "Linux",
+        "Office Suite",
+        "SaaS",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--8dc47672-1e31-4bca-b482-8e93e685bf68"
+      ],
+      "procedure_descriptions": [
+        "During the [2025 Poland Wiper Attacks](https://attack.mitre.org/campaigns/C0063), the adversaries modified two-factor settings within the FortiGate solution to `unset`.(Citation: CERT Polska)"
+      ]
+    },
+    {
+      "technique_id": "T1484.001",
+      "technique_stix_id": "attack-pattern--5d2be8b9-d24c-4e98-83bf-2f5f79477163",
+      "name": "Group Policy Modification",
+      "execution_domain": "target",
+      "tactics": [
+        "privilege-escalation",
+        "defense-impairment"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--085fefba-527e-4e1a-8e62-08e3f58df674"
+      ],
+      "procedure_descriptions": [
+        "During the [2025 Poland Wiper Attacks](https://attack.mitre.org/campaigns/C0063), the adversaries had leveraged Group Policy Objects to distribute wiper malware to victim devices through a network share.(Citation: CERT Polska)"
+      ]
+    },
+    {
+      "technique_id": "T1006",
+      "technique_stix_id": "attack-pattern--0c8ab3eb-df48-4b9c-ace7-beacaac81cc5",
+      "name": "Direct Volume Access",
+      "execution_domain": "target",
+      "tactics": [
+        "stealth"
+      ],
+      "platforms": [
+        "Network Devices",
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--1eb80cf7-9da4-4aae-b609-497908849f28"
+      ],
+      "procedure_descriptions": [
+        "During the [2025 Poland Wiper Attacks](https://attack.mitre.org/campaigns/C0063), the adversaries copied volume shadow copies through executing `vssadmin` in order to dump the `NTDS.dit` file.(Citation: CERT Polska)"
+      ]
+    },
+    {
+      "technique_id": "T1027.013",
+      "technique_stix_id": "attack-pattern--0d91b3c0-5e50-47c3-949a-2a796f04d144",
+      "name": "Encrypted/Encoded File",
+      "execution_domain": "target",
+      "tactics": [
+        "stealth"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--49133c43-724f-41f8-a1de-2af251941311"
+      ],
+      "procedure_descriptions": [
+        "During the [2025 Poland Wiper Attacks](https://attack.mitre.org/campaigns/C0063), the adversaries utilized a Base64-encoded ZIP archive to prevent content analysis.(Citation: CERT Polska)"
+      ]
+    },
+    {
+      "technique_id": "T1036.005",
+      "technique_stix_id": "attack-pattern--1c4e5d32-1fe9-4116-9d9d-59e3925bd6a2",
+      "name": "Match Legitimate Resource Name or Location",
+      "execution_domain": "target",
+      "tactics": [
+        "stealth"
+      ],
+      "platforms": [
+        "Containers",
+        "ESXi",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--dc580eb2-72fc-4516-9ef0-202da9209e80"
+      ],
+      "procedure_descriptions": [
+        "During the [2025 Poland Wiper Attacks](https://attack.mitre.org/campaigns/C0063), the adversaries created rules that mimicked the name of an institution already present in the network device configuration to avoid detection.(Citation: CERT Polska)"
+      ]
+    },
+    {
+      "technique_id": "T1140",
+      "technique_stix_id": "attack-pattern--3ccef7ae-cb5e-48f6-8302-897105fbf55c",
+      "name": "Deobfuscate/Decode Files or Information",
+      "execution_domain": "target",
+      "tactics": [
+        "stealth"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--5179c603-0184-455d-8de6-5a2dbda3bccc"
+      ],
+      "procedure_descriptions": [
+        "During the [2025 Poland Wiper Attacks](https://attack.mitre.org/campaigns/C0063), the adversaries decoded a Base64-encoded ZIP archive using the built-in [certutil](https://attack.mitre.org/software/S0160).(Citation: CERT Polska)"
+      ]
+    },
+    {
+      "technique_id": "T1686.002",
+      "technique_stix_id": "attack-pattern--a29aa77c-a88d-4f19-bab9-7751941b2e2d",
+      "name": "Network Device Firewall",
+      "execution_domain": "target",
+      "tactics": [
+        "defense-impairment"
+      ],
+      "platforms": [
+        "Network Devices"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--ffcd3051-8e23-4dd2-b71b-eb2c1bbf578b"
+      ],
+      "procedure_descriptions": [
+        "During the [2025 Poland Wiper Attacks](https://attack.mitre.org/campaigns/C0063), the adversaries modified security settings within the victims Fortigate device, utilizing the native CLI.  During the [2025 Poland Wiper Attacks](https://attack.mitre.org/campaigns/C0063), the adversaries also disabled network traffic logging.(Citation: CERT Polska)"
+      ]
+    },
+    {
+      "technique_id": "T1003.001",
+      "technique_stix_id": "attack-pattern--65f2d882-3f41-4d48-8a06-29af77ec9f90",
+      "name": "LSASS Memory",
+      "execution_domain": "target",
+      "tactics": [
+        "credential-access"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--ad6451b3-3335-4b60-a57a-b8ac62a9b140"
+      ],
+      "procedure_descriptions": [
+        "During the [2025 Poland Wiper Attacks](https://attack.mitre.org/campaigns/C0063), the adversaries attempted to dump credentials utilizing LSASS.(Citation: CERT Polska)(Citation: ESET DynoWiper Update JAN 2026)"
+      ]
+    },
+    {
+      "technique_id": "T1003.002",
+      "technique_stix_id": "attack-pattern--1644e709-12d2-41e5-a60f-3470991f5011",
+      "name": "Security Account Manager",
+      "execution_domain": "target",
+      "tactics": [
+        "credential-access"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--dddfe71c-cdf1-4473-9f57-c95132d973eb"
+      ],
+      "procedure_descriptions": [
+        "During the [2025 Poland Wiper Attacks](https://attack.mitre.org/campaigns/C0063), the adversaries had stolen Security Account Manager (SAM) and SYSTEM registry hives.(Citation: CERT Polska)"
+      ]
+    },
+    {
+      "technique_id": "T1003.003",
+      "technique_stix_id": "attack-pattern--edf91964-b26e-4b4a-9600-ccacd7d7df24",
+      "name": "NTDS",
+      "execution_domain": "target",
+      "tactics": [
+        "credential-access"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--ed919b5f-3437-4955-96a0-8e1370adf7d1"
+      ],
+      "procedure_descriptions": [
+        "During the [2025 Poland Wiper Attacks](https://attack.mitre.org/campaigns/C0063), the adversaries dumped the entire Active Directory database by extracting the contents of the ntds.dit file.(Citation: CERT Polska)"
+      ]
+    },
+    {
+      "technique_id": "T1110.002",
+      "technique_stix_id": "attack-pattern--1d24cdee-9ea2-4189-b08e-af110bf2435d",
+      "name": "Password Cracking",
+      "execution_domain": "target",
+      "tactics": [
+        "credential-access"
+      ],
+      "platforms": [
+        "Identity Provider",
+        "Linux",
+        "Network Devices",
+        "Office Suite",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--7ac1c7a5-e95c-49db-96d4-6803c22e3fca"
+      ],
+      "procedure_descriptions": [
+        "During the [2025 Poland Wiper Attacks](https://attack.mitre.org/campaigns/C0063), the adversaries attempted to crack user passwords.(Citation: CERT Polska)"
+      ]
+    },
+    {
+      "technique_id": "T1555",
+      "technique_stix_id": "attack-pattern--3fc9b85a-2862-4363-a64d-d692e3ffbee0",
+      "name": "Credentials from Password Stores",
+      "execution_domain": "target",
+      "tactics": [
+        "credential-access"
+      ],
+      "platforms": [
+        "IaaS",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--5abc3844-d260-4928-82a2-eca9cf5115f6"
+      ],
+      "procedure_descriptions": [
+        "During the [2025 Poland Wiper Attacks](https://attack.mitre.org/campaigns/C0063), the adversaries configured a native CLI to gather a targeted elevated users password using `grep`.(Citation: CERT Polska)"
+      ]
+    },
+    {
+      "technique_id": "T1558",
+      "technique_stix_id": "attack-pattern--3fc01293-ef5e-41c6-86ce-61f10706b64a",
+      "name": "Steal or Forge Kerberos Tickets",
+      "execution_domain": "target",
+      "tactics": [
+        "credential-access"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--3c38121e-22b6-491c-95a6-f78c5bb090e2"
+      ],
+      "procedure_descriptions": [
+        "During the [2025 Poland Wiper Attacks](https://attack.mitre.org/campaigns/C0063), the adversaries used the [Rubeus](https://attack.mitre.org/software/S1071) tool to forge a Diamond Ticket that is a modified legitimate Kerberos ticket.(Citation: CERT Polska)"
+      ]
+    },
+    {
+      "technique_id": "T1016",
+      "technique_stix_id": "attack-pattern--707399d6-ab3e-4963-9315-d9d3818cd6a0",
+      "name": "System Network Configuration Discovery",
+      "execution_domain": "target",
+      "tactics": [
+        "discovery"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--732ccc99-9fb7-45fd-81f5-3f8f8576a751"
+      ],
+      "procedure_descriptions": [
+        "During the [2025 Poland Wiper Attacks](https://attack.mitre.org/campaigns/C0063), the adversaries gathered network configuration details utilizing `arp -a` and  `nslookup` commands. (Citation: CERT Polska)"
+      ]
+    },
+    {
+      "technique_id": "T1046",
+      "technique_stix_id": "attack-pattern--e3a12395-188d-4051-9a16-ea8e14d07b88",
+      "name": "Network Service Discovery",
+      "execution_domain": "target",
+      "tactics": [
+        "discovery"
+      ],
+      "platforms": [
+        "Containers",
+        "IaaS",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--cf0143f0-1021-4825-9ad4-2a8803003ed9"
+      ],
+      "procedure_descriptions": [
+        "During the [2025 Poland Wiper Attacks](https://attack.mitre.org/campaigns/C0063), the adversaries utilized Ping, the Advanced Port Scanner and Advanced IP Scanner to enumerate network devices.(Citation: CERT Polska)"
+      ]
+    },
+    {
+      "technique_id": "T1049",
+      "technique_stix_id": "attack-pattern--7e150503-88e7-4861-866b-ff1ac82c4475",
+      "name": "System Network Connections Discovery",
+      "execution_domain": "target",
+      "tactics": [
+        "discovery"
+      ],
+      "platforms": [
+        "ESXi",
+        "IaaS",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--3c191f01-edea-4b76-b0c8-5d809452dea2"
+      ],
+      "procedure_descriptions": [
+        "During the [2025 Poland Wiper Attacks](https://attack.mitre.org/campaigns/C0063), the adversaries identified network connections utilizing `netstat -nao` and `netstat -r`.(Citation: CERT Polska)"
+      ]
+    },
+    {
+      "technique_id": "T1057",
+      "technique_stix_id": "attack-pattern--8f4a33ec-8b1f-4b80-a2f6-642b2e479580",
+      "name": "Process Discovery",
+      "execution_domain": "target",
+      "tactics": [
+        "discovery"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--8aec04e5-87ee-4f12-a14b-97cb5fc9b0a9"
+      ],
+      "procedure_descriptions": [
+        "During the [2025 Poland Wiper Attacks](https://attack.mitre.org/campaigns/C0063), the adversaries enumerated current running processes using `tasklist`.(Citation: CERT Polska)"
+      ]
+    },
+    {
+      "technique_id": "T1083",
+      "technique_stix_id": "attack-pattern--7bc57495-ea59-4380-be31-a64af124ef18",
+      "name": "File and Directory Discovery",
+      "execution_domain": "target",
+      "tactics": [
+        "discovery"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--d26769f7-5e2d-4aa4-b6bb-a7b72e601a22"
+      ],
+      "procedure_descriptions": [
+        "During the [2025 Poland Wiper Attacks](https://attack.mitre.org/campaigns/C0063), the adversaries obtained the contents of users’ directories using `dir /s /b C:\\Users` command.(Citation: CERT Polska) "
+      ]
+    },
+    {
+      "technique_id": "T1021.001",
+      "technique_stix_id": "attack-pattern--eb062747-2193-45de-8fa2-e62549c37ddf",
+      "name": "Remote Desktop Protocol",
+      "execution_domain": "target",
+      "tactics": [
+        "lateral-movement"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--d22e6b0e-6fc3-4676-81f4-9be42e1498a3"
+      ],
+      "procedure_descriptions": [
+        "During the [2025 Poland Wiper Attacks](https://attack.mitre.org/campaigns/C0063), adversaries utilized RDP to log into jump hosts and then moved laterally to other victim devices to include a domain controller.(Citation: CERT Polska)"
+      ]
+    },
+    {
+      "technique_id": "T1550.002",
+      "technique_stix_id": "attack-pattern--e624264c-033a-424d-9fd7-fc9c3bbdb03e",
+      "name": "Pass the Hash",
+      "execution_domain": "target",
+      "tactics": [
+        "lateral-movement"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--70894185-3b59-40ff-ab32-d594ecc4b1f7"
+      ],
+      "procedure_descriptions": [
+        "During the [2025 Poland Wiper Attacks](https://attack.mitre.org/campaigns/C0063), the adversaries attempted to reuse password hash values to gain access to other systems.(Citation: CERT Polska)"
+      ]
+    },
+    {
+      "technique_id": "T1570",
+      "technique_stix_id": "attack-pattern--bf90d72c-c00b-45e3-b3aa-68560560d4c5",
+      "name": "Lateral Tool Transfer",
+      "execution_domain": "target",
+      "tactics": [
+        "lateral-movement"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--5bfce34b-83f6-429b-a1a6-cde8a7629054"
+      ],
+      "procedure_descriptions": [
+        "During the [2025 Poland Wiper Attacks](https://attack.mitre.org/campaigns/C0063), the adversaries had placed the malicious payload on an accessible network share to facilitate propagation.(Citation: CERT Polska)(Citation: ESET DynoWiper JAN 2026)(Citation: ESET DynoWiper Update JAN 2026)"
+      ]
+    },
+    {
+      "technique_id": "T1074.001",
+      "technique_stix_id": "attack-pattern--1c34f7aa-9341-4a48-bfab-af22e51aca6c",
+      "name": "Local Data Staging",
+      "execution_domain": "target",
+      "tactics": [
+        "collection"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--acd3fcd8-3b5a-47e5-a9cf-92e0f6d3eb2f"
+      ],
+      "procedure_descriptions": [
+        "During the [2025 Poland Wiper Attacks](https://attack.mitre.org/campaigns/C0063), the adversaries compiled discovery data locally on the victim host in a file located within `C:\\Windows\\TEMP\\outlog.txt`.(Citation: CERT Polska)"
+      ]
+    },
+    {
+      "technique_id": "T1113",
+      "technique_stix_id": "attack-pattern--0259baeb-9f63-4c69-bf10-eb038c390688",
+      "name": "Screen Capture",
+      "execution_domain": "target",
+      "tactics": [
+        "collection"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--b0b07276-d3d9-47ea-9fdd-412ed00325d9"
+      ],
+      "procedure_descriptions": [
+        "During the [2025 Poland Wiper Attacks](https://attack.mitre.org/campaigns/C0063), the adversaries captured screenshots of devices using <code>nircmd</code> console through the command <code>nircmd.exe “savescreenshot C:\\Windows\\Temp\\imagetmp.png</code>.(Citation: CERT Polska)"
+      ]
+    },
+    {
+      "technique_id": "T1114.002",
+      "technique_stix_id": "attack-pattern--b4694861-542c-48ea-9eb1-10d356e7140a",
+      "name": "Remote Email Collection",
+      "execution_domain": "target",
+      "tactics": [
+        "collection"
+      ],
+      "platforms": [
+        "Office Suite",
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--cacf0064-7b22-4432-96a2-f4329cc21a78"
+      ],
+      "procedure_descriptions": [
+        "During the [2025 Poland Wiper Attacks](https://attack.mitre.org/campaigns/C0063), the adversaries  leveraged stolen credentials within cloud services to gather data and email messages from Exchange services related to OT topics and technical work carried out within organizations.(Citation: CERT Polska)"
+      ]
+    },
+    {
+      "technique_id": "T1530",
+      "technique_stix_id": "attack-pattern--3298ce88-1628-43b1-87d9-0b5336b193d7",
+      "name": "Data from Cloud Storage",
+      "execution_domain": "target",
+      "tactics": [
+        "collection"
+      ],
+      "platforms": [
+        "IaaS",
+        "Office Suite",
+        "SaaS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--594d644e-2c7e-48c1-90a8-aedf5918333d"
+      ],
+      "procedure_descriptions": [
+        "During the [2025 Poland Wiper Attacks](https://attack.mitre.org/campaigns/C0063), the adversaries  leveraged stolen credentials within cloud services to download targeted data from SharePoint, and Teams.(Citation: CERT Polska)"
+      ]
+    },
+    {
+      "technique_id": "T1560.001",
+      "technique_stix_id": "attack-pattern--00f90846-cbd1-4fc5-9233-df5c2bf2a662",
+      "name": "Archive via Utility",
+      "execution_domain": "target",
+      "tactics": [
+        "collection"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--5808dec3-568e-41e4-8781-b1f6431965a2"
+      ],
+      "procedure_descriptions": [
+        "During the [2025 Poland Wiper Attacks](https://attack.mitre.org/campaigns/C0063), the adversaries compressed stolen files into a zip file prior to exfiltration.(Citation: CERT Polska)"
+      ]
+    },
+    {
+      "technique_id": "T1602.002",
+      "technique_stix_id": "attack-pattern--52759bf1-fe12-4052-ace6-c5b0cf7dd7fd",
+      "name": "Network Device Configuration Dump",
+      "execution_domain": "target",
+      "tactics": [
+        "collection"
+      ],
+      "platforms": [
+        "Network Devices"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--4927fe17-942f-4424-aebb-b403126f4828"
+      ],
+      "procedure_descriptions": [
+        "During the [2025 Poland Wiper Attacks](https://attack.mitre.org/campaigns/C0063), the adversaries gathered and used the FortiGate bookmarks defined in the configuration file to include the statically defined credentials that facilitated RDP connections to jump hosts.(Citation: CERT Polska)"
+      ]
+    },
+    {
+      "technique_id": "T1090",
+      "technique_stix_id": "attack-pattern--731f4f55-b6d0-41d1-a7a9-072a66389aea",
+      "name": "Proxy",
+      "execution_domain": "boundary",
+      "tactics": [
+        "command-and-control"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--5886efa7-c69d-4f66-949a-4979ca230f06"
+      ],
+      "procedure_descriptions": [
+        "During the [2025 Poland Wiper Attacks](https://attack.mitre.org/campaigns/C0063), the adversaries utilized the rsocx tool identified as `r.exe` and `rsocx.exe` to tunnel within the internal infrastructure using a Reverse SOCKS Proxy.(Citation: CERT Polska)(Citation: ESET DynoWiper Update JAN 2026)"
+      ]
+    },
+    {
+      "technique_id": "T1090.003",
+      "technique_stix_id": "attack-pattern--a782ebe2-daba-42c7-bc82-e8e9d923162d",
+      "name": "Multi-hop Proxy",
+      "execution_domain": "boundary",
+      "tactics": [
+        "command-and-control"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--2148a1fd-048e-48c1-a85d-4fda2f94efbb"
+      ],
+      "procedure_descriptions": [
+        "During the [2025 Poland Wiper Attacks](https://attack.mitre.org/campaigns/C0063), the adversaries utilized Tor nodes for C2.(Citation: CERT Polska)"
+      ]
+    },
+    {
+      "technique_id": "T1102.002",
+      "technique_stix_id": "attack-pattern--be055942-6e63-49d7-9fa1-9cb7d8a8f3f4",
+      "name": "Bidirectional Communication",
+      "execution_domain": "boundary",
+      "tactics": [
+        "command-and-control"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--6f8c46e4-c0d1-4c39-8a31-3d631f3946df"
+      ],
+      "procedure_descriptions": [
+        "During the [2025 Poland Wiper Attacks](https://attack.mitre.org/campaigns/C0063), the adversaries had communicated to both Dropbox and Pastebin.(Citation: CERT Polska)"
+      ]
+    },
+    {
+      "technique_id": "T1105",
+      "technique_stix_id": "attack-pattern--e6919abc-99f9-4c6c-95a5-14761e7b2add",
+      "name": "Ingress Tool Transfer",
+      "execution_domain": "boundary",
+      "tactics": [
+        "command-and-control"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--795362de-b075-4180-90bf-5c0bbabb8eef"
+      ],
+      "procedure_descriptions": [
+        "During the [2025 Poland Wiper Attacks](https://attack.mitre.org/campaigns/C0063), the adversaries downloaded malicious payloads to the victim server.(Citation: CERT Polska)"
+      ]
+    },
+    {
+      "technique_id": "T1571",
+      "technique_stix_id": "attack-pattern--b18eae87-b469-4e14-b454-b171b416bc18",
+      "name": "Non-Standard Port",
+      "execution_domain": "boundary",
+      "tactics": [
+        "command-and-control"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--2ab4296f-bc5c-4589-863f-e42f5f334ae2"
+      ],
+      "procedure_descriptions": [
+        "During the [2025 Poland Wiper Attacks](https://attack.mitre.org/campaigns/C0063), the adversaries had created a Reverse SOCKS Proxy and communicated over the non-standard port 8008.(Citation: CERT Polska)(Citation: ESET DynoWiper Update JAN 2026)"
+      ]
+    },
+    {
+      "technique_id": "T1048.003",
+      "technique_stix_id": "attack-pattern--fb8d023d-45be-47e9-bc51-f56bcae6435b",
+      "name": "Exfiltration Over Unencrypted Non-C2 Protocol",
+      "execution_domain": "boundary",
+      "tactics": [
+        "exfiltration"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--10caa62d-432a-4b17-803b-095ad6d6bd45"
+      ],
+      "procedure_descriptions": [
+        "During the [2025 Poland Wiper Attacks](https://attack.mitre.org/campaigns/C0063), the adversaries exfiltrated data to an actor-controlled infrastructure using HTTP POSTs.(Citation: CERT Polska)"
+      ]
+    },
+    {
+      "technique_id": "T1567.004",
+      "technique_stix_id": "attack-pattern--43f2776f-b4bd-4118-94b8-fee47e69676d",
+      "name": "Exfiltration Over Webhook",
+      "execution_domain": "boundary",
+      "tactics": [
+        "exfiltration"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Office Suite",
+        "SaaS",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--366db351-db4d-4576-857e-10857c2188c5"
+      ],
+      "procedure_descriptions": [
+        "During the [2025 Poland Wiper Attacks](https://attack.mitre.org/campaigns/C0063), the adversaries leveraged an attacker-controlled Slack channel to exfiltrate data.(Citation: CERT Polska)"
+      ]
+    },
+    {
+      "technique_id": "T1485",
+      "technique_stix_id": "attack-pattern--d45a3d09-b3cf-48f4-9f0f-f521ee5cb05c",
+      "name": "Data Destruction",
+      "execution_domain": "target",
+      "tactics": [
+        "impact"
+      ],
+      "platforms": [
+        "Containers",
+        "ESXi",
+        "IaaS",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--c6986534-9705-42f2-baa7-66e760090e8a"
+      ],
+      "procedure_descriptions": [
+        "During the [2025 Poland Wiper Attacks](https://attack.mitre.org/campaigns/C0063), the adversaries utilized wiper malware to overwrite files using a 16-byte buffer that fully overwrites files 16 bytes or smaller or partially overwrites files greater than 16 bytes to speed up the process.(Citation: ESET DynoWiper JAN 2026)(Citation: ESET DynoWiper Update JAN 2026)"
+      ]
+    },
+    {
+      "technique_id": "T1490",
+      "technique_stix_id": "attack-pattern--f5d8eed6-48a9-4cdf-a3d7-d1ffa99c3d2a",
+      "name": "Inhibit System Recovery",
+      "execution_domain": "target",
+      "tactics": [
+        "impact"
+      ],
+      "platforms": [
+        "Containers",
+        "ESXi",
+        "IaaS",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--a831f997-d585-4e17-9342-7f9100edf6fb"
+      ],
+      "procedure_descriptions": [
+        "During the [2025 Poland Wiper Attacks](https://attack.mitre.org/campaigns/C0063), the adversaries deleted Windows Volume Shadow Copies using `vssadmin delete shadows`.(Citation: CERT Polska)"
+      ]
+    },
+    {
+      "technique_id": "T1495",
+      "technique_stix_id": "attack-pattern--f5bb433e-bdf6-4781-84bc-35e97e43be89",
+      "name": "Firmware Corruption",
+      "execution_domain": "target",
+      "tactics": [
+        "impact"
+      ],
+      "platforms": [
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--a3ede3cc-37f1-4c57-bc2f-e1c65b25c578"
+      ],
+      "procedure_descriptions": [
+        "During the [2025 Poland Wiper Attacks](https://attack.mitre.org/campaigns/C0063), adversaries performed a factory-reset on compromised devices that hampered forensic investigations.(Citation: CERT Polska)"
+      ]
+    },
+    {
+      "technique_id": "T1529",
+      "technique_stix_id": "attack-pattern--ff73aa03-0090-4464-83ac-f89e233c02bc",
+      "name": "System Shutdown/Reboot",
+      "execution_domain": "target",
+      "tactics": [
+        "impact"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--056322fc-63b3-491a-9064-218b4efc9ed7"
+      ],
+      "procedure_descriptions": [
+        "During the [2025 Poland Wiper Attacks](https://attack.mitre.org/campaigns/C0063), the adversaries forced victim devices to reboot to finalize destruction of impacted systems.(Citation: ESET DynoWiper JAN 2026)(Citation: ESET DynoWiper Update JAN 2026)"
+      ]
+    }
+  ],
+  "limitations": [
+    "ATT&CK uses-links do not encode a historical total order; the compiler applies a declared tactic-rank policy.",
+    "Technique metadata constrains procedures but does not uniquely determine an executable target environment."
+  ],
+  "content_sha256": "3cf6432f62221067bd7f40139894eaff97c2fcb719626e2316fee8ce8f7737fa"
+}

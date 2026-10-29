@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure outlines the steps to disable multi-factor authentication mechanisms in a controlled laboratory environment.",
+    "evidence_predicates": [
+      "bounded_effect_observed",
+      "fixture_access_logged"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "credential_source": "credential_source",
+      "target_host": "target_host"
+    },
+    "produces": [
+      "multi-factor authentication disabled"
+    ],
+    "requires": [
+      "access to a compromised account",
+      "administrative privileges"
+    ],
+    "technique_ids": [
+      "T1556.006"
+    ],
+    "template_id": "disable-mfa-mechanism-laboratory-harness"
+  }
+}

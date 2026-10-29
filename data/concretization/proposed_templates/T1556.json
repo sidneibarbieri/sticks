@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure modifies the authentication process to simulate unauthorized access in a controlled laboratory environment.",
+    "evidence_predicates": [
+      "bounded_effect_observed",
+      "fixture_access_logged"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "authentication_mechanism": "toolkit",
+      "user_credentials": "credential_source"
+    },
+    "produces": [
+      "modified authentication process"
+    ],
+    "requires": [
+      "authentication mechanism is accessible",
+      "user credentials are available"
+    ],
+    "technique_ids": [
+      "T1556"
+    ],
+    "template_id": "modify-authentication-process-laboratory-harness"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "baseline_index_reach": 252,
+  "claim_boundary": "Isolated Linux discovery with granted shell access; no campaign-wide execution claim",
+  "corpus_steps": 1146,
+  "extension_index_reach": 45,
+  "note": "Technique-index reach; corpus campaign executions were not performed.",
+  "procedure_executions": 8,
+  "qualified_technique_count": 4,
+  "qualified_techniques": [
+    "T1033",
+    "T1057",
+    "T1082",
+    "T1083"
+  ],
+  "repetitions": 2,
+  "union_index_reach": 297
+}

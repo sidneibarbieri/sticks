@@ -1,0 +1,438 @@
+{
+  "schema_version": "1",
+  "facts": [
+    {
+      "fact_id": "access.target.browser_context",
+      "subject": "target",
+      "predicate": "browser_context",
+      "assertion": "access",
+      "allowed_uses": ["template_requirement", "template_effect"],
+      "evidence_requirement": "independent_effect_observation"
+    },
+    {
+      "fact_id": "access.target.shell",
+      "subject": "target",
+      "predicate": "shell_access",
+      "assertion": "access",
+      "allowed_uses": ["template_requirement", "template_effect"],
+      "evidence_requirement": "independent_effect_observation"
+    },
+    {
+      "fact_id": "access:initial",
+      "subject": "target",
+      "predicate": "initial_access",
+      "assertion": "access",
+      "allowed_uses": ["template_requirement", "template_effect"],
+      "evidence_requirement": "independent_effect_observation"
+    },
+    {
+      "fact_id": "actor.capability.specified",
+      "subject": "actor",
+      "predicate": "capability_specification",
+      "assertion": "capability",
+      "allowed_uses": ["template_effect"],
+      "evidence_requirement": "transition_receipt"
+    },
+    {
+      "fact_id": "actor.payload.ready",
+      "subject": "actor",
+      "predicate": "payload_ready",
+      "assertion": "availability",
+      "allowed_uses": ["template_effect"],
+      "evidence_requirement": "transition_receipt"
+    },
+    {
+      "fact_id": "actor.ready",
+      "subject": "actor",
+      "predicate": "laboratory_ready",
+      "assertion": "availability",
+      "allowed_uses": ["catalog_initial", "template_requirement"],
+      "evidence_requirement": "declared_contract"
+    },
+    {
+      "fact_id": "actor.tool.staged",
+      "subject": "actor",
+      "predicate": "tool_staged",
+      "assertion": "artifact",
+      "allowed_uses": ["template_requirement", "template_effect"],
+      "evidence_requirement": "transition_receipt"
+    },
+    {
+      "fact_id": "actor.toolkit.ready",
+      "subject": "actor",
+      "predicate": "toolkit_ready",
+      "assertion": "capability",
+      "allowed_uses": ["template_requirement", "template_effect"],
+      "evidence_requirement": "transition_receipt"
+    },
+    {
+      "fact_id": "artifact.target.encoded",
+      "subject": "target",
+      "predicate": "encoded_artifact",
+      "assertion": "artifact",
+      "allowed_uses": ["template_effect"],
+      "evidence_requirement": "transition_receipt"
+    },
+    {
+      "fact_id": "artifacts:collected_files",
+      "subject": "target",
+      "predicate": "collected_files_artifact",
+      "assertion": "artifact",
+      "allowed_uses": ["template_effect"],
+      "evidence_requirement": "transition_receipt"
+    },
+    {
+      "fact_id": "artifacts:credential_file",
+      "subject": "target",
+      "predicate": "credential_fixture_artifact",
+      "assertion": "artifact",
+      "allowed_uses": ["template_effect"],
+      "evidence_requirement": "transition_receipt"
+    },
+    {
+      "fact_id": "artifacts:decoder",
+      "subject": "target",
+      "predicate": "decoder_artifact",
+      "assertion": "artifact",
+      "allowed_uses": ["template_effect"],
+      "evidence_requirement": "transition_receipt"
+    },
+    {
+      "fact_id": "artifacts:downloaded_tool",
+      "subject": "target",
+      "predicate": "downloaded_tool_artifact",
+      "assertion": "artifact",
+      "allowed_uses": ["template_effect"],
+      "evidence_requirement": "transition_receipt"
+    },
+    {
+      "fact_id": "artifacts:mining_log",
+      "subject": "target",
+      "predicate": "bounded_workload_log",
+      "assertion": "artifact",
+      "allowed_uses": ["template_effect"],
+      "evidence_requirement": "transition_receipt"
+    },
+    {
+      "fact_id": "artifacts:modified_config",
+      "subject": "target",
+      "predicate": "modified_configuration_artifact",
+      "assertion": "artifact",
+      "allowed_uses": ["template_effect"],
+      "evidence_requirement": "transition_receipt"
+    },
+    {
+      "fact_id": "artifacts:obfuscated_file",
+      "subject": "target",
+      "predicate": "obfuscated_file_artifact",
+      "assertion": "artifact",
+      "allowed_uses": ["template_effect"],
+      "evidence_requirement": "transition_receipt"
+    },
+    {
+      "fact_id": "artifacts:python_script",
+      "subject": "target",
+      "predicate": "python_script_artifact",
+      "assertion": "artifact",
+      "allowed_uses": ["template_effect"],
+      "evidence_requirement": "transition_receipt"
+    },
+    {
+      "fact_id": "artifacts:recon_toolkit",
+      "subject": "actor",
+      "predicate": "reconnaissance_toolkit_artifact",
+      "assertion": "artifact",
+      "allowed_uses": ["template_effect"],
+      "evidence_requirement": "transition_receipt"
+    },
+    {
+      "fact_id": "artifacts:staged_archive",
+      "subject": "target",
+      "predicate": "staged_archive_artifact",
+      "assertion": "artifact",
+      "allowed_uses": ["template_effect"],
+      "evidence_requirement": "transition_receipt"
+    },
+    {
+      "fact_id": "artifacts:tool_script",
+      "subject": "target",
+      "predicate": "tool_script_artifact",
+      "assertion": "artifact",
+      "allowed_uses": ["template_requirement", "template_effect"],
+      "evidence_requirement": "transition_receipt"
+    },
+    {
+      "fact_id": "assessment.target.privilege_boundary",
+      "subject": "target",
+      "predicate": "privilege_boundary",
+      "assertion": "assessment",
+      "allowed_uses": ["template_effect"],
+      "evidence_requirement": "independent_effect_observation"
+    },
+    {
+      "fact_id": "c2.web.established",
+      "subject": "actor_target",
+      "predicate": "web_command_channel",
+      "assertion": "channel",
+      "allowed_uses": ["template_effect"],
+      "evidence_requirement": "independent_effect_observation"
+    },
+    {
+      "fact_id": "c2_channel",
+      "subject": "actor_target",
+      "predicate": "command_channel",
+      "assertion": "channel",
+      "allowed_uses": ["catalog_initial", "template_requirement", "template_effect"],
+      "evidence_requirement": "independent_effect_observation"
+    },
+    {
+      "fact_id": "channel.resolved",
+      "subject": "actor_target",
+      "predicate": "resolved_channel",
+      "assertion": "channel",
+      "allowed_uses": ["template_requirement", "template_effect"],
+      "evidence_requirement": "transition_receipt"
+    },
+    {
+      "fact_id": "cleanup.target.tool_removed",
+      "subject": "target",
+      "predicate": "tool_removed",
+      "assertion": "cleanup",
+      "allowed_uses": ["template_effect"],
+      "evidence_requirement": "independent_effect_observation"
+    },
+    {
+      "fact_id": "code_execution",
+      "subject": "target",
+      "predicate": "code_execution",
+      "assertion": "capability",
+      "allowed_uses": ["catalog_initial", "template_requirement"],
+      "evidence_requirement": "declared_contract"
+    },
+    {
+      "fact_id": "collection.archive",
+      "subject": "target",
+      "predicate": "collection_archive",
+      "assertion": "collection",
+      "allowed_uses": ["template_requirement", "template_effect"],
+      "evidence_requirement": "transition_receipt"
+    },
+    {
+      "fact_id": "collection.local",
+      "subject": "target",
+      "predicate": "local_collection",
+      "assertion": "collection",
+      "allowed_uses": ["template_requirement", "template_effect"],
+      "evidence_requirement": "transition_receipt"
+    },
+    {
+      "fact_id": "collection.target.credential_files",
+      "subject": "target",
+      "predicate": "credential_file_collection",
+      "assertion": "collection",
+      "allowed_uses": ["template_effect"],
+      "evidence_requirement": "transition_receipt"
+    },
+    {
+      "fact_id": "collection:local_data",
+      "subject": "target",
+      "predicate": "local_data_collection",
+      "assertion": "collection",
+      "allowed_uses": ["template_requirement", "template_effect"],
+      "evidence_requirement": "transition_receipt"
+    },
+    {
+      "fact_id": "credentials:dumped",
+      "subject": "target",
+      "predicate": "synthetic_credential_material",
+      "assertion": "collection",
+      "allowed_uses": ["template_effect"],
+      "evidence_requirement": "independent_effect_observation"
+    },
+    {
+      "fact_id": "discovery.target.network",
+      "subject": "target",
+      "predicate": "network_discovery",
+      "assertion": "discovery",
+      "allowed_uses": ["template_effect"],
+      "evidence_requirement": "transition_receipt"
+    },
+    {
+      "fact_id": "discovery:file_listing",
+      "subject": "target",
+      "predicate": "file_listing",
+      "assertion": "discovery",
+      "allowed_uses": ["template_requirement", "template_effect"],
+      "evidence_requirement": "transition_receipt"
+    },
+    {
+      "fact_id": "discovery:network_config",
+      "subject": "target",
+      "predicate": "network_configuration",
+      "assertion": "discovery",
+      "allowed_uses": ["template_effect"],
+      "evidence_requirement": "transition_receipt"
+    },
+    {
+      "fact_id": "execution.target.python",
+      "subject": "target",
+      "predicate": "python_execution",
+      "assertion": "observation",
+      "allowed_uses": ["template_effect"],
+      "evidence_requirement": "independent_effect_observation"
+    },
+    {
+      "fact_id": "exfiltration.chunked",
+      "subject": "target",
+      "predicate": "chunked_exfiltration",
+      "assertion": "exfiltration",
+      "allowed_uses": ["catalog_goal", "template_effect"],
+      "evidence_requirement": "independent_effect_observation"
+    },
+    {
+      "fact_id": "exfiltration.cloud",
+      "subject": "target",
+      "predicate": "declared_store_transfer",
+      "assertion": "exfiltration",
+      "allowed_uses": ["template_effect"],
+      "evidence_requirement": "independent_effect_observation"
+    },
+    {
+      "fact_id": "exfiltration:chunked_transfer",
+      "subject": "target",
+      "predicate": "chunked_transfer",
+      "assertion": "exfiltration",
+      "allowed_uses": ["template_effect"],
+      "evidence_requirement": "transition_receipt"
+    },
+    {
+      "fact_id": "impact.target.compute",
+      "subject": "target",
+      "predicate": "bounded_compute_impact",
+      "assertion": "impact",
+      "allowed_uses": ["catalog_goal", "template_effect"],
+      "evidence_requirement": "independent_effect_observation"
+    },
+    {
+      "fact_id": "infrastructure.compromised_domain",
+      "subject": "laboratory",
+      "predicate": "compromised_domain",
+      "assertion": "infrastructure",
+      "allowed_uses": ["template_effect"],
+      "evidence_requirement": "transition_receipt"
+    },
+    {
+      "fact_id": "infrastructure.domain",
+      "subject": "laboratory",
+      "predicate": "controlled_domain",
+      "assertion": "infrastructure",
+      "allowed_uses": ["template_requirement", "template_effect"],
+      "evidence_requirement": "transition_receipt"
+    },
+    {
+      "fact_id": "network:http_available",
+      "subject": "network",
+      "predicate": "http_available",
+      "assertion": "availability",
+      "allowed_uses": ["catalog_initial", "template_requirement"],
+      "evidence_requirement": "declared_contract"
+    },
+    {
+      "fact_id": "payload.target.staged",
+      "subject": "target",
+      "predicate": "payload_staged",
+      "assertion": "artifact",
+      "allowed_uses": ["template_requirement", "template_effect"],
+      "evidence_requirement": "transition_receipt"
+    },
+    {
+      "fact_id": "payload:staged",
+      "subject": "actor",
+      "predicate": "payload_staged",
+      "assertion": "artifact",
+      "allowed_uses": ["template_effect"],
+      "evidence_requirement": "transition_receipt"
+    },
+    {
+      "fact_id": "persistence.target.shell_config",
+      "subject": "target",
+      "predicate": "persistent_shell_configuration",
+      "assertion": "persistence",
+      "allowed_uses": ["template_effect"],
+      "evidence_requirement": "independent_effect_observation"
+    },
+    {
+      "fact_id": "persistence:shell_config",
+      "subject": "target",
+      "predicate": "shell_configuration_modified",
+      "assertion": "configuration",
+      "allowed_uses": ["template_effect"],
+      "evidence_requirement": "transition_receipt"
+    },
+    {
+      "fact_id": "sut.ray_dashboard.reachable",
+      "subject": "sut",
+      "predicate": "ray_dashboard_reachable",
+      "assertion": "availability",
+      "allowed_uses": ["catalog_initial", "template_requirement"],
+      "evidence_requirement": "declared_contract"
+    },
+    {
+      "fact_id": "sut.ready",
+      "subject": "sut",
+      "predicate": "laboratory_ready",
+      "assertion": "availability",
+      "allowed_uses": ["catalog_initial"],
+      "evidence_requirement": "declared_contract"
+    },
+    {
+      "fact_id": "system:cpu_usage",
+      "subject": "target",
+      "predicate": "bounded_cpu_usage",
+      "assertion": "observation",
+      "allowed_uses": ["template_effect"],
+      "evidence_requirement": "transition_receipt"
+    },
+    {
+      "fact_id": "system:recon_data",
+      "subject": "target",
+      "predicate": "reconnaissance_data",
+      "assertion": "observation",
+      "allowed_uses": ["template_effect"],
+      "evidence_requirement": "transition_receipt"
+    },
+    {
+      "fact_id": "system:toolkit",
+      "subject": "actor",
+      "predicate": "toolkit_available",
+      "assertion": "capability",
+      "allowed_uses": ["template_effect"],
+      "evidence_requirement": "transition_receipt"
+    },
+    {
+      "fact_id": "transfer.target.payload",
+      "subject": "target",
+      "predicate": "payload_transfer",
+      "assertion": "transfer",
+      "allowed_uses": ["catalog_goal", "template_effect"],
+      "evidence_requirement": "independent_effect_observation"
+    },
+    {
+      "fact_id": "watering_hole:visited",
+      "subject": "target",
+      "predicate": "declared_web_asset_visited",
+      "assertion": "observation",
+      "allowed_uses": ["template_effect"],
+      "evidence_requirement": "independent_effect_observation"
+    },
+    {
+      "fact_id": "web.target.ready",
+      "subject": "target",
+      "predicate": "declared_web_asset_ready",
+      "assertion": "availability",
+      "allowed_uses": ["template_requirement", "template_effect"],
+      "evidence_requirement": "transition_receipt"
+    }
+  ],
+  "content_sha256": "5f4f38c51f274da1fbc8e711acc7d3107d15d6c651185fd010481f9d5a295090"
+}

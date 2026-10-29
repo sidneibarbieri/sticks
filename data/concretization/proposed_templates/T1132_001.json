@@ -1,0 +1,34 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure encodes data using a specified standard encoding scheme to simulate command and control traffic.",
+    "evidence_predicates": [
+      "source_and_encoded_hashes_recorded",
+      "bytes_transferred_recorded"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "encoded_data": "encoded_artifact",
+      "encoding_scheme": "capability_specification"
+    },
+    "produces": [
+      "encoded_data generated",
+      "encoding scheme applied"
+    ],
+    "requires": [
+      "data_source available",
+      "encoding scheme defined"
+    ],
+    "technique_ids": [
+      "T1132.001"
+    ],
+    "template_id": "standard-encoding-laboratory-harness"
+  }
+}

@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light" />
+    <link rel="icon" href="sticks-mark.svg" type="image/svg+xml" />
+    <title>STICKS Causal Realization Workbench</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header class="app-header">
+      <div class="app-identity">
+        <img class="app-mark" src="sticks-mark.svg" alt="" aria-hidden="true" />
+        <div>
+          <p class="product-name">STICKS</p>
+          <h1>Causal Realization Workbench</h1>
+        </div>
+      </div>
+      <div class="scope-status" title="This interface cannot execute a campaign">
+        <span class="status-dot" aria-hidden="true"></span>
+        <span class="scope-label-full">Planning only</span>
+        <span class="scope-label-short">Plan only</span>
+      </div>
+    </header>
+
+    <main class="app-shell">
+      <aside class="control-panel" aria-labelledby="controls-heading">
+        <div class="panel-heading">
+          <p class="section-label">Search configuration</p>
+          <h2 id="controls-heading">Realization bounds</h2>
+        </div>
+
+        <label class="field" for="campaign-select">
+          <span>Campaign</span>
+          <select id="campaign-select" disabled></select>
+        </label>
+
+        <label class="check-field" for="ready-only">
+          <input id="ready-only" type="checkbox" checked />
+          <span>Show enumeration-ready campaigns only</span>
+        </label>
+
+        <dl class="campaign-meta" id="campaign-meta" aria-live="polite">
+          <div>
+            <dt>Corpus</dt>
+            <dd id="campaign-corpus-status">Loading</dd>
+          </div>
+          <div>
+            <dt>Steps</dt>
+            <dd id="campaign-step-count">-</dd>
+          </div>
+          <div>
+            <dt>Bindings</dt>
+            <dd id="campaign-binding-status">-</dd>
+          </div>
+          <div>
+            <dt>State facts</dt>
+            <dd id="campaign-semantic-status">-</dd>
+          </div>
+        </dl>
+
+        <div class="field-grid">
+          <label class="field" for="maximum-realizations">
+            <span>Maximum realizations</span>
+            <input id="maximum-realizations" type="number" min="1" max="256" value="64" />
+          </label>
+          <label class="field" for="maximum-search-states">
+            <span>Maximum search states</span>
+            <input
+              id="maximum-search-states"
+              type="number"
+              min="1"
+              max="100000"
+              value="10000"
+            />
+          </label>
+          <label class="field" for="maximum-candidates">
+            <span>Maximum candidates per step</span>
+            <input id="maximum-candidates" type="number" min="1" max="2048" value="512" />
+          </label>
+          <label class="field" for="desired-procedure-assignments">
+            <span>Desired procedure variants per step</span>
+            <input
+              id="desired-procedure-assignments"
+              type="number"
+              min="1"
+              max="8"
+              value="2"
+            />
+          </label>
+          <label class="field" for="desired-contracts">
+            <span>Desired behavior contracts per step</span>
+            <input id="desired-contracts" type="number" min="1" max="8" value="2" />
+          </label>
+          <label class="field" for="maximum-targets">
+            <span>Maximum proposal targets</span>
+            <input id="maximum-targets" type="number" min="1" max="64" value="12" />
+          </label>
+        </div>
+
+        <button class="primary-action" id="enumerate-button" type="button" disabled>
+          Enumerate realizations
+        </button>
+        <p class="control-message" id="control-message" role="status"></p>
+
+        <div class="scope-boundary">
+          <p class="section-label">Evidence boundary</p>
+          <p>Declared reachability is not operational execution.</p>
+          <dl>
+            <div>
+              <dt>Interface</dt>
+              <dd>planning_only</dd>
+            </div>
+            <div>
+              <dt>Operational</dt>
+              <dd>not_run</dd>
+            </div>
+          </dl>
+        </div>
+      </aside>
+
+      <section class="workspace" aria-live="polite">
+        <div class="inventory-line" id="inventory-line">Loading frozen campaign inventory...</div>
+
+        <div class="empty-state" id="empty-state">
+          <p class="section-label">No result selected</p>
+          <h2>Bounded causal search</h2>
+          <p>
+            No realization has been enumerated. Frozen plans and binding catalogs remain
+            unchanged.
+          </p>
+        </div>
+
+        <div class="result-workspace" id="result-workspace" hidden>
+          <div class="result-heading">
+            <div>
+              <p class="section-label" id="result-campaign-id">Campaign</p>
+              <h2 id="result-campaign-name">Realization result</h2>
+            </div>
+            <div class="result-actions">
+              <span class="result-status" id="result-status">not_run</span>
+              <button class="secondary-action" id="download-button" type="button">
+                Download JSON
+              </button>
+            </div>
+          </div>
+
+          <div class="metric-strip" id="metric-strip"></div>
+
+          <nav class="tabs" aria-label="Result views" role="tablist">
+            <button class="tab is-active" id="tab-summary" data-tab="summary" role="tab" aria-controls="panel-summary" aria-selected="true" tabindex="0">
+              Summary
+            </button>
+            <button class="tab" id="tab-steps" data-tab="steps" role="tab" aria-controls="panel-steps" aria-selected="false" tabindex="-1">Steps</button>
+            <button class="tab" id="tab-realizations" data-tab="realizations" role="tab" aria-controls="panel-realizations" aria-selected="false" tabindex="-1">
+              Realizations
+            </button>
+            <button class="tab" id="tab-queue" data-tab="queue" role="tab" aria-controls="panel-queue" aria-selected="false" tabindex="-1">
+              Proposal queue
+            </button>
+            <button class="tab" id="tab-json" data-tab="json" role="tab" aria-controls="panel-json" aria-selected="false" tabindex="-1">JSON</button>
+          </nav>
+
+          <section class="tab-panel is-active" id="panel-summary" role="tabpanel" aria-labelledby="tab-summary" tabindex="0">
+            <div class="summary-grid">
+              <div>
+                <p class="section-label">Search record</p>
+                <dl class="detail-list" id="search-details"></dl>
+              </div>
+              <div>
+                <p class="section-label">Blockers and limitations</p>
+                <div id="blocker-list" class="plain-list"></div>
+                <div id="limitation-list" class="plain-list"></div>
+              </div>
+            </div>
+          </section>
+
+          <section class="tab-panel" id="panel-steps" role="tabpanel" aria-labelledby="tab-steps" tabindex="0" hidden>
+            <div class="table-wrap" role="region" aria-label="Campaign steps" tabindex="0">
+              <table>
+                <thead>
+                  <tr>
+                    <th scope="col">Source step</th>
+                    <th scope="col">Technique</th>
+                    <th scope="col">Candidates</th>
+                    <th scope="col">Assignments</th>
+                    <th scope="col">Behavior contracts</th>
+                    <th scope="col">Positions</th>
+                  </tr>
+                </thead>
+                <tbody id="steps-body"></tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="tab-panel" id="panel-realizations" role="tabpanel" aria-labelledby="tab-realizations" tabindex="0" hidden>
+            <div class="table-wrap" role="region" aria-label="Candidate realizations" tabindex="0">
+              <table>
+                <thead>
+                  <tr>
+                    <th scope="col">Rank</th>
+                    <th scope="col">Fidelity ceiling</th>
+                    <th scope="col">Assumptions</th>
+                    <th scope="col">Source order</th>
+                    <th scope="col">Templates</th>
+                    <th scope="col">Edges</th>
+                  </tr>
+                </thead>
+                <tbody id="realizations-body"></tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="tab-panel" id="panel-queue" role="tabpanel" aria-labelledby="tab-queue" tabindex="0" hidden>
+            <dl class="queue-summary">
+              <div>
+                <dt>Procedure deficit</dt>
+                <dd id="queue-procedure-deficit">0</dd>
+              </div>
+              <div>
+                <dt>Behavior deficit</dt>
+                <dd id="queue-behavior-deficit">0</dd>
+              </div>
+              <div>
+                <dt>Selected targets</dt>
+                <dd id="queue-selected">0</dd>
+              </div>
+              <div>
+                <dt>Deferred procedures</dt>
+                <dd id="queue-deferred">0</dd>
+              </div>
+            </dl>
+            <div class="table-wrap" role="region" aria-label="Generation queue" tabindex="0">
+              <table>
+                <thead>
+                  <tr>
+                    <th scope="col">Target</th>
+                    <th scope="col">Technique</th>
+                    <th scope="col">Domain</th>
+                    <th scope="col">Binding kinds</th>
+                    <th scope="col">Required facts</th>
+                    <th scope="col">Produced facts</th>
+                  </tr>
+                </thead>
+                <tbody id="queue-body"></tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="tab-panel" id="panel-json" role="tabpanel" aria-labelledby="tab-json" tabindex="0" hidden>
+            <pre id="json-output" tabindex="0"></pre>
+          </section>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

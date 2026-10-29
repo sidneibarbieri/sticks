@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure simulates the generation of alternate authentication material in a controlled environment.",
+    "evidence_predicates": [
+      "artifact_hash_recorded",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "credential_source": "credential_source",
+      "target_host": "target_host"
+    },
+    "produces": [
+      "alternate authentication material generated"
+    ],
+    "requires": [
+      "valid identity provided",
+      "authentication factors supplied"
+    ],
+    "technique_ids": [
+      "T1550"
+    ],
+    "template_id": "use-alternate-authentication-material-laboratory-harness"
+  }
+}

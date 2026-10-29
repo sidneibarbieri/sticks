@@ -1,0 +1,22 @@
+{
+  "id": "chatcmpl-26",
+  "object": "chat.completion",
+  "created": 1788992506,
+  "model": "qwen2.5-coder:14b",
+  "system_fingerprint": "fp_ollama",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"proposals\": [\n    {\n      \"technique_id\": \"T1583.001\",\n      \"template_id\": \"record-controlled-domain\",\n      \"bindings\": {\n        \"actor\": \"actor.primary\",\n        \"manifest\": \"infrastructure.lab_manifest\"\n      },\n      \"rationale\": \"Record a lab-only domain manifest without registering external infrastructure.\",\n      \"source\": \"llm\"\n    },\n    {\n      \"technique_id\": \"T1584.001\",\n      \"template_id\": \"record-controlled-compromised-domain\",\n      \"bindings\": {\n        \"actor\": \"actor.primary\",\n        \"manifest\": \"infrastructure.lab_manifest\"\n      },\n      \"rationale\": \"Represent a compromised-domain condition through a local manifest.\",\n      \"source\": \"llm\"\n    },\n    {\n      \"technique_id\": \"T1587.001\",\n      \"template_id\": \"specify-benign-capability\",\n      \"bindings\": {\n        \"actor\": \"actor.primary\",\n        \"specification\": \"capability.benign_specification\"\n      },\n      \"rationale\": \"Describe a capability in a benign specification without creating malware.\",\n      \"source\": \"llm\"\n    },\n    {\n      \"technique_id\": \"T1608.001\",\n      \"template_id\": \"stage-benign-payload\",\n      \"bindings\": {\n        \"actor\": \"actor.primary\",\n        \"payload\": \"payload.benign\"\n      },\n      \"rationale\": \"Stage a pinned benign payload in the isolated actor workspace.\",\n      \"source\": \"llm\"\n    },\n    {\n      \"technique_id\": \"T1608.002\",\n      \"template_id\": \"stage-benign-tool\",\n      \"bindings\": {\n        \"actor\": \"actor.primary\",\n        \"toolkit\": \"toolkit.benign\"\n      },\n      \"rationale\": \"Stage a benign tool artifact for a later lab-only transfer.\",\n      \"source\": \"llm\"\n    },\n    {\n      \"technique_id\": \"T1608.004\",\n      \"template_id\": \"stage-lab-web-target\",\n      \"bindings\": {\n        \"actor\": \"actor.primary\",\n        \"web_asset\": \"web_asset.benign_landing\"\n      },\n      \"rationale\": \"Stage a benign web target on the private laboratory network.\",\n      \"source\": \"llm\"\n    },\n    {\n      \"technique_id\": \"T1189\",\n      \"template_id\": \"visit-declared-web-target\",\n      \"bindings\": {\n        \"endpoint\": \"endpoint.public_service\",\n        \"target\": \"target.primary\"\n      },\n      \"rationale\": \"Visit the declared lab page without delivering an exploit.\",\n      \"source\": \"llm\"\n    },\n    {\n      \"technique_id\": \"T1105\",\n      \"template_id\": \"transfer-over-resolved-lab-channel\",\n      \"bindings\": {\n        \"channel\": \"channel.private_http\",\n        \"payload\": \"payload.benign\",\n        \"target\": \"target.primary\"\n      },\n      \"rationale\": \"Transfer a pinned benign payload after lab-only name resolution.\",\n      \"source\": \"llm\"\n    }\n  ]\n}"
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 6191,
+    "completion_tokens": 688,
+    "total_tokens": 6879
+  }
+}

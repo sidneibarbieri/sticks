@@ -1,0 +1,36 @@
+{
+  "id": "chatcmpl-EOgIEO42OhlpiarxnNwXhx5KfFRp4",
+  "object": "chat.completion",
+  "created": 1789551154,
+  "model": "gpt-4o-mini-2024-07-18",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"template_id\": \"dynamic-data-exchange-laboratory-harness\",\n  \"technique_ids\": [\n    \"T1559.002\"\n  ],\n  \"execution_domain\": \"target\",\n  \"parameter_kinds\": {\n    \"target_host\": \"target_host\",\n    \"payload\": \"payload\"\n  },\n  \"requires\": [\n    \"target_host is accessible\",\n    \"payload is prepared\"\n  ],\n  \"produces\": [\n    \"DDE command executed\",\n    \"payload execution logged\"\n  ],\n  \"evidence_predicates\": [\n    \"bounded_effect_observed\",\n    \"fixture_access_logged\"\n  ],\n  \"fidelity_ceiling\": \"adapted\",\n  \"description\": \"This procedure demonstrates the use of Dynamic Data Exchange to execute a command on a target host in a controlled laboratory environment.\"\n}",
+        "refusal": null,
+        "annotations": []
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 823,
+    "completion_tokens": 171,
+    "total_tokens": 994,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_c577bb8647"
+}

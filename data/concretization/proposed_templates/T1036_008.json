@@ -1,0 +1,36 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure modifies a file's signature and extension to simulate masquerading a malicious payload as a legitimate file.",
+    "evidence_predicates": [
+      "artifact_hash_recorded",
+      "file_count_recorded",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "file_extension": "encoded_artifact",
+      "file_signature": "encoded_artifact",
+      "payload": "payload"
+    },
+    "produces": [
+      "file signature modified",
+      "file extension altered"
+    ],
+    "requires": [
+      "valid file format",
+      "malicious payload"
+    ],
+    "technique_ids": [
+      "T1036.008"
+    ],
+    "template_id": "masquerade-file-type-laboratory-harness"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure retrieves credentials stored in the Windows Credential Manager for analysis.",
+    "evidence_predicates": [
+      "no_host_credentials_read",
+      "artifact_hash_recorded"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "credential_source": "credential_source"
+    },
+    "produces": [
+      "credentials retrieved from Windows Credential Manager"
+    ],
+    "requires": [
+      "Windows Credential Manager is accessible",
+      "User has valid permissions to access credentials"
+    ],
+    "technique_ids": [
+      "T1555.004"
+    ],
+    "template_id": "acquire-credentials-from-windows-credential-manager"
+  }
+}

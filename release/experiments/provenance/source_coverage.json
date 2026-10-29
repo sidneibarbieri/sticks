@@ -1,0 +1,9 @@
+{
+  "taxonomy_version": "1",
+  "observed_sources": {
+    "sut": "environment_determined",
+    "system_choice": "system_introduced"
+  },
+  "unknown_sources": [],
+  "conformant": true
+}

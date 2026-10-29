@@ -1,0 +1,34 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure demonstrates the use of steganography to embed data within digital messages while ensuring that no harmful payloads are present.",
+    "evidence_predicates": [
+      "bytes_transferred_recorded",
+      "artifact_hash_recorded"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "channel": "network_interface",
+      "payload": "encoded_artifact"
+    },
+    "produces": [
+      "bytes_transferred_recorded",
+      "artifact_hash_recorded"
+    ],
+    "requires": [
+      "no_external_transfer",
+      "no_harmful_payload_present"
+    ],
+    "technique_ids": [
+      "T1001.002"
+    ],
+    "template_id": "steganography-laboratory-harness"
+  }
+}

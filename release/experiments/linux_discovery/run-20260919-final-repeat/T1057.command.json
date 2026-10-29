@@ -1,0 +1,11 @@
+{
+  "argv": [
+    "ps",
+    "-o",
+    "pid,comm"
+  ],
+  "exit_code": 0,
+  "stdout": "PID   COMMAND\n    1 sleep\n   43 ps\n",
+  "stderr": "",
+  "stdout_sha256": "18c41737340b3cfd8ce30cc96e0614ab00315b25cfce432ae52614c2d29ceb7a"
+}

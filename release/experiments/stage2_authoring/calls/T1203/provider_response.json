@@ -1,0 +1,36 @@
+{
+  "id": "chatcmpl-EOK3TiZsLT26af6ekXoG3erEI4mM9",
+  "object": "chat.completion",
+  "created": 1789465671,
+  "model": "gpt-4o-mini-2024-07-18",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"template_id\": \"exploit-client-execution-lab-harness\",\n  \"technique_ids\": [\"T1203\"],\n  \"execution_domain\": \"target\",\n  \"parameter_kinds\": {\n    \"target_host\": \"target_host\",\n    \"payload\": \"payload\"\n  },\n  \"requires\": [\n    \"vulnerable client application installed\",\n    \"test environment configured\"\n  ],\n  \"produces\": [\n    \"exploit executed\",\n    \"payload delivered\"\n  ],\n  \"evidence_predicates\": [\n    \"archive_hash_recorded\",\n    \"bounded_effect_observed\"\n  ],\n  \"fidelity_ceiling\": \"adapted\",\n  \"description\": \"This procedure simulates the exploitation of a client application vulnerability to deliver a payload in a controlled laboratory environment.\"\n}",
+        "refusal": null,
+        "annotations": []
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 814,
+    "completion_tokens": 164,
+    "total_tokens": 978,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_c577bb8647"
+}

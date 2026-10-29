@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure retrieves and logs browser bookmarks and browsing history to analyze user behavior in a controlled environment.",
+    "evidence_predicates": [
+      "http_request_logged",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "browser_data": "data_source"
+    },
+    "produces": [
+      "browser bookmarks retrieved",
+      "browsing history collected"
+    ],
+    "requires": [
+      "valid browser installation",
+      "access to user profile data"
+    ],
+    "technique_ids": [
+      "T1217"
+    ],
+    "template_id": "browser-information-discovery-laboratory-harness"
+  }
+}

@@ -1,0 +1,1208 @@
+{
+  "schema_version": "1",
+  "compiler_version": "1",
+  "campaign_id": "C0022",
+  "campaign_name": "Operation Dream Job",
+  "source": {
+    "bundle_sha256": "dc1639caa5501d720e280cf1cbd8fbe009884a0c9b3e6e9ed9d0c25166c3d8f4",
+    "object_count": 26086,
+    "campaign_stix_id": "campaign--0257b35b-93ef-4a70-80dd-ad5258e6045b",
+    "campaign_external_id": "C0022"
+  },
+  "ordering_policy": "tactic_rank_then_technique_id",
+  "steps": [
+    {
+      "technique_id": "T1589",
+      "technique_stix_id": "attack-pattern--5282dd9a-d26d-4e16-88b7-7c0f4553daf4",
+      "name": "Gather Victim Identity Information",
+      "execution_domain": "attacker",
+      "tactics": [
+        "reconnaissance"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--5e3036ee-9d90-4fbb-a435-ff6caf9d38c6"
+      ],
+      "procedure_descriptions": [
+        "For [Operation Dream Job](https://attack.mitre.org/campaigns/C0022), [Lazarus Group](https://attack.mitre.org/groups/G0032) conducted extensive reconnaissance research on potential targets.(Citation: ClearSky Lazarus Aug 2020)"
+      ]
+    },
+    {
+      "technique_id": "T1591",
+      "technique_stix_id": "attack-pattern--937e4772-8441-4e4a-8bf0-8d447d667e23",
+      "name": "Gather Victim Org Information",
+      "execution_domain": "attacker",
+      "tactics": [
+        "reconnaissance"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--44468587-67b5-4c44-8c2b-ed2b4769f055"
+      ],
+      "procedure_descriptions": [
+        "For [Operation Dream Job](https://attack.mitre.org/campaigns/C0022), [Lazarus Group](https://attack.mitre.org/groups/G0032) gathered victim organization information to identify specific targets.(Citation: ClearSky Lazarus Aug 2020)"
+      ]
+    },
+    {
+      "technique_id": "T1591.004",
+      "technique_stix_id": "attack-pattern--cc723aff-ec88-40e3-a224-5af9fd983cc4",
+      "name": "Identify Roles",
+      "execution_domain": "attacker",
+      "tactics": [
+        "reconnaissance"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--7ab5eaf4-49de-4680-88f2-6d4c876934b8"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Dream Job](https://attack.mitre.org/campaigns/C0022), [Lazarus Group](https://attack.mitre.org/groups/G0032) targeted specific individuals within an organization with tailored job vacancy announcements.(Citation: ClearSky Lazarus Aug 2020)(Citation: ESET Lazarus Jun 2020)"
+      ]
+    },
+    {
+      "technique_id": "T1593.001",
+      "technique_stix_id": "attack-pattern--bbe5b322-e2af-4a5e-9625-a4e62bf84ed3",
+      "name": "Social Media",
+      "execution_domain": "attacker",
+      "tactics": [
+        "reconnaissance"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--f73d269a-9a0d-4485-9587-e0f0f2335c35"
+      ],
+      "procedure_descriptions": [
+        "For [Operation Dream Job](https://attack.mitre.org/campaigns/C0022), [Lazarus Group](https://attack.mitre.org/groups/G0032) used LinkedIn to identify and target employees within a chosen organization.(Citation: ESET Lazarus Jun 2020)"
+      ]
+    },
+    {
+      "technique_id": "T1583.001",
+      "technique_stix_id": "attack-pattern--40f5caa0-4cb7-4117-89fc-d421bb493df3",
+      "name": "Domains",
+      "execution_domain": "attacker",
+      "tactics": [
+        "resource-development"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--4f590bfb-0436-4d8e-a5a1-5bd1dfcf350d"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Dream Job](https://attack.mitre.org/campaigns/C0022), [Lazarus Group](https://attack.mitre.org/groups/G0032) registered a domain name identical to that of a compromised company as part of their BEC effort.(Citation: ESET Lazarus Jun 2020)"
+      ]
+    },
+    {
+      "technique_id": "T1583.004",
+      "technique_stix_id": "attack-pattern--60c4b628-4807-4b0b-bbf5-fdac8643c337",
+      "name": "Server",
+      "execution_domain": "attacker",
+      "tactics": [
+        "resource-development"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--35fe4117-1f37-4968-8b9a-21ce4217516f"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Dream Job](https://attack.mitre.org/campaigns/C0022), [Lazarus Group](https://attack.mitre.org/groups/G0032) acquired servers to host their malicious tools.(Citation: ESET Lazarus Jun 2020)"
+      ]
+    },
+    {
+      "technique_id": "T1583.006",
+      "technique_stix_id": "attack-pattern--88d31120-5bc7-4ce3-a9c0-7cf147be8e54",
+      "name": "Web Services",
+      "execution_domain": "attacker",
+      "tactics": [
+        "resource-development"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--78a7e89b-4560-4105-adfb-47393c39625b"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Dream Job](https://attack.mitre.org/campaigns/C0022), [Lazarus Group](https://attack.mitre.org/groups/G0032) used file hosting services like DropBox and OneDrive.(Citation: ClearSky Lazarus Aug 2020)"
+      ]
+    },
+    {
+      "technique_id": "T1584.001",
+      "technique_stix_id": "attack-pattern--f9cc4d06-775f-4ee1-b401-4e2cc0da30ba",
+      "name": "Domains",
+      "execution_domain": "attacker",
+      "tactics": [
+        "resource-development"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--2c095f1e-211d-4e84-b521-9cef12f1e83f"
+      ],
+      "procedure_descriptions": [
+        "For [Operation Dream Job](https://attack.mitre.org/campaigns/C0022), [Lazarus Group](https://attack.mitre.org/groups/G0032) compromised domains in Italy and other countries for their C2 infrastructure.(Citation: McAfee Lazarus Jul 2020)(Citation: McAfee Lazarus Nov 2020)"
+      ]
+    },
+    {
+      "technique_id": "T1584.004",
+      "technique_stix_id": "attack-pattern--e196b5c5-8118-4a1c-ab8a-936586ce3db5",
+      "name": "Server",
+      "execution_domain": "attacker",
+      "tactics": [
+        "resource-development"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--f5c80a6c-8bbe-449d-80fb-8c5d7035d25d"
+      ],
+      "procedure_descriptions": [
+        "For [Operation Dream Job](https://attack.mitre.org/campaigns/C0022), [Lazarus Group](https://attack.mitre.org/groups/G0032) compromised servers to host their malicious tools.(Citation: ClearSky Lazarus Aug 2020)(Citation: ESET Lazarus Jun 2020)(Citation: McAfee Lazarus Jul 2020)"
+      ]
+    },
+    {
+      "technique_id": "T1585.001",
+      "technique_stix_id": "attack-pattern--b1ccd744-3f78-4a0e-9bb2-2002057f7928",
+      "name": "Social Media Accounts",
+      "execution_domain": "attacker",
+      "tactics": [
+        "resource-development"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--14fac9a8-f835-492b-b4df-32b677ac9030"
+      ],
+      "procedure_descriptions": [
+        "For [Operation Dream Job](https://attack.mitre.org/campaigns/C0022), [Lazarus Group](https://attack.mitre.org/groups/G0032) created fake LinkedIn accounts for their targeting efforts.(Citation: ClearSky Lazarus Aug 2020)(Citation: ESET Lazarus Jun 2020)"
+      ]
+    },
+    {
+      "technique_id": "T1585.002",
+      "technique_stix_id": "attack-pattern--65013dd2-bc61-43e3-afb5-a14c4fa7437a",
+      "name": "Email Accounts",
+      "execution_domain": "attacker",
+      "tactics": [
+        "resource-development"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--2a13b64a-2173-4565-aca6-bbf3edfdc499"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Dream Job](https://attack.mitre.org/campaigns/C0022), [Lazarus Group](https://attack.mitre.org/groups/G0032) created fake email accounts to correspond with fake LinkedIn personas; [Lazarus Group](https://attack.mitre.org/groups/G0032) also established email accounts to match those of the victim as part of their BEC attempt.(Citation: ESET Lazarus Jun 2020)"
+      ]
+    },
+    {
+      "technique_id": "T1587.001",
+      "technique_stix_id": "attack-pattern--212306d8-efa4-44c9-8c2d-ed3d2e224aa0",
+      "name": "Malware",
+      "execution_domain": "attacker",
+      "tactics": [
+        "resource-development"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--d1bd6ce6-eb5f-41a1-b26f-4fe0d83e51ea"
+      ],
+      "procedure_descriptions": [
+        "For [Operation Dream Job](https://attack.mitre.org/campaigns/C0022), [Lazarus Group](https://attack.mitre.org/groups/G0032) developed custom tools such as Sumarta, DBLL Dropper, [Torisma](https://attack.mitre.org/software/S0678), and [DRATzarus](https://attack.mitre.org/software/S0694) for their operations.(Citation: ClearSky Lazarus Aug 2020)(Citation: ESET Lazarus Jun 2020)(Citation: McAfee Lazarus Jul 2020)(Citation: McAfee Lazarus Nov 2020)"
+      ]
+    },
+    {
+      "technique_id": "T1587.002",
+      "technique_stix_id": "attack-pattern--34b3f738-bd64-40e5-a112-29b0542bc8bf",
+      "name": "Code Signing Certificates",
+      "execution_domain": "attacker",
+      "tactics": [
+        "resource-development"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--96ff6190-cb11-4473-a194-abbf317205b8"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Dream Job](https://attack.mitre.org/campaigns/C0022), [Lazarus Group](https://attack.mitre.org/groups/G0032) digitally signed their malware and the dbxcli utility.(Citation: ESET Lazarus Jun 2020)"
+      ]
+    },
+    {
+      "technique_id": "T1588.002",
+      "technique_stix_id": "attack-pattern--a2fdce72-04b2-409a-ac10-cc1695f4fce0",
+      "name": "Tool",
+      "execution_domain": "attacker",
+      "tactics": [
+        "resource-development"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--b6f6b1e0-8e37-4f0a-b506-66537d3f0ff0"
+      ],
+      "procedure_descriptions": [
+        "For [Operation Dream Job](https://attack.mitre.org/campaigns/C0022), [Lazarus Group](https://attack.mitre.org/groups/G0032) obtained tools such as Wake-On-Lan, [Responder](https://attack.mitre.org/software/S0174), ChromePass, and dbxcli.(Citation: ClearSky Lazarus Aug 2020)(Citation: ESET Lazarus Jun 2020)"
+      ]
+    },
+    {
+      "technique_id": "T1588.003",
+      "technique_stix_id": "attack-pattern--e7cbc1de-1f79-48ee-abfd-da1241c65a15",
+      "name": "Code Signing Certificates",
+      "execution_domain": "attacker",
+      "tactics": [
+        "resource-development"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--8a78d2b1-e15c-4985-a1a4-fb2af9824f33"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Dream Job](https://attack.mitre.org/campaigns/C0022), [Lazarus Group](https://attack.mitre.org/groups/G0032) used code signing certificates issued by Sectigo RSA for some of its malware and tools.(Citation: ESET Lazarus Jun 2020) "
+      ]
+    },
+    {
+      "technique_id": "T1608.001",
+      "technique_stix_id": "attack-pattern--3ee16395-03f0-4690-a32e-69ce9ada0f9e",
+      "name": "Upload Malware",
+      "execution_domain": "attacker",
+      "tactics": [
+        "resource-development"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--061c7b3d-775a-403f-9fd6-af0962a2e25e"
+      ],
+      "procedure_descriptions": [
+        "For [Operation Dream Job](https://attack.mitre.org/campaigns/C0022), [Lazarus Group](https://attack.mitre.org/groups/G0032) used compromised servers to host malware.(Citation: ClearSky Lazarus Aug 2020)(Citation: ESET Lazarus Jun 2020)(Citation: McAfee Lazarus Jul 2020)(Citation: McAfee Lazarus Nov 2020)"
+      ]
+    },
+    {
+      "technique_id": "T1608.002",
+      "technique_stix_id": "attack-pattern--506f6f49-7045-4156-9007-7474cb44ad6d",
+      "name": "Upload Tool",
+      "execution_domain": "attacker",
+      "tactics": [
+        "resource-development"
+      ],
+      "platforms": [
+        "PRE"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--269bad6d-f72d-4deb-b125-7cb1e032efc8"
+      ],
+      "procedure_descriptions": [
+        "For [Operation Dream Job](https://attack.mitre.org/campaigns/C0022), [Lazarus Group](https://attack.mitre.org/groups/G0032) used multiple servers to host malicious tools.(Citation: ESET Lazarus Jun 2020)"
+      ]
+    },
+    {
+      "technique_id": "T1566.001",
+      "technique_stix_id": "attack-pattern--2e34237d-8574-43f6-aace-ae2915de8597",
+      "name": "Spearphishing Attachment",
+      "execution_domain": "boundary",
+      "tactics": [
+        "initial-access"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--98c14ff6-0e71-4cfe-ae3f-bc8a7f0c5260"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Dream Job](https://attack.mitre.org/campaigns/C0022), [Lazarus Group](https://attack.mitre.org/groups/G0032) sent emails with malicious attachments to gain unauthorized access to targets' computers.(Citation: ClearSky Lazarus Aug 2020)(Citation: McAfee Lazarus Jul 2020)"
+      ]
+    },
+    {
+      "technique_id": "T1566.002",
+      "technique_stix_id": "attack-pattern--2b742742-28c3-4e1b-bab7-8350d6300fa7",
+      "name": "Spearphishing Link",
+      "execution_domain": "boundary",
+      "tactics": [
+        "initial-access"
+      ],
+      "platforms": [
+        "Identity Provider",
+        "Linux",
+        "Office Suite",
+        "SaaS",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--f998689d-ce01-4ece-87a0-906255177e55"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Dream Job](https://attack.mitre.org/campaigns/C0022), [Lazarus Group](https://attack.mitre.org/groups/G0032) sent malicious OneDrive links with fictitious job offer advertisements via email.(Citation: ClearSky Lazarus Aug 2020)(Citation: ESET Lazarus Jun 2020)"
+      ]
+    },
+    {
+      "technique_id": "T1566.003",
+      "technique_stix_id": "attack-pattern--f6ad61ee-65f3-4bd0-a3f5-2f0accb36317",
+      "name": "Spearphishing via Service",
+      "execution_domain": "boundary",
+      "tactics": [
+        "initial-access"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--79cf4f25-6d05-4756-a671-2d578c6db184"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Dream Job](https://attack.mitre.org/campaigns/C0022), [Lazarus Group](https://attack.mitre.org/groups/G0032) sent victims spearphishing messages via LinkedIn concerning fictitious jobs.(Citation: ClearSky Lazarus Aug 2020)(Citation: ESET Lazarus Jun 2020)"
+      ]
+    },
+    {
+      "technique_id": "T1047",
+      "technique_stix_id": "attack-pattern--01a5a209-b94c-450b-b7f9-946497d91055",
+      "name": "Windows Management Instrumentation",
+      "execution_domain": "target",
+      "tactics": [
+        "execution"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--afd3118f-bde5-4c02-8e82-045edec0dfdc"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Dream Job](https://attack.mitre.org/campaigns/C0022), [Lazarus Group](https://attack.mitre.org/groups/G0032) used WMIC to executed a remote XSL script.(Citation: ESET Lazarus Jun 2020)"
+      ]
+    },
+    {
+      "technique_id": "T1053.005",
+      "technique_stix_id": "attack-pattern--005a06c6-14bf-4118-afa0-ebcd8aebb0c9",
+      "name": "Scheduled Task",
+      "execution_domain": "target",
+      "tactics": [
+        "execution",
+        "persistence",
+        "privilege-escalation"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--7e12ea45-1adc-4c0c-95a7-68d5215760dc"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Dream Job](https://attack.mitre.org/campaigns/C0022), [Lazarus Group](https://attack.mitre.org/groups/G0032) created scheduled tasks to set a periodic execution of a remote XSL script.(Citation: ESET Lazarus Jun 2020)"
+      ]
+    },
+    {
+      "technique_id": "T1059.001",
+      "technique_stix_id": "attack-pattern--970a3432-3237-47ad-bcca-7d8cbb217736",
+      "name": "PowerShell",
+      "execution_domain": "target",
+      "tactics": [
+        "execution"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--431f7f45-8955-48d3-948a-891ed2a59c3f"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Dream Job](https://attack.mitre.org/campaigns/C0022), [Lazarus Group](https://attack.mitre.org/groups/G0032) used PowerShell commands to explore the environment of compromised victims.(Citation: ESET Lazarus Jun 2020)"
+      ]
+    },
+    {
+      "technique_id": "T1059.003",
+      "technique_stix_id": "attack-pattern--d1fcf083-a721-4223-aedf-bf8960798d62",
+      "name": "Windows Command Shell",
+      "execution_domain": "target",
+      "tactics": [
+        "execution"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--e39b2ccc-79ee-4dee-a5e7-49f61d762ef4"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Dream Job](https://attack.mitre.org/campaigns/C0022), [Lazarus Group](https://attack.mitre.org/groups/G0032) launched malicious DLL files, created new folders, and renamed folders with the use of the Windows command shell.(Citation: ESET Lazarus Jun 2020)(Citation: McAfee Lazarus Jul 2020)"
+      ]
+    },
+    {
+      "technique_id": "T1059.005",
+      "technique_stix_id": "attack-pattern--dfd7cc1d-e1d8-4394-a198-97c4cab8aa67",
+      "name": "Visual Basic",
+      "execution_domain": "target",
+      "tactics": [
+        "execution"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--1f6da45b-bf15-47d7-ab80-5c110b0f4d62"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Dream Job](https://attack.mitre.org/campaigns/C0022), [Lazarus Group](https://attack.mitre.org/groups/G0032) executed a VBA written malicious macro after victims download malicious DOTM files; [Lazarus Group](https://attack.mitre.org/groups/G0032) also used Visual Basic macro code to extract a double Base64 encoded DLL implant.(Citation: ClearSky Lazarus Aug 2020)(Citation: McAfee Lazarus Jul 2020)"
+      ]
+    },
+    {
+      "technique_id": "T1106",
+      "technique_stix_id": "attack-pattern--391d824f-0ef1-47a0-b0ee-c59a75e27670",
+      "name": "Native API",
+      "execution_domain": "target",
+      "tactics": [
+        "execution"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--0eed42c5-98b2-409a-abaf-95915fc93d79"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Dream Job](https://attack.mitre.org/campaigns/C0022), [Lazarus Group](https://attack.mitre.org/groups/G0032) used Windows API `ObtainUserAgentString` to obtain the victim's User-Agent and used the value to connect to their C2 server.(Citation: McAfee Lazarus Jul 2020)"
+      ]
+    },
+    {
+      "technique_id": "T1204.001",
+      "technique_stix_id": "attack-pattern--ef67e13e-5598-4adc-bdb2-998225874fa9",
+      "name": "Malicious Link",
+      "execution_domain": "target",
+      "tactics": [
+        "execution"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--3c2b63fe-e891-4ac5-a0aa-d02536699614"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Dream Job](https://attack.mitre.org/campaigns/C0022), [Lazarus Group](https://attack.mitre.org/groups/G0032) lured users into executing a malicious link to disclose private account information or provide initial access.(Citation: ClearSky Lazarus Aug 2020)(Citation: ESET Lazarus Jun 2020)"
+      ]
+    },
+    {
+      "technique_id": "T1204.002",
+      "technique_stix_id": "attack-pattern--232b7f21-adf9-4b42-b936-b9d6f7df856e",
+      "name": "Malicious File",
+      "execution_domain": "target",
+      "tactics": [
+        "execution"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--7f74dcb1-6ce2-4247-8ea2-58caea335094"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Dream Job](https://attack.mitre.org/campaigns/C0022), [Lazarus Group](https://attack.mitre.org/groups/G0032) lured victims into executing malicious documents that contained \"dream job\" descriptions from defense, aerospace, and other sectors.(Citation: ClearSky Lazarus Aug 2020)(Citation: McAfee Lazarus Jul 2020)"
+      ]
+    },
+    {
+      "technique_id": "T1505.004",
+      "technique_stix_id": "attack-pattern--b46a801b-fd98-491c-a25a-bca25d6e3001",
+      "name": "IIS Components",
+      "execution_domain": "target",
+      "tactics": [
+        "persistence"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--a2c0d9fd-5ce9-4df1-8218-771b111bc1e4"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Dream Job](https://attack.mitre.org/campaigns/C0022), [Lazarus Group](https://attack.mitre.org/groups/G0032) targeted Windows servers running Internet Information Systems (IIS) to install C2 components.(Citation: McAfee Lazarus Jul 2020)"
+      ]
+    },
+    {
+      "technique_id": "T1547.001",
+      "technique_stix_id": "attack-pattern--9efb1ea7-c37b-4595-9640-b7680cd84279",
+      "name": "Registry Run Keys / Startup Folder",
+      "execution_domain": "target",
+      "tactics": [
+        "persistence",
+        "privilege-escalation"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--16713b63-7fe7-41e0-b157-2d26a406881b"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Dream Job](https://attack.mitre.org/campaigns/C0022), [Lazarus Group](https://attack.mitre.org/groups/G0032) placed LNK files into the victims' startup folder for persistence.(Citation: McAfee Lazarus Jul 2020) "
+      ]
+    },
+    {
+      "technique_id": "T1027.002",
+      "technique_stix_id": "attack-pattern--deb98323-e13f-4b0c-8d94-175379069062",
+      "name": "Software Packing",
+      "execution_domain": "target",
+      "tactics": [
+        "stealth"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--b01660bb-1725-42f4-9419-495b8710e930"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Dream Job](https://attack.mitre.org/campaigns/C0022), [Lazarus Group](https://attack.mitre.org/groups/G0032) packed malicious .db files with Themida to evade detection.(Citation: ClearSky Lazarus Aug 2020)(Citation: McAfee Lazarus Jul 2020)(Citation: McAfee Lazarus Nov 2020)"
+      ]
+    },
+    {
+      "technique_id": "T1027.013",
+      "technique_stix_id": "attack-pattern--0d91b3c0-5e50-47c3-949a-2a796f04d144",
+      "name": "Encrypted/Encoded File",
+      "execution_domain": "target",
+      "tactics": [
+        "stealth"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--c3d73dc3-06f6-422a-9be2-c4eb3ce36fbc"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Dream Job](https://attack.mitre.org/campaigns/C0022), [Lazarus Group](https://attack.mitre.org/groups/G0032) encrypted malware such as  [DRATzarus](https://attack.mitre.org/software/S0694) with XOR and DLL files with base64.(Citation: ClearSky Lazarus Aug 2020)(Citation: ESET Lazarus Jun 2020)(Citation: McAfee Lazarus Jul 2020)(Citation: McAfee Lazarus Nov 2020)"
+      ]
+    },
+    {
+      "technique_id": "T1036.008",
+      "technique_stix_id": "attack-pattern--208884f1-7b83-4473-ac22-4e1cf6c41471",
+      "name": "Masquerade File Type",
+      "execution_domain": "target",
+      "tactics": [
+        "stealth"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--154d0730-b087-46ce-9ae2-b1a551ff4ab8"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Dream Job](https://attack.mitre.org/campaigns/C0022), [Lazarus Group](https://attack.mitre.org/groups/G0032) disguised malicious template files as JPEG files to avoid detection.(Citation: McAfee Lazarus Jul 2020)(Citation: ESET Lazarus Jun 2020)"
+      ]
+    },
+    {
+      "technique_id": "T1070.004",
+      "technique_stix_id": "attack-pattern--d63a3fb8-9452-4e9d-a60a-54be68d5998c",
+      "name": "File Deletion",
+      "execution_domain": "target",
+      "tactics": [
+        "stealth"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--15e25965-b5e9-4b8c-b052-8a2233b30198"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Dream Job](https://attack.mitre.org/campaigns/C0022), [Lazarus Group](https://attack.mitre.org/groups/G0032) removed all previously delivered files from a compromised computer.(Citation: ESET Lazarus Jun 2020)"
+      ]
+    },
+    {
+      "technique_id": "T1218.010",
+      "technique_stix_id": "attack-pattern--b97f1d35-4249-4486-a6b5-ee60ccf24fab",
+      "name": "Regsvr32",
+      "execution_domain": "target",
+      "tactics": [
+        "stealth"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--ae1592ae-15a3-45e3-a509-4fe9be3f9ed9"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Dream Job](https://attack.mitre.org/campaigns/C0022), [Lazarus Group](https://attack.mitre.org/groups/G0032) used `regsvr32` to execute malware.(Citation: ESET Lazarus Jun 2020)"
+      ]
+    },
+    {
+      "technique_id": "T1218.011",
+      "technique_stix_id": "attack-pattern--045d0922-2310-4e60-b5e4-3302302cb3c5",
+      "name": "Rundll32",
+      "execution_domain": "target",
+      "tactics": [
+        "stealth"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--078fe5f7-91b4-4864-960a-24c64b14996e"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Dream Job](https://attack.mitre.org/campaigns/C0022), [Lazarus Group](https://attack.mitre.org/groups/G0032) executed malware with `C:\\\\windows\\system32\\rundll32.exe \"C:\\ProgramData\\ThumbNail\\thumbnail.db\"`, `CtrlPanel S-6-81-3811-75432205-060098-6872 0 0 905`.(Citation: ClearSky Lazarus Aug 2020)(Citation: ESET Lazarus Jun 2020)(Citation: McAfee Lazarus Jul 2020)"
+      ]
+    },
+    {
+      "technique_id": "T1220",
+      "technique_stix_id": "attack-pattern--ebbe170d-aa74-4946-8511-9921243415a3",
+      "name": "XSL Script Processing",
+      "execution_domain": "target",
+      "tactics": [
+        "stealth"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--c4ea56ee-ac98-40bd-a609-9c694fad391d"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Dream Job](https://attack.mitre.org/campaigns/C0022), [Lazarus Group](https://attack.mitre.org/groups/G0032) used a remote XSL script to download a Base64-encoded DLL custom downloader.(Citation: ESET Lazarus Jun 2020)"
+      ]
+    },
+    {
+      "technique_id": "T1221",
+      "technique_stix_id": "attack-pattern--dc31fe1e-d722-49da-8f5f-92c7b5aff534",
+      "name": "Template Injection",
+      "execution_domain": "target",
+      "tactics": [
+        "stealth"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--55323dcc-68cb-4e92-bcf3-33c7d26f9b5e"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Dream Job](https://attack.mitre.org/campaigns/C0022), [Lazarus Group](https://attack.mitre.org/groups/G0032) used DOCX files to retrieve a malicious document template/DOTM file.(Citation: ClearSky Lazarus Aug 2020)(Citation: McAfee Lazarus Jul 2020)"
+      ]
+    },
+    {
+      "technique_id": "T1497.001",
+      "technique_stix_id": "attack-pattern--29be378d-262d-4e99-b00d-852d573628e6",
+      "name": "System Checks",
+      "execution_domain": "target",
+      "tactics": [
+        "stealth",
+        "discovery"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--1bbc2179-9302-4f21-98b8-b1f60ceafed3"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Dream Job](https://attack.mitre.org/campaigns/C0022), [Lazarus Group](https://attack.mitre.org/groups/G0032) used tools that conducted a variety of system checks to detect sandboxes or VMware services.(Citation: ClearSky Lazarus Aug 2020)"
+      ]
+    },
+    {
+      "technique_id": "T1497.003",
+      "technique_stix_id": "attack-pattern--4bed873f-0b7d-41d4-b93a-b6905d1f90b0",
+      "name": "Time Based Checks",
+      "execution_domain": "target",
+      "tactics": [
+        "stealth",
+        "discovery"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--57e7d8ef-33dd-4a08-bce2-e516a9662383"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Dream Job](https://attack.mitre.org/campaigns/C0022), [Lazarus Group](https://attack.mitre.org/groups/G0032) used tools that collected `GetTickCount` and `GetSystemTimeAsFileTime` data to detect sandbox or VMware services.(Citation: ClearSky Lazarus Aug 2020)"
+      ]
+    },
+    {
+      "technique_id": "T1622",
+      "technique_stix_id": "attack-pattern--e4dc8c01-417f-458d-9ee0-bb0617c1b391",
+      "name": "Debugger Evasion",
+      "execution_domain": "target",
+      "tactics": [
+        "stealth",
+        "discovery"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--bcf36359-e8be-4842-8174-489a679f32a4"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Dream Job](https://attack.mitre.org/campaigns/C0022), [Lazarus Group](https://attack.mitre.org/groups/G0032) used tools that used the `IsDebuggerPresent` call to detect debuggers.(Citation: ClearSky Lazarus Aug 2020)"
+      ]
+    },
+    {
+      "technique_id": "T1684.001",
+      "technique_stix_id": "attack-pattern--cd92d2b8-ce43-4666-9472-f1b4b9f4f8be",
+      "name": "Impersonation",
+      "execution_domain": "target",
+      "tactics": [
+        "stealth"
+      ],
+      "platforms": [
+        "Linux",
+        "Office Suite",
+        "SaaS",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--71db0201-9d27-4c74-a242-198dccbac5ad"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Dream Job](https://attack.mitre.org/campaigns/C0022), [Lazarus Group](https://attack.mitre.org/groups/G0032) impersonated HR hiring personnel through LinkedIn messages and conducted interviews with victims in order to deceive them into downloading malware.(Citation: ClearSky Lazarus Aug 2020)(Citation: ESET Lazarus Jun 2020)(Citation: The Hacker News Lazarus Aug 2022)"
+      ]
+    },
+    {
+      "technique_id": "T1553.002",
+      "technique_stix_id": "attack-pattern--32901740-b42c-4fdd-bc02-345b5dc57082",
+      "name": "Code Signing",
+      "execution_domain": "target",
+      "tactics": [
+        "defense-impairment"
+      ],
+      "platforms": [
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--5e3c0815-5dc8-44a4-9dce-16bff49fb218"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Dream Job](https://attack.mitre.org/campaigns/C0022), [Lazarus Group](https://attack.mitre.org/groups/G0032) digitally signed their own malware to evade detection.(Citation: ESET Lazarus Jun 2020)"
+      ]
+    },
+    {
+      "technique_id": "T1110",
+      "technique_stix_id": "attack-pattern--a93494bb-4b80-4ea1-8695-3236a49916fd",
+      "name": "Brute Force",
+      "execution_domain": "target",
+      "tactics": [
+        "credential-access"
+      ],
+      "platforms": [
+        "Containers",
+        "ESXi",
+        "IaaS",
+        "Identity Provider",
+        "Linux",
+        "Network Devices",
+        "Office Suite",
+        "SaaS",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--62192379-d052-4618-be33-8511d636c67c"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Dream Job](https://attack.mitre.org/campaigns/C0022), [Lazarus Group](https://attack.mitre.org/groups/G0032) performed brute force attacks against administrator accounts.(Citation: ESET Lazarus Jun 2020) "
+      ]
+    },
+    {
+      "technique_id": "T1083",
+      "technique_stix_id": "attack-pattern--7bc57495-ea59-4380-be31-a64af124ef18",
+      "name": "File and Directory Discovery",
+      "execution_domain": "target",
+      "tactics": [
+        "discovery"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--a5872314-732e-4896-a817-13986774d62c"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Dream Job](https://attack.mitre.org/campaigns/C0022), [Lazarus Group](https://attack.mitre.org/groups/G0032) conducted word searches within documents on a compromised host in search of security and financial matters.(Citation: ClearSky Lazarus Aug 2020)"
+      ]
+    },
+    {
+      "technique_id": "T1087.002",
+      "technique_stix_id": "attack-pattern--21875073-b0ee-49e3-9077-1e2a885359af",
+      "name": "Domain Account",
+      "execution_domain": "target",
+      "tactics": [
+        "discovery"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--8f1bdb28-7941-4b76-bcf3-2fe73321f0c5"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Dream Job](https://attack.mitre.org/campaigns/C0022), [Lazarus Group](https://attack.mitre.org/groups/G0032) queried compromised victim's active directory servers to obtain the list of employees including administrator accounts.(Citation: ESET Lazarus Jun 2020)"
+      ]
+    },
+    {
+      "technique_id": "T1614.001",
+      "technique_stix_id": "attack-pattern--c1b68a96-3c48-49ea-a6c0-9b27359f9c19",
+      "name": "System Language Discovery",
+      "execution_domain": "target",
+      "tactics": [
+        "discovery"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--04791b5e-1795-4a1c-a10d-71f919fc420e"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Dream Job](https://attack.mitre.org/campaigns/C0022), [Lazarus Group](https://attack.mitre.org/groups/G0032) deployed malware designed not to run on computers set to Korean, Japanese, or Chinese in Windows language preferences.(Citation: ClearSky Lazarus Aug 2020)"
+      ]
+    },
+    {
+      "technique_id": "T1534",
+      "technique_stix_id": "attack-pattern--9e7452df-5144-4b6e-b04a-b66dd4016747",
+      "name": "Internal Spearphishing",
+      "execution_domain": "target",
+      "tactics": [
+        "lateral-movement"
+      ],
+      "platforms": [
+        "Linux",
+        "Office Suite",
+        "SaaS",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--7064e494-5a32-4a40-b0b1-b19b9a145e73"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Dream Job](https://attack.mitre.org/campaigns/C0022), [Lazarus Group](https://attack.mitre.org/groups/G0032) conducted internal spearphishing from within a compromised organization.(Citation: ClearSky Lazarus Aug 2020)"
+      ]
+    },
+    {
+      "technique_id": "T1005",
+      "technique_stix_id": "attack-pattern--3c4a2599-71ee-4405-ba1e-0e28414b4bc5",
+      "name": "Data from Local System",
+      "execution_domain": "target",
+      "tactics": [
+        "collection"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--61cfb178-a097-4788-a084-48d0d7c602b5"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Dream Job](https://attack.mitre.org/campaigns/C0022), [Lazarus Group](https://attack.mitre.org/groups/G0032) used malicious Trojans and DLL files to exfiltrate data from an infected host.(Citation: ClearSky Lazarus Aug 2020)(Citation: McAfee Lazarus Jul 2020)"
+      ]
+    },
+    {
+      "technique_id": "T1560.001",
+      "technique_stix_id": "attack-pattern--00f90846-cbd1-4fc5-9233-df5c2bf2a662",
+      "name": "Archive via Utility",
+      "execution_domain": "target",
+      "tactics": [
+        "collection"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--fc62ec8c-5015-4f02-b9b6-3964082d101d"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Dream Job](https://attack.mitre.org/campaigns/C0022), [Lazarus Group](https://attack.mitre.org/groups/G0032) archived victim's data into a RAR file.(Citation: ESET Lazarus Jun 2020)"
+      ]
+    },
+    {
+      "technique_id": "T1071.001",
+      "technique_stix_id": "attack-pattern--df8b2a25-8bdf-4856-953c-a04372b1c161",
+      "name": "Web Protocols",
+      "execution_domain": "boundary",
+      "tactics": [
+        "command-and-control"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--b7362262-2738-4d3f-a993-c116557a4eaa"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Dream Job](https://attack.mitre.org/campaigns/C0022), [Lazarus Group](https://attack.mitre.org/groups/G0032) uses HTTP and HTTPS to contact actor-controlled C2 servers.(Citation: McAfee Lazarus Jul 2020) "
+      ]
+    },
+    {
+      "technique_id": "T1105",
+      "technique_stix_id": "attack-pattern--e6919abc-99f9-4c6c-95a5-14761e7b2add",
+      "name": "Ingress Tool Transfer",
+      "execution_domain": "boundary",
+      "tactics": [
+        "command-and-control"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--27b3c824-888f-4c03-8cf6-5235da956381"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Dream Job](https://attack.mitre.org/campaigns/C0022), [Lazarus Group](https://attack.mitre.org/groups/G0032) downloaded multistage malware and tools onto a compromised host.(Citation: ClearSky Lazarus Aug 2020)(Citation: ESET Lazarus Jun 2020)(Citation: McAfee Lazarus Jul 2020)"
+      ]
+    },
+    {
+      "technique_id": "T1573.001",
+      "technique_stix_id": "attack-pattern--24bfaeba-cb0d-4525-b3dc-507c77ecec41",
+      "name": "Symmetric Cryptography",
+      "execution_domain": "boundary",
+      "tactics": [
+        "command-and-control"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--3658d2f3-25f5-404a-bf0b-7c5fce9978f6"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Dream Job](https://attack.mitre.org/campaigns/C0022), [Lazarus Group](https://attack.mitre.org/groups/G0032) used an AES key to communicate with their C2 server.(Citation: McAfee Lazarus Jul 2020)"
+      ]
+    },
+    {
+      "technique_id": "T1041",
+      "technique_stix_id": "attack-pattern--92d7da27-2d91-488e-a00c-059dc162766d",
+      "name": "Exfiltration Over C2 Channel",
+      "execution_domain": "boundary",
+      "tactics": [
+        "exfiltration"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--6ddbec2b-2a42-476f-919d-da3e4b06a1e2"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Dream Job](https://attack.mitre.org/campaigns/C0022), [Lazarus Group](https://attack.mitre.org/groups/G0032) exfiltrated data from a compromised host to actor-controlled C2 servers.(Citation: ClearSky Lazarus Aug 2020)"
+      ]
+    },
+    {
+      "technique_id": "T1567.002",
+      "technique_stix_id": "attack-pattern--bf1b6176-597c-4600-bfcd-ac989670f96b",
+      "name": "Exfiltration to Cloud Storage",
+      "execution_domain": "boundary",
+      "tactics": [
+        "exfiltration"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--b8458076-fd1f-48e1-a637-57690c4fe59d"
+      ],
+      "procedure_descriptions": [
+        "During [Operation Dream Job](https://attack.mitre.org/campaigns/C0022), [Lazarus Group](https://attack.mitre.org/groups/G0032) used a custom build of open-source command-line dbxcli to exfiltrate stolen data to Dropbox.(Citation: ESET Lazarus Jun 2020)(Citation: ClearSky Lazarus Aug 2020)"
+      ]
+    }
+  ],
+  "limitations": [
+    "ATT&CK uses-links do not encode a historical total order; the compiler applies a declared tactic-rank policy.",
+    "Technique metadata constrains procedures but does not uniquely determine an executable target environment."
+  ],
+  "content_sha256": "f96aa8a0493960daff4f2e88e50b6ba77b2f9ff56c14d74c9292fddfea755868"
+}

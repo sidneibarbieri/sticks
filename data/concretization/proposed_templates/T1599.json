@@ -1,0 +1,34 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure simulates the bridging of network boundaries by manipulating network devices to observe the effects on traffic routing.",
+    "evidence_predicates": [
+      "boundary_check_recorded",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "boundary",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "network_device": "network_interface",
+      "traffic_policy": "chunk_policy"
+    },
+    "produces": [
+      "boundary_check_recorded",
+      "traffic_routing_verified"
+    ],
+    "requires": [
+      "network_device_access",
+      "traffic_policy_configuration"
+    ],
+    "technique_ids": [
+      "T1599"
+    ],
+    "template_id": "network-boundary-bridging-laboratory-harness"
+  }
+}

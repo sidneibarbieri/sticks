@@ -1,0 +1,36 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "qwen3.6:latest",
+    "provider": "openai",
+    "review_pending": true,
+    "run_id": "stage2-qwen36-r2",
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "A benign laboratory harness that probes a designated web asset via the specified network interface to verify outbound internet connectivity and record response metrics.",
+    "evidence_predicates": [
+      "http_request_logged",
+      "http_status_recorded",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "probe_url": "web_asset",
+      "source_iface": "network_interface"
+    },
+    "produces": [
+      "connectivity_status",
+      "response_latency_ms"
+    ],
+    "requires": [
+      "probe_url",
+      "source_iface"
+    ],
+    "technique_ids": [
+      "T1016.001"
+    ],
+    "template_id": "internet-connection-discovery-harness"
+  }
+}

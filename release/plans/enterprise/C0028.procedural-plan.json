@@ -1,0 +1,421 @@
+{
+  "schema_version": "1",
+  "compiler_version": "1",
+  "campaign_id": "C0028",
+  "campaign_name": "2015 Ukraine Electric Power Attack",
+  "source": {
+    "bundle_sha256": "dc1639caa5501d720e280cf1cbd8fbe009884a0c9b3e6e9ed9d0c25166c3d8f4",
+    "object_count": 26086,
+    "campaign_stix_id": "campaign--46421788-b6e1-4256-b351-f8beffd1afba",
+    "campaign_external_id": "C0028"
+  },
+  "ordering_policy": "tactic_rank_then_technique_id",
+  "steps": [
+    {
+      "technique_id": "T1078",
+      "technique_stix_id": "attack-pattern--b17a1a56-e99c-403c-8948-561df0cffe81",
+      "name": "Valid Accounts",
+      "execution_domain": "boundary",
+      "tactics": [
+        "initial-access",
+        "persistence",
+        "privilege-escalation",
+        "stealth"
+      ],
+      "platforms": [
+        "Containers",
+        "ESXi",
+        "IaaS",
+        "Identity Provider",
+        "Linux",
+        "Network Devices",
+        "Office Suite",
+        "SaaS",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--87c33110-cbd9-4925-bf95-4570729ee935"
+      ],
+      "procedure_descriptions": [
+        "During the [2015 Ukraine Electric Power Attack](https://attack.mitre.org/campaigns/C0028), [Sandworm Team](https://attack.mitre.org/groups/G0034) used valid accounts on the corporate network to escalate privileges, move laterally, and establish persistence within the corporate network. (Citation: Ukraine15 - EISAC - 201603)"
+      ]
+    },
+    {
+      "technique_id": "T1133",
+      "technique_stix_id": "attack-pattern--10d51417-ee35-4589-b1ff-b6df1c334e8d",
+      "name": "External Remote Services",
+      "execution_domain": "boundary",
+      "tactics": [
+        "initial-access",
+        "persistence"
+      ],
+      "platforms": [
+        "Containers",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--62ed20e9-07e5-4e22-a8dd-b93ab89706e3"
+      ],
+      "procedure_descriptions": [
+        "During the [2015 Ukraine Electric Power Attack](https://attack.mitre.org/campaigns/C0028), [Sandworm Team](https://attack.mitre.org/groups/G0034) installed a modified Dropbear SSH client as the backdoor to target systems.(Citation: Booz Allen Hamilton)"
+      ]
+    },
+    {
+      "technique_id": "T1566.001",
+      "technique_stix_id": "attack-pattern--2e34237d-8574-43f6-aace-ae2915de8597",
+      "name": "Spearphishing Attachment",
+      "execution_domain": "boundary",
+      "tactics": [
+        "initial-access"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--04427a61-cef7-4197-9ff4-cb36c6a1895e"
+      ],
+      "procedure_descriptions": [
+        "During the [2015 Ukraine Electric Power Attack](https://attack.mitre.org/campaigns/C0028), [Sandworm Team](https://attack.mitre.org/groups/G0034) obtained their initial foothold into many IT systems using Microsoft Office attachments delivered through phishing emails. (Citation: Ukraine15 - EISAC - 201603)"
+      ]
+    },
+    {
+      "technique_id": "T1059.005",
+      "technique_stix_id": "attack-pattern--dfd7cc1d-e1d8-4394-a198-97c4cab8aa67",
+      "name": "Visual Basic",
+      "execution_domain": "target",
+      "tactics": [
+        "execution"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--b2c3af15-670d-4775-ba38-e585f421b846"
+      ],
+      "procedure_descriptions": [
+        "During the [2015 Ukraine Electric Power Attack](https://attack.mitre.org/campaigns/C0028), [Sandworm Team](https://attack.mitre.org/groups/G0034) installed a VBA script called `vba_macro.exe`. This macro dropped `FONTCACHE.DAT`, the primary [BlackEnergy](https://attack.mitre.org/software/S0089) implant; `rundll32.exe`, for executing the malware; `NTUSER.log`, an empty file; and desktop.ini, the default file used to determine folder displays on Windows machines. (Citation: Booz Allen Hamilton)"
+      ]
+    },
+    {
+      "technique_id": "T1204.002",
+      "technique_stix_id": "attack-pattern--232b7f21-adf9-4b42-b936-b9d6f7df856e",
+      "name": "Malicious File",
+      "execution_domain": "target",
+      "tactics": [
+        "execution"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--874f8662-0ec0-48e4-901b-270ac9ed63e6"
+      ],
+      "procedure_descriptions": [
+        "During the [2015 Ukraine Electric Power Attack](https://attack.mitre.org/campaigns/C0028), [Sandworm Team](https://attack.mitre.org/groups/G0034) leveraged Microsoft Office attachments which contained malicious macros that were automatically executed once the user permitted them. (Citation: Ukraine15 - EISAC - 201603)"
+      ]
+    },
+    {
+      "technique_id": "T1112",
+      "technique_stix_id": "attack-pattern--57340c81-c025-4189-8fa0-fc7ede51bae4",
+      "name": "Modify Registry",
+      "execution_domain": "target",
+      "tactics": [
+        "persistence",
+        "defense-impairment"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--052acd65-b05a-4645-943b-1c53a717c419"
+      ],
+      "procedure_descriptions": [
+        "During the [2015 Ukraine Electric Power Attack](https://attack.mitre.org/campaigns/C0028), [Sandworm Team](https://attack.mitre.org/groups/G0034) modified in-registry Internet settings to lower internet security before launching `rundll32.exe`, which in-turn launches the malware and communicates with C2 servers over the Internet. (Citation: Booz Allen Hamilton)."
+      ]
+    },
+    {
+      "technique_id": "T1136.002",
+      "technique_stix_id": "attack-pattern--7610cada-1499-41a4-b3dd-46467b68d177",
+      "name": "Domain Account",
+      "execution_domain": "target",
+      "tactics": [
+        "persistence"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--8a14f269-467e-49f8-a53f-ba1ad7fe5731"
+      ],
+      "procedure_descriptions": [
+        "During the [2015 Ukraine Electric Power Attack](https://attack.mitre.org/campaigns/C0028), [Sandworm Team](https://attack.mitre.org/groups/G0034) created privileged domain accounts to be used for further exploitation and lateral movement. (Citation: Booz Allen Hamilton)"
+      ]
+    },
+    {
+      "technique_id": "T1055",
+      "technique_stix_id": "attack-pattern--43e7dc91-05b2-474c-b9ac-2ed4fe101f4d",
+      "name": "Process Injection",
+      "execution_domain": "target",
+      "tactics": [
+        "privilege-escalation",
+        "stealth"
+      ],
+      "platforms": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--edb47407-d848-4b72-abe6-9815aeaaaf37"
+      ],
+      "procedure_descriptions": [
+        "During the [2015 Ukraine Electric Power Attack](https://attack.mitre.org/campaigns/C0028), [Sandworm Team](https://attack.mitre.org/groups/G0034) loaded [BlackEnergy](https://attack.mitre.org/software/S0089) into svchost.exe, which then launched iexplore.exe for their C2. (Citation: Booz Allen Hamilton)"
+      ]
+    },
+    {
+      "technique_id": "T1070.004",
+      "technique_stix_id": "attack-pattern--d63a3fb8-9452-4e9d-a60a-54be68d5998c",
+      "name": "File Deletion",
+      "execution_domain": "target",
+      "tactics": [
+        "stealth"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--4d9acf03-bd3e-458b-bcea-6d1b57674072"
+      ],
+      "procedure_descriptions": [
+        "During the [2015 Ukraine Electric Power Attack](https://attack.mitre.org/campaigns/C0028), vba_macro.exe deletes itself after `FONTCACHE.DAT`, `rundll32.exe`, and the associated .lnk file is delivered. (Citation: Booz Allen Hamilton)"
+      ]
+    },
+    {
+      "technique_id": "T1218.011",
+      "technique_stix_id": "attack-pattern--045d0922-2310-4e60-b5e4-3302302cb3c5",
+      "name": "Rundll32",
+      "execution_domain": "target",
+      "tactics": [
+        "stealth"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--a2d91513-68d5-4df2-ab2f-05a25b72f419"
+      ],
+      "procedure_descriptions": [
+        "During the [2015 Ukraine Electric Power Attack](https://attack.mitre.org/campaigns/C0028), [Sandworm Team](https://attack.mitre.org/groups/G0034) used a backdoor which could execute a supplied DLL using `rundll32.exe`. (Citation: Booz Allen Hamilton)"
+      ]
+    },
+    {
+      "technique_id": "T1685",
+      "technique_stix_id": "attack-pattern--bbde9781-60aa-4b8a-a911-895b0c1b3872",
+      "name": "Disable or Modify Tools",
+      "execution_domain": "target",
+      "tactics": [
+        "defense-impairment"
+      ],
+      "platforms": [
+        "Containers",
+        "ESXi",
+        "IaaS",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--273e10a7-c598-4e06-be21-a8ec7537eeb6"
+      ],
+      "procedure_descriptions": [
+        "During the [2015 Ukraine Electric Power Attack](https://attack.mitre.org/campaigns/C0028), [Sandworm Team](https://attack.mitre.org/groups/G0034) modified in-registry internet settings to lower internet security. (Citation: Booz Allen Hamilton)"
+      ]
+    },
+    {
+      "technique_id": "T1040",
+      "technique_stix_id": "attack-pattern--3257eb21-f9a7-4430-8de1-d8b6e288f529",
+      "name": "Network Sniffing",
+      "execution_domain": "target",
+      "tactics": [
+        "credential-access",
+        "discovery"
+      ],
+      "platforms": [
+        "IaaS",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--899c49f0-4a1b-44d8-81e6-fd927a252bd6"
+      ],
+      "procedure_descriptions": [
+        "During the [2015 Ukraine Electric Power Attack](https://attack.mitre.org/campaigns/C0028), [Sandworm Team](https://attack.mitre.org/groups/G0034) used [BlackEnergy](https://attack.mitre.org/software/S0089)’s network sniffer module to discover user credentials being sent over the network between the local LAN and the power grid’s industrial control systems. (Citation: Charles McLellan March 2016)"
+      ]
+    },
+    {
+      "technique_id": "T1056.001",
+      "technique_stix_id": "attack-pattern--09a60ea3-a8d1-4ae5-976e-5783248b72a4",
+      "name": "Keylogging",
+      "execution_domain": "target",
+      "tactics": [
+        "credential-access",
+        "collection"
+      ],
+      "platforms": [
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--d2aa3c9f-0f1f-49ff-81ef-94e229f7c6e2"
+      ],
+      "procedure_descriptions": [
+        "During the [2015 Ukraine Electric Power Attack](https://attack.mitre.org/campaigns/C0028), [Sandworm Team](https://attack.mitre.org/groups/G0034) gathered account credentials via a [BlackEnergy](https://attack.mitre.org/software/S0089) keylogger plugin. (Citation: Booz Allen Hamilton)(Citation: Ukraine15 - EISAC - 201603)"
+      ]
+    },
+    {
+      "technique_id": "T1018",
+      "technique_stix_id": "attack-pattern--e358d692-23c0-4a31-9eb6-ecc13a8d7735",
+      "name": "Remote System Discovery",
+      "execution_domain": "target",
+      "tactics": [
+        "discovery"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--61ce754c-da32-4f0d-9c5f-bdf4debf7377"
+      ],
+      "procedure_descriptions": [
+        "During the [2015 Ukraine Electric Power Attack](https://attack.mitre.org/campaigns/C0028), [Sandworm Team](https://attack.mitre.org/groups/G0034) remotely discovered systems over LAN connections. OT systems were visible from the IT network   as well, giving adversaries the ability to discover operational assets. (Citation: Charles McLellan March 2016)"
+      ]
+    },
+    {
+      "technique_id": "T1570",
+      "technique_stix_id": "attack-pattern--bf90d72c-c00b-45e3-b3aa-68560560d4c5",
+      "name": "Lateral Tool Transfer",
+      "execution_domain": "target",
+      "tactics": [
+        "lateral-movement"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--c39edafb-5a90-43a3-af9f-6865c5a6a71f"
+      ],
+      "procedure_descriptions": [
+        "During the [2015 Ukraine Electric Power Attack](https://attack.mitre.org/campaigns/C0028), [Sandworm Team](https://attack.mitre.org/groups/G0034) moved their tools laterally within the corporate network and between the ICS and corporate network. (Citation: Booz Allen Hamilton)"
+      ]
+    },
+    {
+      "technique_id": "T1071.001",
+      "technique_stix_id": "attack-pattern--df8b2a25-8bdf-4856-953c-a04372b1c161",
+      "name": "Web Protocols",
+      "execution_domain": "boundary",
+      "tactics": [
+        "command-and-control"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--b2f02a93-36fe-45be-9120-ea7bf53a884c"
+      ],
+      "procedure_descriptions": [
+        "During the [2015 Ukraine Electric Power Attack](https://attack.mitre.org/campaigns/C0028), [Sandworm Team](https://attack.mitre.org/groups/G0034) used [BlackEnergy](https://attack.mitre.org/software/S0089) to communicate between compromised hosts and their command-and-control servers via HTTP post requests. (Citation: Booz Allen Hamilton)"
+      ]
+    },
+    {
+      "technique_id": "T1105",
+      "technique_stix_id": "attack-pattern--e6919abc-99f9-4c6c-95a5-14761e7b2add",
+      "name": "Ingress Tool Transfer",
+      "execution_domain": "boundary",
+      "tactics": [
+        "command-and-control"
+      ],
+      "platforms": [
+        "ESXi",
+        "Linux",
+        "Network Devices",
+        "Windows",
+        "macOS"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "relationship--7d12ca01-c979-4fdf-8548-9da12c105ba0"
+      ],
+      "procedure_descriptions": [
+        "During the [2015 Ukraine Electric Power Attack](https://attack.mitre.org/campaigns/C0028), [Sandworm Team](https://attack.mitre.org/groups/G0034) pushed additional malicious tools onto an infected system to steal user credentials, move laterally, and destroy data. (Citation: Booz Allen Hamilton)"
+      ]
+    }
+  ],
+  "limitations": [
+    "ATT&CK uses-links do not encode a historical total order; the compiler applies a declared tactic-rank policy.",
+    "Technique metadata constrains procedures but does not uniquely determine an executable target environment."
+  ],
+  "content_sha256": "37ff38db96f98290378625a941c716ee93806e3503dbe4a3d8e91d788e8b9ed8"
+}

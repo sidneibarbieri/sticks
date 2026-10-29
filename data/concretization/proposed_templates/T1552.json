@@ -1,0 +1,32 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure identifies insecurely stored credentials on a target system.",
+    "evidence_predicates": [
+      "file_count_recorded",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "credential_source": "credential_source"
+    },
+    "produces": [
+      "insecurely stored credentials identified"
+    ],
+    "requires": [
+      "system access",
+      "credential storage location"
+    ],
+    "technique_ids": [
+      "T1552"
+    ],
+    "template_id": "unsecured-credentials-laboratory-harness"
+  }
+}

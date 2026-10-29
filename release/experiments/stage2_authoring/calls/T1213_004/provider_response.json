@@ -1,0 +1,36 @@
+{
+  "id": "chatcmpl-EOgHA1KLgA7E0uwfN4OTAq7PUZnIp",
+  "object": "chat.completion",
+  "created": 1789551088,
+  "model": "gpt-4o-mini-2024-07-18",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"template_id\": \"crm-software-data-mining\",\n  \"technique_ids\": [\"T1213.004\"],\n  \"execution_domain\": \"target\",\n  \"parameter_kinds\": {\n    \"crm_tool\": \"toolkit\",\n    \"customer_data\": \"data_source\"\n  },\n  \"requires\": [\n    \"access to CRM software\",\n    \"valid user credentials\"\n  ],\n  \"produces\": [\n    \"customer data extracted from CRM\"\n  ],\n  \"evidence_predicates\": [\n    \"collection_manifest_recorded\",\n    \"bounded_effect_observed\"\n  ],\n  \"fidelity_ceiling\": \"adapted\",\n  \"description\": \"This procedure outlines the steps to extract customer data from CRM software in a controlled laboratory environment.\"\n}",
+        "refusal": null,
+        "annotations": []
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 819,
+    "completion_tokens": 157,
+    "total_tokens": 976,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_c577bb8647"
+}

@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure demonstrates the process of injecting a DLL into a target process for educational purposes.",
+    "evidence_predicates": [
+      "bounded_effect_observed",
+      "artifact_hash_recorded"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "dll_path": "payload",
+      "target_process": "target_host"
+    },
+    "produces": [
+      "DLL injection successful"
+    ],
+    "requires": [
+      "target process is running",
+      "DLL file is accessible"
+    ],
+    "technique_ids": [
+      "T1055.001"
+    ],
+    "template_id": "dll-injection-laboratory-harness"
+  }
+}

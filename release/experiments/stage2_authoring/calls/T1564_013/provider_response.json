@@ -1,0 +1,36 @@
+{
+  "id": "chatcmpl-EOgIvAIxfxVOFZJot5dVd3ObwsgmF",
+  "object": "chat.completion",
+  "created": 1789551197,
+  "model": "gpt-4o-mini-2024-07-18",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"template_id\": \"bind-mounts-laboratory-harness\",\n  \"technique_ids\": [\n    \"T1564.013\"\n  ],\n  \"execution_domain\": \"target\",\n  \"parameter_kinds\": {\n    \"mount_point\": \"target_host\",\n    \"source_directory\": \"target_host\"\n  },\n  \"requires\": [\n    \"sudo access to the system\",\n    \"a benign directory to bind\"\n  ],\n  \"produces\": [\n    \"bind mount established\"\n  ],\n  \"evidence_predicates\": [\n    \"bounded_effect_observed\",\n    \"fixture_access_logged\"\n  ],\n  \"fidelity_ceiling\": \"adapted\",\n  \"description\": \"This procedure demonstrates the use of bind mounts to map a benign directory to a target process's directory.\"\n}",
+        "refusal": null,
+        "annotations": []
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 829,
+    "completion_tokens": 166,
+    "total_tokens": 995,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_c577bb8647"
+}

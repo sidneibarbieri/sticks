@@ -1,0 +1,13 @@
+{
+  "campaign_id": "C0045",
+  "arm_id": "sticks_admitted",
+  "seed": 3,
+  "step_id": "s5",
+  "emitted": true,
+  "abstained": false,
+  "oracle_admitted": true,
+  "template_id": "assess-privilege-boundary",
+  "proposal_sha256": "79467d923434d7cacf1138d25ae0bfbab005ed58f66b7fa576eba3a9f81651b5",
+  "issue_codes": [],
+  "parse_error": null
+}

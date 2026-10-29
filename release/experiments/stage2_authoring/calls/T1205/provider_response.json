@@ -1,0 +1,36 @@
+{
+  "id": "chatcmpl-EOK83oHl7ax3dVn4padTsYEiES4dV",
+  "object": "chat.completion",
+  "created": 1789465955,
+  "model": "gpt-4o-mini-2024-07-18",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"template_id\": \"traffic-signaling-laboratory-harness\",\n  \"technique_ids\": [\"T1205\"],\n  \"execution_domain\": \"target\",\n  \"parameter_kinds\": {\n    \"target_host\": \"target_host\",\n    \"network_interface\": \"network_interface\",\n    \"payload\": \"payload\"\n  },\n  \"requires\": [\n    \"target host is configured to respond to traffic signaling\",\n    \"network interface is active\"\n  ],\n  \"produces\": [\n    \"traffic signaling response recorded\",\n    \"network interface state verified\"\n  ],\n  \"evidence_predicates\": [\n    \"http_request_logged\",\n    \"bounded_effect_observed\"\n  ],\n  \"fidelity_ceiling\": \"adapted\",\n  \"description\": \"This procedure simulates traffic signaling to verify the response of a target host under controlled conditions.\"\n}",
+        "refusal": null,
+        "annotations": []
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 820,
+    "completion_tokens": 175,
+    "total_tokens": 995,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_c577bb8647"
+}

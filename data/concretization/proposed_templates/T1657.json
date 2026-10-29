@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure simulates financial theft in a controlled environment to study the effects and responses to such attacks.",
+    "evidence_predicates": [
+      "bounded_effect_observed",
+      "http_request_logged"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "payload": "payload",
+      "target_host": "target_host"
+    },
+    "produces": [
+      "financial theft simulation executed"
+    ],
+    "requires": [
+      "target_host is accessible",
+      "payload is prepared"
+    ],
+    "technique_ids": [
+      "T1657"
+    ],
+    "template_id": "financial-theft-laboratory-harness"
+  }
+}

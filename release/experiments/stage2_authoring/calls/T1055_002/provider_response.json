@@ -1,0 +1,36 @@
+{
+  "id": "chatcmpl-EOgGIBLO4jNIjFyc2JXXkhgEjH0N5",
+  "object": "chat.completion",
+  "created": 1789551034,
+  "model": "gpt-4o-mini-2024-07-18",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"template_id\": \"portable-executable-injection-laboratory-harness\",\n  \"technique_ids\": [\"T1055.002\"],\n  \"execution_domain\": \"target\",\n  \"parameter_kinds\": {\n    \"target_process\": \"target_host\",\n    \"injected_payload\": \"payload\"\n  },\n  \"requires\": [\n    \"target process is running\",\n    \"injected payload is available\"\n  ],\n  \"produces\": [\n    \"injection successful\",\n    \"new thread created in target process\"\n  ],\n  \"evidence_predicates\": [\n    \"bounded_effect_observed\",\n    \"process_exit_recorded\"\n  ],\n  \"fidelity_ceiling\": \"adapted\",\n  \"description\": \"This procedure demonstrates the injection of a portable executable into a target process to observe the effects of the operation.\"\n}",
+        "refusal": null,
+        "annotations": []
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 832,
+    "completion_tokens": 173,
+    "total_tokens": 1005,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_c577bb8647"
+}

@@ -1,0 +1,19 @@
+{
+  "schema_version": "c0045-compute-effect-study/v1",
+  "campaign_id": "0.shadowray",
+  "campaign_sha256": "d9c85acee10925335f7c542a4057ef5d110391d26d29550713817014853921db",
+  "sut_profile_sha256": "d0358dd5afe4f0afb3133f5650cfcc2887d10f78fdc7a0a51c51125ea36fd8fc",
+  "probe_sha256": "5e7d2065d7e612516ab4b3c36ebf53d790e10db3c0edd4092449743028b45fcf",
+  "workload_code_sha256": "3f2cd1eb7d53557700ce24b197765c5a974c1d24caff00ed7b57f72fc6ea029f",
+  "treatment_occurrence": 10,
+  "technique_id": "T1496.001",
+  "source_mode": "naive_simulated",
+  "prospective_mode": "real_controlled",
+  "target_host_id": "target-linux-1",
+  "target_principal": "rayuser",
+  "minimum_cpu_ticks": 5,
+  "sampling_interval_seconds": 1.0,
+  "workload_duration_seconds": 15,
+  "controls": ["busy", "idle", "controller_only"],
+  "claim_ceiling": "bounded_guest_compute_only"
+}

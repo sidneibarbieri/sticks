@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure demonstrates how to exploit misconfigured Registry permissions to execute a malicious payload when a service starts.",
+    "evidence_predicates": [
+      "service_request_logged",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "malicious_payload": "payload",
+      "service_name": "target_host"
+    },
+    "produces": [
+      "The service executes the malicious payload"
+    ],
+    "requires": [
+      "Registry permissions for the service are misconfigured",
+      "A malicious payload is available for execution"
+    ],
+    "technique_ids": [
+      "T1574.011"
+    ],
+    "template_id": "services-registry-permissions-weakness-laboratory-harness"
+  }
+}

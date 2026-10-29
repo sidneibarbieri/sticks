@@ -1,0 +1,32 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure queries the target system for a list of registered services using specified commands.",
+    "evidence_predicates": [
+      "service_request_logged",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "service_command": "toolkit"
+    },
+    "produces": [
+      "list of registered services"
+    ],
+    "requires": [
+      "access to the target system",
+      "appropriate permissions to query services"
+    ],
+    "technique_ids": [
+      "T1007"
+    ],
+    "template_id": "system-service-discovery-laboratory-harness"
+  }
+}

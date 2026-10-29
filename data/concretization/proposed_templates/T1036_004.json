@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure manipulates the name of a task or service to simulate a benign appearance.",
+    "evidence_predicates": [
+      "service_request_logged",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "service_name": "target_host",
+      "task_name": "target_host"
+    },
+    "produces": [
+      "task or service with a manipulated name"
+    ],
+    "requires": [
+      "a benign task or service name",
+      "a system capable of executing tasks or services"
+    ],
+    "technique_ids": [
+      "T1036.004"
+    ],
+    "template_id": "masquerade-task-or-service-laboratory-harness"
+  }
+}

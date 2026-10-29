@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure allows for the discovery of remote systems on a network by utilizing available network utilities.",
+    "evidence_predicates": [
+      "interface_snapshot_recorded",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "network_interface": "network_interface",
+      "target_host": "target_host"
+    },
+    "produces": [
+      "list of reachable systems"
+    ],
+    "requires": [
+      "network connectivity",
+      "target host is reachable"
+    ],
+    "technique_ids": [
+      "T1018"
+    ],
+    "template_id": "remote-system-discovery-laboratory-harness"
+  }
+}

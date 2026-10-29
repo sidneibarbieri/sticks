@@ -1,0 +1,36 @@
+{
+  "id": "chatcmpl-EOK4DkrBE0397raODTworB9LUy6sI",
+  "object": "chat.completion",
+  "created": 1789465717,
+  "model": "gpt-4o-mini-2024-07-18",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"template_id\": \"remote-email-collection-laboratory-harness\",\n  \"technique_ids\": [\n    \"T1114.002\"\n  ],\n  \"execution_domain\": \"target\",\n  \"parameter_kinds\": {\n    \"email_service\": \"web_asset\",\n    \"search_keywords\": \"data_source\"\n  },\n  \"requires\": [\n    \"user_credentials_available\",\n    \"target_email_service_accessible\"\n  ],\n  \"produces\": [\n    \"email_data_collected\",\n    \"collection_manifest_recorded\"\n  ],\n  \"evidence_predicates\": [\n    \"collection_manifest_recorded\",\n    \"bounded_effect_observed\"\n  ],\n  \"fidelity_ceiling\": \"adapted\",\n  \"description\": \"This procedure simulates the collection of email data from a specified service using predefined search keywords.\"\n}",
+        "refusal": null,
+        "annotations": []
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 809,
+    "completion_tokens": 171,
+    "total_tokens": 980,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_c577bb8647"
+}

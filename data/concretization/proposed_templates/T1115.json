@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure collects data from the clipboard using specified tools in a controlled laboratory environment.",
+    "evidence_predicates": [
+      "collection_manifest_recorded",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "clipboard_tool": "toolkit",
+      "data_source": "data_source"
+    },
+    "produces": [
+      "clipboard data collected"
+    ],
+    "requires": [
+      "clipboard_tool is available",
+      "data_source contains user-copied information"
+    ],
+    "technique_ids": [
+      "T1115"
+    ],
+    "template_id": "clipboard-data-collection-laboratory"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure loads a kernel module to modify system boot behavior in a controlled laboratory environment.",
+    "evidence_predicates": [
+      "artifact_hash_recorded",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "execution_time": "runtime",
+      "kernel_module": "payload"
+    },
+    "produces": [
+      "kernel module is loaded successfully",
+      "system boot configuration is modified"
+    ],
+    "requires": [
+      "target_host is prepared for kernel module loading",
+      "appropriate permissions are granted for module insertion"
+    ],
+    "technique_ids": [
+      "T1547.006"
+    ],
+    "template_id": "loadable-kernel-modules-execution"
+  }
+}

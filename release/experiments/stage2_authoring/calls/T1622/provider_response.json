@@ -1,0 +1,36 @@
+{
+  "id": "chatcmpl-EOgJm1catmqne582OfLSDGPsnw6id",
+  "object": "chat.completion",
+  "created": 1789551250,
+  "model": "gpt-4o-mini-2024-07-18",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"template_id\": \"debugger-evasion-laboratory-harness\",\n  \"technique_ids\": [\"T1622\"],\n  \"execution_domain\": \"target\",\n  \"parameter_kinds\": {\n    \"debugger_check\": \"capability_specification\",\n    \"malware_behavior\": \"payload\"\n  },\n  \"requires\": [\n    \"debugger presence check performed\",\n    \"malware behavior modification logic implemented\"\n  ],\n  \"produces\": [\n    \"malware behavior altered based on debugger detection\"\n  ],\n  \"evidence_predicates\": [\n    \"boundary_check_recorded\",\n    \"bounded_effect_observed\"\n  ],\n  \"fidelity_ceiling\": \"adapted\",\n  \"description\": \"This procedure simulates the alteration of malware behavior in response to debugger detection in a controlled laboratory environment.\"\n}",
+        "refusal": null,
+        "annotations": []
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 830,
+    "completion_tokens": 170,
+    "total_tokens": 1000,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_c577bb8647"
+}

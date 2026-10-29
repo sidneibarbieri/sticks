@@ -1,0 +1,36 @@
+{
+  "id": "chatcmpl-EOgG91PeYYcOVtMSfEj00Sm45d0lT",
+  "object": "chat.completion",
+  "created": 1789551025,
+  "model": "gpt-4o-mini-2024-07-18",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"template_id\": \"data-from-network-shared-drive-laboratory-harness\",\n  \"technique_ids\": [\n    \"T1039\"\n  ],\n  \"execution_domain\": \"target\",\n  \"parameter_kinds\": {\n    \"target_host\": \"target_host\",\n    \"network_interface\": \"network_interface\"\n  },\n  \"requires\": [\n    \"access to a compromised system\",\n    \"network share visibility\"\n  ],\n  \"produces\": [\n    \"files of interest identified\",\n    \"data collection manifest created\"\n  ],\n  \"evidence_predicates\": [\n    \"collection_manifest_recorded\",\n    \"file_count_recorded\"\n  ],\n  \"fidelity_ceiling\": \"adapted\",\n  \"description\": \"This procedure allows for the identification and collection of files from network shared drives on a compromised system.\"\n}",
+        "refusal": null,
+        "annotations": []
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 796,
+    "completion_tokens": 172,
+    "total_tokens": 968,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  },
+  "service_tier": "default",
+  "system_fingerprint": "fp_c577bb8647"
+}

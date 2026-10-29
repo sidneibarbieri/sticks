@@ -1,0 +1,13 @@
+{
+  "campaign_id": "C0045",
+  "arm_id": "prior_work_style",
+  "seed": 1,
+  "step_id": "s3",
+  "emitted": true,
+  "abstained": false,
+  "oracle_admitted": true,
+  "template_id": "run-benign-python",
+  "proposal_sha256": "dbfd1cb05b8b6b6ec9779e9b7ec94d1234edc061c6bc58ee00ed100844b4c2cd",
+  "issue_codes": [],
+  "parse_error": null
+}

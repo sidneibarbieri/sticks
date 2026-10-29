@@ -1,0 +1,35 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure simulates the chaining of multiple proxies to analyze the logging and traffic patterns in a controlled environment.",
+    "evidence_predicates": [
+      "http_request_logged",
+      "bytes_transferred_recorded",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "proxy": "infrastructure_artifact",
+      "target": "target_host"
+    },
+    "produces": [
+      "http_request_logged",
+      "bytes_transferred_recorded"
+    ],
+    "requires": [
+      "proxy configuration established",
+      "target host accessible"
+    ],
+    "technique_ids": [
+      "T1090.003"
+    ],
+    "template_id": "multi-hop-proxy-laboratory-harness"
+  }
+}

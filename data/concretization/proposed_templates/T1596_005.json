@@ -1,0 +1,33 @@
+{
+  "lifecycle": "draft",
+  "provenance": {
+    "model": "gpt-4o-mini",
+    "provider": "openai",
+    "review_pending": true,
+    "source": "llm_proposer"
+  },
+  "template": {
+    "description": "This procedure allows for the collection of actionable information from public scan databases to aid in targeting.",
+    "evidence_predicates": [
+      "http_request_logged",
+      "bounded_effect_observed"
+    ],
+    "execution_domain": "target",
+    "fidelity_ceiling": "adapted",
+    "parameter_kinds": {
+      "data_source": "data_source",
+      "target_host": "target_host"
+    },
+    "produces": [
+      "gathered actionable information from scan databases"
+    ],
+    "requires": [
+      "access to public scan databases",
+      "identified target information"
+    ],
+    "technique_ids": [
+      "T1596.005"
+    ],
+    "template_id": "scan-databases-laboratory-harness"
+  }
+}
