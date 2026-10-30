@@ -32,6 +32,10 @@ TYPED_EVIDENCE_PATH = Path("typed-run-evidence/c0010-c0026.tar.gz")
 TYPED_REFERENCE_MANIFEST_PATH = Path(
     "typed-run-evidence/reference-public-tree-4c52b4e.json"
 )
+CALDERA_EVIDENCE_PATH = Path("typed-run-evidence/caldera-c0026.tar.gz")
+CALDERA_REFERENCE_MANIFEST_PATH = Path(
+    "typed-run-evidence/caldera-reference-run-source-tree.json"
+)
 TYPED_BOUND_REFERENCE_MANIFEST_PATH = Path(
     "typed-run-evidence/reference-run-source-tree.json"
 )
@@ -893,6 +897,8 @@ def stage(
     typed_evidence_bound_reference_manifest: Path | None = None,
     c0045_series_archive: Path | None = None,
     c0045_privacy_review: Path | None = None,
+    caldera_evidence_archive: Path | None = None,
+    caldera_reference_manifest: Path | None = None,
     public_evidence_release: bool = False,
     anonymous_review: bool = False,
     identified_release: bool = False,
@@ -974,6 +980,27 @@ def stage(
                 check=True,
                 env=environment,
             )
+    if (caldera_evidence_archive is None) != (caldera_reference_manifest is None):
+        raise ValueError("The CALDERA archive and its reference manifest go together")
+    if caldera_evidence_archive is not None:
+        caldera_source = caldera_evidence_archive.resolve(strict=True)
+        caldera_reference = caldera_reference_manifest.resolve(strict=True)
+        if caldera_source.is_relative_to(destination.resolve()):
+            raise ValueError("CALDERA evidence archive must be outside the destination")
+        environment = os.environ.copy()
+        environment["PYTHONPATH"] = os.pathsep.join(
+            (str(STICKS_ROOT / "src"), str(STICKS_ROOT), environment.get("PYTHONPATH", ""))
+        )
+        for module, *extra in (
+            ("scripts.verify_typed_evidence_archive",),
+            ("scripts.screen_typed_evidence_privacy",
+             "--bound-reference-manifest", str(caldera_reference)),
+        ):
+            subprocess.run(
+                [sys.executable, "-m", module, "--archive", str(caldera_source),
+                 "--series", "caldera", *extra],
+                cwd=STICKS_ROOT, check=True, env=environment,
+            )
     if c0045_series_archive is not None:
         source_series = c0045_series_archive.resolve(strict=True)
         if source_series.is_relative_to(destination.resolve()):
@@ -1047,6 +1074,11 @@ def stage(
                 else TYPED_REFERENCE_MANIFEST_PATH
             )
             shutil.copyfile(reference_source, destination / target_reference)
+    if caldera_evidence_archive is not None:
+        target = destination / CALDERA_EVIDENCE_PATH
+        target.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(caldera_source, target)
+        shutil.copyfile(caldera_reference, destination / CALDERA_REFERENCE_MANIFEST_PATH)
     if c0045_series_archive is not None:
         target = destination / C0045_SERIES_ARCHIVE_PATH
         target.parent.mkdir(parents=True, exist_ok=True)
@@ -1147,6 +1179,16 @@ def main() -> int:
         help="manifest byte-identical to both sealed run source workspaces",
     )
     parser.add_argument(
+        "--caldera-evidence-archive",
+        type=Path,
+        help="screened typed archive of the C0026 cycle dispatched through CALDERA",
+    )
+    parser.add_argument(
+        "--caldera-reference-manifest",
+        type=Path,
+        help="manifest byte-identical to the CALDERA run's sealed source workspace",
+    )
+    parser.add_argument(
         "--c0045-series-archive",
         type=Path,
         help="validated private C0045 compute-effect series archive to bundle",
@@ -1198,6 +1240,8 @@ def main() -> int:
         typed_evidence_bound_reference_manifest=args.typed_evidence_bound_reference_manifest,
         c0045_series_archive=args.c0045_series_archive,
         c0045_privacy_review=args.c0045_privacy_review,
+        caldera_evidence_archive=args.caldera_evidence_archive,
+        caldera_reference_manifest=args.caldera_reference_manifest,
         public_evidence_release=args.public_evidence_release,
         anonymous_review=args.anonymous_review,
         identified_release=args.identified_release,

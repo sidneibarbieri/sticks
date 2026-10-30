@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Render paper macros from verified, scoped QEMU campaign outcomes."""
+"""Render paper macros from verified, scoped campaign outcomes."""
 
 from __future__ import annotations
 
@@ -37,12 +37,37 @@ def render_tex(outcomes: list[CampaignOutcome]) -> str:
     return "\n".join(lines) + "\n"
 
 
+def render_caldera_tex(outcomes: list[CampaignOutcome]) -> str:
+    """Render the C0026 cycle whose commands were dispatched through CALDERA."""
+    if len(outcomes) != 1 or outcomes[0].campaign_id != "0.c0026":
+        raise ValueError("CALDERA outcomes require exactly one C0026 run")
+    outcome = outcomes[0]
+    if outcome.total != 6:
+        raise ValueError("Unexpected occurrence count for the CALDERA C0026 run")
+    lines = [
+        "% Generated from the verified, sealed C0026 receipt dispatched through CALDERA.",
+        f"% 0.c0026 receipt SHA-256: {outcome.receipt_sha256}",
+    ]
+    for suffix, count in (
+        ("Total", outcome.total),
+        ("Target", outcome.observed_target),
+        ("Controller", outcome.observed_controller),
+        ("Simulated", outcome.simulated),
+        ("Failed", outcome.failed),
+    ):
+        lines.append(f"\\newcommand{{\\caldera{suffix}}}{{{count}}}")
+    lines.append(f"% Source tree SHA-256: {outcome.source_tree_sha256}")
+    return "\n".join(lines) + "\n"
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--run-root", action="append", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--series", choices=("qemu", "caldera"), default="qemu")
     args = parser.parse_args()
-    content = render_tex(audit_runs(args.run_root))
+    renderer = render_caldera_tex if args.series == "caldera" else render_tex
+    content = renderer(audit_runs(args.run_root))
     args.output.write_text(content, encoding="utf-8")
     return 0
 

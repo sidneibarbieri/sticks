@@ -5,7 +5,8 @@ import sys
 from pathlib import Path
 from uuid import UUID, uuid4
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
+ARTIFACT_ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ARTIFACT_ROOT / "src"))
 
 from adapters.caldera_dispatch import CalderaDispatchIntent, command_digest
 from adapters.caldera_operations import CalderaOperations
@@ -13,9 +14,22 @@ from runners.caldera_lab_bootstrap import deploy_agent, guest_command, laborator
 from runners.caldera_session import CalderaSession
 
 
+def portable_lab_root(lab_root: Path) -> Path:
+    """Name the laboratory relative to the artifact root, where the runner executes.
+
+    The session is retained as run evidence, so it must not carry the operator's
+    absolute path.
+    """
+    resolved = lab_root.resolve()
+    if not resolved.is_relative_to(ARTIFACT_ROOT):
+        raise ValueError("CALDERA laboratory must lie inside the artifact root")
+    return resolved.relative_to(ARTIFACT_ROOT)
+
+
 def prepare_session(lab_root: Path, output: Path) -> CalderaSession:
     if output.exists():
         raise FileExistsError(output)
+    recorded_lab_root = portable_lab_root(lab_root)
     pinned_commit = "b24f6e7a99cab19cbf417009bda9b9c6c81abc31"
     actual = guest_command(lab_root, "caldera", "sudo git -C /opt/caldera rev-parse HEAD && sudo git -C /opt/caldera diff --exit-code -- server.py")
     if actual != pinned_commit:
@@ -30,7 +44,7 @@ def prepare_session(lab_root: Path, output: Path) -> CalderaSession:
         raise ValueError("Target rebooted while registering the agent")
     operation_id = CalderaOperations(transport).create_operation(group, group)
     session = CalderaSession(
-        lab_root=lab_root.resolve(), target_boot_id=after,
+        lab_root=recorded_lab_root, target_boot_id=after,
         binding=CalderaDispatchIntent(
             operation_id=operation_id, group=group, agent_id=agent_id,
             host="target-linux-1", principal="ubuntu", platform="linux", executor="sh",

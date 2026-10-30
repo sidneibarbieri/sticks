@@ -120,7 +120,9 @@ def test_bound_reference_must_match_both_sealed_workspaces(
     })
     make_archive(archive, files)
     verified: list[Path] = []
-    monkeypatch.setattr(privacy_screen, "verify_archive", verified.append)
+    monkeypatch.setattr(
+        privacy_screen, "verify_archive", lambda path, _campaigns: verified.append(path)
+    )
 
     result = screen_archive(archive, bound_reference_manifest=manifest_path)
 

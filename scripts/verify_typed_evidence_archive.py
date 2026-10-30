@@ -17,16 +17,26 @@ for import_root in (ARTIFACT_ROOT, ARTIFACT_ROOT / "src"):
         sys.path.insert(0, str(import_root))
 
 from scripts.audit_typed_campaign_outcomes import CampaignOutcome, audit_runs  # noqa: E402
-from scripts.render_typed_campaign_outcomes_tex import render_tex  # noqa: E402
+from scripts.render_typed_campaign_outcomes_tex import (  # noqa: E402
+    render_caldera_tex,
+    render_tex,
+)
 
 
 CAMPAIGN_DIRECTORIES = ("c0010", "c0026")
+# Each series is one archive: the cold QEMU cycles, and the C0026 cycle whose
+# commands were dispatched through CALDERA.
+SERIES = {"qemu": CAMPAIGN_DIRECTORIES, "caldera": ("c0026",)}
+PAPER_RENDERERS = {"qemu": render_tex, "caldera": render_caldera_tex}
 MAX_MEMBERS = 15_000
 MAX_FILE_BYTES = 64 * 1024 * 1024
 MAX_TOTAL_BYTES = 512 * 1024 * 1024
 
 
-def validate_members(members: list[tarfile.TarInfo]) -> None:
+def validate_members(
+    members: list[tarfile.TarInfo],
+    campaign_directories: tuple[str, ...] = CAMPAIGN_DIRECTORIES,
+) -> None:
     if not members or len(members) > MAX_MEMBERS:
         raise ValueError("Archive member count is invalid")
     seen: set[str] = set()
@@ -40,7 +50,7 @@ def validate_members(members: list[tarfile.TarInfo]) -> None:
             or path.is_absolute()
             or "\\" in name
             or any(part in {"", ".", ".."} for part in parts)
-            or parts[0] not in CAMPAIGN_DIRECTORIES
+            or parts[0] not in campaign_directories
             or any(part.startswith("._") or part == "__MACOSX" for part in parts)
             or name in seen
         ):
@@ -48,7 +58,7 @@ def validate_members(members: list[tarfile.TarInfo]) -> None:
         seen.add(name)
         if not (member.isdir() or member.isfile()):
             raise ValueError("Archive contains a link or special file")
-        if name in CAMPAIGN_DIRECTORIES and not member.isdir():
+        if name in campaign_directories and not member.isdir():
             raise ValueError("Campaign root must be a directory")
         if member.isfile():
             if member.size < 0 or member.size > MAX_FILE_BYTES:
@@ -56,13 +66,17 @@ def validate_members(members: list[tarfile.TarInfo]) -> None:
             total_bytes += member.size
             if total_bytes > MAX_TOTAL_BYTES:
                 raise ValueError("Archive exceeds the byte limit")
-    if not set(CAMPAIGN_DIRECTORIES).issubset(seen):
+    if not set(campaign_directories).issubset(seen):
         raise ValueError("Archive is missing a campaign directory")
 
 
-def extract_members(archive: tarfile.TarFile, destination: Path) -> None:
+def extract_members(
+    archive: tarfile.TarFile,
+    destination: Path,
+    campaign_directories: tuple[str, ...] = CAMPAIGN_DIRECTORIES,
+) -> None:
     members = archive.getmembers()
-    validate_members(members)
+    validate_members(members, campaign_directories)
     for member in members:
         target = destination.joinpath(*PurePosixPath(member.name).parts)
         if member.isdir():
@@ -76,20 +90,24 @@ def extract_members(archive: tarfile.TarFile, destination: Path) -> None:
             shutil.copyfileobj(source, output)
 
 
-def verify_archive(path: Path) -> list[CampaignOutcome]:
+def verify_archive(
+    path: Path, campaign_directories: tuple[str, ...] = CAMPAIGN_DIRECTORIES
+) -> list[CampaignOutcome]:
     with tempfile.TemporaryDirectory(prefix="sticks-typed-evidence-") as temporary:
         destination = Path(temporary)
         with tarfile.open(path, mode="r:gz") as archive:
-            extract_members(archive, destination)
-        return audit_runs([destination / name for name in CAMPAIGN_DIRECTORIES])
+            extract_members(archive, destination, campaign_directories)
+        return audit_runs([destination / name for name in campaign_directories])
 
 
-def verify_paper_outcomes(outcomes: list[CampaignOutcome], paper_file: Path) -> None:
-    expected = render_tex(outcomes)
+def verify_paper_outcomes(
+    outcomes: list[CampaignOutcome], paper_file: Path, series: str = "qemu"
+) -> None:
+    expected = PAPER_RENDERERS[series](outcomes)
     actual = paper_file.read_text(encoding="utf-8")
     if actual != expected:
         raise ValueError(
-            f"Paper QEMU outcomes disagree with sealed receipts: {paper_file}"
+            f"Paper {series} outcomes disagree with sealed receipts: {paper_file}"
         )
 
 
@@ -97,10 +115,11 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--archive", required=True, type=Path)
     parser.add_argument("--paper-outcomes", type=Path)
+    parser.add_argument("--series", choices=sorted(SERIES), default="qemu")
     args = parser.parse_args()
-    outcomes = verify_archive(args.archive)
+    outcomes = verify_archive(args.archive, SERIES[args.series])
     if args.paper_outcomes is not None:
-        verify_paper_outcomes(outcomes, args.paper_outcomes)
+        verify_paper_outcomes(outcomes, args.paper_outcomes, args.series)
     print(
         json.dumps([item.model_dump() for item in outcomes], indent=2, sort_keys=True)
     )

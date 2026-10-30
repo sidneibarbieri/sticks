@@ -27,6 +27,10 @@ TYPED_REFERENCE_MANIFEST_PATH = (
 TYPED_BOUND_REFERENCE_MANIFEST_PATH = (
     PROJECT_ROOT / "typed-run-evidence/reference-run-source-tree.json"
 )
+CALDERA_EVIDENCE_PATH = PROJECT_ROOT / "typed-run-evidence/caldera-c0026.tar.gz"
+CALDERA_BOUND_REFERENCE_MANIFEST_PATH = (
+    PROJECT_ROOT / "typed-run-evidence/caldera-reference-run-source-tree.json"
+)
 C0045_SERIES_ARCHIVE_PATH = (
     PROJECT_ROOT / "release/experiments/c0045_compute_effect_series/series.tar.gz"
 )
@@ -82,6 +86,9 @@ RENDER_STEPS = [
 AUDIT_STEPS = ["check_public_surface.py"]
 TYPED_OUTCOMES_INPUT = re.compile(
     r"\\input\s*\{\s*results/typed_campaign_outcomes\.tex\s*\}"
+)
+CALDERA_OUTCOMES_INPUT = re.compile(
+    r"\\input\s*\{\s*results/caldera_campaign_outcomes\.tex\s*\}"
 )
 C0045_MACROS_INPUT = re.compile(
     r"\\input\s*\{\s*results/c0045_series_macros\.tex\s*\}"
@@ -161,6 +168,35 @@ def _verify_c0045_paper_macros(manuscript: Path | None) -> None:
     paper_copy = manuscript.parent / "results/c0045_series_macros.tex"
     if paper_copy.read_text(encoding="utf-8") != rendered:
         raise ValueError(f"{paper_copy} differs from the C0045 archive")
+
+
+def _verify_caldera_evidence(manuscript: Path | None) -> None:
+    """Screen and replay the C0026 cycle dispatched through CALDERA."""
+    cited = manuscript is not None and _manuscript_inputs(
+        manuscript, CALDERA_OUTCOMES_INPUT
+    )
+    if not CALDERA_EVIDENCE_PATH.is_file():
+        if cited:
+            raise FileNotFoundError(
+                "Manuscript cites the CALDERA C0026 cycle, but its archive "
+                f"is missing: {CALDERA_EVIDENCE_PATH}"
+            )
+        return
+    _run([
+        sys.executable, "-m", "scripts.screen_typed_evidence_privacy",
+        "--archive", str(CALDERA_EVIDENCE_PATH), "--series", "caldera",
+        "--bound-reference-manifest", str(CALDERA_BOUND_REFERENCE_MANIFEST_PATH),
+    ])
+    command = [
+        sys.executable, "-m", "scripts.verify_typed_evidence_archive",
+        "--archive", str(CALDERA_EVIDENCE_PATH), "--series", "caldera",
+    ]
+    if cited:
+        command.extend([
+            "--paper-outcomes",
+            str(manuscript.parent / "results/caldera_campaign_outcomes.tex"),
+        ])
+    _run(command)
 
 
 def _verify_c0045_series_if_present() -> None:
@@ -247,6 +283,7 @@ def main() -> int:
                 ]
             )
         _run(archive_command)
+    _verify_caldera_evidence(args.manuscript)
     _verify_c0045_series_if_present()
     _verify_c0045_paper_macros(args.manuscript)
     _verify_public_tree_if_present()

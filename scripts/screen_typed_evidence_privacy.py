@@ -22,7 +22,12 @@ from scripts.caldera_runner_secret_policy import (  # noqa: E402
     literal_credential_assignment_count,
 )
 from scripts.public_tree_manifest import verify_manifest  # noqa: E402
-from scripts.verify_typed_evidence_archive import validate_members, verify_archive  # noqa: E402
+from scripts.verify_typed_evidence_archive import (  # noqa: E402
+    CAMPAIGN_DIRECTORIES,
+    SERIES,
+    validate_members,
+    verify_archive,
+)
 
 
 EMAIL = re.compile(rb"\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b")
@@ -119,16 +124,20 @@ def _known_reference_files(archive_path: Path, manifest_path: Path) -> dict:
     return manifest["files"]
 
 
-def _bound_reference_files(archive_path: Path, manifest_path: Path) -> dict:
-    verify_archive(archive_path)
+def _bound_reference_files(
+    archive_path: Path,
+    manifest_path: Path,
+    campaign_directories: tuple[str, ...] = CAMPAIGN_DIRECTORIES,
+) -> dict:
+    verify_archive(archive_path, campaign_directories)
     manifest_bytes = manifest_path.read_bytes()
     manifest = json.loads(manifest_bytes)
     if manifest.get("schema_version") != "1" or not isinstance(manifest.get("files"), dict):
         raise ValueError("Bound typed reference manifest has an invalid schema")
     with tarfile.open(archive_path, "r:gz") as archive:
         members = archive.getmembers()
-        validate_members(members)
-        for campaign in ("c0010", "c0026"):
+        validate_members(members, campaign_directories)
+        for campaign in campaign_directories:
             member = archive.getmember(f"{campaign}/workspace/PUBLIC_TREE_SHA256.json")
             source = archive.extractfile(member)
             if source is None or source.read() != manifest_bytes:
@@ -142,6 +151,7 @@ def screen_archive(
     *,
     known_reference_manifest: Path | None = None,
     bound_reference_manifest: Path | None = None,
+    campaign_directories: tuple[str, ...] = CAMPAIGN_DIRECTORIES,
 ) -> ScreenResult:
     if sum(reference is not None for reference in (
         reference_root, known_reference_manifest, bound_reference_manifest
@@ -150,7 +160,9 @@ def screen_archive(
     reference_files = (
         _known_reference_files(archive_path, known_reference_manifest)
         if known_reference_manifest is not None
-        else _bound_reference_files(archive_path, bound_reference_manifest)
+        else _bound_reference_files(
+            archive_path, bound_reference_manifest, campaign_directories
+        )
         if bound_reference_manifest is not None
         else verify_manifest(
             reference_root, reference_root / "PUBLIC_TREE_SHA256.json"
@@ -165,7 +177,7 @@ def screen_archive(
     reference_logged_credential_pair_hits = 0
     with tarfile.open(archive_path, "r:gz") as archive:
         members = archive.getmembers()
-        validate_members(members)
+        validate_members(members, campaign_directories)
         for member in members:
             if not member.isfile():
                 continue
@@ -240,12 +252,14 @@ def main() -> int:
     reference.add_argument("--reference-root", type=Path)
     reference.add_argument("--known-reference-manifest", type=Path)
     reference.add_argument("--bound-reference-manifest", type=Path)
+    parser.add_argument("--series", choices=sorted(SERIES), default="qemu")
     args = parser.parse_args()
     result = screen_archive(
         args.archive,
         args.reference_root,
         known_reference_manifest=args.known_reference_manifest,
         bound_reference_manifest=args.bound_reference_manifest,
+        campaign_directories=SERIES[args.series],
     )
     print(json.dumps({
         "screen_pass": result.passed,
