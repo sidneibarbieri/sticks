@@ -188,7 +188,7 @@ def main():
     CSV_OUT.parent.mkdir(parents=True, exist_ok=True)
     with CSV_OUT.open("w", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(
-            f,
+            f, lineterminator="\n",
             fieldnames=[
                 "claim_id",
                 "paper_anchor",

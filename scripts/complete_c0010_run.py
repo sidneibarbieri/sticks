@@ -61,6 +61,13 @@ def complete_run(run_root: Path) -> None:
     else:
         try:
             evidence = run_root / "evidence"
+            if (evidence / "caldera-session.json").is_file():
+                workspace = run_root / "workspace"
+                subprocess.run(
+                    [sys.executable, str(workspace / "scripts/verify_caldera_run_journal.py"),
+                     "--evidence", str(evidence)],
+                    cwd=workspace, check=True,
+                )
             observation_exists = (evidence / "c0010-target-observation.json").exists()
             transport_exists = (evidence / "c0010-target-observation.transport.json").exists()
             if observation_exists != transport_exists:

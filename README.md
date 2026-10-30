@@ -218,7 +218,7 @@ the packaged target probe, attempts campaign-scoped teardown even when
 observation fails, and seals the final receipt only after success.
 See `lab/vagrant/README.md` for the complete command sequence.
 
-### Prospective C0026 dispatch through CALDERA
+### Prospective target dispatch through CALDERA
 
 This optional path enrolls a fresh Linux target agent, binds dispatch to
 its boot identity, and retains command intents, native links, and results.
@@ -236,6 +236,15 @@ receipt. Run completion even after a failed campaign; failure propagates
 and an invalid journal prevents certification. This controlled C0026
 slice includes an explicit simulation. It does not demonstrate an
 enterprise multi-host pivot. Offline review does not execute this path.
+
+The reviewed C0010 slice uses the same `--caldera-dispatch` option with
+`--campaign 0.c0010`, followed by `scripts/complete_c0010_run.py` and the
+same finalizer/journal checks. It distinguishes four observed controller
+effects from one observed target transfer and four simulations. Only that
+target command is dispatched through CALDERA. Its benign loopback transfer
+does not establish an attacker pivot or historical watering-hole fidelity.
+When bundled, `typed-run-evidence/caldera-c0010.tar.gz` is a separate
+operational receipt; it does not replace the paper's C0026 CALDERA series.
 
 For two sealed QEMU runs created from the same source tree, retain both
 run directories and audit their typed outcomes with:
@@ -277,9 +286,9 @@ STICKS-authored material is released under the MIT License; see
 `LICENSE`. Pinned third-party inputs have separate terms recorded in
 `THIRD_PARTY_NOTICES.md`.
 
-## Typed-run evidence
+## Private typed-run evidence candidate
 
-`typed-run-evidence/c0010-c0026.tar.gz` is included in the tree manifest and audited by `run_review_check.sh`. The check screens changed bytes for recognizable identifiers and secrets, and reports reference-fixture matches separately. This release includes the selected archive. The audit replays sealed receipts and recorded VM states; it does not rerun QEMU or certify historical fidelity. Receipt source hashes identify the archived run source, before the evidence archive and release metadata were added to this package.
+`typed-run-evidence/c0010-c0026.tar.gz` is included in the tree manifest and audited by `run_review_check.sh`. The check screens changed bytes for recognizable identifiers and secrets, and reports reference-fixture matches separately. This selected archive is a private release candidate pending content and privacy approval. The audit replays sealed receipts and recorded VM states; it does not rerun QEMU or certify historical fidelity. Receipt source hashes identify the archived run source, before the evidence archive and release metadata were added to this package.
 The privacy screen compares this archive with the bundled reference manifest byte-identical to both sealed run workspaces. The receipts and source manifests are independently verified. Lexical screening does not replace semantic privacy approval.
 
 ## C0045 compute-effect series (anonymous review)

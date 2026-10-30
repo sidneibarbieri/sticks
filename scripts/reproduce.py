@@ -28,6 +28,8 @@ TYPED_BOUND_REFERENCE_MANIFEST_PATH = (
     PROJECT_ROOT / "typed-run-evidence/reference-run-source-tree.json"
 )
 CALDERA_EVIDENCE_PATH = PROJECT_ROOT / "typed-run-evidence/caldera-c0026.tar.gz"
+CALDERA_C0010_EVIDENCE_PATH = PROJECT_ROOT / "typed-run-evidence/caldera-c0010.tar.gz"
+CALDERA_C0010_REFERENCE_PATH = PROJECT_ROOT / "typed-run-evidence/caldera-c0010-reference-run-source-tree.json"
 CALDERA_BOUND_REFERENCE_MANIFEST_PATH = (
     PROJECT_ROOT / "typed-run-evidence/caldera-reference-run-source-tree.json"
 )
@@ -199,6 +201,20 @@ def _verify_caldera_evidence(manuscript: Path | None) -> None:
     _run(command)
 
 
+def _verify_c0010_caldera_evidence() -> None:
+    if not CALDERA_C0010_EVIDENCE_PATH.is_file():
+        return
+    _run([
+        sys.executable, "-m", "scripts.screen_typed_evidence_privacy",
+        "--archive", str(CALDERA_C0010_EVIDENCE_PATH), "--series", "caldera-c0010",
+        "--bound-reference-manifest", str(CALDERA_C0010_REFERENCE_PATH),
+    ])
+    _run([
+        sys.executable, "-m", "scripts.verify_typed_evidence_archive",
+        "--archive", str(CALDERA_C0010_EVIDENCE_PATH), "--series", "caldera-c0010",
+    ])
+
+
 def _verify_c0045_series_if_present() -> None:
     if C0045_SERIES_ARCHIVE_PATH.is_file():
         _run([
@@ -284,6 +300,7 @@ def main() -> int:
             )
         _run(archive_command)
     _verify_caldera_evidence(args.manuscript)
+    _verify_c0010_caldera_evidence()
     _verify_c0045_series_if_present()
     _verify_c0045_paper_macros(args.manuscript)
     _verify_public_tree_if_present()

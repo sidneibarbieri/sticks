@@ -76,6 +76,7 @@ from runners.c0010_guest_observer import (
     require_c0010_fixture_readiness,
 )  # noqa: E402
 from runners.c0010_runtime_contracts import load_c0010_runtime_contracts  # noqa: E402
+from runners.caldera_campaign_support import SUPPORTED_CALDERA_CAMPAIGNS  # noqa: E402
 from runners.runtime_journal import RuntimeJournalRecord, retain_runtime_record  # noqa: E402
 from runners.lab_runtime_bootstrap import (  # noqa: E402
     bootstrap_lab_authority,
@@ -1362,8 +1363,8 @@ def main():
     parser.add_argument("--caldera-session", type=Path,
                         help="Prepared isolated CALDERA session; API key comes from environment")
     args = parser.parse_args()
-    if args.caldera_session and (not args.require_lab or args.all or args.campaign != "0.c0026"):
-        parser.error("CALDERA session currently requires --require-lab --campaign 0.c0026")
+    if args.caldera_session and (not args.require_lab or args.all or args.campaign not in SUPPORTED_CALDERA_CAMPAIGNS):
+        parser.error("CALDERA session requires --require-lab and a reviewed C0010 or C0026 campaign")
 
     # List mode
     if not args.campaign and not args.all:

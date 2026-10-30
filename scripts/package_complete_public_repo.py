@@ -600,7 +600,7 @@ def write_repo_docs(
         observation fails, and seals the final receipt only after success.
         See `lab/vagrant/README.md` for the complete command sequence.
 
-        ### Prospective C0026 dispatch through CALDERA
+        ### Prospective target dispatch through CALDERA
 
         This optional path enrolls a fresh Linux target agent, binds dispatch to
         its boot identity, and retains command intents, native links, and results.
@@ -618,6 +618,15 @@ def write_repo_docs(
         and an invalid journal prevents certification. This controlled C0026
         slice includes an explicit simulation. It does not demonstrate an
         enterprise multi-host pivot. Offline review does not execute this path.
+
+        The reviewed C0010 slice uses the same `--caldera-dispatch` option with
+        `--campaign 0.c0010`, followed by `scripts/complete_c0010_run.py` and the
+        same finalizer/journal checks. It distinguishes four observed controller
+        effects from one observed target transfer and four simulations. Only that
+        target command is dispatched through CALDERA. Its benign loopback transfer
+        does not establish an attacker pivot or historical watering-hole fidelity.
+        When bundled, `typed-run-evidence/caldera-c0010.tar.gz` is a separate
+        operational receipt; it does not replace the paper's C0026 CALDERA series.
 
         For two sealed QEMU runs created from the same source tree, retain both
         run directories and audit their typed outcomes with:
@@ -899,6 +908,8 @@ def stage(
     c0045_privacy_review: Path | None = None,
     caldera_evidence_archive: Path | None = None,
     caldera_reference_manifest: Path | None = None,
+    caldera_c0010_archive: Path | None = None,
+    caldera_c0010_reference: Path | None = None,
     public_evidence_release: bool = False,
     anonymous_review: bool = False,
     identified_release: bool = False,
@@ -980,11 +991,20 @@ def stage(
                 check=True,
                 env=environment,
             )
-    if (caldera_evidence_archive is None) != (caldera_reference_manifest is None):
-        raise ValueError("The CALDERA archive and its reference manifest go together")
-    if caldera_evidence_archive is not None:
-        caldera_source = caldera_evidence_archive.resolve(strict=True)
-        caldera_reference = caldera_reference_manifest.resolve(strict=True)
+    caldera_sources = []
+    for series, supplied_archive, supplied_reference, target_archive, target_reference in (
+        ("caldera", caldera_evidence_archive, caldera_reference_manifest,
+         CALDERA_EVIDENCE_PATH, CALDERA_REFERENCE_MANIFEST_PATH),
+        ("caldera-c0010", caldera_c0010_archive, caldera_c0010_reference,
+         Path("typed-run-evidence/caldera-c0010.tar.gz"),
+         Path("typed-run-evidence/caldera-c0010-reference-run-source-tree.json")),
+    ):
+        if (supplied_archive is None) != (supplied_reference is None):
+            raise ValueError("The CALDERA archive and its reference manifest go together")
+        if supplied_archive is None:
+            continue
+        caldera_source = supplied_archive.resolve(strict=True)
+        caldera_reference = supplied_reference.resolve(strict=True)
         if caldera_source.is_relative_to(destination.resolve()):
             raise ValueError("CALDERA evidence archive must be outside the destination")
         environment = os.environ.copy()
@@ -998,9 +1018,10 @@ def stage(
         ):
             subprocess.run(
                 [sys.executable, "-m", module, "--archive", str(caldera_source),
-                 "--series", "caldera", *extra],
+                 "--series", series, *extra],
                 cwd=STICKS_ROOT, check=True, env=environment,
             )
+        caldera_sources.append((caldera_source, caldera_reference, target_archive, target_reference))
     if c0045_series_archive is not None:
         source_series = c0045_series_archive.resolve(strict=True)
         if source_series.is_relative_to(destination.resolve()):
@@ -1074,11 +1095,11 @@ def stage(
                 else TYPED_REFERENCE_MANIFEST_PATH
             )
             shutil.copyfile(reference_source, destination / target_reference)
-    if caldera_evidence_archive is not None:
-        target = destination / CALDERA_EVIDENCE_PATH
+    for caldera_source, caldera_reference, target_archive, target_reference in caldera_sources:
+        target = destination / target_archive
         target.parent.mkdir(parents=True, exist_ok=True)
         shutil.copyfile(caldera_source, target)
-        shutil.copyfile(caldera_reference, destination / CALDERA_REFERENCE_MANIFEST_PATH)
+        shutil.copyfile(caldera_reference, destination / target_reference)
     if c0045_series_archive is not None:
         target = destination / C0045_SERIES_ARCHIVE_PATH
         target.parent.mkdir(parents=True, exist_ok=True)
@@ -1188,6 +1209,10 @@ def main() -> int:
         type=Path,
         help="manifest byte-identical to the CALDERA run's sealed source workspace",
     )
+    parser.add_argument("--caldera-c0010-archive", type=Path,
+                        help="screened operational C0010 CALDERA archive")
+    parser.add_argument("--caldera-c0010-reference", type=Path,
+                        help="manifest bound to the sealed C0010 source workspace")
     parser.add_argument(
         "--c0045-series-archive",
         type=Path,
@@ -1242,6 +1267,8 @@ def main() -> int:
         c0045_privacy_review=args.c0045_privacy_review,
         caldera_evidence_archive=args.caldera_evidence_archive,
         caldera_reference_manifest=args.caldera_reference_manifest,
+        caldera_c0010_archive=args.caldera_c0010_archive,
+        caldera_c0010_reference=args.caldera_c0010_reference,
         public_evidence_release=args.public_evidence_release,
         anonymous_review=args.anonymous_review,
         identified_release=args.identified_release,

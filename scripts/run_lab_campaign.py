@@ -26,6 +26,7 @@ from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(PROJECT_ROOT / "src"))
+from runners.caldera_campaign_support import SUPPORTED_CALDERA_CAMPAIGNS
 UP_LAB_SCRIPT = PROJECT_ROOT / "scripts" / "up_lab.sh"
 DESTROY_LAB_SCRIPT = PROJECT_ROOT / "scripts" / "destroy_lab.sh"
 RUN_CAMPAIGN_SCRIPT = PROJECT_ROOT / "scripts" / "run_campaign.py"
@@ -242,8 +243,8 @@ def _parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
     args = parser.parse_args(argv)
     if args.caldera_session and args.caldera_dispatch:
         parser.error("Select either a prepared session or fresh CALDERA enrollment")
-    if (args.caldera_session or args.caldera_dispatch) and args.campaign != "0.c0026":
-        parser.error("CALDERA session currently supports only 0.c0026")
+    if (args.caldera_session or args.caldera_dispatch) and args.campaign not in SUPPORTED_CALDERA_CAMPAIGNS:
+        parser.error("CALDERA session requires a reviewed C0010 or C0026 campaign")
     return args
 
 

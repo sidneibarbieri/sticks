@@ -1284,7 +1284,7 @@ def analyze_campaign_factual_structure(campaigns, techniques, rel_fwd, rel_rev,
     if rows:
         fieldnames = list(rows[0].keys())
         with open(csv_path, 'w', newline='', encoding='utf-8') as f:
-            writer = csv.DictWriter(f, fieldnames=fieldnames)
+            writer = csv.DictWriter(f, lineterminator="\n", fieldnames=fieldnames)
             writer.writeheader()
             writer.writerows(sorted(rows, key=lambda r: r['campaign_name']))
         print(f"  [AUDIT] Wrote {csv_path.name} ({len(rows)} campaigns)")
@@ -1490,7 +1490,7 @@ def infer_campaign_environment(campaign_fact_rows, software_objects, by_id,
     if rows:
         fieldnames = list(rows[0].keys())
         with open(csv_path, 'w', newline='', encoding='utf-8') as f:
-            writer = csv.DictWriter(f, fieldnames=fieldnames)
+            writer = csv.DictWriter(f, lineterminator="\n", fieldnames=fieldnames)
             writer.writeheader()
             writer.writerows(sorted(rows, key=lambda r: r['campaign_name']))
         print(f"  [AUDIT] Wrote {csv_path.name} ({len(rows)} campaigns)")
@@ -1600,7 +1600,7 @@ def analyze_evidence_convergence(campaign_fact_rows, env_inference_rows):
     if rows:
         fieldnames = list(rows[0].keys())
         with open(csv_path, 'w', newline='', encoding='utf-8') as f:
-            writer = csv.DictWriter(f, fieldnames=fieldnames)
+            writer = csv.DictWriter(f, lineterminator="\n", fieldnames=fieldnames)
             writer.writeheader()
             writer.writerows(sorted(rows, key=lambda r: r['campaign_name']))
         print(f"  [AUDIT] Wrote {csv_path.name} ({len(rows)} campaigns)")
@@ -2950,7 +2950,7 @@ def main():
         print("  All CVE IDs pass NVD format validation.")
     # Export validation audit CSV
     with open(AUDIT_DIR / 'cve_validation.csv', 'w', newline='') as f:
-        writer = csv.DictWriter(f, fieldnames=['cve_id', 'status', 'reason', 'detail'])
+        writer = csv.DictWriter(f, lineterminator="\n", fieldnames=['cve_id', 'status', 'reason', 'detail'])
         writer.writeheader()
         for v in cve_validation['valid']:
             writer.writerow({
@@ -3845,7 +3845,7 @@ def main():
     # ── Save audit CSVs ──
     # Campaign software details
     with open(AUDIT_DIR / 'campaign_software.csv', 'w', newline='') as f:
-        writer = csv.DictWriter(f, fieldnames=['campaign_name', 'campaign_id', 'software_count'])
+        writer = csv.DictWriter(f, lineterminator="\n", fieldnames=['campaign_name', 'campaign_id', 'software_count'])
         writer.writeheader()
         for row in software_results['campaign_details']:
             writer.writerow({k: row[k] for k in ['campaign_name', 'campaign_id', 'software_count']})
@@ -3854,7 +3854,7 @@ def main():
     if version_enrichment['enriched_examples']:
         with open(AUDIT_DIR / 'software_version_enrichment.csv', 'w', newline='') as f:
             writer = csv.DictWriter(
-                f,
+                f, lineterminator="\n",
                 fieldnames=['name', 'id', 'matched_version', 'description_snippet']
             )
             writer.writeheader()
@@ -3865,7 +3865,7 @@ def main():
     # Campaign platform inference details (software-only)
     with open(AUDIT_DIR / 'campaign_platforms_software_only.csv', 'w', newline='') as f:
         writer = csv.DictWriter(
-            f,
+            f, lineterminator="\n",
             fieldnames=[
                 'campaign_name', 'campaign_id', 'software_count', 'platform_signal',
                 'os_families', 'raw_platforms', 'non_os_platforms', 'unknown_reason'
@@ -3886,21 +3886,21 @@ def main():
 
     # Campaign OS family aggregate counts (multi-label over campaigns)
     with open(AUDIT_DIR / 'campaign_os_family_counts.csv', 'w', newline='') as f:
-        writer = csv.DictWriter(f, fieldnames=['os_family', 'campaign_count'])
+        writer = csv.DictWriter(f, lineterminator="\n", fieldnames=['os_family', 'campaign_count'])
         writer.writeheader()
         for fam, count in software_results['campaign_os_family_counts'].items():
             writer.writerow({'os_family': fam, 'campaign_count': count})
 
     # Campaign non-OS platform aggregate counts
     with open(AUDIT_DIR / 'campaign_non_os_platform_counts.csv', 'w', newline='') as f:
-        writer = csv.DictWriter(f, fieldnames=['platform_label', 'campaign_count'])
+        writer = csv.DictWriter(f, lineterminator="\n", fieldnames=['platform_label', 'campaign_count'])
         writer.writeheader()
         for label, count in software_results['campaign_non_os_platform_counts'].items():
             writer.writerow({'platform_label': label, 'campaign_count': count})
 
     # Campaigns with unknown platform signal under software-only inference
     with open(AUDIT_DIR / 'campaign_platform_unknown.csv', 'w', newline='') as f:
-        writer = csv.DictWriter(f, fieldnames=['campaign_name'])
+        writer = csv.DictWriter(f, lineterminator="\n", fieldnames=['campaign_name'])
         writer.writeheader()
         for name in software_results['campaign_unknown_platform_names']:
             writer.writerow({'campaign_name': name})
@@ -3908,7 +3908,7 @@ def main():
     # Campaign CVE details
     with open(AUDIT_DIR / 'campaign_cves.csv', 'w', newline='') as f:
         writer = csv.DictWriter(
-            f,
+            f, lineterminator="\n",
             fieldnames=[
                 'campaign_name',
                 'campaign_id',
@@ -3939,7 +3939,7 @@ def main():
             if m:
                 campaign_cve_year_counter[m.group(1)] += 1
     with open(AUDIT_DIR / 'campaign_cve_year_distribution.csv', 'w', newline='') as f:
-        writer = csv.DictWriter(f, fieldnames=['cve_year', 'count'])
+        writer = csv.DictWriter(f, lineterminator="\n", fieldnames=['cve_year', 'count'])
         writer.writeheader()
         for year, count in sorted(campaign_cve_year_counter.items()):
             writer.writerow({'cve_year': year, 'count': count})
@@ -3947,7 +3947,7 @@ def main():
     # Campaign-level SUT profile completeness tiers
     with open(AUDIT_DIR / 'campaign_profile_completeness.csv', 'w', newline='') as f:
         writer = csv.DictWriter(
-            f,
+            f, lineterminator="\n",
             fieldnames=[
                 'campaign_name', 'campaign_id', 'has_software', 'has_platform_signal',
                 'has_precision_anchor', 'has_campaign_cve', 'tier_t1_coarse',
@@ -3961,7 +3961,7 @@ def main():
     # IS CVE details
     with open(AUDIT_DIR / 'is_cves.csv', 'w', newline='') as f:
         writer = csv.DictWriter(
-            f,
+            f, lineterminator="\n",
             fieldnames=[
                 'is_name',
                 'cve_count_structured',
@@ -3985,7 +3985,7 @@ def main():
     # Initial Access campaign details
     with open(AUDIT_DIR / 'initial_access_campaigns.csv', 'w', newline='') as f:
         writer = csv.DictWriter(
-            f,
+            f, lineterminator="\n",
             fieldnames=[
                 'campaign_name', 'campaign_id', 'has_initial_access', 'has_social_proxy',
                 'campaign_cve_count', 'initial_access_technique_count', 'initial_access_techniques'
@@ -4005,7 +4005,7 @@ def main():
 
     # Initial Access technique frequency across campaigns
     with open(AUDIT_DIR / 'initial_access_techniques.csv', 'w', newline='') as f:
-        writer = csv.DictWriter(f, fieldnames=['technique_name', 'campaign_count'])
+        writer = csv.DictWriter(f, lineterminator="\n", fieldnames=['technique_name', 'campaign_count'])
         writer.writeheader()
         for name, count in initial_access_results['top_initial_access_techniques']:
             writer.writerow({'technique_name': name, 'campaign_count': count})
@@ -4013,7 +4013,7 @@ def main():
     # Technique compatibility classification
     with open(AUDIT_DIR / 'technique_compatibility.csv', 'w', newline='') as f:
         writer = csv.DictWriter(
-            f,
+            f, lineterminator="\n",
             fieldnames=[
                 'name', 'id', 'external_id', 'attack_url', 'class', 'tactics',
                 'platforms', 'permissions', 'rule_id', 'rule_desc',
@@ -4041,7 +4041,7 @@ def main():
     # Rule-level breakdown for compatibility assignments
     with open(AUDIT_DIR / 'compatibility_rule_breakdown.csv', 'w', newline='') as f:
         writer = csv.DictWriter(
-            f,
+            f, lineterminator="\n",
             fieldnames=[
                 'class', 'rule_id', 'rule_desc', 'count',
                 'pct_within_class', 'pct_all_techniques'
@@ -4054,7 +4054,7 @@ def main():
     # Stratified sample for manual validation of compatibility labels
     with open(AUDIT_DIR / 'compatibility_validation_sample.csv', 'w', newline='') as f:
         writer = csv.DictWriter(
-            f,
+            f, lineterminator="\n",
             fieldnames=[
                 'sample_class', 'technique_name', 'technique_stix_id',
                 'technique_external_id', 'attack_url', 'tactics', 'platforms',
@@ -4070,7 +4070,7 @@ def main():
     # Compatibility sensitivity under alternative defaults
     with open(AUDIT_DIR / 'compatibility_default_sensitivity.csv', 'w', newline='') as f:
         writer = csv.DictWriter(
-            f,
+            f, lineterminator="\n",
             fieldnames=[
                 'default_class', 'cf_count', 'cf_pct', 'vmr_count', 'vmr_pct',
                 'id_count', 'id_pct', 'unresolved_count', 'unresolved_pct',
@@ -4085,7 +4085,7 @@ def main():
     # Compatibility distribution by tactic (exploratory)
     with open(AUDIT_DIR / 'compatibility_by_tactic.csv', 'w', newline='') as f:
         writer = csv.DictWriter(
-            f,
+            f, lineterminator="\n",
             fieldnames=[
                 'tactic', 'total', 'cf_count', 'cf_pct',
                 'vmr_count', 'vmr_pct', 'id_count', 'id_pct',
@@ -4098,7 +4098,7 @@ def main():
 
     # IS software details
     with open(AUDIT_DIR / 'is_software.csv', 'w', newline='') as f:
-        writer = csv.DictWriter(f, fieldnames=['is_name', 'is_id', 'software_count'])
+        writer = csv.DictWriter(f, lineterminator="\n", fieldnames=['is_name', 'is_id', 'software_count'])
         writer.writeheader()
         for row in software_results['is_details']:
             writer.writerow(row)
@@ -4106,7 +4106,7 @@ def main():
     # Per-IS nearest-neighbor specificity rows (software-only)
     with open(AUDIT_DIR / 'profile_specificity_software_only.csv', 'w', newline='') as f:
         writer = csv.DictWriter(
-            f,
+            f, lineterminator="\n",
             fieldnames=['intrusion_set_id', 'feature_count', 'nearest_neighbor_id', 'nearest_distance', 'confused']
         )
         writer.writeheader()
@@ -4116,7 +4116,7 @@ def main():
     # Per-IS nearest-neighbor specificity rows (technique-only behavior profiles, exploratory)
     with open(AUDIT_DIR / 'profile_specificity_technique_only.csv', 'w', newline='') as f:
         writer = csv.DictWriter(
-            f,
+            f, lineterminator="\n",
             fieldnames=['intrusion_set_id', 'feature_count', 'nearest_neighbor_id', 'nearest_distance', 'confused']
         )
         writer.writeheader()
@@ -4126,7 +4126,7 @@ def main():
     # Profile specificity ablation summary at delta=0.10
     with open(AUDIT_DIR / 'profile_ablation_summary.csv', 'w', newline='') as f:
         writer = csv.DictWriter(
-            f,
+            f, lineterminator="\n",
             fieldnames=['setting', 'unique_count', 'unique_pct', 'confused_count', 'confused_pct', 'total_is', 'num_features']
         )
         writer.writeheader()
@@ -4152,7 +4152,7 @@ def main():
     # Confusion curve by minimum software evidence threshold
     with open(AUDIT_DIR / 'evidence_threshold_curve.csv', 'w', newline='') as f:
         writer = csv.DictWriter(
-            f,
+            f, lineterminator="\n",
             fieldnames=['min_software_count', 'sample_size', 'confused_count', 'confusion_pct']
         )
         writer.writeheader()
@@ -4162,7 +4162,7 @@ def main():
     # Confusion curve by minimum technique evidence threshold (exploratory)
     with open(AUDIT_DIR / 'evidence_threshold_curve_technique_profile.csv', 'w', newline='') as f:
         writer = csv.DictWriter(
-            f,
+            f, lineterminator="\n",
             fieldnames=['min_technique_count', 'sample_size', 'confused_count', 'confusion_pct']
         )
         writer.writeheader()
@@ -4177,7 +4177,7 @@ def main():
     # Confusion sensitivity across multiple Jaccard deltas
     with open(AUDIT_DIR / 'delta_sensitivity.csv', 'w', newline='') as f:
         writer = csv.DictWriter(
-            f,
+            f, lineterminator="\n",
             fieldnames=['delta', 'sample_size', 'confused_count', 'confusion_pct']
         )
         writer.writeheader()
@@ -4187,7 +4187,7 @@ def main():
     # Bootstrap distribution for confusion/unique rates at delta=0.10
     with open(AUDIT_DIR / 'bootstrap_confusion_distribution.csv', 'w', newline='') as f:
         writer = csv.DictWriter(
-            f,
+            f, lineterminator="\n",
             fieldnames=['stat', 'confusion_pct', 'unique_pct']
         )
         writer.writeheader()
@@ -4197,7 +4197,7 @@ def main():
     # Null-model confusion distribution (cardinality-preserving)
     with open(AUDIT_DIR / 'null_model_confusion_distribution.csv', 'w', newline='') as f:
         writer = csv.DictWriter(
-            f,
+            f, lineterminator="\n",
             fieldnames=['iteration', 'confused_count', 'confusion_pct']
         )
         writer.writeheader()
@@ -4206,7 +4206,7 @@ def main():
 
     # Platform distribution
     with open(AUDIT_DIR / 'platform_distribution.csv', 'w', newline='') as f:
-        writer = csv.DictWriter(f, fieldnames=['platform', 'technique_count'])
+        writer = csv.DictWriter(f, lineterminator="\n", fieldnames=['platform', 'technique_count'])
         writer.writeheader()
         for platform, count in sorted(platform_results['platform_distribution'].items(),
                                        key=lambda x: -x[1]):
@@ -4214,7 +4214,7 @@ def main():
 
     # All CVEs found
     with open(AUDIT_DIR / 'all_cves.csv', 'w', newline='') as f:
-        writer = csv.DictWriter(f, fieldnames=['cve_id', 'source'])
+        writer = csv.DictWriter(f, lineterminator="\n", fieldnames=['cve_id', 'source'])
         writer.writeheader()
         for cve in sorted(cve_results['structured_cves']):
             writer.writerow({'cve_id': cve, 'source': 'structured'})
@@ -4237,7 +4237,7 @@ def main():
 
     with open(AUDIT_DIR / 'cve_mentions_by_tactic.csv', 'w', newline='') as f:
         writer = csv.DictWriter(
-            f,
+            f, lineterminator="\n",
             fieldnames=[
                 'tactic',
                 'technique_count',
@@ -4260,7 +4260,7 @@ def main():
     # Cross-domain coverage plus evidence density (exploratory).
     with open(AUDIT_DIR / 'cross_domain_coverage_density.csv', 'w', newline='') as f:
         writer = csv.DictWriter(
-            f,
+            f, lineterminator="\n",
             fieldnames=[
                 'domain',
                 'attack_pattern_n',
@@ -4299,7 +4299,7 @@ def main():
     # Campaign-level exploratory correlation summaries.
     with open(AUDIT_DIR / 'campaign_correlation_summary.csv', 'w', newline='') as f:
         writer = csv.DictWriter(
-            f,
+            f, lineterminator="\n",
             fieldnames=['metric', 'value', 'note'],
         )
         writer.writeheader()
@@ -4309,7 +4309,7 @@ def main():
     # Campaign-level platform inference quality checks (software-derived signal only).
     with open(AUDIT_DIR / 'platform_inference_quality_summary.csv', 'w', newline='') as f:
         writer = csv.DictWriter(
-            f,
+            f, lineterminator="\n",
             fieldnames=['metric', 'value', 'note'],
         )
         writer.writeheader()

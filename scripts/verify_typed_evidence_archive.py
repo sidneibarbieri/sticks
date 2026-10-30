@@ -26,7 +26,7 @@ from scripts.render_typed_campaign_outcomes_tex import (  # noqa: E402
 CAMPAIGN_DIRECTORIES = ("c0010", "c0026")
 # Each series is one archive: the cold QEMU cycles, and the C0026 cycle whose
 # commands were dispatched through CALDERA.
-SERIES = {"qemu": CAMPAIGN_DIRECTORIES, "caldera": ("c0026",)}
+SERIES = {"qemu": CAMPAIGN_DIRECTORIES, "caldera": ("c0026",), "caldera-c0010": ("c0010",)}
 PAPER_RENDERERS = {"qemu": render_tex, "caldera": render_caldera_tex}
 MAX_MEMBERS = 15_000
 MAX_FILE_BYTES = 64 * 1024 * 1024
@@ -91,18 +91,28 @@ def extract_members(
 
 
 def verify_archive(
-    path: Path, campaign_directories: tuple[str, ...] = CAMPAIGN_DIRECTORIES
+    path: Path, campaign_directories: tuple[str, ...] = CAMPAIGN_DIRECTORIES,
+    *, require_caldera: bool = False,
 ) -> list[CampaignOutcome]:
     with tempfile.TemporaryDirectory(prefix="sticks-typed-evidence-") as temporary:
         destination = Path(temporary)
         with tarfile.open(path, mode="r:gz") as archive:
             extract_members(archive, destination, campaign_directories)
-        return audit_runs([destination / name for name in campaign_directories])
+        roots = [destination / name for name in campaign_directories]
+        outcomes = audit_runs(roots)
+        if require_caldera:
+            from scripts.verify_caldera_run_journal import verify_journal
+
+            for root in roots:
+                verify_journal(root / "evidence")
+        return outcomes
 
 
 def verify_paper_outcomes(
     outcomes: list[CampaignOutcome], paper_file: Path, series: str = "qemu"
 ) -> None:
+    if series not in PAPER_RENDERERS:
+        raise ValueError("This operational series has no registered manuscript result")
     expected = PAPER_RENDERERS[series](outcomes)
     actual = paper_file.read_text(encoding="utf-8")
     if actual != expected:
@@ -117,7 +127,9 @@ def main() -> int:
     parser.add_argument("--paper-outcomes", type=Path)
     parser.add_argument("--series", choices=sorted(SERIES), default="qemu")
     args = parser.parse_args()
-    outcomes = verify_archive(args.archive, SERIES[args.series])
+    outcomes = verify_archive(
+        args.archive, SERIES[args.series], require_caldera=args.series.startswith("caldera")
+    )
     if args.paper_outcomes is not None:
         verify_paper_outcomes(outcomes, args.paper_outcomes, args.series)
     print(

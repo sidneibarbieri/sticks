@@ -9,6 +9,23 @@ import pytest
 from scripts import complete_c0010_run as completion
 
 
+def test_invalid_caldera_journal_still_tears_down(tmp_path, monkeypatch):
+    run_root = make_run(tmp_path)
+    (run_root / "evidence/caldera-session.json").write_text("{}")
+    calls = []
+
+    def reject_journal(*args, **kwargs):
+        raise subprocess.CalledProcessError(1, args[0])
+
+    monkeypatch.setattr(completion.subprocess, "run", reject_journal)
+    monkeypatch.setattr(completion, "observe_target", lambda _: calls.append("observe"))
+    monkeypatch.setattr(completion, "destroy_lab", lambda _: calls.append("destroy"))
+    monkeypatch.setattr(completion, "finalize_run", lambda _: calls.append("finalize"))
+    with pytest.raises(subprocess.CalledProcessError):
+        completion.complete_run(run_root)
+    assert calls == ["destroy"]
+
+
 def make_run(tmp_path: Path, exit_code: int = 0) -> Path:
     run_root = tmp_path / "run"
     workspace = run_root / "workspace"

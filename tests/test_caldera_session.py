@@ -52,7 +52,8 @@ def test_boot_probe_is_challenge_bound(monkeypatch, stale):
         caldera_session.require_session_boot(session)
 
 
-def test_runner_executes_campaign_inside_selected_session(tmp_path, monkeypatch):
+@pytest.mark.parametrize("campaign", ["0.c0010", "0.c0026"])
+def test_runner_executes_campaign_inside_selected_session(tmp_path, monkeypatch, campaign):
     active = []
 
     @contextmanager
@@ -71,13 +72,13 @@ def test_runner_executes_campaign_inside_selected_session(tmp_path, monkeypatch)
 
     monkeypatch.setattr(caldera_session, "campaign_caldera_session", selected)
     monkeypatch.setattr(campaign_runner, "UnifiedCampaignRunner", Runner)
-    monkeypatch.setattr("sys.argv", ["run_campaign", "--campaign", "0.c0026", "--require-lab",
+    monkeypatch.setattr("sys.argv", ["run_campaign", "--campaign", campaign, "--require-lab",
                                      "--caldera-session", "session.json", "--output", str(tmp_path)])
     assert campaign_runner.main() == 0
     assert active == []
 
 
-@pytest.mark.parametrize("arguments", [[], ["--all"], ["--campaign", "0.c0010", "--require-lab"]])
+@pytest.mark.parametrize("arguments", [[], ["--all"], ["--campaign", "0.c0045", "--require-lab"]])
 def test_runner_rejects_unsupported_session_selection(monkeypatch, arguments):
     monkeypatch.setattr("sys.argv", ["run_campaign", "--caldera-session", "session.json", *arguments])
     with pytest.raises(SystemExit) as error:

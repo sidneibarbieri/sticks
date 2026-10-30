@@ -22,6 +22,8 @@ else:
 
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(PROJECT_ROOT / "src"))
+from runners.caldera_campaign_support import SUPPORTED_CALDERA_CAMPAIGNS
 RUNTIME_DIRECTORIES = {
     ".mypy_cache",
     ".playwright-cli",
@@ -246,8 +248,8 @@ def main() -> int:
     args = parse_args()
     if args.caldera_session and args.caldera_dispatch:
         raise ValueError("Select either a prepared session or fresh enrollment")
-    if (args.caldera_session or args.caldera_dispatch) and args.campaign != "0.c0026":
-        raise ValueError("CALDERA session currently supports only 0.c0026")
+    if (args.caldera_session or args.caldera_dispatch) and args.campaign not in SUPPORTED_CALDERA_CAMPAIGNS:
+        raise ValueError("CALDERA session requires a reviewed C0010 or C0026 campaign")
     if args.caldera_session and not args.caldera_session.is_file():
         raise FileNotFoundError(args.caldera_session)
     if args.campaign == "0.shadowray":
