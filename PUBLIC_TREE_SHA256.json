@@ -11,7 +11,7 @@
   "excluded_runtime_roots": [
     "runs"
   ],
-  "file_count": 2987,
+  "file_count": 2988,
   "files": {
     ".gitignore": {
       "sha256": "4ab313af22acd8a7fbad67346992ed063f780db81a11aae49ae804d366f97506",
@@ -10202,8 +10202,8 @@
       "size": 842
     },
     "scripts/verify_caldera_run_journal.py": {
-      "sha256": "288b696dce41a1f28008c68ade1ebd236be6c147cbf186a7d1f6f6222c2b8421",
-      "size": 3636
+      "sha256": "2225bac33502964054ae7050f5146ffec6202acb69efad4d16a99381d57ea979",
+      "size": 799
     },
     "scripts/verify_claims.py": {
       "sha256": "99970e3fcf815c044f24ead5bcdd1486ee7821a2af300d5728cba16d6834e9fe",
@@ -10222,8 +10222,8 @@
       "size": 1762
     },
     "scripts/verify_typed_evidence_archive.py": {
-      "sha256": "2c3583c21c7bf83d6ad7e7cad09221b681af742abe854dde1bb825fc1f490905",
-      "size": 5313
+      "sha256": "804d9113b0d6bf42cc7cacb8de8661e408799973a6f94bc2c370bba2622467d8",
+      "size": 5302
     },
     "setup.sh": {
       "sha256": "d76aeeb4e91bcff6372239f2a88a84387c8c802e7fbee60b88d3cdf060aa1cff",
@@ -10749,6 +10749,10 @@
       "sha256": "3195384554a46f57db2a67ee58b1868c17456dad799174de4b0131ae053d488b",
       "size": 144
     },
+    "src/runners/caldera_journal.py": {
+      "sha256": "5d65b306cf2e4ce2ad6880b691f56597d3fd68347241fe6b3dbc45a8babce23f",
+      "size": 4588
+    },
     "src/runners/caldera_lab_bootstrap.py": {
       "sha256": "b34dfe062de974a1bc53e0b3edff235679ef94c368d4448f1d0375f2109a9045",
       "size": 5455
@@ -11150,8 +11154,8 @@
       "size": 4082
     },
     "tests/test_caldera_typed_series.py": {
-      "sha256": "95380fe7636964e621b3c517edf0f491f03bf1a68acb5b6a0f2b5b345e056bb1",
-      "size": 3469
+      "sha256": "deea93937f3f27dce82e73a867277e59825df37924baff14ffe1559aa64a6e7d",
+      "size": 3458
     },
     "tests/test_campaign_expansion_executors.py": {
       "sha256": "f4e36527cf2352d3dfb8303964c621ccb3acde4aacf2ca2f3f568bc000472238",
@@ -11894,8 +11898,8 @@
       "size": 6533
     },
     "tests/test_verify_caldera_run_journal.py": {
-      "sha256": "f71d1eb8add0a7749d95eedcf399912381b8043c9fc279ca3ba6252911310138",
-      "size": 3018
+      "sha256": "7b083ae16f230ee10c12ee3d449ae3340976468994d635961c38d28c235f23bf",
+      "size": 4957
     },
     "tests/test_verify_socket_vmnet_transport.py": {
       "sha256": "33359d7ab397720c01d2de1490335c423dac653fe9d971a389b0eda9182a37b7",
@@ -11963,5 +11967,5 @@
     }
   },
   "schema_version": "1",
-  "tree_sha256": "1417169b05266e9cc569f6d1b14029cb10479e5ebd443edde47911c1bad854c7"
+  "tree_sha256": "153d4f1e5ed1633280d9c1a37eee1c34d585ee6de787c277e81a503cb4e82acf"
 }

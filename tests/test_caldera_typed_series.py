@@ -8,7 +8,7 @@ from scripts.audit_typed_campaign_outcomes import CampaignOutcome
 from scripts.render_typed_campaign_outcomes_tex import render_caldera_tex
 from scripts.verify_typed_evidence_archive import SERIES, validate_members
 from scripts import verify_typed_evidence_archive as verifier
-from scripts import verify_caldera_run_journal as journal
+from runners import caldera_journal as journal
 from scripts import reproduce
 
 

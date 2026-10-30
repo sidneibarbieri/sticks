@@ -101,7 +101,7 @@ def verify_archive(
         roots = [destination / name for name in campaign_directories]
         outcomes = audit_runs(roots)
         if require_caldera:
-            from scripts.verify_caldera_run_journal import verify_journal
+            from runners.caldera_journal import verify_journal
 
             for root in roots:
                 verify_journal(root / "evidence")
