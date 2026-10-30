@@ -1,0 +1,15 @@
+{
+  "cell": "wrong_hostname_exit_zero",
+  "container_id": "195f592af60b9ecefb097ee75dadb097934e4468fadb06c5f0f44d440011e358",
+  "image_id": "sha256:673719e071ecf27434fd2635bbd8d00f49f4fdd81f243143438a42ced8bedf60",
+  "contract_sha256": "d3d2ebb04c3a59162e88ee0116366c65fbaefdc59156f757a79fb982af85f990",
+  "executed_command": "printf 'wrong-hostname\\n'",
+  "command_matches_source": false,
+  "returncode": 0,
+  "stdout": "wrong-hostname\n",
+  "stderr": "",
+  "observed_hostname": "sut-atomic-hostname",
+  "predicate_passed": false,
+  "expected_predicate": false,
+  "teardown_verified": false
+}

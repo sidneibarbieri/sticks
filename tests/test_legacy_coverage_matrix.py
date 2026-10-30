@@ -325,3 +325,34 @@ def test_parity_audit_writes_only_to_requested_output_directory(monkeypatch, tmp
     assert (tmp_path / "legacy_parity_report.json").is_file()
     assert (tmp_path / "LEGACY_PARITY_REPORT.md").is_file()
     assert module.DEFAULT_OUTPUT_DIR == PROJECT_ROOT / "runs/legacy-parity"
+
+
+def test_parity_detects_lost_occurrence_despite_identical_technique_sets(monkeypatch, tmp_path):
+    script_path = PROJECT_ROOT / "scripts/audit_legacy_parity.py"
+    spec = importlib.util.spec_from_file_location("legacy_parity_multiplicity", script_path)
+    assert spec is not None and spec.loader is not None
+    module = importlib.util.module_from_spec(spec)
+    sys.modules[spec.name] = module
+    spec.loader.exec_module(module)
+    historical = tmp_path / "historical"
+    published = tmp_path / "published"
+    historical.mkdir()
+    published.mkdir()
+    (historical / "example_dag.json").write_text(json.dumps({
+        "structural_nodes": [{"technique_id": technique}
+                             for technique in ("T1105", "T1105", "T1082")],
+    }))
+    (published / "0.example.json").write_text(json.dumps({
+        "techniques": [{"technique_id": technique} for technique in ("T1105", "T1082")],
+    }))
+    monkeypatch.setattr(module, "DOCKER_DAG_DIR", historical)
+    monkeypatch.setattr(module, "PUBLISHED_CAMPAIGNS_DIR", published)
+    report = module.build_report()
+    campaign = report["campaigns"][0]
+    assert report["docker_technique_universe"] == 2
+    assert report["docker_occurrences"] == 3
+    assert report["matched_docker_occurrences"] == 2
+    assert campaign["exact_technique_match"] is True
+    assert campaign["exact_occurrence_match"] is False
+    assert campaign["migration_readiness"] == "occurrence_gap"
+    assert report["exact_occurrence_matches"] == []

@@ -1,0 +1,15 @@
+{
+  "cell": "empty_output_exit_zero",
+  "container_id": "3c4c960b63acdbd37d9ce59ecb3deecaa8f7f724286e8e0d094bec10211c1ee8",
+  "image_id": "sha256:673719e071ecf27434fd2635bbd8d00f49f4fdd81f243143438a42ced8bedf60",
+  "contract_sha256": "01aaf26696d5b23e2e2ed8b7a402011569671885062cc200badbbb964e44d21d",
+  "executed_command": "true",
+  "command_matches_source": false,
+  "returncode": 0,
+  "stdout": "",
+  "stderr": "",
+  "observed_hostname": "sut-atomic-hostname",
+  "predicate_passed": false,
+  "expected_predicate": false,
+  "teardown_verified": false
+}

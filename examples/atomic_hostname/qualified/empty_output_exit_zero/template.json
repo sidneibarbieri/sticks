@@ -1,0 +1,21 @@
+{
+  "template_id": "art-hostname-discovery",
+  "technique_ids": [
+    "T1082"
+  ],
+  "execution_domain": "target",
+  "parameter_kinds": {
+    "target": "target_host"
+  },
+  "requires": [
+    "lab.shell.ready"
+  ],
+  "produces": [
+    "discovery.target_hostname"
+  ],
+  "evidence_predicates": [
+    "hostname_matches_independent_target_identity"
+  ],
+  "fidelity_ceiling": "adapted",
+  "description": "Run the unchanged external hostname command on the bound Linux target."
+}

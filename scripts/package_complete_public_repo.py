@@ -19,6 +19,7 @@ import textwrap
 from pathlib import Path
 
 STICKS_ROOT = Path(__file__).resolve().parents[1]
+sys.path[:0] = (str(STICKS_ROOT / "src"), str(STICKS_ROOT))
 PAPER_AUTHORING_RUNS = tuple(json.loads(
     (STICKS_ROOT / "release" / "experiments" / "stage2_authoring" / "paper_runs.json").read_text(encoding="utf-8")
 )["run_ids"])
@@ -91,6 +92,7 @@ ROOT_DIRS = [
     "artifact",
     "campaigns",
     "data",
+    "examples/atomic_hostname",
     "infra",
     "lab",
     "measurement",
@@ -948,7 +950,13 @@ def stage(
     if c0045_series_archive is not None and (
         identified_release or (public_evidence_release and not anonymous_review)
     ):
-        raise ValueError("C0045 series is approved only for anonymous review")
+        from runners.c0045_privacy_review import verify_c0045_privacy_review
+
+        if c0045_privacy_review is None or not c0045_privacy_review.is_file():
+            raise ValueError("C0045 series is approved only for anonymous review without an identified release record")
+        verify_c0045_privacy_review(
+            c0045_series_archive, c0045_privacy_review, require_identified=True,
+        )
     if (
         release_candidate
         and typed_evidence_archive is not None
@@ -1081,7 +1089,7 @@ def stage(
         bundled_typed_reference=typed_evidence_reference_manifest is not None,
         bundled_bound_typed_reference=typed_evidence_bound_reference_manifest is not None,
         bundled_c0045_series=c0045_series_archive is not None,
-        public_evidence_release=public_evidence_release,
+        public_evidence_release=public_evidence_release or identified_release,
         anonymous_review=anonymous_review,
     )
     if typed_evidence_archive is not None:

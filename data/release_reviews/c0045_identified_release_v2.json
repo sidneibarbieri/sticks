@@ -1,0 +1,20 @@
+{
+  "schema_version": "c0045-privacy-review/v2",
+  "archive_sha256": "90fc056112b4f8f575bd650ca9b74f273d81ad21650473b9fba9e629ec2893c9",
+  "json_members": 250,
+  "lexical_screen_passed": true,
+  "reviewer_role": "artifact_privacy_reviewer",
+  "checked_categories": [
+    "author_machine_paths",
+    "credentials",
+    "external_network_endpoints",
+    "personal_identifiers",
+    "tenant_or_organization_identifiers"
+  ],
+  "approved_for_anonymous_review": true,
+  "approved_for_identified_release": true,
+  "predecessor_review_json": "{\n  \"schema_version\": \"c0045-privacy-review/v1\",\n  \"archive_sha256\": \"90fc056112b4f8f575bd650ca9b74f273d81ad21650473b9fba9e629ec2893c9\",\n  \"json_members\": 250,\n  \"lexical_screen_passed\": true,\n  \"reviewer_role\": \"artifact_privacy_reviewer\",\n  \"checked_categories\": [\n    \"author_machine_paths\",\n    \"credentials\",\n    \"external_network_endpoints\",\n    \"personal_identifiers\",\n    \"tenant_or_organization_identifiers\"\n  ],\n  \"approved_for_anonymous_review\": true,\n  \"approved_for_identified_release\": false\n}\n",
+  "predecessor_review_sha256": "dcc639b638c8307605f936b4398eee7680f73720be03bae4c6343011725214fb",
+  "authorization_basis": "explicit_owner_instruction",
+  "authorization_reference": "Owner reply in this research chat: Sim, publicar o candidato e atualizar BB6F. The reply explicitly authorizes identified publication of the qualified STICKS candidate with C0045."
+}

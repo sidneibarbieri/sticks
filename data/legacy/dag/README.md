@@ -5,6 +5,11 @@ campaign DAGs. Each file records the SHA-256 of its original source and retains
 only the technique IDs required for corpus-parity checks. The IDs retain source
 order and multiplicity for reproducible comparison.
 
+The eight inventories contain 101 technique occurrences and 73 distinct technique
+IDs. Occurrence counts retain repetitions within and across workflows. The parity
+report checks multiplicity within each campaign separately from technique-set
+coverage; matching sets alone cannot establish that every occurrence survived.
+
 The inventory does not certify historical chronology, implemented procedures,
 successful execution, or mechanism fidelity. Those claims require their own
 execution and observation records.

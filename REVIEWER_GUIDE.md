@@ -32,6 +32,6 @@ blocked claims, forbidden wording, and known unsupported legacy results.
 `bash run_review_check.sh --legacy` runs the retained infrastructure-era
 measurement check. It is not part of the primary claim contract.
 
-## C0045 compute-effect series (anonymous review)
+## C0045 compute-effect series
 
-`release/experiments/c0045_compute_effect_series/series.tar.gz` is bound by `PUBLIC_TREE_SHA256.json` and replayed by `bash run_review_check.sh`. To replay only its 20 selected cells, run `PYTHONPATH=src:. python3 -m scripts.verify_c0045_effect_series_archive --archive release/experiments/c0045_compute_effect_series/series.tar.gz`. The replay checks recorded target CPU effects and three controls per block; it does not execute a new QEMU campaign or establish historical ShadowRay fidelity. The hash-bound semantic review approves this archive for anonymous review only. Identified release requires separate approval.
+`release/experiments/c0045_compute_effect_series/series.tar.gz` is bound by `PUBLIC_TREE_SHA256.json` and replayed by `bash run_review_check.sh`. To replay only its 20 selected cells, run `PYTHONPATH=src:. python3 -m scripts.verify_c0045_effect_series_archive --archive release/experiments/c0045_compute_effect_series/series.tar.gz`. The replay checks recorded target CPU effects and three controls per block; it does not execute a new QEMU campaign or establish historical ShadowRay fidelity. This release includes the selected series.

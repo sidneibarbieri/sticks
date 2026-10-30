@@ -8,6 +8,7 @@ from __future__ import annotations
 import argparse
 import json
 import sys
+from collections import Counter
 from dataclasses import asdict, dataclass
 from pathlib import Path
 
@@ -41,6 +42,10 @@ class CampaignParity:
     docker_techniques: int
     sticks_techniques: int
     common_techniques: int
+    docker_distinct_techniques: int
+    sticks_distinct_techniques: int
+    common_occurrences: int
+    exact_occurrence_match: bool
     legacy_coverage_rate: float
     exact_technique_match: bool
     docker_only: list[str]
@@ -102,6 +107,8 @@ def build_report() -> dict:
 
         docker_techniques = load_docker_techniques(docker_path)
         sticks_techniques = load_sticks_techniques(sticks_path)
+        docker_counts = Counter(docker_techniques)
+        sticks_counts = Counter(sticks_techniques)
         common = sorted(set(docker_techniques) & set(sticks_techniques))
         docker_only = sorted(set(docker_techniques) - set(sticks_techniques))
         sticks_only = sorted(set(sticks_techniques) - set(docker_techniques))
@@ -116,8 +123,10 @@ def build_report() -> dict:
             if technique_id not in available_executors
         )
         sut_profile_present = (SUT_PROFILES_DIR / f"{sticks_campaign}.yml").exists()
-        if set(docker_techniques) == set(sticks_techniques):
+        if docker_counts == sticks_counts:
             migration_readiness = "exact_match"
+        elif set(docker_techniques) == set(sticks_techniques):
+            migration_readiness = "occurrence_gap"
         elif docker_only_without_executor:
             migration_readiness = "executor_gap"
         elif not sut_profile_present:
@@ -132,6 +141,10 @@ def build_report() -> dict:
                 docker_techniques=len(docker_techniques),
                 sticks_techniques=len(sticks_techniques),
                 common_techniques=len(common),
+                docker_distinct_techniques=len(docker_counts),
+                sticks_distinct_techniques=len(sticks_counts),
+                common_occurrences=sum((docker_counts & sticks_counts).values()),
+                exact_occurrence_match=docker_counts == sticks_counts,
                 legacy_coverage_rate=(
                     len(common) / len(set(docker_techniques)) if docker_techniques else 0
                 ),
@@ -148,15 +161,13 @@ def build_report() -> dict:
             )
         )
 
-    total_docker = set()
-    for row in parity_rows:
-        total_docker.update(row.docker_only)
-        total_docker.update(row.sticks_only)
-
     docker_technique_universe = set()
     matched_techniques = set()
+    docker_occurrences = 0
     for docker_path in docker_campaigns:
-        docker_technique_universe.update(load_docker_techniques(docker_path))
+        historical_techniques = load_docker_techniques(docker_path)
+        docker_occurrences += len(historical_techniques)
+        docker_technique_universe.update(historical_techniques)
         sticks_campaign = PUBLISHED_CAMPAIGNS_DIR / f"0.{docker_path.stem.replace('_dag', '')}.json"
         if sticks_campaign.exists():
             matched_techniques.update(
@@ -172,6 +183,8 @@ def build_report() -> dict:
         ),
         "mapped_legacy_campaigns": len(parity_rows),
         "docker_technique_universe": len(docker_technique_universe),
+        "docker_occurrences": docker_occurrences,
+        "matched_docker_occurrences": sum(row.common_occurrences for row in parity_rows),
         "matched_docker_techniques": len(matched_techniques),
         "legacy_technique_coverage_rate": (
             len(matched_techniques) / len(docker_technique_universe)
@@ -199,6 +212,9 @@ def build_report() -> dict:
         "exact_technique_matches": [
             row.sticks_campaign for row in parity_rows if row.exact_technique_match
         ],
+        "exact_occurrence_matches": [
+            row.sticks_campaign for row in parity_rows if row.exact_occurrence_match
+        ],
         "campaigns": [asdict(row) for row in parity_rows],
     }
 
@@ -211,7 +227,10 @@ def write_markdown(report: dict, output_path: Path) -> None:
         f"- Docker campaigns: `{report['docker_campaign_count']}`",
         f"- Published STICKS campaigns: `{report['published_campaign_count']}`",
         f"- Legacy campaigns with direct published counterpart: `{report['mapped_legacy_campaigns']}`",
-        f"- Docker technique universe: `{report['docker_technique_universe']}`",
+        f"- Docker distinct techniques: `{report['docker_technique_universe']}`",
+        f"- Docker technique occurrences: `{report['docker_occurrences']}`",
+        f"- Matched occurrences within campaign counterparts: `{report['matched_docker_occurrences']}`",
+        "- Inventory parity does not certify execution, effects, or historical order.",
         f"- Matched Docker techniques in published corpus: `{report['matched_docker_techniques']}`",
         f"- Legacy technique coverage rate: `{report['legacy_technique_coverage_rate']:.1%}`",
         f"- Available executors in registry: `{report['available_executor_count']}`",
@@ -241,6 +260,7 @@ def write_markdown(report: dict, output_path: Path) -> None:
                 f"- Common techniques: `{campaign['common_techniques']}`",
                 f"- Legacy coverage rate: `{campaign['legacy_coverage_rate']:.1%}`",
                 f"- Exact technique match: `{campaign['exact_technique_match']}`",
+                f"- Exact occurrence multiplicity match: `{campaign['exact_occurrence_match']}`",
                 f"- SUT profile present: `{campaign['sut_profile_present']}`",
                 f"- Migration readiness: `{campaign['migration_readiness']}`",
                 f"- Docker-only techniques: `{', '.join(campaign['docker_only']) or 'none'}`",

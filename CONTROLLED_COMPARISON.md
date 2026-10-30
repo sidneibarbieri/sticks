@@ -10,6 +10,13 @@ consumer. The three proposal arms must use the same model artifact, prompt budge
 parameters, retry budget, and timeout. The execution arm consumes the admitted output without a new
 proposal call.
 
+The historical `prior_work_style` identifier names a catalog-constrained proposal baseline.
+It selects from the STICKS templates and bindings; it does not reproduce the prior system's
+report-to-command generation pipeline or its execution-feedback recovery. Preserve the arm
+identifier when auditing historical records, but do not label its results as a reproduction
+of the complete prior system. A faithful operational comparison needs a separately qualified
+implementation and a new prospective collection.
+
 Every campaign, arm, and seed has exactly one run record. Failed and unsupported runs are terminal
 outcomes with explicit reasons; they cannot carry success evidence. Successful runs cite relative
 evidence paths and SHA-256 hashes. The validator rejects missing combinations, duplicates, altered

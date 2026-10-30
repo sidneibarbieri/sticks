@@ -1,0 +1,22 @@
+{
+  "schema_version": "1",
+  "sut_id": "isolated-linux-container",
+  "source_sha256": "227c971954b4da7bcac0ebc5b6e04644298bc7aa62a5a56df96c0904c0eb3e06",
+  "initial_facts": [
+    "lab.shell.ready"
+  ],
+  "goal_facts": [
+    "discovery.target_hostname"
+  ],
+  "bindings": [
+    {
+      "binding_id": "target.primary",
+      "kind": "target_host",
+      "value": "lab://195f592af60b9ecefb097ee75dadb097934e4468fadb06c5f0f44d440011e358",
+      "source": "sut",
+      "scope": "lab",
+      "secret_reference": false
+    }
+  ],
+  "content_sha256": "90083e3bd971ef76f1af37792b6d4ee57cc5555820731de628eb58bacd7f33d4"
+}

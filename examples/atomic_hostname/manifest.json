@@ -1,0 +1,24 @@
+{
+  "revision": "59ea87397c5faf8cad1e6ebe36fd625d0063e894",
+  "url": "https://raw.githubusercontent.com/redcanaryco/atomic-red-team/59ea87397c5faf8cad1e6ebe36fd625d0063e894/atomics/T1082/T1082.yaml",
+  "sha256": "227c971954b4da7bcac0ebc5b6e04644298bc7aa62a5a56df96c0904c0eb3e06",
+  "technique_id": "T1082",
+  "atomic_guid": "486e88ea-4f56-470f-9b57-3f4d73f39133",
+  "atomic_name": "Hostname Discovery",
+  "executor": "sh",
+  "command": "hostname\n",
+  "adaptations": [
+    "Unchanged upstream command; target is an isolated disposable Linux container.",
+    "Typed precondition, binding and independent hostname observer are STICKS-authored."
+  ],
+  "image": "python@sha256:673719e071ecf27434fd2635bbd8d00f49f4fdd81f243143438a42ced8bedf60",
+  "expected_hostname": "sut-atomic-hostname",
+  "cells": [
+    "upstream_command",
+    "wrong_hostname_exit_zero",
+    "empty_output_exit_zero"
+  ],
+  "claim_ceiling": "single_external_readonly_procedure_qualification_not_campaign_replay",
+  "license_url": "https://raw.githubusercontent.com/redcanaryco/atomic-red-team/59ea87397c5faf8cad1e6ebe36fd625d0063e894/LICENSE.txt",
+  "license_sha256": "65af6027045d23175366eab50e460ab3ee7790e591cb84cc32c78ac63a4c90e1"
+}

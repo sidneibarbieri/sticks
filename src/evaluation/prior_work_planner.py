@@ -1,14 +1,16 @@
 """Prior-work-style step planner for the controlled comparison.
 
-This arm reproduces the *generation* algorithm of the closest end-to-end prior work: given an
-abstract attack goal and a declared environment, a language model emits one concrete realization
-of the step. It does not apply the deterministic admissibility that STICKS contributes.
+This arm is a catalog-constrained proposal baseline inspired by end-to-end prior work. Given an
+abstract attack goal, a declared environment and the STICKS action catalog, a language model
+selects one template and its bindings without STICKS deterministic admission. It does not
+reproduce the prior system's report-to-command generation pipeline.
 
 Scope and deviation, stated for the record: the prior work also runs a Caldera execution-feedback
 recovery loop that classifies failures and revises commands over repeated executions. That loop
 needs live execution, so at the generation boundary measured here it is not modelled; the arm is
 named ``prior_work_style`` and is never presented as a conformant re-implementation of that system.
-Each seed produces one independent generation, so divergence across seeds is the measured quantity.
+Each seed identifies one generation request. Distinct seeds alone do not establish independent
+or different outputs; any measured divergence comes from the retained responses.
 """
 
 from __future__ import annotations

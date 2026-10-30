@@ -1,0 +1,33 @@
+{
+  "schema_version": "1",
+  "compiler_version": "1",
+  "campaign_id": "external-atomic-qualification",
+  "campaign_name": "External procedure qualification",
+  "source": {
+    "bundle_sha256": "227c971954b4da7bcac0ebc5b6e04644298bc7aa62a5a56df96c0904c0eb3e06",
+    "object_count": 1,
+    "campaign_stix_id": "atomic-red-team:486e88ea-4f56-470f-9b57-3f4d73f39133",
+    "campaign_external_id": "external-atomic-qualification"
+  },
+  "ordering_policy": "tactic_rank_then_technique_id",
+  "steps": [
+    {
+      "technique_id": "T1082",
+      "technique_stix_id": "atomic-red-team:T1082",
+      "name": "Hostname Discovery",
+      "execution_domain": "target",
+      "tactics": [],
+      "platforms": [
+        "Linux"
+      ],
+      "permissions_required": [],
+      "system_requirements": [],
+      "relationship_ids": [
+        "external-atomic-selection"
+      ],
+      "procedure_descriptions": []
+    }
+  ],
+  "limitations": [],
+  "content_sha256": "e435fd5ea8a54e96294e0f6effde2e7c7eb5acc765a6eb560383a559f8f0423a"
+}

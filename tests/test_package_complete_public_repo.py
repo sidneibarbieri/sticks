@@ -31,6 +31,10 @@ def test_pinned_third_party_inputs_have_notice_in_package(tmp_path: Path) -> Non
     ).read_text(encoding="utf-8")
     assert "CAPEC" in mitre_cti_license
     assert "MITRE" in mitre_cti_license
+    example = tmp_path / "examples/atomic_hostname"
+    assert (example / "qualify.py").is_file()
+    assert (example / "qualified/qualification.json").is_file()
+    assert "Red Canary" in (example / "LICENSE.upstream.txt").read_text()
 
 
 def _load_module():
@@ -160,11 +164,15 @@ def test_stage_identified_release_accepts_repository_url(
     module = _load_module()
     destination = tmp_path / "candidate"
     received_urls = []
+    received_public_modes = []
     monkeypatch.setattr(module, "stage_root", lambda target: None)
     monkeypatch.setattr(
         module,
         "write_repo_docs",
-        lambda target, repository_url, **kwargs: received_urls.append(repository_url),
+        lambda target, repository_url, **kwargs: (
+            received_urls.append(repository_url),
+            received_public_modes.append(kwargs["public_evidence_release"]),
+        ),
     )
     monkeypatch.setattr(module.subprocess, "run", lambda command, *, cwd, check, **kwargs: None)
 
@@ -174,6 +182,7 @@ def test_stage_identified_release_accepts_repository_url(
         identified_release=True,
         **_typed_evidence_inputs(tmp_path),
     )
+    assert received_public_modes == [True]
 
     assert received_urls == ["https://github.com/example/sticks-artifact"]
 

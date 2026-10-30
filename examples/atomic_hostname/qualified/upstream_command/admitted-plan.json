@@ -1,0 +1,88 @@
+{
+  "schema_version": "1",
+  "ordering_policy": "causal_topological_then_source_order",
+  "campaign_id": "external-atomic-qualification",
+  "source_plan_sha256": "e435fd5ea8a54e96294e0f6effde2e7c7eb5acc765a6eb560383a559f8f0423a",
+  "binding_catalog_sha256": "b15d5e8c3635e803c4d3f6a779674dd8647c5e722732ac9d3b3fa5e5611343aa",
+  "action_catalog_sha256": "471c96b49f2f25b6e6555fc5408179010ab8734c1f3ac1bf04703223b439968f",
+  "steps": [
+    {
+      "sequence": 1,
+      "technique_id": "T1082",
+      "template_id": "art-hostname-discovery",
+      "bindings": {
+        "target": "target.primary"
+      },
+      "requires": [
+        "lab.shell.ready"
+      ],
+      "produces": [
+        "discovery.target_hostname"
+      ],
+      "evidence_predicates": [
+        "hostname_matches_independent_target_identity"
+      ],
+      "fidelity_ceiling": "adapted",
+      "proposal_source": "finite_domain_solver",
+      "assumption_count": 0
+    }
+  ],
+  "unresolved_technique_ids": [],
+  "rejected_candidates": [],
+  "retrieval_traces": [
+    {
+      "technique_id": "T1082",
+      "query_sha256": "624aa2c13a24dc607a8e6a745b2891994a447761331f31e7a5becfca2d4aa654",
+      "index_sha256": "471c96b49f2f25b6e6555fc5408179010ab8734c1f3ac1bf04703223b439968f",
+      "candidates": [
+        {
+          "template_id": "art-hostname-discovery",
+          "score": 1103,
+          "exact_technique_match": true,
+          "domain_match": true,
+          "shared_terms": [
+            "hostname",
+            "linux",
+            "t1082"
+          ]
+        }
+      ]
+    }
+  ],
+  "planning_certificate": {
+    "initial_facts": [
+      "lab.shell.ready"
+    ],
+    "goal_facts": [
+      "discovery.target_hostname"
+    ],
+    "transitions": [
+      {
+        "sequence": 1,
+        "technique_id": "T1082",
+        "state_before_sha256": "e34d613711e551d26ddc795eaa59f2a313b6594d5a7a5cf1a36b9e86a2abc4f4",
+        "state_after_sha256": "6e1ea82e338b50e29727f7718a7f7d025ec0f2610842445b893ccc41a77374a2",
+        "added_facts": [
+          "discovery.target_hostname"
+        ]
+      }
+    ],
+    "causal_links": [
+      {
+        "fact_id": "lab.shell.ready",
+        "producer_sequence": 0,
+        "consumer_sequence": 1
+      }
+    ],
+    "final_facts": [
+      "discovery.target_hostname",
+      "lab.shell.ready"
+    ],
+    "unresolved_goals": [],
+    "valid": true,
+    "content_sha256": "01eb4f83916155ad9f920fcd57767993fdfc98e2ed67060c6f5cf5a967aa6102"
+  },
+  "llm_call_sha256": null,
+  "execution_semantic_sha256": "25e4e472baaf486921105e61ccce88219c436c0816558398d8a9bef2ebaac4b1",
+  "content_sha256": "e839248ac7f79bfa26936b37b0c0524c4f9ac18ecdb40f3c25421e9f647d885a"
+}

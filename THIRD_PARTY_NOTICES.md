@@ -33,6 +33,16 @@ AGENTS, AND EMPLOYEES, DISCLAIM ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING BU
 THE USE OF THE INFORMATION THEREIN WILL NOT INFRINGE ANY RIGHTS OR ANY IMPLIED WARRANTIES OF MERCHANTABILITY OR
 FITNESS FOR A PARTICULAR PURPOSE.
 
+## Atomic Red Team external procedure example
+
+`examples/atomic_hostname/T1082.yaml` is retained from
+[`redcanaryco/atomic-red-team`](https://github.com/redcanaryco/atomic-red-team)
+at revision `59ea87397c5faf8cad1e6ebe36fd625d0063e894`. The example selects only
+Hostname Discovery, GUID `486e88ea-4f56-470f-9b57-3f4d73f39133`.
+Copyright (c) 2018 Red Canary, Inc. The complete upstream MIT license is retained
+at `examples/atomic_hostname/LICENSE.upstream.txt`. Source digests and authored
+laboratory adaptations are declared in that example's `manifest.json` and README.
+
 ## MITRE CAPEC
 
 `measurement/sut/scripts/data/stix-capec.json` is CAPEC STIX data from
