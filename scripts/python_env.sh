@@ -1,6 +1,15 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+sticks_python_check_version() {
+  "$1" - <<'PY'
+import sys
+
+if sys.version_info < (3, 11):
+    raise SystemExit("[python-env][FAIL] Python >=3.11 is required; select STICKS_PYTHON explicitly")
+PY
+}
+
 sticks_python_check_core_deps() {
   local candidate="$1"
   "$candidate" - <<'PY'
@@ -26,6 +35,7 @@ sticks_resolve_python() {
       echo "[python-env][FAIL] STICKS_PYTHON must name an executable interpreter" >&2
       return 1
     fi
+    sticks_python_check_version "$STICKS_PYTHON" || return 1
     if ! sticks_python_check_core_deps "$STICKS_PYTHON"; then
       echo "[python-env][FAIL] STICKS_PYTHON lacks required core dependencies; no fallback attempted" >&2
       return 1
@@ -35,6 +45,7 @@ sticks_resolve_python() {
   fi
 
   if [[ -x "$venv_python" ]]; then
+    sticks_python_check_version "$venv_python" || return 1
     if sticks_python_has_core_deps "$venv_python"; then
       printf '%s\n' "$venv_python"
       return 0
@@ -48,6 +59,7 @@ sticks_resolve_python() {
   if command -v python3 >/dev/null 2>&1; then
     local system_python
     system_python="$(command -v python3)"
+    sticks_python_check_version "$system_python" || return 1
     if sticks_python_has_core_deps "$system_python"; then
       printf '%s\n' "$system_python"
       return 0

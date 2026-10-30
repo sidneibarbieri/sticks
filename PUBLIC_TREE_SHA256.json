@@ -9954,8 +9954,8 @@
       "size": 5420
     },
     "scripts/python_env.sh": {
-      "sha256": "232a27013cddbaf461632c1e7d0e252a7f84cf24e70c3d946fa1695d44007fed",
-      "size": 1919
+      "sha256": "d589665cfc8cd46ef4af5e3c4903c74cfcad831872ce014b3f5ea968e31ca5b5",
+      "size": 2299
     },
     "scripts/qualify_linux_discovery.py": {
       "sha256": "71040e07f4386a512afb87647090fe61201ff2e1e6d03e96ca567a4dd91bcda2",
@@ -11618,8 +11618,8 @@
       "size": 6140
     },
     "tests/test_python_environment_selection.py": {
-      "sha256": "58e2314aa6c4fb0bdc6e04f66d156206632b8ceb3d344b1f9444e1c3e3bc0868",
-      "size": 2439
+      "sha256": "6b2f06fa7005947de7a7649ebc4abb9ad370da02edc1c082c9a26239aa699986",
+      "size": 2934
     },
     "tests/test_qemu_lab_contract.py": {
       "sha256": "1bb2ce85c55bf4c9abc0fed99c1d99052b9b9dea5426f38ffafff2a7f276d87d",
@@ -11943,5 +11943,5 @@
     }
   },
   "schema_version": "1",
-  "tree_sha256": "6a06e0a3fe82044c8a074d4a21169bfdf74fc4f3b3d83ff5e8738ca34688cf7f"
+  "tree_sha256": "f6b878af9ca32bac5c0f541e43864daa0f34aa8b5b2d40dc30b285c2d63ab912"
 }

@@ -57,3 +57,18 @@ def test_default_repository_environment_selection_is_preserved(tmp_path: Path) -
     assert result.returncode == 0
     assert result.stdout.strip() == str(tmp_path / ".venv/bin/python3")
     assert result.stderr == ""
+
+
+def test_old_interpreter_is_rejected_before_imports_or_install(tmp_path: Path) -> None:
+    interpreter = tmp_path / "old-python"
+    interpreter.write_text(
+        "#!/bin/sh\n"
+        "echo 'Python >=3.11 is required' >&2\n"
+        "exit 1\n"
+    )
+    interpreter.chmod(0o755)
+    result = resolve_python(tmp_path, str(interpreter))
+    assert result.returncode != 0
+    assert "Python >=3.11" in result.stderr
+    assert result.stdout == ""
+    assert not (tmp_path / ".venv").exists()
