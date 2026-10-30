@@ -1051,6 +1051,53 @@
         "the QEMU observations validate all campaign procedures"
       ],
       "scope_restriction": "The receipts bind selected laboratory procedures and scoped effect observations from one source tree. They do not establish historical fidelity, external delivery or C2, process/network telemetry, detection outcomes, or corpus-wide execution success."
+    },
+    {
+      "claim_id": "STICKS-P27",
+      "statement": "A pinned external Atomic Red Team hostname-discovery procedure was admitted under an explicitly authored laboratory contract and executed in a disposable Linux target. The observed hostname matched independently read target identity; wrong-output and empty-output controls returned success but failed the effect predicate. Each cell used a fresh target and verified teardown.",
+      "status": "supported",
+      "support_type": "controlled_experiment",
+      "unit_of_analysis": "external procedure qualification cell",
+      "population": "one external discovery procedure and two substituted-command negative controls",
+      "table_population": "external hostname procedure and output controls",
+      "evidence_paths": [
+        "examples/atomic_hostname/LICENSE.upstream.txt",
+        "examples/atomic_hostname/README.md",
+        "examples/atomic_hostname/T1082.yaml",
+        "examples/atomic_hostname/manifest.json",
+        "examples/atomic_hostname/qualified/empty_output_exit_zero/admitted-plan.json",
+        "examples/atomic_hostname/qualified/empty_output_exit_zero/binding-catalog.json",
+        "examples/atomic_hostname/qualified/empty_output_exit_zero/observation-before-teardown.json",
+        "examples/atomic_hostname/qualified/empty_output_exit_zero/result.json",
+        "examples/atomic_hostname/qualified/empty_output_exit_zero/source-plan.json",
+        "examples/atomic_hostname/qualified/empty_output_exit_zero/template.json",
+        "examples/atomic_hostname/qualified/qualification.json",
+        "examples/atomic_hostname/qualified/upstream_command/admitted-plan.json",
+        "examples/atomic_hostname/qualified/upstream_command/binding-catalog.json",
+        "examples/atomic_hostname/qualified/upstream_command/observation-before-teardown.json",
+        "examples/atomic_hostname/qualified/upstream_command/result.json",
+        "examples/atomic_hostname/qualified/upstream_command/source-plan.json",
+        "examples/atomic_hostname/qualified/upstream_command/template.json",
+        "examples/atomic_hostname/qualified/wrong_hostname_exit_zero/admitted-plan.json",
+        "examples/atomic_hostname/qualified/wrong_hostname_exit_zero/binding-catalog.json",
+        "examples/atomic_hostname/qualified/wrong_hostname_exit_zero/observation-before-teardown.json",
+        "examples/atomic_hostname/qualified/wrong_hostname_exit_zero/result.json",
+        "examples/atomic_hostname/qualified/wrong_hostname_exit_zero/source-plan.json",
+        "examples/atomic_hostname/qualified/wrong_hostname_exit_zero/template.json",
+        "examples/atomic_hostname/qualify.py",
+        "src/concretization/pipeline.py",
+        "src/concretization/verifier.py"
+      ],
+      "test_paths": [
+        "tests/test_external_atomic_hostname.py"
+      ],
+      "permitted_wording": "One pinned external hostname-discovery procedure and two substituted-command controls qualify admission and an identity observation on isolated Linux containers.",
+      "forbidden_wording": [
+        "the external library is automatically imported",
+        "the external example establishes campaign replay",
+        "the external example increases corpus-wide coverage"
+      ],
+      "scope_restriction": "The source plan is a qualification fixture, not a campaign compiled from STIX. Template, precondition, binding and predicate are laboratory-authored. The external command is unchanged. Controls deliberately substitute the command and are not admitted alternatives. Same investigator, Linux ARM64 Docker; no CALDERA, enterprise pivot, generic importer, detection, historical fidelity or coverage claim."
     }
   ]
 }

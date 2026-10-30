@@ -2178,20 +2178,20 @@
       "size": 909
     },
     "release/claims/claim_ledger_table.tex": {
-      "sha256": "eaf96d72dc54493fd09601999801debf74f74f483a41ab483fec22117e54fa0c",
-      "size": 2555
+      "sha256": "af76f06c5a07be988b69e6d90bb744fb155c16aee5aef9476b7fbd0a6de7467c",
+      "size": 2675
     },
     "release/claims/evidence_sha256.json": {
-      "sha256": "60ff712b1b881cb69f41a4d83e4f651bb0d015540b1d0c03958e362e9b7fb029",
-      "size": 55793
+      "sha256": "51f8dd296604347c9000d1557f5746fab4c605f13aa6bcedf63c52c933a6e511",
+      "size": 59533
     },
     "release/claims/ledger.json": {
-      "sha256": "c43589dd9b26f938bdf0090d738d47d358d33e39b45d6e248919756da1d3612b",
-      "size": 64839
+      "sha256": "3cbc998cc1c26293e7214f13b429061a8a2a4fef28db1101b592e7e177bee7b1",
+      "size": 68521
     },
     "release/claims/verification.json": {
-      "sha256": "fa4bd2d0f95a761bebccfde475bbed0e558880895eb8436ae11741ef02214781",
-      "size": 9238
+      "sha256": "17d0cba204fbc1fe73c2e803b179e061fa81b2742b967aaccb1754fd1860088a",
+      "size": 9541
     },
     "release/enriched/C0010.stix.json": {
       "sha256": "1a1e682f24855f57fd28d24e20d0f028846c147bef4eb37378783949efa290ca",
@@ -12071,5 +12071,5 @@
     }
   },
   "schema_version": "1",
-  "tree_sha256": "b13921413649f841496eb3c346c706a2e66049e0a179b74fcb349299308baea8"
+  "tree_sha256": "f6057b940a7b118be177e792b817a0c78bebf5d9bbd30e60a9a7a40ab88d85c0"
 }

@@ -1,6 +1,6 @@
 {
-  "total_claims": 30,
-  "supported": 24,
+  "total_claims": 31,
+  "supported": 25,
   "limited": 1,
   "blocked": 5,
   "verifications": [
@@ -327,6 +327,17 @@
     },
     {
       "claim_id": "STICKS-P26",
+      "status": "supported",
+      "support_type": "controlled_experiment",
+      "missing_evidence": [],
+      "missing_tests": [],
+      "chain_complete": true,
+      "readiness_gate_status": null,
+      "readiness_blockers": [],
+      "paper_ready": true
+    },
+    {
+      "claim_id": "STICKS-P27",
       "status": "supported",
       "support_type": "controlled_experiment",
       "missing_evidence": [],
