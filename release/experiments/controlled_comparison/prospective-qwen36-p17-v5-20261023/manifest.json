@@ -1,0 +1,31 @@
+{
+  "experiment_id": "prospective-qwen36-p17-v5-20261023",
+  "study_scope": "proposal_only",
+  "arm_ids": [
+    "prior_work_style",
+    "sticks_without_admission",
+    "sticks_admitted"
+  ],
+  "model": "qwen3.6:latest",
+  "ollama_model_digest": "096fdbd02fe620fc10cbeb6537e080f8041aece851e5d696aed024d4f70f2e47",
+  "temperature": 0.2,
+  "top_p": 1.0,
+  "runtime_id": "ollama:0.40.5",
+  "thinking_mode": false,
+  "campaigns": [
+    "C0010",
+    "C0026",
+    "C0045"
+  ],
+  "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "shuffle_seed": 20261023,
+  "cells": 375,
+  "collection_lock_sha256": "2eda87f7b8014e4a9d585ba21527ba970ffe6957cbc6127ab131260e74e66cad",
+  "completed_at": "2026-10-23T13:46:44.294193+00:00"
+}

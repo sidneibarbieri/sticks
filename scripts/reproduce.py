@@ -55,6 +55,8 @@ BUILD_STEPS = [
     "build_behavioral_substitution_evidence.py",
     "build_admission_safety_evidence.py",
     "build_evidence_policy_report.py",
+    "build_contract_strength_report.py",
+    "build_proposal_containment_evidence.py",
     "build_enumeration_scaling_evidence.py",
     "build_attack_flow_interop_evidence.py",
     "build_execution_locus_evidence.py",

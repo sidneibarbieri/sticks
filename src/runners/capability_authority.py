@@ -10,6 +10,8 @@ from typing import Callable, Self
 
 from pydantic import model_validator
 
+from executors.lab_transport import target_observer_acquisition
+
 from runners.capability_facts import (
     FactScope,
     Identity,
@@ -342,11 +344,12 @@ def acquire_registered_observation(
         and snapshot.predicate_id != registration.predicate_id
     ):
         raise ValueError("Request predicate differs from the registered authority")
-    result = (
-        registration.acquire(snapshot, run_root=run_root)
-        if registration.requires_run_root
-        else registration.acquire(snapshot)
-    )
+    with target_observer_acquisition():
+        result = (
+            registration.acquire(snapshot, run_root=run_root)
+            if registration.requires_run_root
+            else registration.acquire(snapshot)
+        )
     _check_result(result, registration, snapshot.scope)
     reference = retain_observation(result, authority_id=authority_id, run_root=run_root)
     with _directory(None, str(run_root)) as root:

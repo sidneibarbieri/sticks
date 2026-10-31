@@ -197,7 +197,7 @@ def _c0045_workspace(tmp_path):
     workspace = tmp_path / "c0045-workspace"
     entries = []
     for name in (
-        "data/runtime_contracts/c0045.json",
+        "data/runtime_contracts/c0045_v2.json",
         "src/executors/shadowray_fixed_executors.py",
         "src/executors/privilege_escalation_executors.py",
         *_C0045_EVIDENCE_SOURCE_PATHS,
@@ -222,7 +222,7 @@ def test_c0045_population_requires_bound_full_causal_permutation(tmp_path):
 
 def test_c0045_population_rejects_a_nonpermutation_after_source_binding(tmp_path):
     workspace, manifest = _c0045_workspace(tmp_path)
-    contract_path = workspace / "data/runtime_contracts/c0045.json"
+    contract_path = workspace / "data/runtime_contracts/c0045_v2.json"
     document = json.loads(contract_path.read_text())
     document["occurrences"][0]["plan_sequence"] = 1
     contract_path.write_text(json.dumps(document))

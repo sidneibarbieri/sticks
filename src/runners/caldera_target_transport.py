@@ -10,6 +10,8 @@ from pathlib import Path
 from adapters.caldera_dispatch import CalderaDispatchIntent, command_digest
 from adapters.caldera_operations import CalderaCommand, CalderaOperations
 from executors.lab_transport import TargetCommand
+from runners.caldera_occurrence_binding import CalderaOccurrenceBinding
+from runners.runtime_dispatch_scope import current_dispatch_contract
 from runners.recorded_caldera_dispatch import retain_completed_command, submit_recorded_command
 
 
@@ -51,9 +53,25 @@ class CalderaTargetTransport:
             "command_sha256": command_digest(command.command),
             "timeout_seconds": command.timeout_seconds,
         })
+        contract = current_dispatch_contract()
+        occurrence_binding = None
+        if contract is not None:
+            if (
+                contract.mode not in {"real_controlled", "naive_simulated"}
+                or contract.scope.locus != "target"
+                or contract.scope.host_id != self._binding.host
+                or contract.scope.principal != self._binding.principal
+            ):
+                raise ValueError("Occurrence contract differs from the CALDERA target scope")
+            occurrence_binding = CalderaOccurrenceBinding(
+                contract=contract, command_sha256=intent.command_sha256,
+            )
         self._sequence += 1
         record_dir = self._record_root / f"command-{self._sequence:04d}"
-        expected = submit_recorded_command(self._client, intent, command, record_dir)
+        expected = submit_recorded_command(
+            self._client, intent, command, record_dir,
+            occurrence_binding=occurrence_binding,
+        )
         deadline = time.monotonic() + request.timeout_seconds
         while time.monotonic() < deadline:
             link = self._client.link(expected.operation_id, expected.link_id)

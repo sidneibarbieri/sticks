@@ -161,3 +161,39 @@ def test_symlink_dispatch_receipt_is_refused(monkeypatch, tmp_path):
     receipt.symlink_to(replacement)
     with pytest.raises(OSError):
         verify(tmp_path, reference)
+
+
+@pytest.mark.parametrize("observer_fails", [False, True])
+def test_registered_observer_bypasses_and_restores_executor_transport(
+    monkeypatch, tmp_path, observer_fails
+):
+    from executors import lab_transport
+
+    native_commands = []
+
+    def executor_transport(command):
+        native_commands.append(command)
+        return subprocess.CompletedProcess([], 0, "executor", "")
+
+    def guest_probe(**kwargs):
+        if observer_fails:
+            raise RuntimeError("observer transport failed")
+        return subprocess.CompletedProcess([], 0, json.dumps({
+            "hostname": "target-linux-1", "principal": "ubuntu",
+            "boot_id": "boot-a", "nonce": "nonce-a",
+        }), "")
+
+    monkeypatch.setattr(lab_transport, "run_command_in_vm", guest_probe)
+    with lab_transport.target_command_transport(executor_transport), lab_transport.target_executor_dispatch():
+        if observer_fails:
+            with pytest.raises(RuntimeError, match="observer transport failed"):
+                acquire_registered_observation("lab-shell", request(), run_root=tmp_path)
+        else:
+            reference = acquire_registered_observation("lab-shell", request(), run_root=tmp_path)
+            assert verify(tmp_path, reference).passed
+        assert native_commands == []
+        result = lab_transport.run_bash_on_target_vm(
+            "0.c0026", "printf executor", execution_user="ubuntu"
+        )
+        assert result.stdout == "executor"
+        assert len(native_commands) == 1

@@ -17,7 +17,7 @@ from runners.capability_facts import (
 from runners.runtime_step_contracts import RuntimeStepContract, verify_executor_binding
 
 CONTRACT_PATH = (
-    Path(__file__).resolve().parents[2] / "data/runtime_contracts/c0045.json"
+    Path(__file__).resolve().parents[2] / "data/runtime_contracts/c0045_v2.json"
 )
 _OBSERVERS = {
     1: ("c0045-api",),
@@ -31,6 +31,7 @@ _OBSERVERS = {
 class C0045OccurrenceBinding(ImmutableRecord):
     occurrence: Annotated[int, Field(strict=True, gt=0)]
     plan_sequence: Annotated[int, Field(strict=True, gt=0)]
+    caldera_dispatch: Literal["native_target", "controller_simulation"]
     technique_id: Identity
     mode: Literal["real_controlled", "naive_simulated"]
     executor_id: Identity
@@ -40,7 +41,7 @@ class C0045OccurrenceBinding(ImmutableRecord):
 
 
 class C0045ContractPopulation(ImmutableRecord):
-    schema_version: Literal["c0045-runtime-contracts/v1"]
+    schema_version: Literal["c0045-runtime-contracts/v2"]
     campaign_id: Literal["0.shadowray"]
     occurrences: tuple[C0045OccurrenceBinding, ...]
 
@@ -71,6 +72,8 @@ def load_c0045_full_runtime_contracts(
         raise ValueError("C0045 contract plan sequences must form a permutation")
     contracts = []
     for row in population.occurrences:
+        if row.mode == "real_controlled" and row.caldera_dispatch != "native_target":
+            raise ValueError("Controlled C0045 occurrence requires native target dispatch")
         if row.observers != _OBSERVERS.get(row.occurrence, ()):
             raise ValueError("C0045 contract changed reviewed observer authority")
         if row.requirements != ("lab:shell",):
@@ -103,3 +106,11 @@ def load_c0045_full_runtime_contracts(
         verify_executor_binding(contract, executor)
         contracts.append(contract)
     return tuple(contracts)
+
+
+def c0045_native_occurrences() -> frozenset[int]:
+    population = C0045ContractPopulation.model_validate_json(CONTRACT_PATH.read_bytes())
+    return frozenset(
+        row.occurrence for row in population.occurrences
+        if row.caldera_dispatch == "native_target"
+    )

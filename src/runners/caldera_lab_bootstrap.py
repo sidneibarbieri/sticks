@@ -6,6 +6,23 @@ import subprocess
 import sys
 import time
 from pathlib import Path
+from typing import Literal
+
+from pydantic import BaseModel, ConfigDict, Field
+
+
+class CalderaAgentIdentity(BaseModel):
+    """Expected guest identity shared by bootstrap, enrollment and dispatch."""
+
+    model_config = ConfigDict(frozen=True, extra="forbid")
+
+    host: str = Field(default="target-linux-1", pattern=r"^[a-z][a-z0-9-]*$")
+    principal: str = Field(default="ubuntu", pattern=r"^[a-z_][a-z0-9_-]*$")
+    platform: Literal["linux"] = "linux"
+    executor: Literal["sh"] = "sh"
+
+
+DEFAULT_AGENT_IDENTITY = CalderaAgentIdentity()
 
 def guest_command(lab_root: Path, guest: str, command: str, *, timeout: int = 60) -> str:
     result = subprocess.run(
@@ -66,8 +83,11 @@ except urllib.error.HTTPError as error:
     return request_json
 
 
-def deploy_agent(lab_root: Path, group: str, remote_root: str) -> None:
-    architecture = guest_command(lab_root, "target-linux-1", "uname -m")
+def deploy_agent(
+    lab_root: Path, group: str, remote_root: str,
+    *, identity: CalderaAgentIdentity = DEFAULT_AGENT_IDENTITY,
+) -> None:
+    architecture = guest_command(lab_root, identity.host, "uname -m")
     architectures = {"aarch64": "arm64", "arm64": "arm64", "x86_64": "amd64"}
     if architecture not in architectures:
         raise ValueError("Unsupported target agent architecture")
@@ -79,8 +99,8 @@ def deploy_agent(lab_root: Path, group: str, remote_root: str) -> None:
         f"http://192.168.56.10:8888/file/download -o {shlex.quote(destination)} && "
         f"chmod 700 {shlex.quote(destination)}"
     )
-    run_as_ubuntu = "sudo -n -H -u ubuntu /bin/bash -lc "
-    guest_command(lab_root, "target-linux-1", run_as_ubuntu + shlex.quote(setup_script), timeout=200)
+    run_as_principal = f"sudo -n -H -u {shlex.quote(identity.principal)} /bin/bash -lc "
+    guest_command(lab_root, identity.host, run_as_principal + shlex.quote(setup_script), timeout=200)
 
     pid_file = remote_root + "/agent.pid"
     start_script = (
@@ -89,10 +109,13 @@ def deploy_agent(lab_root: Path, group: str, remote_root: str) -> None:
         f"echo $! > {shlex.quote(pid_file)}; sleep 1; "
         f"kill -0 \"$(cat {shlex.quote(pid_file)})\""
     )
-    guest_command(lab_root, "target-linux-1", run_as_ubuntu + shlex.quote(start_script), timeout=30)
+    guest_command(lab_root, identity.host, run_as_principal + shlex.quote(start_script), timeout=30)
 
 
-def wait_for_agent(transport, group: str) -> str:
+def wait_for_agent(
+    transport, group: str,
+    *, identity: CalderaAgentIdentity = DEFAULT_AGENT_IDENTITY,
+) -> str:
     deadline = time.monotonic() + 120
     while time.monotonic() < deadline:
         agents = transport("GET", "/agents", None)
@@ -101,18 +124,7 @@ def wait_for_agent(transport, group: str) -> str:
             raise ValueError("conformance group contains multiple agents")
         if selected:
             agent = selected[0]
-            conditions = (
-                ("paw", isinstance(agent.get("paw"), str) and bool(agent["paw"])),
-                ("target host", agent.get("host") == "target-linux-1"),
-                ("principal", agent.get("username") == "ubuntu"),
-                ("platform", agent.get("platform") == "linux"),
-                ("shell executor", "sh" in agent.get("executors", [])),
-            )
-            failed = tuple(name for name, passed in conditions if not passed)
-            if failed:
-                raise ValueError(
-                    "conformance agent identity check failed: " + ", ".join(failed)
-                )
+            require_agent_identity(agent, identity)
             agent_id = agent["paw"]
             if not agent.get("trusted"):
                 transport("PATCH", f"/agents/{agent_id}", {"trusted": True})
@@ -124,6 +136,20 @@ def wait_for_agent(transport, group: str) -> str:
             ]
             if len(matching) != 1 or not matching[0].get("trusted"):
                 raise ValueError("conformance agent did not become trusted")
+            require_agent_identity(matching[0], identity)
             return agent_id
         time.sleep(2)
     raise TimeoutError("target agent did not register")
+
+
+def require_agent_identity(agent: dict, identity: CalderaAgentIdentity) -> None:
+    conditions = (
+        ("paw", isinstance(agent.get("paw"), str) and bool(agent["paw"])),
+        ("target host", agent.get("host") == identity.host),
+        ("principal", agent.get("username") == identity.principal),
+        ("platform", agent.get("platform") == identity.platform),
+        ("shell executor", identity.executor in agent.get("executors", [])),
+    )
+    failed = tuple(name for name, passed in conditions if not passed)
+    if failed:
+        raise ValueError("conformance agent identity check failed: " + ", ".join(failed))

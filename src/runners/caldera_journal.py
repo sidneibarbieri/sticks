@@ -7,7 +7,9 @@ from pydantic import Field, model_validator
 
 from adapters.caldera_command_result import CalderaCommandResult
 from runners.caldera_campaign_support import SUPPORTED_CALDERA_CAMPAIGNS
+from runners.caldera_occurrence_binding import CalderaOccurrenceBinding
 from runners.caldera_session import CalderaSession
+from runners.c0045_full_runtime_contracts import c0045_native_occurrences
 from runners.capability_facts import ImmutableRecord
 from runners.recorded_caldera_dispatch import replay_completed_command
 from runners.runtime_campaign_report import (
@@ -40,6 +42,30 @@ class CalderaJournalVerification(ImmutableRecord):
     def validate_coverage(self) -> Self:
         if self.commands == 0 or self.commands != self.observed_target:
             raise ValueError("Native command count differs from observed target occurrence count")
+        if self.observed != self.observed_target + self.observed_controller:
+            raise ValueError("Observed occurrence has no reviewed execution locus")
+        return self
+
+
+
+class CalderaJournalVerificationV2(ImmutableRecord):
+    schema_version: Literal["caldera-journal-consistency/v2"] = Field(
+        default="caldera-journal-consistency/v2", alias="schema"
+    )
+    commands: Count
+    observed: Count
+    simulated: Count
+    observed_target: Count
+    observed_controller: Count
+    simulated_target_commands: Count
+    scope: str = ASSURANCE_SCOPE
+
+    @model_validator(mode="after")
+    def validate_coverage(self) -> Self:
+        if self.commands == 0 or self.commands != self.observed_target + self.simulated_target_commands:
+            raise ValueError("Native commands differ from observed and simulated target occurrences")
+        if self.simulated_target_commands > self.simulated:
+            raise ValueError("Native simulations exceed all simulated occurrences")
         if self.observed != self.observed_target + self.observed_controller:
             raise ValueError("Observed occurrence has no reviewed execution locus")
         return self
@@ -91,16 +117,59 @@ def _verify_target_observations(
                 raise ValueError("Observation differs from the session target boot")
 
 
-def verify_journal(evidence: Path) -> CalderaJournalVerification:
+
+def verify_occurrence_bindings(
+    evidence: Path, report: RuntimeCampaignReport,
+    results: tuple[CalderaCommandResult, ...],
+) -> None:
+    directories = sorted((evidence / "caldera-dispatch").glob("command-*"))
+    binding_paths = tuple(directory / "occurrence-binding.json" for directory in directories)
+    if report.campaign_id != "0.shadowray" and not any(path.exists() for path in binding_paths):
+        return
+    if len(binding_paths) != len(results) or not all(path.is_file() for path in binding_paths):
+        raise ValueError("CALDERA occurrence binding is missing")
+    native_occurrences = c0045_native_occurrences() if report.campaign_id == "0.shadowray" else None
+    targets = tuple(
+        step.contract for step in report.steps
+        if step.contract.scope.locus == "target" and (
+            step.status == "observed" if native_occurrences is None
+            else step.contract.occurrence in native_occurrences
+        )
+    )
+    bound = []
+    for path, result in zip(binding_paths, results, strict=True):
+        binding = CalderaOccurrenceBinding.model_validate_json(path.read_bytes())
+        if binding.command_sha256 != result.dispatch.command_sha256:
+            raise ValueError("Occurrence binding differs from the dispatched command")
+        if binding.contract not in targets:
+            raise ValueError("Dispatched occurrence differs from the observed contract")
+        bound.append(binding.contract)
+    if len(bound) != len(targets) or any(bound.count(contract) != 1 for contract in targets):
+        raise ValueError("CALDERA commands do not cover observed occurrences exactly once")
+
+
+def verify_journal(evidence: Path) -> CalderaJournalVerification | CalderaJournalVerificationV2:
     session = CalderaSession.model_validate_json((evidence / "caldera-session.json").read_bytes())
     report = _read_campaign_report(evidence)
     results = _verify_dispatches(evidence, session)
     observed = tuple(step for step in report.steps if step.status == "observed")
     target = tuple(step for step in observed if step.contract.scope.locus == "target")
     controller = tuple(step for step in observed if step.contract.scope.locus == "controller")
-    verification = CalderaJournalVerification(
+    counts = dict(
         commands=len(results), observed=len(observed), simulated=report.simulated,
         observed_target=len(target), observed_controller=len(controller),
     )
+    if report.campaign_id == "0.shadowray":
+        native_occurrences = c0045_native_occurrences()
+        simulated_commands = sum(
+            step.status == "simulated" and step.contract.occurrence in native_occurrences
+            for step in report.steps
+        )
+        verification = CalderaJournalVerificationV2(
+            **counts, simulated_target_commands=simulated_commands,
+        )
+    else:
+        verification = CalderaJournalVerification(**counts)
+    verify_occurrence_bindings(evidence, report, results)
     _verify_target_observations(target, session)
     return verification

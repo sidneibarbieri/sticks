@@ -1,0 +1,72 @@
+{
+  "arms": {
+    "prior_work_style": {
+      "admitted_by_verifier": 113,
+      "cells": 125,
+      "emitted": 125,
+      "inadmissible_emitted": 12,
+      "inadmissible_reasons": {
+        "BINDING_KIND_MISMATCH": 1,
+        "UNKNOWN_BINDING": 1,
+        "UNSATISFIED_PRECONDITIONS": 10
+      },
+      "parse_errors": 0,
+      "refused": 0
+    },
+    "sticks_admitted": {
+      "admitted_by_verifier": 114,
+      "cells": 125,
+      "emitted": 114,
+      "inadmissible_emitted": 0,
+      "inadmissible_reasons": {},
+      "parse_errors": 0,
+      "refused": 11
+    },
+    "sticks_without_admission": {
+      "admitted_by_verifier": 114,
+      "cells": 125,
+      "emitted": 125,
+      "inadmissible_emitted": 11,
+      "inadmissible_reasons": {
+        "BINDING_KIND_MISMATCH": 1,
+        "UNSATISFIED_PRECONDITIONS": 10
+      },
+      "parse_errors": 0,
+      "refused": 0
+    }
+  },
+  "boundary": "One local model, temperature 0.2, thinking off, three fully supported campaigns. The guarded arm's validity is circular and is not reported as a rate. The prior-work-style arm is catalog-constrained and lacks the prior system's execution-feedback loop. No comparative operational claim follows.",
+  "campaigns": [
+    "C0010",
+    "C0026",
+    "C0045"
+  ],
+  "cells_per_arm": 125,
+  "cells_total": 375,
+  "collection_lock_sha256": "2eda87f7b8014e4a9d585ba21527ba970ffe6957cbc6127ab131260e74e66cad",
+  "experiment_id": "prospective-qwen36-p17-v5-20261023",
+  "generation_stop_reasons": {
+    "stop": 375
+  },
+  "generations_stopped_normally": 375,
+  "generations_truncated": 0,
+  "guarded_inadmissible_committed": 0,
+  "guarded_refused": 11,
+  "max_completion_tokens_observed": 58,
+  "max_output_tokens": 512,
+  "model": "qwen3.6:latest",
+  "prior_work_inadmissible": 12,
+  "question": "How often does a real local-model proposer, given the catalog, propose an action that violates the declared contract, and does admission keep those proposals out of the plan?",
+  "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "temperature": 0.2,
+  "thinking_mode": false,
+  "unguarded_binding_kind_mismatch": 1,
+  "unguarded_inadmissible": 11,
+  "unguarded_unsatisfied_preconditions": 10
+}

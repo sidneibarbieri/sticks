@@ -1,0 +1,35 @@
+{
+  "prior_work_style": {
+    "arm_id": "prior_work_style",
+    "steps": 125,
+    "emitted": 125,
+    "oracle_valid": 113,
+    "abstained": 0,
+    "parse_failures": 0,
+    "validity_rate": 0.904,
+    "abstention_rate": 0.0,
+    "mean_distinct_templates_per_step": 1.0
+  },
+  "sticks_without_admission": {
+    "arm_id": "sticks_without_admission",
+    "steps": 125,
+    "emitted": 125,
+    "oracle_valid": 114,
+    "abstained": 0,
+    "parse_failures": 0,
+    "validity_rate": 0.912,
+    "abstention_rate": 0.0,
+    "mean_distinct_templates_per_step": 1.0
+  },
+  "sticks_admitted": {
+    "arm_id": "sticks_admitted",
+    "steps": 125,
+    "emitted": 114,
+    "oracle_valid": 114,
+    "abstained": 11,
+    "parse_failures": 0,
+    "validity_rate": 1.0,
+    "abstention_rate": 0.088,
+    "mean_distinct_templates_per_step": 1.0
+  }
+}

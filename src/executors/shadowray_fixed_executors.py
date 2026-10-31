@@ -143,6 +143,7 @@ fi
         sut_profile_id=sut_profile_id,
         bash_script=bash_script,
         timeout=45,
+        execution_user="rayuser",
     )
     if result.returncode != 0:
         return False, "", result.stderr or f"Credential probe exited {result.returncode}", []

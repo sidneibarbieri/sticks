@@ -26,7 +26,7 @@ from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(PROJECT_ROOT / "src"))
-from runners.caldera_campaign_support import SUPPORTED_CALDERA_CAMPAIGNS
+from runners.caldera_campaign_support import CALDERA_AGENT_IDENTITIES, SUPPORTED_CALDERA_CAMPAIGNS
 UP_LAB_SCRIPT = PROJECT_ROOT / "scripts" / "up_lab.sh"
 DESTROY_LAB_SCRIPT = PROJECT_ROOT / "scripts" / "destroy_lab.sh"
 RUN_CAMPAIGN_SCRIPT = PROJECT_ROOT / "scripts" / "run_campaign.py"
@@ -244,7 +244,7 @@ def _parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
     if args.caldera_session and args.caldera_dispatch:
         parser.error("Select either a prepared session or fresh CALDERA enrollment")
     if (args.caldera_session or args.caldera_dispatch) and args.campaign not in SUPPORTED_CALDERA_CAMPAIGNS:
-        parser.error("CALDERA session requires a reviewed C0010 or C0026 campaign")
+        parser.error("CALDERA session requires a declared single-target campaign scope")
     return args
 
 
@@ -289,7 +289,8 @@ def run_lab_campaign(args: argparse.Namespace) -> int:
                     _run_command(
                         [sys.executable, str(PROJECT_ROOT / "scripts/prepare_caldera_session.py"),
                          "--lab-root", str(PROJECT_ROOT / "lab/vagrant"),
-                         "--output", str(session_path)],
+                         "--output", str(session_path),
+                         "--principal", CALDERA_AGENT_IDENTITIES[args.campaign].principal],
                         "enroll fresh target agent", command_environment,
                     )
                 campaign_command = [

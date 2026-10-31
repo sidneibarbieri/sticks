@@ -26,6 +26,7 @@ PAPER_AUTHORING_RUNS = tuple(json.loads(
 PUBLIC_COMPARISON_ENTRIES = frozenset({
     "2026-09-07-local",
     "2026-09-07-qwen14b",
+    "prospective-qwen36-p17-v5-20261023",
     "qualification_status.json",
 })
 DEFAULT_DEST = STICKS_ROOT.parent / "release-staging" / "sticks-artifact"

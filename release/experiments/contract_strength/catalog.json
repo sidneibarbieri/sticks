@@ -1,0 +1,7 @@
+{
+  "question": "Does every catalog template condition its produced state on at least one fact it does not itself produce, so the deterministic verifier cannot admit it unconditionally or circularly?",
+  "self_satisfying_templates": [],
+  "sound_contract_count": 28,
+  "template_count": 28,
+  "unconditioned_effect_templates": []
+}

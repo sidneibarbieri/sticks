@@ -196,6 +196,19 @@ def _evidence_policy() -> dict[str, int]:
     }
 
 
+def _proposal_containment() -> dict[str, int]:
+    record = _load(EXPERIMENTS / "proposal_containment" / "v5.json")
+    return {
+        "cells": record["cells_total"],
+        "per_arm": record["cells_per_arm"],
+        "unguarded": record["unguarded_inadmissible"],
+        "preconditions": record["unguarded_unsatisfied_preconditions"],
+        "prior_work": record["prior_work_inadmissible"],
+        "refused": record["guarded_refused"],
+        "committed": record["guarded_inadmissible_committed"],
+    }
+
+
 def _authoring_cost() -> dict[str, str]:
     summary = _load(EXPERIMENTS / "authoring_cost" / "corpus.json")["summary"]
     automation = summary["automation"]
@@ -316,6 +329,7 @@ def build_macros() -> dict[str, str]:
     provenance = _provenance_totals()
     corpus = _load(EXPERIMENTS / "substitution" / "corpus.json")
     evidence_policy = _evidence_policy()
+    containment = _proposal_containment()
     scaling = _enumeration_scaling()
     flow = _attack_flow_interop()
     locus = _execution_locus()
@@ -343,6 +357,13 @@ def build_macros() -> dict[str, str]:
         "isolatedRunReach": isolated["reach"],
         "isolatedRunReachShare": isolated["share"],
         "effectCertifiedTemplates": str(evidence_policy["effect_certified"]),
+        "containmentCells": str(containment["cells"]),
+        "containmentPerArm": str(containment["per_arm"]),
+        "containmentUnguarded": str(containment["unguarded"]),
+        "containmentPreconditions": str(containment["preconditions"]),
+        "containmentPriorWork": str(containment["prior_work"]),
+        "containmentRefused": str(containment["refused"]),
+        "containmentCommitted": str(containment["committed"]),
         "scalingGridPoints": scaling["grid_points"],
         "largestCandidateSet": scaling["largest_set"],
         "refusedCandidateSet": scaling["refused_size"],

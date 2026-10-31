@@ -17,6 +17,7 @@ from runners.capability_facts import (
 )
 from runners.capability_observations import PredicateObservation
 from runners.capability_store import CapabilityStore
+from runners.runtime_dispatch_scope import runtime_dispatch_scope
 from runners.runtime_step_contracts import (
     RuntimeStepContract,
     unmet_requirements,
@@ -91,7 +92,7 @@ def invoke_runtime_step(
         or metadata.execution_mode.value != validated.mode
     ):
         raise ValueError("Selected executor metadata differs from occurrence contract")
-    with target_executor_dispatch():
+    with target_executor_dispatch(), runtime_dispatch_scope(validated):
         if live_observer is None:
             completed, stdout, stderr, artifacts = executor(
                 validated.campaign_id, sut_profile_id

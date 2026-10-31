@@ -14,7 +14,8 @@ def test_probe_records_only_access_status(tmp_path, monkeypatch):
     (tmp_path / "data").mkdir()
     commands = []
 
-    def run_probe(*, sut_profile_id, bash_script, timeout):
+    def run_probe(*, sut_profile_id, bash_script, timeout, execution_user):
+        assert execution_user == "rayuser"
         commands.append(bash_script)
         return subprocess.CompletedProcess([], 0, "sudo-readable\n", "")
 
@@ -39,7 +40,8 @@ def test_probe_rejects_unexpected_guest_output_without_persisting_it(
     monkeypatch.chdir(tmp_path)
     (tmp_path / "data").mkdir()
 
-    def run_probe(*, sut_profile_id, bash_script, timeout):
+    def run_probe(*, sut_profile_id, bash_script, timeout, execution_user):
+        assert execution_user == "rayuser"
         return subprocess.CompletedProcess([], 0, "root:$6$unexpected-hash\n", "")
 
     monkeypatch.setattr(shadowray, "run_bash_on_target_vm", run_probe)
@@ -51,7 +53,8 @@ def test_probe_rejects_unexpected_guest_output_without_persisting_it(
 def test_probe_preserves_guest_process_error(tmp_path, monkeypatch):
     monkeypatch.chdir(tmp_path)
 
-    def run_probe(*, sut_profile_id, bash_script, timeout):
+    def run_probe(*, sut_profile_id, bash_script, timeout, execution_user):
+        assert execution_user == "rayuser"
         return subprocess.CompletedProcess([], 23, "", "guest transport failed")
 
     monkeypatch.setattr(shadowray, "run_bash_on_target_vm", run_probe)

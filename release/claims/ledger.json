@@ -1098,6 +1098,50 @@
         "the external example increases corpus-wide coverage"
       ],
       "scope_restriction": "The source plan is a qualification fixture, not a campaign compiled from STIX. Template, precondition, binding and predicate are laboratory-authored. The external command is unchanged. Controls deliberately substitute the command and are not admitted alternatives. Same investigator, Linux ARM64 Docker; no CALDERA, enterprise pivot, generic importer, detection, historical fidelity or coverage claim."
+    },
+    {
+      "claim_id": "STICKS-P28",
+      "statement": "Declaring evidence that observes a produced state is necessary but not sufficient: a template can still over-admit by producing a state with no precondition or by requiring only facts it produces itself. A deterministic contract-strength guard rejects both patterns on the frozen catalog. All 28 catalog templates declare a sound contract; none produces a state without a precondition and none requires only facts it produces.",
+      "status": "supported",
+      "support_type": "implementation_invariant",
+      "unit_of_analysis": "action template",
+      "population": "28 catalog templates",
+      "table_population": "action template; 28 templates",
+      "evidence_paths": [
+        "release/experiments/contract_strength/catalog.json"
+      ],
+      "test_paths": [
+        "tests/test_contract_strength.py"
+      ],
+      "permitted_wording": "A deterministic guard rejects a template that produces a state with no precondition or that requires only facts it produces; all 28 catalog templates pass.",
+      "forbidden_wording": [
+        "the guard proves the catalog is complete",
+        "a sound contract establishes that an admitted action succeeds"
+      ]
+    },
+    {
+      "claim_id": "STICKS-P29",
+      "statement": "In a frozen collection of 375 local-model proposal cells, 125 per arm, the STICKS proposer without the verifier emitted 11 proposals that violate the declared contract, 10 for unsatisfied preconditions and 1 for a binding-kind mismatch, and a catalog-constrained prior-work-style planner emitted 12. With the verifier, all 11 were refused with typed reasons and 0 entered a plan. All 375 generations stopped normally, so no refusal is a truncated output.",
+      "status": "supported",
+      "support_type": "controlled_experiment",
+      "unit_of_analysis": "campaign step proposal",
+      "population": "375 cells: three supported campaigns, five seeds, three arms, one frozen local model",
+      "table_population": "campaign step proposal; 375 cells",
+      "evidence_paths": [
+        "release/experiments/proposal_containment/v5.json",
+        "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/collection-lock.json"
+      ],
+      "test_paths": [
+        "tests/test_proposal_containment.py"
+      ],
+      "permitted_wording": "Without the verifier, 11 of 125 proposals from the same local model violated the declared contract, mostly by unsatisfied preconditions; with it, all 11 were refused and 0 entered a plan.",
+      "forbidden_wording": [
+        "the verifier makes proposals correct",
+        "admitted proposals are 100% valid",
+        "STICKS outperforms prior systems",
+        "the result generalizes across models"
+      ],
+      "scope_restriction": "One local model at temperature 0.2 with thinking off, on three fully supported campaigns, so justified abstention on unsupported steps is not exercised. The guarded arm is scored by its own verifier, so only its refusal count is reported. The prior-work-style arm is catalog-constrained and lacks the prior system's execution-feedback loop; P17's comparative operational claim stays blocked."
     }
   ]
 }

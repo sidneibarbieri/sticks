@@ -5,13 +5,15 @@ import pytest
 from scripts import prepare_caldera_session as preparation
 
 
+@pytest.mark.parametrize("principal", ["ubuntu", "rayuser"])
 @pytest.mark.parametrize("rebooted", [False, True])
-def test_session_records_stable_boot_or_refuses_before_operation(tmp_path, monkeypatch, rebooted):
+def test_session_records_stable_boot_or_refuses_before_operation(tmp_path, monkeypatch, rebooted, principal):
     boots = iter([
         "00000000-0000-0000-0000-000000000001",
         "00000000-0000-0000-0000-000000000002" if rebooted else "00000000-0000-0000-0000-000000000001",
     ])
     operations = []
+    identity = preparation.CalderaAgentIdentity(principal=principal)
 
     def guest(lab, role, command):
         if role == "caldera":
@@ -25,16 +27,17 @@ def test_session_records_stable_boot_or_refuses_before_operation(tmp_path, monke
     monkeypatch.setattr(preparation, "ARTIFACT_ROOT", tmp_path.resolve())
     monkeypatch.setattr(preparation, "guest_command", guest)
     monkeypatch.setattr(preparation, "laboratory_transport", lambda _: request)
-    monkeypatch.setattr(preparation, "deploy_agent", lambda *_: None)
-    monkeypatch.setattr(preparation, "wait_for_agent", lambda *_: "agent")
+    monkeypatch.setattr(preparation, "deploy_agent", lambda *_, **kwargs: None)
+    monkeypatch.setattr(preparation, "wait_for_agent", lambda *_, **kwargs: "agent")
     output = tmp_path / "session.json"
     if rebooted:
         with pytest.raises(ValueError, match="rebooted"):
-            preparation.prepare_session(tmp_path, output)
+            preparation.prepare_session(tmp_path, output, identity=identity)
         assert not output.exists()
         assert operations == []
     else:
-        session = preparation.prepare_session(tmp_path, output)
+        session = preparation.prepare_session(tmp_path, output, identity=identity)
+        assert session.binding.principal == principal
         assert session.binding.agent_id == "agent"
         assert str(session.target_boot_id).endswith("0001")
         assert output.exists()
@@ -55,8 +58,8 @@ def test_session_records_laboratory_relative_to_artifact(tmp_path, monkeypatch):
         "b24f6e7a99cab19cbf417009bda9b9c6c81abc31" if role == "caldera"
         else "00000000-0000-0000-0000-000000000001"))
     monkeypatch.setattr(preparation, "laboratory_transport", lambda _: lambda *a: {"id": "op"})
-    monkeypatch.setattr(preparation, "deploy_agent", lambda *_: None)
-    monkeypatch.setattr(preparation, "wait_for_agent", lambda *_: "agent")
+    monkeypatch.setattr(preparation, "deploy_agent", lambda *_, **kwargs: None)
+    monkeypatch.setattr(preparation, "wait_for_agent", lambda *_, **kwargs: "agent")
     lab = tmp_path / "lab" / "vagrant"
     lab.mkdir(parents=True)
     output = tmp_path / "evidence" / "session.json"

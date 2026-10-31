@@ -59,7 +59,7 @@ _COSTARICTO_OBSERVER_PATHS = (
     "src/runners/costaricto_runtime_contracts.py",
     _COSTARICTO_PROBE_PATH,
 )
-_C0045_CONTRACT_PATH = "data/runtime_contracts/c0045.json"
+_C0045_CONTRACT_PATH = "data/runtime_contracts/c0045_v2.json"
 _C0045_SOURCE_PATHS = {
     "executors.shadowray_fixed_executors": "src/executors/shadowray_fixed_executors.py",
     "executors.privilege_escalation_executors": (

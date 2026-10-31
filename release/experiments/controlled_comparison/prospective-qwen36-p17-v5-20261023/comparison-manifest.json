@@ -1,0 +1,74 @@
+{
+  "schema_version": "1",
+  "experiment_id": "prospective-qwen36-p17-v5-20261023",
+  "protocol_sha256": "614f5452f959f9647e6f0e8e8cfa873fc78aa7fb3e103fad3f954b7a2edb5a9f",
+  "campaigns": [
+    "C0010",
+    "C0026",
+    "C0045"
+  ],
+  "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "arms": [
+    {
+      "arm_id": "prior_work_style",
+      "proposal_budget": {
+        "model_id": "qwen3.6:latest",
+        "model_artifact_sha256": "096fdbd02fe620fc10cbeb6537e080f8041aece851e5d696aed024d4f70f2e47",
+        "runtime_id": "ollama:0.40.5",
+        "prompt_template_sha256": "c8376d6dba7b5b3f3b715dab071626b064fd395e7ab188645ec216935fd36b7c",
+        "temperature": 0.2,
+        "top_p": 1.0,
+        "max_output_tokens": 512,
+        "max_proposal_calls_per_step": 1,
+        "max_retries_per_step": 2,
+        "timeout_seconds_per_step": 300
+      },
+      "consumes_arm": null
+    },
+    {
+      "arm_id": "sticks_without_admission",
+      "proposal_budget": {
+        "model_id": "qwen3.6:latest",
+        "model_artifact_sha256": "096fdbd02fe620fc10cbeb6537e080f8041aece851e5d696aed024d4f70f2e47",
+        "runtime_id": "ollama:0.40.5",
+        "prompt_template_sha256": "c8376d6dba7b5b3f3b715dab071626b064fd395e7ab188645ec216935fd36b7c",
+        "temperature": 0.2,
+        "top_p": 1.0,
+        "max_output_tokens": 512,
+        "max_proposal_calls_per_step": 1,
+        "max_retries_per_step": 2,
+        "timeout_seconds_per_step": 300
+      },
+      "consumes_arm": null
+    },
+    {
+      "arm_id": "sticks_admitted",
+      "proposal_budget": {
+        "model_id": "qwen3.6:latest",
+        "model_artifact_sha256": "096fdbd02fe620fc10cbeb6537e080f8041aece851e5d696aed024d4f70f2e47",
+        "runtime_id": "ollama:0.40.5",
+        "prompt_template_sha256": "c8376d6dba7b5b3f3b715dab071626b064fd395e7ab188645ec216935fd36b7c",
+        "temperature": 0.2,
+        "top_p": 1.0,
+        "max_output_tokens": 512,
+        "max_proposal_calls_per_step": 1,
+        "max_retries_per_step": 2,
+        "timeout_seconds_per_step": 300
+      },
+      "consumes_arm": null
+    },
+    {
+      "arm_id": "sticks_autosut_executed",
+      "proposal_budget": null,
+      "consumes_arm": "sticks_admitted"
+    }
+  ],
+  "oracle_revision": "934cbd326ea58f8b36096ec42dff111ea3d9fd896fad728b117709da0fcc24b1",
+  "action_catalog_sha256": "3624cf7ac33205c9825be64f1a269590d1fe6bf4516dd051cda02a6c41525cb6"
+}

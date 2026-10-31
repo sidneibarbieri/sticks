@@ -36,6 +36,7 @@ def submit_recorded_command(
     intent: CalderaDispatchIntent,
     command: CalderaCommand,
     record_dir: Path,
+    *, occurrence_binding: BaseModel | None = None,
 ) -> CalderaDispatchExpectation:
     """Keep intent on API failure; absence of an acknowledgment is inconclusive."""
     conditions = (
@@ -51,6 +52,8 @@ def submit_recorded_command(
     record_dir.mkdir(exist_ok=False)
     _sync_directory(record_dir.parent)
     _retain(record_dir / "dispatch-intent.json", intent)
+    if occurrence_binding is not None:
+        _retain(record_dir / "occurrence-binding.json", occurrence_binding)
     link_id = client.submit_command(intent.operation_id, command)
     expected = intent.bind_link(link_id)
     _retain(record_dir / "dispatch-submission.json", expected)

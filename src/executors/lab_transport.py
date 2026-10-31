@@ -56,6 +56,16 @@ def target_executor_dispatch() -> Iterator[None]:
 
 
 @contextmanager
+def target_observer_acquisition() -> Iterator[None]:
+    """Keep acquisition off the executor channel, including nested live callbacks."""
+    token = _executor_dispatch_active.set(False)
+    try:
+        yield
+    finally:
+        _executor_dispatch_active.reset(token)
+
+
+@contextmanager
 def target_command_transport(transport: TargetTransport) -> Iterator[None]:
     """Bind execution transport to this context; observer transport is unchanged."""
     token = _target_transport.set(transport)

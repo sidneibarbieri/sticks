@@ -11,7 +11,7 @@
   "excluded_runtime_roots": [
     "runs"
   ],
-  "file_count": 3014,
+  "file_count": 3411,
   "files": {
     ".gitignore": {
       "sha256": "4ab313af22acd8a7fbad67346992ed063f780db81a11aae49ae804d366f97506",
@@ -1229,6 +1229,22 @@
       "sha256": "f1cced0a6ddfa7d07afaf449520b2ee115149b52b42c03f55b28a43843003698",
       "size": 5466
     },
+    "data/experiments/c0045_strict_execution_profile_v25.json": {
+      "sha256": "ee3fd4a983889480a10a332dc884282c53dc16ea777bbea21fbb086f496f4974",
+      "size": 5466
+    },
+    "data/experiments/c0045_strict_execution_profile_v26.json": {
+      "sha256": "a6f8740b813b355bb60aaba68ab0479d7da0a2620b99f1473350b8f473c8fedf",
+      "size": 5560
+    },
+    "data/experiments/c0045_strict_execution_profile_v27.json": {
+      "sha256": "96f7ed311d888656645a01038a00ae200b6a05570716e8a4ae42f3f97272facb",
+      "size": 5560
+    },
+    "data/experiments/c0045_strict_execution_profile_v28.json": {
+      "sha256": "cb848bd5f2943d4078bd11fddc550085ecaf787f53ab057e8af041d806b3ef53",
+      "size": 5560
+    },
     "data/experiments/c0045_strict_execution_profile_v3.json": {
       "sha256": "20cd7a7fae87bf5782fbfd483c44fb7659c3dda60a178b9f39430a6eb8a83912",
       "size": 2053
@@ -1324,6 +1340,10 @@
     "data/runtime_contracts/c0045_compute.json": {
       "sha256": "e57a6c3aec0835d6ff7bd4fc0403ff1dc276e9d110827f9b92111c3991772dac",
       "size": 414
+    },
+    "data/runtime_contracts/c0045_v2.json": {
+      "sha256": "a22cbb59897014005f794e206ab228a65635292027171273cdfc84c9a5f34fe9",
+      "size": 4581
     },
     "data/runtime_contracts/costaricto.json": {
       "sha256": "3be8f5cf8c990a1869eab5a9dc4d201458d50736fc0063caa5ea62c76ee86202",
@@ -2178,20 +2198,20 @@
       "size": 909
     },
     "release/claims/claim_ledger_table.tex": {
-      "sha256": "af76f06c5a07be988b69e6d90bb744fb155c16aee5aef9476b7fbd0a6de7467c",
-      "size": 2675
+      "sha256": "e07364e7f7a589c2e19a0f895916d9e141c865530fd9ab90d3bce64b4509b0f9",
+      "size": 2808
     },
     "release/claims/evidence_sha256.json": {
-      "sha256": "51f8dd296604347c9000d1557f5746fab4c605f13aa6bcedf63c52c933a6e511",
-      "size": 59533
+      "sha256": "88509a591beed1c8baaf20f268ec16485c7d8a89e4ff23787488fc52b31ccba6",
+      "size": 60173
     },
     "release/claims/ledger.json": {
-      "sha256": "3cbc998cc1c26293e7214f13b429061a8a2a4fef28db1101b592e7e177bee7b1",
-      "size": 68521
+      "sha256": "eb668ff0b5ce57626ff827004e36a4c43c95afafa5d00e982d49094b798d7a5b",
+      "size": 71718
     },
     "release/claims/verification.json": {
-      "sha256": "17d0cba204fbc1fe73c2e803b179e061fa81b2742b967aaccb1754fd1860088a",
-      "size": 9541
+      "sha256": "356f81cf01c1e687abb55374b1b392e1e2f8db32706bacd967948e5b72bb20f5",
+      "size": 10150
     },
     "release/enriched/C0010.stix.json": {
       "sha256": "1a1e682f24855f57fd28d24e20d0f028846c147bef4eb37378783949efa290ca",
@@ -2244,6 +2264,10 @@
     "release/experiments/catalog_baseline/corpus.json": {
       "sha256": "26e68524e0b8f4d5e05a5688c49f297a5b1feb33722aa5f8c2429ecceca319cf",
       "size": 782
+    },
+    "release/experiments/contract_strength/catalog.json": {
+      "sha256": "4b140000aaf937fb183e90f476133f1a75bded5a1a58ed350ecf6517ff1f0f47",
+      "size": 332
     },
     "release/experiments/controlled_comparison/2026-09-07-local/analysis.json": {
       "sha256": "02a10db2669a16f4c2bcca6df05a474091ac30b968ab8b4949b06575e5789bde",
@@ -5269,6 +5293,1530 @@
       "sha256": "7d76f3e29b921989b1ec86d1ad8968e1a2d308dbef1e8aff574a2eb0420a3d02",
       "size": 829
     },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/analysis.json": {
+      "sha256": "9a2bb038c3b248714aa8c3c82e55a27c86855f1e7cfb25ca6e4b41d517ce33e8",
+      "size": 4066
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__prior_work_style__seed1__s1.json": {
+      "sha256": "b66c3390932cadb08cd5ac8adec8da60b4db9f55f003eb65f03f99963787039b",
+      "size": 14273
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__prior_work_style__seed1__s2.json": {
+      "sha256": "d931cfcd490e6269423c9b9aa9edbbcffbcf2efe801cf0131dba8604bd8e5c32",
+      "size": 14374
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__prior_work_style__seed1__s3.json": {
+      "sha256": "855d57f72b2b9b8e62ca9ea2b96c470bfa67a61e0133e6751dc25a9560f64e5f",
+      "size": 14453
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__prior_work_style__seed1__s4.json": {
+      "sha256": "1595064ecde9c35bb9cfa25066b7dcdc472e0180c3c42685594015a9805ea658",
+      "size": 14468
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__prior_work_style__seed1__s5.json": {
+      "sha256": "a7e513a5535ca13b949831c3dc645d1a6697d00c140b4692cdbe35cf57b0491b",
+      "size": 14669
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__prior_work_style__seed1__s6.json": {
+      "sha256": "eaada8987b58800e88d0c0b4869ae7553902b568768f90f1c71e05176c9b6575",
+      "size": 14721
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__prior_work_style__seed1__s7.json": {
+      "sha256": "bae0355c18f6c42f2e962b7b008f3bac763d839819c2f4d0395224e8957d01f2",
+      "size": 14818
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__prior_work_style__seed1__s8.json": {
+      "sha256": "21ba158900255e95378642f94f4d7d6fa2d28510a7f9afb3638962b6fbe6bda3",
+      "size": 14883
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__prior_work_style__seed1__s9.json": {
+      "sha256": "a45e7207664c91eb5be68b14fb5d527d8f4d4c11f40d7c30462b33b9a302127b",
+      "size": 15197
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__prior_work_style__seed2__s1.json": {
+      "sha256": "1f30de2bcbbfcac90abb80915903661cc2d760acded3978c4e8898c950a36c74",
+      "size": 14272
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__prior_work_style__seed2__s2.json": {
+      "sha256": "c553cad2813f287b4371f5f75938b6c12b0f1a98b67b8baad78af0966789a35f",
+      "size": 14377
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__prior_work_style__seed2__s3.json": {
+      "sha256": "5bb7e42449f75216ac12df8bdd743932dc81f22d70bc0a874602be070808293a",
+      "size": 14452
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__prior_work_style__seed2__s4.json": {
+      "sha256": "5a3f7edc7890c8375a73fd79375b06e6f7deec7e94ec752b0a8adeaa8116ea0f",
+      "size": 14467
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__prior_work_style__seed2__s5.json": {
+      "sha256": "9dad6f8e26f916a7295a54518cbd19ba817d016dd8326f3a4da4b0ec0d989606",
+      "size": 14668
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__prior_work_style__seed2__s6.json": {
+      "sha256": "4a24cbdff049347ab0a6500c7f600aeaadcddbf498013e54c73674e30c346172",
+      "size": 14763
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__prior_work_style__seed2__s7.json": {
+      "sha256": "50ca6fe632fb91f525b003e8d466ef03aee205f90c7d5d81202036db9b652a9e",
+      "size": 14818
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__prior_work_style__seed2__s8.json": {
+      "sha256": "0f8edde4d4e571c770f89b7bd866bd3eac2a6c915bd952075b0705fa1eb2dee5",
+      "size": 14878
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__prior_work_style__seed2__s9.json": {
+      "sha256": "fbbf2a27e1694fbce983e9579e8f4256c5f888deaa092f835ee694f3f3f79d52",
+      "size": 15197
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__prior_work_style__seed3__s1.json": {
+      "sha256": "d447dd490cefb3ead45ac3057de2f75775bc2dc40c7b03066dc07c82e3777408",
+      "size": 14274
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__prior_work_style__seed3__s2.json": {
+      "sha256": "6882c186dfa96fa21bdc15b07d1cecf23fe4a0370b0f6121dffe172f823dc22e",
+      "size": 14377
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__prior_work_style__seed3__s3.json": {
+      "sha256": "bdbc10f9d1b3691153371e959ddf4968969648bbb84d8eb1ff9fe9b772483742",
+      "size": 14452
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__prior_work_style__seed3__s4.json": {
+      "sha256": "8a4874dcf9bc21465ff982dd390770e87694959d3b9d3760b924a09efa75540c",
+      "size": 14467
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__prior_work_style__seed3__s5.json": {
+      "sha256": "3c282e2f36d1850e022c18da65c12615faf67472e37d03ff2491bdf7afa939bc",
+      "size": 14668
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__prior_work_style__seed3__s6.json": {
+      "sha256": "6a4936ac5d412f189517b81089b5846850c1e5b267d128afcfedfa728090f946",
+      "size": 14719
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__prior_work_style__seed3__s7.json": {
+      "sha256": "0ac880fc63aaec5d4daef8932c966aa915d9c0bee23e3ab26750c4ac0fec4434",
+      "size": 14816
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__prior_work_style__seed3__s8.json": {
+      "sha256": "0f95381c9fe88a695ef9bfd002bc5beb25e34754075d44652b2421f454c0befb",
+      "size": 14878
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__prior_work_style__seed3__s9.json": {
+      "sha256": "12b03a31c68e365a8f7b493d9c43203134d46de1685686ee035885cc08a1a053",
+      "size": 15196
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__prior_work_style__seed4__s1.json": {
+      "sha256": "92ed45a9f71455c19ca8ca015a23a1856ae41c4c126a01f904db1e4a2a76ee35",
+      "size": 14271
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__prior_work_style__seed4__s2.json": {
+      "sha256": "fac84546fb87b4d409ceb091b72262c2ef7e422e910485dc94d0c6c617197b87",
+      "size": 14377
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__prior_work_style__seed4__s3.json": {
+      "sha256": "a20b598916d9b244ec53e04ef4ace9d829740e28fb857d6afc576df06ea713c8",
+      "size": 14453
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__prior_work_style__seed4__s4.json": {
+      "sha256": "ea08a6f88062a75e5d41a38769ffe5d5fe3277585b319e1740ad9fcb995cc31d",
+      "size": 14469
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__prior_work_style__seed4__s5.json": {
+      "sha256": "178fda4a8f38d516345bfb323ee9b988610512824e8ee6d0f95992b861a79682",
+      "size": 14669
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__prior_work_style__seed4__s6.json": {
+      "sha256": "48cf65650cecc6fa67d212254c052d40b9bd561749f1be9b63b767d051607e84",
+      "size": 14719
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__prior_work_style__seed4__s7.json": {
+      "sha256": "163fff68882f745bc4b47f0df5f615a8b40ac15a8bb5e2c5f799c9b500edfa97",
+      "size": 14817
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__prior_work_style__seed4__s8.json": {
+      "sha256": "584b9f7be464db856bcb9be2cad3856a6e9e8f97235d2754661ba3964edbe3f2",
+      "size": 14881
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__prior_work_style__seed4__s9.json": {
+      "sha256": "2cfae86420b17e6365d20d97475c74b577c5ad8a1962040aee5f833d443ee38d",
+      "size": 15197
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__prior_work_style__seed5__s1.json": {
+      "sha256": "eeb8483485477490646ed85f0088d087f6b7a9c13aaa140a39eb0a02c0100937",
+      "size": 14273
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__prior_work_style__seed5__s2.json": {
+      "sha256": "8d607582fd790e97b7b1cc1b61ec96753baed984a12d4fe550ed5215918d8a71",
+      "size": 14375
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__prior_work_style__seed5__s3.json": {
+      "sha256": "731f99f91cd6f34d3dc8115655b5d46b47d1a9d6b93883dda65ac85addb5ba68",
+      "size": 14454
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__prior_work_style__seed5__s4.json": {
+      "sha256": "f54f87be7f5a6d99b8ffa5378c4bbe98d696df877cf933fe377600f7c3ff252a",
+      "size": 14467
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__prior_work_style__seed5__s5.json": {
+      "sha256": "7cf81f183a345d55fe91e929d20f82931ee5b45889d12dbd4b5f68e3e12d0bf7",
+      "size": 14665
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__prior_work_style__seed5__s6.json": {
+      "sha256": "cf9bfe2881d6474ad1b572138d12229de96cb3e2f8305f5b4a47758bdd9340fa",
+      "size": 14719
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__prior_work_style__seed5__s7.json": {
+      "sha256": "274ff17335c2bbbcd083dfb7c36645370b50cc176f7a14c7e5a3905fc450f566",
+      "size": 14818
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__prior_work_style__seed5__s8.json": {
+      "sha256": "fbeff5e501969bb11d8b04bb1cf42f03c4f574cbde82fdc0f282476d323b211f",
+      "size": 14879
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__prior_work_style__seed5__s9.json": {
+      "sha256": "b45f8302b4ff7571b16134e900ebf78e175380adbe17cc0ae8be40147e2d847a",
+      "size": 15196
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__sticks_admitted__seed1__s1.json": {
+      "sha256": "a7267011141a58f8096724ec839357d270379a3bae283bcd789ba69ca211d403",
+      "size": 20505
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__sticks_admitted__seed1__s2.json": {
+      "sha256": "42a7c13153ff953e0efe5f83cee4fd823183c6349f73ba9db202a1632fbe47ea",
+      "size": 20608
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__sticks_admitted__seed1__s3.json": {
+      "sha256": "87b838aa9a3c558a3e0c6f06020510ddf183ccd512287ddada55fc13ba3aa539",
+      "size": 20687
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__sticks_admitted__seed1__s4.json": {
+      "sha256": "32e9631f89ea4f3914e1b93a02235fc066dff8efd13800ae7a4af27f8b5a2f10",
+      "size": 20701
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__sticks_admitted__seed1__s5.json": {
+      "sha256": "60853f75e6450ae563f55f5b2d932686821b330450010af331b4d59e533faa98",
+      "size": 20894
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__sticks_admitted__seed1__s6.json": {
+      "sha256": "d0b03ee4e2fb47929f1ab179e6cf6d2a3bc0f2ba7d1a29f156ae987cd898ed3d",
+      "size": 20946
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__sticks_admitted__seed1__s7.json": {
+      "sha256": "2143639797e9cbb86b5df78a60d08cc6f0bb580209598e156dd7cb82cff33295",
+      "size": 21042
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__sticks_admitted__seed1__s8.json": {
+      "sha256": "e73ebacea942bc6a1d006fbcec7922e00996a1be3680b5fedaab4df1fbd0fd8a",
+      "size": 21105
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__sticks_admitted__seed1__s9.json": {
+      "sha256": "22094236277ddf2b41872047e51dc9830fc6168070c69fcc882d65234caeac40",
+      "size": 20093
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__sticks_admitted__seed2__s1.json": {
+      "sha256": "abae22acd5c06df56a8736f55d794f2d50d346b7026b9af79d6d39069db7eae2",
+      "size": 20506
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__sticks_admitted__seed2__s2.json": {
+      "sha256": "b05ce88ebc0c2dbf87e3ee1690954030c7b1bbd6ac8656836b77a6e21483227c",
+      "size": 20609
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__sticks_admitted__seed2__s3.json": {
+      "sha256": "bcc2648fc022d8c4f9ce8a98fb28c14203fb5a6ec075be89433b520ab5917642",
+      "size": 20687
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__sticks_admitted__seed2__s4.json": {
+      "sha256": "6a31a61bec32e1558c306b53af829733e39b409e58d876db5fc732c78851f787",
+      "size": 20702
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__sticks_admitted__seed2__s5.json": {
+      "sha256": "d0022d087bd9a656d7df4b4e973c62a3d35ff52a2141525721c7c3d5dd726f55",
+      "size": 20892
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__sticks_admitted__seed2__s6.json": {
+      "sha256": "e4cf83b8b6c4dfe915bd2aee676908239f78f0a74c40e6b74aa44bc81b780c03",
+      "size": 19852
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__sticks_admitted__seed2__s7.json": {
+      "sha256": "96942f05087e521a14a7f2629c37a37f19d75026a76e4de3f43fde8ed952609b",
+      "size": 21042
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__sticks_admitted__seed2__s8.json": {
+      "sha256": "a4bb78f1364d745560944f1bd6788d3df72c3992ae837ba04370ad1e777f5ee4",
+      "size": 21106
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__sticks_admitted__seed2__s9.json": {
+      "sha256": "2f86397607763cccbadd26c2a4a78bc409b275724c9ecc3d66da53dffd256ce3",
+      "size": 20093
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__sticks_admitted__seed3__s1.json": {
+      "sha256": "0950b5de27447d7ef91de859925ecb6bcd08e2973b072f941e2fb4a5fe4799e4",
+      "size": 20505
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__sticks_admitted__seed3__s2.json": {
+      "sha256": "1bb3db744023aafc215bebd755f620d9066c83e6962baef263640e00a8e3f661",
+      "size": 20609
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__sticks_admitted__seed3__s3.json": {
+      "sha256": "d628cd3f5117e50bcc710edddf90ce9b2b506db1edd776a15c03d750bf12c7b3",
+      "size": 20685
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__sticks_admitted__seed3__s4.json": {
+      "sha256": "fe593449500a4fb86c9621d1a5bdc20ea346db6ddc78f75d59120b9099b6cccb",
+      "size": 20703
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__sticks_admitted__seed3__s5.json": {
+      "sha256": "ead3309319d34eaddfc1d09c4215352e39b29bdfa4dc7a0a6974ef4cc10b5358",
+      "size": 20892
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__sticks_admitted__seed3__s6.json": {
+      "sha256": "d18d2e52ab4523dcc2a57e0ca1e50b5d9f777723ee4d551b379dc6111d5a93a0",
+      "size": 20950
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__sticks_admitted__seed3__s7.json": {
+      "sha256": "017973f03fca9b6b0141bcf1690b1ed726dc2e92b9dcd77126e131f1ba52cb4a",
+      "size": 21042
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__sticks_admitted__seed3__s8.json": {
+      "sha256": "7df7f8f5e2bf74f243a9c75a171169bd0534ba88fc7c81226228609bab1a7b10",
+      "size": 21106
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__sticks_admitted__seed3__s9.json": {
+      "sha256": "19198e3ce33433c0b7ceb8c867fc7923a8f33a4837fa2bc874f067226655a1a9",
+      "size": 20094
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__sticks_admitted__seed4__s1.json": {
+      "sha256": "be0f2f5f790ef855043386365b318a683006550ea28d9870c498235879d0dcb8",
+      "size": 20504
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__sticks_admitted__seed4__s2.json": {
+      "sha256": "d35c32fb6d5b3301496c7a8fc41fab89adb55230c214e69a5bd0ea60b7ff3062",
+      "size": 20610
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__sticks_admitted__seed4__s3.json": {
+      "sha256": "4fbe66a54dfdccef23ed8600b547e2ffa7a9ec26f87d3eaad3df5ff8bd88f6d2",
+      "size": 20687
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__sticks_admitted__seed4__s4.json": {
+      "sha256": "06e83a569ea342dc7f0258330dcb54d91b6e8dfdf48be48d317d9877ad5e9a77",
+      "size": 20704
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__sticks_admitted__seed4__s5.json": {
+      "sha256": "c8470f6bdd545c9fa0a72c5c48f12ed326f0bed2cddf6e4433acd6c279a49fef",
+      "size": 20892
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__sticks_admitted__seed4__s6.json": {
+      "sha256": "6943934f36c4551b5587e7e6a56df40f9beeca09c6de633520bffd1ef58bccc0",
+      "size": 20949
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__sticks_admitted__seed4__s7.json": {
+      "sha256": "8efe27a875fa99a5d2463fc2d5cf874f1cc7e9b4bb88a6308e4c52ce3520b810",
+      "size": 21041
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__sticks_admitted__seed4__s8.json": {
+      "sha256": "ad90fdb984405d9f8663b3f06e728e52e68a31245469fe4005adaebf2bdf01ba",
+      "size": 21107
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__sticks_admitted__seed4__s9.json": {
+      "sha256": "d19a5ceaf394f76ab84afec18ee966c9fc6e8dbe2427361f955294e95985baf1",
+      "size": 20095
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__sticks_admitted__seed5__s1.json": {
+      "sha256": "7dd5500727ef7a7be26d839bebcb933f83c67e5541ff8bfae6eb3a0a7d32e90c",
+      "size": 20505
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__sticks_admitted__seed5__s2.json": {
+      "sha256": "1f21b874f4cf289643900d0537884efc9ebc1dab704a27f6c3146176f13cd89e",
+      "size": 20608
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__sticks_admitted__seed5__s3.json": {
+      "sha256": "db43e60361ee95733c6de2c94c8615051b1d508a80fd43977595a1b161af3de9",
+      "size": 20686
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__sticks_admitted__seed5__s4.json": {
+      "sha256": "33b920b4ed7e04017078f791e656d38f5c5bc927ec032624982746815f17d256",
+      "size": 20702
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__sticks_admitted__seed5__s5.json": {
+      "sha256": "c05f2cbb7429abcc1bc03bbed65675df031409e1f63110505ce14ab2d188b3bd",
+      "size": 20892
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__sticks_admitted__seed5__s6.json": {
+      "sha256": "ff8676be9139b600091a196cd05508118c7f8506d6efcffd45c70390c74b2c3b",
+      "size": 20948
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__sticks_admitted__seed5__s7.json": {
+      "sha256": "1cdc0b2e8d656dda2924e89f9ba0aa0b6dc7800e4a91f088aebf000bb68def80",
+      "size": 21041
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__sticks_admitted__seed5__s8.json": {
+      "sha256": "7035b80ab15c981c585b0e412a4d0d9ccd5d7023fdb1c98ae90f1a51296ac582",
+      "size": 21105
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__sticks_admitted__seed5__s9.json": {
+      "sha256": "0fdbe54b6c2bffefcb5bcd5ee7875a68ad3b2a828379ef7a16cd2340cf0faf05",
+      "size": 20094
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__sticks_without_admission__seed1__s1.json": {
+      "sha256": "d9fa90a5c0f4a1e24ab68a6edf9a02c9d4bdc1aa33ecfd9af31c9818e3b5f559",
+      "size": 20532
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__sticks_without_admission__seed1__s2.json": {
+      "sha256": "d545a37e9a0e55b408f5b230688b8909d7372fc0234bf900fb1683c5fa298569",
+      "size": 20635
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__sticks_without_admission__seed1__s3.json": {
+      "sha256": "86cccf9ec3ceda2e8beab10ffe3188e0e2769c39e33f1a52437a34dfea6d0bbd",
+      "size": 20713
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__sticks_without_admission__seed1__s4.json": {
+      "sha256": "4eee4600d4f3b033a44120dfaf049e8ab9cf4962bb5e490697182388dba32996",
+      "size": 20729
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__sticks_without_admission__seed1__s5.json": {
+      "sha256": "64738bcaba61d33ea6fd2cf461bca66293dfd1cf145e183ed35f4c32bd716e66",
+      "size": 20921
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__sticks_without_admission__seed1__s6.json": {
+      "sha256": "a236ffcaf41204a6ed5a963d0f26f94cf1b67c3bba1c9434c5a39445acc4c913",
+      "size": 20976
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__sticks_without_admission__seed1__s7.json": {
+      "sha256": "b07d2bc34a100dba922a3a4d0e69a401fc022bd0493b88c576d0cbb4cdddbb85",
+      "size": 21069
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__sticks_without_admission__seed1__s8.json": {
+      "sha256": "ceb1692f3fa17245958acf3fb613dc2c583d9d9fc78159be5c3cb10b09ca428f",
+      "size": 21132
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__sticks_without_admission__seed1__s9.json": {
+      "sha256": "f0c4c01e087be53a30ef69a55fc041d2b76ae2a832153449bf2aaf8e03fe1e04",
+      "size": 21476
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__sticks_without_admission__seed2__s1.json": {
+      "sha256": "31370a47ee75914456c5dd72e0350b199c2737acb8ea3e99b3dab4c2d43dc8a5",
+      "size": 20532
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__sticks_without_admission__seed2__s2.json": {
+      "sha256": "95ad5e5642f99ae14e1d5bca6adca3521fad6ebbe4cc206127d0272d9a1ecf9a",
+      "size": 20637
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__sticks_without_admission__seed2__s3.json": {
+      "sha256": "03fb14a52ecbbd68e31d7dc5639b6e8da36033490a0c9ea1cd8d2a6278f88bd4",
+      "size": 20713
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__sticks_without_admission__seed2__s4.json": {
+      "sha256": "ccad9facb1afba3a4c6c981cdc70d5cc7bdb4ab8db766f948729932950072ea7",
+      "size": 20729
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__sticks_without_admission__seed2__s5.json": {
+      "sha256": "3a68db08168dd874f25c26f0526cb0390dd59997a11649be72e78547d66362ec",
+      "size": 20922
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__sticks_without_admission__seed2__s6.json": {
+      "sha256": "921620b40e9194a444a5297b03f973d876fc9f493d823e1900af7afd704257a2",
+      "size": 21022
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__sticks_without_admission__seed2__s7.json": {
+      "sha256": "3ed759b0fa23f363cdd5afcd10a7d4cf5a3124d5511903e3be0efe9a0358da3e",
+      "size": 21067
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__sticks_without_admission__seed2__s8.json": {
+      "sha256": "b8c17a623f425314d64d82e5108e427791ee397c91ac5c3e9af41ac12ec13293",
+      "size": 21134
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__sticks_without_admission__seed2__s9.json": {
+      "sha256": "5ab6771a6b165e3960084e22c58c299e99293138f73986ef4188b1df47fc796f",
+      "size": 21475
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__sticks_without_admission__seed3__s1.json": {
+      "sha256": "9d23910eddd46c52ab008e4f5cdf43eb47eb52852e95df74ea60bdd47a991c71",
+      "size": 20529
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__sticks_without_admission__seed3__s2.json": {
+      "sha256": "4ccb0f532d8ffa02f4a9b3e3fb873c7e238e89159fc5da696dbfa6742ca4219c",
+      "size": 20636
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__sticks_without_admission__seed3__s3.json": {
+      "sha256": "8b51ee59f3294a992959cfdb7789b6194d11d9043246a1567fefa9df171c2954",
+      "size": 20711
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__sticks_without_admission__seed3__s4.json": {
+      "sha256": "65941ad6dfee2116d2229e2d118bb5fbfed2c29a23cd760a568ce79d93bf2dd4",
+      "size": 20730
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__sticks_without_admission__seed3__s5.json": {
+      "sha256": "00cacad61dc8db7b5bc30d2b7726d43717d7943449d13df77a992a6c983b1856",
+      "size": 20920
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__sticks_without_admission__seed3__s6.json": {
+      "sha256": "59d2eec247c0baddce3ada228eefa3a954bee2f71b49f895671bfc2dfa6e3031",
+      "size": 20975
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__sticks_without_admission__seed3__s7.json": {
+      "sha256": "612ff58225345e2a0061253023155ac2741f23aff9981f61d28819cab3f6d6c4",
+      "size": 21069
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__sticks_without_admission__seed3__s8.json": {
+      "sha256": "c87d675abe05b052268802e0d2b5d78db750777579398fc2f241044e6ebb1122",
+      "size": 21135
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__sticks_without_admission__seed3__s9.json": {
+      "sha256": "67f6932f2e9443d0d7eb02b1e4661e98549051a04714168c20fb00aa320224bf",
+      "size": 21476
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__sticks_without_admission__seed4__s1.json": {
+      "sha256": "7d38c1b7415edca668ac424c637e61d0b99a86e9e50014ad860ac07a1cbb2c5c",
+      "size": 20533
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__sticks_without_admission__seed4__s2.json": {
+      "sha256": "4d2358cf701a9bd166705a2a4304076021eaf73e9dd6429e56ed5ef132c904a7",
+      "size": 20636
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__sticks_without_admission__seed4__s3.json": {
+      "sha256": "4c60eb847f7f0f07a78249366147af1c4120821572b5cdf3b8434cc0ef238f5b",
+      "size": 20713
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__sticks_without_admission__seed4__s4.json": {
+      "sha256": "1d4c081ae92f1f0f6ae10d9add4cadea1146eb65fc51c202927741c5da20004c",
+      "size": 20730
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__sticks_without_admission__seed4__s5.json": {
+      "sha256": "5b231e057ef18688363bc57d24ab8b5c36d8424fae9361d6fb50dc628008f644",
+      "size": 20920
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__sticks_without_admission__seed4__s6.json": {
+      "sha256": "82d3c5f4ac4394b9966ffa5336b383192891ed87d0cba30b223e2eeb4a4db68f",
+      "size": 20976
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__sticks_without_admission__seed4__s7.json": {
+      "sha256": "cfcdf5844c6d7fb319931195a2be027618a9c64633ea42bca8d22a9d0fb9a062",
+      "size": 21068
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__sticks_without_admission__seed4__s8.json": {
+      "sha256": "c681ba01480e9b2748c962ade417c7a230259341c3f6e51be82024d0740e8235",
+      "size": 21134
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__sticks_without_admission__seed4__s9.json": {
+      "sha256": "0e8ed90683cab3f635506196f60df6a316f13e37eefefa5d64ea448489db5543",
+      "size": 21475
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__sticks_without_admission__seed5__s1.json": {
+      "sha256": "c4535ba265185c4ec58689ed6ac0f4846647948f9ec8701b691b5eef89c7011f",
+      "size": 20531
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__sticks_without_admission__seed5__s2.json": {
+      "sha256": "6ea98412c2ebd65ff04fe726a82afe6fddb73e50f2f3597f4757572734b43be9",
+      "size": 20636
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__sticks_without_admission__seed5__s3.json": {
+      "sha256": "8c0d6e9e2a2e1337157d1706f5abcba937b856ae72a321a661f83ebd65ac7a2a",
+      "size": 20713
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__sticks_without_admission__seed5__s4.json": {
+      "sha256": "0658dd8c329bc012447a7b9bffed4e81d77066071229f74eeedb6bf30100504a",
+      "size": 20731
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__sticks_without_admission__seed5__s5.json": {
+      "sha256": "b39c8384b62552ee5cdd1076643f71f6121cd2914e95ee2fdebc7497f99dbb28",
+      "size": 20919
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__sticks_without_admission__seed5__s6.json": {
+      "sha256": "426f773a2e101130d9b76b12915f33bf78954d42359bad82a12000b840ddb58e",
+      "size": 20976
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__sticks_without_admission__seed5__s7.json": {
+      "sha256": "59e2eb7425c2b1aa1f332b4d1108fe68575e28975711ce1e4072334344bbb3f3",
+      "size": 21067
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__sticks_without_admission__seed5__s8.json": {
+      "sha256": "fac1ba8460a5d0a8d0506a7bb433ec84a8dfa4957b699291fd80916d2a8dbc3e",
+      "size": 21133
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0010__sticks_without_admission__seed5__s9.json": {
+      "sha256": "caa17d047ec5cf274e6e19f05852a27483ac9e7b1f7e5987ab60813c3ea92184",
+      "size": 21476
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0026__prior_work_style__seed1__s1.json": {
+      "sha256": "04e7a6235d7b1dd6f897ac7717559a411247c1866adc72c405a0718d2a84a17b",
+      "size": 14280
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0026__prior_work_style__seed1__s2.json": {
+      "sha256": "5bc5550f7a5b6318fac93c114ec0e9430e987340e7c20fc347db69aacb57eea3",
+      "size": 14332
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0026__prior_work_style__seed1__s3.json": {
+      "sha256": "319620553c3851ccdd1d410ea9b2255c862923d3553329dd4c7a887dc3356270",
+      "size": 14560
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0026__prior_work_style__seed1__s4.json": {
+      "sha256": "bab0e7f04370f1ce9bfd804eb02777b184fa688dd3e5d0ac2db2ee3089249bcd",
+      "size": 14727
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0026__prior_work_style__seed1__s5.json": {
+      "sha256": "c836f2e7032e02d652a00c11b7ed42b962653144c1a25154961f51de163a94a5",
+      "size": 14916
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0026__prior_work_style__seed1__s6.json": {
+      "sha256": "4dc5dc176e5a2bf4b6a93477bce4f4a454e5a2c75eb0c607f2b8d9adb0b8c249",
+      "size": 15013
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0026__prior_work_style__seed2__s1.json": {
+      "sha256": "9fb5bb3815971b15b097d00061e0d545f7103e9353e73298f23bf3b1fe044038",
+      "size": 14281
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0026__prior_work_style__seed2__s2.json": {
+      "sha256": "64d7c033d9cce363ba428dcf65b0401666a20d17aaa0b0bea40ac21632801fda",
+      "size": 14331
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0026__prior_work_style__seed2__s3.json": {
+      "sha256": "dd993e2091f5fafaabfc511911390d4079b580a3e517c01cba1713a66a8d4045",
+      "size": 14561
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0026__prior_work_style__seed2__s4.json": {
+      "sha256": "928460e3bc59c85fc3db710bfa73c53243c1835edcb9b48c0ab32c6066cf8b30",
+      "size": 14727
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0026__prior_work_style__seed2__s5.json": {
+      "sha256": "d1c7fd57816db487ea750bfd0d628f831b3c2f39e00faf8bcc7e923a7bf7a0d9",
+      "size": 14916
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0026__prior_work_style__seed2__s6.json": {
+      "sha256": "a9428be7473bebe0e357d80da4a8df9d02579f622ede409dd0b3fca7883b8321",
+      "size": 15014
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0026__prior_work_style__seed3__s1.json": {
+      "sha256": "da7b7d74c57329baab1cd2959a3829151d36ec0459beef5cdb7a5ef13c8bb2f7",
+      "size": 14282
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0026__prior_work_style__seed3__s2.json": {
+      "sha256": "9506e4b13669465689af90ad9af3e080398ec466ebfd5f3b15d548d7d1355b7d",
+      "size": 14332
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0026__prior_work_style__seed3__s3.json": {
+      "sha256": "791c6f5654b750f56381eb89b9ab03096d2cfeeaced4b0895652719fd42b26ff",
+      "size": 14561
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0026__prior_work_style__seed3__s4.json": {
+      "sha256": "0a0d2e4e59cf644d585ca03cf5a1d9def465804cf8dec070f9879560f2442bc5",
+      "size": 14726
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0026__prior_work_style__seed3__s5.json": {
+      "sha256": "3e167874c150a6f224a062456a3fcc4687684c5b146a1d225063ee2e4e46ab05",
+      "size": 14916
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0026__prior_work_style__seed3__s6.json": {
+      "sha256": "2249059c57e58de5d4a6f654e329a05aee240f172a2445ba84ee27bf420ec794",
+      "size": 15012
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0026__prior_work_style__seed4__s1.json": {
+      "sha256": "30d67e71f711e96bfb079461af9ffcfcaf3ccfa969cb1ba2847c3f4662b2e812",
+      "size": 14281
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0026__prior_work_style__seed4__s2.json": {
+      "sha256": "932980e458f7d4ed493d998dd0cce6910885da70e27802fa5f410f7bafe5d838",
+      "size": 14333
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0026__prior_work_style__seed4__s3.json": {
+      "sha256": "93bf7b09b514feabe6d6efaf8e79dfb363d7050b3df9b761e4a3ad032fc5b7d3",
+      "size": 14562
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0026__prior_work_style__seed4__s4.json": {
+      "sha256": "1c2eaf9d2038a64dde09838243bdbd2633de6525fb2e2906a981101388fef995",
+      "size": 14726
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0026__prior_work_style__seed4__s5.json": {
+      "sha256": "9cca89bf516cfa93427fe092fc831c4c885f4f9449ae896a96ab21c6a7f9c22a",
+      "size": 14915
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0026__prior_work_style__seed4__s6.json": {
+      "sha256": "5c7910d7774764a00042076720a98cbb90892f006a49b316c2761766964a4560",
+      "size": 15014
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0026__prior_work_style__seed5__s1.json": {
+      "sha256": "3c8be5fb4309a84fe8cf578ec91b4d1fe4ad880d172b1a4bf4fe1a3b5fe3c3da",
+      "size": 14280
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0026__prior_work_style__seed5__s2.json": {
+      "sha256": "ca8afe872a78eee45daa70995e92911af01749faade8486b3a651f4a8f2921a9",
+      "size": 14335
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0026__prior_work_style__seed5__s3.json": {
+      "sha256": "8687d5038f1d7e024da5e9ba5a3926f640262a44de1d6297d32ffb88819d7942",
+      "size": 14562
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0026__prior_work_style__seed5__s4.json": {
+      "sha256": "f1d81d663947db1c4d0d91e6e45c0e28c5d932f6b4f5642ec3c959d0e571dae0",
+      "size": 14728
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0026__prior_work_style__seed5__s5.json": {
+      "sha256": "9a9c877f1857aa294434b0ff561b9bec9edb3d520df8bff5ce96e77f463b09ce",
+      "size": 14917
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0026__prior_work_style__seed5__s6.json": {
+      "sha256": "7c063ec34a6d1732cecdf5b8c094ac6c4f369e91e1dc9564c379599197637a3d",
+      "size": 15013
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0026__sticks_admitted__seed1__s1.json": {
+      "sha256": "6a50f4516ad7303ab1f2e50cdaddcd9e9b3e2cbea1b75527104ffb02c22f61de",
+      "size": 20513
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0026__sticks_admitted__seed1__s2.json": {
+      "sha256": "f60d59f292c5fc9565db41ff758de0b29b00d131a8e705c11380ff184950d333",
+      "size": 20556
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0026__sticks_admitted__seed1__s3.json": {
+      "sha256": "810247ac55d4a941bc301c52be2606e03de8338ce3e56fc14f13e23ec48bc56f",
+      "size": 20778
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0026__sticks_admitted__seed1__s4.json": {
+      "sha256": "c401cbb0456807c6899252dd9963bc66ff55c0143ab4ce083f39fb41637e96e0",
+      "size": 20954
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0026__sticks_admitted__seed1__s5.json": {
+      "sha256": "4e0e762b2131e68a7395196c378e89906a9942b1f783994fdb8f8928bd5787e6",
+      "size": 21145
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0026__sticks_admitted__seed1__s6.json": {
+      "sha256": "fdcbd247ae058fd9e7c76b020cedfca1c0ba66f7019616ddc0b66374d5fb1051",
+      "size": 21235
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0026__sticks_admitted__seed2__s1.json": {
+      "sha256": "84d5a2ae67474fbb04f205d1bf336f490f543163158f36b705b123c19ceac231",
+      "size": 20513
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0026__sticks_admitted__seed2__s2.json": {
+      "sha256": "acb545e8f4095a912b1a66919edcae31ad6d00563f247596a764432919c3ec31",
+      "size": 20555
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0026__sticks_admitted__seed2__s3.json": {
+      "sha256": "8d26086b9b54ea3de6c183d974a7ab0a89e25efb06cf5692c3fe8aca9df4fc2d",
+      "size": 20777
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0026__sticks_admitted__seed2__s4.json": {
+      "sha256": "17af61cb0261b10e0b91ab3c5b7e550e3178532ed2b63cec1b907b8d8b7c07fa",
+      "size": 20953
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0026__sticks_admitted__seed2__s5.json": {
+      "sha256": "ec4b3bf296bc12076879caeef54b1a59e77c24dfa98523969e9f9e346c957e85",
+      "size": 21146
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0026__sticks_admitted__seed2__s6.json": {
+      "sha256": "125eb98185b9c4b76091d992d36401cfb5405d93b03cf3bfb766f9a40586a347",
+      "size": 21235
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0026__sticks_admitted__seed3__s1.json": {
+      "sha256": "d76c4e04dabb75b582eba9c0888e2758027ddf5a63b53a7cc4c84826085557e9",
+      "size": 20511
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0026__sticks_admitted__seed3__s2.json": {
+      "sha256": "332bfde03de21e8d1da534db453615b1d850494f80c791ff65a3c779aeecbcad",
+      "size": 20555
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0026__sticks_admitted__seed3__s3.json": {
+      "sha256": "783020727352ca097b4cfd11cc6ff79f2886233f0dc5bae55c8d81a21b08e429",
+      "size": 20778
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0026__sticks_admitted__seed3__s4.json": {
+      "sha256": "df2ea8cf89f0d87bd88b1181e6bda46f5ea097e4b0640bdb29dfb60339def114",
+      "size": 20953
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0026__sticks_admitted__seed3__s5.json": {
+      "sha256": "cce8090a662f7d8d2a7be987f3526e3dffa79b8be743e20badf021af9c79427b",
+      "size": 21145
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0026__sticks_admitted__seed3__s6.json": {
+      "sha256": "b5ba472e90028acc4d3ae11dc2a25de5175a9bd2a50983a44b0c5e9544deb788",
+      "size": 21234
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0026__sticks_admitted__seed4__s1.json": {
+      "sha256": "de50e19ee287c96147586023fa2d1b8eae477530b7a537877cbda46cda3be682",
+      "size": 20513
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0026__sticks_admitted__seed4__s2.json": {
+      "sha256": "3ce8388349b2e63b3532db1837a0f3fec3a004980a99957846c6077501c8b250",
+      "size": 20556
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0026__sticks_admitted__seed4__s3.json": {
+      "sha256": "3cd511a91fa2758668d7705c70405497a2ddc13f8413440c810bf64bd1d9e374",
+      "size": 20777
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0026__sticks_admitted__seed4__s4.json": {
+      "sha256": "4aaab89a45c437c8932869d0a72626a1a1540cae0921407df9d8aab7385d06da",
+      "size": 20956
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0026__sticks_admitted__seed4__s5.json": {
+      "sha256": "d725f91379bdc686661f8cd641eabd983e563674168fbc8018d5de61137d7b0d",
+      "size": 21147
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0026__sticks_admitted__seed4__s6.json": {
+      "sha256": "61de5d5fa1bbae8cbf5d12bdac7a04e6a6a6a7ceab59ff2f5efd5112fd96eac2",
+      "size": 21235
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0026__sticks_admitted__seed5__s1.json": {
+      "sha256": "98331af474667a16129ee0fc438eb1103003e776607b4574629533977aa6699a",
+      "size": 20512
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0026__sticks_admitted__seed5__s2.json": {
+      "sha256": "f632c9c188f47b37eb32c1ff603599e02db6365cd9b0884c5e5d6bc4df15cca9",
+      "size": 20554
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0026__sticks_admitted__seed5__s3.json": {
+      "sha256": "d70fb277a15c44e444e1b1819b5d62ac62213338e6e16cdc22c1c4ed115ed38f",
+      "size": 20777
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0026__sticks_admitted__seed5__s4.json": {
+      "sha256": "1d153e497816513727f2b121bf4939587d8eed5c6fb4ee9335ad3e41f9d04f2a",
+      "size": 20955
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0026__sticks_admitted__seed5__s5.json": {
+      "sha256": "229dac96373fae7353e25b209f30bbb0cf6a2abb7fafaf71126ebcbf8b4f41e9",
+      "size": 21145
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0026__sticks_admitted__seed5__s6.json": {
+      "sha256": "b987f513bca891fcd1cd83fc2fb6824ed4281eaadc3c3f200f5b0ace81b3188e",
+      "size": 21234
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0026__sticks_without_admission__seed1__s1.json": {
+      "sha256": "8f140656376b6b3db17dad8c86acb4ca02f9993a78a46f15561b0b2b73d140db",
+      "size": 20538
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0026__sticks_without_admission__seed1__s2.json": {
+      "sha256": "3799de5711ed59c606415768331dc439eb04383fa29ba62e2f568fe56d4959d7",
+      "size": 20581
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0026__sticks_without_admission__seed1__s3.json": {
+      "sha256": "2ef59f8f06f7b5ead6c6fcbffb40b62f8986fa1de2a0e590e14ec7559e77325f",
+      "size": 20803
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0026__sticks_without_admission__seed1__s4.json": {
+      "sha256": "a123f3925b0ee8bda27137f80da4ed12391581fa5101bf3b05e021461a5e7295",
+      "size": 20982
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0026__sticks_without_admission__seed1__s5.json": {
+      "sha256": "584f536f04d9b26d17c5c5bafda3a91b576e2ad39766a54521581fa767a50734",
+      "size": 21172
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0026__sticks_without_admission__seed1__s6.json": {
+      "sha256": "2b14b3236bb41ab95df783de8aaa5e79e852360182391ed4fa16adbb8076ea09",
+      "size": 21262
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0026__sticks_without_admission__seed2__s1.json": {
+      "sha256": "0514d39e0f3d1ff31c75e03ca0ec629290ec917de1beaab4be34f8f4b5b7dea5",
+      "size": 20539
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0026__sticks_without_admission__seed2__s2.json": {
+      "sha256": "960d6c0bb58e961cb12d2f338a52a27b112cb7d925e0bf30a51cacb30874141a",
+      "size": 20581
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0026__sticks_without_admission__seed2__s3.json": {
+      "sha256": "904394211e31a855b5302d81658301dbba0e9af596f4bd5ed52ab37d365d2e9a",
+      "size": 20803
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0026__sticks_without_admission__seed2__s4.json": {
+      "sha256": "f9370a21a12da6b9554b78dc03d4429c32ae40fbab2dbfd875e66427f0857123",
+      "size": 20983
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0026__sticks_without_admission__seed2__s5.json": {
+      "sha256": "cb35fec85e8a310516309682885c52c80eab082453d66164baf7dee94963604b",
+      "size": 21172
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0026__sticks_without_admission__seed2__s6.json": {
+      "sha256": "811e1ef0a63d739c606e71a4a003dddda875e46d71dcee6f0bbe35a29342aa2b",
+      "size": 21257
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0026__sticks_without_admission__seed3__s1.json": {
+      "sha256": "cc5f5b8c9137b9ed484f0243b1b52ed05e0d9a643bce28073e2958d83af91670",
+      "size": 20540
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0026__sticks_without_admission__seed3__s2.json": {
+      "sha256": "e9bc9e49698a2bdfa16c98defc4609493545ab1a5111f13d0cd0bcb27a2c4d98",
+      "size": 20580
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0026__sticks_without_admission__seed3__s3.json": {
+      "sha256": "51407d6750514545fc7d2d2db4d786cc4f94fc565343d33ec8a5f453fab7e6d2",
+      "size": 20805
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0026__sticks_without_admission__seed3__s4.json": {
+      "sha256": "46e9485be810f5eb7ae4e49ecc48d2c27b0d8dbda5baf299dcfd8850cbd1e6c4",
+      "size": 20981
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0026__sticks_without_admission__seed3__s5.json": {
+      "sha256": "6c48ff4efc6ff2a83fdde766a01284e53a38f9d3dfb6aae319683ab600d9ab90",
+      "size": 21172
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0026__sticks_without_admission__seed3__s6.json": {
+      "sha256": "1194d488b8c8ae114968a7b3a6bc7693b12b6593b5b9a5bc690c8c024457fc79",
+      "size": 21264
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0026__sticks_without_admission__seed4__s1.json": {
+      "sha256": "afeb30ac275e60b55f106de05205c2c0c909dbfd09f6a13c1403c052ea236272",
+      "size": 20538
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0026__sticks_without_admission__seed4__s2.json": {
+      "sha256": "9d6b2752fca353ed2adafb7d5ad9ce016ba769e0b363843ae00ea8dc0aa863a7",
+      "size": 20582
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0026__sticks_without_admission__seed4__s3.json": {
+      "sha256": "528dfe43350010c778e98a377e166b9895bbf9b8c0b1ac35cfac6d1c25670843",
+      "size": 20804
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0026__sticks_without_admission__seed4__s4.json": {
+      "sha256": "10b56ad17927c07586c299f0cf71fe97df359c3ee29860673d3b0ea53bdf87fd",
+      "size": 20981
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0026__sticks_without_admission__seed4__s5.json": {
+      "sha256": "f70370744121e22362b11700417e8b392018279b4faa53918a2ca5502360ad19",
+      "size": 21172
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0026__sticks_without_admission__seed4__s6.json": {
+      "sha256": "9f3869be6b3854139457a4e84342e8fa5c76ca171b23ec646ef52c768469e566",
+      "size": 21261
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0026__sticks_without_admission__seed5__s1.json": {
+      "sha256": "84038b4b7bdb0b3d3753bb53752cba192c15b21e6a38e32f3a758d317bf2cedc",
+      "size": 20540
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0026__sticks_without_admission__seed5__s2.json": {
+      "sha256": "22056584a28219d2062e96c4bce7815dbcb5af2b7c6eff5408c6e88a8abdba61",
+      "size": 20580
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0026__sticks_without_admission__seed5__s3.json": {
+      "sha256": "d29349c0b5ccd20e9cd49cb22c9d59a7c0831827e0e4ecfcefecad18285ad194",
+      "size": 20805
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0026__sticks_without_admission__seed5__s4.json": {
+      "sha256": "73b37d5828f204da4f791c6fb9cff0bcfbda7bca50993609931fb5ff944a5961",
+      "size": 20981
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0026__sticks_without_admission__seed5__s5.json": {
+      "sha256": "c6cd7b3b958e39826ac6e52c0580f2a380d59e2f2ecf370a0b3c4d6d8c124dfd",
+      "size": 21171
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0026__sticks_without_admission__seed5__s6.json": {
+      "sha256": "328a59926989c0b8803f026a4b8ba3dc88d4697dc4b3df61ae9b95a9ee94087e",
+      "size": 21259
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__prior_work_style__seed1__s1.json": {
+      "sha256": "cb0ffce97204c15d3c274b1ab3b44136d45d3e259077b765fdc3d69102b4b732",
+      "size": 14311
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__prior_work_style__seed1__s10.json": {
+      "sha256": "7c7844176c95ce1fee1681f74c78b8e0880c03abe549ac8018e66c4293c3cbe5",
+      "size": 16058
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__prior_work_style__seed1__s2.json": {
+      "sha256": "7e00e32ea1f2f630ad8c23944a621b7e6ea4c425bd546fd9dabd38aef39866f1",
+      "size": 14641
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__prior_work_style__seed1__s3.json": {
+      "sha256": "694c96459b7b4710627c5338667484c7252f83dd475101bbcae32f0af2f0082b",
+      "size": 14602
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__prior_work_style__seed1__s4.json": {
+      "sha256": "3c281419a2d4e76446ed5f4dcfca8b86ffd566a6031fcd48be0dff4fa62146c8",
+      "size": 14869
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__prior_work_style__seed1__s5.json": {
+      "sha256": "11feffa70f0bc425669f611675bbd2e9e233808957af5b90c29f08de10fe0a20",
+      "size": 15123
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__prior_work_style__seed1__s6.json": {
+      "sha256": "6ea168ad4fd8f318f73792965d371e95ad7186a7c81dc9dd9cedbe128387307e",
+      "size": 15166
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__prior_work_style__seed1__s7.json": {
+      "sha256": "b1f329946e5eccb64ee9f7cdafaf135a00953fee7786bde52afc5ee8a20846c8",
+      "size": 15470
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__prior_work_style__seed1__s8.json": {
+      "sha256": "2880cfb43dfbeb113fef8a0419fc31f0b599c345ed407c23db4ef9a7e677340c",
+      "size": 15650
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__prior_work_style__seed1__s9.json": {
+      "sha256": "c918eb271f40482ae94c16d5a0a0d738e6f6979a767cfa611bc1ae01864d4302",
+      "size": 15861
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__prior_work_style__seed2__s1.json": {
+      "sha256": "e6087e9d8f1ef08d4b8dcc719f4ac8f50225d9f7fbb865478222bbca7db824c3",
+      "size": 14308
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__prior_work_style__seed2__s10.json": {
+      "sha256": "a7e5fed68b49c14cfdb157ae8ccc347ddae2856ea3cdccd44b16542dab2a77a4",
+      "size": 16058
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__prior_work_style__seed2__s2.json": {
+      "sha256": "80f589cd1e7ed645d5a7430bad12899093d68430135a25174ab270a9e86931d3",
+      "size": 14642
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__prior_work_style__seed2__s3.json": {
+      "sha256": "c84df058674a3f8b9145b900fb4a1cfd86cffc276cfc4229fab8cbf819f8a32a",
+      "size": 14602
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__prior_work_style__seed2__s4.json": {
+      "sha256": "1651140f4106f01ebb136e3eb02b504969d1fd055e0be5349924d61ff06aa90e",
+      "size": 14867
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__prior_work_style__seed2__s5.json": {
+      "sha256": "a7b06e75aaacca1eafade8bd0e898bf11705c40f7b26f4d436293d582f218a72",
+      "size": 15121
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__prior_work_style__seed2__s6.json": {
+      "sha256": "a893b83644fa8dc54e7e8a29d56f0c76ec35533a551846e2bb420c996187224e",
+      "size": 15174
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__prior_work_style__seed2__s7.json": {
+      "sha256": "86b254ae97dc700622c041f8dd86cc08026d6ca435558fab2c7b0e8933ca2d8e",
+      "size": 15469
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__prior_work_style__seed2__s8.json": {
+      "sha256": "afaf7cc92fbe78b0438529d54d2dfe190f1138f27b53e35a959e5e3c4a2a576d",
+      "size": 15651
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__prior_work_style__seed2__s9.json": {
+      "sha256": "2c8db9868ae6db5ac556a16cb1ea411f1c716bb3c8a755f42b11d5f596078702",
+      "size": 15863
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__prior_work_style__seed3__s1.json": {
+      "sha256": "3313203ee702c544771bd956cd59f5a3b36a705758fdfd73416c454e089119f0",
+      "size": 14310
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__prior_work_style__seed3__s10.json": {
+      "sha256": "8b3a5c1776a93d1e28188fd2acda8484b3d1c53d30f8d46bb719d5b8f50706b8",
+      "size": 16059
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__prior_work_style__seed3__s2.json": {
+      "sha256": "ac2507d64bfabf0fd8e4c30d49695d7ec6abc46563daea5e88559187cbdd3b10",
+      "size": 14641
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__prior_work_style__seed3__s3.json": {
+      "sha256": "e2b0bf5bae794622af9f228bce96fb09dab6950a2999d326b83a143984b26f8c",
+      "size": 14602
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__prior_work_style__seed3__s4.json": {
+      "sha256": "0bf9d928d5fe28e58589560c3ab478ce8566b18a4eb9483179d73ec34aae0abd",
+      "size": 14868
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__prior_work_style__seed3__s5.json": {
+      "sha256": "16479c01bd6582e680eaaffbb302fbe0513e9dbabb43c993d52bcbba6ab3908c",
+      "size": 15123
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__prior_work_style__seed3__s6.json": {
+      "sha256": "504acc96d3233abd21b262bafc1508507c58802298d95ab337f60556c819ca62",
+      "size": 15176
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__prior_work_style__seed3__s7.json": {
+      "sha256": "38444f2c8de8a5593477818859a2d3892a64bb0bd02c923b28f8f1387a834a1b",
+      "size": 15472
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__prior_work_style__seed3__s8.json": {
+      "sha256": "a3f05ad0ceb4e0a2939928b7eb34441f34ea2b29949ef7288f10276f560fde75",
+      "size": 15653
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__prior_work_style__seed3__s9.json": {
+      "sha256": "434bd41c1eee67100dbac5e3bd36cde27b9e7f9435cca38e209f1b6aa3745ed9",
+      "size": 15861
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__prior_work_style__seed4__s1.json": {
+      "sha256": "442762708763c47c8d394be555db721eea4ae1aa8ea39df5f8525c9c7a168507",
+      "size": 14310
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__prior_work_style__seed4__s10.json": {
+      "sha256": "60780b62f47d2b7d0a58870fafba7f1750a39ed777be9901276e7b4faa6054e9",
+      "size": 16056
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__prior_work_style__seed4__s2.json": {
+      "sha256": "851d24cf1658e22e234fc75d232177a1f0da8ba1e28b6e4e02ab4e15f0a15f1a",
+      "size": 14640
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__prior_work_style__seed4__s3.json": {
+      "sha256": "dca7d0faaacbfa0591ee5afb34b731bde157468555269fb32980b8a440ed7040",
+      "size": 14601
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__prior_work_style__seed4__s4.json": {
+      "sha256": "3c85dbe3453c2dda25aad9804a910fdb82875532303e88f70f347abcb1ba83e5",
+      "size": 14867
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__prior_work_style__seed4__s5.json": {
+      "sha256": "ed4fec08d22bc2dd59bbc90cc93fcf8afafe29e765f94627eb479880f83be0dd",
+      "size": 15121
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__prior_work_style__seed4__s6.json": {
+      "sha256": "05760cb42ef5c728ff8f0f7568df09b2e3a66f679c6b1cebe994ab606ec1fa06",
+      "size": 15218
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__prior_work_style__seed4__s7.json": {
+      "sha256": "be4f12c93ec72808c08be7e1b52909c30cb892086591178080fbb6f1089471ac",
+      "size": 15470
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__prior_work_style__seed4__s8.json": {
+      "sha256": "35b7bd75b5767acef79bc6d1dd37f043206720d90ea0d6e38a2d25ece33947d3",
+      "size": 15652
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__prior_work_style__seed4__s9.json": {
+      "sha256": "4b681fabd6194731c6cb4647cb85d53d1905bdd10a1054f8e85337c893abda3f",
+      "size": 15862
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__prior_work_style__seed5__s1.json": {
+      "sha256": "7665756b459b41b526c3213571a59258a700304bd3f7821c11424ab1f74254d8",
+      "size": 14309
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__prior_work_style__seed5__s10.json": {
+      "sha256": "d4711815c09bfb6d936c54292f008b6c52ea32ee4d34b478efd86ca102e09424",
+      "size": 16057
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__prior_work_style__seed5__s2.json": {
+      "sha256": "8129692fce0524c34b5e98689d3e80c147a1ec0232d4fcc0ad570e6a78a7acf4",
+      "size": 14642
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__prior_work_style__seed5__s3.json": {
+      "sha256": "40fb2d53b36d6bef2dd198a15ac661559c0263aa9426b7730f50e5320c6f2a37",
+      "size": 14602
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__prior_work_style__seed5__s4.json": {
+      "sha256": "4ecf2e90b966c19435b60b3f8ba18e60eeda559a24657336b0f96baa3bac0e6f",
+      "size": 14867
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__prior_work_style__seed5__s5.json": {
+      "sha256": "e55fc97d16c47368b2144246fa80b96a97d0510adae20981dc9bfdb9abe99dbc",
+      "size": 15121
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__prior_work_style__seed5__s6.json": {
+      "sha256": "a2918c8dd7fa2f544caf3f12f2bfaf1f689dbc4dd43ae289f239f6ef3093bca0",
+      "size": 15175
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__prior_work_style__seed5__s7.json": {
+      "sha256": "18becd3962afb3ecf0adfa69bf9966eca8ebb292c2cf8146efc096d7f13d96b0",
+      "size": 15470
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__prior_work_style__seed5__s8.json": {
+      "sha256": "b01a7a0c511305586bc19a7d1360962731476adc4caf10b0ca362f67afa8fe46",
+      "size": 15653
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__prior_work_style__seed5__s9.json": {
+      "sha256": "a66854bf86e9da9c237c51f68db3027c0a234598bb3bdec6042f92dcf7080646",
+      "size": 15860
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__sticks_admitted__seed1__s1.json": {
+      "sha256": "07a238aff305e6fc62fefa4abec0572689cd7314e93727e74721835d67913734",
+      "size": 20544
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__sticks_admitted__seed1__s10.json": {
+      "sha256": "5cbd521494ae24991aee36130a13a0b33f1c65254e99df24d7fe15d89669a1e2",
+      "size": 22295
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__sticks_admitted__seed1__s2.json": {
+      "sha256": "cdaee81d4c84315f3f3c6778556206e19b00e0a63fa92c91768f7ee94cfcdf5f",
+      "size": 20854
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__sticks_admitted__seed1__s3.json": {
+      "sha256": "8f8618ccc60e2f2d7b9b7fc99adae2d7d3ddf9867736b42934c5498e36225c31",
+      "size": 20847
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__sticks_admitted__seed1__s4.json": {
+      "sha256": "a96865e084da81d42c5e434460bc2e6d33eb7a4d98f81e628a5649bb27c244ae",
+      "size": 21080
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__sticks_admitted__seed1__s5.json": {
+      "sha256": "5579d6be5b9b1059685ddc8115da248acb2c8041df9c89cd26a08818302cb91b",
+      "size": 21325
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__sticks_admitted__seed1__s6.json": {
+      "sha256": "1ac170ab0ba7ead48c92a93cbdfc64b2002e93c917e3af86cafb1f05b69b4056",
+      "size": 21406
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__sticks_admitted__seed1__s7.json": {
+      "sha256": "ed398f6c0b1cd2a23b6c000b56dffa11452d13c8a06f7b9ad640cb1f264b09ca",
+      "size": 21684
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__sticks_admitted__seed1__s8.json": {
+      "sha256": "15e433ea05f15c1344a2b8fbb1a0952f5d9df7fcf96e67b684d79b5da8a2abe3",
+      "size": 21864
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__sticks_admitted__seed1__s9.json": {
+      "sha256": "f13c09291b2140d9affe0b7cd8aebe4c0db95e40c4499d0fc51b94273adaad70",
+      "size": 20472
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__sticks_admitted__seed2__s1.json": {
+      "sha256": "892b5dfe6d70718b9856b471dbe5f65acc3bc987a2ea480e17e4240ed9ab4ef1",
+      "size": 20544
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__sticks_admitted__seed2__s10.json": {
+      "sha256": "9e7d36fa472d08eab1f5e4e1577cf1566606c5aea4e261c240da2e91837e6472",
+      "size": 22294
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__sticks_admitted__seed2__s2.json": {
+      "sha256": "cea0b8b4ba26ff31a48be71beff7f0d9c91b73b3afc61d107e8e06007ab576bc",
+      "size": 20854
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__sticks_admitted__seed2__s3.json": {
+      "sha256": "f416f9b23624b4bddce415340a869ab8889aacd7dca27b78f56bbb8f63a231d8",
+      "size": 20845
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__sticks_admitted__seed2__s4.json": {
+      "sha256": "3b925e8ff30d47d9d967bc1e25127740aea2ec6528023b0c4522bb09ac9474d5",
+      "size": 21077
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__sticks_admitted__seed2__s5.json": {
+      "sha256": "1222ca6be90dbec01ef6aa50ad6996da670be549fd1177cdd0019e7f4de46f0d",
+      "size": 21326
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__sticks_admitted__seed2__s6.json": {
+      "sha256": "06effdebd46a7ffb2824b87f580520bf10fdf834d74b465befdac83b55355ef3",
+      "size": 21405
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__sticks_admitted__seed2__s7.json": {
+      "sha256": "46d5f0a3826ab825370b145b77429e14f5a271c9e93dec273da6c4dc3219dcba",
+      "size": 21683
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__sticks_admitted__seed2__s8.json": {
+      "sha256": "7d5cdd35ca49ce9b38be97c60fdcb72cf1369128c982d5e2b0f43e83d3ab9ece",
+      "size": 21864
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__sticks_admitted__seed2__s9.json": {
+      "sha256": "6b63d180b28406e5f647226bd96639b7e23d036335ba7947d01bb620839a83f9",
+      "size": 20471
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__sticks_admitted__seed3__s1.json": {
+      "sha256": "b5b0025465e11f1b637ae4291d26358cb34ee4881290459b9e8e4a6dbdb31ab0",
+      "size": 20544
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__sticks_admitted__seed3__s10.json": {
+      "sha256": "45f51a721f98ce64bbb5083a153791c0eed50dc2b33cfd0b4ac26e951a4cd4e1",
+      "size": 22295
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__sticks_admitted__seed3__s2.json": {
+      "sha256": "a081e2c47e4a11ca2238860d86d7b23268bb6b33fa75afe5f2981fc47a26b937",
+      "size": 20853
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__sticks_admitted__seed3__s3.json": {
+      "sha256": "bbca1add9ddf97b1cdb000053ea1e05c86ce50daaca81d7424e16f7de3926067",
+      "size": 20845
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__sticks_admitted__seed3__s4.json": {
+      "sha256": "dd358f80160d0d92df4d74a6bdc0b5d1676af8aa010825d283b201272ca46811",
+      "size": 21080
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__sticks_admitted__seed3__s5.json": {
+      "sha256": "6c3cd1e5997b063abe0d82e9a3c643bc3adf6cac8f1ea92530f636bf009c0d26",
+      "size": 21325
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__sticks_admitted__seed3__s6.json": {
+      "sha256": "5452289cda1e8516d87504a05d11c2a13ae15dcca1f214d2e5ad17cf06765324",
+      "size": 21406
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__sticks_admitted__seed3__s7.json": {
+      "sha256": "926ee3330ba8fa877602b8f80443f804be3bca7e5b4802e6f838dff6c4c2b880",
+      "size": 21685
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__sticks_admitted__seed3__s8.json": {
+      "sha256": "7d91085a342a2f83645af156c5cd6a09250df4fd0e572a6a7c959478b5875d49",
+      "size": 21863
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__sticks_admitted__seed3__s9.json": {
+      "sha256": "41fe30777e9f2e70494783338f72e1dbe7dc19618d7a0c13df8f45e533302f5d",
+      "size": 20471
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__sticks_admitted__seed4__s1.json": {
+      "sha256": "870d44b26e72c9fd1111ebc36fed10d3f2d1ab135d621d15f26d1d4317e0c8df",
+      "size": 20544
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__sticks_admitted__seed4__s10.json": {
+      "sha256": "bcb69c2d11e553b654dc9b628ed78a583c4b5694da2929ac4ab81e6f60a5731f",
+      "size": 22295
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__sticks_admitted__seed4__s2.json": {
+      "sha256": "297b626f847cb2db36c60f6ddf7cb3b6018b00cbb816f4426389a1b172dce6a0",
+      "size": 20854
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__sticks_admitted__seed4__s3.json": {
+      "sha256": "e990c4fd7c87c1d451208b406863e483d628d3b3dcf4248d5067a06d7a59b15a",
+      "size": 20845
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__sticks_admitted__seed4__s4.json": {
+      "sha256": "f9bc7238041cdfb2e5363586a95b519c5ddab7e48bc1140a79efda023a65bdb5",
+      "size": 21080
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__sticks_admitted__seed4__s5.json": {
+      "sha256": "bb92b1faab76a25b10a4e0d82626336b7428bfdeb81e33e09755572deb1e1aa0",
+      "size": 21325
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__sticks_admitted__seed4__s6.json": {
+      "sha256": "b4e2b69c5f41f74700c8a625c55e1f70c874d6c3dd764fd3dd07edab6eb00b41",
+      "size": 21403
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__sticks_admitted__seed4__s7.json": {
+      "sha256": "49379ff7bc6883c5cf5bcad7f1566a5bab2b438f15720259aca507cb66f6a705",
+      "size": 21685
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__sticks_admitted__seed4__s8.json": {
+      "sha256": "f42ec842e75ed7e8ada80ccfedb6676d9778ce4b7d2c94699c8b26d5da789bf3",
+      "size": 21865
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__sticks_admitted__seed4__s9.json": {
+      "sha256": "6e28402a366ee0e6088b41309e01f2a86f28f517be11e116c44f31958a2d8f75",
+      "size": 20472
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__sticks_admitted__seed5__s1.json": {
+      "sha256": "5737320e2a8dfa8e777fb03dd5cbc875d7b8c7ce17828644bde4b6d8740b1b2d",
+      "size": 20546
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__sticks_admitted__seed5__s10.json": {
+      "sha256": "061105793c81146891585905092b74582a0f92a1a80b30c5fcb10ecc94d7a8b1",
+      "size": 22294
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__sticks_admitted__seed5__s2.json": {
+      "sha256": "9c7e7c065ed335cf31a3a8e053fba3da166a2ae42fdd212d17790c02cc9f9598",
+      "size": 20854
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__sticks_admitted__seed5__s3.json": {
+      "sha256": "3fd0e9aff4e8ef9453f9644a602ff56053a5e22dcf97f0611ccf5b025847a392",
+      "size": 20846
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__sticks_admitted__seed5__s4.json": {
+      "sha256": "9a42368614816e27ae7a9b1daf6ad8ab5e5a72c53948bfdcbbde00b1624bb2fc",
+      "size": 21078
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__sticks_admitted__seed5__s5.json": {
+      "sha256": "7740f49098303cd8869754213efe70647c6a90779e3dc39167df880660d93c64",
+      "size": 21322
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__sticks_admitted__seed5__s6.json": {
+      "sha256": "cbff8b41819a4204981e1928600e6e66a40f7f01ce39054c14b08773700d70f8",
+      "size": 21405
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__sticks_admitted__seed5__s7.json": {
+      "sha256": "c03b20b2ef59461e41030dacd9c26e399ad942f684663a914ca5d659d0e65182",
+      "size": 21684
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__sticks_admitted__seed5__s8.json": {
+      "sha256": "ca5a400004acd65cf9ecf1fc609cc07862ca44024043a1106253081eaeb32d4f",
+      "size": 21862
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__sticks_admitted__seed5__s9.json": {
+      "sha256": "ed4c94a80b8169c9677342b1ffacc7864a9229244c1a668338ba485d9c553919",
+      "size": 20472
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__sticks_without_admission__seed1__s1.json": {
+      "sha256": "2e7ceddab45f6f24d9685f1fabe61da022c827b8543f25dc310088f0e1e4f4b5",
+      "size": 20573
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__sticks_without_admission__seed1__s10.json": {
+      "sha256": "eb0f35faa860df542c5a1b293ad756d677604910272656ba4299ce0758776230",
+      "size": 22321
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__sticks_without_admission__seed1__s2.json": {
+      "sha256": "92b188f31c9b6e5b7b96040e43cc0cd1bdd1461cd5b6f61bdb3ca56163fc87be",
+      "size": 20882
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__sticks_without_admission__seed1__s3.json": {
+      "sha256": "9d3900b7e7dd4ccceeb63d0b5c4511ce9b27748c756bf624c2165acc406e0423",
+      "size": 20873
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__sticks_without_admission__seed1__s4.json": {
+      "sha256": "9f132bf4f17b08bbe0f1bba1b76c3d6eb86f60e4e1174851c5feebcf5477f832",
+      "size": 21105
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__sticks_without_admission__seed1__s5.json": {
+      "sha256": "7061ad5e1e108915dc24dbf148a11aaeda24be8eb957d2c4488d56f507fb4459",
+      "size": 21349
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__sticks_without_admission__seed1__s6.json": {
+      "sha256": "c2dd91755fee0f3e11c050b8d895ecda044d2a585ba83a0cccc99b4aebefb3d6",
+      "size": 21432
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__sticks_without_admission__seed1__s7.json": {
+      "sha256": "cfcf839e77463b11940ebd85d32ae7faca3a060607534879f36ee0a36fcb4995",
+      "size": 21712
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__sticks_without_admission__seed1__s8.json": {
+      "sha256": "28715fdc9de428d98322013e3628c1616b79f44710e979ed24c42ea03fdf5439",
+      "size": 21890
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__sticks_without_admission__seed1__s9.json": {
+      "sha256": "560e605fbe631f72361cbad0b9843578f9b90c6a513babaa711520a78fd6fc92",
+      "size": 22178
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__sticks_without_admission__seed2__s1.json": {
+      "sha256": "c9f2840aaebe9e4fa1285c411542a607fedcb9bb04cfdac379bd459f0e7ca2b1",
+      "size": 20570
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__sticks_without_admission__seed2__s10.json": {
+      "sha256": "d68e4558c0a71f17512affc190f61b59acaab622033e66ecadb24e9180fc3651",
+      "size": 22321
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__sticks_without_admission__seed2__s2.json": {
+      "sha256": "bf013692a931b20199fb572ae0600ad7b33df69fa703a07f60404f3552385551",
+      "size": 20881
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__sticks_without_admission__seed2__s3.json": {
+      "sha256": "c89de469ba84136560ee2a5188e148deac365994ef7cb69eee1cdb6a84e02dbf",
+      "size": 20873
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__sticks_without_admission__seed2__s4.json": {
+      "sha256": "f59922fe3d064eeaa956a35f9bb0d93f5ddb8a74364f6ab7a29647e6b02f9564",
+      "size": 21106
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__sticks_without_admission__seed2__s5.json": {
+      "sha256": "9230fadc0097acc51334dea555c51e670a0fd293b7919a4578a57bc6ada1c790",
+      "size": 21351
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__sticks_without_admission__seed2__s6.json": {
+      "sha256": "364a7ffe39b9b19450581b5f8a84963ba8cdd920dc6a7e9b4442a26378b265a5",
+      "size": 21433
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__sticks_without_admission__seed2__s7.json": {
+      "sha256": "77f8deb308a6ff0da750580dbe8a65ac9aa8fc0a59ebd7b31a556cbbb616ea84",
+      "size": 21713
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__sticks_without_admission__seed2__s8.json": {
+      "sha256": "95461580c4ec472a646949e7bbaa512554bfe465c63a0a6c8b2836fef293f934",
+      "size": 21891
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__sticks_without_admission__seed2__s9.json": {
+      "sha256": "af6905c6b84536cf35735638fe6c2e8acdbcce05a8b8c4c485843f739fe44db7",
+      "size": 22175
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__sticks_without_admission__seed3__s1.json": {
+      "sha256": "a2096117d0f07211df0fc366cd2404c234bb0a9520809e56811b5a5cbb53d00d",
+      "size": 20570
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__sticks_without_admission__seed3__s10.json": {
+      "sha256": "52a3e63d75cac610cb29f85060223f1414d8379a3d6a73b1c42b86e175b3aa7e",
+      "size": 22322
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__sticks_without_admission__seed3__s2.json": {
+      "sha256": "bea400976bba6545115b476de60a7ac39a8f48419b3a7433de099da7903ca3f1",
+      "size": 20881
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__sticks_without_admission__seed3__s3.json": {
+      "sha256": "e76442ad533c7fb334662d801d7f9ecdee14f6bfe87725a8e0324e94ca38d1f6",
+      "size": 20871
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__sticks_without_admission__seed3__s4.json": {
+      "sha256": "46b594f31a4e0876cb1e9fa2cad3e96391527ff1d40acb289bd1c937511acd6a",
+      "size": 21106
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__sticks_without_admission__seed3__s5.json": {
+      "sha256": "c048374264faf04293809c0703c0695be66290fe3355f09911271cbe08a65496",
+      "size": 21350
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__sticks_without_admission__seed3__s6.json": {
+      "sha256": "fc273201f857bee556520693e59ce57b8b127ba0e005fcf589fd9ecc9363d802",
+      "size": 21429
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__sticks_without_admission__seed3__s7.json": {
+      "sha256": "ca80b659ac903d52c3176a8584ab292bf0ff1844ddc6bf1b52e0736f790270aa",
+      "size": 21710
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__sticks_without_admission__seed3__s8.json": {
+      "sha256": "020dc06bbcebf87c36edf045d1fd2effcbd342c121ccebfef6e5f1824fb4437b",
+      "size": 21891
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__sticks_without_admission__seed3__s9.json": {
+      "sha256": "96b3cadc57cadff824049b2fd236632c42709a367df5f3ac35ea160b687d199f",
+      "size": 22175
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__sticks_without_admission__seed4__s1.json": {
+      "sha256": "534666540d19a93b614092170eb7217d8b1352f0451ad5c3358eda3758e6edfa",
+      "size": 20572
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__sticks_without_admission__seed4__s10.json": {
+      "sha256": "9e7af31ec553f14c31518fd384c5eb46be5c28e12dfc5a40c74eca092d3202eb",
+      "size": 22322
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__sticks_without_admission__seed4__s2.json": {
+      "sha256": "19ee0826de93a372babaece915866f307336059cd20180abd34e4849d1f0beef",
+      "size": 20880
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__sticks_without_admission__seed4__s3.json": {
+      "sha256": "56c5f82f9c96e834c429d9efb521670428034eac3c6f7149661f2cf742f3e6fd",
+      "size": 20874
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__sticks_without_admission__seed4__s4.json": {
+      "sha256": "b3cd6bc7995e76bed0c987bb9b881ab52c824d68c35bb71bcbcbb400d60837c1",
+      "size": 21106
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__sticks_without_admission__seed4__s5.json": {
+      "sha256": "eca07db96f5209eec7afbc85fba5630d12fe78a7d25b4fb8cc71f8892aa36479",
+      "size": 21351
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__sticks_without_admission__seed4__s6.json": {
+      "sha256": "2b92773ff3c1e8b1824a5f67c7d1c6c49cce7182a161e7b67d6dac88765dbe75",
+      "size": 21433
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__sticks_without_admission__seed4__s7.json": {
+      "sha256": "7fcb5c480759ac89d1a56c54d499f378b1339d69ce47bb66e03af0bc688207aa",
+      "size": 21711
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__sticks_without_admission__seed4__s8.json": {
+      "sha256": "3d80fc897a616b876649aa7a9ab54a7b6588628bce358e03ac0a068468a7da2e",
+      "size": 21889
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__sticks_without_admission__seed4__s9.json": {
+      "sha256": "8de30bfe5a886792961d725072a9eb63bc47a8487c8c50cbb03b4be38401bb7d",
+      "size": 22178
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__sticks_without_admission__seed5__s1.json": {
+      "sha256": "e30837cfd5a13c4dc8a6f8065411ce5eacbf2632e95d997071e13d8be2814b86",
+      "size": 20573
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__sticks_without_admission__seed5__s10.json": {
+      "sha256": "1d75c0e600897655fcff3b2117acfe6e115a801e8b7238317eadc4be247cf450",
+      "size": 22321
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__sticks_without_admission__seed5__s2.json": {
+      "sha256": "3b89e945c13929cab82150469cc5f17d8698e2b8cd83486ba358054e0854f116",
+      "size": 20882
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__sticks_without_admission__seed5__s3.json": {
+      "sha256": "c485eb42c9d79b3f55822427227b1640c2771c3f2d538d71e4bb82ac9daf5044",
+      "size": 20874
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__sticks_without_admission__seed5__s4.json": {
+      "sha256": "69fee9fff0afa8bb3e41ea61ff0266182c8d81b5000a268345535a57210336b4",
+      "size": 21106
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__sticks_without_admission__seed5__s5.json": {
+      "sha256": "39b3e465a19b3ced000d244282cbc44cec2a5d7e3e0fe978c3827d979fd45687",
+      "size": 21351
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__sticks_without_admission__seed5__s6.json": {
+      "sha256": "7fbdd41dfc95f594c4e68da97bb12726c4475f5a25c4427bd2e747c74f8e3e6a",
+      "size": 21433
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__sticks_without_admission__seed5__s7.json": {
+      "sha256": "8c53ad1077c687e1c778a0bf8dc716639416c7105ee1a2aa1f69a7d1b7f977b1",
+      "size": 21712
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__sticks_without_admission__seed5__s8.json": {
+      "sha256": "21645f009e9f3cd66f58974d120493e091de801ae50dd3a95b3a380dc4cf0f38",
+      "size": 21891
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/cache/C0045__sticks_without_admission__seed5__s9.json": {
+      "sha256": "e14fdf17c9479ae8889b3939ca9a8696c8406384a8b792d90ee12ca1ef13503a",
+      "size": 22176
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/collection-lock.json": {
+      "sha256": "2eda87f7b8014e4a9d585ba21527ba970ffe6957cbc6127ab131260e74e66cad",
+      "size": 71317
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/comparison-ledger.json": {
+      "sha256": "d12ca95d61cff9a6d579dd2dc59980c4065e55eb9a9711847dd29387d9285967",
+      "size": 17654
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/comparison-manifest.json": {
+      "sha256": "51289606658d59c91cd99b9897770de4b139c4dd6bc2b27bf4ac9f411fb8bbcf",
+      "size": 2399
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/manifest.json": {
+      "sha256": "ed54e03fd519a955da2db0555993144097996808a082a61395083d7e9f8a3e1d",
+      "size": 717
+    },
+    "release/experiments/controlled_comparison/prospective-qwen36-p17-v5-20261023/metrics.json": {
+      "sha256": "9e44a4996a3f4f65974a4033c67e89cb72815ed0033e0d1dd77ff1a4ac05ccd3",
+      "size": 831
+    },
     "release/experiments/controlled_comparison/qualification_status.json": {
       "sha256": "af512f561635757af33583fd1e617bc36f5ce6701cf793496f0e4885f2355740",
       "size": 1551
@@ -5460,6 +7008,10 @@
     "release/experiments/procedural_behavior/comparison_table.md": {
       "sha256": "556936bc978c510aef1f9fd2644a490f410dfa25ba870b19401d58a1cf4fe565",
       "size": 509
+    },
+    "release/experiments/proposal_containment/v5.json": {
+      "sha256": "0fc31e8609c3f64b1ae6b951fa137743fbad5cdced3dbbf52311206cbab4543f",
+      "size": 2183
     },
     "release/experiments/proposer_convergence/C0010.convergence.json": {
       "sha256": "9ee13cbacba1849df7ecfb66c145dd010da98ff9a1e1a140f7daa2fdcb1a1993",
@@ -9342,8 +10894,8 @@
       "size": 329
     },
     "release/paper_macros.tex": {
-      "sha256": "a49040c37e5a663d8e1290b30770b829b8e7c258e32a3171a9bb0f2e04ad0722",
-      "size": 4493
+      "sha256": "f3689c9937cb223e703f333e870223035ea444520d1ac5f42ee4f38e5e53194d",
+      "size": 4762
     },
     "release/plans/C0001.procedural-plan.json": {
       "sha256": "25476dab5e22fca4a03f63beae5ab0919597b52d207b5ec92973909855840299",
@@ -9753,6 +11305,10 @@
       "sha256": "b7557a06151d909d3142905a0f81f21f26fe4a9fc13af8acc9a519b2ba92b07a",
       "size": 3640
     },
+    "scripts/build_contract_strength_report.py": {
+      "sha256": "2352a0414d657d5ab265e296561c44f5bfd80b49d0e127ee8c338df88eac7e2f",
+      "size": 2774
+    },
     "scripts/build_corpus_characterization_evidence.py": {
       "sha256": "eb1b3cb5366f614f712ad01ae74a26883a042a55bfcca51e9c8d985add2b2b20",
       "size": 1775
@@ -9816,6 +11372,10 @@
     "scripts/build_procedural_behavior_comparison.py": {
       "sha256": "1d1916d8558b1f41ef282096d2b4226f6c5cc22387962725275a56f4521189f7",
       "size": 4442
+    },
+    "scripts/build_proposal_containment_evidence.py": {
+      "sha256": "9aa86c60dc0384490e49cc01002bf431258646d68d5cf6af0533a6baa11565e6",
+      "size": 5919
     },
     "scripts/build_proposer_convergence_evidence.py": {
       "sha256": "17888193696d5c73ef58b81691a5046b643835b5e08254f2234765d22b279d57",
@@ -9998,8 +11558,8 @@
       "size": 3381
     },
     "scripts/package_complete_public_repo.py": {
-      "sha256": "6922b9a5dd410ed1c1661cee9197c50545731d79f5e0c2f28e20fae7f79ad1b5",
-      "size": 54574
+      "sha256": "67af164dc32949d8f0c9aa7ac25fe95f12d74125c89c7415bcb6d6abf865bd2a",
+      "size": 54616
     },
     "scripts/package_prepared_c0045_role.py": {
       "sha256": "31e31e548d2cb9e025682f73323b8dc23d18ba121b78164af4c73421f1a09f0b",
@@ -10010,8 +11570,8 @@
       "size": 7679
     },
     "scripts/prepare_caldera_session.py": {
-      "sha256": "28d754e82a3745ea62535cd786838e34ba19d8a65644ddac98dd1d39752b2c41",
-      "size": 3036
+      "sha256": "1cd1f0009979b130d5a90fb04d2683bdd31ac4212b1ca58188013fbfd44a6184",
+      "size": 3401
     },
     "scripts/probe_c0010_controller.py": {
       "sha256": "5efd0b9e8d18dcb0be485bd67b532cf1567e7f49dc6c11263e192a956eea3c92",
@@ -10098,8 +11658,8 @@
       "size": 3391
     },
     "scripts/render_paper_macros.py": {
-      "sha256": "b2451891d6d09b550bdf60b5f78e572bb1d009a5d6c22429c5c44cded335d8d3",
-      "size": 21903
+      "sha256": "483e60e8505fc79a23ce873fd22d9c46c43da6e03478d0862fbc62d58df614a0",
+      "size": 22892
     },
     "scripts/render_provenance_table.py": {
       "sha256": "3b888d439919a16f0627815e94dd7f0d1508fbbbe0a018ddde13bd34d5e80a4a",
@@ -10110,8 +11670,8 @@
       "size": 3258
     },
     "scripts/reproduce.py": {
-      "sha256": "a09e5d84275339ef541eff60ec0f8aedbe4177446194e046558c25482a9c405e",
-      "size": 11345
+      "sha256": "2082eafe60a181207f61e75ca7e56b22bb9dd208fe8beb52b033ebe2d45fe4fd",
+      "size": 11432
     },
     "scripts/reset.sh": {
       "sha256": "abeb552b59660d05dba297b37b5facf5b568d50126502e79af3bce2dd3f6ad01",
@@ -10158,8 +11718,8 @@
       "size": 12602
     },
     "scripts/run_lab_campaign.py": {
-      "sha256": "27efcbae414ea4e097dfce164ab6dc7770b2a3ebadae31b1195c8d8e7c5705ec",
-      "size": 14119
+      "sha256": "d9a51339c2b29fbc0ed80ce17b8ad4a6486e8d9d4db51ab44b5e1c877385bbc1",
+      "size": 14241
     },
     "scripts/run_measurements.py": {
       "sha256": "2fdf6def8cd90123ebeda168d408b9b02ba94be7402c34adb8500688f9609d16",
@@ -10262,8 +11822,8 @@
       "size": 675
     },
     "scripts/typed_runtime_seal.py": {
-      "sha256": "bdc34a9e833b2aacadd5f68f600b4ef10719e749bf16e579f9f49dfe980c2927",
-      "size": 36825
+      "sha256": "612f3dfb401b6987cbb729f19508440c7be093b0e6971c2b9740fa00f0b51eb5",
+      "size": 36828
     },
     "scripts/up_lab.sh": {
       "sha256": "69fd0e37d06cfd64fe11ec1e384867bb50280adb27888ecd47556cbea27a771d",
@@ -10368,6 +11928,10 @@
     "src/concretization/admissibility.py": {
       "sha256": "19ab5c683d4d0553337921b056e15a2bd84159552a1ad6b3e887dce0c7ae31ed",
       "size": 2939
+    },
+    "src/concretization/contract_strength.py": {
+      "sha256": "ce2b731e93c32a379fb7cde6e7a9449a6dc0a985a93ff86f22c92bffaf39febe",
+      "size": 3959
     },
     "src/concretization/derived_environment_corpus.py": {
       "sha256": "8660d684410f496ef2dfd6be9228ab4c3a166e5790f8db47eadbf9626a5eebc2",
@@ -10682,8 +12246,8 @@
       "size": 2666
     },
     "src/executors/lab_transport.py": {
-      "sha256": "b1dafc2d7fe7bfdaa90945abeb3ba92c53579328235c659adf531f0896e22bf0",
-      "size": 8514
+      "sha256": "f954734a50551316ed2816a90ab4af944a8a3bb123ea9d17305cc5205d748817",
+      "size": 8803
     },
     "src/executors/legacy_campaign_executors.py": {
       "sha256": "05e01b3e9ba2ef4ebcd2a7e507861dcfa531ed799094a016bc639d4824388eed",
@@ -10722,8 +12286,8 @@
       "size": 21701
     },
     "src/executors/shadowray_fixed_executors.py": {
-      "sha256": "2cb46f64c6fb3b34e4aef21bd36d9f4d06f5f460801fb641eacd8af3bf9e33b3",
-      "size": 24952
+      "sha256": "f94327a558a5bfa4cc81586955bf67a1214e5d38b6072360e262a88b21d1c8be",
+      "size": 24986
     },
     "src/executors/simple_t1041_executor.py": {
       "sha256": "9fd08b040900a99c7ef5dfefd1e4e1af1d68ea4cbc44d1e22ffe1c643ae4cd0d",
@@ -10814,8 +12378,8 @@
       "size": 5589
     },
     "src/runners/c0045_full_runtime_contracts.py": {
-      "sha256": "23be10453b4693911c4eb97290823bc3fad109e29545ecdf02ef3f40776034e0",
-      "size": 3981
+      "sha256": "1c03226c9f2568e2d0731db4fc7298d7254ac16cf7ec3e965ebd84643c65491e",
+      "size": 4511
     },
     "src/runners/c0045_lifecycle.py": {
       "sha256": "8a6d184db945af4d1a0e8e9097d27f6a45fac7e0d72f39bb6c4cd824a9a5a028",
@@ -10846,24 +12410,28 @@
       "size": 7394
     },
     "src/runners/caldera_campaign_support.py": {
-      "sha256": "3195384554a46f57db2a67ee58b1868c17456dad799174de4b0131ae053d488b",
-      "size": 144
+      "sha256": "a2064a4280067d692fe99cb8069ba2d1339f2e4680af51842259c56d99a5d9c8",
+      "size": 440
     },
     "src/runners/caldera_journal.py": {
-      "sha256": "5d65b306cf2e4ce2ad6880b691f56597d3fd68347241fe6b3dbc45a8babce23f",
-      "size": 4588
+      "sha256": "2224df83a4a8457f1f76dae58e020743cf2116f544284d34d8a7fa457ab81d04",
+      "size": 7900
     },
     "src/runners/caldera_lab_bootstrap.py": {
-      "sha256": "b34dfe062de974a1bc53e0b3edff235679ef94c368d4448f1d0375f2109a9045",
-      "size": 5455
+      "sha256": "8502395728dcb2e43b1023400e766560beadb13c064c3cbb5c7b87ade0e9bd75",
+      "size": 6271
+    },
+    "src/runners/caldera_occurrence_binding.py": {
+      "sha256": "b179a92bcdbcd442dfec4b9642ea15fdcc59f2770811118872bb1b58393ecf7d",
+      "size": 513
     },
     "src/runners/caldera_session.py": {
       "sha256": "47d12991d480d9a7970f68c70308e0c2cf6f125a20e22ef7892d9a1cd9c62ade",
       "size": 2319
     },
     "src/runners/caldera_target_transport.py": {
-      "sha256": "245b15eb4dda59d88174d4e2478f8326fa98c73778c8f8d8d7601f5f8664be4d",
-      "size": 3308
+      "sha256": "60c5025fd3fbf074630bec8dedb6332acad666e83d71d66c684bafe03ad0299e",
+      "size": 4172
     },
     "src/runners/campaign_api.py": {
       "sha256": "b4255095f55cf34747b8772590a38f06c31bbcefa71a2a9d509555e8aab6fdaf",
@@ -10874,12 +12442,12 @@
       "size": 7987
     },
     "src/runners/campaign_runner.py": {
-      "sha256": "7316e06f3dd944008bcfaf3335daa73a1de49e9f5db9287516db7b17a33dd534",
-      "size": 57821
+      "sha256": "001a02eb6cbef23d0cfa33e352f548f53fea97f2928931a64689f4becf147daa",
+      "size": 57826
     },
     "src/runners/capability_authority.py": {
-      "sha256": "3f0564a673cc502ac210dadb0a9f4104ee989a9b62f45ceee386f7e1f551b6d6",
-      "size": 15605
+      "sha256": "8bbc72dc2c5de4fec0c5b7d076f06a7d0c4d396ac63c348575acb9292de46d74",
+      "size": 15730
     },
     "src/runners/capability_facts.py": {
       "sha256": "8e2924589d84e79dbfcb99af99f36c66ecb359fb39910313855b168302c3605c",
@@ -10926,8 +12494,8 @@
       "size": 1454
     },
     "src/runners/recorded_caldera_dispatch.py": {
-      "sha256": "ea72a13d922e5780580bf5de33499a433aa678a22109cbfbd095e826a053b2ea",
-      "size": 3799
+      "sha256": "d56b0ebd8aaac15681f507590708478b09227ffad32c7516a4c7a10a502a1415",
+      "size": 3966
     },
     "src/runners/runtime_campaign_report.py": {
       "sha256": "2d00be116e1ab7f8026b6402eca10b1addfa8f35c67cbc47e34593b3375f7612",
@@ -10937,9 +12505,13 @@
       "sha256": "2abe5ada03239d5ca9d3c87a8585a15ec1502be5a2ff6e8e77faa5516cf1f23b",
       "size": 2931
     },
+    "src/runners/runtime_dispatch_scope.py": {
+      "sha256": "f915be7aa550582d0a07fef36bcf3b8d236bfeec8cf699a2ada6080c7beaceb1",
+      "size": 672
+    },
     "src/runners/runtime_invocation.py": {
-      "sha256": "50fb4845b2dae765178cd4a093e44958c961a87cf1ced93274dfdd6c4ab590fe",
-      "size": 4324
+      "sha256": "05cf1d875953979a44d98af3fb57725e8836a1844c8a479fe7e589b4d2e7613f",
+      "size": 4425
     },
     "src/runners/runtime_journal.py": {
       "sha256": "01ece6ae2c5cb6eba5f913cdf64fa248513f98039fcf30e1d82d3d20357cb11a",
@@ -11229,6 +12801,10 @@
       "sha256": "30dd43a2e5f9607ebf09e14a60448636a54747ac43044b572bd77df270b3e6eb",
       "size": 4880
     },
+    "tests/test_caldera_agent_identity.py": {
+      "sha256": "b2f2d722aa1fbc8325bd4478f4458997a6b1da68218611417f720d0e827daf35",
+      "size": 2056
+    },
     "tests/test_caldera_command_result.py": {
       "sha256": "38147fb04882952f7c376e0d2466d4468d7d6105daed8d92f0413b80f6fa08fa",
       "size": 4491
@@ -11236,6 +12812,10 @@
     "tests/test_caldera_dispatch.py": {
       "sha256": "6aa2d90dfd88744ae08e763d1ac0689ec5e336d6ac96917c27f77b2af8e6ea2f",
       "size": 6049
+    },
+    "tests/test_caldera_occurrence_binding.py": {
+      "sha256": "93dd15976f4dc5a8863a3fd57c0493baf742e610f9f0ca83309c07ae93226ea4",
+      "size": 5184
     },
     "tests/test_caldera_operations.py": {
       "sha256": "e920de54ce564754cf92bed770dbac4efcbd100864db6855d84774eeadad98f2",
@@ -11294,8 +12874,8 @@
       "size": 2942
     },
     "tests/test_capability_authority.py": {
-      "sha256": "d4e4598b2b40e221ddf6048fafa34f459ac0f5641717c96fb12b79e59112fd19",
-      "size": 5536
+      "sha256": "70fb969d10f9e8211c20305c0f77fedbf24f4dd4588a3125eeba37ac606a706d",
+      "size": 7038
     },
     "tests/test_capability_facts.py": {
       "sha256": "772e2057543454005d3b39461fa174bfc8ff4d988f85181adf45116d3893b6c3",
@@ -11364,6 +12944,10 @@
     "tests/test_concretization.py": {
       "sha256": "b8863f1f242a63af7bfc96c8bfeb4da3f0a6fa5058baa00f13b87c271ffc97dc",
       "size": 7241
+    },
+    "tests/test_contract_strength.py": {
+      "sha256": "c8006a1098ce994abccbe101e86281d288d4bd059237f83a227157277ec2ede6",
+      "size": 2973
     },
     "tests/test_controlled_archive_guest_boundary.py": {
       "sha256": "3ebd43461933ca3c75ac69b69ced2c6a336e6f94b62209eca36e8f1f9ff2522b",
@@ -11654,8 +13238,8 @@
       "size": 5788
     },
     "tests/test_prepare_caldera_session.py": {
-      "sha256": "116d2505581501e0ca3ad0887aeb8a0a3961d87464e271924887b66b8784a163",
-      "size": 3267
+      "sha256": "a82b15a3e2a25551a93b6e880bec5285671ef865d58467d734d0bb64c6231183",
+      "size": 3540
     },
     "tests/test_prepared_image_provenance.py": {
       "sha256": "a61065860b8321d6f51fcecf4bc2c99b663ede6e33f4132992a7e93f69c398b2",
@@ -11708,6 +13292,10 @@
     "tests/test_product_content_binding.py": {
       "sha256": "68f8cfca48977325ed83af61a7485659454e070a9c76bf6ad55c86c25856cd71",
       "size": 3288
+    },
+    "tests/test_proposal_containment.py": {
+      "sha256": "28503b325bce2e85f9ff9559ca88b57eb4819226e4cb5e6718e0677f90e12dfb",
+      "size": 2289
     },
     "tests/test_proposer_convergence.py": {
       "sha256": "c1377f454a5f45b0bc576b09046f45c34b6c8923bd33f0f6534f07931b63f854",
@@ -11846,8 +13434,8 @@
       "size": 2216
     },
     "tests/test_shadowray_credential_probe_privacy.py": {
-      "sha256": "fc361b407f1440efb1ed1ee81a98324cebf33f3258760a1bb7a25eda3d327542",
-      "size": 2886
+      "sha256": "b19dfdd73a2ea2a1389ffc5614e346cd4e39b21111ad390113ca2a44ee2479a4",
+      "size": 3063
     },
     "tests/test_shadowray_discovery_boundary.py": {
       "sha256": "21e692050201758a65990acfa746026b1ea9b5df76aa66514f122fab76175aca",
@@ -11986,8 +13574,8 @@
       "size": 5710
     },
     "tests/test_typed_runtime_seal.py": {
-      "sha256": "5519cfcc0569d7e866ffe2c7c9f9035d750476214b03508b1882b28c00009999",
-      "size": 10232
+      "sha256": "bf22c6f6f62411558add3f49b2bae9a98695b13ddb38b3caaa90c53c3eb5e66a",
+      "size": 10238
     },
     "tests/test_unconstrained_reconstruction.py": {
       "sha256": "1256362456ebc0b3e168e9c3c506ba45c6d176e043984e9ec01257b336cbca82",
@@ -12071,5 +13659,5 @@
     }
   },
   "schema_version": "1",
-  "tree_sha256": "f6057b940a7b118be177e792b817a0c78bebf5d9bbd30e60a9a7a40ab88d85c0"
+  "tree_sha256": "1cb31cfe36d498d390c332f43856f132976bbe9d7e86572472ed013bf7cf7874"
 }

@@ -1364,7 +1364,7 @@ def main():
                         help="Prepared isolated CALDERA session; API key comes from environment")
     args = parser.parse_args()
     if args.caldera_session and (not args.require_lab or args.all or args.campaign not in SUPPORTED_CALDERA_CAMPAIGNS):
-        parser.error("CALDERA session requires --require-lab and a reviewed C0010 or C0026 campaign")
+        parser.error("CALDERA session requires --require-lab and a declared single-target campaign scope")
 
     # List mode
     if not args.campaign and not args.all:
