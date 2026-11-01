@@ -36,6 +36,9 @@ CALDERA_BOUND_REFERENCE_MANIFEST_PATH = (
 C0045_SERIES_ARCHIVE_PATH = (
     PROJECT_ROOT / "release/experiments/c0045_compute_effect_series/series.tar.gz"
 )
+CALDERA_INTEGRATION_ARCHIVE_PATH = (
+    PROJECT_ROOT / "release/experiments/c0045_caldera_integration/runs.tar.gz"
+)
 
 # Regenerate frozen evidence, then render the tables that read it.
 BUILD_STEPS = [
@@ -305,6 +308,12 @@ def main() -> int:
     _verify_c0010_caldera_evidence()
     _verify_c0045_series_if_present()
     _verify_c0045_paper_macros(args.manuscript)
+    if CALDERA_INTEGRATION_ARCHIVE_PATH.is_file():
+        _run([
+            sys.executable, "-m", "scripts.verify_caldera_integration_archive",
+            "--archive", str(CALDERA_INTEGRATION_ARCHIVE_PATH),
+            "--reference-root", str(PROJECT_ROOT),
+        ])
     _verify_public_tree_if_present()
     print("[reproduce] evidence regenerated, claims verified, and tests passed")
     return 0

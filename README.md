@@ -294,3 +294,7 @@ The privacy screen compares this archive with the bundled reference manifest byt
 ## C0045 compute-effect series
 
 `release/experiments/c0045_compute_effect_series/series.tar.gz` is bound by `PUBLIC_TREE_SHA256.json` and replayed by `bash run_review_check.sh`. To replay only its 20 selected cells, run `PYTHONPATH=src:. python3 -m scripts.verify_c0045_effect_series_archive --archive release/experiments/c0045_compute_effect_series/series.tar.gz`. The replay checks recorded target CPU effects and three controls per block; it does not execute a new QEMU campaign or establish historical ShadowRay fidelity. This release includes the selected series.
+
+## C0045 CALDERA integration repetitions
+
+`release/experiments/c0045_caldera_integration/runs.tar.gz` retains two cold integrations on the same host, each with five controlled target effects and five simulations. The primary gate verifies the retained hashes, occurrence-bound journals, observations and privacy screen. Its README states the scope. These runs are separate from the C0045 compute-effect study and add no manuscript measurements.

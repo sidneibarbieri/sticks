@@ -33,7 +33,7 @@ from scripts.verify_typed_evidence_archive import (  # noqa: E402
 EMAIL = re.compile(rb"\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b")
 GITHUB_SOURCE_URL = re.compile(rb"(?i)https?://(?:www\.)?github\.com/[A-Za-z0-9_.-]+")
 MAC_HOME = re.compile(rb"/Users/[^/\s]+")
-LINUX_HOME = re.compile(rb"/home/([^/\s]+)")
+LINUX_HOME = re.compile(rb"""/home/([^/\s"'\\]+)""")
 TEMP_PATH = re.compile(rb"/private/tmp/([^/\s]+)")
 TENANT_GUID = re.compile(
     rb"(?i)\b(?:tenant|customer|client|account|org)[_-]?(?:id|guid)\b"
@@ -152,6 +152,7 @@ def screen_archive(
     known_reference_manifest: Path | None = None,
     bound_reference_manifest: Path | None = None,
     campaign_directories: tuple[str, ...] = CAMPAIGN_DIRECTORIES,
+    lab_users: frozenset[bytes] = frozenset(LAB_USERS),
 ) -> ScreenResult:
     if sum(reference is not None for reference in (
         reference_root, known_reference_manifest, bound_reference_manifest
@@ -224,7 +225,7 @@ def screen_archive(
             findings["secret_assignment"] += len(SECRET_ASSIGNMENT.findall(data))
             findings["logged_credential_pair"] += len(LOGGED_CREDENTIAL_PAIR.findall(data))
             for user in LINUX_HOME.findall(data):
-                if user in LAB_USERS:
+                if user in lab_users:
                     lab_home_references += 1
                 else:
                     findings["unknown_linux_home"] += 1

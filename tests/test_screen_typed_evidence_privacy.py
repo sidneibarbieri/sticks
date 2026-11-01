@@ -165,6 +165,23 @@ def test_screen_rejects_new_identifiers_without_echoing_values(tmp_path: Path) -
     assert "operator" not in str(result)
 
 
+def test_quoted_home_paths_use_exact_campaign_principal(tmp_path: Path) -> None:
+    archive = tmp_path / "evidence.tar.gz"
+    reference = tmp_path / "reference"
+    reference.mkdir()
+    make_archive(archive, {"c0026/evidence/log.json": b'{"path":"/home/rayuser"}'})
+    write_manifest(reference, reference / "PUBLIC_TREE_SHA256.json")
+
+    assert screen_archive(archive, reference).findings == {"unknown_linux_home": 1}
+    approved = screen_archive(archive, reference, lab_users=frozenset({b"rayuser"}))
+    assert approved.passed
+    assert approved.lab_home_references == 1
+
+    make_archive(archive, {"c0026/evidence/log.json": b'{"path":"/home/rayuser_other"}'})
+    rejected = screen_archive(archive, reference, lab_users=frozenset({b"rayuser"}))
+    assert rejected.findings == {"unknown_linux_home": 1}
+
+
 def test_screen_rejects_source_url_in_unchanged_workspace(
     tmp_path: Path,
 ) -> None:

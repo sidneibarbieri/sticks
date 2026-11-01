@@ -11,7 +11,7 @@
   "excluded_runtime_roots": [
     "runs"
   ],
-  "file_count": 3411,
+  "file_count": 3415,
   "files": {
     ".gitignore": {
       "sha256": "4ab313af22acd8a7fbad67346992ed063f780db81a11aae49ae804d366f97506",
@@ -22,8 +22,8 @@
       "size": 1427
     },
     "ARTIFACT_MANIFEST.md": {
-      "sha256": "2bf2f1460580f0dc73e01f7d088c5c32318e8b380a8af6a1b590b455951ddf3d",
-      "size": 2404
+      "sha256": "9ee9cb73525d2e59e96ba1ba19ec2f7c11154a14c81cefd0abc36e3e8f76f433",
+      "size": 2900
     },
     "CONTROLLED_COMPARISON.md": {
       "sha256": "ecadddc5270c055a81863aacf58c2553e09e1419b90d1a1cc66de5a0113131c5",
@@ -42,8 +42,8 @@
       "size": 2305
     },
     "README.md": {
-      "sha256": "1fd4d1b06a226a7f2b344b5400020f395e2d5e1b898b0a894abfee48966a07e1",
-      "size": 13803
+      "sha256": "641902374a54321b5d708a2cffacff3a6ad2a1c2dbfef688e18261cb26c7e322",
+      "size": 14249
     },
     "REPRODUCIBILITY.md": {
       "sha256": "09e12dc9d852655d67947e658c297b320fe31eb5b799a5b4a5de5c074c1cace8",
@@ -2252,6 +2252,14 @@
     "release/experiments/behavioral_substitution/T1105.substitution.json": {
       "sha256": "46ba44d259ff08f136c30e6442928f21dc8b978586868323dfe9e8d711795460",
       "size": 2024
+    },
+    "release/experiments/c0045_caldera_integration/README.md": {
+      "sha256": "441001756b9f38359796d781d87517cc3b11ae8d2e85ba96eee8587d4a5ae864",
+      "size": 1545
+    },
+    "release/experiments/c0045_caldera_integration/runs.tar.gz": {
+      "sha256": "b2e54fea185d9d5066e682a591468c09f427d9bd1b11c5f31f64a0699020fe0a",
+      "size": 77287
     },
     "release/experiments/c0045_compute_effect_series/series.tar.gz": {
       "sha256": "90fc056112b4f8f575bd650ca9b74f273d81ad21650473b9fba9e629ec2893c9",
@@ -11558,8 +11566,8 @@
       "size": 3381
     },
     "scripts/package_complete_public_repo.py": {
-      "sha256": "67af164dc32949d8f0c9aa7ac25fe95f12d74125c89c7415bcb6d6abf865bd2a",
-      "size": 54616
+      "sha256": "b61c27990f1f4ac49acd39046fc2a64b3f770c466432ea8918dbb2ed5779b741",
+      "size": 55008
     },
     "scripts/package_prepared_c0045_role.py": {
       "sha256": "31e31e548d2cb9e025682f73323b8dc23d18ba121b78164af4c73421f1a09f0b",
@@ -11670,8 +11678,8 @@
       "size": 3258
     },
     "scripts/reproduce.py": {
-      "sha256": "2082eafe60a181207f61e75ca7e56b22bb9dd208fe8beb52b033ebe2d45fe4fd",
-      "size": 11432
+      "sha256": "848d33517e4dd56bbffd2c6c29b9460c55a2854936aedeaf4d9107e3ce59806c",
+      "size": 11822
     },
     "scripts/reset.sh": {
       "sha256": "abeb552b59660d05dba297b37b5facf5b568d50126502e79af3bce2dd3f6ad01",
@@ -11746,8 +11754,8 @@
       "size": 4188
     },
     "scripts/screen_typed_evidence_privacy.py": {
-      "sha256": "f9b358f8d5f830806339103bc79e468204f2bfab98d440ca6952a4adfe719f2c",
-      "size": 11876
+      "sha256": "69b9b717898136f03b13ecb26cd18e66931d4d3bdb72cc2f6aaa893b51ede416",
+      "size": 11940
     },
     "scripts/setup.sh": {
       "sha256": "0c45eaeb9788de5a102672652558e5fa6f1bd0eebeb95d2bdcd0b1e630145827",
@@ -11860,6 +11868,10 @@
     "scripts/verify_c0045_series_privacy_review.py": {
       "sha256": "7a4da5c4a5a541dcd24684765c029fd57cac225ee2b171aced43820f3356a369",
       "size": 842
+    },
+    "scripts/verify_caldera_integration_archive.py": {
+      "sha256": "af93246e9d2d193d18f95ade4e3e5af65e2b1deb68f457d2e5d72432c8abb990",
+      "size": 7547
     },
     "scripts/verify_caldera_run_journal.py": {
       "sha256": "2225bac33502964054ae7050f5146ffec6202acb69efad4d16a99381d57ea979",
@@ -12813,6 +12825,10 @@
       "sha256": "6aa2d90dfd88744ae08e763d1ac0689ec5e336d6ac96917c27f77b2af8e6ea2f",
       "size": 6049
     },
+    "tests/test_caldera_integration_archive.py": {
+      "sha256": "229109b7b16406c65f67cefd2528ac8ef4c862856d8a6ab2739860fd93ecb87a",
+      "size": 1782
+    },
     "tests/test_caldera_occurrence_binding.py": {
       "sha256": "93dd15976f4dc5a8863a3fd57c0493baf742e610f9f0ca83309c07ae93226ea4",
       "size": 5184
@@ -13426,8 +13442,8 @@
       "size": 3030
     },
     "tests/test_screen_typed_evidence_privacy.py": {
-      "sha256": "23c027512ac8f22389bf657d3bced69e76ac9eb629b35c9c89fb75dd65f2b5fc",
-      "size": 15519
+      "sha256": "bbca3a3d39706e99ebc64bdbb2048f1cc893ec70e2508bf27f592bc74148208f",
+      "size": 16335
     },
     "tests/test_service_discovery_target.py": {
       "sha256": "9779de344e15b96dc654423e6f5b9ba9738422e5cb225cabca5e9feecaef471b",
@@ -13659,5 +13675,5 @@
     }
   },
   "schema_version": "1",
-  "tree_sha256": "1cb31cfe36d498d390c332f43856f132976bbe9d7e86572472ed013bf7cf7874"
+  "tree_sha256": "5450fdf6a53b055cdd71a71bb27531b7f20bc35205deffd75ed0a865dbcf47c2"
 }

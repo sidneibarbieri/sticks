@@ -631,6 +631,12 @@ def write_repo_docs(
         When bundled, `typed-run-evidence/caldera-c0010.tar.gz` is a separate
         operational receipt; it does not replace the paper's C0026 CALDERA series.
 
+        When present, `release/experiments/c0045_caldera_integration/runs.tar.gz`
+        retains two additional C0045 integration runs: five controlled target
+        effects and five simulations per run. The primary gate verifies their
+        hashes, occurrence-bound journals, observations and privacy screen.
+        Their README distinguishes them from the C0045 compute-effect study.
+
         For two sealed QEMU runs created from the same source tree, retain both
         run directories and audit their typed outcomes with:
 
