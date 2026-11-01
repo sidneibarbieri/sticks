@@ -40,7 +40,7 @@ def test_run_observes_after_execution_in_the_same_run_root(fake_runtime, tmp_pat
     assert result.returncode == 0, result.stderr
     assert [json.loads(line) for line in calls.read_text().splitlines()] == [
         ['scripts/run_isolated_lab_campaign.py', '--campaign', '0.c0026', '--provider', 'qemu',
-         '--run-root', run_root, '--keep-lab'],
+         '--run-root', run_root, '--caldera-dispatch', '--keep-lab'],
         ['scripts/complete_c0026_run.py', '--run-root', run_root],
     ]
 

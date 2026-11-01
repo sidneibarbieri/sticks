@@ -1,67 +1,74 @@
-# STICKS Public Artifact
+# STICKS Reproducibility Artifact
 
 STICKS is a finite-domain procedural-admission artifact. It compiles pinned
 ATT&CK campaign structure into typed plans, enumerates candidates from a
 versioned template catalog, checks them against an explicitly scoped state,
 and records what the CTI, environment, and reconstruction each contribute.
 
-## Repository structure
+## See the result first
 
-- `src/`: compiler, contracts, finite-domain concretization, and evaluation.
-- `data/`: pinned STIX input and versioned procedure-template catalog.
-- `release/`: plans, experiment records, claim ledger, and evidence hashes.
-- `docs/`: reconstruction, realization-space, and state-fact semantics.
-- `tests/`: executable checks linked from the claim ledger.
+```bash
+python3 scripts/demo.py
+```
 
-## Evaluation qualities
+Runs in under a second with no dependencies, no network, and no model. It takes one campaign
+step and shows the three arms side by side: without deterministic admission a proposer commits a
+step the check rejects, while the admitted arm refuses to commit one. It then prints the totals
+over the recorded run, which are the values the manuscript reports.
 
-This release is prepared for availability, functionality, sustainability,
-and experiment-reproducibility review. Availability also depends on the
-distribution channel providing this package through a stable public URL.
+## Run the method on a campaign you choose
 
-## Basic information
+```bash
+python3 scripts/emulate.py C0045                       # a campaign the catalog covers
+python3 scripts/emulate.py C0001                       # one it does not
+python3 scripts/emulate.py C0045 --bundle your.json    # your own STIX bundle
+python3 scripts/emulate.py C0045 --config your.json    # your own model proposes
+```
 
-The primary path requires a POSIX-like shell, Python 3.11 or later, `venv`,
-and `pip`. The reference dependency lock targets Python 3.11.15. No GPU is
-needed. A machine with two CPU cores, 4 GiB of RAM, and 1 GiB of free disk is
-sufficient for the primary gate; allow five minutes after dependencies are
-installed. Runtime varies by host.
+This is the method, not a recording. It compiles the campaign from a STIX bundle, derives the
+minimal laboratory the plan can bind against from the catalog rather than asking you to author one,
+and concretizes each step under deterministic admission. Steps with no admissible realization are
+reported as such, never filled in: on C0045 it admits 10 of 10 steps, and on C0001 it admits 1 of 27
+and names the 26 it will not commit.
 
-## Dependencies
+Without `--config` the run is offline and deterministic, with the finite-domain solver proposing.
+With `--config` your own model proposes through a provider configuration (see `config.example.json`,
+which reads the key from an environment variable) and the same verifier decides, so substituting a
+model never changes what admission means.
 
-`requirements.lock` records every direct and transitive Python dependency at
-an exact version. `requirements.txt` installs that lock without resolving an
-unpinned package set. The pinned ATT&CK input and template catalog ship in the
-repository, so the experiment path does not fetch data at runtime.
+## Use your own model
 
-## Security considerations
+The proposer runs on any provider. To use your own OpenAI key, copy the example and export the key
+the config names:
 
-The primary reviewer path performs deterministic local computation and one
-benign loopback transfer. It requires no credentials, external service,
-container runtime, hypervisor, or model API. The secondary legacy path can
-manage virtual machines and adversary-emulation infrastructure; run it only
-in an isolated disposable laboratory. It is not needed for registered claims.
+```bash
+export OPENAI_API_KEY=sk-...            # your key; never commit it
+python3 scripts/emulate.py C0045 --config config.openai.example.json
+```
 
-## Installation
+The config carries only the environment-variable name, never a key. Without a config the run uses
+the offline solver, so the artifact reproduces with no key and no cost.
+
+## Reviewer quick start
+
+The exact dependency lock records the Python 3.11 reference environment. The
+extracted reviewer package has also passed its complete claim, test, and
+integrity gate under Python 3.13. Keep the lock pins when using a newer
+interpreter so the interpreter change is the only variable.
 
 ```bash
 python3 -m venv .venv
 .venv/bin/python -m pip install -r requirements.txt
+bash run_review_check.sh
 ```
 
-## Minimal test
+After dependency installation, this command is offline. It regenerates the
+evidence, validates SHA-256 hashes, audits claim chains, checks the public
+surface, and runs the tests. It needs no Docker, VM, API key, or paid model.
 
-```bash
-.venv/bin/python -m pytest tests/test_realization_space.py -q -p no:cacheprovider
-```
+### Optional QA dependencies
 
-Expected result: every realization-space test passes and the process exits
-with status zero.
-
-## Optional QA dependencies
-
-The primary lock does not include the legacy HTTP client. To exercise the
-mocked legacy infrastructure paths, create a separate QA environment:
+To exercise mocked legacy HTTP paths without changing the primary environment:
 
 ```bash
 python3 -m venv .venv-qa
@@ -70,109 +77,167 @@ python3 -m venv .venv-qa
 .venv-qa/bin/python -m pytest tests/test_legacy_infrastructure_paths.py -q -p no:cacheprovider
 ```
 
-This exact optional Python profile extends, rather than replaces, the
-primary lock. These tests mock provider calls: passing is not VM campaign
-qualification. Installation needs package-index access; the tests do not.
+The exact optional profile extends the primary lock. Provider calls are mocked;
+passing these tests is not VM campaign qualification. Installation needs access
+to a package index; the tests themselves do not.
 
-`tests/test_qemu_network_serialization.py` requires Ruby with its YAML
-standard library. `tests/test_workbench_browser_state.py` requires Node.js
-on PATH for its JavaScript state test. Without those interpreters the
-corresponding tests explicitly skip. To check them when available:
+`tests/test_qemu_network_serialization.py` additionally requires Ruby with YAML.
+The JavaScript state test in `tests/test_workbench_browser_state.py` requires
+Node.js on PATH. They explicitly skip when those interpreters are absent.
+Tests requiring real lab-run evidence can still skip if that evidence is absent.
+Report skips separately rather than treating missing execution as success.
 
-```bash
-ruby -ryaml -e 'puts RUBY_VERSION'
-node --version
-.venv-qa/bin/python -m pytest tests/test_qemu_network_serialization.py tests/test_workbench_browser_state.py -q -p no:cacheprovider
-```
-
-These checks do not boot a VM or measure campaign effects. Tests requiring
-real lab-run evidence can still skip when that evidence is absent. Report
-executed and skipped tests separately; installing QA dependencies does
-not supply missing execution evidence.
-
-To select an existing environment for the complete reviewer wrapper:
+For the complete reviewer wrapper, select an existing environment explicitly:
 
 ```bash
 STICKS_PYTHON="$PWD/.venv-qa/bin/python" bash run_review_check.sh
 ```
 
-`STICKS_PYTHON` overrides the repository `.venv` and PATH. It must name an
-executable interpreter with core dependencies. An invalid selection fails
-without installation or fallback. Without it, the wrapper retains the
-repository `.venv`, then PATH selection. Install the chosen profile before
-running the wrapper; this selector does not verify exact dependency pins.
+`STICKS_PYTHON` takes precedence over the repository `.venv` and PATH. It must
+name an executable interpreter with the required dependencies. An invalid
+selection fails without installing packages or falling back. Without this
+override, the wrapper retains its repository `.venv`, then PATH selection.
+Install the selected dependency profile first; selection checks core imports,
+not exact dependency versions.
 
-## Experiments
+Expected headline output includes 55 campaigns and 1146 steps in the corpus,
+252 catalog-supported steps, which is 252 of 1146 corpus steps (22.0%), 0/25
+admitted steps from the unaugmented representation versus 25/25 reconstructed
+steps in the deep slice, 54 binding occurrences, and 79 explicit execution
+commitments.
 
-### Inspect admission in the graphical workbench
+## Review and live execution paths, deliberately separated
 
-```bash
-.venv/bin/python scripts/run_realization_workbench.py --host 127.0.0.1 --port 8765
-```
+The supported paths answer different questions and must not be substituted for one another.
 
-Open `http://127.0.0.1:8765/` to inspect the pinned campaign inventory and
-bounded candidate admission. This is a planning interface, not campaign
-execution evidence. Stop the server with Ctrl-C. See
-`docs/reviewer_quickstart.md` for scope and the canonical validation path.
+| Mode | Command | What it establishes | What it never establishes |
+| --- | --- | --- | --- |
+| Fast review | `bash run_review_check.sh` | Offline integrity, regenerated evidence, claim-ledger consistency, and tests from the supplied package. | A live VM, a SUT effect, or a campaign replay. |
+| Typed laboratory | `bash artifact/run.sh --run-root /absolute/new/run`, then `bash artifact/validate.sh --run-root /absolute/new/run` | A fresh C0026 QEMU cycle with target observation, teardown and a verified final receipt. | Historical replay, an all-observed campaign, or support for arbitrary campaigns. |
+| Strict experiment | `PYTHONPATH=src python3 scripts/run_strict_c0045_effect_series.py --output-dir /absolute/empty/output` | A fresh-boot C0045 target-effect study with every selected cell retained and each failure terminal. | A complete Caldera campaign, cross-SUT generalization, or a claim outside the frozen C0045 ceiling. |
 
-### Reproduce the registered evidence
+The laboratory entry point dispatches target commands through a fresh Caldera agent and retains the native command journal. Vagrant/SSH provisions the laboratory and runs independent target observations. This single-target path does not establish an attacker pivot through an enterprise network. It uses C0026: five observed effects and one explicitly simulated occurrence in the qualified run. It refuses legacy campaigns without typed runtime contracts before provisioning. The former `0.c0011` example can create local or simulated artifacts and is not a live SUT acceptance path. An available VM alone never authorizes that interpretation.
 
-The following command reproduces every non-blocked registered property:
+### Prospective C0026 dispatch through CALDERA
 
-```bash
-bash run_review_check.sh
-```
-
-After dependency installation, this command is offline. It regenerates the
-evidence, validates SHA-256 hashes, audits claim chains, checks the public
-surface and complete public-tree manifest, and runs the tests. It needs no
-Docker, VM, API key, or paid model.
-
-Expected headline output includes 55 campaigns and
-1146 steps in the corpus, 252 catalog-supported
-steps, 0/25 admitted steps from the unaugmented
-representation versus 25/25 reconstructed steps
-in the deep slice, 54 binding occurrences, and
-79 explicit execution commitments.
-
-### Corpus coverage and deep admission
-
-`bash run_review_check.sh` recompiles all released Enterprise campaigns and
-regenerates the corpus-coverage and three-campaign deep-slice records. Inspect
-`release/experiments/` and `release/claims/verification.json`. Expected result:
-all non-blocked ledger properties verify; limited and blocked properties remain
-visibly qualified rather than being promoted.
-
-### Bounded realization-space example
+The development runner also supports a prepared CALDERA agent on the declared
+Linux target. This path enrolls a new agent after provisioning, binds the session
+to the target boot, and retains each command's intent, native link and verified
+result. Independent target probes retain their separate transport.
 
 ```bash
-.venv/bin/python scripts/enumerate_realization_space.py           --plan release/plans/C0010.procedural-plan.json           --bindings release/plans/C0010.binding-catalog.json           --templates data/concretization/action_templates.json           --maximum-realizations 64           --maximum-search-states 20000           --output /tmp/C0010.realization-space.json           --require-realization
+python scripts/run_isolated_lab_campaign.py --campaign 0.c0026 --provider qemu \
+  --run-root /absolute/new/run --caldera-dispatch --keep-lab
+python scripts/complete_c0026_run.py --run-root /absolute/new/run
+python scripts/finalize_isolated_lab_run.py --run-root /absolute/new/run --verify
+python scripts/verify_caldera_run_journal.py --evidence /absolute/new/run/evidence
 ```
 
-Expected result: a bounded, hash-valid space with 64 serialized schedule
-graphs, one causal structure, and operational status `not_run`. This command
-enumerates candidates; it does not claim that they were executed.
+Completion observes the target before destroying the guests and seals the final
+receipt. Always run completion for the retained run, including after a failed
+campaign: it attempts teardown and propagates the failure. A malformed journal
+prevents certification. The native command and the independently observed effect
+are distinct records. This path covers the controlled C0026 slice, including its
+explicit simulation; it does not establish an enterprise multi-host pivot.
 
-### State-fact semantic audit
+Strict mode is QEMU-only. The v1 preflight proved host readiness but did not
+bind guest downloads performed during provisioning. It is therefore retired,
+not relabeled. The current v17 profile binds an offline,
+prepared runtime manifest (guest inventory plus image fingerprint) for each
+role -- Caldera, attacker, and target -- and every provisioning input before
+the first VM can start. The preflight independently compares each installed
+role image with that manifest. It also binds the transitive closure of the
+Python modules and shell entry points that execute the cell; packaging-only
+tools are intentionally outside that closure. A stale or missing input is an
+error; there is no fallback provider, implicit install, or reuse of a prior
+boot. The earlier preflight receipt is a diagnostic host record, never a
+scientific outcome.
+
+For an operator who wants to inspect prerequisites without executing a cell:
 
 ```bash
-.venv/bin/python scripts/audit_fact_semantics.py           --output /tmp/fact-semantics-audit.json
+python scripts/preflight_strict_c0045.py --output-dir /absolute/empty/output
 ```
 
-Expected result: all three frozen deep-slice SUT catalogs are conformant.
-The check verifies versioned fact identity and permitted origins only; it
-does not establish a live state or operational effect. See
-`docs/FACT_SEMANTICS.md` for the contract and non-claims.
+The v17 preflight passes only against the prepared v10-named role boxes in the
+`libvirt` box format required by the QEMU plugin and its v8 manifest. A
+different image, stale input, missing socket, duplicate network daemon, or runtime-source
+drift fails closed; it must not be worked around with a networked guest
+bootstrap or a rewritten historical hash.
+
+A 20-cell local series completed under this profile with 20 distinct boots and
+20 teardowns. Its portable evidence archive is private pending release review;
+the public reviewer package does not yet contain these results.
+
+The output directory is part of the evidence boundary. Keep it outside the
+repository, preserve every retained failure, and archive only after the archive
+verifier and the semantic privacy review both pass. The preflight receipt proves
+host readiness, not a scientific outcome.
 
 ## Evidence map
 
 - `release/claims/ledger.json`: registered and blocked properties.
-- `release/claims/evidence_sha256.json`: frozen integrity manifest.
+- `release/claims/evidence_sha256.json`: pinned integrity manifest.
 - `release/experiments/`: generated experiment records and tables.
 - `release/plans/`: typed plans, catalogs, and concretized plans.
 - `release/paper_macros.tex`: generated manuscript values.
-- `PUBLIC_TREE_SHA256.json`: hash and size of every shipped file.
 - `tests/`: checks linked from the ledger.
+
+## Multiple causal realizations
+
+The default compiler selects one deterministic realization. The opt-in realization-space
+compiler enumerates a bounded family of admitted procedure assignments and causal orders:
+
+```bash
+python scripts/enumerate_realization_space.py \
+  --plan release/plans/C0010.procedural-plan.json \
+  --bindings release/plans/C0010.binding-catalog.json \
+  --output /tmp/C0010.realization-space.json \
+  --require-realization
+```
+
+The output separates raw candidates, procedures that participate in complete graphs, and
+ordering variants. It also records explicit search limits and `operational_status: not_run`.
+See `docs/REALIZATION_SPACE.md` for guarantees and non-claims.
+
+The local workbench exposes the same enumerator over the pinned campaign inventory:
+
+```bash
+python scripts/run_realization_workbench.py
+```
+
+Open `http://127.0.0.1:8765`. The interface lists the complete corpus, fails closed when a binding
+catalog is absent, measures procedure-assignment and behavior-contract deficits separately, and
+produces a bounded campaign-and-SUT-aware proposal queue. It does not call a provider or execute a
+campaign. The D1/D2/D3 design decision and finite-state model are specified in
+`docs/RECONSTRUCTION_ARCHITECTURE.md`.
+
+The following static audit covers every indexed campaign without calling a provider or executing a
+campaign. It distinguishes absent pinned inputs from bounded planning readiness:
+
+```bash
+python scripts/audit_stage2_curation_readiness.py \
+  --output /tmp/stage2-curation-readiness.json
+```
+
+`scripts/run_stage2_curation.py` composes the bounded proposal path into a hash-bound planning
+ledger. It accepts only a budgeted provider configuration and abstract template metadata; a
+candidate remains `planning_only` unless a pre-existing hash-bound laboratory implementation
+witness is supplied. Its output remains `not_run`.
+
+The finite-state fact vocabulary has a separate versioned identity-and-origin audit:
+
+```bash
+python scripts/audit_fact_semantics.py --output /tmp/fact-semantics-audit.json
+```
+
+It checks that a fact used as a SUT initial state, goal, precondition, or effect has a unique
+semantic identity and an allowed origin. It is a static modeling control, not evidence that a
+state held during a live run. See `docs/FACT_SEMANTICS.md`.
+
+`CONTROLLED_COMPARISON.md` documents matched-arm, blinded executability check, run-accounting, and
+revision-bound handoff contracts for a future comparative experiment. Those contracts are tested
+infrastructure, not a completed baseline result and not evidence for a registered property.
 
 When a manuscript source is colocated with the artifact, audit it too:
 
@@ -182,12 +247,15 @@ PAPER_DIR=../paper bash run_review_check.sh
 
 ## Interpretation boundary
 
-The catalog supports 252 of 1146 corpus steps
-(22.0%). The deep evaluation
+The corpus coverage reported above is distinct from the deep evaluation, which
 covers three fully supported campaigns and demonstrates the admission
 mechanism, not corpus-wide replay coverage. The artifact does not claim
 historical reconstruction, full campaign replay, observational equivalence,
 or analyst-effort reduction.
+
+Positive-evidence technique-set identifiability is not procedural reconstruction. A small
+distinguishing witness can identify a corpus label without supplying order, bindings,
+preconditions, or an executable procedure.
 
 ## Secondary legacy experiments
 
@@ -199,102 +267,17 @@ bash run_review_check.sh --legacy
 ```
 
 A green legacy check does not support a property absent from the ledger.
-For a new VM-backed campaign with isolated source, raw artifacts, and
-evidence, use `scripts/run_isolated_lab_campaign.py`. Platform setup,
-the pinned Node cache option, and interpretation limits are in
-`docs/IAC_LIMITATIONS_ARM64.md`. This path requires a hypervisor and
-network access, unlike the offline primary gate.
 
-For a retained QEMU Linux run, `scripts/observe_controlled_target.py`
-checks declared fixtures, a benign loopback transfer, and the preserved
-browser-discovery report without importing the executors. The command,
-explicit scope, failure behavior, and teardown requirement are documented
-in `docs/IAC_LIMITATIONS_ARM64.md`. This does not qualify unrelated
-techniques or historical fidelity.
-
-The C0026 target-chain profile has a separate completion command:
-`scripts/complete_c0026_run.py --run-root PATH`. It uploads and runs
-the packaged target probe, attempts campaign-scoped teardown even when
-observation fails, and seals the final receipt only after success.
-See `lab/vagrant/README.md` for the complete command sequence.
-
-### Prospective target dispatch through CALDERA
-
-This optional path enrolls a fresh Linux target agent, binds dispatch to
-its boot identity, and retains command intents, native links, and results.
-Independent effect probes use a separate transport.
-
-```bash
-python scripts/run_isolated_lab_campaign.py --campaign 0.c0026 --provider qemu --run-root /absolute/new/run --caldera-dispatch --keep-lab
-python scripts/complete_c0026_run.py --run-root /absolute/new/run
-python scripts/finalize_isolated_lab_run.py --run-root /absolute/new/run --verify
-python scripts/verify_caldera_run_journal.py --evidence /absolute/new/run/evidence
-```
-
-Completion observes the target, tears down the guests, and seals the
-receipt. Run completion even after a failed campaign; failure propagates
-and an invalid journal prevents certification. This controlled C0026
-slice includes an explicit simulation. It does not demonstrate an
-enterprise multi-host pivot. Offline review does not execute this path.
-
-The reviewed C0010 slice uses the same `--caldera-dispatch` option with
-`--campaign 0.c0010`, followed by `scripts/complete_c0010_run.py` and the
-same finalizer/journal checks. It distinguishes four observed controller
-effects from one observed target transfer and four simulations. Only that
-target command is dispatched through CALDERA. Its benign loopback transfer
-does not establish an attacker pivot or historical watering-hole fidelity.
-When bundled, `typed-run-evidence/caldera-c0010.tar.gz` is a separate
-operational receipt; it does not replace the paper's C0026 CALDERA series.
-
-For two sealed QEMU runs created from the same source tree, retain both
-run directories and audit their typed outcomes with:
+For two sealed QEMU runs created from the same source tree, retain both run
+directories and audit their typed outcomes with:
 
 ```bash
 PYTHONPATH=src:. python3 -m scripts.audit_typed_campaign_outcomes \
   --run-root /path/to/C0010-run --run-root /path/to/C0026-run
 ```
 
-The auditor recomputes each final receipt and reports observed effects
-on the target and controller separately from simulations and failures.
-It checks the recorded VM teardown states against the required VM names
-without invoking Vagrant; it cannot re-observe the historical teardown.
-It rejects different source trees. The default offline package contains no
-QEMU run directories; this command validates new or separately
-supplied runs. Passing the offline review check alone does not
-establish VM-backed campaign execution.
-
-If a separately supplied typed-evidence archive accompanies this
-repository, verify it from the package root with:
-
-```bash
-PYTHONPATH=src:. python3 -m scripts.verify_typed_evidence_archive \
-  --archive /path/to/typed-qemu-evidence.tar.gz
-```
-
-This command rejects archive links, unsafe paths, AppleDouble files,
-and oversized members before extracting into a temporary directory.
-It then verifies both sealed receipts using their recorded VM states.
-When `--typed-evidence-archive` is supplied, the package includes
-`typed-run-evidence/c0010-c0026.tar.gz`, binds its bytes in
-`PUBLIC_TREE_SHA256.json`, and verifies it during `run_review_check.sh`.
-This checks recorded outcomes, not a new VM execution or publication safety.
-No QEMU result should be inferred when the archive is absent.
-
-## License
-
-STICKS-authored material is released under the MIT License; see
-`LICENSE`. Pinned third-party inputs have separate terms recorded in
-`THIRD_PARTY_NOTICES.md`.
-
-## Typed-run evidence
-
-`typed-run-evidence/c0010-c0026.tar.gz` is included in the tree manifest and audited by `run_review_check.sh`. The check screens changed bytes for recognizable identifiers and secrets, and reports reference-fixture matches separately. This release includes the selected archive. The audit replays sealed receipts and recorded VM states; it does not rerun QEMU or certify historical fidelity. Receipt source hashes identify the archived run source, before the evidence archive and release metadata were added to this package.
-The privacy screen compares this archive with the bundled reference manifest byte-identical to both sealed run workspaces. The receipts and source manifests are independently verified. Lexical screening does not replace semantic privacy approval.
-
-## C0045 compute-effect series
-
-`release/experiments/c0045_compute_effect_series/series.tar.gz` is bound by `PUBLIC_TREE_SHA256.json` and replayed by `bash run_review_check.sh`. To replay only its 20 selected cells, run `PYTHONPATH=src:. python3 -m scripts.verify_c0045_effect_series_archive --archive release/experiments/c0045_compute_effect_series/series.tar.gz`. The replay checks recorded target CPU effects and three controls per block; it does not execute a new QEMU campaign or establish historical ShadowRay fidelity. This release includes the selected series.
-
-## C0045 CALDERA integration repetitions
-
-`release/experiments/c0045_caldera_integration/runs.tar.gz` retains two cold integrations on the same host, each with five controlled target effects and five simulations. The primary gate verifies the retained hashes, occurrence-bound journals, observations and privacy screen. Its README states the scope. These runs are separate from the C0045 compute-effect study and add no manuscript measurements.
+The auditor recomputes each final receipt and reports observed effects on the
+target and controller separately from simulations and failures. It rejects
+different source trees. The offline package contains no QEMU run directories;
+this command validates new or separately supplied runs. Passing the offline
+review check alone does not establish VM-backed campaign execution.

@@ -56,4 +56,4 @@ bash artifact/validate.sh --run-root /absolute/new/run
 
 This uses C0026, observes the target separately, destroys the created VMs and seals the result. The expected scope is five observed effects and one simulated occurrence. A process exit alone is insufficient; validation must pass on the final receipt. A failed run remains retained and must not be overwritten to obtain a passing result.
 
-Execution transport in this example is Vagrant/SSH. A healthy Caldera is a laboratory prerequisite, not proof that it dispatched the campaign.
+Target commands use a freshly enrolled CALDERA agent. Vagrant/SSH provisions the laboratory and runs the independent observer. The retained CALDERA journal binds each target command to its result and the observed target boot.
