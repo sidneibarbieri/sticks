@@ -5,6 +5,33 @@ ATT&CK campaign structure into typed plans, enumerates candidates from a
 versioned template catalog, checks them against an explicitly scoped state,
 and records what the CTI, environment, and reconstruction each contribute.
 
+## Repository structure
+
+`src/` contains contracts and execution logic, `data/` the pinned inputs,
+`release/` the experiment ledger, `docs/` operator guides, and `tests/` checks.
+
+## Evaluation qualities
+
+The reviewer gate checks integrity, regenerated evidence, claims and tests.
+Availability additionally depends on the public distribution endpoint.
+
+## Basic information
+
+The offline gate needs a POSIX shell and Python 3.11 or newer; it needs no GPU,
+model API, or hypervisor. Allow 4 GiB RAM and 1 GiB free disk for that gate.
+VM-backed experiments require additional resources and prepared images.
+
+## Dependencies
+
+`requirements.txt` installs the exact versions in `requirements.lock`.
+Install them before the offline gate; interpreter selection does not install them.
+
+## Security considerations
+
+The primary gate performs local computation and a benign loopback transfer.
+Run VM-backed emulation only in an isolated disposable laboratory. The platform
+requirements and limits are in `docs/IAC_LIMITATIONS_ARM64.md`.
+
 ## See the result first
 
 ```bash
@@ -49,7 +76,7 @@ python3 scripts/emulate.py C0045 --config config.openai.example.json
 The config carries only the environment-variable name, never a key. Without a config the run uses
 the offline solver, so the artifact reproduces with no key and no cost.
 
-## Reviewer quick start
+## Installation
 
 The exact dependency lock records the Python 3.11 reference environment. The
 extracted reviewer package has also passed its complete claim, test, and
@@ -95,7 +122,7 @@ STICKS_PYTHON="$PWD/.venv-qa/bin/python" bash run_review_check.sh
 
 `STICKS_PYTHON` takes precedence over the repository `.venv` and PATH. It must
 name an executable interpreter with the required dependencies. An invalid
-selection fails without installing packages or falling back. Without this
+selection fails without installation or fallback. Without this
 override, the wrapper retains its repository `.venv`, then PATH selection.
 Install the selected dependency profile first; selection checks core imports,
 not exact dependency versions.
@@ -142,7 +169,7 @@ explicit simulation; it does not establish an enterprise multi-host pivot.
 
 Strict mode is QEMU-only. The v1 preflight proved host readiness but did not
 bind guest downloads performed during provisioning. It is therefore retired,
-not relabeled. The current v17 profile binds an offline,
+not relabeled. The current v29 profile binds an offline,
 prepared runtime manifest (guest inventory plus image fingerprint) for each
 role -- Caldera, attacker, and target -- and every provisioning input before
 the first VM can start. The preflight independently compares each installed
@@ -159,15 +186,19 @@ For an operator who wants to inspect prerequisites without executing a cell:
 python scripts/preflight_strict_c0045.py --output-dir /absolute/empty/output
 ```
 
-The v17 preflight passes only against the prepared v10-named role boxes in the
-`libvirt` box format required by the QEMU plugin and its v8 manifest. A
+The v29 preflight binds the version-9 manifest, including the rebuilt
+`sticks/caldera-python-65452f298d96-arm64` CALDERA box and the retained attacker
+and target images, in the `libvirt` format required by the QEMU plugin. A
 different image, stale input, missing socket, duplicate network daemon, or runtime-source
 drift fails closed; it must not be worked around with a networked guest
 bootstrap or a rewritten historical hash.
 
-A 20-cell local series completed under this profile with 20 distinct boots and
-20 teardowns. Its portable evidence archive is private pending release review;
-the public reviewer package does not yet contain these results.
+The previously frozen 20-cell series retains its original runtime profile,
+20 distinct boots, and 20 teardowns. Its reviewed portable evidence is bundled
+with the public release. The v29 runtime refresh was separately qualified on
+one treatment cell; it does not replace that scientific series. Prepared box
+archives remain local. See `docs/caldera_runtime.md` for rebuild and qualification
+requirements before running on another host.
 
 The output directory is part of the evidence boundary. Keep it outside the
 repository, preserve every retained failure, and archive only after the archive
@@ -281,3 +312,37 @@ target and controller separately from simulations and failures. It rejects
 different source trees. The offline package contains no QEMU run directories;
 this command validates new or separately supplied runs. Passing the offline
 review check alone does not establish VM-backed campaign execution.
+
+
+## Minimal test
+
+```bash
+.venv/bin/python -m pytest tests/test_realization_space.py -q -p no:cacheprovider
+```
+
+## Experiments
+
+Use the reviewer gate above for frozen evidence and `scripts/emulate.py` for a
+new admission computation. `docs/reviewer_quickstart.md` describes the workbench.
+To verify a separately supplied typed archive without starting VMs:
+
+```bash
+PYTHONPATH=src:. python3 -m scripts.verify_typed_evidence_archive \
+  --archive /path/to/typed-qemu-evidence.tar.gz
+```
+
+The default offline package contains no live QEMU run directories. Bundled
+archives preserve selected records; their verification is distinct from a new run.
+
+## License
+
+See `LICENSE` for this software and `THIRD_PARTY_NOTICES.md` for bundled inputs.
+
+## Typed-run evidence
+
+`typed-run-evidence/c0010-c0026.tar.gz` is included in the tree manifest and audited by `run_review_check.sh`. The check screens changed bytes for recognizable identifiers and secrets, and reports reference-fixture matches separately. This release includes the selected archive. The audit replays sealed receipts and recorded VM states; it does not rerun QEMU or certify historical fidelity. Receipt source hashes identify the archived run source, before the evidence archive and release metadata were added to this package.
+The privacy screen compares this archive with the bundled reference manifest byte-identical to both sealed run workspaces. The receipts and source manifests are independently verified. Lexical screening does not replace semantic privacy approval.
+
+## C0045 compute-effect series
+
+`release/experiments/c0045_compute_effect_series/series.tar.gz` is bound by `PUBLIC_TREE_SHA256.json` and replayed by `bash run_review_check.sh`. To replay only its 20 selected cells, run `PYTHONPATH=src:. python3 -m scripts.verify_c0045_effect_series_archive --archive release/experiments/c0045_compute_effect_series/series.tar.gz`. The replay checks recorded target CPU effects and three controls per block; it does not execute a new QEMU campaign or establish historical ShadowRay fidelity. This release includes the selected series.

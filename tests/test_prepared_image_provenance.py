@@ -3,14 +3,19 @@ import pytest
 from runners.prepared_image_provenance import require_image_provenance
 
 
-def test_changed_caldera_input_requires_caldera_image_rebuild() -> None:
+@pytest.mark.parametrize('changed_input', (
+    'lab/vagrant/shared/caldera.sh',
+    'lab/vagrant/shared/caldera-runtime-requirements.in',
+    'lab/vagrant/shared/caldera_runtime_lock.py',
+))
+def test_changed_caldera_input_requires_caldera_image_rebuild(changed_input) -> None:
     previous_images = {
         "caldera": "a" * 64,
         "attacker": "b" * 64,
         "target-linux-1": "c" * 64,
     }
-    previous_inputs = {"lab/vagrant/shared/caldera.sh": "d" * 64}
-    current_inputs = {"lab/vagrant/shared/caldera.sh": "e" * 64}
+    previous_inputs = {changed_input: "d" * 64}
+    current_inputs = {changed_input: "e" * 64}
 
     with pytest.raises(ValueError, match="caldera"):
         require_image_provenance(

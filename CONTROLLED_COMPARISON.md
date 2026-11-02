@@ -113,6 +113,10 @@ python scripts/evaluate_blind_oracle.py \
   --output path/to/decision.json
 ```
 
+The comparison validator requires every run to have a terminal status. Use
+`--allow-incomplete` only to check the accounting of a draft ledger; that mode
+does not qualify experimental results.
+
 No claim is supported merely because these contracts exist. Collection requires frozen real model
 artifacts, immutable producer and consumer revisions, complete run accounting, and retained negative
 results.

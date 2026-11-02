@@ -103,9 +103,27 @@ def test_ledger_requires_every_planned_run() -> None:
     ]
     ledger = RunLedger(experiment_id=experiment.experiment_id, records=records)
     ledger.validate_against(experiment)
+    ledger.validate_terminal()
     ledger.records.pop()
     with pytest.raises(ValueError, match="run accounting mismatch"):
         ledger.validate_against(experiment)
+
+
+def test_ledger_refuses_unfinished_run_as_completed() -> None:
+    experiment = manifest()
+    records = [
+        RunRecord(
+            campaign_id=campaign_id,
+            arm_id=ArmId(arm_id),
+            seed=seed,
+            status=RunStatus.planned,
+        )
+        for campaign_id, arm_id, seed in sorted(experiment.planned_run_keys())
+    ]
+    ledger = RunLedger(experiment_id=experiment.experiment_id, records=records)
+    ledger.validate_against(experiment)
+    with pytest.raises(ValueError, match="nonterminal runs"):
+        ledger.validate_terminal()
 
 
 def test_failed_and_unsupported_runs_cannot_look_successful() -> None:

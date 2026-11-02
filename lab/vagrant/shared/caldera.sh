@@ -180,7 +180,14 @@ if [[ "$STICKS_CALDERA_WITH_ATOMIC" == "1" ]]; then
     install_atomic_inputs
 fi
 test -f "$RUNTIME_REQUIREMENTS_FILE"
-pip3 install --retries 5 --timeout 60 --prefer-binary -r "$RUNTIME_REQUIREMENTS_FILE"
+pip3 install --retries 5 --timeout 60 --prefer-binary --require-hashes -r "$RUNTIME_REQUIREMENTS_FILE"
+python3 /tmp/caldera_runtime_lock.py --lock "$RUNTIME_REQUIREMENTS_FILE" \
+    --roots /tmp/caldera-runtime-requirements.in > /tmp/caldera-runtime-verification.json
+install -d -m 0755 /opt/caldera/.sticks-runtime
+install -m 0644 "$RUNTIME_REQUIREMENTS_FILE" /opt/caldera/.sticks-runtime/requirements.txt
+install -m 0644 /tmp/caldera-runtime-requirements.in /opt/caldera/.sticks-runtime/requirements.in
+install -m 0644 /tmp/caldera_runtime_lock.py /opt/caldera/.sticks-runtime/verify.py
+install -m 0644 /tmp/caldera-runtime-verification.json /opt/caldera/.sticks-runtime/verification.json
 install_node
 cd "$CALDERA_DIR/plugins/magma"
 timeout 900 npm ci --no-audit --no-fund \

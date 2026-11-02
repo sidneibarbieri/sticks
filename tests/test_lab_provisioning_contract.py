@@ -85,15 +85,15 @@ def test_caldera_vagrantfile_provisions_runtime_requirements() -> None:
 def test_caldera_runtime_requirements_match_enabled_plugin_slice() -> None:
     text = _read(CALDERA_RUNTIME_REQUIREMENTS)
     dependency_lines = {
-        line.strip()
+        line.split()[0]
         for line in text.splitlines()
         if line.strip() and not line.lstrip().startswith("#")
     }
 
     assert "aiohttp-apispec==3.0.0b2" in dependency_lines
     assert "networkx==2.8.5" in dependency_lines
-    assert "numpy>=1.20" in dependency_lines
-    assert "matplotlib>=3.5.2" in dependency_lines
+    assert "numpy==2.2.6" in dependency_lines
+    assert "matplotlib==3.10.9" in dependency_lines
     assert "donut-shellcode==1.0.2" not in dependency_lines
     assert "Sphinx==7.1.2" not in dependency_lines
     assert "reportlab==4.0.4" not in dependency_lines

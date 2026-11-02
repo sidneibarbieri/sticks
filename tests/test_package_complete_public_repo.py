@@ -452,6 +452,10 @@ def test_generated_reviewer_docs_use_the_primary_ledger_path(tmp_path: Path) -> 
 
     assert "scripts/reproduce.py" in wrapper
     assert "release/claims/ledger.json" in readme
+    assert "python3 scripts/demo.py" in readme
+    assert "python3 scripts/emulate.py C0045" in readme
+    assert "--bundle your.json" in readme
+    assert "--config config.openai.example.json" in readme
     assert "scripts/audit_fact_semantics.py" in readme
     assert "docs/FACT_SEMANTICS.md" in readme
     assert "docs/IAC_LIMITATIONS_ARM64.md" in readme

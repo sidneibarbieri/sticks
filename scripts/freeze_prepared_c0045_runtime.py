@@ -3,9 +3,11 @@
 from __future__ import annotations
 
 import argparse
+from collections.abc import Mapping
 import hashlib
 import json
 import os
+import re
 import sys
 import tempfile
 from pathlib import Path
@@ -52,6 +54,8 @@ PROVISIONING_INPUTS = (
     "lab/vagrant/shared/caldera.sh",
     "lab/vagrant/shared/target.sh",
     "lab/vagrant/shared/caldera-runtime-requirements.txt",
+    "lab/vagrant/shared/caldera-runtime-requirements.in",
+    "lab/vagrant/shared/caldera_runtime_lock.py",
     "lab/vagrant/shared/qemu_network_yaml.rb",
     "lab/vagrant/shared/qemu_ssh_port.rb",
     "lab/vagrant/shared/prepare_strict_ssh.sh",
@@ -63,6 +67,8 @@ PROVISIONING_INPUTS = (
 
 def _box_root(box_name: str) -> Path:
     """Resolve the declared local Vagrant image instead of assuming its alias."""
+    if re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9._-]*/[A-Za-z0-9][A-Za-z0-9._-]*', box_name) is None:
+        raise ValueError('Prepared box name must be a local namespace/name alias')
     vagrant_home = Path(os.environ.get("VAGRANT_HOME", "~/.vagrant.d")).expanduser()
     return (
         vagrant_home
@@ -91,13 +97,14 @@ def _frozen_series_path(series_path: Path) -> Path:
 
 
 def _prepared_manifest(
-    inventory_dir: Path, manifest_version: int
+    inventory_dir: Path, manifest_version: int,
+    *, box_names: Mapping[Role, str] = ROLE_BOX_NAMES,
 ) -> PreparedRuntimeManifest:
     images: dict[Role, PreparedRuntimeImage] = {}
     for role in ROLES:
         inventory_path = _inventory_path(inventory_dir, role)
         PreparedGuestInventory.model_validate_json(inventory_path.read_bytes())
-        box_name = ROLE_BOX_NAMES[role]
+        box_name = box_names[role]
         images[role] = PreparedRuntimeImage(
             box_name=box_name,
             box_version=BOX_VERSION,
@@ -181,8 +188,12 @@ def _write_immutable(path: Path, content: str) -> None:
 def freeze(
     inventory_dir: Path,
     series_path: Path = PROJECT_ROOT / "data/experiments/c0045_compute_effect_series_v1.json",
+    *, caldera_box_name: str | None = None,
 ) -> tuple[PreparedRuntimeManifest, StrictExecutionProfile, Path]:
     """Create the matching manifest and strict profile from current verified inputs."""
+    box_names = {**ROLE_BOX_NAMES}
+    if caldera_box_name is not None:
+        box_names['caldera'] = caldera_box_name
     latest_manifest_path = latest_prepared_runtime_manifest_path()
     if latest_manifest_path is not None:
         latest_manifest = PreparedRuntimeManifest.model_validate_json(
@@ -191,6 +202,7 @@ def freeze(
         candidate = _prepared_manifest(
             inventory_dir,
             int(latest_manifest.schema_version.rsplit("v", 1)[1]),
+            box_names=box_names,
         )
         _require_image_provenance(candidate, latest_manifest)
         if _same_prepared_runtime(candidate, latest_manifest):
@@ -198,11 +210,11 @@ def freeze(
             manifest_path = latest_manifest_path
         else:
             manifest_version, manifest_path = next_prepared_runtime_manifest_path()
-            manifest = _prepared_manifest(inventory_dir, manifest_version)
+            manifest = _prepared_manifest(inventory_dir, manifest_version, box_names=box_names)
             _write_immutable(manifest_path, manifest.model_dump_json(indent=2) + "\n")
     else:
         manifest_version, manifest_path = next_prepared_runtime_manifest_path()
-        manifest = _prepared_manifest(inventory_dir, manifest_version)
+        manifest = _prepared_manifest(inventory_dir, manifest_version, box_names=box_names)
         _write_immutable(manifest_path, manifest.model_dump_json(indent=2) + "\n")
     latest_profile_path = latest_strict_profile_path()
     if latest_profile_path is not None:
@@ -226,6 +238,7 @@ def freeze(
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--inventory-dir", required=True, type=Path)
+    parser.add_argument('--caldera-box-name', help='New local CALDERA box alias after a rebuild')
     parser.add_argument(
         "--series-path",
         type=Path,
@@ -233,7 +246,7 @@ def main() -> int:
     )
     options = parser.parse_args()
     manifest, profile, profile_path = freeze(
-        options.inventory_dir, options.series_path
+        options.inventory_dir, options.series_path, caldera_box_name=options.caldera_box_name
     )
     print(
         json.dumps(

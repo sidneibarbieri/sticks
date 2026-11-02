@@ -232,6 +232,14 @@ class RunLedger(StrictModel):
         if missing or unexpected:
             raise ValueError(f"run accounting mismatch: missing={missing}, unexpected={unexpected}")
 
+    def validate_terminal(self) -> None:
+        unfinished = sum(
+            record.status in {RunStatus.planned, RunStatus.running}
+            for record in self.records
+        )
+        if unfinished:
+            raise ValueError(f"ledger contains {unfinished} nonterminal runs")
+
     def validate_evidence(self, root: Path) -> None:
         for record in self.records:
             for reference in record.evidence:

@@ -7,6 +7,8 @@ ROLES = frozenset({"caldera", "attacker", "target-linux-1"})
 ROLE_SPECIFIC_INPUTS = {
     "lab/vagrant/shared/caldera.sh": "caldera",
     "lab/vagrant/shared/caldera-runtime-requirements.txt": "caldera",
+    "lab/vagrant/shared/caldera-runtime-requirements.in": "caldera",
+    "lab/vagrant/shared/caldera_runtime_lock.py": "caldera",
     "lab/vagrant/shared/attacker.sh": "attacker",
     "lab/vagrant/shared/target.sh": "target-linux-1",
 }
