@@ -38,10 +38,11 @@ requirements and limits are in `docs/IAC_LIMITATIONS_ARM64.md`.
 python3 scripts/demo.py
 ```
 
-Runs in under a second with no dependencies, no network, and no model. It takes one campaign
-step and shows the three arms side by side: without deterministic admission a proposer commits a
-step the check rejects, while the admitted arm refuses to commit one. It then prints the totals
-over the recorded run, which are the values the manuscript reports.
+Runs in under a second with no dependencies, no network, and no model. It reads an archived
+proposal study and shows one campaign step across three arms: without deterministic admission,
+a proposer emits a step rejected by the contract checker; the admitted arm abstains. The totals
+describe that historical diagnostic. They are neither observed target effects nor current
+manuscript results.
 
 ## Run the method on a campaign you choose
 
