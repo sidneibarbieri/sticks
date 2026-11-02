@@ -18,6 +18,7 @@ fi
 
 source "$ROOT_DIR/scripts/python_env.sh"
 PYTHON_BIN="$(sticks_resolve_python "$ROOT_DIR" "$ROOT_DIR/requirements.txt")"
+export STICKS_PYTHON="$PYTHON_BIN"
 
 if [[ -n "${PAPER_DIR:-}" ]]; then
   MANUSCRIPT_PATH="$PAPER_DIR/main.tex"
