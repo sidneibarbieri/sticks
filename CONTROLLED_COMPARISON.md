@@ -86,6 +86,14 @@ bridge, and handoff before execution, runs the typed campaign consumer once, rep
 matches those exact bytes. A partial directory after a runtime error is failure evidence, not a
 successful cell.
 
+New execution-arm runs require `--caldera-session PATH`, created for the fresh
+target boot by `scripts/prepare_caldera_session.py`. The consumer activates that
+session for the complete runtime call and retains its command journal. Session
+validation errors propagate before the runner starts; there is no SSH-only
+fallback. This dispatch requirement does not qualify the prior-work baseline,
+prove observer accuracy, or replace the per-run provisioning and teardown gates.
+Historical executions retain their original source and transport contracts.
+
 Every adapter emits the same `NeutralProposalRecord`, bound to its raw output and frozen budget by
 SHA-256. Its `blind` transition produces a `BlindOracleInput`, which deliberately has no arm field,
 and a separate `BlindAssignment` retained by the coordinator for post-decision reconciliation. The

@@ -11,7 +11,7 @@
   "excluded_runtime_roots": [
     "runs"
   ],
-  "file_count": 3415,
+  "file_count": 3416,
   "files": {
     ".gitignore": {
       "sha256": "4ab313af22acd8a7fbad67346992ed063f780db81a11aae49ae804d366f97506",
@@ -26,8 +26,8 @@
       "size": 2900
     },
     "CONTROLLED_COMPARISON.md": {
-      "sha256": "ecadddc5270c055a81863aacf58c2553e09e1419b90d1a1cc66de5a0113131c5",
-      "size": 11399
+      "sha256": "90cd6d3c303da37523d1d8234f74490aa29aeab24db7067e4ba94ba44391cb90",
+      "size": 11949
     },
     "LICENSE": {
       "sha256": "86970e3ddf75bb8c4eb2a00949394aad6b469a3683a125bf10bf28e14b0a4e92",
@@ -11714,8 +11714,8 @@
       "size": 890
     },
     "scripts/run_controlled_execution_arm.py": {
-      "sha256": "7f9d8393cf914b4b86d418231ad5077fc2337b5e98284dc75af955e8780ca6f9",
-      "size": 6187
+      "sha256": "c4ac8b8fb751517f5024923f5967437bdde2dc90a51f882490a0058b64923982",
+      "size": 7075
     },
     "scripts/run_corpus.sh": {
       "sha256": "5166544b1e5713874f4d2c144be17c54ddcddfa2ef7a5ac17953b21b9bd86ed3",
@@ -12969,6 +12969,10 @@
       "sha256": "3ebd43461933ca3c75ac69b69ced2c6a336e6f94b62209eca36e8f1f9ff2522b",
       "size": 3007
     },
+    "tests/test_controlled_caldera_transport.py": {
+      "sha256": "4a3dadf8731e92dabd2fd06338e558587ad25fdfbc1e643b2e1f603744aa459c",
+      "size": 3380
+    },
     "tests/test_controlled_comparison.py": {
       "sha256": "53d897eb0ccad5030e1a07e6f8a00badf1db87f36ef720f6435a8793b85346b1",
       "size": 16392
@@ -13675,5 +13679,5 @@
     }
   },
   "schema_version": "1",
-  "tree_sha256": "3f7b475fdfc05ed25971fc67a30dba54d3460baabe8aeeb12d77de9b5024e9c0"
+  "tree_sha256": "54932724d47afe802fbc1e1f3c2be0b65c5898bd83c180cfecd001597a34d08c"
 }

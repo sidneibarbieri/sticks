@@ -8,6 +8,7 @@ import hashlib
 import json
 import subprocess
 import sys
+from functools import partial
 from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
@@ -24,6 +25,8 @@ from evaluation.comparison_runner import (  # noqa: E402
 from evaluation.execution_bridge import build_execution_semantic_bridge  # noqa: E402
 from evaluation.execution_study import run_revision_bound_execution  # noqa: E402
 from runners.campaign_runner import UnifiedCampaignRunner  # noqa: E402
+from runners.caldera_campaign_support import SUPPORTED_CALDERA_CAMPAIGNS  # noqa: E402
+from runners.caldera_session import campaign_caldera_session  # noqa: E402
 from runners.runtime_campaign_report import RuntimeCampaignReport  # noqa: E402
 
 
@@ -77,13 +80,22 @@ def _load_observations(collection_dir: Path) -> list[StepObservation]:
 
 
 def _execute_runtime(
-    runtime_campaign_id: str, runtime_output: Path
+    runtime_campaign_id: str, runtime_output: Path, *, caldera_session_path: Path
 ) -> tuple[RuntimeCampaignReport, bytes]:
-    report = UnifiedCampaignRunner(
-        runtime_campaign_id,
-        output_dir=runtime_output,
-        require_lab=True,
-    ).run()
+    if runtime_campaign_id not in SUPPORTED_CALDERA_CAMPAIGNS:
+        raise ValueError("controlled execution campaign lacks CALDERA transport support")
+    runtime_output.mkdir(parents=True, exist_ok=False)
+    retained_session = runtime_output / "caldera-session.json"
+    with retained_session.open("xb") as output:
+        output.write(caldera_session_path.read_bytes())
+    with campaign_caldera_session(
+        retained_session, runtime_output / "caldera-dispatch"
+    ):
+        report = UnifiedCampaignRunner(
+            runtime_campaign_id,
+            output_dir=runtime_output,
+            require_lab=True,
+        ).run()
     if not isinstance(report, RuntimeCampaignReport):
         raise TypeError("controlled execution arm requires a typed runtime report")
     summary_path = runtime_output / "runtime-v2" / report.run_id / "summary.json"
@@ -146,7 +158,9 @@ def run(args: argparse.Namespace) -> int:
         binding_catalog_sha256=catalog.content_sha256,
         action_catalog_sha256=action_catalog_hash(templates),
         admission_oracle_revision=_oracle_revision(lock.source_sha256),
-        execute=_execute_runtime,
+        execute=partial(
+            _execute_runtime, caldera_session_path=args.caldera_session.resolve(strict=True)
+        ),
     )
     print(f"consumer_receipt_sha256={receipt.content_sha256}")
     print(f"independent_observation_sha256={observation.content_sha256}")
@@ -159,6 +173,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--campaign", required=True)
     parser.add_argument("--seed", type=int, required=True)
     parser.add_argument("--output-dir", type=Path, required=True)
+    parser.add_argument("--caldera-session", type=Path, required=True)
     return parser.parse_args()
 
 
