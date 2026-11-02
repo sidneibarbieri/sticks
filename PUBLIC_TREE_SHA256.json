@@ -11498,8 +11498,8 @@
       "size": 4098
     },
     "scripts/demo.py": {
-      "sha256": "22c8f9631621c07a04a1526f36c554812e102efdf11d24fa84d330a7eea245a6",
-      "size": 5693
+      "sha256": "948f4d1b8df2c7ab93d70e44cee62cf01b967b8c1f131c44940a7b263767d560",
+      "size": 5384
     },
     "scripts/destroy.sh": {
       "sha256": "5402875b5a96cf536b78a78875fb75fe20c6e0631f0427bedf040e68413206c9",
@@ -13066,8 +13066,8 @@
       "size": 2669
     },
     "tests/test_demo.py": {
-      "sha256": "b4a9e8b4da24c643dbf0b233dd85bc369d9db293c0f9471829abcd246816e59e",
-      "size": 1117
+      "sha256": "b65c59ecf188e0547671e4db4dc2cb846e20bd74d9e1d0cc3f85655f89ba7217",
+      "size": 1350
     },
     "tests/test_dependency_lock.py": {
       "sha256": "a6558be481d7e3b32d22c23ffdb7a08e207ca113b80792a399cc4223fce2aac8",
@@ -13707,5 +13707,5 @@
     }
   },
   "schema_version": "1",
-  "tree_sha256": "f7525b6a7dcb24a8a710092d96a4789477730f6d4d7d01f7ecc744a59d684ca9"
+  "tree_sha256": "5254d9655730f9089981c2f67de3dab77d0d7f311d63eb5cd84d40b5e757b084"
 }

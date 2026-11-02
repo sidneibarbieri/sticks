@@ -1,12 +1,11 @@
 #!/usr/bin/env python3
-"""Show the central result on one campaign step, in a form a reader can follow live.
+"""Show an archived proposal comparison on one campaign step.
 
-The reviewer check verifies that the artifact is intact. This shows what the artifact found: on the
-same step, with the same catalog and the same declared environment, a proposer without deterministic
-admission emits a step the oracle rejects, while the admitted arm refuses to emit one at all.
+The reviewer check verifies that the artifact is intact. This archived proposer study shows one
+step where an arm without admission emits a proposal rejected by the contract checker, while the
+admitted arm abstains under the same catalog and declared environment.
 
-It reads the recorded observations, so it runs offline in a few seconds and prints the same values
-the manuscript reports. Nothing is recomputed by a model here.
+It reads recorded observations and runs offline. Nothing is recomputed by a model here.
 """
 
 from __future__ import annotations
@@ -24,7 +23,7 @@ from collect_controlled_comparison import load_campaign_fixture  # noqa: E402
 
 COMPARISON_ROOT = PROJECT_ROOT / "release" / "experiments" / "controlled_comparison"
 ARM_TITLE = {
-    "prior_work_style": "Prior-work representation, no admission",
+    "prior_work_style": "Catalog-constrained proposal baseline, no admission",
     "sticks_without_admission": "Procedural representation, no admission",
     "sticks_admitted": "Procedural representation, admission applied",
 }
@@ -85,36 +84,30 @@ def print_step_contrast(observations: list[dict], key: tuple[str, str, int]) -> 
     for fact in known_facts:
         print(f"    {fact}")
     print("\nAll three arms receive the same step, the same catalog, and the same environment.")
-    print("They differ only in the representation shown and whether admission is applied.\n")
+    print("This is a catalog-constrained proposal comparison, not a reproduction of prior work.\n")
 
     for arm in ARM_ORDER:
         outcome = arm_outcome(observations, key, arm)
         print(f"  {ARM_TITLE[arm]}")
         if outcome["abstained"]:
             print("      proposed:  a realization the verifier did not admit")
-            print("      committed: nothing. The arm abstains rather than emit an unexecutable step.")
+            print("      emitted:  nothing. The arm abstains rather than emit a step outside the declared contract.")
         else:
-            verdict = "accepted by the oracle" if outcome["oracle_admitted"] else "REJECTED by the oracle"
+            verdict = "accepted by the contract checker" if outcome["oracle_admitted"] else "REJECTED by the contract checker"
             print(f"      proposed:  {outcome['template_id']}")
-            print(f"      committed: this step, {verdict}")
+            print(f"      emitted:  this proposal, {verdict}")
         print()
 
 
 def print_totals(experiment_id: str) -> None:
     analysis = json.loads((COMPARISON_ROOT / experiment_id / "analysis.json").read_text())
     print(RULE)
-    print(f"ACROSS THE WHOLE RUN   {analysis['observations']} observations   campaigns {', '.join(analysis['campaigns'])}")
+    print(f"ARCHIVED PROPOSER STUDY {experiment_id}   {analysis['observations']} observations   campaigns {', '.join(analysis['campaigns'])}")
+    print("Historical diagnostic only; these rates are not target effects or current paper results.")
     print(RULE)
-    print(f"  {'arm':<46}{'valid':>8}{'abstained':>12}")
+    print(f"  {'arm':<46}{'contract':>8}{'abstained':>12}")
     for row in analysis["overall"]:
         print(f"  {ARM_TITLE[row['arm']]:<46}{row['validity_rate']:>8.3f}{row['abstention_rate']:>12.3f}")
-    profile = analysis["abstention_profile"]
-    justified = profile["justified_no_admissible_realization"]
-    print(
-        f"\n  Of {profile['abstentions']} abstentions, {justified} occurred where no catalog template "
-        f"was admissible at all."
-    )
-    print("  Refusing is the only sound answer there, and it is where the other arms emit a rejected step.")
 
 
 def parse_args() -> argparse.Namespace:
@@ -131,7 +124,7 @@ def main() -> int:
     print_step_contrast(observations, key)
     print_totals(args.experiment_id)
     print(RULE)
-    print("Admission decides executable validity. The representation alone does not.")
+    print("Admission checks the declared contract. Target effect requires separate observation.")
     print(RULE)
     return 0
 
