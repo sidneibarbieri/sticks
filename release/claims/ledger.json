@@ -515,7 +515,7 @@
     },
     {
       "claim_id": "STICKS-P17",
-      "statement": "No comparative operational claim is asserted for P17. The historical proposal collections are retained for audit, while the revision-bound v10 execution seal records only the admitted STICKS arm and cannot establish superiority over an unexecuted prior-work feedback loop.",
+      "statement": "No multi-campaign comparative operational claim is asserted for P17. The historical proposal collections are retained for audit, and a 2026-11-03 paired execution collection on one campaign (0.c0026) measured, under a single lock with an independent observer, that the deterministic admitted arm realized all five real-controlled effects while a prior-work-style executed proposer realized four and failed the size-limited-transfer step. Only 0.c0026 has an executable admitted plan, so this single-campaign result does not establish the multi-campaign claim the manuscript gate requires.",
       "status": "blocked",
       "support_type": "controlled_experiment",
       "unit_of_analysis": "campaign step proposal",
@@ -527,7 +527,7 @@
         "STICKS outperforms prior systems at campaign execution",
         "the verifier guarantees historical fidelity"
       ],
-      "scope_restriction": "The historical rates have unpinned source and plan lineage. The v10 batch pins proposal inputs and seals admitted-arm effects, but neither runs a faithful prior-work execution-feedback loop nor measures comparative SUT outcomes.",
+      "scope_restriction": "The historical rates have unpinned source and plan lineage. A 2026-11-03 paired execution collection on 0.c0026 (admitted and prior-work-style arms interleaved under one lock, 3 seeds x 3 repetitions, 18 cells, independent observer != admission oracle) found the admitted arm realized all 5 real-controlled effects in every cell and the prior-work arm realized 4 of 5, failing the size-limited-transfer step (T1030) in all 9 cells. Outcomes were identical across seeds and repetitions, so confidence intervals are degenerate. Only 0.c0026 has an executable admitted plan (C0010/C0045 ineligible), so this is a single-campaign result; the manuscript readiness gate still requires the qualified multi-campaign status, and P17 stays blocked.",
       "paper_readiness_gate": {
         "kind": "prospective_requalification",
         "protocol_path": "CONTROLLED_COMPARISON.md",
@@ -1142,6 +1142,30 @@
         "the result generalizes across models"
       ],
       "scope_restriction": "One local model at temperature 0.2 with thinking off, on three fully supported campaigns, so justified abstention on unsupported steps is not exercised. The guarded arm is scored by its own verifier, so only its refusal count is reported. The prior-work-style arm is catalog-constrained and lacks the prior system's execution-feedback loop; P17's comparative operational claim stays blocked."
+    },
+    {
+      "claim_id": "STICKS-P30",
+      "statement": "In a frozen paired collection on one campaign (C0026), with the admitted and prior-work-style arms interleaved under a single lock and scored by an independent observer distinct from the admission oracle, the deterministic admitted arm realized all 5 real-controlled step effects in every one of 9 cells, while the prior-work-style executed proposer realized 4 of the 5 and failed the size-limited-transfer step (T1030) in all 9 cells. No prior-work generation was truncated, 0 of them, so no failure is a truncated output.",
+      "status": "supported",
+      "support_type": "controlled_experiment",
+      "unit_of_analysis": "campaign step effect on a provisioned target",
+      "population": "C0026 paired collection: both arms, the real-controlled steps, nine cells per arm",
+      "table_population": "campaign step effect; 9 cells per arm",
+      "evidence_paths": [
+        "release/experiments/prior_work_comparison/c0026_paired.json"
+      ],
+      "test_paths": [
+        "tests/test_prior_work_comparison.py"
+      ],
+      "permitted_wording": "On C0026, the deterministic admitted arm realized all 5 real-controlled effects in all 9 cells; the prior-work-style executed proposer realized 4 and failed the size-limited-transfer step (T1030) in all 9. The comparison is one campaign and does not establish a multi-campaign claim.",
+      "forbidden_wording": [
+        "STICKS reproduces the prior-work system",
+        "the prior-work arm is a faithful re-implementation",
+        "STICKS outperforms prior systems in general",
+        "the result generalizes across models or campaigns",
+        "admission guarantees execution"
+      ],
+      "scope_restriction": "One campaign only (C0026 is the sole campaign with an executable admitted plan); outcomes identical across 3 seeds and 3 repetitions, so confidence intervals are degenerate. The prior-work arm receives a report and generic feedback that does not reveal the effect contract; it is not a reproduction of any prior end-to-end system. P17's multi-campaign comparative claim stays blocked."
     }
   ]
 }

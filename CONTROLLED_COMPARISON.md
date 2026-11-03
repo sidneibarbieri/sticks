@@ -105,6 +105,14 @@ python scripts/validate_controlled_comparison.py \
   --ledger path/to/run-ledger.json \
   --evidence-root path/to/evidence
 
+python scripts/record_controlled_execution.py \
+  --manifest path/to/manifest.json \
+  --ledger path/to/run-ledger.json \
+  --evidence-root path/to/evidence \
+  --cell-dir path/to/evidence/C0010-seed1 \
+  --campaign C0010 --seed 1 \
+  --output-ledger path/to/next-run-ledger.json
+
 python scripts/evaluate_blind_oracle.py \
   --input path/to/blind-input.json \
   --binding-catalog release/plans/C0010.binding-catalog.json \
@@ -116,6 +124,11 @@ python scripts/evaluate_blind_oracle.py \
 The comparison validator requires every run to have a terminal status. Use
 `--allow-incomplete` only to check the accounting of a draft ledger; that mode
 does not qualify experimental results.
+The recorder verifies all five execution documents and their bindings before
+writing a new ledger. It leaves the input ledger intact. Other planned cells
+remain planned until their own evidence is recorded. A `succeeded` run means
+that execution and observation were retained; inspect the effect classes to
+determine whether the campaign objective was observed, simulated, or failed.
 
 No claim is supported merely because these contracts exist. Collection requires frozen real model
 artifacts, immutable producer and consumer revisions, complete run accounting, and retained negative

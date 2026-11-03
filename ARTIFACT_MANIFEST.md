@@ -1,6 +1,6 @@
 # Public Artifact Manifest
 
-- Repository: `https://github.com/sidneibarbieri/sticks`.
+- Repository URL is supplied by the distribution channel.
 
 ## Primary evidence path
 

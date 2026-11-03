@@ -209,6 +209,16 @@ def _proposal_containment() -> dict[str, int]:
     }
 
 
+def _prior_work_comparison() -> dict[str, str]:
+    record = _load(EXPERIMENTS / "prior_work_comparison" / "c0026_paired.json")
+    return {
+        "admitted_observed_steps": str(record["admitted_observed_steps"]),
+        "prior_work_observed_steps": str(record["prior_work_observed_steps"]),
+        "cells_per_arm": str(record["cells_per_arm"]),
+        "failed_technique": record["prior_work_failed_technique"],
+    }
+
+
 def _authoring_cost() -> dict[str, str]:
     summary = _load(EXPERIMENTS / "authoring_cost" / "corpus.json")["summary"]
     automation = summary["automation"]
@@ -330,6 +340,7 @@ def build_macros() -> dict[str, str]:
     corpus = _load(EXPERIMENTS / "substitution" / "corpus.json")
     evidence_policy = _evidence_policy()
     containment = _proposal_containment()
+    prior_work = _prior_work_comparison()
     scaling = _enumeration_scaling()
     flow = _attack_flow_interop()
     locus = _execution_locus()
@@ -364,6 +375,10 @@ def build_macros() -> dict[str, str]:
         "containmentPriorWork": str(containment["prior_work"]),
         "containmentRefused": str(containment["refused"]),
         "containmentCommitted": str(containment["committed"]),
+        "priorworkObservedSteps": prior_work["prior_work_observed_steps"],
+        "admittedObservedSteps": prior_work["admitted_observed_steps"],
+        "priorworkCellsPerArm": prior_work["cells_per_arm"],
+        "priorworkFailedTechnique": prior_work["failed_technique"],
         "scalingGridPoints": scaling["grid_points"],
         "largestCandidateSet": scaling["largest_set"],
         "refusedCandidateSet": scaling["refused_size"],

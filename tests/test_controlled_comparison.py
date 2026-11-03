@@ -10,6 +10,7 @@ from pydantic import ValidationError
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(PROJECT_ROOT / "src"))
+sys.path.insert(0, str(PROJECT_ROOT / "scripts"))
 
 from concretization.models import ActionTemplate, BindingCatalog  # noqa: E402
 from evaluation.controlled_comparison import (  # noqa: E402
@@ -35,6 +36,7 @@ from evaluation.controlled_comparison import (  # noqa: E402
     evaluate_blind_proposal,
     validate_proposal_record,
 )
+from record_controlled_execution import record_execution  # noqa: E402
 
 SHA_A = "a" * 64
 SHA_B = "b" * 64
@@ -164,6 +166,20 @@ def test_success_evidence_is_relative_and_hash_verified(tmp_path: Path) -> None:
         ledger.validate_evidence(tmp_path)
     with pytest.raises(ValidationError, match="cannot traverse parents"):
         EvidenceReference(path="../run.json", sha256=digest)
+
+
+def test_evidence_symlink_cannot_escape_declared_root(tmp_path: Path) -> None:
+    evidence_root = tmp_path / "evidence"
+    evidence_root.mkdir()
+    outside = tmp_path / "outside.json"
+    outside.write_text("{}\n", encoding="utf-8")
+    (evidence_root / "run.json").symlink_to(outside)
+    reference = EvidenceReference(
+        path="run.json",
+        sha256=hashlib.sha256(outside.read_bytes()).hexdigest(),
+    )
+    with pytest.raises(ValueError, match="not in the subpath"):
+        reference.validate_file(evidence_root)
 
 
 def test_blind_oracle_input_rejects_arm_label_and_reuses_verifier() -> None:
@@ -420,6 +436,39 @@ def test_execution_success_requires_typed_independent_evidence(tmp_path: Path) -
             status=RunStatus.succeeded,
             evidence=references[:-1],
         )
+
+
+def test_record_execution_requires_complete_bound_evidence(tmp_path: Path) -> None:
+    experiment = manifest()
+    ledger = RunLedger(
+        experiment_id=experiment.experiment_id,
+        records=[
+            RunRecord(campaign_id=campaign, arm_id=ArmId(arm), seed=seed, status="planned")
+            for campaign, arm, seed in sorted(experiment.planned_run_keys())
+        ],
+    )
+    cell = tmp_path / "C0010-seed1"
+    cell.mkdir()
+    with pytest.raises(FileNotFoundError):
+        record_execution(experiment, ledger, tmp_path, cell, "C0010", 1)
+    write_execution_evidence(cell)
+    for old, new in (
+        ("handoff.json", "execution-handoff.json"),
+        ("receipt.json", "consumer-receipt.json"),
+        ("observation.json", "independent-observation.json"),
+    ):
+        (cell / old).rename(cell / new)
+    receipt_path = cell / "consumer-receipt.json"
+    original_receipt = receipt_path.read_bytes()
+    receipt_path.write_bytes(original_receipt.replace(b'"status":"succeeded"', b'"status":"failed"'))
+    with pytest.raises(ValidationError):
+        record_execution(experiment, ledger, tmp_path, cell, "C0010", 1)
+    receipt_path.write_bytes(original_receipt)
+    completed = record_execution(experiment, ledger, tmp_path, cell, "C0010", 1)
+    assert all(record.status == RunStatus.planned for record in ledger.records)
+    assert sum(record.status == RunStatus.succeeded for record in completed.records) == 1
+    with pytest.raises(ValueError, match="planned status"):
+        record_execution(experiment, completed, tmp_path, cell, "C0010", 1)
 
 
 def test_execution_observer_cannot_reuse_admission_authority() -> None:

@@ -58,6 +58,11 @@ def main() -> int:
         f"[controlled-comparison] {len(ledger.records)} {state} accounted for "
         f"experiment {manifest.experiment_id}: {dict(sorted(counts.items()))}"
     )
+    print(
+        "[controlled-comparison] prior_work_style is a catalog-constrained "
+        "proposal arm; this check does not certify a conformant prior-work "
+        "implementation or operational comparison."
+    )
     return 0
 
 

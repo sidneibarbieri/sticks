@@ -75,8 +75,14 @@ class EvidenceReference(StrictModel):
             raise ValueError("evidence path must be relative and cannot traverse parents")
         return self
 
+    def resolved_path(self, root: Path) -> Path:
+        evidence_root = root.resolve(strict=True)
+        evidence_path = (evidence_root / self.path).resolve(strict=True)
+        evidence_path.relative_to(evidence_root)
+        return evidence_path
+
     def validate_file(self, root: Path) -> None:
-        evidence_path = root / self.path
+        evidence_path = self.resolved_path(root)
         if not evidence_path.is_file():
             raise FileNotFoundError(f"missing run evidence: {evidence_path}")
         observed = hashlib.sha256(evidence_path.read_bytes()).hexdigest()
@@ -254,27 +260,27 @@ class RunLedger(StrictModel):
                 continue
             references = {reference.role: reference for reference in record.evidence}
             plan = AdmittedCampaignPlan.model_validate_json(
-                (root / references[EvidenceRole.admitted_plan].path).read_text(
+                references[EvidenceRole.admitted_plan].resolved_path(root).read_text(
                     encoding="utf-8"
                 )
             )
             bridge = ExecutionSemanticBridge.model_validate_json(
-                (root / references[EvidenceRole.execution_semantic_bridge].path).read_text(
+                references[EvidenceRole.execution_semantic_bridge].resolved_path(root).read_text(
                     encoding="utf-8"
                 )
             )
             handoff = ExecutionHandoff.model_validate_json(
-                (root / references[EvidenceRole.execution_handoff].path).read_text(
+                references[EvidenceRole.execution_handoff].resolved_path(root).read_text(
                     encoding="utf-8"
                 )
             )
             receipt = ConsumerExecutionReceipt.model_validate_json(
-                (root / references[EvidenceRole.consumer_receipt].path).read_text(
+                references[EvidenceRole.consumer_receipt].resolved_path(root).read_text(
                     encoding="utf-8"
                 )
             )
             observation = IndependentEffectObservation.model_validate_json(
-                (root / references[EvidenceRole.independent_observation].path).read_text(
+                references[EvidenceRole.independent_observation].resolved_path(root).read_text(
                     encoding="utf-8"
                 )
             )
