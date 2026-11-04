@@ -11,7 +11,7 @@
   "excluded_runtime_roots": [
     "runs"
   ],
-  "file_count": 3443,
+  "file_count": 3445,
   "files": {
     ".gitignore": {
       "sha256": "4ab313af22acd8a7fbad67346992ed063f780db81a11aae49ae804d366f97506",
@@ -42,8 +42,8 @@
       "size": 2305
     },
     "README.md": {
-      "sha256": "621120fb808c6f71a463f87892595705c5dec7b71947e2e8668ba6e83f15d246",
-      "size": 17718
+      "sha256": "a9112e93e1d1f903400d2e44f4fd81bd4541be8f32d7f814e34e2027a21a733f",
+      "size": 18083
     },
     "REPRODUCIBILITY.md": {
       "sha256": "09e12dc9d852655d67947e658c297b320fe31eb5b799a5b4a5de5c074c1cace8",
@@ -11557,6 +11557,10 @@
       "sha256": "a9765924c2c9ebec18eca52e2377bfc3f07f756197c40355db3cd9e30f037919",
       "size": 2117
     },
+    "scripts/explain_claim.py": {
+      "sha256": "4f162f06228e70fbcdcb7108c17b879739cbd01a932e3df42357483243367800",
+      "size": 3646
+    },
     "scripts/explain_concretized_plan.py": {
       "sha256": "15f38050445d3de3f4edd6ff2366ff3ea11ae87d6b66be4038568df9a6da04af",
       "size": 3658
@@ -13189,6 +13193,10 @@
       "sha256": "0881789631acbd01f0117a3e9ae5f9cdbf2865fe8c3f233dd2ddefa6c207bd30",
       "size": 5994
     },
+    "tests/test_explain_claim.py": {
+      "sha256": "ac0a9f14387505f8671b398bf319f871f0869885cad1ab058e0bc99249ab9a5f",
+      "size": 1389
+    },
     "tests/test_external_atomic_hostname.py": {
       "sha256": "c8846e3d8ab2fec6c6d03174a7f782297a718f4695402a5f2b1f91997b0d55c5",
       "size": 1955
@@ -13787,5 +13795,5 @@
     }
   },
   "schema_version": "1",
-  "tree_sha256": "91ebfa3698c2ae667393611a759c7a594904c75fb7c405a4889b048a70343c91"
+  "tree_sha256": "524999866556407ae350c645d4a8cdd5c1902ebab2e824bac6f477f3f82aecb9"
 }

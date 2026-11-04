@@ -64,6 +64,17 @@ With `--config` your own model proposes through a provider configuration (see `c
 which reads the key from an environment variable) and the same verifier decides, so substituting a
 model never changes what admission means.
 
+## Check one claim from the paper
+
+The paper's claim map lists every property by its ID. To see what one asserts,
+over which population, whether its frozen records still match the pinned
+SHA-256 manifest, and which tests check it:
+
+```bash
+python3 scripts/explain_claim.py P31
+python3 scripts/explain_claim.py P31 --run-tests   # after installing requirements
+```
+
 ## Use your own model
 
 The proposer runs on any provider. To use your own OpenAI key, copy the example and export the key
