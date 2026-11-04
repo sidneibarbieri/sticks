@@ -1165,7 +1165,32 @@
         "the result generalizes across models or campaigns",
         "admission guarantees execution"
       ],
-      "scope_restriction": "One campaign only (C0026 is the sole campaign with an executable admitted plan); outcomes identical across 3 seeds and 3 repetitions, so confidence intervals are degenerate. The prior-work arm receives a report and generic feedback that does not reveal the effect contract; it is not a reproduction of any prior end-to-end system. P17's multi-campaign comparative claim stays blocked."
+      "scope_restriction": "One campaign (C0026; a second campaign, CostaRicto, is covered by STICKS-P31); outcomes identical across 3 seeds and 3 repetitions, so confidence intervals are degenerate. The prior-work arm receives a report and generic feedback that does not reveal the effect contract; it is not a reproduction of any prior end-to-end system. P17's multi-campaign comparative claim stays blocked."
+    },
+    {
+      "claim_id": "STICKS-P31",
+      "statement": "Repeating the paired admission-versus-prior-work comparison on a second campaign, CostaRicto, gives two campaigns under one protocol. On CostaRicto, under a single lock with the arms interleaved across 3 seeds and 3 repetitions (9 cells each) and scored by an independent observer distinct from the admission oracle, the deterministic admitted arm and the prior-work-style executed proposer each realized all 2 real-controlled target effects (service discovery and local collection) in every cell. With C0026, the admitted arm realized every real-controlled effect in both campaigns and the prior-work arm matched it on CostaRicto, missing only the C0026 size-limited-transfer step. No prior-work generation was truncated.",
+      "status": "supported",
+      "support_type": "controlled_experiment",
+      "unit_of_analysis": "campaign step effect on a provisioned target",
+      "population": "Two campaigns (C0026, CostaRicto); CostaRicto contributes both arms over its real-controlled steps, nine cells per arm",
+      "table_population": "campaign step effect; 9 cells per arm per campaign",
+      "evidence_paths": [
+        "release/experiments/prior_work_comparison/costaricto_paired.json",
+        "release/experiments/prior_work_comparison/c0026_paired.json"
+      ],
+      "test_paths": [
+        "tests/test_prior_work_costaricto.py"
+      ],
+      "permitted_wording": "On CostaRicto, both the admitted and the prior-work-style arms realized all 2 real-controlled target effects in all 9 cells; across the two campaigns the admitted arm realized every effect and the prior-work arm missed only one step. This covers two campaigns, not a corpus.",
+      "forbidden_wording": [
+        "the result holds across the corpus",
+        "STICKS reproduces the prior-work system",
+        "the prior-work arm is a faithful re-implementation",
+        "the two campaigns are a representative sample",
+        "admission guarantees execution"
+      ],
+      "scope_restriction": "Two campaigns only (C0026 and CostaRicto), not a corpus. CostaRicto contributes its 2 reconuser-observed steps (discovery and collection) and excludes the transfer step, whose registered executor runs as a different principal than the observer. Outcomes identical across 3 seeds and 3 repetitions, so confidence intervals are degenerate. Not a reproduction of any prior end-to-end system; P17's comparative operational claim stays blocked."
     }
   ]
 }

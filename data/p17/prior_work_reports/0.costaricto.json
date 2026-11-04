@@ -1,0 +1,44 @@
+{
+  "schema_version": "sticks-p17-prior-work-reports/v1",
+  "experiment_id": "sticks-p17-prior-work",
+  "campaign_id": "0.costaricto",
+  "execution_domain": "linux",
+  "execution_user": "reconuser",
+  "timeout_seconds": 45,
+  "note": "Faithful per-step reports for the prior_work_style executed arm on CostaRicto. Each effect_contract states the exact target effect the registered CostaRicto probe (scripts/probe_costaricto_effects.py) confirms on target-linux-1 as reconuser; the arm receives the report only, never the catalog as an admission authority. The paired comparison uses the two real_controlled steps whose registered admitted executor runs as the same reconuser principal the observer uses: occurrence 1 (discovery) and occurrence 9 (collection). Occurrence 2 (T1105 transfer) is excluded because its registered executor runs as a different principal (vagrant), which cannot share the no-sudo reconuser reset and would contaminate /tmp cross-user; the other seven occurrences are naive_simulated. See STICKS_P17_SECOND_CAMPAIGN_CANDIDATE_20261104.md.",
+  "reports": [
+    {
+      "step_id": "s1",
+      "occurrence": 1,
+      "technique_id": "T1046",
+      "tactic": "discovery",
+      "observer_authority_id": "costaricto-discovery",
+      "predicate_id": "local-service-listing",
+      "objective": "Record the target host's listening network services.",
+      "effect_contract": "Read the current boot id from /proc/sys/kernel/random/boot_id on the target and write the file /tmp/sticks_costaricto/service_discovery_<boot_id>.txt (owner reconuser, mode 600) whose content is the output of `ss -H -tln` (one LISTEN line per listener), listing at least the TCP listeners on ports 22 and 80, followed by a line `=== LISTENING UDP SERVICES ===` and then the UDP listing. The recorded TCP listeners must match the host's live `ss -H -tln`.",
+      "declared_facts": [
+        "target:target-linux-1",
+        "principal:reconuser",
+        "declared_service:ssh tcp/22",
+        "declared_service:apache2 tcp/80",
+        "discovery_path:/tmp/sticks_costaricto/service_discovery_<boot_id>.txt"
+      ]
+    },
+    {
+      "step_id": "s9",
+      "occurrence": 9,
+      "technique_id": "T1005",
+      "tactic": "collection",
+      "observer_authority_id": "costaricto-collection",
+      "predicate_id": "local-collection",
+      "objective": "Collect a local staged file on the target.",
+      "effect_contract": "Copy the source file /home/reconuser/collection/finance_notes.txt to /tmp/sticks_costaricto/local_collection.txt on the target so its bytes are identical to the source, the copy is owned by reconuser, and its mode is exactly 600. The source file already exists on the target.",
+      "declared_facts": [
+        "target:target-linux-1",
+        "principal:reconuser",
+        "source_file:/home/reconuser/collection/finance_notes.txt",
+        "collection_path:/tmp/sticks_costaricto/local_collection.txt"
+      ]
+    }
+  ]
+}

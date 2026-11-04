@@ -1,0 +1,183 @@
+{
+  "admission_oracle_revision": "e0b91e2169583a0f1480451120749212da89b620feb331cfc0bc70dccfecc240",
+  "admitted_observed_steps": 2,
+  "arms": {
+    "admitted": {
+      "s1": {
+        "attempts_total": 9,
+        "failed": 0,
+        "failure_reasons": {},
+        "simulated": 0,
+        "target_observed": 9,
+        "technique_id": "T1046"
+      },
+      "s10": {
+        "attempts_total": 0,
+        "failed": 0,
+        "failure_reasons": {},
+        "simulated": 9,
+        "target_observed": 0,
+        "technique_id": "T1572"
+      },
+      "s3": {
+        "attempts_total": 0,
+        "failed": 0,
+        "failure_reasons": {},
+        "simulated": 9,
+        "target_observed": 0,
+        "technique_id": "T1090.003"
+      },
+      "s4": {
+        "attempts_total": 0,
+        "failed": 0,
+        "failure_reasons": {},
+        "simulated": 9,
+        "target_observed": 0,
+        "technique_id": "T1053.005"
+      },
+      "s5": {
+        "attempts_total": 0,
+        "failed": 0,
+        "failure_reasons": {},
+        "simulated": 9,
+        "target_observed": 0,
+        "technique_id": "T1588.002"
+      },
+      "s6": {
+        "attempts_total": 0,
+        "failed": 0,
+        "failure_reasons": {},
+        "simulated": 9,
+        "target_observed": 0,
+        "technique_id": "T1133"
+      },
+      "s7": {
+        "attempts_total": 0,
+        "failed": 0,
+        "failure_reasons": {},
+        "simulated": 9,
+        "target_observed": 0,
+        "technique_id": "T1583.001"
+      },
+      "s8": {
+        "attempts_total": 0,
+        "failed": 0,
+        "failure_reasons": {},
+        "simulated": 9,
+        "target_observed": 0,
+        "technique_id": "T1587.001"
+      },
+      "s9": {
+        "attempts_total": 9,
+        "failed": 0,
+        "failure_reasons": {},
+        "simulated": 0,
+        "target_observed": 9,
+        "technique_id": "T1005"
+      }
+    },
+    "prior_work_style": {
+      "s1": {
+        "attempts_total": 18,
+        "failed": 0,
+        "failure_reasons": {},
+        "simulated": 0,
+        "target_observed": 9,
+        "technique_id": "T1046"
+      },
+      "s10": {
+        "attempts_total": 0,
+        "failed": 0,
+        "failure_reasons": {},
+        "simulated": 9,
+        "target_observed": 0,
+        "technique_id": "T1572"
+      },
+      "s3": {
+        "attempts_total": 0,
+        "failed": 0,
+        "failure_reasons": {},
+        "simulated": 9,
+        "target_observed": 0,
+        "technique_id": "T1090.003"
+      },
+      "s4": {
+        "attempts_total": 0,
+        "failed": 0,
+        "failure_reasons": {},
+        "simulated": 9,
+        "target_observed": 0,
+        "technique_id": "T1053.005"
+      },
+      "s5": {
+        "attempts_total": 0,
+        "failed": 0,
+        "failure_reasons": {},
+        "simulated": 9,
+        "target_observed": 0,
+        "technique_id": "T1588.002"
+      },
+      "s6": {
+        "attempts_total": 0,
+        "failed": 0,
+        "failure_reasons": {},
+        "simulated": 9,
+        "target_observed": 0,
+        "technique_id": "T1133"
+      },
+      "s7": {
+        "attempts_total": 0,
+        "failed": 0,
+        "failure_reasons": {},
+        "simulated": 9,
+        "target_observed": 0,
+        "technique_id": "T1583.001"
+      },
+      "s8": {
+        "attempts_total": 0,
+        "failed": 0,
+        "failure_reasons": {},
+        "simulated": 9,
+        "target_observed": 0,
+        "technique_id": "T1587.001"
+      },
+      "s9": {
+        "attempts_total": 9,
+        "failed": 0,
+        "failure_reasons": {},
+        "simulated": 0,
+        "target_observed": 9,
+        "technique_id": "T1005"
+      }
+    }
+  },
+  "boundary": "One campaign; outcomes identical across seeds and repetitions, so confidence intervals are degenerate. The prior-work arm receives only a report and generic feedback that does not reveal the effect contract, and is not a reproduction of any prior end-to-end system. P17 stays blocked.",
+  "campaign_id": "0.costaricto",
+  "cells_per_arm": 9,
+  "cells_total": 18,
+  "collection_lock_sha256": "e3eb682d2a58b9520f6716b55d6c28b879d8695d1d423619745ef56609431686",
+  "max_output_tokens": 1024,
+  "model": "qwen3.6:latest",
+  "observer_revision": "aa212f0b9a492817e23f23d634dbbe7f0e7372e5066d497f9f7021dc024e6562",
+  "ollama_model_digest": "096fdbd02fe620fc10cbeb6537e080f8041aece851e5d696aed024d4f70f2e47",
+  "prior_work_fully_failed_techniques": [],
+  "prior_work_generation_stop_reasons": {
+    "stop": 27
+  },
+  "prior_work_generations_total": 27,
+  "prior_work_generations_truncated": 0,
+  "prior_work_observed_steps": 2,
+  "question": "On this campaign, does a deterministic admitted arm realize more step effects than a prior-work-style executed proposer, under one lock and an independent observer?",
+  "real_controlled_steps": 2,
+  "receipt_sha256": "0c1a4b9fa168e3d9d945107f10a15ac4110167885939217246ef841fca033899",
+  "repetitions": 3,
+  "retry_budget": 3,
+  "seeds": [
+    101,
+    102,
+    103
+  ],
+  "temperature": 0.0,
+  "thinking_mode": false,
+  "top_p": 1.0
+}

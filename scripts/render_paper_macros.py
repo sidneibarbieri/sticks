@@ -219,6 +219,15 @@ def _prior_work_comparison() -> dict[str, str]:
     }
 
 
+def _prior_work_costaricto() -> dict[str, str]:
+    record = _load(EXPERIMENTS / "prior_work_comparison" / "costaricto_paired.json")
+    return {
+        "admitted_observed_steps": str(record["admitted_observed_steps"]),
+        "prior_work_observed_steps": str(record["prior_work_observed_steps"]),
+        "cells_per_arm": str(record["cells_per_arm"]),
+    }
+
+
 def _authoring_cost() -> dict[str, str]:
     summary = _load(EXPERIMENTS / "authoring_cost" / "corpus.json")["summary"]
     automation = summary["automation"]
@@ -341,6 +350,7 @@ def build_macros() -> dict[str, str]:
     evidence_policy = _evidence_policy()
     containment = _proposal_containment()
     prior_work = _prior_work_comparison()
+    prior_work_costaricto = _prior_work_costaricto()
     scaling = _enumeration_scaling()
     flow = _attack_flow_interop()
     locus = _execution_locus()
@@ -379,6 +389,10 @@ def build_macros() -> dict[str, str]:
         "admittedObservedSteps": prior_work["admitted_observed_steps"],
         "priorworkCellsPerArm": prior_work["cells_per_arm"],
         "priorworkFailedTechnique": prior_work["failed_technique"],
+        "priorworkCampaignCount": "2",
+        "priorworkCostaRictoAdmittedObservedSteps": prior_work_costaricto["admitted_observed_steps"],
+        "priorworkCostaRictoObservedSteps": prior_work_costaricto["prior_work_observed_steps"],
+        "priorworkCostaRictoCellsPerArm": prior_work_costaricto["cells_per_arm"],
         "scalingGridPoints": scaling["grid_points"],
         "largestCandidateSet": scaling["largest_set"],
         "refusedCandidateSet": scaling["refused_size"],
