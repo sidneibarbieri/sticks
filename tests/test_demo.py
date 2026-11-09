@@ -10,7 +10,7 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 def test_demo_runs_offline_and_shows_the_contrast():
     # The demo is what a reviewer runs first, so a break here is as serious as a failing claim.
     result = subprocess.run(
-        [sys.executable, "scripts/demo.py"],
+        [sys.executable, "-S", "scripts/demo.py"],
         cwd=PROJECT_ROOT,
         capture_output=True,
         text=True,

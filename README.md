@@ -64,16 +64,28 @@ With `--config` your own model proposes through a provider configuration (see `c
 which reads the key from an environment variable) and the same verifier decides, so substituting a
 model never changes what admission means.
 
-## Check one claim from the paper
+## Inspect admission in the workbench
 
-The paper's claim map lists every property by its ID. To see what one asserts,
-over which population, whether its frozen records still match the pinned
-SHA-256 manifest, and which tests check it:
+After [installation](#installation), start the local interface:
 
 ```bash
-python3 scripts/explain_claim.py P31
-python3 scripts/explain_claim.py P31 --run-tests   # after installing requirements
+.venv/bin/python scripts/run_realization_workbench.py --host 127.0.0.1 --port 8765
 ```
+
+Open `http://127.0.0.1:8765/`, select C0045 (ShadowRay), and click
+**Enumerate realizations**. The summary shows the search bounds, realized steps
+and result digest. **Steps** exposes per-step candidates; **Download JSON**
+exports the inputs, result and proposal queue for inspection.
+
+![STICKS workbench after enumerating C0045, showing search settings, 64 bounded realizations, ten realized steps and the JSON download](docs/img/realization-workbench.jpg)
+
+This capture uses the default ceiling of 64 realizations. The interface reports one procedure assignment and one causal structure;
+the 64 returned realizations differ in causal order. The search stopped at
+that ceiling, so `search_exhausted: false` means additional orders may remain.
+The operational status is `not_run`; this screen records a planning computation.
+For a fresh VM-backed execution and its target observations, follow the
+[reviewer quickstart](docs/reviewer_quickstart.md#optional-vm-backed-laboratory).
+Stop the interface with Ctrl-C.
 
 ## Use your own model
 
@@ -349,12 +361,3 @@ archives preserve selected records; their verification is distinct from a new ru
 ## License
 
 See `LICENSE` for this software and `THIRD_PARTY_NOTICES.md` for bundled inputs.
-
-## Typed-run evidence
-
-`typed-run-evidence/c0010-c0026.tar.gz` is included in the tree manifest and audited by `run_review_check.sh`. The check screens changed bytes for recognizable identifiers and secrets, and reports reference-fixture matches separately. This release includes the selected archive. The audit replays sealed receipts and recorded VM states; it does not rerun QEMU or certify historical fidelity. Receipt source hashes identify the archived run source, before the evidence archive and release metadata were added to this package.
-The privacy screen compares this archive with the bundled reference manifest byte-identical to both sealed run workspaces. The receipts and source manifests are independently verified. Lexical screening does not replace semantic privacy approval.
-
-## C0045 compute-effect series
-
-`release/experiments/c0045_compute_effect_series/series.tar.gz` is bound by `PUBLIC_TREE_SHA256.json` and replayed by `bash run_review_check.sh`. To replay only its 20 selected cells, run `PYTHONPATH=src:. python3 -m scripts.verify_c0045_effect_series_archive --archive release/experiments/c0045_compute_effect_series/series.tar.gz`. The replay checks recorded target CPU effects and three controls per block; it does not execute a new QEMU campaign or establish historical ShadowRay fidelity. This release includes the selected series.

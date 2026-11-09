@@ -11,7 +11,7 @@
   "excluded_runtime_roots": [
     "runs"
   ],
-  "file_count": 3445,
+  "file_count": 3447,
   "files": {
     ".gitignore": {
       "sha256": "4ab313af22acd8a7fbad67346992ed063f780db81a11aae49ae804d366f97506",
@@ -42,8 +42,8 @@
       "size": 2305
     },
     "README.md": {
-      "sha256": "a9112e93e1d1f903400d2e44f4fd81bd4541be8f32d7f814e34e2027a21a733f",
-      "size": 18083
+      "sha256": "3cb17015d64377998d13b70cf78f2811c1ae2b6e1a9158e9cd37da9af0593ee9",
+      "size": 17564
     },
     "REPRODUCIBILITY.md": {
       "sha256": "09e12dc9d852655d67947e658c297b320fe31eb5b799a5b4a5de5c074c1cace8",
@@ -1481,9 +1481,17 @@
       "sha256": "e220a0a1445a367c8032a1bd8780e4580f52f6627159103253cfd712492898ec",
       "size": 2273
     },
+    "docs/img/realization-workbench.jpg": {
+      "sha256": "72d209c0d339bbe4274ebbed28513d40416fc759fb96a2b94b985dee63f103e9",
+      "size": 105567
+    },
+    "docs/img/realization-workbench.preview.json": {
+      "sha256": "1d00e724cc1633773f121275d11d6ebdb90013771c36b41e23146acbb419146a",
+      "size": 986
+    },
     "docs/reviewer_quickstart.md": {
-      "sha256": "5da6574a3cbc63b7f865f308de2ca7b35eeec619f4d3ccbee6d0604e22543f5a",
-      "size": 2442
+      "sha256": "d808828947c98efc5f765f766c36d7474f3e2ef70209529bb44f6e45c97e0c91",
+      "size": 2815
     },
     "examples/atomic_hostname/LICENSE.upstream.txt": {
       "sha256": "65af6027045d23175366eab50e460ab3ee7790e591cb84cc32c78ac63a4c90e1",
@@ -11534,8 +11542,8 @@
       "size": 4098
     },
     "scripts/demo.py": {
-      "sha256": "948f4d1b8df2c7ab93d70e44cee62cf01b967b8c1f131c44940a7b263767d560",
-      "size": 5384
+      "sha256": "9d0e6801ed69909bb7aeaefa64590aa63b3c62b7999f49945a6040a349d3b492",
+      "size": 5598
     },
     "scripts/destroy.sh": {
       "sha256": "5402875b5a96cf536b78a78875fb75fe20c6e0631f0427bedf040e68413206c9",
@@ -13130,8 +13138,8 @@
       "size": 2669
     },
     "tests/test_demo.py": {
-      "sha256": "b65c59ecf188e0547671e4db4dc2cb846e20bd74d9e1d0cc3f85655f89ba7217",
-      "size": 1350
+      "sha256": "59f6dfb83988a2fc2f193265fcbd3460a02fdd5acc50b704f1048563872305d3",
+      "size": 1356
     },
     "tests/test_dependency_lock.py": {
       "sha256": "a6558be481d7e3b32d22c23ffdb7a08e207ca113b80792a399cc4223fce2aac8",
@@ -13795,5 +13803,5 @@
     }
   },
   "schema_version": "1",
-  "tree_sha256": "524999866556407ae350c645d4a8cdd5c1902ebab2e824bac6f477f3f82aecb9"
+  "tree_sha256": "d55ebad942eb1acb9629355d5c9bb8f54a93298e5f7855b5f5020a385a0bdc8a"
 }

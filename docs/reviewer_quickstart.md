@@ -27,6 +27,12 @@ After installing the artifact's documented dependencies, run from its root:
 Open `http://127.0.0.1:8765/`. The workbench exposes the pinned campaign inventory
 and deterministic realization enumerator. It helps inspect candidate admission;
 it is not evidence that a full adversarial campaign has executed successfully.
+Select C0045 (ShadowRay) and click **Enumerate realizations**. The default
+ceiling returns 64 realizations and reports `search_exhausted: false`. Use
+**Steps** to inspect candidates, then **Download JSON** to retain the inputs,
+result digest and proposal queue. The export keeps `operational_status: not_run`.
+
+[View the captured workbench](img/realization-workbench.jpg).
 Stop the local server with Ctrl-C when finished.
 
 ## Optional VM-backed laboratory

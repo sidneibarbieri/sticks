@@ -12,16 +12,11 @@ from __future__ import annotations
 
 import argparse
 import json
-import sys
 from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(PROJECT_ROOT / "src"))
-sys.path.insert(0, str(PROJECT_ROOT / "scripts"))
-
-from collect_controlled_comparison import load_campaign_fixture  # noqa: E402
-
 COMPARISON_ROOT = PROJECT_ROOT / "release" / "experiments" / "controlled_comparison"
+PLANS_DIR = PROJECT_ROOT / "release" / "plans"
 ARM_TITLE = {
     "prior_work_style": "Catalog-constrained proposal baseline, no admission",
     "sticks_without_admission": "Procedural representation, no admission",
@@ -57,9 +52,14 @@ def choose_contrasting_step(observations: list[dict]) -> tuple[str, str, int]:
 
 
 def describe_step(campaign_id: str, step_id: str) -> tuple[str, list[str]]:
-    fixture = load_campaign_fixture(campaign_id)
-    step = next(item for item in fixture.steps if item.step_id == step_id)
-    return step.technique_id, list(step.known_facts)
+    plan = json.loads((PLANS_DIR / f"{campaign_id}.concretized-plan.json").read_text())
+    catalog = json.loads((PLANS_DIR / f"{campaign_id}.binding-catalog.json").read_text())
+    known_facts = set(catalog["initial_facts"])
+    for step in sorted(plan["steps"], key=lambda item: item["sequence"]):
+        if f"s{step['sequence']}" == step_id:
+            return step["technique_id"], sorted(known_facts)
+        known_facts.update(step["produces"])
+    raise LookupError(f"step {step_id} is absent from campaign {campaign_id}")
 
 
 def arm_outcome(observations: list[dict], key: tuple[str, str, int], arm: str) -> dict:

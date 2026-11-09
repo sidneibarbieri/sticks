@@ -1,0 +1,24 @@
+{
+  "source_url": "https://anonymous.4open.science/api/repo/sticks-BB6F/zip",
+  "archive_sha256": "ab0684a6e6b6cb4e313a5138ac01e0ec16b8e100f11d8d3dad21154d090f33d1",
+  "capture": "realization-workbench.jpg",
+  "capture_sha256": "72d209c0d339bbe4274ebbed28513d40416fc759fb96a2b94b985dee63f103e9",
+  "campaign_id": "C0045",
+  "interface_scope": "planning_only",
+  "request": {
+    "campaign_id": "C0045",
+    "desired_behavior_contracts_per_step": 2,
+    "desired_procedure_assignments_per_step": 2,
+    "maximum_candidates_per_step": 512,
+    "maximum_generation_targets": 12,
+    "maximum_realizations": 64,
+    "maximum_search_states": 10000
+  },
+  "result_content_sha256": "86c17ccbcfb4ff61b1574a19a6f7cbf4f24fda88b375e1c001f0f8b8e52c8be1",
+  "export_sha256": "c143ab4bcc97c74caf410d938899e6431477168ef021a9e2feaee61082c57bdf",
+  "operational_status": "not_run",
+  "realization_count": 64,
+  "source_step_count": 10,
+  "search_exhausted": false,
+  "capture_mime_type": "image/jpeg"
+}
