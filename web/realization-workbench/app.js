@@ -22,6 +22,7 @@ const elements = {
   resultCampaignName: document.querySelector("#result-campaign-name"),
   resultStatus: document.querySelector("#result-status"),
   downloadButton: document.querySelector("#download-button"),
+  recomputeCommand: document.querySelector("#recompute-command"),
   metricStrip: document.querySelector("#metric-strip"),
   searchDetails: document.querySelector("#search-details"),
   blockerList: document.querySelector("#blocker-list"),
@@ -92,8 +93,16 @@ function renderCampaignOptions() {
 
 function clearResult() {
   state.result = null;
+  elements.recomputeCommand.textContent = "";
   elements.resultWorkspace.hidden = true;
   elements.emptyState.hidden = false;
+}
+
+function invalidateBounds() {
+  state.requestGeneration += 1;
+  clearResult();
+  renderCampaignMeta();
+  elements.enumerateButton.textContent = "Enumerate realizations";
 }
 
 function renderCampaignMeta() {
@@ -318,12 +327,15 @@ function renderResult(response) {
   elements.resultCampaignId.textContent = response.campaign.campaign_id;
   elements.resultCampaignName.textContent = response.campaign.campaign_name;
   elements.resultStatus.textContent = result.operational_status;
+  elements.recomputeCommand.textContent =
+    `.venv/bin/python scripts/run_realization_workbench.py --from-result ${response.campaign.campaign_id}.realization-space.json --output ${response.campaign.campaign_id}.recomputed.json`;
   renderMetrics(result);
   renderSummary(result);
   renderSteps(result);
   renderRealizations(result);
   renderQueue(response.generation_queue);
   elements.jsonOutput.textContent = JSON.stringify(response, null, 2);
+  document.dispatchEvent(new CustomEvent("workbench:result", {detail: response}));
 }
 
 async function enumerateCampaign() {
@@ -431,6 +443,13 @@ elements.readyOnly.addEventListener("change", renderCampaignOptions);
 elements.campaignSelect.addEventListener("change", renderCampaignMeta);
 elements.enumerateButton.addEventListener("click", enumerateCampaign);
 elements.downloadButton.addEventListener("click", downloadResult);
+for (const input of [
+  elements.maximumRealizations, elements.maximumSearchStates,
+  elements.maximumCandidates, elements.desiredProcedureAssignments,
+  elements.desiredContracts, elements.maximumTargets,
+]) {
+  input.addEventListener("input", invalidateBounds);
+}
 for (const tab of elements.tabs) {
   tab.addEventListener("click", () => selectTab(tab.dataset.tab));
   tab.addEventListener("keydown", handleTabKeydown);

@@ -3,20 +3,26 @@
 from __future__ import annotations
 
 import json
+import tempfile
 from http import HTTPStatus
 from http.server import BaseHTTPRequestHandler, HTTPServer
 from pathlib import Path
-from urllib.parse import urlparse
+from urllib.parse import parse_qs, urlparse
 
 from pydantic import ValidationError
 
+from .bundle_admission import BundleAdmissionError
 from .workbench import RealizationWorkbench, WorkbenchEnumerationRequest
 
 _MAXIMUM_REQUEST_BYTES = 64 * 1024
+_MAXIMUM_BUNDLE_BYTES = 128 * 1024 * 1024
 _STATIC_FILES = {
     "/": ("index.html", "text/html; charset=utf-8"),
     "/app.js": ("app.js", "text/javascript; charset=utf-8"),
     "/styles.css": ("styles.css", "text/css; charset=utf-8"),
+    "/bundle.js": ("bundle.js", "text/javascript; charset=utf-8"),
+    "/causal-graph.js": ("causal-graph.js", "text/javascript; charset=utf-8"),
+    "/graph-panel.js": ("graph-panel.js", "text/javascript; charset=utf-8"),
     "/sticks-mark.svg": ("sticks-mark.svg", "image/svg+xml"),
 }
 
@@ -54,7 +60,11 @@ def build_handler(
             self._send_static(resolved_web_root / filename, content_type)
 
         def do_POST(self) -> None:  # noqa: N802
-            path = urlparse(self.path).path
+            parsed = urlparse(self.path)
+            path = parsed.path
+            if path == "/api/bundle-admission":
+                self._admit_bundle(parse_qs(parsed.query))
+                return
             if path != "/api/enumerate":
                 self.send_error(HTTPStatus.NOT_FOUND)
                 return
@@ -82,6 +92,50 @@ def build_handler(
                 )
                 return
             self._send_json(HTTPStatus.OK, response.model_dump(mode="json"))
+
+        def _admit_bundle(self, query: dict[str, list[str]]) -> None:
+            origin = self.headers.get("Origin")
+            host = self.headers.get("Host", "")
+            if origin is not None and origin != f"http://{host}":
+                self._send_json(
+                    HTTPStatus.FORBIDDEN,
+                    {"error": "cross_origin_rejected", "detail": "Use the workbench page itself."},
+                )
+                return
+            campaign_id = (query.get("campaign") or [""])[0]
+            try:
+                raw_length = self.headers.get("Content-Length")
+                if raw_length is None:
+                    raise ValueError("Content-Length is required")
+                content_length = int(raw_length)
+                if content_length < 1 or content_length > _MAXIMUM_BUNDLE_BYTES:
+                    raise ValueError("the STIX bundle must contain 1 byte to 128 MiB")
+                body = self.rfile.read(content_length)
+                bundle = json.loads(body.decode("utf-8"))
+                if not isinstance(bundle, dict) or bundle.get("type") != "bundle" or not isinstance(
+                    bundle.get("objects"), list
+                ):
+                    raise ValueError("the file is not a STIX 2 bundle (type 'bundle' with 'objects')")
+            except (json.JSONDecodeError, UnicodeDecodeError, ValueError) as error:
+                self._send_json(
+                    HTTPStatus.BAD_REQUEST, {"error": "invalid_bundle", "detail": str(error)}
+                )
+                return
+            with tempfile.TemporaryDirectory(prefix="sticks-bundle-") as scratch:
+                scratch_path = Path(scratch)
+                bundle_path = scratch_path / "bundle.json"
+                bundle_path.write_bytes(body)
+                try:
+                    result = workbench.admit_bundle_campaign(
+                        campaign_id, bundle_path, scratch_path / "work"
+                    )
+                except BundleAdmissionError as error:
+                    self._send_json(
+                        HTTPStatus.UNPROCESSABLE_ENTITY,
+                        {"error": "admission_rejected", "detail": str(error)},
+                    )
+                    return
+            self._send_json(HTTPStatus.OK, result.model_dump(mode="json"))
 
         def _read_json_body(self) -> object:
             raw_length = self.headers.get("Content-Length")

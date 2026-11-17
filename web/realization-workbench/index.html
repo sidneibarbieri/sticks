@@ -7,7 +7,10 @@
     <link rel="icon" href="sticks-mark.svg" type="image/svg+xml" />
     <title>STICKS Causal Realization Workbench</title>
     <link rel="stylesheet" href="styles.css" />
+    <script src="causal-graph.js" defer></script>
+    <script src="graph-panel.js" defer></script>
     <script src="app.js" defer></script>
+    <script src="bundle.js" defer></script>
   </head>
   <body>
     <header class="app-header">
@@ -105,6 +108,29 @@
         </button>
         <p class="control-message" id="control-message" role="status"></p>
 
+        <form class="bundle-form" id="bundle-form" aria-labelledby="bundle-heading">
+          <div class="panel-heading">
+            <p class="section-label">Your input</p>
+            <h2 id="bundle-heading">Admit a campaign from your STIX bundle</h2>
+          </div>
+          <p class="bundle-hint">
+            Same service as <code>scripts/emulate.py --bundle</code>: compile, derive the lab,
+            admit each step offline. Nothing is executed.
+          </p>
+          <label class="field" for="bundle-campaign">
+            <span>Campaign identifier</span>
+            <input id="bundle-campaign" type="text" value="C0045" maxlength="64"
+              pattern="[A-Za-z0-9][A-Za-z0-9._\-]{0,63}" spellcheck="false" required />
+          </label>
+          <div class="bundle-file">
+            <input id="bundle-file" class="visually-hidden" type="file" accept=".json,application/json" />
+            <label class="secondary-action" for="bundle-file">Choose STIX bundle…</label>
+            <span class="bundle-file-name" id="bundle-file-name">No file selected (up to 128 MiB)</span>
+          </div>
+          <button class="primary-action" id="bundle-button" type="submit" disabled>Admit steps</button>
+          <p class="control-message bundle-message" id="bundle-message" role="status"></p>
+        </form>
+
         <div class="scope-boundary">
           <p class="section-label">Evidence boundary</p>
           <p>Declared reachability is not operational execution.</p>
@@ -133,6 +159,38 @@
           </p>
         </div>
 
+        <div class="result-workspace" id="bundle-workspace" hidden>
+          <div class="result-heading">
+            <div>
+              <p class="section-label">Your STIX bundle</p>
+              <h2 id="bundle-result-title">Admission result</h2>
+            </div>
+            <div class="result-actions">
+              <span class="result-status">not_run</span>
+              <button class="secondary-action" id="bundle-download" type="button">Download JSON</button>
+            </div>
+          </div>
+          <div class="metric-strip" id="bundle-metrics"></div>
+          <div class="table-wrap" role="region" aria-label="Admitted and unresolved steps" tabindex="0">
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col">Technique</th>
+                  <th scope="col">Outcome</th>
+                  <th scope="col">Template</th>
+                </tr>
+              </thead>
+              <tbody id="bundle-steps"></tbody>
+            </table>
+          </div>
+          <div class="recompute-help">
+            <p>Reproduce this result from the artifact directory with your bundle file:</p>
+            <code id="bundle-command"></code>
+            <p>A step with no admissible realization is reported, never invented.</p>
+            <p class="bundle-hash" id="bundle-hash"></p>
+          </div>
+        </div>
+
         <div class="result-workspace" id="result-workspace" hidden>
           <div class="result-heading">
             <div>
@@ -147,12 +205,19 @@
             </div>
           </div>
 
+          <div class="recompute-help">
+            <p>Download the JSON, then recompute this planning result from the artifact directory:</p>
+            <code id="recompute-command"></code>
+            <p>Use a new output filename. Divergence or unavailable inputs returns a nonzero exit.</p>
+          </div>
+
           <div class="metric-strip" id="metric-strip"></div>
 
           <nav class="tabs" aria-label="Result views" role="tablist">
             <button class="tab is-active" id="tab-summary" data-tab="summary" role="tab" aria-controls="panel-summary" aria-selected="true" tabindex="0">
               Summary
             </button>
+            <button class="tab" id="tab-graph" data-tab="graph" role="tab" aria-controls="panel-graph" aria-selected="false" tabindex="-1">Causal graph</button>
             <button class="tab" id="tab-steps" data-tab="steps" role="tab" aria-controls="panel-steps" aria-selected="false" tabindex="-1">Steps</button>
             <button class="tab" id="tab-realizations" data-tab="realizations" role="tab" aria-controls="panel-realizations" aria-selected="false" tabindex="-1">
               Realizations
@@ -175,6 +240,37 @@
                 <div id="limitation-list" class="plain-list"></div>
               </div>
             </div>
+          </section>
+
+          <section class="tab-panel" id="panel-graph" role="tabpanel" aria-labelledby="tab-graph" tabindex="0" hidden>
+            <div class="graph-toolbar">
+              <label class="field graph-picker" for="graph-structure-select">
+                <span>Causal structure</span>
+                <select id="graph-structure-select" disabled></select>
+              </label>
+              <label class="field graph-picker graph-picker-wide" for="graph-order-select">
+                <span>Execution order</span>
+                <select id="graph-order-select" disabled></select>
+              </label>
+              <label class="check-field graph-toggle" for="graph-initial-links">
+                <input id="graph-initial-links" type="checkbox" />
+                <span>Show links from the initial state</span>
+              </label>
+            </div>
+            <p class="graph-summary" id="graph-summary"></p>
+            <p class="graph-scroll-hint" id="graph-scroll-hint" hidden>This graph is wider than the view: scroll sideways to follow it to the goal.</p>
+            <div class="graph-layout">
+              <div class="graph-canvas" role="region" aria-label="Causal graph" tabindex="0">
+                <svg id="causal-graph" role="img" aria-label="Causal procedure graph of the selected realization"></svg>
+              </div>
+              <aside class="graph-details" id="graph-details" aria-live="polite"></aside>
+            </div>
+            <ul class="graph-legend" aria-label="How to read the graph">
+              <li><span class="legend-swatch legend-step"></span>Step: technique and the template that realizes it</li>
+              <li><span class="legend-swatch legend-boundary"></span>Initial state and goal</li>
+              <li><span class="legend-line"></span>A fact one step produces and a later step consumes</li>
+              <li><span class="legend-badge">3</span>Position in the selected execution order</li>
+            </ul>
           </section>
 
           <section class="tab-panel" id="panel-steps" role="tabpanel" aria-labelledby="tab-steps" tabindex="0" hidden>

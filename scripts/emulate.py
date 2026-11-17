@@ -18,8 +18,6 @@ reader can substitute their own model without changing what admission means.
 from __future__ import annotations
 
 import argparse
-import json
-import subprocess
 import sys
 import tempfile
 from pathlib import Path
@@ -27,54 +25,11 @@ from pathlib import Path
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(PROJECT_ROOT / "src"))
 
-from concretization.lab_environment import derive_lab_environment  # noqa: E402
-from concretization.models import ActionTemplate  # noqa: E402
+from concretization.bundle_admission import BundleAdmissionError, admit_campaign  # noqa: E402
 from contracts.procedural_ir import ProceduralPlan  # noqa: E402
 
 DEFAULT_BUNDLE = PROJECT_ROOT / "data" / "stix" / "enterprise-attack.json"
-TEMPLATES_PATH = PROJECT_ROOT / "data" / "concretization" / "action_templates.json"
 RULE = "-" * 78
-
-
-def load_templates() -> list[ActionTemplate]:
-    payload = json.loads(TEMPLATES_PATH.read_text(encoding="utf-8"))
-    return [ActionTemplate.model_validate(item) for item in payload["templates"]]
-
-
-def compile_campaign(campaign: str, bundle: Path, destination: Path) -> ProceduralPlan:
-    """Compile one campaign from a STIX bundle into the procedural plan the method consumes."""
-    subprocess.run(
-        [
-            sys.executable,
-            str(PROJECT_ROOT / "scripts" / "compile_stix_campaign.py"),
-            campaign,
-            "--bundle",
-            str(bundle),
-            "--output",
-            str(destination),
-        ],
-        cwd=PROJECT_ROOT,
-        check=True,
-        capture_output=True,
-        text=True,
-    )
-    return ProceduralPlan.model_validate_json(destination.read_text(encoding="utf-8"))
-
-
-def concretize(plan_path: Path, bindings_path: Path, output: Path, config: Path | None) -> dict:
-    command = [
-        sys.executable,
-        str(PROJECT_ROOT / "scripts" / "concretize_procedural_plan.py"),
-        "--plan", str(plan_path),
-        "--bindings", str(bindings_path),
-        "--templates", str(TEMPLATES_PATH),
-        "--output", str(output),
-        "--allow-unresolved",
-    ]
-    if config is not None:
-        command += ["--config", str(config)]
-    subprocess.run(command, cwd=PROJECT_ROOT, check=True, capture_output=True, text=True)
-    return json.loads(output.read_text(encoding="utf-8"))
 
 
 def report(campaign: str, plan: ProceduralPlan, concretized: dict, config: Path | None) -> None:
@@ -107,11 +62,23 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--bundle", default=str(DEFAULT_BUNDLE), help="STIX bundle to compile from")
     parser.add_argument("--config", help="provider configuration to let your own model propose")
     parser.add_argument("--output-dir", help="keep the generated plan, environment, and result")
+    parser.add_argument(
+        "--json-output",
+        help="write the structured admission result, identical to the workbench download",
+    )
     return parser.parse_args()
 
 
 def main() -> int:
     args = parse_args()
+    try:
+        return run(args)
+    except BundleAdmissionError as error:
+        print(f"error: {error}", file=sys.stderr)
+        return 2
+
+
+def run(args: argparse.Namespace) -> int:
     config = Path(args.config) if args.config else None
     if config is not None and not config.is_file():
         raise FileNotFoundError(f"provider configuration not found: {config}")
@@ -119,16 +86,14 @@ def main() -> int:
     with tempfile.TemporaryDirectory() as scratch:
         workdir = Path(args.output_dir) if args.output_dir else Path(scratch)
         workdir.mkdir(parents=True, exist_ok=True)
-        plan_path = workdir / f"{args.campaign}.procedural-plan.json"
-        bindings_path = workdir / f"{args.campaign}.binding-catalog.json"
-        result_path = workdir / f"{args.campaign}.concretized-plan.json"
-
-        plan = compile_campaign(args.campaign, Path(args.bundle), plan_path)
-        templates = load_templates()
-        environment = derive_lab_environment(f"{args.campaign}-lab", templates, plan)
-        bindings_path.write_text(environment.model_dump_json(indent=2) + "\n", encoding="utf-8")
-        concretized = concretize(plan_path, bindings_path, result_path, config)
+        plan, concretized, result = admit_campaign(
+            PROJECT_ROOT, args.campaign, Path(args.bundle), workdir, config
+        )
         report(args.campaign, plan, concretized, config)
+        if args.json_output:
+            Path(args.json_output).write_text(
+                result.model_dump_json(indent=2) + "\n", encoding="utf-8"
+            )
         if args.output_dir:
             print(f"  wrote {workdir}")
     return 0

@@ -13,6 +13,7 @@ from pydantic import Field
 from contracts.procedural_ir import ProceduralPlan
 
 from .fact_semantics import FactSemanticsRegistry, audit_fact_semantics
+from .bundle_admission import BundleAdmissionResult, admit_campaign
 from .models import ActionTemplate, BindingCatalog, StrictModel
 from .realization_space import RealizationSpace, enumerate_realization_space
 from .target_queue import TemplateGenerationQueue, build_template_generation_queue
@@ -171,6 +172,13 @@ class RealizationWorkbench:
             if not required_path.is_file():
                 raise FileNotFoundError(f"required workbench input is absent: {required_path}")
         self._fact_semantics = self._load_fact_semantics()
+
+    def admit_bundle_campaign(
+        self, campaign_id: str, bundle_path: Path, workdir: Path
+    ) -> BundleAdmissionResult:
+        """Admit one campaign from a supplied STIX bundle with the CLI's service."""
+        _, _, result = admit_campaign(self._artifact_root, campaign_id, bundle_path, workdir)
+        return result
 
     def campaign_inventory(self) -> CampaignInventory:
         campaign_index = self._load_campaign_index()

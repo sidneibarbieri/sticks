@@ -75,7 +75,9 @@ After [installation](#installation), start the local interface:
 Open `http://127.0.0.1:8765/`, select C0045 (ShadowRay), and click
 **Enumerate realizations**. The summary shows the search bounds, realized steps
 and result digest. **Steps** exposes per-step candidates; **Download JSON**
-exports the inputs, result and proposal queue for inspection.
+exports the inputs, result and proposal queue for inspection. **Causal graph**
+draws the selected realization as a DAG, from the initial state through each
+step to the goal; selecting a step lists the facts it consumes and enables.
 
 ![STICKS workbench after enumerating C0045, showing search settings, 64 bounded realizations, ten realized steps and the JSON download](docs/img/realization-workbench.jpg)
 
@@ -86,6 +88,46 @@ The operational status is `not_run`; this screen records a planning computation.
 For a fresh VM-backed execution and its target observations, follow the
 [reviewer quickstart](docs/reviewer_quickstart.md#optional-vm-backed-laboratory).
 Stop the interface with Ctrl-C.
+
+### Admit a campaign from your own STIX bundle
+
+The panel **Admit a campaign from your STIX bundle**, below the search bounds,
+runs the same service as `scripts/emulate.py --bundle`: it compiles the campaign
+from the bundle you choose (up to 128 MiB), derives the lab from the template
+catalog and admits each step offline. The result lists admitted and unresolved
+steps, the causal certificate and the bundle's SHA-256; **Download JSON** saves
+it. Nothing is executed and the server accepts requests only from its own page.
+The same JSON comes from the command line:
+
+```bash
+python3 scripts/emulate.py C0045 --bundle your-bundle.json --json-output C0045.admission.json
+```
+
+The two outputs are identical for the same bundle and campaign. Unknown
+campaigns, files that are not STIX 2 bundles and invalid identifiers are
+rejected with an explanation; the CLI then exits with status 2.
+
+### Recompute the exported planning result
+
+After downloading `C0045.realization-space.json`, recompute and compare the full
+workbench object through the same application service:
+
+```bash
+.venv/bin/python scripts/run_realization_workbench.py \
+  --from-result C0045.realization-space.json \
+  --output C0045.recomputed.json
+```
+
+The command reloads the campaign's bundled plan, bindings and templates and uses
+the bounds recorded in the export. It compares the recomputed object with the
+supplied object before writing a new output. Changed inputs, modified results or
+an unavailable campaign produce a nonzero exit; existing output files are not
+overwritten. The GUI displays the command for the campaign actually selected.
+
+To request a different bounded enumeration, pass a JSON object conforming to
+`WorkbenchEnumerationRequest` with `--request request.json --output new-result.json`.
+This uses the same service and validates its limits. Both modes compute planning
+results with `operational_status: not_run`; the laboratory workflow is separate.
 
 ## Use your own model
 

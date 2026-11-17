@@ -6,7 +6,7 @@ const path = require("node:path");
 const vm = require("node:vm");
 
 const nodes = new Map();
-const tabNames = ["summary", "steps", "realizations", "queue", "json"];
+const tabNames = ["summary", "graph", "steps", "realizations", "queue", "json"];
 const tabNodes = tabNames.map((name) => ({
   dataset: {tab: name}, attributes: new Map(), listeners: {}, tabIndex: 0,
   classList: {toggle() {}},
@@ -23,11 +23,11 @@ const document = {
       nodes.set(selector, {
         hidden: false, value: "64", textContent: "", disabled: false,
         min: "1", max: "100000", previousElementSibling: {textContent: selector},
-        attributes: new Map(),
+        attributes: new Map(), listeners: {},
         setAttribute(name, value) {this.attributes.set(name, value);},
         removeAttribute(name) {this.attributes.delete(name);},
         focus() {document.activeElement = this;},
-        addEventListener() {},
+        addEventListener(name, callback) {this.listeners[name] = callback;},
       });
     }
     return nodes.get(selector);
@@ -63,13 +63,13 @@ const regression = vm.runInContext(`
     assert.equal(pressTabKey(1, "Home"), true);
     assert.equal(document.activeElement, elements.tabs[0]);
     assert.equal(pressTabKey(0, "ArrowLeft"), true);
-    assert.equal(document.activeElement, elements.tabs[4]);
-    assert.equal(pressTabKey(4, "ArrowRight"), true);
+    assert.equal(document.activeElement, elements.tabs[5]);
+    assert.equal(pressTabKey(5, "ArrowRight"), true);
     assert.equal(document.activeElement, elements.tabs[0]);
     assert.equal(pressTabKey(0, "End"), true);
-    assert.equal(document.activeElement, elements.tabs[4]);
-    assert.equal(pressTabKey(4, "ArrowDown"), false);
-    assert.equal(document.activeElement, elements.tabs[4]);
+    assert.equal(document.activeElement, elements.tabs[5]);
+    assert.equal(pressTabKey(5, "ArrowDown"), false);
+    assert.equal(document.activeElement, elements.tabs[5]);
     assert.equal(elements.tabs.filter(tab => tab.tabIndex === 0).length, 1);
     const ready = {campaign_id: "C0010", enumeration_ready: true, semantic_fact_status: "conformant"};
     const unavailable = {campaign_id: "C0011", enumeration_ready: false, semantic_fact_status: "not_assessed"};
@@ -99,6 +99,20 @@ const regression = vm.runInContext(`
     for (const valid of ["1", "64", "256"]) {
       limit.value = valid;
       assert.equal(numberValue(limit), Number(valid));
+    }
+    for (const input of [elements.maximumRealizations, elements.maximumSearchStates,
+      elements.maximumCandidates, elements.desiredProcedureAssignments,
+      elements.desiredContracts, elements.maximumTargets]) {
+      state.result = {campaign: ready};
+      elements.resultWorkspace.hidden = false;
+      elements.recomputeCommand.textContent = "old command";
+      const generation = state.requestGeneration;
+      input.listeners.input();
+      assert.equal(state.result, null);
+      assert.equal(elements.resultWorkspace.hidden, true);
+      assert.equal(elements.recomputeCommand.textContent, "");
+      assert.equal(state.requestGeneration, generation + 1);
+      assert.equal(elements.enumerateButton.disabled, false);
     }
     let invalidRequestCount = 0;
     fetchJson = async () => {invalidRequestCount += 1;};
@@ -139,6 +153,17 @@ const regression = vm.runInContext(`
     await late;
     assert.equal(state.result, null);
     assert.equal(staleRendered, false);
+    elements.campaignSelect.value = ready.campaign_id;
+    renderCampaignMeta();
+    const staleBounds = enumerateCampaign();
+    limit.value = "2";
+    limit.listeners.input();
+    resolveRequest({campaign: ready});
+    await staleBounds;
+    assert.equal(state.result, null);
+    assert.equal(staleRendered, false);
+    assert.equal(elements.enumerateButton.disabled, false);
+
   })()
 `, context);
 regression.then(() => console.log("workbench state regression passed"))
