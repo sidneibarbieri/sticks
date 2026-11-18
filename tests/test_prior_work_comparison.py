@@ -34,8 +34,9 @@ def _record() -> dict:
 
 def test_record_regenerates_byte_for_byte() -> None:
     module = _builder_module()
-    if not (module.DEFAULT_PRIVATE_ROOT / "receipt.json").is_file():
+    if module.DEFAULT_PRIVATE_ROOT is None:
         pytest.skip("frozen private receipt is absent (public clone)")
+    assert (module.DEFAULT_PRIVATE_ROOT / "receipt.json").is_file()
     payload = module.build_payload(module.DEFAULT_PRIVATE_ROOT)
     regenerated = json.dumps(payload, indent=2, sort_keys=True) + "\n"
     assert regenerated == RECORD.read_text(encoding="utf-8")

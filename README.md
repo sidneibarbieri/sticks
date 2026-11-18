@@ -28,6 +28,7 @@ bash run.sh all        # all of the above
 The laboratory was validated on Apple-silicon macOS (QEMU, `vagrant-qemu`,
 `socket_vmnet`). Its guests use the public ARM64 box `perk/ubuntu-2204-arm64`,
 which Vagrant downloads on the first run; provisioning needs network access.
+Package, CALDERA and plugin downloads can dominate provisioning even with a cached base box; the five-minute estimate is not a cold-start bound.
 On other hosts `bash run.sh doctor` says so before anything starts.
 
 `bash run.sh lab --campaign 0.c0010` or `--campaign 0.costaricto` runs the other
@@ -47,9 +48,10 @@ Availability additionally depends on the public distribution endpoint.
 
 ## Basic information
 
-The offline gate needs a POSIX shell and Python 3.11 or newer; it needs no GPU,
+The offline gate needs a POSIX shell, Python 3.11 or newer, Git, curl and shasum; it needs no GPU,
 model API, or hypervisor. Allow 4 GiB RAM and 1 GiB free disk for that gate.
 VM-backed experiments require additional resources and prepared images.
+On Debian/Ubuntu, install the shell tools with `sudo apt-get install git curl libdigest-sha-perl`. Run `bash run.sh doctor review` to check the offline prerequisites. The review command runs this preflight before recomputing results.
 
 ## Dependencies
 

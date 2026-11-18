@@ -205,8 +205,21 @@ def check_docker(compose_files: list[Path]) -> list[Check]:
     return checks
 
 
+def check_review_tools() -> list[Check]:
+    checks = []
+    for tool in ("git", "curl", "shasum"):
+        available = shutil.which(tool)
+        checks.append(Check(
+            tool, "OK" if available else "FAIL", "available" if available else "not on PATH",
+            "Install Git, curl and shasum. Debian/Ubuntu: apt-get install git curl libdigest-sha-perl",
+        ))
+    return checks
+
+
 def collect(path: str, run_root: Path, compose_files: list[Path]) -> list[Check]:
     checks = check_python()
+    if path in ("review", "all"):
+        checks += check_review_tools()
     if path in ("lab", "all"):
         try:
             lab = importlib.import_module("run_isolated_lab_campaign")

@@ -51,9 +51,16 @@ def test_core_modules_are_installed_by_the_lock():
         assert distribution.get(module, module) in locked, module
 
 
-def test_review_path_checks_only_the_interpreter():
+def test_review_path_checks_interpreter_and_required_tools():
     checks = doctor.collect("review", Path.home(), [])
-    assert [check.name for check in checks] == ["python", "python packages"]
+    assert [check.name for check in checks] == ["python", "python packages", "git", "curl", "shasum"]
+
+
+def test_review_tools_report_missing_dependencies(monkeypatch):
+    monkeypatch.setattr(doctor.shutil, "which", lambda command: None)
+    checks = doctor.check_review_tools()
+    assert all(check.status == "FAIL" for check in checks)
+    assert all("apt-get install" in check.fix for check in checks)
 
 
 def test_unvalidated_host_warns_without_blocking(monkeypatch):

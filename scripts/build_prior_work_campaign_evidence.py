@@ -18,7 +18,6 @@ from collections import Counter
 from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
-PRIVATE_EXPERIMENTS = PROJECT_ROOT.parents[2] / "_private" / "experiments"
 ADMITTED_ARM = "admitted"
 PRIOR_WORK_ARM = "prior_work_style"
 NATURAL_STOP_REASON = "stop"

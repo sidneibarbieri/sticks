@@ -46,7 +46,12 @@ python_bin() {
 banner() { echo; echo "==> $*"; }
 
 cmd_demo() { "$(python_bin)" scripts/demo.py; }
-cmd_review() { STICKS_PYTHON="$(python_bin)" bash run_review_check.sh; }
+cmd_review() {
+  local python
+  python="$(python_bin)" || return 1
+  "$python" scripts/doctor.py --path review || return 3
+  STICKS_PYTHON="$python" bash run_review_check.sh
+}
 cmd_doctor() { "$(python_bin)" scripts/doctor.py --path "${1:-lab}"; }
 cmd_workbench() { "$(python_bin)" scripts/run_realization_workbench.py --host 127.0.0.1 --port 8765; }
 

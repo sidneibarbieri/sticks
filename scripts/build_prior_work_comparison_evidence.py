@@ -18,15 +18,13 @@ from __future__ import annotations
 
 import hashlib
 import json
+import os
 from collections import Counter
 from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
-# The private frozen evidence lives under the repository root (artifact -> sticks -> research ->
-# repo root), not inside the artifact tree, so it never enters the published surface.
-DEFAULT_PRIVATE_ROOT = (
-    PROJECT_ROOT.parents[2] / "_private" / "experiments" / "STICKS_P17_PAIRED_20261103"
-)
+PRIVATE_EVIDENCE = os.environ.get("STICKS_C0026_PRIOR_WORK_EVIDENCE")
+DEFAULT_PRIVATE_ROOT = Path(PRIVATE_EVIDENCE).expanduser().resolve() if PRIVATE_EVIDENCE else None
 OUTPUT = PROJECT_ROOT / "release" / "experiments" / "prior_work_comparison" / "c0026_paired.json"
 CAMPAIGN_ID = "0.c0026"
 PRIOR_WORK_ARM = "prior_work_style"
@@ -134,6 +132,8 @@ def build_payload(private_root: Path) -> dict:
 
 
 def main() -> int:
+    if DEFAULT_PRIVATE_ROOT is None:
+        raise SystemExit("Set STICKS_C0026_PRIOR_WORK_EVIDENCE to the private receipt directory.")
     payload = build_payload(DEFAULT_PRIVATE_ROOT)
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
     OUTPUT.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")

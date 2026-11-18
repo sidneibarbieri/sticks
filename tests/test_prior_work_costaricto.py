@@ -3,13 +3,15 @@
 The committed public record must be exactly what the campaign builder regenerates from the frozen
 paired collection, show no truncated generation, and show that both arms realized the two
 real-controlled effects. When the private evidence is absent (a public clone), regeneration is
-skipped; the record's internal consistency is still checked.
+skipped; the record's internal consistency is still checked. Maintainers can
+select their private evidence explicitly with STICKS_PRIOR_WORK_EVIDENCE.
 """
 
 from __future__ import annotations
 
 import importlib.util
 import json
+import os
 import sys
 from pathlib import Path
 
@@ -18,9 +20,8 @@ import pytest
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 RECORD = PROJECT_ROOT / "release" / "experiments" / "prior_work_comparison" / "costaricto_paired.json"
 BUILDER = PROJECT_ROOT / "scripts" / "build_prior_work_campaign_evidence.py"
-PRIVATE_ROOT = (
-    PROJECT_ROOT.parents[2] / "_private" / "experiments" / "STICKS_P17_COSTARICTO_PAIRED_20261104"
-)
+PRIVATE_EVIDENCE = os.environ.get("STICKS_PRIOR_WORK_EVIDENCE")
+PRIVATE_ROOT = Path(PRIVATE_EVIDENCE).expanduser().resolve() if PRIVATE_EVIDENCE else None
 
 
 def _builder_module():
@@ -36,8 +37,11 @@ def _record() -> dict:
 
 
 def test_record_regenerates_byte_for_byte() -> None:
-    if not (PRIVATE_ROOT / "receipt.json").is_file():
+    if PRIVATE_ROOT is None:
         pytest.skip("frozen private receipt is absent (public clone)")
+    assert (PRIVATE_ROOT / "receipt.json").is_file(), (
+        "STICKS_PRIOR_WORK_EVIDENCE must contain receipt.json"
+    )
     payload = _builder_module().build_payload(PRIVATE_ROOT)
     regenerated = json.dumps(payload, indent=2, sort_keys=True) + "\n"
     assert regenerated == RECORD.read_text(encoding="utf-8")
