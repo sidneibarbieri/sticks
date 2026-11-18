@@ -35,12 +35,15 @@ sticks_resolve_python() {
       echo "[python-env][FAIL] STICKS_PYTHON must name an executable interpreter" >&2
       return 1
     fi
-    sticks_python_check_version "$STICKS_PYTHON" || return 1
-    if ! sticks_python_check_core_deps "$STICKS_PYTHON"; then
+    local explicit_python
+    # Keep the executable symlink: resolving it would discard its virtualenv.
+    explicit_python="$(cd "$(dirname "$STICKS_PYTHON")" && pwd)/$(basename "$STICKS_PYTHON")"
+    sticks_python_check_version "$explicit_python" || return 1
+    if ! sticks_python_check_core_deps "$explicit_python"; then
       echo "[python-env][FAIL] STICKS_PYTHON lacks required core dependencies; no fallback attempted" >&2
       return 1
     fi
-    printf '%s\n' "$STICKS_PYTHON"
+    printf '%s\n' "$explicit_python"
     return 0
   fi
 

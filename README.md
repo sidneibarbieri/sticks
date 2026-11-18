@@ -7,27 +7,30 @@ and records what the CTI, environment, and reconstruction each contribute.
 
 ## Start here: one command per question
 
-Everything a reviewer runs goes through `./run.sh`. No service is started by
+Start with `bash run.sh review` to reproduce the released results without a model API or virtual machines.
+Use `bash` for both Git clones and downloaded ZIPs; the anonymous ZIP does not preserve executable permissions.
+
+Everything a reviewer runs goes through `bash run.sh`. No service is started by
 hand; the Python environment is created and installed on first use.
 
 ```bash
-./run.sh            # lists the commands, what each establishes, its time and needs
-./run.sh demo       # 1 s: one archived step across three arms
-./run.sh review     # ~4 min after the first install, offline: regenerates every record,
+bash run.sh            # lists the commands, what each establishes, its time and needs
+bash run.sh demo       # 1 s: one archived step across three arms
+bash run.sh review     # ~4 min after the first install, offline: regenerates every record,
                     # checks every claim, runs the tests
-./run.sh doctor     # read-only laboratory check that prints the exact fix for any failure
-./run.sh lab        # ~5 min per cycle once the base box is cached: brings up CALDERA,
+bash run.sh doctor     # read-only laboratory check that prints the exact fix for any failure
+bash run.sh lab        # ~5 min per cycle once the base box is cached: brings up CALDERA,
                     # attacker and target VMs, runs C0026, observes the target independently,
                     # destroys the VMs, seals and verifies the receipt
-./run.sh all        # all of the above
+bash run.sh all        # all of the above
 ```
 
 The laboratory was validated on Apple-silicon macOS (QEMU, `vagrant-qemu`,
 `socket_vmnet`). Its guests use the public ARM64 box `perk/ubuntu-2204-arm64`,
 which Vagrant downloads on the first run; provisioning needs network access.
-On other hosts `./run.sh doctor` says so before anything starts.
+On other hosts `bash run.sh doctor` says so before anything starts.
 
-`./run.sh lab --campaign 0.c0010` or `--campaign 0.costaricto` runs the other
+`bash run.sh lab --campaign 0.c0010` or `--campaign 0.costaricto` runs the other
 campaigns with a typed laboratory contract. Evidence goes to
 `~/sticks-runs/<campaign>-<UTC time>` unless `--run-root` names another new directory.
 The sections below explain each path and what it does not establish.
@@ -51,7 +54,7 @@ VM-backed experiments require additional resources and prepared images.
 ## Dependencies
 
 `requirements.txt` installs the exact versions in `requirements.lock`.
-`./run.sh` creates `.venv` and installs them on first use. An interpreter named
+`bash run.sh` creates `.venv` and installs them on first use. An interpreter named
 through `STICKS_PYTHON` is used as is and must already have them.
 
 ## Security considerations
@@ -240,7 +243,7 @@ The supported paths answer different questions and must not be substituted for o
 
 The Compose files under `lab/docker/` and `measurement/sut/` are earlier
 environments kept because frozen records hash them. No claim in
-`release/claims/ledger.json` depends on starting them, and `./run.sh` never does.
+`release/claims/ledger.json` depends on starting them, and `bash run.sh` never does.
 
 The laboratory entry point dispatches target commands through a fresh Caldera agent and retains the native command journal. Vagrant/SSH provisions the laboratory and runs independent target observations. This single-target path does not establish an attacker pivot through an enterprise network. It uses C0026: five observed effects and one explicitly simulated occurrence in the qualified run. It refuses legacy campaigns without typed runtime contracts before provisioning. The former `0.c0011` example can create local or simulated artifacts and is not a live SUT acceptance path. An available VM alone never authorizes that interpretation.
 

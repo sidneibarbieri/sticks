@@ -27,8 +27,14 @@ CAMPAIGN="0.c0026"
 while [[ $# -gt 0 ]]; do
   case "$1" in
     -h|--help) usage; exit 0 ;;
-    --run-root) RUN_ROOT="${2:-}"; shift 2 ;;
-    --campaign) CAMPAIGN="${2:-}"; shift 2 ;;
+    --run-root|--campaign)
+      if [[ $# -lt 2 || -z "${2:-}" || "${2:-}" == --* ]]; then
+        echo "$1 requires a value; see bash artifact/run.sh --help" >&2
+        exit 2
+      fi
+      if [[ "$1" == --campaign ]]; then CAMPAIGN="$2"; else RUN_ROOT="$2"; fi
+      shift 2
+      ;;
     *) usage >&2; exit 2 ;;
   esac
 done

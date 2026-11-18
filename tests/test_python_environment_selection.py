@@ -31,6 +31,27 @@ def test_explicit_interpreter_wins_over_repository_environment(tmp_path: Path) -
     assert result.stderr == ""
 
 
+def test_relative_override_survives_an_isolated_workspace(tmp_path: Path) -> None:
+    alias = tmp_path / "selected environment"
+    alias.symlink_to(Path(sys.executable).parent.parent, target_is_directory=True)
+    requested = Path("selected environment") / "bin" / Path(sys.executable).name
+    result = subprocess.run(
+        ["bash", "-c", 'source "$1"; sticks_resolve_python "$2"',
+         "selection-test", str(SCRIPT), str(tmp_path)],
+        cwd=tmp_path, env=dict(os.environ, STICKS_PYTHON=str(requested)),
+        capture_output=True, text=True, check=False,
+    )
+    assert result.returncode == 0, result.stderr
+    assert result.stdout.strip() == str(tmp_path / requested)
+    workspace = tmp_path / "isolated workspace"
+    workspace.mkdir()
+    imported = subprocess.run(
+        [result.stdout.strip(), "-c", "import pydantic,sys; print(sys.prefix)"],
+        cwd=workspace, capture_output=True, text=True, check=True,
+    )
+    assert Path(imported.stdout.strip()).resolve() == Path(sys.prefix).resolve()
+
+
 def test_missing_override_fails_without_fallback_or_install(tmp_path: Path) -> None:
     requested = tmp_path / "missing-python"
     result = resolve_python(tmp_path, str(requested))

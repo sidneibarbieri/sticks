@@ -60,8 +60,14 @@ cmd_lab() {
   local campaign="0.c0026" run_root=""
   while [[ $# -gt 0 ]]; do
     case "$1" in
-      --campaign) campaign="${2:-}"; shift 2 ;;
-      --run-root) run_root="${2:-}"; shift 2 ;;
+      --campaign|--run-root)
+        if [[ $# -lt 2 || -z "${2:-}" || "${2:-}" == --* ]]; then
+          echo "$1 requires a value; see ./run.sh help" >&2
+          return 2
+        fi
+        if [[ "$1" == --campaign ]]; then campaign="$2"; else run_root="$2"; fi
+        shift 2
+        ;;
       *) echo "unknown lab option: $1" >&2; usage >&2; return 2 ;;
     esac
   done
