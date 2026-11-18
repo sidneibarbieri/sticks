@@ -8,6 +8,11 @@ import subprocess
 import sys
 from pathlib import Path
 
+if __package__:
+    from scripts.lab_shutdown import termination_as_exit
+else:
+    from lab_shutdown import termination_as_exit
+
 
 CAMPAIGN_ID = "0.c0010"
 
@@ -91,7 +96,8 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--run-root", required=True, type=Path)
     args = parser.parse_args()
-    complete_run(args.run_root.resolve())
+    with termination_as_exit():
+        complete_run(args.run_root.resolve())
     return 0
 
 

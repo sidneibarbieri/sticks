@@ -25,7 +25,9 @@ from collections.abc import Sequence
 from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(PROJECT_ROOT))
 sys.path.insert(0, str(PROJECT_ROOT / "src"))
+from scripts.lab_shutdown import termination_as_exit
 from runners.caldera_campaign_support import CALDERA_AGENT_IDENTITIES, SUPPORTED_CALDERA_CAMPAIGNS
 UP_LAB_SCRIPT = PROJECT_ROOT / "scripts" / "up_lab.sh"
 DESTROY_LAB_SCRIPT = PROJECT_ROOT / "scripts" / "destroy_lab.sh"
@@ -79,12 +81,12 @@ def _run_command(
     _log(f"Completed: {label}")
 
 
-def _raise_errors(errors: list[Exception]) -> None:
+def _raise_errors(errors: list[BaseException]) -> None:
     if not errors:
         return
     if len(errors) == 1:
         raise errors[0]
-    raise ExceptionGroup("VM-backed execution encountered multiple failures", errors)
+    raise BaseExceptionGroup("VM-backed execution encountered multiple failures", errors)
 
 
 def _evidence_available(evidence_dir: Path) -> bool:
@@ -252,7 +254,7 @@ def run_lab_campaign(args: argparse.Namespace) -> int:
     from runners.lab_campaign_support import require_live_campaign
 
     require_live_campaign(args.campaign)
-    errors: list[Exception] = []
+    errors: list[BaseException] = []
     lab_started = bool(args.assume_lab_running)
     snapshot = None if args.persist_derived_state else _capture_derived_state()
     evidence_output = (
@@ -358,6 +360,8 @@ def run_lab_campaign(args: argparse.Namespace) -> int:
             _log(
                 "Skipping evidence refresh because the lab did not reach an evidence-producing state"
             )
+    except BaseException as error:
+        errors.append(error)
     finally:
         if args.keep_lab and not errors:
             _log("Keeping lab running because --keep-lab was requested")
@@ -394,7 +398,8 @@ def run_lab_campaign(args: argparse.Namespace) -> int:
 
 def main(argv: Sequence[str] | None = None) -> int:
     args = _parse_args(argv)
-    return run_lab_campaign(args)
+    with termination_as_exit():
+        return run_lab_campaign(args)
 
 
 if __name__ == "__main__":

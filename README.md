@@ -34,6 +34,17 @@ On other hosts `bash run.sh doctor` says so before anything starts.
 `bash run.sh lab --campaign 0.c0010` or `--campaign 0.costaricto` runs the other
 campaigns with a typed laboratory contract. Evidence goes to
 `~/sticks-runs/<campaign>-<UTC time>` unless `--run-root` names another new directory.
+
+During provisioning, campaign execution or typed target observation, a first
+Ctrl+C (`SIGINT`) or `SIGTERM` attempts teardown of the lab created by that run and restores the
+saved workspace state. The command still exits unsuccessfully; execution and
+cleanup errors are both reported when both fail. A lab supplied through
+`--assume-lab-running` is preserved unless teardown was explicitly requested.
+`--keep-lab` retains a successful run for observation, not an interrupted run.
+Stop-signal tests use disposable process fixtures with infrastructure commands
+stubbed; they do not measure VM-provider teardown under a real interruption.
+Forced termination (`SIGKILL`) cannot run Python cleanup. Keep the failed run directory for diagnosis and use a new
+run root for a retry.
 The sections below explain each path and what it does not establish.
 
 ## Repository structure
