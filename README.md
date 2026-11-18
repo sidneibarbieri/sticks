@@ -45,6 +45,11 @@ Stop-signal tests use disposable process fixtures with infrastructure commands
 stubbed; they do not measure VM-provider teardown under a real interruption.
 Forced termination (`SIGKILL`) cannot run Python cleanup. Keep the failed run directory for diagnosis and use a new
 run root for a retry.
+
+The isolated supervisor forwards `SIGINT` and `SIGTERM` to the child process
+session it created and continues draining its execution log while the child
+handles the stop. A stop request makes the supervisor exit unsuccessfully even
+if the child returns zero. Other process sessions are not signaled.
 The sections below explain each path and what it does not establish.
 
 ## Repository structure

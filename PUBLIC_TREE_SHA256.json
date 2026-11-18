@@ -11,7 +11,7 @@
   "excluded_runtime_roots": [
     "runs"
   ],
-  "file_count": 3464,
+  "file_count": 3465,
   "files": {
     ".gitignore": {
       "sha256": "4ab313af22acd8a7fbad67346992ed063f780db81a11aae49ae804d366f97506",
@@ -42,8 +42,8 @@
       "size": 2305
     },
     "README.md": {
-      "sha256": "f06d1fad939080baa24766c8918db78fa1c45c45f842d03d1778732729f074fa",
-      "size": 23211
+      "sha256": "5cca70d6a96f18c93021954341d6ca8dae8d0086fb032180d71484df3d8de9db",
+      "size": 23512
     },
     "REPRODUCIBILITY.md": {
       "sha256": "09e12dc9d852655d67947e658c297b320fe31eb5b799a5b4a5de5c074c1cace8",
@@ -11626,8 +11626,8 @@
       "size": 1741
     },
     "scripts/lab_shutdown.py": {
-      "sha256": "263c3f808522f1a8edc1d4e7c6d7617074159ec3286d15c433d71044f3cde160",
-      "size": 510
+      "sha256": "db84e0bb0cd80f1dcafc272bdc3e3f57bd61ea611a2b6cefd13cf7f6afc5a897",
+      "size": 1782
     },
     "scripts/observe_c0010_target.py": {
       "sha256": "44f1e375e8f2201270260eadf6d8d932140e23a575a02ca04f19fd9a66104c47",
@@ -11806,8 +11806,8 @@
       "size": 1952
     },
     "scripts/run_isolated_lab_campaign.py": {
-      "sha256": "26469b5ff5085eaf30c63eaf9ab20c9364c3f6299ae78a6654d921f261b9fcb6",
-      "size": 12602
+      "sha256": "cdd6d563612c3bfceb18a8c2a57a7501b289635c32da587e09aaf4d0dd0c0a5d",
+      "size": 12892
     },
     "scripts/run_lab_campaign.py": {
       "sha256": "ca1e9f0627f74739f77ec91ca39d8c38979c00eb040d61dc539137b6ac324fe3",
@@ -13329,6 +13329,10 @@
       "sha256": "eccbcd4a946fd18e2d0f24afc781ff00a2971def6b72e8e86a86232a72f98f1b",
       "size": 3673
     },
+    "tests/test_lab_supervisor_signals.py": {
+      "sha256": "b98817e9bf3cce9a104871777bcb5646635a4abde2f4473ac2d472b74b03b37b",
+      "size": 5129
+    },
     "tests/test_lab_teardown.py": {
       "sha256": "97a95ccfcb1bbdf3843966097e56c34abe96a3c0703a7c7d4dc3c0841264cf47",
       "size": 5282
@@ -13871,5 +13875,5 @@
     }
   },
   "schema_version": "1",
-  "tree_sha256": "0ed352b6785e1d1e0ae631ae79c26c94cb07b8031eaa8c4a2a136c407cf194c4"
+  "tree_sha256": "6bfca7846cf177a83e5304856757d20098b778ea21a946ec1dc2406805c924ab"
 }

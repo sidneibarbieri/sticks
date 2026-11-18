@@ -17,8 +17,10 @@ from pathlib import Path
 
 if __package__:
     from scripts.caldera_runner_secret_policy import require_safe_caldera_sources
+    from scripts.lab_shutdown import forward_stop_signals
 else:
     from caldera_runner_secret_policy import require_safe_caldera_sources
+    from lab_shutdown import forward_stop_signals
 
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
@@ -193,14 +195,17 @@ def run_logged_command(
     host_run_root = str(log_path.parent.resolve()).encode("utf-8")
     with (
         log_path.open("wb") as log_file,
+        forward_stop_signals() as stop,
         subprocess.Popen(
             command,
             cwd=workspace,
             env=environment,
             stdout=subprocess.PIPE,
             stderr=subprocess.STDOUT,
+            start_new_session=True,
         ) as process,
     ):
+        stop.attach(process)
         if process.stdout is None:
             raise RuntimeError("Campaign process has no output stream")
         for line in process.stdout:
@@ -213,7 +218,8 @@ def run_logged_command(
             else:
                 sys.stdout.write(portable_line.decode("utf-8", errors="replace"))
                 sys.stdout.flush()
-        return process.wait()
+        exit_code = process.wait()
+        return 128 + stop.requested[0] if stop.requested else exit_code
 
 
 def parse_args() -> argparse.Namespace:
