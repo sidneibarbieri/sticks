@@ -52,14 +52,23 @@ Then consult:
 - [Reproducibility](../REPRODUCIBILITY.md)
 - [Public repository scope](../PUBLIC_REPOSITORY_SCOPE.md)
 
-For the qualified live example, use a new absolute path outside the repository:
+Check the host first. This is read-only and prints the exact fix for anything
+that would stop the laboratory (a missing plugin, a duplicate `socket_vmnet`
+daemon, too little disk, a leftover guest):
 
 ```bash
 bash artifact/setup.sh
-bash artifact/run.sh --run-root /absolute/new/run
-bash artifact/validate.sh --run-root /absolute/new/run
+.venv/bin/python scripts/doctor.py --path lab
 ```
 
-This uses C0026, observes the target separately, destroys the created VMs and seals the result. The expected scope is five observed effects and one simulated occurrence. A process exit alone is insufficient; validation must pass on the final receipt. A failed run remains retained and must not be overwritten to obtain a passing result.
+Then run the qualified live example with one command, using a new absolute path outside the repository:
+
+```bash
+bash artifact/run.sh --run-root /absolute/new/run
+```
+
+The command repeats the preflight, runs C0026 in fresh QEMU guests, observes the target separately, destroys the VMs, seals the result and verifies the sealed receipt and the CALDERA journal. It ends with `PASS` only if every stage passed. The expected scope is five observed effects and one simulated occurrence. If the campaign fails after the guests start, completion still observes, tears down and seals the failed run, and the command exits non-zero. A failed run remains retained and must not be overwritten to obtain a passing result. `bash artifact/validate.sh --run-root /absolute/new/run` re-verifies a completed run at any later time.
+
+`--campaign 0.c0010` and `--campaign 0.costaricto` run the other campaigns with a typed laboratory contract; C0045 uses the strict effect-series runner described in the README.
 
 Target commands use a freshly enrolled CALDERA agent. Vagrant/SSH provisions the laboratory and runs the independent observer. The retained CALDERA journal binds each target command to its result and the observed target boot.

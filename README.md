@@ -5,6 +5,33 @@ ATT&CK campaign structure into typed plans, enumerates candidates from a
 versioned template catalog, checks them against an explicitly scoped state,
 and records what the CTI, environment, and reconstruction each contribute.
 
+## Start here: one command per question
+
+Everything a reviewer runs goes through `./run.sh`. No service is started by
+hand; the Python environment is created and installed on first use.
+
+```bash
+./run.sh            # lists the commands, what each establishes, its time and needs
+./run.sh demo       # 1 s: one archived step across three arms
+./run.sh review     # ~4 min after the first install, offline: regenerates every record,
+                    # checks every claim, runs the tests
+./run.sh doctor     # read-only laboratory check that prints the exact fix for any failure
+./run.sh lab        # ~5 min per cycle once the base box is cached: brings up CALDERA,
+                    # attacker and target VMs, runs C0026, observes the target independently,
+                    # destroys the VMs, seals and verifies the receipt
+./run.sh all        # all of the above
+```
+
+The laboratory was validated on Apple-silicon macOS (QEMU, `vagrant-qemu`,
+`socket_vmnet`). Its guests use the public ARM64 box `perk/ubuntu-2204-arm64`,
+which Vagrant downloads on the first run; provisioning needs network access.
+On other hosts `./run.sh doctor` says so before anything starts.
+
+`./run.sh lab --campaign 0.c0010` or `--campaign 0.costaricto` runs the other
+campaigns with a typed laboratory contract. Evidence goes to
+`~/sticks-runs/<campaign>-<UTC time>` unless `--run-root` names another new directory.
+The sections below explain each path and what it does not establish.
+
 ## Repository structure
 
 `src/` contains contracts and execution logic, `data/` the pinned inputs,
@@ -24,7 +51,8 @@ VM-backed experiments require additional resources and prepared images.
 ## Dependencies
 
 `requirements.txt` installs the exact versions in `requirements.lock`.
-Install them before the offline gate; interpreter selection does not install them.
+`./run.sh` creates `.venv` and installs them on first use. An interpreter named
+through `STICKS_PYTHON` is used as is and must already have them.
 
 ## Security considerations
 
@@ -206,8 +234,13 @@ The supported paths answer different questions and must not be substituted for o
 | Mode | Command | What it establishes | What it never establishes |
 | --- | --- | --- | --- |
 | Fast review | `bash run_review_check.sh` | Offline integrity, regenerated evidence, claim-ledger consistency, and tests from the supplied package. | A live VM, a SUT effect, or a campaign replay. |
-| Typed laboratory | `bash artifact/run.sh --run-root /absolute/new/run`, then `bash artifact/validate.sh --run-root /absolute/new/run` | A fresh C0026 QEMU cycle with target observation, teardown and a verified final receipt. | Historical replay, an all-observed campaign, or support for arbitrary campaigns. |
+| Preflight | `python3 scripts/doctor.py --path lab` (or `--path docker --compose FILE`) | Read-only host readiness, with the exact fix printed for each failing check. Nothing is started or deleted. | Any experimental result. |
+| Typed laboratory | `bash artifact/run.sh --run-root /absolute/new/run [--campaign 0.c0026\|0.c0010\|0.costaricto]` | One command: preflight, a fresh QEMU cycle, independent target observation, teardown, a sealed receipt and its verification (plus the CALDERA journal check where CALDERA dispatches). `artifact/validate.sh` re-verifies a completed run later. | Historical replay, an all-observed campaign, or support for arbitrary campaigns. |
 | Strict experiment | `PYTHONPATH=src python3 scripts/run_strict_c0045_effect_series.py --output-dir /absolute/empty/output` | A fresh-boot C0045 target-effect study with every selected cell retained and each failure terminal. | A complete Caldera campaign, cross-SUT generalization, or a claim outside the frozen C0045 ceiling. |
+
+The Compose files under `lab/docker/` and `measurement/sut/` are earlier
+environments kept because frozen records hash them. No claim in
+`release/claims/ledger.json` depends on starting them, and `./run.sh` never does.
 
 The laboratory entry point dispatches target commands through a fresh Caldera agent and retains the native command journal. Vagrant/SSH provisions the laboratory and runs independent target observations. This single-target path does not establish an attacker pivot through an enterprise network. It uses C0026: five observed effects and one explicitly simulated occurrence in the qualified run. It refuses legacy campaigns without typed runtime contracts before provisioning. The former `0.c0011` example can create local or simulated artifacts and is not a live SUT acceptance path. An available VM alone never authorizes that interpretation.
 

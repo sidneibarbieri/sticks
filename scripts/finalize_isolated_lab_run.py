@@ -1119,11 +1119,17 @@ def build_typed_costaricto_receipt(
     source_manifest = _verify_typed_source_manifest(run_root, context)
     evidence = run_root / "evidence"
     evidence_manifest = read_json(run_root / "evidence_manifest.json")
-    if (
-        evidence_manifest["tree_sha256"] != context.evidence_tree_sha256
-        or tree_manifest(evidence) != evidence_manifest
-    ):
+    if evidence_manifest["tree_sha256"] != context.evidence_tree_sha256:
         raise ValueError("CostaRicto evidence differs from its initial manifest")
+    # The independent observer writes its receipt and transport after the runner
+    # manifest; every runner file must be unchanged and no other file may appear.
+    final_evidence_manifest = tree_manifest(evidence)
+    unchanged_initial_evidence(
+        run_root, final_evidence_manifest, OBSERVATION_FILES[context.campaign_id]
+    )
+    observation, observer_evidence = validate_costaricto_observation(
+        run_root, context, source_manifest
+    )
     if summary_path != f"runtime-v2/{summary['run_id']}/summary.json":
         raise ValueError("CostaRicto summary path differs from its run identity")
     if not __package__:
@@ -1155,10 +1161,13 @@ def build_typed_costaricto_receipt(
         "run_id": report.run_id,
         "source_tree_sha256": context.source_tree_sha256,
         "evidence_tree_sha256": context.evidence_tree_sha256,
+        "final_evidence_tree_sha256": final_evidence_manifest["tree_sha256"],
         "artifact_tree_sha256": context.artifact_tree_sha256,
         "execution_log_sha256": context.execution_log_sha256,
         "summary_path": summary_path,
         "summary_sha256": sha256_file(evidence / summary_path),
+        "observer_checks": observation.checks,
+        **observer_evidence,
         "guest_effects_observed": report.effects_observed,
         "simulated": report.simulated,
         "vm_states": vm_states,

@@ -46,100 +46,10 @@ show_banner() {
 }
 
 doctor_mode() {
-    log_header "ARTIFACT HEALTH CHECK"
-    echo ""
-
-    local errors=0
-    local warnings=0
-
-    # Check 1: Python
-    log_step "Checking Python..."
-    if command -v python3 &> /dev/null; then
-        local py_version=$(python3 --version 2>&1)
-        log_info "[ok] $py_version"
-    else
-        log_error "[fail] Python3 not found"
-        ((errors++))
-    fi
-
-    # Check 2: Required Python packages
-    log_step "Checking Python packages..."
-    if python3 -c "import yaml, json, pathlib" 2>/dev/null; then
-        log_info "[ok] Required packages available"
-    else
-        log_warn "[warn] Some Python packages may be missing"
-        ((warnings++))
-    fi
-
-    # Check 3: Vagrant
-    log_step "Checking Vagrant..."
-    if command -v vagrant &> /dev/null; then
-        local vg_version=$(vagrant --version 2>&1)
-        log_info "[ok] $vg_version"
-    else
-        log_warn "[warn] Vagrant not found (required for full-lab mode)"
-        ((warnings++))
-    fi
-
-    # Check 4: VirtualBox
-    log_step "Checking VirtualBox..."
-    if command -v VBoxManage &> /dev/null; then
-        local vb_version=$(VBoxManage --version 2>&1 | head -1)
-        log_info "[ok] VirtualBox $vb_version"
-    else
-        log_warn "[warn] VirtualBox not found (required for full-lab mode)"
-        ((warnings++))
-    fi
-
-    # Check 5: Directory structure
-    log_step "Checking directory structure..."
-    local required_dirs=("lab" "sticks" "measurement" "artifact" "release")
-    for dir in "${required_dirs[@]}"; do
-        if [[ -d "$SCRIPT_DIR/$dir" ]]; then
-            log_info "[ok] $dir/"
-        else
-            log_error "[fail] $dir/ missing"
-            ((errors++))
-        fi
-    done
-
-    # Check 6: SUT Profiles
-    log_step "Checking SUT profiles..."
-    local profiles=("0.c0011" "0.pikabot_realistic" "0.lateral_test")
-    for profile in "${profiles[@]}"; do
-        if [[ -f "$SCRIPT_DIR/lab/sut_profiles/${profile}.yml" ]]; then
-            log_info "[ok] $profile"
-        else
-            log_error "[fail] $profile profile missing"
-            ((errors++))
-        fi
-    done
-
-    # Check 7: Entrypoint scripts
-    log_step "Checking entrypoints..."
-    local scripts=("setup.sh" "run_campaign.sh" "collect_evidence.sh" "reset.sh" "destroy.sh")
-    for script in "${scripts[@]}"; do
-        if [[ -f "$SCRIPT_DIR/$script" && -x "$SCRIPT_DIR/$script" ]]; then
-            log_info "[ok] $script"
-        else
-            log_warn "[warn] $script missing or not executable"
-            ((warnings++))
-        fi
-    done
-
-    # Summary
-    echo ""
-    echo "═══════════════════════════════════════════════════════════════"
-    if [[ $errors -eq 0 && $warnings -eq 0 ]]; then
-        log_info "[ok] ALL CHECKS PASSED - Artifact ready for use"
-        return 0
-    elif [[ $errors -eq 0 ]]; then
-        log_warn "[warn] $warnings warning(s) - Local-test mode available, full-lab may have issues"
-        return 0
-    else
-        log_error "[fail] $errors error(s), $warnings warning(s) - Fix before proceeding"
-        return 1
-    fi
+    # Single source of truth: the read-only preflight the laboratory runner itself uses.
+    local python_bin="${STICKS_PYTHON:-$SCRIPT_DIR/../.venv/bin/python}"
+    [[ -x "$python_bin" ]] || python_bin="python3"
+    "$python_bin" "$SCRIPT_DIR/doctor.py" --path all
 }
 
 list_campaigns() {
