@@ -31,6 +31,26 @@ def test_compose_without_fixed_subnets_needs_no_network_check(tmp_path):
     assert doctor.compose_subnets([compose]) == []
 
 
+def test_core_modules_match_the_environment_contract():
+    import ast
+    import re
+
+    contract = (ROOT / "scripts" / "python_env.sh").read_text()
+    [literal] = re.findall(r"for module in (\(.*?\)):", contract)
+    assert ast.literal_eval(literal) == doctor.CORE_MODULES
+
+
+def test_core_modules_are_installed_by_the_lock():
+    locked = {
+        line.split("==")[0].strip().lower()
+        for line in (ROOT / "requirements.lock").read_text().splitlines()
+        if "==" in line and not line.startswith("#")
+    }
+    distribution = {"yaml": "pyyaml"}
+    for module in doctor.CORE_MODULES:
+        assert distribution.get(module, module) in locked, module
+
+
 def test_review_path_checks_only_the_interpreter():
     checks = doctor.collect("review", Path.home(), [])
     assert [check.name for check in checks] == ["python", "python packages"]

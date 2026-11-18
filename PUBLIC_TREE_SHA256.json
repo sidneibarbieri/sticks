@@ -11558,8 +11558,8 @@
       "size": 3556
     },
     "scripts/doctor.py": {
-      "sha256": "d21113a83505c23a9a9a16e97ea1736d3382b85ff8cefa57bf7e3fbbab85334f",
-      "size": 11393
+      "sha256": "db58b312cf14bf4a7dafeadd45f246b24cefae2d22fd8f759ef0a9ff8683fd10",
+      "size": 11608
     },
     "scripts/emulate.py": {
       "sha256": "4d714fc75ce51ee5d6a1b259625748332e59f2690172ca2428310042dc78c69d",
@@ -13174,8 +13174,8 @@
       "size": 4200
     },
     "tests/test_doctor.py": {
-      "sha256": "64fa12fc3603c7969e0b02edbc7dbd7b9606e0dd9cf112c20c9f05a0e3943c52",
-      "size": 2728
+      "sha256": "80ce0c4cc5bb9532d270cf850f2d032fd21cf7a9c7bd136b0e3c95783011d957",
+      "size": 3394
     },
     "tests/test_domain_registration_simulation_path.py": {
       "sha256": "f1d53352d93cdca3b8727fad1ccd6a4037bb6b8458e30504d1e244873ce0dd03",
@@ -13851,5 +13851,5 @@
     }
   },
   "schema_version": "1",
-  "tree_sha256": "ba7dd3a4769f73de1d6f2592719ecc5570913c8dd0f98887ba075c0aaf644602"
+  "tree_sha256": "08324551dd6de321f7ee8d2b8fe05b47b1981c7d756a70742fcbb5eb5c0b7220"
 }

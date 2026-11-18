@@ -23,6 +23,10 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(PROJECT_ROOT / "scripts"))
 sys.path.insert(0, str(PROJECT_ROOT / "src"))
 
+# Same core modules as sticks_python_check_core_deps in scripts/python_env.sh;
+# tests/test_doctor.py fails if the two lists drift apart.
+CORE_MODULES = ("pydantic", "yaml", "click", "pytest")
+
 
 @dataclass
 class Check:
@@ -42,16 +46,16 @@ def check_python() -> list[Check]:
     if sys.version_info < (3, 11):
         checks[0] = Check("python", "FAIL", version, "Install Python 3.11 or newer.")
     missing = []
-    for module in ("pydantic", "requests", "yaml"):
+    for module in CORE_MODULES:
         try:
             importlib.import_module(module)
         except ImportError:
             missing.append(module)
     if missing:
         checks.append(Check("python packages", "FAIL", "missing: " + ", ".join(missing),
-                            "bash artifact/setup.sh"))
+                            "./run.sh demo   # creates .venv and installs requirements.txt"))
     else:
-        checks.append(Check("python packages", "OK", "pydantic, requests, yaml importable"))
+        checks.append(Check("python packages", "OK", ", ".join(CORE_MODULES) + " importable"))
     return checks
 
 
