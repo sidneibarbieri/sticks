@@ -30,6 +30,10 @@ class LabArgumentTests(unittest.TestCase):
             root = Path(temporary)
             shutil.copyfile(ENTRYPOINT, root / "run.sh")
             (root / "scripts").mkdir()
+            shutil.copyfile(
+                ENTRYPOINT.parent / "scripts/shell_lifecycle.sh",
+                root / "scripts/shell_lifecycle.sh",
+            )
             (root / "scripts/python_env.sh").write_text(
                 "sticks_resolve_python() { printf '%s\\n' /usr/bin/true; }\n"
             )

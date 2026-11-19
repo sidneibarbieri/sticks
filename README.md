@@ -50,6 +50,13 @@ The isolated supervisor forwards `SIGINT` and `SIGTERM` to the child process
 session it created and continues draining its execution log while the child
 handles the stop. A stop request makes the supervisor exit unsuccessfully even
 if the child returns zero. Other process sessions are not signaled.
+
+Use Ctrl+C once to request a graceful stop from the laboratory command. It waits
+for the active stage and scoped completion before returning a nonzero status.
+Further stop requests leave that cleanup running. If run metadata is incomplete,
+the command retains the workspace and reports that cleanup is unconfirmed;
+inspect that state before retrying. Stop tests cover disposable process fixtures,
+not interrupted QEMU-provider teardown.
 The sections below explain each path and what it does not establish.
 
 ## Repository structure

@@ -80,7 +80,13 @@ cmd_lab() {
     run_root="$HOME/sticks-runs/${campaign#0.}-$(date -u +%Y%m%dT%H%M%SZ)"
     mkdir -p "$(dirname "$run_root")"
   fi
-  STICKS_PYTHON="$(python_bin)" bash artifact/run.sh --campaign "$campaign" --run-root "$run_root"
+  local python child_status
+  python="$(python_bin)" || return 2
+  source "$ROOT_DIR/scripts/shell_lifecycle.sh"
+  STICKS_PYTHON="$python" sticks_run_stage bash artifact/run.sh --campaign "$campaign" --run-root "$run_root"
+  child_status=$?
+  [[ "$STICKS_STOP_STATUS" -eq 0 ]] || return "$STICKS_STOP_STATUS"
+  return "$child_status"
 }
 
 cmd_all() {

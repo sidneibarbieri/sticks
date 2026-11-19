@@ -11,7 +11,7 @@
   "excluded_runtime_roots": [
     "runs"
   ],
-  "file_count": 3467,
+  "file_count": 3469,
   "files": {
     ".gitignore": {
       "sha256": "4ab313af22acd8a7fbad67346992ed063f780db81a11aae49ae804d366f97506",
@@ -42,8 +42,8 @@
       "size": 2305
     },
     "README.md": {
-      "sha256": "b260d2d05f23df93fdaa812ce7b72f4edc439ec601b74f4cc65189f41488336a",
-      "size": 23583
+      "sha256": "9d9b425ac84c38524ad0625eca84636e534a384f750ab4657207aa5bbb1a6f95",
+      "size": 24021
     },
     "REPRODUCIBILITY.md": {
       "sha256": "09e12dc9d852655d67947e658c297b320fe31eb5b799a5b4a5de5c074c1cace8",
@@ -78,8 +78,8 @@
       "size": 1425
     },
     "artifact/run.sh": {
-      "sha256": "086dc360c0fa1e62ff492f403544425f2891530f1c9614059b610df169854900",
-      "size": 4344
+      "sha256": "fa0dfb50254a149fc1f69d5a66621eb1ace5eeb958a8736dfc69f9a3d099dfb1",
+      "size": 4896
     },
     "artifact/setup.sh": {
       "sha256": "d039aa05cf3e9f1cb6515762763e63350aec2ea80e0e19e71aafe6a536cb13f9",
@@ -11254,8 +11254,8 @@
       "size": 82
     },
     "run.sh": {
-      "sha256": "f4934612866eac870602de4641c549dadc0c1847ae97a6fbb25155bfd5d2635f",
-      "size": 4293
+      "sha256": "c341ec7146990a07f5c05d1b3f795b441ce801f399c6f1e34ba6ceb93c5ef0a9",
+      "size": 4528
     },
     "run_review_check.sh": {
       "sha256": "1548683e18151b044f12da92327b205a1dd40e89e82f2cdd8082e58c802125ae",
@@ -11844,6 +11844,10 @@
     "scripts/setup.sh": {
       "sha256": "0c45eaeb9788de5a102672652558e5fa6f1bd0eebeb95d2bdcd0b1e630145827",
       "size": 9686
+    },
+    "scripts/shell_lifecycle.sh": {
+      "sha256": "de0f953d6be861cc16f4cd877fc0db1677cda68fe4e31c6679723d0356ad56fb",
+      "size": 1843
     },
     "scripts/stage_revision_bound_evidence.py": {
       "sha256": "f61667b6fda26d08a539c707e4a31961cd5455c206cc16f8f4c921212126af40",
@@ -13305,6 +13309,10 @@
       "sha256": "db2cf2cb0c6f45f02ebf548128c20428c1c9d819acb7ed81b88b3d596253fe07",
       "size": 3478
     },
+    "tests/test_lab_cli_stop.py": {
+      "sha256": "1f1e63d524b51d301ed66ed14677b10f5304fbc92507aea8cb8636a655d236e5",
+      "size": 9571
+    },
     "tests/test_lab_completion_signals.py": {
       "sha256": "ecbc5140f1b5a3b8d989eabcd542ec2974aab817cd721ff89d1c12bbca0d31d4",
       "size": 2131
@@ -13582,8 +13590,8 @@
       "size": 6062
     },
     "tests/test_run_entrypoint_arguments.py": {
-      "sha256": "896144aaebc9e261c7a0db7efdbdae8da9e111c0f54945495a5ab339cd60086f",
-      "size": 2123
+      "sha256": "7148715c854377db28321383e7d4ff0542212e7f19598964152cb8513cf0b33c",
+      "size": 2285
     },
     "tests/test_run_isolated_lab_campaign.py": {
       "sha256": "34bb9d22f6e708d76008b5b73592ef634575877486626a5f716c59ef454b2dae",
@@ -13883,5 +13891,5 @@
     }
   },
   "schema_version": "1",
-  "tree_sha256": "b713530e160bf49eb166290e205ba9b88c3a35ef7c03816b9ca3168d4295a222"
+  "tree_sha256": "bc40b1ff91b82aeae648a13691d64c11f7bce11ee1be1417d721c52435f9dea4"
 }
