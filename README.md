@@ -125,7 +125,7 @@ model never changes what admission means.
 After [installation](#installation), start the local interface:
 
 ```bash
-.venv/bin/python scripts/run_realization_workbench.py --host 127.0.0.1 --port 8765
+bash run.sh workbench
 ```
 
 Open `http://127.0.0.1:8765/`, select C0045 (ShadowRay), and click
@@ -156,12 +156,16 @@ it. Nothing is executed and the server accepts requests only from its own page.
 The same JSON comes from the command line:
 
 ```bash
-python3 scripts/emulate.py C0045 --bundle your-bundle.json --json-output C0045.admission.json
+review_outputs="$(mktemp -d "${TMPDIR:-/tmp}/sticks-review.XXXXXX")"
+bash run.sh emulate C0045 --bundle "$HOME/Downloads/your-bundle.json" \
+  --json-output "$review_outputs/C0045.admission.json"
 ```
 
 The two outputs are identical for the same bundle and campaign. Unknown
 campaigns, files that are not STIX 2 bundles and invalid identifiers are
 rejected with an explanation; the CLI then exits with status 2.
+Replace the bundle path with its actual location. Keep user-supplied bundles and
+exports outside the immutable artifact directory so later integrity checks pass.
 
 ### Recompute the exported planning result
 
@@ -169,12 +173,15 @@ After downloading `C0045.realization-space.json`, recompute and compare the full
 workbench object through the same application service:
 
 ```bash
-.venv/bin/python scripts/run_realization_workbench.py \
-  --from-result C0045.realization-space.json \
-  --output C0045.recomputed.json
+review_outputs="$(mktemp -d "${TMPDIR:-/tmp}/sticks-review.XXXXXX")"
+bash run.sh workbench \
+  --from-result "$HOME/Downloads/C0045.realization-space.json" \
+  --output "$review_outputs/C0045.recomputed.json"
 ```
 
-The command reloads the campaign's bundled plan, bindings and templates and uses
+Adjust the Downloads path if your browser saves elsewhere. The new temporary
+directory keeps results outside the artifact and avoids overwriting an earlier
+export. The command reloads the campaign's bundled plan, bindings and templates and uses
 the bounds recorded in the export. It compares the recomputed object with the
 supplied object before writing a new output. Changed inputs, modified results or
 an unavailable campaign produce a nonzero exit; existing output files are not

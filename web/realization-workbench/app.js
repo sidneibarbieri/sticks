@@ -328,7 +328,7 @@ function renderResult(response) {
   elements.resultCampaignName.textContent = response.campaign.campaign_name;
   elements.resultStatus.textContent = result.operational_status;
   elements.recomputeCommand.textContent =
-    `.venv/bin/python scripts/run_realization_workbench.py --from-result ${response.campaign.campaign_id}.realization-space.json --output ${response.campaign.campaign_id}.recomputed.json`;
+    `review_outputs="$(mktemp -d "\${TMPDIR:-/tmp}/sticks-review.XXXXXX")"\nbash run.sh workbench --from-result "$HOME/Downloads/${response.campaign.campaign_id}.realization-space.json" --output "$review_outputs/${response.campaign.campaign_id}.recomputed.json"`;
   renderMetrics(result);
   renderSummary(result);
   renderSteps(result);

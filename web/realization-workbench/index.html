@@ -186,6 +186,7 @@
           <div class="recompute-help">
             <p>Reproduce this result from the artifact directory with your bundle file:</p>
             <code id="bundle-command"></code>
+            <p>Replace the bundle path with your file's actual location. Results go to a new temporary directory, outside the immutable artifact.</p>
             <p>A step with no admissible realization is reported, never invented.</p>
             <p class="bundle-hash" id="bundle-hash"></p>
           </div>
@@ -208,7 +209,7 @@
           <div class="recompute-help">
             <p>Download the JSON, then recompute this planning result from the artifact directory:</p>
             <code id="recompute-command"></code>
-            <p>Use a new output filename. Divergence or unavailable inputs returns a nonzero exit.</p>
+            <p>Adjust the Downloads path if needed. Results go to a new temporary directory outside the immutable artifact. Divergence or unavailable inputs returns a nonzero exit.</p>
           </div>
 
           <div class="metric-strip" id="metric-strip"></div>

@@ -29,6 +29,8 @@ STICKS -- one command per question.  Usage: bash run.sh <command> [options]
 
 Options:
   emulate [CAMPAIGN] [emulate.py options]
+  workbench [--port PORT]
+  workbench --from-result JSON --output JSON
   lab [--campaign 0.c0026|0.c0010|0.costaricto] [--run-root /absolute/new/dir]
       Without --run-root the evidence goes to ~/sticks-runs/<campaign>-<UTC time>.
 
@@ -53,7 +55,7 @@ cmd_review() {
   STICKS_PYTHON="$python" bash run_review_check.sh
 }
 cmd_doctor() { "$(python_bin)" scripts/doctor.py --path "${1:-lab}"; }
-cmd_workbench() { "$(python_bin)" scripts/run_realization_workbench.py --host 127.0.0.1 --port 8765; }
+cmd_workbench() { "$(python_bin)" scripts/run_realization_workbench.py --host 127.0.0.1 --port 8765 "$@"; }
 
 cmd_emulate() {
   local campaign="${1:-C0045}"

@@ -47,7 +47,7 @@
     return tr;
   };
 
-  const render = (result, bundleName) => {
+  const render = (result) => {
     lastResult = result;
     $("#bundle-result-title").textContent = `${result.campaign_id} · admission`;
     $("#bundle-metrics").replaceChildren(
@@ -59,7 +59,7 @@
     const rows = result.admitted_steps.map((step) => row(step.technique_id, "admitted", step.template_id));
     for (const technique of result.unresolved_technique_ids) rows.push(row(technique, "unresolved", "no admissible realization in the catalog"));
     $("#bundle-steps").replaceChildren(...rows);
-    $("#bundle-command").textContent = `python3 scripts/emulate.py ${result.campaign_id} --bundle ${bundleName} --json-output ${result.campaign_id}.admission.json`;
+    $("#bundle-command").textContent = `review_outputs="$(mktemp -d "\${TMPDIR:-/tmp}/sticks-review.XXXXXX")"\nbash run.sh emulate ${result.campaign_id} --bundle "$HOME/Downloads/your-bundle.json" --json-output "$review_outputs/${result.campaign_id}.admission.json"`;
     $("#bundle-hash").textContent = `Bundle SHA-256 ${result.bundle_sha256}`;
     $("#empty-state").hidden = true;
     $("#result-workspace").hidden = true;
@@ -94,7 +94,7 @@
       const payload = await response.json();
       if (revision !== generation) return;
       if (!response.ok) throw new Error(payload.detail || `HTTP ${response.status}`);
-      render(payload, file.name);
+      render(payload);
       message.textContent = `Admitted ${payload.admitted_steps.length} of ${payload.plan_step_count} steps; ${payload.unresolved_technique_ids.length} unresolved. Operational status: not_run.`;
     } catch (error) {
       if (revision === generation) {
