@@ -11,7 +11,7 @@
   "excluded_runtime_roots": [
     "runs"
   ],
-  "file_count": 3465,
+  "file_count": 3466,
   "files": {
     ".gitignore": {
       "sha256": "4ab313af22acd8a7fbad67346992ed063f780db81a11aae49ae804d366f97506",
@@ -11254,8 +11254,8 @@
       "size": 82
     },
     "run.sh": {
-      "sha256": "16c5609867abc053a599a7b800d8de532348abccc48b75f184edb01c5bade8d7",
-      "size": 4284
+      "sha256": "a37664bca0bfe3f76c330779311fb4e5f3c6d3c52016426526a9d1968f666c64",
+      "size": 4293
     },
     "run_review_check.sh": {
       "sha256": "1548683e18151b044f12da92327b205a1dd40e89e82f2cdd8082e58c802125ae",
@@ -13809,6 +13809,10 @@
       "sha256": "42a3e3561bb68c06926b833a2d0e3b7dcf6d4bd88429af3c3b9639ac1b9cafaa",
       "size": 3860
     },
+    "tests/test_zip_safe_commands.py": {
+      "sha256": "1b85d0d3283be4c459c80516e66b3860ea0b9ea0486a395334fdc3a18ed58cce",
+      "size": 762
+    },
     "tests/workbench_state.cjs": {
       "sha256": "839c9d0e43fbe8f977e041947b1699c4d8abf883e1abd2038c0c801501e8608f",
       "size": 7459
@@ -13875,5 +13879,5 @@
     }
   },
   "schema_version": "1",
-  "tree_sha256": "6bfca7846cf177a83e5304856757d20098b778ea21a946ec1dc2406805c924ab"
+  "tree_sha256": "217a5e094361780f66cffa1213f329f86e288a7c8a93c2ace03d71511cd23d90"
 }

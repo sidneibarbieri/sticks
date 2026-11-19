@@ -8,7 +8,7 @@ cd "$ROOT_DIR"
 
 usage() {
   cat <<'EOF'
-STICKS -- one command per question.  Usage: ./run.sh <command> [options]
+STICKS -- one command per question.  Usage: bash run.sh <command> [options]
 
   command    what it establishes                                   time      needs
   ---------  ----------------------------------------------------  --------  ----------------------
@@ -67,7 +67,7 @@ cmd_lab() {
     case "$1" in
       --campaign|--run-root)
         if [[ $# -lt 2 || -z "${2:-}" || "${2:-}" == --* ]]; then
-          echo "$1 requires a value; see ./run.sh help" >&2
+          echo "$1 requires a value; see bash run.sh help" >&2
           return 2
         fi
         if [[ "$1" == --campaign ]]; then campaign="$2"; else run_root="$2"; fi
@@ -90,7 +90,7 @@ cmd_all() {
   banner "doctor"; if cmd_doctor lab; then
     banner "lab (C0026)"; cmd_lab "$@" || failed+=(lab)
   else
-    failed+=(doctor); echo "lab skipped: apply the fix printed above, then ./run.sh lab" >&2
+    failed+=(doctor); echo "lab skipped: apply the fix printed above, then bash run.sh lab" >&2
   fi
   echo
   if [[ ${#failed[@]} -eq 0 ]]; then
