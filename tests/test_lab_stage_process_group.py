@@ -56,6 +56,44 @@ def test_failed_stage_reports_its_exit_status(tmp_path):
     assert failure.value.returncode == 3
 
 
+def test_failed_stage_stops_its_remaining_descendant(tmp_path):
+    marker = tmp_path / "descendant.pid"
+    try:
+        with pytest.raises(subprocess.CalledProcessError) as failure:
+            run_owned_stage(
+                ["bash", "-c", 'sleep 300 & echo $! > "$PID_FILE"; exit 3'],
+                str(tmp_path),
+                {"PATH": "/usr/bin:/bin", "PID_FILE": str(marker)},
+                grace_seconds=(1.0, 1.0, 5.0),
+            )
+        assert failure.value.returncode == 3
+        descendant_pid = int(marker.read_text())
+        assert _wait_for(lambda: not _alive(descendant_pid), 5)
+    finally:
+        if marker.exists():
+            try:
+                group_id = os.getpgid(int(marker.read_text()))
+                assert group_id != os.getpgrp()
+                os.killpg(group_id, signal.SIGTERM)
+            except ProcessLookupError:
+                pass
+
+
+def test_stage_and_cleanup_failures_are_both_preserved(tmp_path, monkeypatch):
+    cleanup_error = RuntimeError("fixture cleanup failure")
+
+    def fail_cleanup(process, grace_seconds):
+        raise cleanup_error
+
+    monkeypatch.setattr("scripts.lab_shutdown.stop_process_group", fail_cleanup)
+    with pytest.raises(ExceptionGroup) as failure:
+        run_owned_stage(["bash", "-c", "exit 3"], str(tmp_path), {"PATH": "/usr/bin:/bin"})
+    stage_error, observed_cleanup_error = failure.value.exceptions
+    assert isinstance(stage_error, subprocess.CalledProcessError)
+    assert stage_error.returncode == 3
+    assert observed_cleanup_error is cleanup_error
+
+
 def test_interrupt_stops_the_grandchild_before_returning(tmp_path):
     process, pid_file = _start_stage_driver(
         tmp_path, 'sleep 300 & echo $! > "$PID_FILE"; wait')

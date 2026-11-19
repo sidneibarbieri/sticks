@@ -11626,8 +11626,8 @@
       "size": 1741
     },
     "scripts/lab_shutdown.py": {
-      "sha256": "916678416776b078c71f584653f425aa5036c27c2067fccc9ee86eb1d2bd5efb",
-      "size": 4329
+      "sha256": "e93fd5515e2ee8bce6a4b15c409d26e0453fd94b6696f2e55d5102486b3fbc4a",
+      "size": 4592
     },
     "scripts/observe_c0010_target.py": {
       "sha256": "44f1e375e8f2201270260eadf6d8d932140e23a575a02ca04f19fd9a66104c47",
@@ -13338,8 +13338,8 @@
       "size": 3673
     },
     "tests/test_lab_stage_process_group.py": {
-      "sha256": "768447447594e8f1778fafd93ea057680a2fed32384bb1ac11faf395ca1de33b",
-      "size": 2712
+      "sha256": "2d81d561e461dad882b4068f5baf9dd07aa6f1b49af767763ac2e82b2159d8d7",
+      "size": 4267
     },
     "tests/test_lab_supervisor_signals.py": {
       "sha256": "b98817e9bf3cce9a104871777bcb5646635a4abde2f4473ac2d472b74b03b37b",
@@ -13891,5 +13891,5 @@
     }
   },
   "schema_version": "1",
-  "tree_sha256": "bc40b1ff91b82aeae648a13691d64c11f7bce11ee1be1417d721c52435f9dea4"
+  "tree_sha256": "e698581393a847940e64c4c09a56635816d9e8d1dac3ab15a569f28a45f34cce"
 }

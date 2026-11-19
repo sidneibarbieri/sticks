@@ -21,20 +21,26 @@ def run_owned_stage(
     environment: dict[str, str],
     grace_seconds: tuple[float, float, float] = STOP_GRACE_SECONDS,
 ) -> None:
-    """Run one stage in its own process group and never leave that group running.
+    """Stop the owned process group on stage failure or interruption.
 
-    An interruption stops every process of the stage, grandchildren included,
+    Failure or interruption stops the stage's descendants, grandchildren included,
     before it propagates, so teardown never races a provider that still holds a
     machine lock.
     """
     process = subprocess.Popen(list(command), cwd=cwd, env=environment, start_new_session=True)
     try:
         return_code = process.wait()
-    except BaseException:
-        stop_process_group(process, grace_seconds)
+        if return_code:
+            raise subprocess.CalledProcessError(return_code, process.args)
+    except BaseException as stage_error:
+        try:
+            stop_process_group(process, grace_seconds)
+        except BaseException as cleanup_error:
+            raise BaseExceptionGroup(
+                "Stage failed and its process group could not be stopped",
+                [stage_error, cleanup_error],
+            ) from None
         raise
-    if return_code:
-        raise subprocess.CalledProcessError(return_code, process.args)
 
 
 def stop_process_group(
