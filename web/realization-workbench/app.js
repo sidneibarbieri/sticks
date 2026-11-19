@@ -353,6 +353,8 @@ async function enumerateCampaign() {
     });
     if (requestGeneration === state.requestGeneration) {
       renderResult(response);
+      selectTab("summary");
+      elements.resultWorkspace.scrollIntoView({block: "start"});
     }
   } catch (error) {
     if (requestGeneration === state.requestGeneration) {

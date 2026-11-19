@@ -122,6 +122,11 @@ model never changes what admission means.
 
 ## Inspect admission in the workbench
 
+[Practical walkthrough: CLI, planning GUI, STIX import and auditable export](docs/tutorials/planning-workbench/FOLLOW_ALONG.md)
+includes a 5m36s recording, English captions, chapter times and execution evidence.
+It demonstrates actual outputs and complete GUI/CLI comparisons. New VM execution
+remains a separate laboratory workflow.
+
 After [installation](#installation), start the local interface:
 
 ```bash

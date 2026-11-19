@@ -1,0 +1,340 @@
+WEBVTT
+
+00:00:00.400 --> 00:00:04.700
+This tutorial shows how to use sticks to
+reconstruct and inspect
+
+00:00:04.700 --> 00:00:09.500
+a campaign plan. Structured threat
+intelligence identifies techniques
+
+00:00:09.500 --> 00:00:14.400
+and relationships, while an executable
+procedure also needs concrete
+
+00:00:14.400 --> 00:00:17.300
+actions, parameters, and environment facts.
+
+00:00:17.900 --> 00:00:21.500
+Sticks makes these choices explicit and
+checks candidates against
+
+00:00:21.500 --> 00:00:25.700
+a declared catalog. We will run the command
+line, inspect the planning
+
+00:00:25.700 --> 00:00:29.400
+interface, export a result, and repeat the
+same computation.
+
+00:00:30.200 --> 00:00:32.500
+Planning does not execute an attack.
+
+00:00:33.600 --> 00:00:36.400
+Start with the anonymous zip linked in the
+paper.
+
+00:00:37.300 --> 00:00:41.000
+Open a terminal in the extracted directory
+and run the workbench
+
+00:00:41.000 --> 00:00:45.700
+command shown here. The launcher installs the
+pinned dependencies
+
+00:00:45.700 --> 00:00:49.300
+on first use. Open the local address it
+prints.
+
+00:00:50.000 --> 00:00:51.500
+No model key is required.
+
+00:00:52.500 --> 00:00:58.000
+We will inspect the input, compute a result,
+export it, and repeat
+
+00:00:58.000 --> 00:01:00.300
+that same computation through the command
+line.
+
+00:01:00.680 --> 00:01:05.680
+First, use the command line to reconstruct
+campaign C0045 Shadow
+
+00:01:05.680 --> 00:01:10.180
+Ray. The output directory keeps the
+procedural plan, derived environment,
+
+00:01:10.180 --> 00:01:14.580
+and admission result. In this run, 10 of 10
+compiled steps have
+
+00:01:14.580 --> 00:01:18.880
+an admitted realization. That result concerns
+the available catalog
+
+00:01:18.880 --> 00:01:22.080
+and the declared facts. It does not show that
+these procedures
+
+00:01:22.080 --> 00:01:25.280
+were executed or that they reproduced the
+historical actor.
+
+00:01:26.280 --> 00:01:31.580
+Now, reconstruct campaign C0001. The same
+pipeline admits one of
+
+00:01:31.580 --> 00:01:34.580
+27 steps and leaves 26 unresolved.
+
+00:01:35.280 --> 00:01:37.480
+Read the unresolved techniques and the
+reasons.
+
+00:01:38.380 --> 00:01:40.480
+Missing catalog support remains visible.
+
+00:01:40.880 --> 00:01:44.580
+The tool does not silently fill these steps
+with plausible commands.
+
+00:01:45.180 --> 00:01:48.980
+This is why the campaign identifier, catalog
+version, and full
+
+00:01:48.980 --> 00:01:51.780
+result matter more than a success label
+alone.
+
+00:01:52.780 --> 00:01:55.780
+In the workbench, select Shadow Ray from the
+campaign list.
+
+00:01:56.380 --> 00:01:59.780
+The default filter shows campaigns with the
+frozen inputs needed
+
+00:01:59.780 --> 00:02:04.580
+for enumeration. Set explicit limits for
+realizations, search states,
+
+00:02:04.580 --> 00:02:08.980
+and candidates per step. These are
+computational bounds, not claims
+
+00:02:08.980 --> 00:02:11.480
+about how many procedures exist in the real
+world.
+
+00:02:12.180 --> 00:02:15.980
+Select Enumerate Realizations to run the
+existing planning engine.
+
+00:02:17.080 --> 00:02:21.980
+The summary reports 64 complete realizations,
+but only one procedure
+
+00:02:21.980 --> 00:02:26.180
+assignment, one behavior contract, and one
+causal structure.
+
+00:02:27.080 --> 00:02:30.780
+The 64 schedules differ in the ordering of
+actions whose declared
+
+00:02:30.780 --> 00:02:34.980
+dependencies permit that variation. They are
+not 64 independent
+
+00:02:34.980 --> 00:02:39.580
+behaviors. The search stopped at the
+realization ceiling, so Search
+
+00:02:39.580 --> 00:02:43.880
+Exhausted is false. The visible operational
+status remains not
+
+00:02:43.880 --> 00:02:44.180
+run.
+
+00:02:44.820 --> 00:02:49.020
+Open steps, each row identifies a compiled
+source step and its
+
+00:02:49.020 --> 00:02:53.320
+technique, then separates raw candidates from
+assignments participating
+
+00:02:53.320 --> 00:02:57.120
+in complete realizations. The positions
+column shows where that
+
+00:02:57.120 --> 00:02:59.220
+step occurs across the return schedules.
+
+00:02:59.920 --> 00:03:03.720
+A candidate count alone is not a count of
+executable alternatives.
+
+00:03:04.120 --> 00:03:07.520
+Use these rows to locate coverage gaps before
+proposing additions
+
+00:03:07.520 --> 00:03:08.220
+to the catalog.
+
+00:03:09.320 --> 00:03:13.420
+Open realizations to inspect a schedule, its
+templates, assumptions,
+
+00:03:13.420 --> 00:03:17.420
+and fidelity ceiling. This example reports
+inspired fidelity.
+
+00:03:17.820 --> 00:03:21.320
+The declared composition uses benign
+laboratory implementations.
+
+00:03:21.620 --> 00:03:24.420
+The workbench is not certifying historical
+reconstruction.
+
+00:03:25.120 --> 00:03:27.920
+Different orders must respect the same factor
+dependencies.
+
+00:03:28.220 --> 00:03:31.320
+The exported result preserves the detailed
+graph and reachability
+
+00:03:31.320 --> 00:03:32.320
+record for inspection.
+
+00:03:33.120 --> 00:03:37.020
+The proposal queue identifies declared
+procedure deficits and generation
+
+00:03:37.020 --> 00:03:40.820
+targets. Here it creates 10 targets from the
+requested variant
+
+00:03:40.820 --> 00:03:43.620
+counts. Constructing this queue makes no
+model call.
+
+00:03:44.020 --> 00:03:46.920
+A generated proposal still needs admission
+under the same trusted
+
+00:03:46.920 --> 00:03:50.120
+contract and an implementation witness before
+it can enter the
+
+00:03:50.120 --> 00:03:53.520
+operationally bound catalog. This view
+prepares work.
+
+00:03:53.520 --> 00:03:55.820
+It does not certify newly generated behavior.
+
+00:03:56.920 --> 00:04:00.120
+Download the JSON. The interface shows the
+exact command for the
+
+00:04:00.120 --> 00:04:04.220
+selected campaign. Run the command line with
+from result and choose
+
+00:04:04.220 --> 00:04:05.220
+a new output file name.
+
+00:04:05.920 --> 00:04:09.020
+It reloads the bundled inputs, recomputes
+through the same service,
+
+00:04:09.220 --> 00:04:12.220
+and compares the complete workbench object
+before writing anything.
+
+00:04:12.820 --> 00:04:16.220
+The additional comparison shown here confirms
+that the actual downloaded
+
+00:04:16.220 --> 00:04:18.320
+and recomputed JSON results are equal.
+
+00:04:18.920 --> 00:04:21.220
+Keep both files and the artifact version
+together.
+
+00:04:22.520 --> 00:04:25.320
+Change the maximum realizations from 64 to 8.
+
+00:04:25.720 --> 00:04:28.420
+The old result disappears and its download is
+unavailable.
+
+00:04:29.020 --> 00:04:32.520
+Enumerate again. The new result now reports
+eight schedules under
+
+00:04:32.520 --> 00:04:36.320
+the new bound. This prevents an export
+computed for earlier settings
+
+00:04:36.320 --> 00:04:38.420
+from being mistaken for the current request.
+
+00:04:38.820 --> 00:04:41.520
+The new digest identifies the new result.
+
+00:04:42.820 --> 00:04:47.520
+To use another sticks to bundle, enter its
+campaign identifier
+
+00:04:47.720 --> 00:04:50.320
+and choose the JSON file in the admission
+panel.
+
+00:04:51.420 --> 00:04:53.620
+This example imports the pinned bundle.
+
+00:04:54.420 --> 00:04:58.720
+Inspect admitted and unresolved steps, then
+download the result.
+
+00:04:59.620 --> 00:05:02.820
+Repeat the same input through the command
+line and compare the
+
+00:05:02.820 --> 00:05:06.620
+complete JSON. No campaign action is
+executed.
+
+00:05:07.200 --> 00:05:11.700
+This tutorial covered compilation, admission
+inspection, bounded
+
+00:05:11.700 --> 00:05:16.600
+enumeration, and auditable export. A live
+campaign requires the
+
+00:05:16.600 --> 00:05:21.600
+separate laboratory workflow, provision,
+readiness checks, dispatch,
+
+00:05:21.800 --> 00:05:25.900
+independent observations, and teardown. A
+planning certificate
+
+00:05:25.900 --> 00:05:29.700
+cannot replace that evidence. Follow the
+laboratory guide for the
+
+00:05:29.700 --> 00:05:33.500
+supported environment and retain each run
+result separately.
+
+00:05:34.100 --> 00:05:35.500
+This narration is synthetic.

@@ -164,6 +164,19 @@ const regression = vm.runInContext(`
     assert.equal(staleRendered, false);
     assert.equal(elements.enumerateButton.disabled, false);
 
+    let resultScrolls = 0;
+    elements.resultWorkspace.scrollIntoView = (options) => {
+      assert.equal(options.block, "start");
+      resultScrolls += 1;
+    };
+    selectTab("queue");
+    const visibleResult = enumerateCampaign();
+    resolveRequest({campaign: ready});
+    await visibleResult;
+    assert.equal(resultScrolls, 1);
+    assert.equal(elements.tabs[0].attributes.get("aria-selected"), "true");
+    assert.equal(elements.panels[0].hidden, false);
+
   })()
 `, context);
 regression.then(() => console.log("workbench state regression passed"))

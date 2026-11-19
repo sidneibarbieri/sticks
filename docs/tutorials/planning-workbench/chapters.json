@@ -1,0 +1,106 @@
+[
+  {
+    "id": "01-purpose",
+    "title": "What STICKS produces",
+    "start_seconds": 0.0,
+    "end_seconds": 33.4,
+    "audio_sha256": "87a377e2313de35c0e33178676df5b9a5b576d5c061c95cb70bd0b5722b54cfb",
+    "audio_start": 0
+  },
+  {
+    "id": "02-setup",
+    "title": "Start the current public workbench",
+    "start_seconds": 33.4,
+    "end_seconds": 60.68,
+    "audio_sha256": "04b202da3be32297c08c69c2bcaf675ce8c4058626a2a40d73e65abce0030d76",
+    "audio_start": 0
+  },
+  {
+    "id": "03-covered",
+    "title": "Reconstruct a covered campaign",
+    "start_seconds": 60.68,
+    "end_seconds": 86.28,
+    "audio_sha256": "87a377e2313de35c0e33178676df5b9a5b576d5c061c95cb70bd0b5722b54cfb",
+    "audio_start": 60
+  },
+  {
+    "id": "04-unresolved",
+    "title": "Inspect explicit abstention",
+    "start_seconds": 86.28,
+    "end_seconds": 112.78,
+    "audio_sha256": "87a377e2313de35c0e33178676df5b9a5b576d5c061c95cb70bd0b5722b54cfb",
+    "audio_start": 85.6
+  },
+  {
+    "id": "05-select",
+    "title": "Select a planning input and its bounds",
+    "start_seconds": 112.78,
+    "end_seconds": 137.08,
+    "audio_sha256": "87a377e2313de35c0e33178676df5b9a5b576d5c061c95cb70bd0b5722b54cfb",
+    "audio_start": 112.1
+  },
+  {
+    "id": "06-summary",
+    "title": "Read the search result correctly",
+    "start_seconds": 137.08,
+    "end_seconds": 164.82000000000002,
+    "audio_sha256": "87a377e2313de35c0e33178676df5b9a5b576d5c061c95cb70bd0b5722b54cfb",
+    "audio_start": 136.4
+  },
+  {
+    "id": "07-steps",
+    "title": "Inspect per-step coverage",
+    "start_seconds": 164.82000000000002,
+    "end_seconds": 189.32000000000002,
+    "audio_sha256": "87a377e2313de35c0e33178676df5b9a5b576d5c061c95cb70bd0b5722b54cfb",
+    "audio_start": 164.14000000000001
+  },
+  {
+    "id": "08-realizations",
+    "title": "Inspect fidelity and assumptions",
+    "start_seconds": 189.32000000000002,
+    "end_seconds": 213.12,
+    "audio_sha256": "87a377e2313de35c0e33178676df5b9a5b576d5c061c95cb70bd0b5722b54cfb",
+    "audio_start": 188.64000000000001
+  },
+  {
+    "id": "09-queue",
+    "title": "Inspect the proposal queue",
+    "start_seconds": 213.12,
+    "end_seconds": 236.92000000000002,
+    "audio_sha256": "87a377e2313de35c0e33178676df5b9a5b576d5c061c95cb70bd0b5722b54cfb",
+    "audio_start": 212.44
+  },
+  {
+    "id": "10-export",
+    "title": "Export and recompute the complete result",
+    "start_seconds": 236.92000000000002,
+    "end_seconds": 262.52000000000004,
+    "audio_sha256": "87a377e2313de35c0e33178676df5b9a5b576d5c061c95cb70bd0b5722b54cfb",
+    "audio_start": 236.24
+  },
+  {
+    "id": "11-change",
+    "title": "Change bounds without reusing stale output",
+    "start_seconds": 262.52000000000004,
+    "end_seconds": 282.52000000000004,
+    "audio_sha256": "87a377e2313de35c0e33178676df5b9a5b576d5c061c95cb70bd0b5722b54cfb",
+    "audio_start": 261.84000000000003
+  },
+  {
+    "id": "12-own-bundle",
+    "title": "Import a STIX bundle and compare admission by CLI",
+    "start_seconds": 282.52000000000004,
+    "end_seconds": 307.20000000000005,
+    "audio_sha256": "727bcbf4c4c8d4cc070d0afcd70ffbd8cdb147ab258ae1d6bef8fb28fc828996",
+    "audio_start": 0
+  },
+  {
+    "id": "13-boundary",
+    "title": "Continue with a qualified laboratory",
+    "start_seconds": 307.20000000000005,
+    "end_seconds": 335.76,
+    "audio_sha256": "87a377e2313de35c0e33178676df5b9a5b576d5c061c95cb70bd0b5722b54cfb",
+    "audio_start": 281.84000000000003
+  }
+]

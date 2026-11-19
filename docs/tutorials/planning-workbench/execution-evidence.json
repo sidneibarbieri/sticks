@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "recorded_source_commit": "6f9eb2088088d711f0f03d06cdd1893ac42f5d4a",
+  "video_sha256": "7cc101f5fdf5f7c7fb915ecdc2678466fab4dea4c7b79be9e2b6f43394c68d5e",
+  "duration_seconds": 335.917333,
+  "strict_media_decode_exit_code": 0,
+  "recorded_actions": [
+    "fresh dependency installation and public workbench startup",
+    "CLI C0045 admission: 10/10 steps",
+    "CLI C0001 admission: 1/27 steps, 26 unresolved",
+    "bounded enumeration, Steps, Realizations, causal graph and selected-node facts",
+    "proposal queue without model invocation",
+    "actual downloaded planning export and complete typed CLI recomputation equal",
+    "bounds changed from 64 to 8, stale result invalidated",
+    "actual pinned STIX bundle import, admission export and complete typed CLI comparison equal"
+  ],
+  "planning_summary": {
+    "campaign": "C0045",
+    "realizations": 64,
+    "procedure_assignments": 1,
+    "behavior_contracts": 1,
+    "causal_structures": 1,
+    "search_states": 183,
+    "search_exhausted": false,
+    "operational_status": "not_run"
+  },
+  "recomputed_bound": {
+    "realizations": 8,
+    "search_states": 32
+  },
+  "privacy_screen": {
+    "source_frames": 196,
+    "terminal_recordings": 5,
+    "final_and_supplemental_frames": 15,
+    "unresolved_selected_pattern_flags": 0,
+    "false_positive_review": "Three OCR @ characters were zeros in public package wheel filenames; checked against pixels and original terminal output."
+  },
+  "narration": "Synthetic English voice; no human preference study.",
+  "limits": [
+    "Synthetic narration; no human preference study.",
+    "Planning and admission only; laboratory execution is separate.",
+    "Same physical host; not independent reproduction."
+  ]
+}

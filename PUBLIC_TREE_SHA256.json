@@ -11,7 +11,7 @@
   "excluded_runtime_roots": [
     "runs"
   ],
-  "file_count": 3471,
+  "file_count": 3478,
   "files": {
     ".gitignore": {
       "sha256": "4ab313af22acd8a7fbad67346992ed063f780db81a11aae49ae804d366f97506",
@@ -42,8 +42,8 @@
       "size": 2305
     },
     "README.md": {
-      "sha256": "31707ceedb42dbff543c84b7ee0a81930cb6d6b39a73a91003e4d21df05a6e31",
-      "size": 24461
+      "sha256": "f3e42d8e066d262a355abdec09b1c0993633e6c3d34dc05a18f2a34b787ac5d3",
+      "size": 24796
     },
     "REPRODUCIBILITY.md": {
       "sha256": "09e12dc9d852655d67947e658c297b320fe31eb5b799a5b4a5de5c074c1cace8",
@@ -1492,6 +1492,34 @@
     "docs/reviewer_quickstart.md": {
       "sha256": "6b01d42919f7577e58848d5ff9596555ba52c39f575cd4c6e7479deb3de5f637",
       "size": 3530
+    },
+    "docs/tutorials/planning-workbench/FOLLOW_ALONG.md": {
+      "sha256": "15c2275ae8570385f47cd290f2c223c1f39e6ad9748b16667fa467c3238fdda6",
+      "size": 4496
+    },
+    "docs/tutorials/planning-workbench/chapters.json": {
+      "sha256": "7c1413c036d4159f888aec7bb2cc80c75366ce6448f007ac9e2e7902482c4623",
+      "size": 3455
+    },
+    "docs/tutorials/planning-workbench/english.vtt": {
+      "sha256": "ce2cdd7bbe8036f04daf7f1850324eb1ab0ebd4e58f4058c63cb449c25a0729c",
+      "size": 7896
+    },
+    "docs/tutorials/planning-workbench/execution-evidence.json": {
+      "sha256": "4e5de8c282b519f6fe78b992175fb5e60b764eef691817ce4b8942a564ca3cbc",
+      "size": 1747
+    },
+    "docs/tutorials/planning-workbench/poster.png": {
+      "sha256": "41b983f0bb8124b82adb714277ffb8bd2735da45408f062e7ed1c49c8f1332e3",
+      "size": 675364
+    },
+    "docs/tutorials/planning-workbench/transcript.txt": {
+      "sha256": "5c2ed4504d7a0e7c4add4f169ad3908daaf56b420f8840320422980581c9e691",
+      "size": 5218
+    },
+    "docs/tutorials/planning-workbench/tutorial.mp4": {
+      "sha256": "7cc101f5fdf5f7c7fb915ecdc2678466fab4dea4c7b79be9e2b6f43394c68d5e",
+      "size": 14906214
     },
     "examples/atomic_hostname/LICENSE.upstream.txt": {
       "sha256": "65af6027045d23175366eab50e460ab3ee7790e591cb84cc32c78ac63a4c90e1",
@@ -13834,8 +13862,8 @@
       "size": 762
     },
     "tests/workbench_state.cjs": {
-      "sha256": "839c9d0e43fbe8f977e041947b1699c4d8abf883e1abd2038c0c801501e8608f",
-      "size": 7459
+      "sha256": "89988317cdad61820d69baff03e44e10d6fc3c45eb652b91f8cc2b0a60e10bf6",
+      "size": 7924
     },
     "typed-run-evidence/c0010-c0026.tar.gz": {
       "sha256": "f5535f112a414de822adf871c74118feefc11b9f54fa15d7bc2cd4118a7cede6",
@@ -13870,8 +13898,8 @@
       "size": 1005
     },
     "web/realization-workbench/app.js": {
-      "sha256": "98ba14d30e5780b751ef75e98be1365b93136d5928978ad6ef950b67e8ebae57",
-      "size": 17361
+      "sha256": "180c880322628d18afc5d53e4684a1aef2320c472d65ad945ae66e518651a58d",
+      "size": 17454
     },
     "web/realization-workbench/bundle.js": {
       "sha256": "8a29ee2ad9008452b4b21e4b8f5a8957a62626db0c87897d1d7e29c2376009b7",
@@ -13899,5 +13927,5 @@
     }
   },
   "schema_version": "1",
-  "tree_sha256": "8a7a5d4f0637600f0075d1cc3e7decdbf8fa6aa47de0dd01bb86ac8bce429417"
+  "tree_sha256": "3f011a9c76995e670286a26eae1f7e3acbd9d14273fd6805aa2624d69b8540e5"
 }
