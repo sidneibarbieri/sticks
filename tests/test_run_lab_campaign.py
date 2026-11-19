@@ -38,7 +38,7 @@ def test_success_path_runs_up_execute_collect_and_teardown(monkeypatch: pytest.M
         def restore(self) -> None:
             restored["value"] = True
 
-    monkeypatch.setattr(module.subprocess, "run", fake_run)
+    monkeypatch.setattr(module, "run_owned_stage", fake_run)
     monkeypatch.setattr(module, "_capture_derived_state", lambda: DummySnapshot())
     monkeypatch.setattr(
         module, "_cleanup_runtime_outputs", lambda: cleaned.__setitem__("value", True)
@@ -74,7 +74,7 @@ def test_keep_lab_skips_teardown(monkeypatch: pytest.MonkeyPatch) -> None:
         def discard(self) -> None:
             discarded["value"] = True
 
-    monkeypatch.setattr(module.subprocess, "run", fake_run)
+    monkeypatch.setattr(module, "run_owned_stage", fake_run)
     monkeypatch.setattr(module, "_capture_derived_state", lambda: DummySnapshot())
     monkeypatch.setattr(module, "_cleanup_runtime_outputs", lambda: None)
 
@@ -94,11 +94,11 @@ def test_isolated_evidence_output_never_refreshes_release_summaries(
     module = _load_module()
     calls: list[list[str]] = []
 
-    def fake_run(command, cwd=None, check=None, env=None):
+    def fake_run(command, cwd=None, env=None):
         calls.append(list(command))
         assert env["STICKS_EVIDENCE_DIR"] == str(tmp_path.resolve())
 
-    monkeypatch.setattr(module.subprocess, "run", fake_run)
+    monkeypatch.setattr(module, "run_owned_stage", fake_run)
     monkeypatch.setattr(
         module,
         "_capture_derived_state",
@@ -140,7 +140,7 @@ def test_teardown_runs_when_campaign_execution_fails(monkeypatch: pytest.MonkeyP
         if list(command)[1:] == [str(module.RUN_CAMPAIGN_SCRIPT), "--campaign", "0.c0010", "--require-lab"]:
             raise module.subprocess.CalledProcessError(returncode=1, cmd=command)
 
-    monkeypatch.setattr(module.subprocess, "run", fake_run)
+    monkeypatch.setattr(module, "run_owned_stage", fake_run)
     monkeypatch.setattr(module, "_capture_derived_state", lambda: type("S", (), {"restore": lambda self: None})())
     monkeypatch.setattr(module, "_cleanup_runtime_outputs", lambda: None)
 
@@ -161,7 +161,7 @@ def test_failure_still_refreshes_evidence_and_corpus_state(monkeypatch: pytest.M
         if list(command)[1:] == [str(module.RUN_CAMPAIGN_SCRIPT), "--campaign", "0.c0010", "--require-lab"]:
             raise module.subprocess.CalledProcessError(returncode=1, cmd=command)
 
-    monkeypatch.setattr(module.subprocess, "run", fake_run)
+    monkeypatch.setattr(module, "run_owned_stage", fake_run)
     monkeypatch.setattr(module, "_capture_derived_state", lambda: type("S", (), {"restore": lambda self: None})())
     monkeypatch.setattr(module, "_cleanup_runtime_outputs", lambda: None)
 
@@ -186,7 +186,7 @@ def test_teardown_runs_when_up_lab_fails(monkeypatch: pytest.MonkeyPatch) -> Non
         if list(command) == ["bash", str(module.UP_LAB_SCRIPT), "--campaign", "0.c0026"]:
             raise module.subprocess.CalledProcessError(returncode=1, cmd=command)
 
-    monkeypatch.setattr(module.subprocess, "run", fake_run)
+    monkeypatch.setattr(module, "run_owned_stage", fake_run)
     monkeypatch.setattr(module, "_capture_derived_state", lambda: type("S", (), {"restore": lambda self: None})())
     monkeypatch.setattr(module, "_cleanup_runtime_outputs", lambda: None)
 
@@ -221,7 +221,7 @@ def test_keep_lab_tears_down_owned_lab_after_failure(
         if list(command) == failure_command:
             raise module.subprocess.CalledProcessError(returncode=1, cmd=command)
 
-    monkeypatch.setattr(module.subprocess, "run", fake_run)
+    monkeypatch.setattr(module, "run_owned_stage", fake_run)
     monkeypatch.setattr(module, "_capture_derived_state", lambda: type("S", (), {"restore": lambda self: None})())
     monkeypatch.setattr(module, "_cleanup_runtime_outputs", lambda: None)
 
@@ -247,7 +247,7 @@ def test_keep_lab_preserves_unowned_lab_after_failure(monkeypatch: pytest.Monkey
         calls.append(list(command))
         raise module.subprocess.CalledProcessError(returncode=1, cmd=command)
 
-    monkeypatch.setattr(module.subprocess, "run", fake_run)
+    monkeypatch.setattr(module, "run_owned_stage", fake_run)
     monkeypatch.setattr(module, "_capture_derived_state", lambda: type("S", (), {"restore": lambda self: None})())
     monkeypatch.setattr(module, "_cleanup_runtime_outputs", lambda: None)
 
@@ -266,7 +266,7 @@ def test_skip_collect_evidence_avoids_post_run_refresh(monkeypatch: pytest.Monke
     def fake_run(command, cwd=None, check=None, env=None):
         calls.append(list(command))
 
-    monkeypatch.setattr(module.subprocess, "run", fake_run)
+    monkeypatch.setattr(module, "run_owned_stage", fake_run)
     monkeypatch.setattr(module, "_capture_derived_state", lambda: type("S", (), {"restore": lambda self: None})())
     monkeypatch.setattr(module, "_cleanup_runtime_outputs", lambda: None)
 
@@ -287,7 +287,7 @@ def test_assume_lab_running_skips_up_lab(monkeypatch: pytest.MonkeyPatch) -> Non
     def fake_run(command, cwd=None, check=None, env=None):
         calls.append(list(command))
 
-    monkeypatch.setattr(module.subprocess, "run", fake_run)
+    monkeypatch.setattr(module, "run_owned_stage", fake_run)
     monkeypatch.setattr(module, "_capture_derived_state", lambda: type("S", (), {"restore": lambda self: None})())
     monkeypatch.setattr(module, "_cleanup_runtime_outputs", lambda: None)
 
@@ -310,7 +310,7 @@ def test_explicitly_tearing_down_an_assumed_lab_requires_opt_in(
     def fake_run(command, cwd=None, check=None, env=None):
         calls.append(list(command))
 
-    monkeypatch.setattr(module.subprocess, "run", fake_run)
+    monkeypatch.setattr(module, "run_owned_stage", fake_run)
     monkeypatch.setattr(
         module,
         "_capture_derived_state",
@@ -346,7 +346,7 @@ def test_persist_derived_state_skips_restore_and_cleanup(
     def fake_run(command, cwd=None, check=None, env=None):
         calls.append(list(command))
 
-    monkeypatch.setattr(module.subprocess, "run", fake_run)
+    monkeypatch.setattr(module, "run_owned_stage", fake_run)
     monkeypatch.setattr(
         module, "_capture_derived_state", lambda: capture_called.__setitem__("value", True)
     )

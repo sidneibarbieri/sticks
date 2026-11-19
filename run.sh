@@ -19,13 +19,13 @@ STICKS -- one command per question.  Usage: bash run.sh <command> [options]
              only, nothing is executed
   doctor     read-only host check for the laboratory, printing     5 s       -
              the exact fix for anything that would stop it
-  lab        brings up the whole laboratory (CALDERA, attacker,    ~5 min    Apple-silicon macOS
-             target VMs), runs one campaign, observes the target   (+ first  (validated host), QEMU,
-             independently, destroys the VMs, seals and verifies   box       vagrant-qemu,
-             the receipt                                           download) socket_vmnet, network,
+  lab        brings up the whole laboratory (CALDERA, attacker,    5-60 min  Apple-silicon macOS
+             target VMs), runs one campaign, observes the target   network-  (validated host), QEMU,
+             independently, destroys the VMs, seals and verifies   bound     vagrant-qemu,
+             the receipt                                                     socket_vmnet, network,
                                                                              25 GiB free
   workbench  local web interface to inspect admission              -         python3 >= 3.11
-  all        demo + review + doctor + lab (C0026)                  ~10 min   as for lab
+  all        demo + review + doctor + lab (C0026)                  10-65 min as for lab
 
 Options:
   emulate [CAMPAIGN] [emulate.py options]

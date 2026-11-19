@@ -28,6 +28,10 @@ if os.environ.get('STICKS_TEST_CONTEXT') == sys.argv[1] and '--run-root' in sys.
     (run_root / 'run_context.json').write_text('{}')
 if os.environ.get('STICKS_TEST_FAIL') == sys.argv[1]:
     raise SystemExit(9)
+if sys.argv[1].startswith('scripts/complete_') and '--run-root' in sys.argv:
+    run_root = Path(sys.argv[sys.argv.index('--run-root') + 1])
+    run_root.mkdir(parents=True, exist_ok=True)
+    (run_root / 'final_run_receipt.json').write_text('{}')  # completion seals the run
 """)
     executable.chmod(0o700)
     calls = tmp_path / "calls.jsonl"
@@ -86,6 +90,19 @@ def test_failed_campaign_after_provisioning_still_tears_down_and_fails(fake_runt
     assert [call[0] for call in recorded(calls)] == [
         'scripts/doctor.py', 'scripts/run_isolated_lab_campaign.py',
         'scripts/complete_c0026_run.py', 'scripts/finalize_isolated_lab_run.py']
+
+
+def test_unsealed_run_is_reported_without_verifying_a_missing_receipt(fake_runtime, tmp_path):
+    environment, calls = fake_runtime
+    environment['STICKS_TEST_CONTEXT'] = 'scripts/run_isolated_lab_campaign.py'
+    environment['STICKS_TEST_FAIL'] = 'scripts/complete_c0026_run.py'
+    result = subprocess.run(['bash', 'artifact/run.sh', '--run-root', str(tmp_path / 'new-run')],
+                            cwd=ROOT, env=environment, capture_output=True, text=True)
+    assert result.returncode == 1
+    assert [call[0] for call in recorded(calls)] == [
+        'scripts/doctor.py', 'scripts/run_isolated_lab_campaign.py', 'scripts/complete_c0026_run.py']
+    assert "no sealed receipt" in result.stdout
+    assert "PASS" not in result.stdout
 
 
 def test_costaricto_uses_the_sticks_transport(fake_runtime, tmp_path):

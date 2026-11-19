@@ -11,7 +11,7 @@
   "excluded_runtime_roots": [
     "runs"
   ],
-  "file_count": 3466,
+  "file_count": 3467,
   "files": {
     ".gitignore": {
       "sha256": "4ab313af22acd8a7fbad67346992ed063f780db81a11aae49ae804d366f97506",
@@ -42,8 +42,8 @@
       "size": 2305
     },
     "README.md": {
-      "sha256": "5cca70d6a96f18c93021954341d6ca8dae8d0086fb032180d71484df3d8de9db",
-      "size": 23512
+      "sha256": "b260d2d05f23df93fdaa812ce7b72f4edc439ec601b74f4cc65189f41488336a",
+      "size": 23583
     },
     "REPRODUCIBILITY.md": {
       "sha256": "09e12dc9d852655d67947e658c297b320fe31eb5b799a5b4a5de5c074c1cace8",
@@ -78,8 +78,8 @@
       "size": 1425
     },
     "artifact/run.sh": {
-      "sha256": "f36bf2a30653473d9aeb6e016914afdadaf8e6333b11bab1de5a82c338bb505b",
-      "size": 3934
+      "sha256": "086dc360c0fa1e62ff492f403544425f2891530f1c9614059b610df169854900",
+      "size": 4344
     },
     "artifact/setup.sh": {
       "sha256": "d039aa05cf3e9f1cb6515762763e63350aec2ea80e0e19e71aafe6a536cb13f9",
@@ -11254,7 +11254,7 @@
       "size": 82
     },
     "run.sh": {
-      "sha256": "a37664bca0bfe3f76c330779311fb4e5f3c6d3c52016426526a9d1968f666c64",
+      "sha256": "f4934612866eac870602de4641c549dadc0c1847ae97a6fbb25155bfd5d2635f",
       "size": 4293
     },
     "run_review_check.sh": {
@@ -11626,8 +11626,8 @@
       "size": 1741
     },
     "scripts/lab_shutdown.py": {
-      "sha256": "db84e0bb0cd80f1dcafc272bdc3e3f57bd61ea611a2b6cefd13cf7f6afc5a897",
-      "size": 1782
+      "sha256": "916678416776b078c71f584653f425aa5036c27c2067fccc9ee86eb1d2bd5efb",
+      "size": 4329
     },
     "scripts/observe_c0010_target.py": {
       "sha256": "44f1e375e8f2201270260eadf6d8d932140e23a575a02ca04f19fd9a66104c47",
@@ -11810,8 +11810,8 @@
       "size": 12892
     },
     "scripts/run_lab_campaign.py": {
-      "sha256": "ca1e9f0627f74739f77ec91ca39d8c38979c00eb040d61dc539137b6ac324fe3",
-      "size": 14444
+      "sha256": "2fe24a2a2edc16a102fb28add725ecdf4ab45f03acea6c7eafcfe8b5493b58c6",
+      "size": 14397
     },
     "scripts/run_measurements.py": {
       "sha256": "2fdf6def8cd90123ebeda168d408b9b02ba94be7402c34adb8500688f9609d16",
@@ -12726,8 +12726,8 @@
       "size": 4219
     },
     "tests/test_artifact_live_entrypoint.py": {
-      "sha256": "8464ce81ba914a3db1d24d2a4720d23db4f4f5f3153197ff07ce474e349d30d2",
-      "size": 5674
+      "sha256": "9fbff9daa2c0d09ca8a5e888746f87d07f8b054907365e2f325122e18fda96dd",
+      "size": 6697
     },
     "tests/test_artifact_run_cli.py": {
       "sha256": "6ea35d22c80ae84fe76ee77cb47f2909d71f82466be5554f6951a95f31bd9793",
@@ -13270,8 +13270,8 @@
       "size": 32010
     },
     "tests/test_front_door.py": {
-      "sha256": "7cb693a52f9efaa28f2443f0dc3f56c0a150408a22ee0a10e09c45ed3a95617c",
-      "size": 3029
+      "sha256": "9d9fd8b6ed66ebb180d1fcbdb93c0a9f60e087d1850ee93deb378fb7e3f82614",
+      "size": 3305
     },
     "tests/test_generate_compatibility_rule_surface.py": {
       "sha256": "aa3fe91f9e055ebf98ad7a37431456a9076663028f1f6635318151bb9e5f62d2",
@@ -13328,6 +13328,10 @@
     "tests/test_lab_signal_recovery.py": {
       "sha256": "eccbcd4a946fd18e2d0f24afc781ff00a2971def6b72e8e86a86232a72f98f1b",
       "size": 3673
+    },
+    "tests/test_lab_stage_process_group.py": {
+      "sha256": "768447447594e8f1778fafd93ea057680a2fed32384bb1ac11faf395ca1de33b",
+      "size": 2712
     },
     "tests/test_lab_supervisor_signals.py": {
       "sha256": "b98817e9bf3cce9a104871777bcb5646635a4abde2f4473ac2d472b74b03b37b",
@@ -13586,7 +13590,7 @@
       "size": 12227
     },
     "tests/test_run_lab_campaign.py": {
-      "sha256": "03f812474895ce3d586a642c2a491000046a3276e640c41aa8271e49a27916e2",
+      "sha256": "84f6654511e2858ee157d9e16b2fd86dbded4725a482adf7652f075eaf8f6c5a",
       "size": 14144
     },
     "tests/test_runner_observed_occurrence.py": {
@@ -13879,5 +13883,5 @@
     }
   },
   "schema_version": "1",
-  "tree_sha256": "217a5e094361780f66cffa1213f329f86e288a7c8a93c2ace03d71511cd23d90"
+  "tree_sha256": "b713530e160bf49eb166290e205ba9b88c3a35ef7c03816b9ca3168d4295a222"
 }

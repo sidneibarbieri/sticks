@@ -27,7 +27,7 @@ from pathlib import Path
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
 sys.path.insert(0, str(PROJECT_ROOT / "src"))
-from scripts.lab_shutdown import termination_as_exit
+from scripts.lab_shutdown import run_owned_stage, termination_as_exit
 from runners.caldera_campaign_support import CALDERA_AGENT_IDENTITIES, SUPPORTED_CALDERA_CAMPAIGNS
 UP_LAB_SCRIPT = PROJECT_ROOT / "scripts" / "up_lab.sh"
 DESTROY_LAB_SCRIPT = PROJECT_ROOT / "scripts" / "destroy_lab.sh"
@@ -72,12 +72,7 @@ def _run_command(
     environment: dict[str, str] | None = None,
 ) -> None:
     _log(f"Starting: {label}")
-    subprocess.run(
-        list(command),
-        cwd=str(PROJECT_ROOT),
-        check=True,
-        env=environment or os.environ.copy(),
-    )
+    run_owned_stage(command, str(PROJECT_ROOT), environment or os.environ.copy())
     _log(f"Completed: {label}")
 
 

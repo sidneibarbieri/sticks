@@ -19,7 +19,7 @@ bash run.sh demo       # 1 s: one archived step across three arms
 bash run.sh review     # ~4 min after the first install, offline: regenerates every record,
                     # checks every claim, runs the tests
 bash run.sh doctor     # read-only laboratory check that prints the exact fix for any failure
-bash run.sh lab        # ~5 min per cycle once the base box is cached: brings up CALDERA,
+bash run.sh lab        # 5-60 min per cycle, network-bound: brings up CALDERA,
                     # attacker and target VMs, runs C0026, observes the target independently,
                     # destroys the VMs, seals and verifies the receipt
 bash run.sh all        # all of the above
@@ -28,7 +28,7 @@ bash run.sh all        # all of the above
 The laboratory was validated on Apple-silicon macOS (QEMU, `vagrant-qemu`,
 `socket_vmnet`). Its guests use the public ARM64 box `perk/ubuntu-2204-arm64`,
 which Vagrant downloads on the first run; provisioning needs network access.
-Package, CALDERA and plugin downloads can dominate provisioning even with a cached base box; the five-minute estimate is not a cold-start bound.
+Package, CALDERA and plugin downloads can dominate provisioning even with a cached base box; each fresh VM downloads them again, so one C0026 cycle took 4.5 minutes on a fast link and 57 minutes on a slow one on the same host.
 On other hosts `bash run.sh doctor` says so before anything starts.
 
 `bash run.sh lab --campaign 0.c0010` or `--campaign 0.costaricto` runs the other

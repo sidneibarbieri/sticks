@@ -24,6 +24,10 @@ with Path(os.environ['STICKS_TEST_CALLS']).open('a') as stream:
     stream.write(json.dumps(sys.argv[1:]) + '\n')
 if os.environ.get('STICKS_TEST_FAIL') == sys.argv[1]:
     raise SystemExit(9)
+if sys.argv[1].startswith('scripts/complete_') and '--run-root' in sys.argv:
+    run_root = Path(sys.argv[sys.argv.index('--run-root') + 1])
+    run_root.mkdir(parents=True, exist_ok=True)
+    (run_root / 'final_run_receipt.json').write_text('{}')  # completion seals the run
 """)
     executable.chmod(0o700)
     calls = tmp_path / "calls.jsonl"

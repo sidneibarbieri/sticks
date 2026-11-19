@@ -1,11 +1,85 @@
 """Translate a lab stop request into an exception that permits scoped cleanup."""
 
-from collections.abc import Iterator
+from collections.abc import Iterator, Sequence
 from contextlib import contextmanager
 from dataclasses import dataclass, field
 import os
 import signal
 import subprocess
+import time
+
+# Grace after SIGINT lets an interrupted `vagrant up` finish its own cleanup and
+# release its machine lock; SIGTERM and SIGKILL follow if the group outlives it.
+STOP_GRACE_SECONDS = (120.0, 30.0, 10.0)
+STOP_SIGNALS = (signal.SIGINT, signal.SIGTERM, signal.SIGKILL)
+GROUP_POLL_SECONDS = 0.2
+
+
+def run_owned_stage(
+    command: Sequence[str],
+    cwd: str,
+    environment: dict[str, str],
+    grace_seconds: tuple[float, float, float] = STOP_GRACE_SECONDS,
+) -> None:
+    """Run one stage in its own process group and never leave that group running.
+
+    An interruption stops every process of the stage, grandchildren included,
+    before it propagates, so teardown never races a provider that still holds a
+    machine lock.
+    """
+    process = subprocess.Popen(list(command), cwd=cwd, env=environment, start_new_session=True)
+    try:
+        return_code = process.wait()
+    except BaseException:
+        stop_process_group(process, grace_seconds)
+        raise
+    if return_code:
+        raise subprocess.CalledProcessError(return_code, process.args)
+
+
+def stop_process_group(
+    process: subprocess.Popen[bytes], grace_seconds: tuple[float, float, float]
+) -> None:
+    group_id = process.pid
+    for signal_number, grace in zip(STOP_SIGNALS, grace_seconds, strict=True):
+        if not _group_alive(process, group_id):
+            return
+        _signal_group(group_id, signal_number)
+        if _wait_for_group_exit(process, group_id, grace):
+            return
+    raise RuntimeError(f"stage process group {group_id} survived SIGKILL")
+
+
+def _wait_for_group_exit(
+    process: subprocess.Popen[bytes], group_id: int, timeout_seconds: float
+) -> bool:
+    deadline = time.monotonic() + timeout_seconds
+    while time.monotonic() < deadline:
+        try:
+            if not _group_alive(process, group_id):
+                return True
+            time.sleep(GROUP_POLL_SECONDS)
+        except KeyboardInterrupt:
+            return False  # a repeated Ctrl+C escalates to the next signal now
+    return not _group_alive(process, group_id)
+
+
+def _group_alive(process: subprocess.Popen[bytes], group_id: int) -> bool:
+    process.poll()  # reap the leader so a zombie does not keep the group visible
+    try:
+        os.killpg(group_id, 0)
+    except ProcessLookupError:
+        return False
+    except PermissionError:
+        return True
+    return True
+
+
+def _signal_group(group_id: int, signal_number: int) -> None:
+    try:
+        os.killpg(group_id, signal_number)
+    except ProcessLookupError:
+        pass
 
 
 def _request_shutdown(signal_number: int, _frame: object) -> None:

@@ -76,12 +76,21 @@ stage 3 "observe the target independently, tear down, seal"
 "$PYTHON_BIN" scripts/"$COMPLETE" --run-root "$RUN_ROOT"
 COMPLETE_STATUS=$?
 
-stage 4 "verify the sealed receipt"
-"$PYTHON_BIN" scripts/finalize_isolated_lab_run.py --run-root "$RUN_ROOT" --verify
-VERIFY_STATUS=$?
-
+SEALED_RECEIPT="$RUN_ROOT/final_run_receipt.json"
 JOURNAL_STATUS=0
-if [[ -f "$RUN_ROOT/evidence/caldera-session.json" ]]; then
+if [[ -f "$SEALED_RECEIPT" ]]; then
+  stage 4 "verify the sealed receipt"
+  "$PYTHON_BIN" scripts/finalize_isolated_lab_run.py --run-root "$RUN_ROOT" --verify
+  VERIFY_STATUS=$?
+else
+  # An interrupted or failed run is retained but never sealed; there is nothing to verify.
+  stage 4 "no sealed receipt: completion did not seal this run (see the messages above)"
+  VERIFY_STATUS=1
+fi
+
+if [[ ! -f "$SEALED_RECEIPT" ]]; then
+  stage 5 "CALDERA journal not verified because the run was not sealed"
+elif [[ -f "$RUN_ROOT/evidence/caldera-session.json" ]]; then
   stage 5 "verify the CALDERA command journal"
   "$PYTHON_BIN" scripts/verify_caldera_run_journal.py --evidence "$RUN_ROOT/evidence"
   JOURNAL_STATUS=$?
